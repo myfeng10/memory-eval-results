@@ -1,0 +1,162 @@
+{
+  "question_id": "gpt4_385a5000",
+  "question_type": "temporal-reasoning",
+  "question": "Which seeds were started first, the tomatoes or the marigolds?",
+  "expected_answer": "Tomatoes",
+  "answer_session_ids": [
+    "answer_7a4a93f1_2",
+    "answer_7a4a93f1_1"
+  ],
+  "mock_user_id": "9a0c4296-324a-579f-bdbb-fc7660af6272",
+  "status": "completed",
+  "copy": {
+    "mockUserId": "9a0c4296-324a-579f-bdbb-fc7660af6272",
+    "deletedExistingRows": 0,
+    "copiedRows": 118,
+    "existingRowsAfterCopy": 118
+  },
+  "retrieval": {
+    "config": {
+      "retrieval_function": "dev_memory_eval_hybrid_retrieval_v2",
+      "impression_function": "dev_impression_object_similar_embedding",
+      "memory_retrieval_strategy": "independent",
+      "keyword_query_passthrough": false
+    },
+    "query_result": {
+      "time_frame": null,
+      "primary_query": "which seeds were started first tomatoes or marigolds",
+      "inference_query": "comparison of seed starting timelines for tomatoes and marigolds",
+      "bandwidth_state": "medium",
+      "interaction_mode": "exploration",
+      "memory_request_mode": "memory_topic",
+      "time_retrieval_mode": "semantic",
+      "wait_for_memory": true,
+      "wait_for_memory_reason": "past-tense-question",
+      "query_prompt_version": "v2",
+      "primary_keyword_query": null,
+      "inference_keyword_query": null
+    },
+    "raw_memory_result": {
+      "summary_memory_primary": "[{\"id\":\"M002\",\"key\":\"Marigold\",\"description\":\"Here is a memory: At 2023-03-11 01:13:00, Owner: (current user). Started marigold seeds on March 3rd, and they are already germinating. Marigold seeds started on March 3rd.\\nSeeds are already germinating.\\nPlanning to plant seedlings in the backyard soon.\\nWants to know the ideal temperature for planting seedlings outside.\"},{\"id\":\"M003\",\"key\":\"Peat\",\"description\":\"Here is a memory: At 2023-03-11 01:13:00, Owner: (current user). Has been using a mix of peat moss, vermiculite, and perlite for potting soil, which seems to be working well for seedlings. Currently uses a potting soil mix of peat moss, vermiculite, and perlite.\\nThe current mix is working well for seedlings.\\nQuestions the suitability of this mix for marigolds and other plants for transplanting.\\nConsiders if a different mix is needed.\"}]",
+      "summary_memory_inference": "[{\"id\":\"M001\",\"key\":\"Marigold\",\"description\":\"Here is a memory: At 2023-03-11 01:13:00, Owner:(current user). Started marigold seeds on March 3rd, and they are already germinating. Marigold seeds started on March 3rd.\\nSeeds are already germinating.\\nPlanning to plant seedlings in the backyard soon.\\nWants to know the ideal temperature for planting seedlings outside.\"}]",
+      "summary_impression": "[]",
+      "identifier_mapping_counts": {
+        "memory": 3,
+        "impression": 0
+      }
+    },
+    "other_public_result": "[]",
+    "memories_found": {
+      "primary": 2,
+      "inference": 1,
+      "impression": 0,
+      "other_public": 0,
+      "hydrated": 3
+    },
+    "retrieved_memories": [
+      {
+        "retrieval_bucket": "primary",
+        "identifier": "M002",
+        "memory_id": "7a6a81a5-73ec-46d7-b512-50d972ee7077",
+        "summary_key": "Marigold",
+        "summary_description": "Here is a memory: At 2023-03-11 01:13:00, Owner: (current user). Started marigold seeds on March 3rd, and they are already germinating. Marigold seeds started on March 3rd.\nSeeds are already germinating.\nPlanning to plant seedlings in the backyard soon.\nWants to know the ideal temperature for planting seedlings outside.",
+        "time": "2023-03-11T01:13:00",
+        "location": "backyard",
+        "category": "Hobby",
+        "object": "Marigold Seedlings",
+        "emotion": "happy",
+        "description": "Started marigold seeds on March 3rd, and they are already germinating. Is excited to see them grow. Is planning to plant seedlings in the backyard soon and wants to know the ideal temperature for planting them outside.",
+        "details": "Marigold seeds started on March 3rd.\nSeeds are already germinating.\nPlanning to plant seedlings in the backyard soon.\nWants to know the ideal temperature for planting seedlings outside.",
+        "keys": "Marigold",
+        "haystack_session_id": "answer_7a4a93f1_2",
+        "eval_session_index": 10,
+        "eval_question_id": "gpt4_385a5000"
+      },
+      {
+        "retrieval_bucket": "primary",
+        "identifier": "M003",
+        "memory_id": "3fb7a64a-60af-4e4b-a45f-fe306bf6f638",
+        "summary_key": "Peat",
+        "summary_description": "Here is a memory: At 2023-03-11 01:13:00, Owner: (current user). Has been using a mix of peat moss, vermiculite, and perlite for potting soil, which seems to be working well for seedlings. Currently uses a potting soil mix of peat moss, vermiculite, and perlite.\nThe current mix is working well for seedlings.\nQuestions the suitability of this mix for marigolds and other plants for transplanting.\nConsiders if a different mix is needed.",
+        "time": "2023-03-11T01:13:00",
+        "location": "Unknown",
+        "category": "Hobby",
+        "object": "Potting Soil Mix",
+        "emotion": "thoughtful",
+        "description": "Has been using a mix of peat moss, vermiculite, and perlite for potting soil, which seems to be working well for seedlings. Is wondering if this mix is suitable for marigolds and other plants to be transplanted, or if a different mix should be considered.",
+        "details": "Currently uses a potting soil mix of peat moss, vermiculite, and perlite.\nThe current mix is working well for seedlings.\nQuestions the suitability of this mix for marigolds and other plants for transplanting.\nConsiders if a different mix is needed.",
+        "keys": "Peat",
+        "haystack_session_id": "answer_7a4a93f1_2",
+        "eval_session_index": 10,
+        "eval_question_id": "gpt4_385a5000"
+      },
+      {
+        "retrieval_bucket": "inference",
+        "identifier": "M001",
+        "memory_id": "7a6a81a5-73ec-46d7-b512-50d972ee7077",
+        "summary_key": "Marigold",
+        "summary_description": "Here is a memory: At 2023-03-11 01:13:00, Owner:(current user). Started marigold seeds on March 3rd, and they are already germinating. Marigold seeds started on March 3rd.\nSeeds are already germinating.\nPlanning to plant seedlings in the backyard soon.\nWants to know the ideal temperature for planting seedlings outside.",
+        "time": "2023-03-11T01:13:00",
+        "location": "backyard",
+        "category": "Hobby",
+        "object": "Marigold Seedlings",
+        "emotion": "happy",
+        "description": "Started marigold seeds on March 3rd, and they are already germinating. Is excited to see them grow. Is planning to plant seedlings in the backyard soon and wants to know the ideal temperature for planting them outside.",
+        "details": "Marigold seeds started on March 3rd.\nSeeds are already germinating.\nPlanning to plant seedlings in the backyard soon.\nWants to know the ideal temperature for planting seedlings outside.",
+        "keys": "Marigold",
+        "haystack_session_id": "answer_7a4a93f1_2",
+        "eval_session_index": 10,
+        "eval_question_id": "gpt4_385a5000"
+      }
+    ],
+    "retrieval_status_messages": [],
+    "query_time_seconds": 1.1624191659999925,
+    "memory_time_seconds": 0.15427808300001197,
+    "perf_entries": [
+      {
+        "name": "memory.single.convert-messages",
+        "ms": 0.004165999998804182
+      },
+      {
+        "name": "memory.single.parse-context",
+        "ms": 0.0032499999942956492
+      },
+      {
+        "name": "memory.single.get-query",
+        "ms": 1162.425000000003
+      },
+      {
+        "name": "memory.single.parse-time-window",
+        "ms": 0.08854100000462495
+      },
+      {
+        "name": "memory.single.parse-time-window-from-query-signal",
+        "ms": 0.002083999992464669
+      },
+      {
+        "name": "memory.single.build-embeddings",
+        "ms": 420.11879199999385
+      },
+      {
+        "name": "memory.single.retrieve-main",
+        "ms": 154.1592920000112
+      },
+      {
+        "name": "memory.single.retrieve-parallel",
+        "ms": 154.2827499999985
+      }
+    ]
+  },
+  "answering": {
+    "hypothesis": "I don't have that information.",
+    "formatted_context_length": 1667,
+    "duration_ms": 556.2,
+    "used_direct_abstention": false
+  },
+  "self_check": {
+    "likelyCorrect": false,
+    "normalizedExpected": "tomatoes",
+    "normalizedHypothesis": "i don't have that information.",
+    "reason": "Normalized strings do not contain each other."
+  }
+}

@@ -1,0 +1,160 @@
+{
+  "question_id": "gpt4_385a5000",
+  "question_type": "temporal-reasoning",
+  "question": "Which seeds were started first, the tomatoes or the marigolds?",
+  "expected_answer": "Tomatoes",
+  "answer_session_ids": [
+    "answer_7a4a93f1_2",
+    "answer_7a4a93f1_1"
+  ],
+  "mock_user_id": "9a0c4296-324a-579f-bdbb-fc7660af6272",
+  "status": "completed",
+  "copy": {
+    "skipped": true,
+    "existing_memory_count": 118
+  },
+  "retrieval": {
+    "config": {
+      "retrieval_function": "dev_memory_eval_hybrid_retrieval_v2",
+      "impression_function": "dev_impression_object_similar_embedding",
+      "memory_retrieval_strategy": "independent",
+      "keyword_query_passthrough": false
+    },
+    "query_result": {
+      "time_frame": null,
+      "primary_query": "when were tomatoes started",
+      "inference_query": "when were marigolds started",
+      "bandwidth_state": "medium",
+      "interaction_mode": "exploration",
+      "memory_request_mode": "memory_topic",
+      "time_retrieval_mode": "semantic",
+      "wait_for_memory": true,
+      "wait_for_memory_reason": "past-tense-question",
+      "query_prompt_version": "v2",
+      "primary_keyword_query": null,
+      "inference_keyword_query": null
+    },
+    "raw_memory_result": {
+      "summary_memory_primary": "[{\"id\":\"M002\",\"key\":\"Seedlings\",\"description\":\"Here is a memory: At 2023-03-11 01:13:00, Owner: (current user). Started seeds indoors under grow lights in the basement since February 20th. Started seeds indoors under grow lights in the basement.\\nSeed starting began on February 20th.\\nPlants include tomatoes, peppers, and cucumbers.\\nSeedlings are currently 2-3 inches tall.\\nFertilized seedlings with a balanced fertilizer.\\nMaintained moist, not soggy, soil.\\nThe user's zip code is 23456.\\nAverage soil temperature for the area in late March to early April is 48°F (9°C) to 52°F (11°C).\\nQuestioned if it was too early to plant out the seedlings.\"},{\"id\":\"M003\",\"key\":\"Peas\",\"description\":\"Here is a memory: At 2023-03-11 01:13:00, Owner: (current user). Peas are already sprouting and need support. Peas are sprouting.\\nNeed to support the peas.\\nConsidered using a trellis or cage for upward growth.\"}]",
+      "summary_memory_inference": "[{\"id\":\"M001\",\"key\":\"Marigold\",\"description\":\"Here is a memory: At 2023-03-11 01:13:00, Owner:(current user). Started marigold seeds on March 3rd, and they are already germinating. Marigold seeds started on March 3rd.\\nSeeds are already germinating.\\nPlanning to plant seedlings in the backyard soon.\\nWants to know the ideal temperature for planting seedlings outside.\"}]",
+      "summary_impression": "[]",
+      "identifier_mapping_counts": {
+        "memory": 3,
+        "impression": 0
+      }
+    },
+    "other_public_result": "[]",
+    "memories_found": {
+      "primary": 2,
+      "inference": 1,
+      "impression": 0,
+      "other_public": 0,
+      "hydrated": 3
+    },
+    "retrieved_memories": [
+      {
+        "retrieval_bucket": "primary",
+        "identifier": "M002",
+        "memory_id": "bcfb9d1f-2009-4a70-982f-3de3b9e07855",
+        "summary_key": "Seedlings",
+        "summary_description": "Here is a memory: At 2023-03-11 01:13:00, Owner: (current user). Started seeds indoors under grow lights in the basement since February 20th. Started seeds indoors under grow lights in the basement.\nSeed starting began on February 20th.\nPlants include tomatoes, peppers, and cucumbers.\nSeedlings are currently 2-3 inches tall.\nFertilized seedlings with a balanced fertilizer.\nMaintained moist, not soggy, soil.\nThe user's zip code is 23456.\nAverage soil temperature for the area in late March to early April is 48°F (9°C) to 52°F (11°C).\nQuestioned if it was too early to plant out the seedlings.",
+        "time": "2023-03-11T01:13:00",
+        "location": "Virginia Beach, Virginia",
+        "category": "Hobby",
+        "object": "Seedling Care and Planting",
+        "emotion": "thoughtful",
+        "description": "Started seeds indoors under grow lights in the basement since February 20th. The tomatoes, peppers, and cucumbers are doing well, reaching 2-3 inches tall. Fertilized seedlings with a balanced fertilizer and maintained moist, not soggy, soil. The average soil temperature in the 23456 zip code during late March to early April is around 48°F (9°C) to 52°F (11°C). Wondered if it was too early to plant out the tomatoes, peppers, and cucumbers.",
+        "details": "Started seeds indoors under grow lights in the basement.\nSeed starting began on February 20th.\nPlants include tomatoes, peppers, and cucumbers.\nSeedlings are currently 2-3 inches tall.\nFertilized seedlings with a balanced fertilizer.\nMaintained moist, not soggy, soil.\nThe user's zip code is 23456.\nAverage soil temperature for the area in late March to early April is 48°F (9°C) to 52°F (11°C).\nQuestioned if it was too early to plant out the seedlings.",
+        "keys": "Seedlings",
+        "haystack_session_id": "answer_7a4a93f1_1",
+        "eval_session_index": 47,
+        "eval_question_id": "gpt4_385a5000"
+      },
+      {
+        "retrieval_bucket": "primary",
+        "identifier": "M003",
+        "memory_id": "b07fc372-89ff-49f8-a945-5adef86c7080",
+        "summary_key": "Peas",
+        "summary_description": "Here is a memory: At 2023-03-11 01:13:00, Owner: (current user). Peas are already sprouting and need support. Peas are sprouting.\nNeed to support the peas.\nConsidered using a trellis or cage for upward growth.",
+        "time": "2023-03-11T01:13:00",
+        "location": "Unknown",
+        "category": "Hobby",
+        "object": "Pea Support",
+        "emotion": "thoughtful",
+        "description": "Peas are already sprouting and need support. Considered adding a trellis or cage to help them grow upwards.",
+        "details": "Peas are sprouting.\nNeed to support the peas.\nConsidered using a trellis or cage for upward growth.",
+        "keys": "Peas",
+        "haystack_session_id": "answer_7a4a93f1_1",
+        "eval_session_index": 47,
+        "eval_question_id": "gpt4_385a5000"
+      },
+      {
+        "retrieval_bucket": "inference",
+        "identifier": "M001",
+        "memory_id": "7a6a81a5-73ec-46d7-b512-50d972ee7077",
+        "summary_key": "Marigold",
+        "summary_description": "Here is a memory: At 2023-03-11 01:13:00, Owner:(current user). Started marigold seeds on March 3rd, and they are already germinating. Marigold seeds started on March 3rd.\nSeeds are already germinating.\nPlanning to plant seedlings in the backyard soon.\nWants to know the ideal temperature for planting seedlings outside.",
+        "time": "2023-03-11T01:13:00",
+        "location": "backyard",
+        "category": "Hobby",
+        "object": "Marigold Seedlings",
+        "emotion": "happy",
+        "description": "Started marigold seeds on March 3rd, and they are already germinating. Is excited to see them grow. Is planning to plant seedlings in the backyard soon and wants to know the ideal temperature for planting them outside.",
+        "details": "Marigold seeds started on March 3rd.\nSeeds are already germinating.\nPlanning to plant seedlings in the backyard soon.\nWants to know the ideal temperature for planting seedlings outside.",
+        "keys": "Marigold",
+        "haystack_session_id": "answer_7a4a93f1_2",
+        "eval_session_index": 10,
+        "eval_question_id": "gpt4_385a5000"
+      }
+    ],
+    "retrieval_status_messages": [],
+    "query_time_seconds": 1.2731545000000042,
+    "memory_time_seconds": 0.10687054099999659,
+    "perf_entries": [
+      {
+        "name": "memory.single.convert-messages",
+        "ms": 0.0041249999922001734
+      },
+      {
+        "name": "memory.single.parse-context",
+        "ms": 0.0024170000106096268
+      },
+      {
+        "name": "memory.single.get-query",
+        "ms": 1273.158958
+      },
+      {
+        "name": "memory.single.parse-time-window",
+        "ms": 0.07083299999067094
+      },
+      {
+        "name": "memory.single.parse-time-window-from-query-signal",
+        "ms": 0.0018750000017462298
+      },
+      {
+        "name": "memory.single.build-embeddings",
+        "ms": 186.08091600000625
+      },
+      {
+        "name": "memory.single.retrieve-main",
+        "ms": 106.81891599998926
+      },
+      {
+        "name": "memory.single.retrieve-parallel",
+        "ms": 106.87333299999591
+      }
+    ]
+  },
+  "answering": {
+    "hypothesis": "The tomatoes were started first.",
+    "formatted_context_length": 1872,
+    "duration_ms": 571.57,
+    "used_direct_abstention": false
+  },
+  "self_check": {
+    "likelyCorrect": true,
+    "normalizedExpected": "tomatoes",
+    "normalizedHypothesis": "the tomatoes were started first.",
+    "reason": "Normalized containment match."
+  }
+}

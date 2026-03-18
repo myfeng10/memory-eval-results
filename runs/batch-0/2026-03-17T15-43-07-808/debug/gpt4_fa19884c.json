@@ -1,0 +1,160 @@
+{
+  "question_id": "gpt4_fa19884c",
+  "question_type": "temporal-reasoning",
+  "question": "How many days passed between the day I started playing along to my favorite songs on my old keyboard and the day I discovered a bluegrass band?",
+  "expected_answer": "6 days. 7 days (including the last day) is also acceptable.",
+  "answer_session_ids": [
+    "answer_ff201786_1",
+    "answer_ff201786_2"
+  ],
+  "mock_user_id": "0efa6d75-8ecb-5760-b6ac-1f3a81f1c654",
+  "status": "completed",
+  "copy": {
+    "skipped": true,
+    "existing_memory_count": 120
+  },
+  "retrieval": {
+    "config": {
+      "retrieval_function": "dev_memory_eval_hybrid_retrieval_v2",
+      "impression_function": "dev_impression_object_similar_embedding",
+      "memory_retrieval_strategy": "independent",
+      "keyword_query_passthrough": false
+    },
+    "query_result": {
+      "time_frame": null,
+      "primary_query": "days between playing keyboard and discovering bluegrass band",
+      "inference_query": "what led to discovering bluegrass band after playing keyboard",
+      "time_retrieval_mode": "all",
+      "interaction_mode": "exploration",
+      "memory_request_mode": "direct_recall",
+      "bandwidth_state": "medium",
+      "wait_for_memory": false,
+      "wait_for_memory_reason": "not-memory-critical",
+      "query_prompt_version": "v2",
+      "primary_keyword_query": null,
+      "inference_keyword_query": null
+    },
+    "raw_memory_result": {
+      "summary_memory_primary": "[{\"id\":\"M001\",\"key\":\"Bluegrass\",\"description\":\"Here is a memory: At 2023-03-31 19:35:00, Owner: (current user). Started exploring bluegrass music today after discovering a band with a banjo player. Started exploring bluegrass music today.\\nDiscovered a bluegrass band featuring a banjo player.\\nEnjoyed the music of the newly discovered band.\\nIs seeking recommendations for popular bluegrass artists or bands.\"},{\"id\":\"M002\",\"key\":\"Keyboard\",\"description\":\"Here is a memory: At 2023-03-25 12:54:00, Owner: (current user). Started playing along to favorite songs on an old keyboard today, finding it a lot of fun. Started playing an old keyboard today.\\nPlayed along to favorite songs.\\nFound playing the keyboard to be a lot of fun.\\nInspired by piano-featured music from Coldplay, The Beatles, Max Richter, and Olafur Arnalds.\\nMuscle memory made playing easier than expected.\\nExperimenting with composing simple melodies.\"}]",
+      "summary_memory_inference": "[{\"id\":\"M003\",\"key\":\"Bluegrass\",\"description\":\"Here is a memory: At 2023-03-31 19:35:00, Owner:(current user). Started exploring bluegrass music today after discovering a band with a banjo player. Started exploring bluegrass music today.\\nDiscovered a bluegrass band featuring a banjo player.\\nEnjoyed the music of the newly discovered band.\\nIs seeking recommendations for popular bluegrass artists or bands.\"}]",
+      "summary_impression": "[]",
+      "identifier_mapping_counts": {
+        "memory": 3,
+        "impression": 0
+      }
+    },
+    "other_public_result": "[]",
+    "memories_found": {
+      "primary": 2,
+      "inference": 1,
+      "impression": 0,
+      "other_public": 0,
+      "hydrated": 3
+    },
+    "retrieved_memories": [
+      {
+        "retrieval_bucket": "primary",
+        "identifier": "M001",
+        "memory_id": "083a8b2c-ee9d-43c0-a51d-4c84cdcaebc5",
+        "summary_key": "Bluegrass",
+        "summary_description": "Here is a memory: At 2023-03-31 19:35:00, Owner: (current user). Started exploring bluegrass music today after discovering a band with a banjo player. Started exploring bluegrass music today.\nDiscovered a bluegrass band featuring a banjo player.\nEnjoyed the music of the newly discovered band.\nIs seeking recommendations for popular bluegrass artists or bands.",
+        "time": "2023-03-31T19:35:00",
+        "location": "Unknown",
+        "category": "Lifestyle and Personal Interests",
+        "object": "Bluegrass Music Exploration",
+        "emotion": "thoughtful",
+        "description": "Started exploring bluegrass music today after discovering a band with a banjo player. Enjoyed their music and is now looking for recommendations for popular bluegrass artists or bands to check out.",
+        "details": "Started exploring bluegrass music today.\nDiscovered a bluegrass band featuring a banjo player.\nEnjoyed the music of the newly discovered band.\nIs seeking recommendations for popular bluegrass artists or bands.",
+        "keys": "Bluegrass",
+        "haystack_session_id": "answer_ff201786_2",
+        "eval_session_index": 36,
+        "eval_question_id": "gpt4_fa19884c"
+      },
+      {
+        "retrieval_bucket": "primary",
+        "identifier": "M002",
+        "memory_id": "e81e642c-d923-42c0-b8b6-df3831d49000",
+        "summary_key": "Keyboard",
+        "summary_description": "Here is a memory: At 2023-03-25 12:54:00, Owner: (current user). Started playing along to favorite songs on an old keyboard today, finding it a lot of fun. Started playing an old keyboard today.\nPlayed along to favorite songs.\nFound playing the keyboard to be a lot of fun.\nInspired by piano-featured music from Coldplay, The Beatles, Max Richter, and Olafur Arnalds.\nMuscle memory made playing easier than expected.\nExperimenting with composing simple melodies.",
+        "time": "2023-03-25T12:54:00",
+        "location": "Unknown",
+        "category": "Hobby",
+        "object": "Keyboard Playing and Composing",
+        "emotion": "happy",
+        "description": "Started playing along to favorite songs on an old keyboard today, finding it a lot of fun. Was inspired by listening to a lot of piano-featured music, including Coldplay, The Beatles, Max Richter, and Olafur Arnalds. Found that muscle memory kicked in, making playing easier than expected, and is now experimenting with composing simple melodies.",
+        "details": "Started playing an old keyboard today.\nPlayed along to favorite songs.\nFound playing the keyboard to be a lot of fun.\nInspired by piano-featured music from Coldplay, The Beatles, Max Richter, and Olafur Arnalds.\nMuscle memory made playing easier than expected.\nExperimenting with composing simple melodies.",
+        "keys": "Keyboard",
+        "haystack_session_id": "answer_ff201786_1",
+        "eval_session_index": 17,
+        "eval_question_id": "gpt4_fa19884c"
+      },
+      {
+        "retrieval_bucket": "inference",
+        "identifier": "M003",
+        "memory_id": "083a8b2c-ee9d-43c0-a51d-4c84cdcaebc5",
+        "summary_key": "Bluegrass",
+        "summary_description": "Here is a memory: At 2023-03-31 19:35:00, Owner:(current user). Started exploring bluegrass music today after discovering a band with a banjo player. Started exploring bluegrass music today.\nDiscovered a bluegrass band featuring a banjo player.\nEnjoyed the music of the newly discovered band.\nIs seeking recommendations for popular bluegrass artists or bands.",
+        "time": "2023-03-31T19:35:00",
+        "location": "Unknown",
+        "category": "Lifestyle and Personal Interests",
+        "object": "Bluegrass Music Exploration",
+        "emotion": "thoughtful",
+        "description": "Started exploring bluegrass music today after discovering a band with a banjo player. Enjoyed their music and is now looking for recommendations for popular bluegrass artists or bands to check out.",
+        "details": "Started exploring bluegrass music today.\nDiscovered a bluegrass band featuring a banjo player.\nEnjoyed the music of the newly discovered band.\nIs seeking recommendations for popular bluegrass artists or bands.",
+        "keys": "Bluegrass",
+        "haystack_session_id": "answer_ff201786_2",
+        "eval_session_index": 36,
+        "eval_question_id": "gpt4_fa19884c"
+      }
+    ],
+    "retrieval_status_messages": [],
+    "query_time_seconds": 0.9673467500000043,
+    "memory_time_seconds": 0.11580216700000165,
+    "perf_entries": [
+      {
+        "name": "memory.single.convert-messages",
+        "ms": 0.002874999998311978
+      },
+      {
+        "name": "memory.single.parse-context",
+        "ms": 0.0018750000017462298
+      },
+      {
+        "name": "memory.single.get-query",
+        "ms": 967.3506249999991
+      },
+      {
+        "name": "memory.single.parse-time-window",
+        "ms": 0.05724999999802094
+      },
+      {
+        "name": "memory.single.parse-time-window-from-query-signal",
+        "ms": 0.001125000009778887
+      },
+      {
+        "name": "memory.single.build-embeddings",
+        "ms": 128.9342500000057
+      },
+      {
+        "name": "memory.single.retrieve-main",
+        "ms": 115.72183299998869
+      },
+      {
+        "name": "memory.single.retrieve-parallel",
+        "ms": 115.80550000000221
+      }
+    ]
+  },
+  "answering": {
+    "hypothesis": "6 days",
+    "formatted_context_length": 1913,
+    "duration_ms": 1952.61,
+    "used_direct_abstention": false
+  },
+  "self_check": {
+    "likelyCorrect": true,
+    "normalizedExpected": "6 days. 7 days (including the last day) is also acceptable.",
+    "normalizedHypothesis": "6 days",
+    "reason": "Normalized containment match."
+  }
+}

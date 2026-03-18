@@ -1,0 +1,159 @@
+{
+  "question_id": "94f70d80",
+  "question_type": "single-session-user",
+  "question": "How long did it take me to assemble the IKEA bookshelf?",
+  "expected_answer": "4 hours",
+  "answer_session_ids": [
+    "answer_c63c0458"
+  ],
+  "mock_user_id": "b21efdee-36e7-5843-a1e3-ec4d61028841",
+  "status": "completed",
+  "copy": {
+    "skipped": true,
+    "existing_memory_count": 113
+  },
+  "retrieval": {
+    "config": {
+      "retrieval_function": "dev_memory_eval_hybrid_retrieval_v2",
+      "impression_function": "dev_impression_object_similar_embedding",
+      "memory_retrieval_strategy": "independent",
+      "keyword_query_passthrough": false
+    },
+    "query_result": {
+      "time_frame": null,
+      "primary_query": "time taken to assemble IKEA bookshelf",
+      "inference_query": "difficulty or challenges encountered during IKEA bookshelf assembly",
+      "bandwidth_state": "medium",
+      "interaction_mode": "exploration",
+      "memory_request_mode": "memory_topic",
+      "time_retrieval_mode": "semantic",
+      "wait_for_memory": true,
+      "wait_for_memory_reason": "past-tense-question",
+      "query_prompt_version": "v2",
+      "primary_keyword_query": null,
+      "inference_keyword_query": null
+    },
+    "raw_memory_result": {
+      "summary_memory_primary": "[{\"id\":\"M002\",\"key\":\"Bookshelf\",\"description\":\"Here is a memory: At 2023-05-30 16:54:00, Owner: (current user). Recently assembled an IKEA bookshelf, which took 4 hours. Assembled an IKEA bookshelf recently.\\nThe assembly took 4 hours.\\nConsidered the 4-hour assembly time to be not too bad.\"},{\"id\":\"M003\",\"key\":\"Strategy\",\"description\":\"Here is a memory: At 2023-05-30 16:54:00, Owner: (current user). Planned to visit West Elm, Crate & Barrel, and IKEA this weekend to check out coffee tables with storage. Will visit West Elm this weekend to check out coffee tables with storage.\\nWill also stop by Crate & Barrel to compare their coffee tables with storage.\\nWill also visit IKEA to check out their coffee tables with storage.\\nWill read online reviews and ratings for coffee tables to get a better sense of quality and durability.\\nThe plan is to combine in-store visits with online research for an informed decision.\"}]",
+      "summary_memory_inference": "[{\"id\":\"M001\",\"key\":\"Bookshelf\",\"description\":\"Here is a memory: At 2023-05-30 16:54:00, Owner:(current user). Recently assembled an IKEA bookshelf, which took 4 hours. Assembled an IKEA bookshelf recently.\\nThe assembly took 4 hours.\\nConsidered the 4-hour assembly time to be not too bad.\"}]",
+      "summary_impression": "[]",
+      "identifier_mapping_counts": {
+        "memory": 3,
+        "impression": 0
+      }
+    },
+    "other_public_result": "[]",
+    "memories_found": {
+      "primary": 2,
+      "inference": 1,
+      "impression": 0,
+      "other_public": 0,
+      "hydrated": 3
+    },
+    "retrieved_memories": [
+      {
+        "retrieval_bucket": "primary",
+        "identifier": "M002",
+        "memory_id": "5d14a729-030e-4732-a0d0-0200d689f3a7",
+        "summary_key": "Bookshelf",
+        "summary_description": "Here is a memory: At 2023-05-30 16:54:00, Owner: (current user). Recently assembled an IKEA bookshelf, which took 4 hours. Assembled an IKEA bookshelf recently.\nThe assembly took 4 hours.\nConsidered the 4-hour assembly time to be not too bad.",
+        "time": "2023-05-30T16:54:00",
+        "location": "Unknown",
+        "category": "Lifestyle and Personal Interests",
+        "object": "IKEA Bookshelf Assembly Experience",
+        "emotion": "calm",
+        "description": "Recently assembled an IKEA bookshelf, which took 4 hours. The experience was positive, and the assembly time was considered reasonable. This positive experience influenced the decision to consider IKEA coffee tables for their potential ease of assembly.",
+        "details": "Assembled an IKEA bookshelf recently.\nThe assembly took 4 hours.\nConsidered the 4-hour assembly time to be not too bad.",
+        "keys": "Bookshelf",
+        "haystack_session_id": "answer_c63c0458",
+        "eval_session_index": 46,
+        "eval_question_id": "94f70d80"
+      },
+      {
+        "retrieval_bucket": "primary",
+        "identifier": "M003",
+        "memory_id": "08c16cde-ff27-4794-aca5-5ca7af199980",
+        "summary_key": "Strategy",
+        "summary_description": "Here is a memory: At 2023-05-30 16:54:00, Owner: (current user). Planned to visit West Elm, Crate & Barrel, and IKEA this weekend to check out coffee tables with storage. Will visit West Elm this weekend to check out coffee tables with storage.\nWill also stop by Crate & Barrel to compare their coffee tables with storage.\nWill also visit IKEA to check out their coffee tables with storage.\nWill read online reviews and ratings for coffee tables to get a better sense of quality and durability.\nThe plan is to combine in-store visits with online research for an informed decision.",
+        "time": "2023-05-30T16:54:00",
+        "location": "Unknown",
+        "category": "Lifestyle and Personal Interests",
+        "object": "Coffee Table Shopping Strategy",
+        "emotion": "thoughtful",
+        "description": "Planned to visit West Elm, Crate & Barrel, and IKEA this weekend to check out coffee tables with storage. Also decided to read online reviews and ratings to understand product quality and durability better. This combined approach aims to make an informed decision.",
+        "details": "Will visit West Elm this weekend to check out coffee tables with storage.\nWill also stop by Crate & Barrel to compare their coffee tables with storage.\nWill also visit IKEA to check out their coffee tables with storage.\nWill read online reviews and ratings for coffee tables to get a better sense of quality and durability.\nThe plan is to combine in-store visits with online research for an informed decision.",
+        "keys": "Strategy",
+        "haystack_session_id": "answer_c63c0458",
+        "eval_session_index": 46,
+        "eval_question_id": "94f70d80"
+      },
+      {
+        "retrieval_bucket": "inference",
+        "identifier": "M001",
+        "memory_id": "5d14a729-030e-4732-a0d0-0200d689f3a7",
+        "summary_key": "Bookshelf",
+        "summary_description": "Here is a memory: At 2023-05-30 16:54:00, Owner:(current user). Recently assembled an IKEA bookshelf, which took 4 hours. Assembled an IKEA bookshelf recently.\nThe assembly took 4 hours.\nConsidered the 4-hour assembly time to be not too bad.",
+        "time": "2023-05-30T16:54:00",
+        "location": "Unknown",
+        "category": "Lifestyle and Personal Interests",
+        "object": "IKEA Bookshelf Assembly Experience",
+        "emotion": "calm",
+        "description": "Recently assembled an IKEA bookshelf, which took 4 hours. The experience was positive, and the assembly time was considered reasonable. This positive experience influenced the decision to consider IKEA coffee tables for their potential ease of assembly.",
+        "details": "Assembled an IKEA bookshelf recently.\nThe assembly took 4 hours.\nConsidered the 4-hour assembly time to be not too bad.",
+        "keys": "Bookshelf",
+        "haystack_session_id": "answer_c63c0458",
+        "eval_session_index": 46,
+        "eval_question_id": "94f70d80"
+      }
+    ],
+    "retrieval_status_messages": [],
+    "query_time_seconds": 1.2892707919999957,
+    "memory_time_seconds": 0.2364072079999969,
+    "perf_entries": [
+      {
+        "name": "memory.single.convert-messages",
+        "ms": 0.009458000000449829
+      },
+      {
+        "name": "memory.single.parse-context",
+        "ms": 0.005125000003317837
+      },
+      {
+        "name": "memory.single.get-query",
+        "ms": 1289.2778340000004
+      },
+      {
+        "name": "memory.single.parse-time-window",
+        "ms": 0.08875000000261934
+      },
+      {
+        "name": "memory.single.parse-time-window-from-query-signal",
+        "ms": 0.002374999996391125
+      },
+      {
+        "name": "memory.single.build-embeddings",
+        "ms": 233.16308299999946
+      },
+      {
+        "name": "memory.single.retrieve-main",
+        "ms": 236.2300000000032
+      },
+      {
+        "name": "memory.single.retrieve-parallel",
+        "ms": 236.41237499999988
+      }
+    ]
+  },
+  "answering": {
+    "hypothesis": "4 hours",
+    "formatted_context_length": 1900,
+    "duration_ms": 406.07,
+    "used_direct_abstention": false
+  },
+  "self_check": {
+    "likelyCorrect": true,
+    "normalizedExpected": "4 hours",
+    "normalizedHypothesis": "4 hours",
+    "reason": "Normalized containment match."
+  }
+}

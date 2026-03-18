@@ -1,0 +1,24 @@
+{
+  "run_id": "2026-03-17T15-55-55-754",
+  "batch": 0,
+  "total_requested": 1,
+  "completed": 1,
+  "failed": 0,
+  "overall_accuracy": 0,
+  "abstention_accuracy": {
+    "total": 0,
+    "correct": 0,
+    "accuracy": null
+  },
+  "scores_by_type": {
+    "multi-session": {
+      "total": 1,
+      "correct": 0,
+      "accuracy": 0
+    }
+  },
+  "avg_query_time_seconds": 6.7424,
+  "avg_memory_time_seconds": 0.1936,
+  "avg_answer_time_ms": 663.59,
+  "avg_retrieved_memories": 5
+}

@@ -1,0 +1,162 @@
+{
+  "question_id": "gpt4_59c863d7",
+  "question_type": "multi-session",
+  "question": "How many model kits have I worked on or bought?",
+  "expected_answer": "I have worked on or bought five model kits. The scales of the models are: Revell F-15 Eagle (scale not mentioned), Tamiya 1/48 scale Spitfire Mk.V, 1/16 scale German Tiger I tank, 1/72 scale B-29 bomber, and 1/24 scale '69 Camaro.",
+  "answer_session_ids": [
+    "answer_593bdffd_4",
+    "answer_593bdffd_1",
+    "answer_593bdffd_3",
+    "answer_593bdffd_2"
+  ],
+  "mock_user_id": "3a2f0938-661f-5d86-810d-0bc4d54d6563",
+  "status": "completed",
+  "copy": {
+    "skipped": true,
+    "existing_memory_count": 120
+  },
+  "retrieval": {
+    "config": {
+      "retrieval_function": "dev_memory_eval_hybrid_retrieval_v2",
+      "impression_function": "dev_impression_object_similar_embedding",
+      "memory_retrieval_strategy": "independent",
+      "keyword_query_passthrough": false
+    },
+    "query_result": {
+      "time_frame": null,
+      "primary_query": "model kits worked on or bought",
+      "inference_query": "model kit acquisition and progress",
+      "bandwidth_state": "medium",
+      "interaction_mode": "exploration",
+      "memory_request_mode": "memory_topic",
+      "time_retrieval_mode": "all",
+      "wait_for_memory": false,
+      "wait_for_memory_reason": "not-memory-critical",
+      "query_prompt_version": "v2",
+      "primary_keyword_query": null,
+      "inference_keyword_query": null
+    },
+    "raw_memory_result": {
+      "summary_memory_primary": "[{\"id\":\"M001\",\"key\":\"Photo-etching\",\"description\":\"Here is a memory: At 2023-05-27 21:40:00, Owner: (current user). Is thinking of working on a 1/72 scale B-29 bomber next. Is thinking of working on a 1/72 scale B-29 bomber next.\\nWants to try out new techniques like photo-etching and wire details.\\nIs looking for specific tips and recommendations for working with these materials at this scale.\\nIs also looking for specific weathering techniques or products that would work well on a 1/72 scale model like the B-29 bomber.\\nIs looking forward to adding extra details like antennas and aerials to the B-29 bomber.\"},{\"id\":\"M002\",\"key\":\"Photo-etching\",\"description\":\"Here is a memory: At 2023-05-20 21:38:00, Owner: (current user). Planning to use photo-etching for a new 1/72 scale B-29 bomber model kit, a technique never tried before but inspired by online results. Planning to use photo-etching for a new 1/72 scale B-29 bomber model kit.\\nNever tried photo-etching before.\\nInspired by amazing results seen online.\\nAcquired a 1/72 scale B-29 bomber model kit.\\nAcquired a 1/24 scale '69 Camaro model kit at a model show last weekend.\\nInquired about using Vallejo acrylics for painting the B-29 with photo-etching details.\\nAsked for alternative ways to attach photo-etched parts without super glue due to past issues.\"}]",
+      "summary_memory_inference": "[{\"id\":\"M003\",\"key\":\"Photo-etching\",\"description\":\"Here is a memory: At 2023-05-20 21:38:00, Owner:(current user). Planning to use photo-etching for a new 1/72 scale B-29 bomber model kit, a technique never tried before but inspired by online results. Planning to use photo-etching for a new 1/72 scale B-29 bomber model kit.\\nNever tried photo-etching before.\\nInspired by amazing results seen online.\\nAcquired a 1/72 scale B-29 bomber model kit.\\nAcquired a 1/24 scale '69 Camaro model kit at a model show last weekend.\\nInquired about using Vallejo acrylics for painting the B-29 with photo-etching details.\\nAsked for alternative ways to attach photo-etched parts without super glue due to past issues.\"}]",
+      "summary_impression": "[]",
+      "identifier_mapping_counts": {
+        "memory": 3,
+        "impression": 0
+      }
+    },
+    "other_public_result": "[]",
+    "memories_found": {
+      "primary": 2,
+      "inference": 1,
+      "impression": 0,
+      "other_public": 0,
+      "hydrated": 3
+    },
+    "retrieved_memories": [
+      {
+        "retrieval_bucket": "primary",
+        "identifier": "M001",
+        "memory_id": "26e1986c-5119-4882-8ca4-457d9616e327",
+        "summary_key": "Photo-etching",
+        "summary_description": "Here is a memory: At 2023-05-27 21:40:00, Owner: (current user). Is thinking of working on a 1/72 scale B-29 bomber next. Is thinking of working on a 1/72 scale B-29 bomber next.\nWants to try out new techniques like photo-etching and wire details.\nIs looking for specific tips and recommendations for working with these materials at this scale.\nIs also looking for specific weathering techniques or products that would work well on a 1/72 scale model like the B-29 bomber.\nIs looking forward to adding extra details like antennas and aerials to the B-29 bomber.",
+        "time": "2023-05-27T21:40:00",
+        "location": "Unknown",
+        "category": "Hobby",
+        "object": "Photo-Etching and Wire Details for B-29 Bomber",
+        "emotion": "thoughtful",
+        "description": "Is thinking of working on a 1/72 scale B-29 bomber next. Wants to try out new techniques like photo-etching and wire details on this model. Is looking for specific tips and recommendations for working with these materials at this scale.",
+        "details": "Is thinking of working on a 1/72 scale B-29 bomber next.\nWants to try out new techniques like photo-etching and wire details.\nIs looking for specific tips and recommendations for working with these materials at this scale.\nIs also looking for specific weathering techniques or products that would work well on a 1/72 scale model like the B-29 bomber.\nIs looking forward to adding extra details like antennas and aerials to the B-29 bomber.",
+        "keys": "Photo-etching",
+        "haystack_session_id": "answer_593bdffd_1",
+        "eval_session_index": 32,
+        "eval_question_id": "gpt4_59c863d7"
+      },
+      {
+        "retrieval_bucket": "primary",
+        "identifier": "M002",
+        "memory_id": "83912fd9-d510-4df0-989e-0c69db564437",
+        "summary_key": "Photo-etching",
+        "summary_description": "Here is a memory: At 2023-05-20 21:38:00, Owner: (current user). Planning to use photo-etching for a new 1/72 scale B-29 bomber model kit, a technique never tried before but inspired by online results. Planning to use photo-etching for a new 1/72 scale B-29 bomber model kit.\nNever tried photo-etching before.\nInspired by amazing results seen online.\nAcquired a 1/72 scale B-29 bomber model kit.\nAcquired a 1/24 scale '69 Camaro model kit at a model show last weekend.\nInquired about using Vallejo acrylics for painting the B-29 with photo-etching details.\nAsked for alternative ways to attach photo-etched parts without super glue due to past issues.",
+        "time": "2023-05-20T21:38:00",
+        "location": "Unknown",
+        "category": "Hobby",
+        "object": "Photo-Etching for B-29 Model",
+        "emotion": "thoughtful",
+        "description": "Planning to use photo-etching for a new 1/72 scale B-29 bomber model kit, a technique never tried before but inspired by online results. Also acquired a 1/24 scale '69 Camaro model kit at a recent model show. Inquired about using Vallejo acrylics with photo-etched details and alternative attachment methods to super glue.",
+        "details": "Planning to use photo-etching for a new 1/72 scale B-29 bomber model kit.\nNever tried photo-etching before.\nInspired by amazing results seen online.\nAcquired a 1/72 scale B-29 bomber model kit.\nAcquired a 1/24 scale '69 Camaro model kit at a model show last weekend.\nInquired about using Vallejo acrylics for painting the B-29 with photo-etching details.\nAsked for alternative ways to attach photo-etched parts without super glue due to past issues.",
+        "keys": "Photo-etching",
+        "haystack_session_id": "answer_593bdffd_4",
+        "eval_session_index": 1,
+        "eval_question_id": "gpt4_59c863d7"
+      },
+      {
+        "retrieval_bucket": "inference",
+        "identifier": "M003",
+        "memory_id": "83912fd9-d510-4df0-989e-0c69db564437",
+        "summary_key": "Photo-etching",
+        "summary_description": "Here is a memory: At 2023-05-20 21:38:00, Owner:(current user). Planning to use photo-etching for a new 1/72 scale B-29 bomber model kit, a technique never tried before but inspired by online results. Planning to use photo-etching for a new 1/72 scale B-29 bomber model kit.\nNever tried photo-etching before.\nInspired by amazing results seen online.\nAcquired a 1/72 scale B-29 bomber model kit.\nAcquired a 1/24 scale '69 Camaro model kit at a model show last weekend.\nInquired about using Vallejo acrylics for painting the B-29 with photo-etching details.\nAsked for alternative ways to attach photo-etched parts without super glue due to past issues.",
+        "time": "2023-05-20T21:38:00",
+        "location": "Unknown",
+        "category": "Hobby",
+        "object": "Photo-Etching for B-29 Model",
+        "emotion": "thoughtful",
+        "description": "Planning to use photo-etching for a new 1/72 scale B-29 bomber model kit, a technique never tried before but inspired by online results. Also acquired a 1/24 scale '69 Camaro model kit at a recent model show. Inquired about using Vallejo acrylics with photo-etched details and alternative attachment methods to super glue.",
+        "details": "Planning to use photo-etching for a new 1/72 scale B-29 bomber model kit.\nNever tried photo-etching before.\nInspired by amazing results seen online.\nAcquired a 1/72 scale B-29 bomber model kit.\nAcquired a 1/24 scale '69 Camaro model kit at a model show last weekend.\nInquired about using Vallejo acrylics for painting the B-29 with photo-etching details.\nAsked for alternative ways to attach photo-etched parts without super glue due to past issues.",
+        "keys": "Photo-etching",
+        "haystack_session_id": "answer_593bdffd_4",
+        "eval_session_index": 1,
+        "eval_question_id": "gpt4_59c863d7"
+      }
+    ],
+    "retrieval_status_messages": [],
+    "query_time_seconds": 1.1943060830000014,
+    "memory_time_seconds": 0.27588708299999964,
+    "perf_entries": [
+      {
+        "name": "memory.single.convert-messages",
+        "ms": 0.01525000000037835
+      },
+      {
+        "name": "memory.single.parse-context",
+        "ms": 0.010334000000511878
+      },
+      {
+        "name": "memory.single.get-query",
+        "ms": 1194.3145830000012
+      },
+      {
+        "name": "memory.single.parse-time-window",
+        "ms": 4.896584000000075
+      },
+      {
+        "name": "memory.single.parse-time-window-from-query-signal",
+        "ms": 0.002207999999882304
+      },
+      {
+        "name": "memory.single.build-embeddings",
+        "ms": 268.73520800000006
+      },
+      {
+        "name": "memory.single.retrieve-main",
+        "ms": 275.69091599999956
+      },
+      {
+        "name": "memory.single.retrieve-parallel",
+        "ms": 275.8943340000005
+      }
+    ]
+  },
+  "answering": {
+    "hypothesis": "I don't have that information.",
+    "formatted_context_length": 2635,
+    "duration_ms": 600.87,
+    "used_direct_abstention": false
+  },
+  "self_check": {
+    "likelyCorrect": false,
+    "normalizedExpected": "i have worked on or bought five model kits. the scales of the models are: revell f-15 eagle (scale not mentioned), tamiya 1/48 scale spitfire mk.v, 1/16 scale german tiger i tank, 1/72 scale b-29 bomber, and 1/24 scale '69 camaro.",
+    "normalizedHypothesis": "i don't have that information.",
+    "reason": "Normalized strings do not contain each other."
+  }
+}

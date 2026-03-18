@@ -1,0 +1,160 @@
+{
+  "question_id": "2133c1b5",
+  "question_type": "knowledge-update",
+  "question": "How long have I been living in my current apartment in Harajuku?",
+  "expected_answer": "3 months",
+  "answer_session_ids": [
+    "answer_52382508_1",
+    "answer_52382508_2"
+  ],
+  "mock_user_id": "3a574a5c-bd86-5092-a5c0-4c9ce761ee98",
+  "status": "completed",
+  "copy": {
+    "skipped": true,
+    "existing_memory_count": 125
+  },
+  "retrieval": {
+    "config": {
+      "retrieval_function": "dev_memory_eval_hybrid_retrieval_v2",
+      "impression_function": "dev_impression_object_similar_embedding",
+      "memory_retrieval_strategy": "independent",
+      "keyword_query_passthrough": false
+    },
+    "query_result": {
+      "time_frame": null,
+      "primary_query": "start date of living in Harajuku apartment",
+      "inference_query": "duration of residency in Harajuku apartment",
+      "bandwidth_state": "medium",
+      "interaction_mode": "exploration",
+      "memory_request_mode": "direct_recall",
+      "time_retrieval_mode": "semantic",
+      "wait_for_memory": false,
+      "wait_for_memory_reason": "not-memory-critical",
+      "query_prompt_version": "v2",
+      "primary_keyword_query": "Harajuku",
+      "inference_keyword_query": null
+    },
+    "raw_memory_result": {
+      "summary_memory_primary": "[{\"id\":\"M002\",\"key\":\"Harajuku\",\"description\":\"Here is a memory: At 2023-10-16 03:50:00, Owner: (current user). Has been living in Harajuku for three months and is still discovering new hidden gems in the neighborhood. Has been living in Harajuku for 3 months.\\nStill discovering new hidden gems in the neighborhood.\\nHas not explored the historical side of Harajuku yet.\\nPlans to check out Meiji Shrine.\\nPlans to check out Kawai Shrine, which is dedicated to the god of agriculture, fertility, and industry, known for its gardens and \\\"Lucky Bell\\\".\"},{\"id\":\"M003\",\"key\":\"Harajuku\",\"description\":\"Here is a memory: At 2023-04-11 15:03:00, Owner: (current user). Settled into a new studio apartment in Harajuku, Tokyo, a month ago. Moved into a new studio apartment in Harajuku, Tokyo.\\nHas been living there for one month.\\nEnjoys the independence provided by the new apartment.\\nFinds the commute to work from Harajuku to be convenient.\"}]",
+      "summary_memory_inference": "[{\"id\":\"M001\",\"key\":\"Harajuku\",\"description\":\"Here is a memory: At 2023-04-11 15:03:00, Owner:(current user). Settled into a new studio apartment in Harajuku, Tokyo, a month ago. Moved into a new studio apartment in Harajuku, Tokyo.\\nHas been living there for one month.\\nEnjoys the independence provided by the new apartment.\\nFinds the commute to work from Harajuku to be convenient.\"}]",
+      "summary_impression": "[]",
+      "identifier_mapping_counts": {
+        "memory": 3,
+        "impression": 0
+      }
+    },
+    "other_public_result": "[]",
+    "memories_found": {
+      "primary": 2,
+      "inference": 1,
+      "impression": 0,
+      "other_public": 0,
+      "hydrated": 3
+    },
+    "retrieved_memories": [
+      {
+        "retrieval_bucket": "primary",
+        "identifier": "M002",
+        "memory_id": "5e912682-c14c-4d76-b486-b65468becb58",
+        "summary_key": "Harajuku",
+        "summary_description": "Here is a memory: At 2023-10-16 03:50:00, Owner: (current user). Has been living in Harajuku for three months and is still discovering new hidden gems in the neighborhood. Has been living in Harajuku for 3 months.\nStill discovering new hidden gems in the neighborhood.\nHas not explored the historical side of Harajuku yet.\nPlans to check out Meiji Shrine.\nPlans to check out Kawai Shrine, which is dedicated to the god of agriculture, fertility, and industry, known for its gardens and \"Lucky Bell\".",
+        "time": "2023-10-16T03:50:00",
+        "location": "Harajuku, Tokyo",
+        "category": "Lifestyle and Personal Interests",
+        "object": "Harajuku Hidden Gems",
+        "emotion": "thoughtful",
+        "description": "Has been living in Harajuku for three months and is still discovering new hidden gems in the neighborhood. Has not yet explored the historical side, but plans to visit Meiji Shrine and Kawai Shrine.",
+        "details": "Has been living in Harajuku for 3 months.\nStill discovering new hidden gems in the neighborhood.\nHas not explored the historical side of Harajuku yet.\nPlans to check out Meiji Shrine.\nPlans to check out Kawai Shrine, which is dedicated to the god of agriculture, fertility, and industry, known for its gardens and \"Lucky Bell\".",
+        "keys": "Harajuku",
+        "haystack_session_id": "answer_52382508_2",
+        "eval_session_index": 34,
+        "eval_question_id": "2133c1b5"
+      },
+      {
+        "retrieval_bucket": "primary",
+        "identifier": "M003",
+        "memory_id": "8d8d3fcf-7023-4a95-a119-57243c7f9f56",
+        "summary_key": "Harajuku",
+        "summary_description": "Here is a memory: At 2023-04-11 15:03:00, Owner: (current user). Settled into a new studio apartment in Harajuku, Tokyo, a month ago. Moved into a new studio apartment in Harajuku, Tokyo.\nHas been living there for one month.\nEnjoys the independence provided by the new apartment.\nFinds the commute to work from Harajuku to be convenient.",
+        "time": "2023-04-11T15:03:00",
+        "location": "Tokyo, Harajuku",
+        "category": "Lifestyle and Personal Interests",
+        "object": "New Studio Apartment in Harajuku",
+        "emotion": "calm",
+        "description": "Settled into a new studio apartment in Harajuku, Tokyo, a month ago. Enjoyed the independence of the new living situation. The commute to work from this location is very convenient.",
+        "details": "Moved into a new studio apartment in Harajuku, Tokyo.\nHas been living there for one month.\nEnjoys the independence provided by the new apartment.\nFinds the commute to work from Harajuku to be convenient.",
+        "keys": "Harajuku",
+        "haystack_session_id": "answer_52382508_1",
+        "eval_session_index": 23,
+        "eval_question_id": "2133c1b5"
+      },
+      {
+        "retrieval_bucket": "inference",
+        "identifier": "M001",
+        "memory_id": "8d8d3fcf-7023-4a95-a119-57243c7f9f56",
+        "summary_key": "Harajuku",
+        "summary_description": "Here is a memory: At 2023-04-11 15:03:00, Owner:(current user). Settled into a new studio apartment in Harajuku, Tokyo, a month ago. Moved into a new studio apartment in Harajuku, Tokyo.\nHas been living there for one month.\nEnjoys the independence provided by the new apartment.\nFinds the commute to work from Harajuku to be convenient.",
+        "time": "2023-04-11T15:03:00",
+        "location": "Tokyo, Harajuku",
+        "category": "Lifestyle and Personal Interests",
+        "object": "New Studio Apartment in Harajuku",
+        "emotion": "calm",
+        "description": "Settled into a new studio apartment in Harajuku, Tokyo, a month ago. Enjoyed the independence of the new living situation. The commute to work from this location is very convenient.",
+        "details": "Moved into a new studio apartment in Harajuku, Tokyo.\nHas been living there for one month.\nEnjoys the independence provided by the new apartment.\nFinds the commute to work from Harajuku to be convenient.",
+        "keys": "Harajuku",
+        "haystack_session_id": "answer_52382508_1",
+        "eval_session_index": 23,
+        "eval_question_id": "2133c1b5"
+      }
+    ],
+    "retrieval_status_messages": [],
+    "query_time_seconds": 1.0942865409999996,
+    "memory_time_seconds": 0.21472533300000032,
+    "perf_entries": [
+      {
+        "name": "memory.single.convert-messages",
+        "ms": 0.006916999998793472
+      },
+      {
+        "name": "memory.single.parse-context",
+        "ms": 0.0020000000004074536
+      },
+      {
+        "name": "memory.single.get-query",
+        "ms": 1094.3146669999987
+      },
+      {
+        "name": "memory.single.parse-time-window",
+        "ms": 4.1774160000004485
+      },
+      {
+        "name": "memory.single.parse-time-window-from-query-signal",
+        "ms": 0.0017500000012660166
+      },
+      {
+        "name": "memory.single.build-embeddings",
+        "ms": 285.4766660000005
+      },
+      {
+        "name": "memory.single.retrieve-main",
+        "ms": 214.6034580000014
+      },
+      {
+        "name": "memory.single.retrieve-parallel",
+        "ms": 214.7458749999987
+      }
+    ]
+  },
+  "answering": {
+    "hypothesis": "I don't have that information.",
+    "formatted_context_length": 1762,
+    "duration_ms": 716.94,
+    "used_direct_abstention": false
+  },
+  "self_check": {
+    "likelyCorrect": false,
+    "normalizedExpected": "3 months",
+    "normalizedHypothesis": "i don't have that information.",
+    "reason": "Normalized strings do not contain each other."
+  }
+}

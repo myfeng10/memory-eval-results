@@ -1,0 +1,194 @@
+{
+  "question_id": "bc149d6b",
+  "question_type": "multi-session",
+  "question": "What is the total weight of the new feed I purchased in the past two months?",
+  "expected_answer": "70 pounds",
+  "answer_session_ids": [
+    "answer_92147866_1",
+    "answer_92147866_2"
+  ],
+  "mock_user_id": "e49b02a8-ee79-520b-8473-608b43099a61",
+  "status": "completed",
+  "copy": {
+    "skipped": true,
+    "existing_memory_count": 131
+  },
+  "retrieval": {
+    "config": {
+      "retrieval_function": "dev_memory_eval_hybrid_retrieval_v2",
+      "impression_function": "dev_impression_object_similar_embedding",
+      "memory_retrieval_strategy": "independent",
+      "keyword_query_passthrough": false
+    },
+    "query_result": {
+      "time_frame": "2",
+      "primary_query": "total weight of new feed purchased",
+      "inference_query": "details of feed purchases",
+      "bandwidth_state": "medium",
+      "interaction_mode": "exploration",
+      "memory_request_mode": "memory_topic",
+      "time_retrieval_mode": "all",
+      "wait_for_memory": false,
+      "wait_for_memory_reason": "not-memory-critical",
+      "query_prompt_version": "v2",
+      "primary_keyword_query": null,
+      "inference_keyword_query": null
+    },
+    "raw_memory_result": {
+      "summary_memory_primary": "[{\"id\":\"M019\",\"key\":\"Teamwork\",\"description\":\"Here is a memory: At 2023-05-29T19:23:00, Owner: (current user). Requested five new different options for Goal 2 Objective 2. Requested 5 new different options for GOAL 2 Objective 2.\\nOption 1: Organize a team-building activity like an escape room or outdoor adventure course.\\nOption 2: Hold a brainstorming session to generate ideas for improving teamwork and collaboration.\\nOption 3: Implement a buddy system for support and accountability.\\nOption 4: Establish clear team goals and track progress regularly.\\nOption 5: Encourage sharing individual strengths and incorporating them into team projects.\"},{\"id\":\"M014\",\"key\":\"Combinations\",\"description\":\"Here is a memory: At 2023-05-29T20:07:00, Owner: (current user). Noticed an error in the provided list of house number and figure combinations. Identified an error in the generated list of house number and figure combinations.\\nStated that the total number of combinations should be 256.\\nSpecified the calculation as 16 houses multiplied by 16 figures.\"},{\"id\":\"M023\",\"key\":\"IGTV\",\"description\":\"Here is a memory: At 2023-05-29T19:15:00, Owner: (current user). Considered experimenting with Instagram's IGTV feature to diversify content, engage the audience, and increase visibility. Considered experimenting with Instagram's IGTV feature.\\nIdentified benefits: long-form content (up to 60 minutes), increased engagement, monetization opportunities, content diversification.\\nPlanned to define a content strategy (tutorials, vlogs, product demos).\\nIntended to optimize videos (high-quality, engaging edits, captions/subtitles).\\nPlanned to promote IGTV content on feed, stories, and other platforms.\\nIntended to engage with the audience and maintain consistency.\\nPlanned to analyze performance using Instagram Insights.\\nConsidered experimenting with video lengths and formats.\\nFocused on vertical video optimization, eye-catching thumbnails/titles, and brand consistency.\"},{\"id\":\"M027\",\"key\":\"Chicago\",\"description\":\"Here is a memory: At 2023-05-29T16:22:00, Owner: (current user). Helped out with the props department for the upcoming production of \\\"Chicago\\\" at the community theater. Helped with the props department for the upcoming production of \\\"Chicago\\\" at the community theater.\\nNeeded advice on sourcing vintage clothing for a 1920s-themed production.\\nSought tips for finding affordable and authentic-looking costumes.\\nAlready found fedoras and canes for the props department.\\nThe current focus was on finding costumes.\"},{\"id\":\"M028\",\"key\":\"Earnest\",\"description\":\"Here is a memory: At 2023-05-29T16:22:00, Owner: (current user). Volunteered backstage at the production of \\\"The Importance of Being Earnest\\\" at the city theater last month. Volunteered backstage at the production of \\\"The Importance of Being Earnest\\\" at the city theater.\\nThis experience occurred last month.\\nFound great props and costumes at an estate sale for \\\"The Importance of Being Earnest\\\".\\nHoped to replicate finding similar deals for the \\\"Chicago\\\" production.\"}]",
+      "summary_memory_inference": "[]",
+      "summary_impression": "[]",
+      "identifier_mapping_counts": {
+        "memory": 5,
+        "impression": 0
+      }
+    },
+    "other_public_result": "[]",
+    "memories_found": {
+      "primary": 5,
+      "inference": 0,
+      "impression": 0,
+      "other_public": 0,
+      "hydrated": 5
+    },
+    "retrieved_memories": [
+      {
+        "retrieval_bucket": "primary",
+        "identifier": "M019",
+        "memory_id": "6f8cef1b-5113-446b-8048-6fe72d0965f1",
+        "summary_key": "Teamwork",
+        "summary_description": "Here is a memory: At 2023-05-29T19:23:00, Owner: (current user). Requested five new different options for Goal 2 Objective 2. Requested 5 new different options for GOAL 2 Objective 2.\nOption 1: Organize a team-building activity like an escape room or outdoor adventure course.\nOption 2: Hold a brainstorming session to generate ideas for improving teamwork and collaboration.\nOption 3: Implement a buddy system for support and accountability.\nOption 4: Establish clear team goals and track progress regularly.\nOption 5: Encourage sharing individual strengths and incorporating them into team projects.",
+        "time": "2023-05-29T19:23:00",
+        "location": "Unknown",
+        "category": "Education",
+        "object": "Goal 2 Objective 2 Options",
+        "emotion": "thoughtful",
+        "description": "Requested five new different options for Goal 2 Objective 2. The ideas focused on team-building, collaboration, and support among residents, including an escape room, brainstorming, a buddy system, clear goal setting, and leveraging individual strengths.",
+        "details": "Requested 5 new different options for GOAL 2 Objective 2.\nOption 1: Organize a team-building activity like an escape room or outdoor adventure course.\nOption 2: Hold a brainstorming session to generate ideas for improving teamwork and collaboration.\nOption 3: Implement a buddy system for support and accountability.\nOption 4: Establish clear team goals and track progress regularly.\nOption 5: Encourage sharing individual strengths and incorporating them into team projects.",
+        "keys": "Teamwork",
+        "haystack_session_id": "sharegpt_1sxNkyQ_41",
+        "eval_session_index": 39,
+        "eval_question_id": "bc149d6b"
+      },
+      {
+        "retrieval_bucket": "primary",
+        "identifier": "M014",
+        "memory_id": "adede161-df8e-4589-9554-54c6889841a2",
+        "summary_key": "Combinations",
+        "summary_description": "Here is a memory: At 2023-05-29T20:07:00, Owner: (current user). Noticed an error in the provided list of house number and figure combinations. Identified an error in the generated list of house number and figure combinations.\nStated that the total number of combinations should be 256.\nSpecified the calculation as 16 houses multiplied by 16 figures.",
+        "time": "2023-05-29T20:07:00",
+        "location": "Unknown",
+        "category": "Technology and Innovation",
+        "object": "Combination List Correction",
+        "emotion": "thoughtful",
+        "description": "Noticed an error in the provided list of house number and figure combinations. Pointed out that the total number of combinations should be 256, based on 16 houses and 16 figures, indicating a need for a complete list.",
+        "details": "Identified an error in the generated list of house number and figure combinations.\nStated that the total number of combinations should be 256.\nSpecified the calculation as 16 houses multiplied by 16 figures.",
+        "keys": "Combinations",
+        "haystack_session_id": "sharegpt_ErOTMZ3_171",
+        "eval_session_index": 40,
+        "eval_question_id": "bc149d6b"
+      },
+      {
+        "retrieval_bucket": "primary",
+        "identifier": "M023",
+        "memory_id": "70076857-1dd4-4bf2-b91f-0d974e1dcc65",
+        "summary_key": "IGTV",
+        "summary_description": "Here is a memory: At 2023-05-29T19:15:00, Owner: (current user). Considered experimenting with Instagram's IGTV feature to diversify content, engage the audience, and increase visibility. Considered experimenting with Instagram's IGTV feature.\nIdentified benefits: long-form content (up to 60 minutes), increased engagement, monetization opportunities, content diversification.\nPlanned to define a content strategy (tutorials, vlogs, product demos).\nIntended to optimize videos (high-quality, engaging edits, captions/subtitles).\nPlanned to promote IGTV content on feed, stories, and other platforms.\nIntended to engage with the audience and maintain consistency.\nPlanned to analyze performance using Instagram Insights.\nConsidered experimenting with video lengths and formats.\nFocused on vertical video optimization, eye-catching thumbnails/titles, and brand consistency.",
+        "time": "2023-05-29T19:15:00",
+        "location": "Unknown",
+        "category": "Technology and Innovation",
+        "object": "Instagram IGTV Exploration",
+        "emotion": "thoughtful",
+        "description": "Considered experimenting with Instagram's IGTV feature to diversify content, engage the audience, and increase visibility. Identified benefits such as long-form content capabilities, increased engagement, and monetization opportunities. Planned to define a content strategy, optimize videos, promote content, engage with the audience, maintain consistency, and analyze performance.",
+        "details": "Considered experimenting with Instagram's IGTV feature.\nIdentified benefits: long-form content (up to 60 minutes), increased engagement, monetization opportunities, content diversification.\nPlanned to define a content strategy (tutorials, vlogs, product demos).\nIntended to optimize videos (high-quality, engaging edits, captions/subtitles).\nPlanned to promote IGTV content on feed, stories, and other platforms.\nIntended to engage with the audience and maintain consistency.\nPlanned to analyze performance using Instagram Insights.\nConsidered experimenting with video lengths and formats.\nFocused on vertical video optimization, eye-catching thumbnails/titles, and brand consistency.",
+        "keys": "IGTV",
+        "haystack_session_id": "7211c69e",
+        "eval_session_index": 38,
+        "eval_question_id": "bc149d6b"
+      },
+      {
+        "retrieval_bucket": "primary",
+        "identifier": "M027",
+        "memory_id": "31e0bfcd-acfb-4e82-bbaf-2a062b981236",
+        "summary_key": "Chicago",
+        "summary_description": "Here is a memory: At 2023-05-29T16:22:00, Owner: (current user). Helped out with the props department for the upcoming production of \"Chicago\" at the community theater. Helped with the props department for the upcoming production of \"Chicago\" at the community theater.\nNeeded advice on sourcing vintage clothing for a 1920s-themed production.\nSought tips for finding affordable and authentic-looking costumes.\nAlready found fedoras and canes for the props department.\nThe current focus was on finding costumes.",
+        "time": "2023-05-29T16:22:00",
+        "location": "Unknown",
+        "category": "Work",
+        "object": "Sourcing Vintage Clothing",
+        "emotion": "thoughtful",
+        "description": "Helped out with the props department for the upcoming production of \"Chicago\" at the community theater. Needed advice on finding affordable and authentic-looking costumes for the 1920s-themed production. Had already found some great fedoras and canes for the props department and now needed to focus on costumes.",
+        "details": "Helped with the props department for the upcoming production of \"Chicago\" at the community theater.\nNeeded advice on sourcing vintage clothing for a 1920s-themed production.\nSought tips for finding affordable and authentic-looking costumes.\nAlready found fedoras and canes for the props department.\nThe current focus was on finding costumes.",
+        "keys": "Chicago",
+        "haystack_session_id": "29b1addb_2",
+        "eval_session_index": 36,
+        "eval_question_id": "bc149d6b"
+      },
+      {
+        "retrieval_bucket": "primary",
+        "identifier": "M028",
+        "memory_id": "e29dd6fd-6cd8-4c9f-ba5a-6f75afdfb7b9",
+        "summary_key": "Earnest",
+        "summary_description": "Here is a memory: At 2023-05-29T16:22:00, Owner: (current user). Volunteered backstage at the production of \"The Importance of Being Earnest\" at the city theater last month. Volunteered backstage at the production of \"The Importance of Being Earnest\" at the city theater.\nThis experience occurred last month.\nFound great props and costumes at an estate sale for \"The Importance of Being Earnest\".\nHoped to replicate finding similar deals for the \"Chicago\" production.",
+        "time": "2023-05-29T16:22:00",
+        "location": "Unknown",
+        "category": "Work",
+        "object": "Estate Sale Experience",
+        "emotion": "thoughtful",
+        "description": "Volunteered backstage at the production of \"The Importance of Being Earnest\" at the city theater last month. Found some great props and costumes at an estate sale during that time. Hoped to find similar deals for the \"Chicago\" production.",
+        "details": "Volunteered backstage at the production of \"The Importance of Being Earnest\" at the city theater.\nThis experience occurred last month.\nFound great props and costumes at an estate sale for \"The Importance of Being Earnest\".\nHoped to replicate finding similar deals for the \"Chicago\" production.",
+        "keys": "Earnest",
+        "haystack_session_id": "29b1addb_2",
+        "eval_session_index": 36,
+        "eval_question_id": "bc149d6b"
+      }
+    ],
+    "retrieval_status_messages": [
+      "Time-focused ranking applied (relevance+time proximity). Kept 5/32 own memories and 0/0 public memories (max 5 each)."
+    ],
+    "query_time_seconds": 0.6617785420000005,
+    "memory_time_seconds": 0.11598124999999981,
+    "perf_entries": [
+      {
+        "name": "memory.single.convert-messages",
+        "ms": 0.007584000000406377
+      },
+      {
+        "name": "memory.single.parse-context",
+        "ms": 0.0033749999997780833
+      },
+      {
+        "name": "memory.single.get-query",
+        "ms": 661.7922909999998
+      },
+      {
+        "name": "memory.single.parse-time-window",
+        "ms": 2.703125
+      },
+      {
+        "name": "memory.single.parse-time-window-from-query-signal",
+        "ms": 0.4962919999998121
+      },
+      {
+        "name": "memory.single.retrieve-own.time-window",
+        "ms": 115.85204199999953
+      },
+      {
+        "name": "memory.single.retrieve-all-by-time-window",
+        "ms": 115.99933299999975
+      }
+    ]
+  },
+  "answering": {
+    "hypothesis": "I don't have that information.",
+    "formatted_context_length": 4098,
+    "duration_ms": 696.01,
+    "used_direct_abstention": false
+  },
+  "self_check": {
+    "likelyCorrect": false,
+    "normalizedExpected": "70 pounds",
+    "normalizedHypothesis": "i don't have that information.",
+    "reason": "Normalized strings do not contain each other."
+  }
+}

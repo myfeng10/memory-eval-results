@@ -1,0 +1,160 @@
+{
+  "question_id": "6aeb4375_abs",
+  "question_type": "knowledge-update",
+  "question": "How many Italian restaurants have I tried in my city?",
+  "expected_answer": "The information provided is not enough. You mentioned trying Korean restaurants but not Italian restaurants.",
+  "answer_session_ids": [
+    "answer_3f9693b7_abs_1",
+    "answer_3f9693b7_abs_2"
+  ],
+  "mock_user_id": "b54f8998-4898-5bd9-a723-b56ba6bd6a75",
+  "status": "completed",
+  "copy": {
+    "skipped": true,
+    "existing_memory_count": 126
+  },
+  "retrieval": {
+    "config": {
+      "retrieval_function": "dev_memory_eval_hybrid_retrieval_v2",
+      "impression_function": "dev_impression_object_similar_embedding",
+      "memory_retrieval_strategy": "independent",
+      "keyword_query_passthrough": false
+    },
+    "query_result": {
+      "time_frame": null,
+      "primary_query": "tried Italian restaurants in my city",
+      "inference_query": "visited Italian restaurants in my city",
+      "bandwidth_state": "medium",
+      "interaction_mode": "exploration",
+      "memory_request_mode": "memory_topic",
+      "time_retrieval_mode": "all",
+      "wait_for_memory": false,
+      "wait_for_memory_reason": "not-memory-critical",
+      "query_prompt_version": "v2",
+      "primary_keyword_query": "Italian",
+      "inference_keyword_query": null
+    },
+    "raw_memory_result": {
+      "summary_memory_primary": "[{\"id\":\"M001\",\"key\":\"Restaurant\",\"description\":\"Here is a memory: At 2023-05-26 20:19:00, Owner: (current user). Expressed interest in trying a new Indian restaurant that recently opened in the neighborhood. Heard about a new Indian restaurant that just opened in the neighborhood.\\nHas been meaning to try it out.\\nHeard that their chicken tikka masala is amazing.\"},{\"id\":\"M002\",\"key\":\"HappyCow\",\"description\":\"Here is a memory: At 2023-05-23 19:39:00, Owner: (current user). Planned to explore vegetarian and vegan dining options in County Clare. Intended to check HappyCow for vegetarian and vegan restaurants in County Clare.\\nPlanned to use TripAdvisor for reviews and ratings of veg-friendly restaurants.\\nExpressed excitement about trying the vegetarian and vegan options.\"}]",
+      "summary_memory_inference": "[{\"id\":\"M003\",\"key\":\"HappyCow\",\"description\":\"Here is a memory: At 2023-05-23 19:39:00, Owner:(current user). Planned to explore vegetarian and vegan dining options in County Clare. Intended to check HappyCow for vegetarian and vegan restaurants in County Clare.\\nPlanned to use TripAdvisor for reviews and ratings of veg-friendly restaurants.\\nExpressed excitement about trying the vegetarian and vegan options.\"}]",
+      "summary_impression": "[]",
+      "identifier_mapping_counts": {
+        "memory": 3,
+        "impression": 0
+      }
+    },
+    "other_public_result": "[]",
+    "memories_found": {
+      "primary": 2,
+      "inference": 1,
+      "impression": 0,
+      "other_public": 0,
+      "hydrated": 3
+    },
+    "retrieved_memories": [
+      {
+        "retrieval_bucket": "primary",
+        "identifier": "M001",
+        "memory_id": "bf3c0c70-a0e4-47ee-acf7-3b6534d5a906",
+        "summary_key": "Restaurant",
+        "summary_description": "Here is a memory: At 2023-05-26 20:19:00, Owner: (current user). Expressed interest in trying a new Indian restaurant that recently opened in the neighborhood. Heard about a new Indian restaurant that just opened in the neighborhood.\nHas been meaning to try it out.\nHeard that their chicken tikka masala is amazing.",
+        "time": "2023-05-26T20:19:00",
+        "location": "Unknown",
+        "category": "Lifestyle and Personal Interests",
+        "object": "Indian Restaurant Exploration",
+        "emotion": "thoughtful",
+        "description": "Expressed interest in trying a new Indian restaurant that recently opened in the neighborhood. Heard that their chicken tikka masala is highly recommended.",
+        "details": "Heard about a new Indian restaurant that just opened in the neighborhood.\nHas been meaning to try it out.\nHeard that their chicken tikka masala is amazing.",
+        "keys": "Restaurant",
+        "haystack_session_id": "answer_3f9693b7_abs_2",
+        "eval_session_index": 36,
+        "eval_question_id": "6aeb4375_abs"
+      },
+      {
+        "retrieval_bucket": "primary",
+        "identifier": "M002",
+        "memory_id": "fbc5a3c0-5c34-4b7e-aa85-a1c9501049ca",
+        "summary_key": "HappyCow",
+        "summary_description": "Here is a memory: At 2023-05-23 19:39:00, Owner: (current user). Planned to explore vegetarian and vegan dining options in County Clare. Intended to check HappyCow for vegetarian and vegan restaurants in County Clare.\nPlanned to use TripAdvisor for reviews and ratings of veg-friendly restaurants.\nExpressed excitement about trying the vegetarian and vegan options.",
+        "time": "2023-05-23T19:39:00",
+        "location": "County Clare",
+        "category": "Travel",
+        "object": "Vegetarian and Vegan Dining in County Clare",
+        "emotion": "thoughtful",
+        "description": "Planned to explore vegetarian and vegan dining options in County Clare. Intended to use HappyCow and TripAdvisor to find suitable restaurants. Expressed excitement about trying these veg-friendly establishments.",
+        "details": "Intended to check HappyCow for vegetarian and vegan restaurants in County Clare.\nPlanned to use TripAdvisor for reviews and ratings of veg-friendly restaurants.\nExpressed excitement about trying the vegetarian and vegan options.",
+        "keys": "HappyCow",
+        "haystack_session_id": "ultrachat_181672",
+        "eval_session_index": 34,
+        "eval_question_id": "6aeb4375_abs"
+      },
+      {
+        "retrieval_bucket": "inference",
+        "identifier": "M003",
+        "memory_id": "fbc5a3c0-5c34-4b7e-aa85-a1c9501049ca",
+        "summary_key": "HappyCow",
+        "summary_description": "Here is a memory: At 2023-05-23 19:39:00, Owner:(current user). Planned to explore vegetarian and vegan dining options in County Clare. Intended to check HappyCow for vegetarian and vegan restaurants in County Clare.\nPlanned to use TripAdvisor for reviews and ratings of veg-friendly restaurants.\nExpressed excitement about trying the vegetarian and vegan options.",
+        "time": "2023-05-23T19:39:00",
+        "location": "County Clare",
+        "category": "Travel",
+        "object": "Vegetarian and Vegan Dining in County Clare",
+        "emotion": "thoughtful",
+        "description": "Planned to explore vegetarian and vegan dining options in County Clare. Intended to use HappyCow and TripAdvisor to find suitable restaurants. Expressed excitement about trying these veg-friendly establishments.",
+        "details": "Intended to check HappyCow for vegetarian and vegan restaurants in County Clare.\nPlanned to use TripAdvisor for reviews and ratings of veg-friendly restaurants.\nExpressed excitement about trying the vegetarian and vegan options.",
+        "keys": "HappyCow",
+        "haystack_session_id": "ultrachat_181672",
+        "eval_session_index": 34,
+        "eval_question_id": "6aeb4375_abs"
+      }
+    ],
+    "retrieval_status_messages": [],
+    "query_time_seconds": 1.1786691249999999,
+    "memory_time_seconds": 0.246722041,
+    "perf_entries": [
+      {
+        "name": "memory.single.convert-messages",
+        "ms": 0.02299999999991087
+      },
+      {
+        "name": "memory.single.parse-context",
+        "ms": 0.02958400000011352
+      },
+      {
+        "name": "memory.single.get-query",
+        "ms": 1178.708375
+      },
+      {
+        "name": "memory.single.parse-time-window",
+        "ms": 3.3560419999998885
+      },
+      {
+        "name": "memory.single.parse-time-window-from-query-signal",
+        "ms": 0.13162499999998545
+      },
+      {
+        "name": "memory.single.build-embeddings",
+        "ms": 630.4271250000002
+      },
+      {
+        "name": "memory.single.retrieve-main",
+        "ms": 246.59929199999988
+      },
+      {
+        "name": "memory.single.retrieve-parallel",
+        "ms": 246.77533399999993
+      }
+    ]
+  },
+  "answering": {
+    "hypothesis": "I don't have that information.",
+    "formatted_context_length": 1648,
+    "duration_ms": 460.05,
+    "used_direct_abstention": false
+  },
+  "self_check": {
+    "likelyCorrect": true,
+    "normalizedExpected": "the information provided is not enough. you mentioned trying korean restaurants but not italian restaurants.",
+    "normalizedHypothesis": "i don't have that information.",
+    "reason": "Exact abstention match."
+  }
+}

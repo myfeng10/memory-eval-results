@@ -1,0 +1,160 @@
+{
+  "question_id": "d7c942c3",
+  "question_type": "knowledge-update",
+  "question": "Is my mom using the same grocery list method as me?",
+  "expected_answer": "Yes.",
+  "answer_session_ids": [
+    "answer_eecb10d9_1",
+    "answer_eecb10d9_2"
+  ],
+  "mock_user_id": "72936bb4-2539-5eba-bb1d-875b5e20b5fb",
+  "status": "completed",
+  "copy": {
+    "skipped": true,
+    "existing_memory_count": 135
+  },
+  "retrieval": {
+    "config": {
+      "retrieval_function": "dev_memory_eval_hybrid_retrieval_v2",
+      "impression_function": "dev_impression_object_similar_embedding",
+      "memory_retrieval_strategy": "independent",
+      "keyword_query_passthrough": false
+    },
+    "query_result": {
+      "time_frame": null,
+      "primary_query": "grocery list methods",
+      "inference_query": "comparison of grocery list methods between user and mom",
+      "bandwidth_state": "medium",
+      "interaction_mode": "exploration",
+      "memory_request_mode": "memory_topic",
+      "time_retrieval_mode": "semantic",
+      "wait_for_memory": false,
+      "wait_for_memory_reason": "not-memory-critical",
+      "query_prompt_version": "v2",
+      "primary_keyword_query": null,
+      "inference_keyword_query": null
+    },
+    "raw_memory_result": {
+      "summary_memory_primary": "[{\"id\":\"M002\",\"key\":\"Mom\",\"description\":\"Here is a memory: At 2023-05-01 03:09:00, Owner: (current user). Discovered that mom is using the same grocery list app, allowing for easy sharing and tracking of needed items. Mom is using the same grocery list app.\\nThis allows for easy sharing of lists and tracking of needed items.\\nExpressed appreciation for how technology can make lives easier and bring people closer.\"},{\"id\":\"M003\",\"key\":\"App\",\"description\":\"Here is a memory: At 2023-03-11 20:42:00, Owner: (current user). Started using a new grocery list app to organize ingredients for the dinner party. Using a new grocery list app.\\nThe app is helpful for organizing ingredients.\\nThe app is considered a 'lifesaver'.\\nTried to get a family member to use the app, but they prefer paper lists.\"}]",
+      "summary_memory_inference": "[{\"id\":\"M001\",\"key\":\"Mom\",\"description\":\"Here is a memory: At 2023-05-01 03:09:00, Owner:(current user). Discovered that mom is using the same grocery list app, allowing for easy sharing and tracking of needed items. Mom is using the same grocery list app.\\nThis allows for easy sharing of lists and tracking of needed items.\\nExpressed appreciation for how technology can make lives easier and bring people closer.\"}]",
+      "summary_impression": "[]",
+      "identifier_mapping_counts": {
+        "memory": 3,
+        "impression": 0
+      }
+    },
+    "other_public_result": "[]",
+    "memories_found": {
+      "primary": 2,
+      "inference": 1,
+      "impression": 0,
+      "other_public": 0,
+      "hydrated": 3
+    },
+    "retrieved_memories": [
+      {
+        "retrieval_bucket": "primary",
+        "identifier": "M002",
+        "memory_id": "1246c18c-e4bd-46eb-b7cd-47739e84bf4f",
+        "summary_key": "Mom",
+        "summary_description": "Here is a memory: At 2023-05-01 03:09:00, Owner: (current user). Discovered that mom is using the same grocery list app, allowing for easy sharing and tracking of needed items. Mom is using the same grocery list app.\nThis allows for easy sharing of lists and tracking of needed items.\nExpressed appreciation for how technology can make lives easier and bring people closer.",
+        "time": "2023-05-01T03:09:00",
+        "location": "Unknown",
+        "category": "People",
+        "object": "Shared Grocery List App",
+        "emotion": "happy",
+        "description": "Discovered that mom is using the same grocery list app, allowing for easy sharing and tracking of needed items. Appreciated the convenience and connection this technology provides.",
+        "details": "Mom is using the same grocery list app.\nThis allows for easy sharing of lists and tracking of needed items.\nExpressed appreciation for how technology can make lives easier and bring people closer.",
+        "keys": "Mom",
+        "haystack_session_id": "answer_eecb10d9_2",
+        "eval_session_index": 36,
+        "eval_question_id": "d7c942c3"
+      },
+      {
+        "retrieval_bucket": "primary",
+        "identifier": "M003",
+        "memory_id": "be942e6b-2a39-411a-840e-2d66ca3cf9d0",
+        "summary_key": "App",
+        "summary_description": "Here is a memory: At 2023-03-11 20:42:00, Owner: (current user). Started using a new grocery list app to organize ingredients for the dinner party. Using a new grocery list app.\nThe app is helpful for organizing ingredients.\nThe app is considered a 'lifesaver'.\nTried to get a family member to use the app, but they prefer paper lists.",
+        "time": "2023-03-11T20:42:00",
+        "location": "Unknown",
+        "category": "Technology and Innovation",
+        "object": "Grocery List App",
+        "emotion": "happy",
+        "description": "Started using a new grocery list app to organize ingredients for the dinner party. Found the app to be very helpful and a lifesaver for keeping track of necessary items. Attempted to convince a family member to use the app, but they prefer a paper list.",
+        "details": "Using a new grocery list app.\nThe app is helpful for organizing ingredients.\nThe app is considered a 'lifesaver'.\nTried to get a family member to use the app, but they prefer paper lists.",
+        "keys": "App",
+        "haystack_session_id": "answer_eecb10d9_1",
+        "eval_session_index": 1,
+        "eval_question_id": "d7c942c3"
+      },
+      {
+        "retrieval_bucket": "inference",
+        "identifier": "M001",
+        "memory_id": "1246c18c-e4bd-46eb-b7cd-47739e84bf4f",
+        "summary_key": "Mom",
+        "summary_description": "Here is a memory: At 2023-05-01 03:09:00, Owner:(current user). Discovered that mom is using the same grocery list app, allowing for easy sharing and tracking of needed items. Mom is using the same grocery list app.\nThis allows for easy sharing of lists and tracking of needed items.\nExpressed appreciation for how technology can make lives easier and bring people closer.",
+        "time": "2023-05-01T03:09:00",
+        "location": "Unknown",
+        "category": "People",
+        "object": "Shared Grocery List App",
+        "emotion": "happy",
+        "description": "Discovered that mom is using the same grocery list app, allowing for easy sharing and tracking of needed items. Appreciated the convenience and connection this technology provides.",
+        "details": "Mom is using the same grocery list app.\nThis allows for easy sharing of lists and tracking of needed items.\nExpressed appreciation for how technology can make lives easier and bring people closer.",
+        "keys": "Mom",
+        "haystack_session_id": "answer_eecb10d9_2",
+        "eval_session_index": 36,
+        "eval_question_id": "d7c942c3"
+      }
+    ],
+    "retrieval_status_messages": [],
+    "query_time_seconds": 1.1047576249999984,
+    "memory_time_seconds": 0.12500054199999977,
+    "perf_entries": [
+      {
+        "name": "memory.single.convert-messages",
+        "ms": 0.011375000000043656
+      },
+      {
+        "name": "memory.single.parse-context",
+        "ms": 0.005042000000685221
+      },
+      {
+        "name": "memory.single.get-query",
+        "ms": 1104.7756670000017
+      },
+      {
+        "name": "memory.single.parse-time-window",
+        "ms": 0.5207910000008269
+      },
+      {
+        "name": "memory.single.parse-time-window-from-query-signal",
+        "ms": 0.0006670000002486631
+      },
+      {
+        "name": "memory.single.build-embeddings",
+        "ms": 205.24925000000076
+      },
+      {
+        "name": "memory.single.retrieve-main",
+        "ms": 124.95458299999882
+      },
+      {
+        "name": "memory.single.retrieve-parallel",
+        "ms": 125.00662499999999
+      }
+    ]
+  },
+  "answering": {
+    "hypothesis": "Yes.",
+    "formatted_context_length": 1049,
+    "duration_ms": 734.21,
+    "used_direct_abstention": false
+  },
+  "self_check": {
+    "likelyCorrect": true,
+    "normalizedExpected": "yes.",
+    "normalizedHypothesis": "yes.",
+    "reason": "Normalized containment match."
+  }
+}

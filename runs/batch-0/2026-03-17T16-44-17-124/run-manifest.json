@@ -1,0 +1,54 @@
+{
+  "run_id": "2026-03-17T16-44-17-124",
+  "command": "eval",
+  "benchmark": "longmemeval_s_cleaned",
+  "batch": 0,
+  "started_at": "2026-03-17T23:44:16.178Z",
+  "finished_at": "2026-03-17T23:44:19.846Z",
+  "dry_run": false,
+  "question_ids": [
+    "d7c942c3"
+  ],
+  "total_questions": 1,
+  "completed": 1,
+  "failed": 0,
+  "config": {
+    "batch": 0,
+    "memory_retrieval_strategy": "independent",
+    "retrieval_function": "dev_memory_eval_hybrid_retrieval_v2",
+    "impression_function": "dev_impression_object_similar_embedding",
+    "extraction_prompt_version": "v2",
+    "answer_model": "gemini-2.5-flash",
+    "keyword_query_passthrough": false,
+    "details_format": "newline_joined",
+    "skip_copy": true,
+    "answer_profile": "dev",
+    "requested_question_ids": [
+      "d7c942c3"
+    ]
+  },
+  "stats": {
+    "run_id": "2026-03-17T16-44-17-124",
+    "batch": 0,
+    "total_requested": 1,
+    "completed": 1,
+    "failed": 0,
+    "overall_accuracy": 1,
+    "abstention_accuracy": {
+      "total": 0,
+      "correct": 0,
+      "accuracy": null
+    },
+    "scores_by_type": {
+      "knowledge-update": {
+        "total": 1,
+        "correct": 1,
+        "accuracy": 1
+      }
+    },
+    "avg_query_time_seconds": 0.9515,
+    "avg_memory_time_seconds": 0.1701,
+    "avg_answer_time_ms": 781.83,
+    "avg_retrieved_memories": 3
+  }
+}

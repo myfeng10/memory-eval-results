@@ -1,0 +1,160 @@
+{
+  "question_id": "852ce960",
+  "question_type": "knowledge-update",
+  "question": "What was the amount I was pre-approved for when I got my mortgage from Wells Fargo?",
+  "expected_answer": "$400,000",
+  "answer_session_ids": [
+    "answer_3a6f1e82_1",
+    "answer_3a6f1e82_2"
+  ],
+  "mock_user_id": "31d28257-453e-5fbb-8715-c086c41eefc0",
+  "status": "completed",
+  "copy": {
+    "skipped": true,
+    "existing_memory_count": 89
+  },
+  "retrieval": {
+    "config": {
+      "retrieval_function": "dev_memory_eval_hybrid_retrieval_v2",
+      "impression_function": "dev_impression_object_similar_embedding",
+      "memory_retrieval_strategy": "independent",
+      "keyword_query_passthrough": false
+    },
+    "query_result": {
+      "time_frame": null,
+      "primary_query": "Wells Fargo mortgage pre-approval amount",
+      "inference_query": "Wells Fargo mortgage application details",
+      "bandwidth_state": "medium",
+      "interaction_mode": "exploration",
+      "memory_request_mode": "direct_recall",
+      "time_retrieval_mode": "semantic",
+      "wait_for_memory": true,
+      "wait_for_memory_reason": "past-tense-question",
+      "query_prompt_version": "v2",
+      "primary_keyword_query": "pre-approved Wells Fargo",
+      "inference_keyword_query": null
+    },
+    "raw_memory_result": {
+      "summary_memory_primary": "[{\"id\":\"M002\",\"key\":\"Budget\",\"description\":\"Here is a memory: At 2023-08-11 07:01:00, Owner: (current user). In the process of buying a new home, trying to finalize the budget. Buying a new home.\\nFinalizing budget.\\nRequested help estimating closing costs.\\nHouse purchase price: $325,000.\\nPre-approved for $350,000 from Wells Fargo.\\nEstimated closing costs: $11,332 to $20,322.\\nEstimated closing costs as percentage of purchase price: 3.5% to 6.2%.\"},{\"id\":\"M003\",\"key\":\"Monthly\",\"description\":\"Here is a memory: At 2023-08-11 07:01:00, Owner: (current user). Requested an estimate for the monthly mortgage payment, property taxes, and insurance for the new home. Requested estimate for monthly mortgage payment, property taxes, and insurance.\\nLoan amount: $300,000 (from $325,000 purchase price minus $25,000 down payment).\\nAssumed interest rate: 4% (30-year fixed-rate mortgage).\\nEstimated monthly mortgage payment: $1,432.\\nAssumed property tax rate: 1.25% of purchase price.\\nEstimated monthly property taxes: $338.54.\\nAssumed homeowners insurance rate: 0.8% of purchase price.\\nEstimated monthly insurance premium: $216.67.\\nTotal estimated monthly payment: $1,987.21.\"}]",
+      "summary_memory_inference": "[{\"id\":\"M001\",\"key\":\"Budget\",\"description\":\"Here is a memory: At 2023-08-11 07:01:00, Owner:(current user). In the process of buying a new home, trying to finalize the budget. Buying a new home.\\nFinalizing budget.\\nRequested help estimating closing costs.\\nHouse purchase price: $325,000.\\nPre-approved for $350,000 from Wells Fargo.\\nEstimated closing costs: $11,332 to $20,322.\\nEstimated closing costs as percentage of purchase price: 3.5% to 6.2%.\"}]",
+      "summary_impression": "[]",
+      "identifier_mapping_counts": {
+        "memory": 3,
+        "impression": 0
+      }
+    },
+    "other_public_result": "[]",
+    "memories_found": {
+      "primary": 2,
+      "inference": 1,
+      "impression": 0,
+      "other_public": 0,
+      "hydrated": 3
+    },
+    "retrieved_memories": [
+      {
+        "retrieval_bucket": "primary",
+        "identifier": "M002",
+        "memory_id": "8cbeabc0-51a7-4447-abed-fff313b8ee0a",
+        "summary_key": "Budget",
+        "summary_description": "Here is a memory: At 2023-08-11 07:01:00, Owner: (current user). In the process of buying a new home, trying to finalize the budget. Buying a new home.\nFinalizing budget.\nRequested help estimating closing costs.\nHouse purchase price: $325,000.\nPre-approved for $350,000 from Wells Fargo.\nEstimated closing costs: $11,332 to $20,322.\nEstimated closing costs as percentage of purchase price: 3.5% to 6.2%.",
+        "time": "2023-08-11T07:01:00",
+        "location": "Unknown",
+        "category": "Lifestyle and Personal Interests",
+        "object": "Home Purchase Budget",
+        "emotion": "thoughtful",
+        "description": "In the process of buying a new home, trying to finalize the budget. Requested assistance in estimating closing costs for a $325,000 house, having been pre-approved for a $350,000 loan from Wells Fargo. Received a detailed breakdown of estimated closing costs, ranging from $11,332 to $20,322, or approximately 3.5% to 6.2% of the purchase price.",
+        "details": "Buying a new home.\nFinalizing budget.\nRequested help estimating closing costs.\nHouse purchase price: $325,000.\nPre-approved for $350,000 from Wells Fargo.\nEstimated closing costs: $11,332 to $20,322.\nEstimated closing costs as percentage of purchase price: 3.5% to 6.2%.",
+        "keys": "Budget",
+        "haystack_session_id": "answer_3a6f1e82_1",
+        "eval_session_index": 2,
+        "eval_question_id": "852ce960"
+      },
+      {
+        "retrieval_bucket": "primary",
+        "identifier": "M003",
+        "memory_id": "04e03d86-ecfc-455c-9f46-3fd1b279029a",
+        "summary_key": "Monthly",
+        "summary_description": "Here is a memory: At 2023-08-11 07:01:00, Owner: (current user). Requested an estimate for the monthly mortgage payment, property taxes, and insurance for the new home. Requested estimate for monthly mortgage payment, property taxes, and insurance.\nLoan amount: $300,000 (from $325,000 purchase price minus $25,000 down payment).\nAssumed interest rate: 4% (30-year fixed-rate mortgage).\nEstimated monthly mortgage payment: $1,432.\nAssumed property tax rate: 1.25% of purchase price.\nEstimated monthly property taxes: $338.54.\nAssumed homeowners insurance rate: 0.8% of purchase price.\nEstimated monthly insurance premium: $216.67.\nTotal estimated monthly payment: $1,987.21.",
+        "time": "2023-08-11T07:01:00",
+        "location": "Unknown",
+        "category": "Lifestyle and Personal Interests",
+        "object": "Monthly Home Payment Estimate",
+        "emotion": "thoughtful",
+        "description": "Requested an estimate for the monthly mortgage payment, property taxes, and insurance for the new home. Based on a $300,000 loan amount (after a $25,000 down payment on a $325,000 purchase price), a 4% interest rate, 1.25% property tax rate, and 0.8% homeowners insurance rate, the total estimated monthly payment is approximately $1,987.21.",
+        "details": "Requested estimate for monthly mortgage payment, property taxes, and insurance.\nLoan amount: $300,000 (from $325,000 purchase price minus $25,000 down payment).\nAssumed interest rate: 4% (30-year fixed-rate mortgage).\nEstimated monthly mortgage payment: $1,432.\nAssumed property tax rate: 1.25% of purchase price.\nEstimated monthly property taxes: $338.54.\nAssumed homeowners insurance rate: 0.8% of purchase price.\nEstimated monthly insurance premium: $216.67.\nTotal estimated monthly payment: $1,987.21.",
+        "keys": "Monthly",
+        "haystack_session_id": "answer_3a6f1e82_1",
+        "eval_session_index": 2,
+        "eval_question_id": "852ce960"
+      },
+      {
+        "retrieval_bucket": "inference",
+        "identifier": "M001",
+        "memory_id": "8cbeabc0-51a7-4447-abed-fff313b8ee0a",
+        "summary_key": "Budget",
+        "summary_description": "Here is a memory: At 2023-08-11 07:01:00, Owner:(current user). In the process of buying a new home, trying to finalize the budget. Buying a new home.\nFinalizing budget.\nRequested help estimating closing costs.\nHouse purchase price: $325,000.\nPre-approved for $350,000 from Wells Fargo.\nEstimated closing costs: $11,332 to $20,322.\nEstimated closing costs as percentage of purchase price: 3.5% to 6.2%.",
+        "time": "2023-08-11T07:01:00",
+        "location": "Unknown",
+        "category": "Lifestyle and Personal Interests",
+        "object": "Home Purchase Budget",
+        "emotion": "thoughtful",
+        "description": "In the process of buying a new home, trying to finalize the budget. Requested assistance in estimating closing costs for a $325,000 house, having been pre-approved for a $350,000 loan from Wells Fargo. Received a detailed breakdown of estimated closing costs, ranging from $11,332 to $20,322, or approximately 3.5% to 6.2% of the purchase price.",
+        "details": "Buying a new home.\nFinalizing budget.\nRequested help estimating closing costs.\nHouse purchase price: $325,000.\nPre-approved for $350,000 from Wells Fargo.\nEstimated closing costs: $11,332 to $20,322.\nEstimated closing costs as percentage of purchase price: 3.5% to 6.2%.",
+        "keys": "Budget",
+        "haystack_session_id": "answer_3a6f1e82_1",
+        "eval_session_index": 2,
+        "eval_question_id": "852ce960"
+      }
+    ],
+    "retrieval_status_messages": [],
+    "query_time_seconds": 1.0001870420000005,
+    "memory_time_seconds": 0.2166023329999998,
+    "perf_entries": [
+      {
+        "name": "memory.single.convert-messages",
+        "ms": 0.005625000000236469
+      },
+      {
+        "name": "memory.single.parse-context",
+        "ms": 0.0025829999999587017
+      },
+      {
+        "name": "memory.single.get-query",
+        "ms": 1000.1952499999998
+      },
+      {
+        "name": "memory.single.parse-time-window",
+        "ms": 2.7305420000002414
+      },
+      {
+        "name": "memory.single.parse-time-window-from-query-signal",
+        "ms": 0.0017910000005940674
+      },
+      {
+        "name": "memory.single.build-embeddings",
+        "ms": 224.8623749999997
+      },
+      {
+        "name": "memory.single.retrieve-main",
+        "ms": 216.46491699999933
+      },
+      {
+        "name": "memory.single.retrieve-parallel",
+        "ms": 216.61420799999996
+      }
+    ]
+  },
+  "answering": {
+    "hypothesis": "$350,000",
+    "formatted_context_length": 2542,
+    "duration_ms": 435.29,
+    "used_direct_abstention": false
+  },
+  "self_check": {
+    "likelyCorrect": false,
+    "normalizedExpected": "$400,000",
+    "normalizedHypothesis": "$350,000",
+    "reason": "Normalized strings do not contain each other."
+  }
+}

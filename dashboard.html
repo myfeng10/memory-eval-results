@@ -1,0 +1,1178 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Memory Eval Dashboard</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f4f1ea;
+      --panel: #fffdf8;
+      --ink: #1f2a1f;
+      --muted: #5d6b61;
+      --line: #d6d0c4;
+      --accent: #1c6b52;
+      --accent-soft: #e6f3ee;
+      --tag: #edf2ef;
+      --bad: #9b2c2c;
+      --good: #1f6f43;
+    }
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      background: linear-gradient(180deg, #efe9de 0%, var(--bg) 100%);
+      color: var(--ink);
+    }
+    .wrap {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 32px 24px 48px;
+    }
+    h1, h2 {
+      margin: 0 0 16px;
+      letter-spacing: 0.02em;
+    }
+    p, li {
+      color: var(--muted);
+    }
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 8px 24px rgba(45, 59, 49, 0.06);
+      margin-bottom: 20px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .card-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .card-value {
+      font-size: 18px;
+      line-height: 1.4;
+      word-break: break-word;
+    }
+    .controls {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .button-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .section-head h2 {
+      margin: 0;
+    }
+    button, .button-link {
+      appearance: none;
+      border: 1px solid var(--line);
+      background: white;
+      color: var(--ink);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font: inherit;
+      cursor: pointer;
+    }
+    button.active {
+      background: var(--accent-soft);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .reason-table-button {
+      appearance: none;
+      border: none;
+      background: transparent;
+      padding: 0;
+      cursor: pointer;
+    }
+    input[type="search"] {
+      width: min(420px, 100%);
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: white;
+      font: inherit;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    th, td {
+      text-align: left;
+      vertical-align: top;
+      padding: 10px 8px;
+      border-top: 1px solid var(--line);
+    }
+    th {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      border-top: none;
+    }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    code {
+      font-family: "SFMono-Regular", Consolas, monospace;
+      font-size: 12px;
+      background: #f3efe6;
+      padding: 2px 4px;
+      border-radius: 6px;
+    }
+    .tag {
+      display: inline-block;
+      margin: 2px 6px 2px 0;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: var(--tag);
+      border: 1px solid var(--line);
+      font-size: 12px;
+      white-space: nowrap;
+    }
+    .tag.muted {
+      color: var(--muted);
+    }
+    .tag-hit {
+      background: #dff3e7;
+      border-color: #74a98a;
+      color: #1f6f43;
+      font-weight: 700;
+    }
+    .tag-miss {
+      background: #fdecec;
+      border-color: #d79a9a;
+      color: #9b2c2c;
+      font-weight: 600;
+    }
+    .tag-coverage-warn {
+      background: #fff2d9;
+      border-color: #d3ab55;
+      color: #8a5a00;
+      font-weight: 700;
+    }
+    .tag-priority-miss {
+      background: #8f1d1d;
+      border-color: #681313;
+      color: #fff8f8;
+      font-weight: 700;
+    }
+    .tag-neutral {
+      background: #efe9de;
+      border-color: #cfc1aa;
+      color: #6a5b49;
+    }
+    .tag-muted {
+      background: #f3efe6;
+      border-color: #d6d0c4;
+      color: var(--muted);
+    }
+    .group-chip {
+      display: inline-block;
+      padding: 3px 9px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: #f6f1e8;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-right: 8px;
+    }
+    .current-group-row td {
+      background: #fbf8f1;
+      border-top: 1px solid var(--line);
+      padding-top: 12px;
+      padding-bottom: 8px;
+    }
+    .current-question-row.priority-reason td:first-child {
+      border-left: 4px solid #8f1d1d;
+      padding-left: 12px;
+    }
+    .current-question-row.miss-reason td:first-child {
+      border-left: 4px solid #d79a9a;
+      padding-left: 12px;
+    }
+    .current-question-row.hit-reason td:first-child {
+      border-left: 4px solid #74a98a;
+      padding-left: 12px;
+    }
+    .question-cell {
+      min-width: 320px;
+    }
+    #currentBatchTable {
+      table-layout: fixed;
+    }
+    #currentBatchTable col.current-col-id {
+      width: 9%;
+    }
+    #currentBatchTable col.current-col-run {
+      width: 10%;
+    }
+    #currentBatchTable col.current-col-profile {
+      width: 5%;
+    }
+    #currentBatchTable col.current-col-result {
+      width: 5%;
+    }
+    #currentBatchTable col.current-col-files {
+      width: 7%;
+    }
+    #currentBatchTable col.current-col-reason {
+      width: 28%;
+    }
+    #currentBatchTable col.current-col-prompt {
+      width: 24%;
+    }
+    #currentBatchTable col.current-col-history {
+      width: 12%;
+    }
+    #currentBatchTable th,
+    #currentBatchTable td {
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+    #currentBatchTable .current-col-id,
+    #currentBatchTable .current-col-run,
+    #currentBatchTable .current-col-profile,
+    #currentBatchTable .current-col-result,
+    #currentBatchTable .current-col-files,
+    #currentBatchTable .current-col-history {
+      font-size: 13px;
+    }
+    #currentBatchTable .current-col-files,
+    #currentBatchTable .current-col-history {
+      line-height: 1.5;
+    }
+    #currentBatchTable .current-col-id code,
+    #currentBatchTable .current-col-result,
+    #currentBatchTable .current-col-files a {
+      white-space: nowrap;
+    }
+    #currentBatchTable .current-col-history .tag {
+      white-space: normal;
+    }
+    #currentBatchTable .question-cell {
+      min-width: 0;
+    }
+    .small {
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .status-ok {
+      color: var(--good);
+      font-weight: 600;
+    }
+    .status-miss {
+      color: var(--bad);
+      font-weight: 600;
+    }
+    .history-extra {
+      display: none;
+      margin-top: 6px;
+    }
+    body.show-history .history-extra {
+      display: block;
+    }
+    @media (max-width: 900px) {
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+      thead {
+        display: none;
+      }
+      tr {
+        border-top: 1px solid var(--line);
+        padding: 8px 0;
+      }
+      td {
+        border: none;
+        padding: 4px 0;
+      }
+      td::before {
+        content: attr(data-label);
+        display: block;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--muted);
+        margin-bottom: 2px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Memory Eval Dashboard</h1>
+    <p>Generated from <code>/Users/openclaw/Desktop/memory-eval-results</code>. This page is rebuilt from run manifests and debug files so you can see reruns of the same question in one place.</p>
+
+    <div class="grid">
+      <div class="panel">
+        <div class="card-label">Latest Real Eval</div>
+        <div class="card-value"><a href="runs/batch-0/2026-03-17T16-44-17-124/run-manifest.json">2026-03-17T16-44-17-124</a></div>
+      </div>
+      <div class="panel">
+        <div class="card-label">Latest Full Eval</div>
+        <div class="card-value"><a href="runs/batch-0/2026-03-17T15-43-07-808/run-manifest.json">2026-03-17T15-43-07-808</a></div>
+      </div>
+      <div class="panel">
+        <div class="card-label">Total Runs Indexed</div>
+        <div class="card-value">19</div>
+      </div>
+      <div class="panel">
+        <div class="card-label">Current Batch Score</div>
+        <div class="card-value">12/24 (0.5)</div>
+      </div>
+      <div class="panel">
+        <div class="card-label">Current Batch Analysis</div>
+        <div class="card-value">
+          <a href="current-batch-analysis.md">markdown</a>
+          ·
+          <a href="current-batch-analysis.json">json</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h2>Type Overview</h2>
+      <p class="small">This is the synthesized current-batch view: for each question, the latest real rerun is treated as the one to look at.</p>
+      <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Hit</th>
+        <th>Total</th>
+        <th>Accuracy</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+            <td>knowledge update</td>
+            <td>3</td>
+            <td>4</td>
+            <td>0.75</td>
+          </tr>
+<tr>
+            <td>multi session</td>
+            <td>0</td>
+            <td>4</td>
+            <td>0</td>
+          </tr>
+<tr>
+            <td>single session assistant</td>
+            <td>2</td>
+            <td>4</td>
+            <td>0.5</td>
+          </tr>
+<tr>
+            <td>single session preference</td>
+            <td>0</td>
+            <td>4</td>
+            <td>0</td>
+          </tr>
+<tr>
+            <td>single session user</td>
+            <td>4</td>
+            <td>4</td>
+            <td>1</td>
+          </tr>
+<tr>
+            <td>temporal reasoning</td>
+            <td>3</td>
+            <td>4</td>
+            <td>0.75</td>
+          </tr>
+    </tbody>
+  </table>
+    </div>
+
+    <div class="panel">
+      <div class="section-head">
+        <h2>Reason Overview</h2>
+        <button type="button" id="clearReasonFilter">clear reason filter</button>
+      </div>
+      <p class="small">These reason buckets are heuristic triage labels for the synthesized current batch.</p>
+      <table>
+    <thead>
+      <tr>
+        <th>Reason</th>
+        <th>Count</th>
+        <th>Meaning</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="hit-reason">
+            <td><button type="button" class="reason-table-button" data-reason-filter="direct-evidence-hit"><span class="tag tag-hit">direct-evidence-hit</span></button></td>
+            <td>9</td>
+            <td class="question-cell">The answer session was retrieved and the final answer matched. This is the cleanest success case.</td>
+          </tr>
+<tr class="priority-reason">
+            <td><button type="button" class="reason-table-button" data-reason-filter="retrieval-off-target-or-incomplete"><span class="tag tag-priority-miss">retrieval-off-target-or-incomplete</span></button></td>
+            <td>7</td>
+            <td class="question-cell">Some memories were retrieved, but not the answer session. Usually a relevance, recall, or ranking problem.</td>
+          </tr>
+<tr class="hit-reason">
+            <td><button type="button" class="reason-table-button" data-reason-filter="correct-abstention"><span class="tag tag-hit">correct-abstention</span></button></td>
+            <td>3</td>
+            <td class="question-cell">The benchmark expected no answer, and the system correctly abstained.</td>
+          </tr>
+<tr class="priority-reason">
+            <td><button type="button" class="reason-table-button" data-reason-filter="explicit-time-window-miss"><span class="tag tag-priority-miss">explicit-time-window-miss</span></button></td>
+            <td>2</td>
+            <td class="question-cell">An explicit time window was applied, but the final top-k excluded the answer session. Often a windowing plus ranking loss.</td>
+          </tr>
+<tr class="miss-reason">
+            <td><button type="button" class="reason-table-button" data-reason-filter="answer-ignored-direct-evidence"><span class="tag tag-miss">answer-ignored-direct-evidence</span></button></td>
+            <td>1</td>
+            <td class="question-cell">All benchmark answer sessions were retrieved, but the answer still abstained. Usually points to answer prompting or context handoff.</td>
+          </tr>
+<tr class="miss-reason">
+            <td><button type="button" class="reason-table-button" data-reason-filter="answer-misused-retrieved-evidence"><span class="tag tag-miss">answer-misused-retrieved-evidence</span></button></td>
+            <td>1</td>
+            <td class="question-cell">All benchmark answer sessions were retrieved, but the final answer still used the evidence incorrectly or incompletely.</td>
+          </tr>
+<tr class="priority-reason">
+            <td><button type="button" class="reason-table-button" data-reason-filter="retrieval-partial-or-off-target"><span class="tag tag-priority-miss">retrieval-partial-or-off-target</span></button></td>
+            <td>1</td>
+            <td class="question-cell">Retrieval found something nearby, but broadened or reranked away from the memory that the answer needed.</td>
+          </tr>
+    </tbody>
+  </table>
+    </div>
+
+    <div class="panel">
+      <h2>Current Batch</h2>
+      <p class="small">Questions are grouped by type and use the latest real evaluation for each question. Older reruns stay available in the history tags.</p>
+      <div class="controls">
+        <input id="runSearch" type="search" placeholder="Filter runs or question IDs..." />
+        <button type="button" class="active" data-result-filter="all">all results</button>
+        <button type="button" data-result-filter="ok">ok only</button>
+        <button type="button" data-result-filter="miss">miss only</button>
+        <button type="button" id="historyToggle">show rerun history</button>
+      </div>
+      <table id="currentBatchTable">
+        <colgroup>
+          <col class="current-col-id" />
+          <col class="current-col-run" />
+          <col class="current-col-profile" />
+          <col class="current-col-result" />
+          <col class="current-col-files" />
+          <col class="current-col-reason" />
+          <col class="current-col-prompt" />
+          <col class="current-col-history" />
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Question</th>
+            <th>Latest Run</th>
+            <th>Profile</th>
+            <th>Result</th>
+            <th>Files</th>
+            <th>Reason</th>
+            <th>Prompt</th>
+            <th>History</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="current-group-row" data-group-type="knowledge-update">
+                <td colspan="8">
+                  <span class="group-chip">knowledge update</span>
+                  <span class="small">3/4</span>
+                </td>
+              </tr><tr class="current-question-row hit-reason" data-type="knowledge-update" data-reason="direct-evidence-hit" data-result="ok">
+          <td class="current-col-id"><code>2133c1b5</code></td>
+          <td class="current-col-run">2026-03-17T16-29-30-670</td>
+          <td class="current-col-profile">-</td>
+          <td class="current-col-result status-ok">ok</td>
+          <td class="current-col-files"><a href="runs/batch-0/2026-03-17T16-29-30-670/run-manifest.json">run</a> <a href="question-pages/batch-0/2026-03-17T16-29-30-670/2133c1b5.html">view</a> <a href="runs/batch-0/2026-03-17T16-29-30-670/debug/2133c1b5.json">raw</a></td>
+          <td class="question-cell current-col-reason"><div><span class="tag tag-hit">direct-evidence-hit</span></div><div class="small">Retrieved all answer sessions (answer_52382508_1, answer_52382508_2) and produced a matching answer.</div></td>
+          <td class="question-cell current-col-prompt">How long have I been living in my current apartment in Harajuku?</td>
+          <td class="question-cell current-col-history">
+            <div><a class="tag tag-hit" href="question-pages/batch-0/2026-03-17T16-29-30-670/2133c1b5.html" title="question: 2133c1b5 | run: 2026-03-17T16-29-30-670 | hypothesis: 3 months.">16-29-30 | ok</a></div>
+            <div class="history-extra"><a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T16-26-10-952/2133c1b5.html" title="question: 2133c1b5 | run: 2026-03-17T16-26-10-952 | hypothesis: 6 months.">16-26-10 | miss</a> <a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T16-11-17-651/2133c1b5.html" title="question: 2133c1b5 | run: 2026-03-17T16-11-17-651 | hypothesis: I don&#39;t have that information.">16-11-17 | miss</a> <a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T15-43-07-808/2133c1b5.html" title="question: 2133c1b5 | run: 2026-03-17T15-43-07-808 | hypothesis: Three months.">15-43-07 | miss</a> <a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T15-40-25-520/2133c1b5.html" title="question: 2133c1b5 | run: 2026-03-17T15-40-25-520 | hypothesis: Three months.">15-40-25 | miss</a> <span class="tag tag-neutral" title="question: 2133c1b5 | run: 2026-03-17T15-39-56-951">15-39-56</span> <span class="tag tag-muted" title="question: 2133c1b5 | run: 2026-03-17T14-41-11-533">14-41-11 | dry</span> <span class="tag tag-muted" title="question: 2133c1b5 | run: 2026-03-17T14-38-48">14-38-48 | dry</span></div>
+          </td>
+        </tr>
+<tr class="current-question-row hit-reason" data-type="knowledge-update" data-reason="correct-abstention" data-result="ok">
+          <td class="current-col-id"><code>6aeb4375_abs</code></td>
+          <td class="current-col-run">2026-03-17T15-43-07-808</td>
+          <td class="current-col-profile">-</td>
+          <td class="current-col-result status-ok">ok</td>
+          <td class="current-col-files"><a href="runs/batch-0/2026-03-17T15-43-07-808/run-manifest.json">run</a> <a href="question-pages/batch-0/2026-03-17T15-43-07-808/6aeb4375_abs.html">view</a> <a href="runs/batch-0/2026-03-17T15-43-07-808/debug/6aeb4375_abs.json">raw</a></td>
+          <td class="question-cell current-col-reason"><div><span class="tag tag-hit">correct-abstention</span></div><div><span class="tag tag-coverage-warn">partial coverage 1/2</span></div><div class="small">Correctly abstained because the benchmark answer for this case is no-information.</div></td>
+          <td class="question-cell current-col-prompt">How many Italian restaurants have I tried in my city?</td>
+          <td class="question-cell current-col-history">
+            <div><a class="tag tag-hit" href="question-pages/batch-0/2026-03-17T15-43-07-808/6aeb4375_abs.html" title="question: 6aeb4375_abs | run: 2026-03-17T15-43-07-808 | hypothesis: I don&#39;t have that information.">15-43-07 | ok</a></div>
+            <div class="history-extra"><a class="tag tag-hit" href="question-pages/batch-0/2026-03-17T15-40-25-520/6aeb4375_abs.html" title="question: 6aeb4375_abs | run: 2026-03-17T15-40-25-520 | hypothesis: I don&#39;t have that information.">15-40-25 | ok</a> <span class="tag tag-neutral" title="question: 6aeb4375_abs | run: 2026-03-17T15-39-56-951">15-39-56</span> <span class="tag tag-muted" title="question: 6aeb4375_abs | run: 2026-03-17T14-41-11-533">14-41-11 | dry</span> <span class="tag tag-muted" title="question: 6aeb4375_abs | run: 2026-03-17T14-38-48">14-38-48 | dry</span></div>
+          </td>
+        </tr>
+<tr class="current-question-row priority-reason" data-type="knowledge-update" data-reason="retrieval-off-target-or-incomplete" data-result="miss">
+          <td class="current-col-id"><code>852ce960</code></td>
+          <td class="current-col-run">2026-03-17T15-43-07-808</td>
+          <td class="current-col-profile">-</td>
+          <td class="current-col-result status-miss">miss</td>
+          <td class="current-col-files"><a href="runs/batch-0/2026-03-17T15-43-07-808/run-manifest.json">run</a> <a href="question-pages/batch-0/2026-03-17T15-43-07-808/852ce960.html">view</a> <a href="runs/batch-0/2026-03-17T15-43-07-808/debug/852ce960.json">raw</a></td>
+          <td class="question-cell current-col-reason"><div><span class="tag tag-priority-miss">retrieval-off-target-or-incomplete</span></div><div><span class="tag tag-coverage-warn">partial coverage 1/2</span></div><div class="small">Retrieved 3 memories, but only part of the answer-session set was covered (answer_3a6f1e82_1 of answer_3a6f1e82_1, answer_3a6f1e82_2).</div></td>
+          <td class="question-cell current-col-prompt">What was the amount I was pre-approved for when I got my mortgage from Wells Fargo?</td>
+          <td class="question-cell current-col-history">
+            <div><a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T15-43-07-808/852ce960.html" title="question: 852ce960 | run: 2026-03-17T15-43-07-808 | hypothesis: $350,000">15-43-07 | miss</a></div>
+            <div class="history-extra"><a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T15-40-25-520/852ce960.html" title="question: 852ce960 | run: 2026-03-17T15-40-25-520 | hypothesis: $350,000">15-40-25 | miss</a> <span class="tag tag-neutral" title="question: 852ce960 | run: 2026-03-17T15-39-56-951">15-39-56</span> <span class="tag tag-muted" title="question: 852ce960 | run: 2026-03-17T14-41-11-533">14-41-11 | dry</span> <span class="tag tag-muted" title="question: 852ce960 | run: 2026-03-17T14-38-48">14-38-48 | dry</span></div>
+          </td>
+        </tr>
+<tr class="current-question-row hit-reason" data-type="knowledge-update" data-reason="direct-evidence-hit" data-result="ok">
+          <td class="current-col-id"><code>d7c942c3</code></td>
+          <td class="current-col-run">2026-03-17T16-44-17-124</td>
+          <td class="current-col-profile">dev</td>
+          <td class="current-col-result status-ok">ok</td>
+          <td class="current-col-files"><a href="runs/batch-0/2026-03-17T16-44-17-124/run-manifest.json">run</a> <a href="question-pages/batch-0/2026-03-17T16-44-17-124/d7c942c3.html">view</a> <a href="runs/batch-0/2026-03-17T16-44-17-124/debug/d7c942c3.json">raw</a></td>
+          <td class="question-cell current-col-reason"><div><span class="tag tag-hit">direct-evidence-hit</span></div><div class="small">Retrieved all answer sessions (answer_eecb10d9_1, answer_eecb10d9_2) and produced a matching answer.</div></td>
+          <td class="question-cell current-col-prompt">Is my mom using the same grocery list method as me?</td>
+          <td class="question-cell current-col-history">
+            <div><a class="tag tag-hit" href="question-pages/batch-0/2026-03-17T16-44-17-124/d7c942c3.html" title="question: d7c942c3 | run: 2026-03-17T16-44-17-124 | hypothesis: Yes.">16-44-17 | dev | ok</a></div>
+            <div class="history-extra"><span class="tag tag-muted" title="question: d7c942c3 | run: 2026-03-18T09-09-04-322">09-09-04 | clean | dry</span> <span class="tag tag-muted" title="question: d7c942c3 | run: 2026-03-17T17-33-33-146">17-33-33 | clean | dry</span> <a class="tag tag-hit" href="question-pages/batch-0/2026-03-17T16-44-09-129/d7c942c3.html" title="question: d7c942c3 | run: 2026-03-17T16-44-09-129 | hypothesis: Yes.">16-44-09 | clean | ok</a> <a class="tag tag-hit" href="question-pages/batch-0/2026-03-17T16-26-10-952/d7c942c3.html" title="question: d7c942c3 | run: 2026-03-17T16-26-10-952 | hypothesis: Yes.">16-26-10 | ok</a> <a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T16-11-17-651/d7c942c3.html" title="question: d7c942c3 | run: 2026-03-17T16-11-17-651 | hypothesis: Yes, your mom is using the same grocery list app as you.">16-11-17 | miss</a> <a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T15-43-07-808/d7c942c3.html" title="question: d7c942c3 | run: 2026-03-17T15-43-07-808 | hypothesis: Yes, your mom is using the same grocery list app as you.">15-43-07 | miss</a> <a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T15-40-25-520/d7c942c3.html" title="question: d7c942c3 | run: 2026-03-17T15-40-25-520 | hypothesis: Yes, your mom is using the same grocery list app as you.">15-40-25 | miss</a> <span class="tag tag-neutral" title="question: d7c942c3 | run: 2026-03-17T15-39-56-951">15-39-56</span> <span class="tag tag-muted" title="question: d7c942c3 | run: 2026-03-17T14-41-11-533">14-41-11 | dry</span> <span class="tag tag-muted" title="question: d7c942c3 | run: 2026-03-17T14-38-48">14-38-48 | dry</span></div>
+          </td>
+        </tr>
+<tr class="current-group-row" data-group-type="multi-session">
+                <td colspan="8">
+                  <span class="group-chip">multi session</span>
+                  <span class="small">0/4</span>
+                </td>
+              </tr><tr class="current-question-row priority-reason" data-type="multi-session" data-reason="retrieval-off-target-or-incomplete" data-result="miss">
+          <td class="current-col-id"><code>5a7937c8</code></td>
+          <td class="current-col-run">2026-03-17T15-43-07-808</td>
+          <td class="current-col-profile">-</td>
+          <td class="current-col-result status-miss">miss</td>
+          <td class="current-col-files"><a href="runs/batch-0/2026-03-17T15-43-07-808/run-manifest.json">run</a> <a href="question-pages/batch-0/2026-03-17T15-43-07-808/5a7937c8.html">view</a> <a href="runs/batch-0/2026-03-17T15-43-07-808/debug/5a7937c8.json">raw</a></td>
+          <td class="question-cell current-col-reason"><div><span class="tag tag-priority-miss">retrieval-off-target-or-incomplete</span></div><div><span class="tag tag-coverage-warn">partial coverage 1/3</span></div><div class="small">Retrieved 3 memories, but only part of the answer-session set was covered (answer_4cef8a3c_2 of answer_4cef8a3c_3, answer_4cef8a3c_1, answer_4cef8a3c_2).</div></td>
+          <td class="question-cell current-col-prompt">How many days did I spend participating in faith-related activities in December?</td>
+          <td class="question-cell current-col-history">
+            <div><a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T15-43-07-808/5a7937c8.html" title="question: 5a7937c8 | run: 2026-03-17T15-43-07-808 | hypothesis: I don&#39;t have that information.">15-43-07 | miss</a></div>
+            <div class="history-extra"><a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T15-40-25-520/5a7937c8.html" title="question: 5a7937c8 | run: 2026-03-17T15-40-25-520 | hypothesis: I don&#39;t have that information.">15-40-25 | miss</a> <span class="tag tag-neutral" title="question: 5a7937c8 | run: 2026-03-17T15-39-56-951">15-39-56</span> <span class="tag tag-muted" title="question: 5a7937c8 | run: 2026-03-17T14-41-11-533">14-41-11 | dry</span> <span class="tag tag-muted" title="question: 5a7937c8 | run: 2026-03-17T14-38-48">14-38-48 | dry</span></div>
+          </td>
+        </tr>
+<tr class="current-question-row priority-reason" data-type="multi-session" data-reason="explicit-time-window-miss" data-result="miss">
+          <td class="current-col-id"><code>bc149d6b</code></td>
+          <td class="current-col-run">2026-03-17T16-06-48-292</td>
+          <td class="current-col-profile">-</td>
+          <td class="current-col-result status-miss">miss</td>
+          <td class="current-col-files"><a href="runs/batch-0/2026-03-17T16-06-48-292/run-manifest.json">run</a> <a href="question-pages/batch-0/2026-03-17T16-06-48-292/bc149d6b.html">view</a> <a href="runs/batch-0/2026-03-17T16-06-48-292/debug/bc149d6b.json">raw</a></td>
+          <td class="question-cell current-col-reason"><div><span class="tag tag-priority-miss">explicit-time-window-miss</span></div><div><span class="tag tag-miss">no answer-session coverage 0/2</span></div><div class="small">An explicit time window was applied (all, frame=2) and returned 5 memories, but none were from the answer session. This often indicates windowing or top-k/ranking loss.</div></td>
+          <td class="question-cell current-col-prompt">What is the total weight of the new feed I purchased in the past two months?</td>
+          <td class="question-cell current-col-history">
+            <div><a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T16-06-48-292/bc149d6b.html" title="question: bc149d6b | run: 2026-03-17T16-06-48-292 | hypothesis: I don&#39;t have that information.">16-06-48 | miss</a></div>
+            <div class="history-extra"><a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T15-43-07-808/bc149d6b.html" title="question: bc149d6b | run: 2026-03-17T15-43-07-808 | hypothesis: I don&#39;t have that information.">15-43-07 | miss</a> <a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T15-40-25-520/bc149d6b.html" title="question: bc149d6b | run: 2026-03-17T15-40-25-520 | hypothesis: I don&#39;t have that information.">15-40-25 | miss</a> <span class="tag tag-neutral" title="question: bc149d6b | run: 2026-03-17T15-39-56-951">15-39-56</span> <span class="tag tag-muted" title="question: bc149d6b | run: 2026-03-17T14-41-11-533">14-41-11 | dry</span> <span class="tag tag-muted" title="question: bc149d6b | run: 2026-03-17T14-38-48">14-38-48 | dry</span></div>
+          </td>
+        </tr>
+<tr class="current-question-row priority-reason" data-type="multi-session" data-reason="retrieval-partial-or-off-target" data-result="miss">
+          <td class="current-col-id"><code>d682f1a2</code></td>
+          <td class="current-col-run">2026-03-17T15-55-55-754</td>
+          <td class="current-col-profile">-</td>
+          <td class="current-col-result status-miss">miss</td>
+          <td class="current-col-files"><a href="runs/batch-0/2026-03-17T15-55-55-754/run-manifest.json">run</a> <a href="question-pages/batch-0/2026-03-17T15-55-55-754/d682f1a2.html">view</a> <a href="runs/batch-0/2026-03-17T15-55-55-754/debug/d682f1a2.json">raw</a></td>
+          <td class="question-cell current-col-reason"><div><span class="tag tag-priority-miss">retrieval-partial-or-off-target</span></div><div><span class="tag tag-miss">no answer-session coverage 0/3</span></div><div class="small">Retrieved 5 memories, but not the gold session; retrieval status suggests the search broadened or reranked away from the needed evidence.</div></td>
+          <td class="question-cell current-col-prompt">How many different types of food delivery services have I used recently?</td>
+          <td class="question-cell current-col-history">
+            <div><a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T15-55-55-754/d682f1a2.html" title="question: d682f1a2 | run: 2026-03-17T15-55-55-754 | hypothesis: I don&#39;t have that information.">15-55-55 | miss</a></div>
+            <div class="history-extra"><a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T15-43-07-808/d682f1a2.html" title="question: d682f1a2 | run: 2026-03-17T15-43-07-808 | hypothesis: I don&#39;t have that information.">15-43-07 | miss</a> <a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T15-42-58-295/d682f1a2.html" title="question: d682f1a2 | run: 2026-03-17T15-42-58-295 | hypothesis: I don&#39;t have that information.">15-42-58 | miss</a> <a class="tag tag-neutral" href="question-pages/batch-0/2026-03-17T15-40-25-520/d682f1a2.html" title="question: d682f1a2 | run: 2026-03-17T15-40-25-520">15-40-25</a> <span class="tag tag-neutral" title="question: d682f1a2 | run: 2026-03-17T15-39-56-951">15-39-56</span> <span class="tag tag-muted" title="question: d682f1a2 | run: 2026-03-17T14-41-11-533">14-41-11 | dry</span> <span class="tag tag-muted" title="question: d682f1a2 | run: 2026-03-17T14-38-48">14-38-48 | dry</span></div>
+          </td>
+        </tr>
+<tr class="current-question-row priority-reason" data-type="multi-session" data-reason="retrieval-off-target-or-incomplete" data-result="miss">
+          <td class="current-col-id"><code>gpt4_59c863d7</code></td>
+          <td class="current-col-run">2026-03-17T15-43-07-808</td>
+          <td class="current-col-profile">-</td>
+          <td class="current-col-result status-miss">miss</td>
+          <td class="current-col-files"><a href="runs/batch-0/2026-03-17T15-43-07-808/run-manifest.json">run</a> <a href="question-pages/batch-0/2026-03-17T15-43-07-808/gpt4_59c863d7.html">view</a> <a href="runs/batch-0/2026-03-17T15-43-07-808/debug/gpt4_59c863d7.json">raw</a></td>
+          <td class="question-cell current-col-reason"><div><span class="tag tag-priority-miss">retrieval-off-target-or-incomplete</span></div><div><span class="tag tag-coverage-warn">partial coverage 2/4</span></div><div class="small">Retrieved 3 memories, but only part of the answer-session set was covered (answer_593bdffd_4, answer_593bdffd_1 of answer_593bdffd_4, answer_593bdffd_1, answer_593bdffd_3).</div></td>
+          <td class="question-cell current-col-prompt">How many model kits have I worked on or bought?</td>
+          <td class="question-cell current-col-history">
+            <div><a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T15-43-07-808/gpt4_59c863d7.html" title="question: gpt4_59c863d7 | run: 2026-03-17T15-43-07-808 | hypothesis: I don&#39;t have that information.">15-43-07 | miss</a></div>
+            <div class="history-extra"><a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T15-40-25-520/gpt4_59c863d7.html" title="question: gpt4_59c863d7 | run: 2026-03-17T15-40-25-520 | hypothesis: I don&#39;t have that information.">15-40-25 | miss</a> <span class="tag tag-neutral" title="question: gpt4_59c863d7 | run: 2026-03-17T15-39-56-951">15-39-56</span> <span class="tag tag-muted" title="question: gpt4_59c863d7 | run: 2026-03-17T14-41-11-533">14-41-11 | dry</span> <span class="tag tag-muted" title="question: gpt4_59c863d7 | run: 2026-03-17T14-38-48">14-38-48 | dry</span></div>
+          </td>
+        </tr>
+<tr class="current-group-row" data-group-type="single-session-assistant">
+                <td colspan="8">
+                  <span class="group-chip">single session assistant</span>
+                  <span class="small">2/4</span>
+                </td>
+              </tr><tr class="current-question-row priority-reason" data-type="single-session-assistant" data-reason="retrieval-off-target-or-incomplete" data-result="miss">
+          <td class="current-col-id"><code>1d4da289</code></td>
+          <td class="current-col-run">2026-03-17T15-43-07-808</td>
+          <td class="current-col-profile">-</td>
+          <td class="current-col-result status-miss">miss</td>
+          <td class="current-col-files"><a href="runs/batch-0/2026-03-17T15-43-07-808/run-manifest.json">run</a> <a href="question-pages/batch-0/2026-03-17T15-43-07-808/1d4da289.html">view</a> <a href="runs/batch-0/2026-03-17T15-43-07-808/debug/1d4da289.json">raw</a></td>
+          <td class="question-cell current-col-reason"><div><span class="tag tag-priority-miss">retrieval-off-target-or-incomplete</span></div><div><span class="tag tag-miss">no answer-session coverage 0/1</span></div><div class="small">Retrieved 3 memories, but none matched the answer session (answer_ultrachat_348449).</div></td>
+          <td class="question-cell current-col-prompt">I was thinking about our previous conversation about data privacy and security. You mentioned that companies use two-factor authentication to enhance security. Can you remind me what kind of two-factor authentication methods you were referring to?</td>
+          <td class="question-cell current-col-history">
+            <div><a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T15-43-07-808/1d4da289.html" title="question: 1d4da289 | run: 2026-03-17T15-43-07-808 | hypothesis: I don&#39;t have that information.">15-43-07 | miss</a></div>
+            <div class="history-extra"><a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T15-40-25-520/1d4da289.html" title="question: 1d4da289 | run: 2026-03-17T15-40-25-520 | hypothesis: I don&#39;t have that information.">15-40-25 | miss</a> <span class="tag tag-neutral" title="question: 1d4da289 | run: 2026-03-17T15-39-56-951">15-39-56</span> <span class="tag tag-muted" title="question: 1d4da289 | run: 2026-03-17T14-41-11-533">14-41-11 | dry</span> <span class="tag tag-muted" title="question: 1d4da289 | run: 2026-03-17T14-38-48">14-38-48 | dry</span></div>
+          </td>
+        </tr>
+<tr class="current-question-row hit-reason" data-type="single-session-assistant" data-reason="direct-evidence-hit" data-result="ok">
+          <td class="current-col-id"><code>6222b6eb</code></td>
+          <td class="current-col-run">2026-03-17T16-26-10-952</td>
+          <td class="current-col-profile">-</td>
+          <td class="current-col-result status-ok">ok</td>
+          <td class="current-col-files"><a href="runs/batch-0/2026-03-17T16-26-10-952/run-manifest.json">run</a> <a href="question-pages/batch-0/2026-03-17T16-26-10-952/6222b6eb.html">view</a> <a href="runs/batch-0/2026-03-17T16-26-10-952/debug/6222b6eb.json">raw</a></td>
+          <td class="question-cell current-col-reason"><div><span class="tag tag-hit">direct-evidence-hit</span></div><div class="small">Retrieved all answer sessions (answer_sharegpt_H9PiM5G_0) and produced a matching answer.</div></td>
+          <td class="question-cell current-col-prompt">I was going through our previous conversation about atmospheric correction methods, and I wanted to confirm - you mentioned that 6S, MAJA, and Sen2Cor are all algorithms for atmospheric correction of remote sensing images. Can you remind me which one is implemented in the SIAC_GEE tool?</td>
+          <td class="question-cell current-col-history">
+            <div><a class="tag tag-hit" href="question-pages/batch-0/2026-03-17T16-26-10-952/6222b6eb.html" title="question: 6222b6eb | run: 2026-03-17T16-26-10-952 | hypothesis: 6S">16-26-10 | ok</a></div>
+            <div class="history-extra"><a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T16-11-17-651/6222b6eb.html" title="question: 6222b6eb | run: 2026-03-17T16-11-17-651 | hypothesis: 6S is implemented in the SIAC_GEE tool.">16-11-17 | miss</a> <a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T15-43-07-808/6222b6eb.html" title="question: 6222b6eb | run: 2026-03-17T15-43-07-808 | hypothesis: 6S is implemented in the SIAC_GEE tool.">15-43-07 | miss</a> <a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T15-40-25-520/6222b6eb.html" title="question: 6222b6eb | run: 2026-03-17T15-40-25-520 | hypothesis: 6S is implemented in the SIAC_GEE tool.">15-40-25 | miss</a> <span class="tag tag-neutral" title="question: 6222b6eb | run: 2026-03-17T15-39-56-951">15-39-56</span> <span class="tag tag-muted" title="question: 6222b6eb | run: 2026-03-17T14-41-11-533">14-41-11 | dry</span> <span class="tag tag-muted" title="question: 6222b6eb | run: 2026-03-17T14-38-48">14-38-48 | dry</span></div>
+          </td>
+        </tr>
+<tr class="current-question-row hit-reason" data-type="single-session-assistant" data-reason="direct-evidence-hit" data-result="ok">
+          <td class="current-col-id"><code>778164c6</code></td>
+          <td class="current-col-run">2026-03-17T16-29-30-670</td>
+          <td class="current-col-profile">-</td>
+          <td class="current-col-result status-ok">ok</td>
+          <td class="current-col-files"><a href="runs/batch-0/2026-03-17T16-29-30-670/run-manifest.json">run</a> <a href="question-pages/batch-0/2026-03-17T16-29-30-670/778164c6.html">view</a> <a href="runs/batch-0/2026-03-17T16-29-30-670/debug/778164c6.json">raw</a></td>
+          <td class="question-cell current-col-reason"><div><span class="tag tag-hit">direct-evidence-hit</span></div><div class="small">Retrieved all answer sessions (answer_ultrachat_399000) and produced a matching answer.</div></td>
+          <td class="question-cell current-col-prompt">I was looking back at our previous conversation about Caribbean dishes and I was wondering, what was the name of that Jamaican dish you recommended I try with snapper that has fruit in it?</td>
+          <td class="question-cell current-col-history">
+            <div><a class="tag tag-hit" href="question-pages/batch-0/2026-03-17T16-29-30-670/778164c6.html" title="question: 778164c6 | run: 2026-03-17T16-29-30-670 | hypothesis: Grilled Snapper with Mango Salsa">16-29-30 | ok</a></div>
+            <div class="history-extra"><a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T16-26-10-952/778164c6.html" title="question: 778164c6 | run: 2026-03-17T16-26-10-952 | hypothesis: I don&#39;t have that information.">16-26-10 | miss</a> <a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T16-11-17-651/778164c6.html" title="question: 778164c6 | run: 2026-03-17T16-11-17-651 | hypothesis: I don&#39;t have that information.">16-11-17 | miss</a> <a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T15-43-07-808/778164c6.html" title="question: 778164c6 | run: 2026-03-17T15-43-07-808 | hypothesis: I don&#39;t have that information.">15-43-07 | miss</a> <a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T15-40-25-520/778164c6.html" title="question: 778164c6 | run: 2026-03-17T15-40-25-520 | hypothesis: I don&#39;t have that information.">15-40-25 | miss</a> <span class="tag tag-neutral" title="question: 778164c6 | run: 2026-03-17T15-39-56-951">15-39-56</span> <span class="tag tag-muted" title="question: 778164c6 | run: 2026-03-17T14-41-11-533">14-41-11 | dry</span> <span class="tag tag-muted" title="question: 778164c6 | run: 2026-03-17T14-38-48">14-38-48 | dry</span></div>
+          </td>
+        </tr>
+<tr class="current-question-row priority-reason" data-type="single-session-assistant" data-reason="retrieval-off-target-or-incomplete" data-result="miss">
+          <td class="current-col-id"><code>e48988bc</code></td>
+          <td class="current-col-run">2026-03-17T15-43-07-808</td>
+          <td class="current-col-profile">-</td>
+          <td class="current-col-result status-miss">miss</td>
+          <td class="current-col-files"><a href="runs/batch-0/2026-03-17T15-43-07-808/run-manifest.json">run</a> <a href="question-pages/batch-0/2026-03-17T15-43-07-808/e48988bc.html">view</a> <a href="runs/batch-0/2026-03-17T15-43-07-808/debug/e48988bc.json">raw</a></td>
+          <td class="question-cell current-col-reason"><div><span class="tag tag-priority-miss">retrieval-off-target-or-incomplete</span></div><div><span class="tag tag-miss">no answer-session coverage 0/1</span></div><div class="small">Retrieved 3 memories, but none matched the answer session (answer_ultrachat_174360).</div></td>
+          <td class="question-cell current-col-prompt">I was looking back at our previous conversation about environmentally responsible supply chain practices, and I was wondering if you could remind me of the company you mentioned that&#39;s doing a great job with sustainability?</td>
+          <td class="question-cell current-col-history">
+            <div><a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T15-43-07-808/e48988bc.html" title="question: e48988bc | run: 2026-03-17T15-43-07-808 | hypothesis: Reebok">15-43-07 | miss</a></div>
+            <div class="history-extra"><a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T15-40-25-520/e48988bc.html" title="question: e48988bc | run: 2026-03-17T15-40-25-520 | hypothesis: Reebok">15-40-25 | miss</a> <span class="tag tag-neutral" title="question: e48988bc | run: 2026-03-17T15-39-56-951">15-39-56</span> <span class="tag tag-muted" title="question: e48988bc | run: 2026-03-17T14-41-11-533">14-41-11 | dry</span> <span class="tag tag-muted" title="question: e48988bc | run: 2026-03-17T14-38-48">14-38-48 | dry</span></div>
+          </td>
+        </tr>
+<tr class="current-group-row" data-group-type="single-session-preference">
+                <td colspan="8">
+                  <span class="group-chip">single session preference</span>
+                  <span class="small">0/4</span>
+                </td>
+              </tr><tr class="current-question-row priority-reason" data-type="single-session-preference" data-reason="retrieval-off-target-or-incomplete" data-result="miss">
+          <td class="current-col-id"><code>1c0ddc50</code></td>
+          <td class="current-col-run">2026-03-17T15-43-07-808</td>
+          <td class="current-col-profile">-</td>
+          <td class="current-col-result status-miss">miss</td>
+          <td class="current-col-files"><a href="runs/batch-0/2026-03-17T15-43-07-808/run-manifest.json">run</a> <a href="question-pages/batch-0/2026-03-17T15-43-07-808/1c0ddc50.html">view</a> <a href="runs/batch-0/2026-03-17T15-43-07-808/debug/1c0ddc50.json">raw</a></td>
+          <td class="question-cell current-col-reason"><div><span class="tag tag-priority-miss">retrieval-off-target-or-incomplete</span></div><div><span class="tag tag-miss">no answer-session coverage 0/1</span></div><div class="small">Retrieved 3 memories, but none matched the answer session (answer_8da8c7e0).</div></td>
+          <td class="question-cell current-col-prompt">Can you suggest some activities I can do during my commute to work?</td>
+          <td class="question-cell current-col-history">
+            <div><a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T15-43-07-808/1c0ddc50.html" title="question: 1c0ddc50 | run: 2026-03-17T15-43-07-808 | hypothesis: I don&#39;t have that information.">15-43-07 | miss</a></div>
+            <div class="history-extra"><a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T15-40-25-520/1c0ddc50.html" title="question: 1c0ddc50 | run: 2026-03-17T15-40-25-520 | hypothesis: I don&#39;t have that information.">15-40-25 | miss</a> <span class="tag tag-neutral" title="question: 1c0ddc50 | run: 2026-03-17T15-39-56-951">15-39-56</span> <span class="tag tag-muted" title="question: 1c0ddc50 | run: 2026-03-17T14-41-11-533">14-41-11 | dry</span> <span class="tag tag-muted" title="question: 1c0ddc50 | run: 2026-03-17T14-38-48">14-38-48 | dry</span></div>
+          </td>
+        </tr>
+<tr class="current-question-row miss-reason" data-type="single-session-preference" data-reason="answer-ignored-direct-evidence" data-result="miss">
+          <td class="current-col-id"><code>505af2f5</code></td>
+          <td class="current-col-run">2026-03-17T16-30-28-432</td>
+          <td class="current-col-profile">-</td>
+          <td class="current-col-result status-miss">miss</td>
+          <td class="current-col-files"><a href="runs/batch-0/2026-03-17T16-30-28-432/run-manifest.json">run</a> <a href="question-pages/batch-0/2026-03-17T16-30-28-432/505af2f5.html">view</a> <a href="runs/batch-0/2026-03-17T16-30-28-432/debug/505af2f5.json">raw</a></td>
+          <td class="question-cell current-col-reason"><div><span class="tag tag-miss">answer-ignored-direct-evidence</span></div><div class="small">All answer sessions were retrieved (answer_f3164f2c), but the answer still abstained.</div></td>
+          <td class="question-cell current-col-prompt">I was thinking of trying a new coffee creamer recipe. Any recommendations?</td>
+          <td class="question-cell current-col-history">
+            <div><a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T16-30-28-432/505af2f5.html" title="question: 505af2f5 | run: 2026-03-17T16-30-28-432 | hypothesis: I don&#39;t have that information.">16-30-28 | miss</a></div>
+            <div class="history-extra"><a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T16-29-30-670/505af2f5.html" title="question: 505af2f5 | run: 2026-03-17T16-29-30-670 | hypothesis: I don&#39;t have that information.">16-29-30 | miss</a> <a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T16-26-10-952/505af2f5.html" title="question: 505af2f5 | run: 2026-03-17T16-26-10-952 | hypothesis: You could try making your own flavored creamer using almond milk, vanilla extract, and honey, as you&#39;ve done before, especially if you&#39;re looking to reduce sugar intake and save money. You were also seeking tips on making it even healthier.">16-26-10 | miss</a> <a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T16-11-17-651/505af2f5.html" title="question: 505af2f5 | run: 2026-03-17T16-11-17-651 | hypothesis: You&#39;ve been making your own flavored creamer using almond milk, vanilla extract, and honey to reduce sugar intake and save money. You&#39;re also looking for tips to make it even healthier.">16-11-17 | miss</a> <a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T15-43-07-808/505af2f5.html" title="question: 505af2f5 | run: 2026-03-17T15-43-07-808 | hypothesis: You have previously made your own flavored creamer using almond milk, vanilla extract, and honey.">15-43-07 | miss</a> <a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T15-40-25-520/505af2f5.html" title="question: 505af2f5 | run: 2026-03-17T15-40-25-520 | hypothesis: I don&#39;t have that information.">15-40-25 | miss</a> <span class="tag tag-neutral" title="question: 505af2f5 | run: 2026-03-17T15-39-56-951">15-39-56</span> <span class="tag tag-muted" title="question: 505af2f5 | run: 2026-03-17T14-41-11-533">14-41-11 | dry</span> <span class="tag tag-muted" title="question: 505af2f5 | run: 2026-03-17T14-38-48">14-38-48 | dry</span></div>
+          </td>
+        </tr>
+<tr class="current-question-row priority-reason" data-type="single-session-preference" data-reason="explicit-time-window-miss" data-result="miss">
+          <td class="current-col-id"><code>75832dbd</code></td>
+          <td class="current-col-run">2026-03-17T16-06-48-292</td>
+          <td class="current-col-profile">-</td>
+          <td class="current-col-result status-miss">miss</td>
+          <td class="current-col-files"><a href="runs/batch-0/2026-03-17T16-06-48-292/run-manifest.json">run</a> <a href="question-pages/batch-0/2026-03-17T16-06-48-292/75832dbd.html">view</a> <a href="runs/batch-0/2026-03-17T16-06-48-292/debug/75832dbd.json">raw</a></td>
+          <td class="question-cell current-col-reason"><div><span class="tag tag-priority-miss">explicit-time-window-miss</span></div><div><span class="tag tag-miss">no answer-session coverage 0/1</span></div><div class="small">An explicit time window was applied (all, frame=7) and returned 5 memories, but none were from the answer session. This often indicates windowing or top-k/ranking loss.</div></td>
+          <td class="question-cell current-col-prompt">Can you recommend some recent publications or conferences that I might find interesting?</td>
+          <td class="question-cell current-col-history">
+            <div><a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T16-06-48-292/75832dbd.html" title="question: 75832dbd | run: 2026-03-17T16-06-48-292 | hypothesis: I don&#39;t have that information.">16-06-48 | miss</a></div>
+            <div class="history-extra"><a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T15-43-07-808/75832dbd.html" title="question: 75832dbd | run: 2026-03-17T15-43-07-808 | hypothesis: I don&#39;t have that information.">15-43-07 | miss</a> <a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T15-40-25-520/75832dbd.html" title="question: 75832dbd | run: 2026-03-17T15-40-25-520 | hypothesis: I don&#39;t have that information.">15-40-25 | miss</a> <span class="tag tag-neutral" title="question: 75832dbd | run: 2026-03-17T15-39-56-951">15-39-56</span> <span class="tag tag-muted" title="question: 75832dbd | run: 2026-03-17T14-41-11-533">14-41-11 | dry</span> <span class="tag tag-muted" title="question: 75832dbd | run: 2026-03-17T14-38-48">14-38-48 | dry</span></div>
+          </td>
+        </tr>
+<tr class="current-question-row miss-reason" data-type="single-session-preference" data-reason="answer-misused-retrieved-evidence" data-result="miss">
+          <td class="current-col-id"><code>fca70973</code></td>
+          <td class="current-col-run">2026-03-17T16-30-28-432</td>
+          <td class="current-col-profile">-</td>
+          <td class="current-col-result status-miss">miss</td>
+          <td class="current-col-files"><a href="runs/batch-0/2026-03-17T16-30-28-432/run-manifest.json">run</a> <a href="question-pages/batch-0/2026-03-17T16-30-28-432/fca70973.html">view</a> <a href="runs/batch-0/2026-03-17T16-30-28-432/debug/fca70973.json">raw</a></td>
+          <td class="question-cell current-col-reason"><div><span class="tag tag-miss">answer-misused-retrieved-evidence</span></div><div class="small">All answer sessions were retrieved (answer_a1e169b1), but the final answer still missed the expected content.</div></td>
+          <td class="question-cell current-col-prompt">I am planning another theme park weekend; do you have any suggestions?</td>
+          <td class="question-cell current-col-history">
+            <div><a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T16-30-28-432/fca70973.html" title="question: fca70973 | run: 2026-03-17T16-30-28-432 | hypothesis: You are interested in Halloween-themed events at various theme parks, specifically looking for unique food experiences and exclusive dining options. You have previously visited Disneyland, Knott&#39;s Berry Farm, Six Flags Magic Mountain, and Universal Studios Hollywood.">16-30-28 | miss</a></div>
+            <div class="history-extra"><a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T16-29-30-670/fca70973.html" title="question: fca70973 | run: 2026-03-17T16-29-30-670 | hypothesis: You are interested in Halloween-themed events at various theme parks, specifically looking for unique food experiences and exclusive dining options. You have previously visited Disneyland, Knott&#39;s Berry Farm, Six Flags Magic Mountain, and Universal Studios Hollywood.">16-29-30 | miss</a> <a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T16-26-10-952/fca70973.html" title="question: fca70973 | run: 2026-03-17T16-26-10-952 | hypothesis: I don&#39;t have that information.">16-26-10 | miss</a> <a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T16-11-17-651/fca70973.html" title="question: fca70973 | run: 2026-03-17T16-11-17-651 | hypothesis: You are interested in Halloween-themed events at theme parks, especially those with unique food experiences and exclusive dining options. You have previously visited Disneyland, Knott&#39;s Berry Farm, Six Flags Magic Mountain, and Universal Studios Hollywood.">16-11-17 | miss</a> <a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T15-43-07-808/fca70973.html" title="question: fca70973 | run: 2026-03-17T15-43-07-808 | hypothesis: I don&#39;t have that information.">15-43-07 | miss</a> <a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T15-40-25-520/fca70973.html" title="question: fca70973 | run: 2026-03-17T15-40-25-520 | hypothesis: I don&#39;t have that information.">15-40-25 | miss</a> <span class="tag tag-neutral" title="question: fca70973 | run: 2026-03-17T15-39-56-951">15-39-56</span> <span class="tag tag-muted" title="question: fca70973 | run: 2026-03-17T14-41-11-533">14-41-11 | dry</span> <span class="tag tag-muted" title="question: fca70973 | run: 2026-03-17T14-38-48">14-38-48 | dry</span></div>
+          </td>
+        </tr>
+<tr class="current-group-row" data-group-type="single-session-user">
+                <td colspan="8">
+                  <span class="group-chip">single session user</span>
+                  <span class="small">4/4</span>
+                </td>
+              </tr><tr class="current-question-row hit-reason" data-type="single-session-user" data-reason="direct-evidence-hit" data-result="ok">
+          <td class="current-col-id"><code>6ade9755</code></td>
+          <td class="current-col-run">2026-03-17T15-43-07-808</td>
+          <td class="current-col-profile">-</td>
+          <td class="current-col-result status-ok">ok</td>
+          <td class="current-col-files"><a href="runs/batch-0/2026-03-17T15-43-07-808/run-manifest.json">run</a> <a href="question-pages/batch-0/2026-03-17T15-43-07-808/6ade9755.html">view</a> <a href="runs/batch-0/2026-03-17T15-43-07-808/debug/6ade9755.json">raw</a></td>
+          <td class="question-cell current-col-reason"><div><span class="tag tag-hit">direct-evidence-hit</span></div><div class="small">Retrieved all answer sessions (answer_9398da02) and produced a matching answer.</div></td>
+          <td class="question-cell current-col-prompt">Where do I take yoga classes?</td>
+          <td class="question-cell current-col-history">
+            <div><a class="tag tag-hit" href="question-pages/batch-0/2026-03-17T15-43-07-808/6ade9755.html" title="question: 6ade9755 | run: 2026-03-17T15-43-07-808 | hypothesis: Serenity Yoga">15-43-07 | ok</a></div>
+            <div class="history-extra"><a class="tag tag-hit" href="question-pages/batch-0/2026-03-17T15-40-25-520/6ade9755.html" title="question: 6ade9755 | run: 2026-03-17T15-40-25-520 | hypothesis: Serenity Yoga">15-40-25 | ok</a> <span class="tag tag-neutral" title="question: 6ade9755 | run: 2026-03-17T15-39-56-951">15-39-56</span> <span class="tag tag-muted" title="question: 6ade9755 | run: 2026-03-17T14-41-11-533">14-41-11 | dry</span> <span class="tag tag-muted" title="question: 6ade9755 | run: 2026-03-17T14-38-48">14-38-48 | dry</span></div>
+          </td>
+        </tr>
+<tr class="current-question-row hit-reason" data-type="single-session-user" data-reason="direct-evidence-hit" data-result="ok">
+          <td class="current-col-id"><code>94f70d80</code></td>
+          <td class="current-col-run">2026-03-17T15-43-07-808</td>
+          <td class="current-col-profile">-</td>
+          <td class="current-col-result status-ok">ok</td>
+          <td class="current-col-files"><a href="runs/batch-0/2026-03-17T15-43-07-808/run-manifest.json">run</a> <a href="question-pages/batch-0/2026-03-17T15-43-07-808/94f70d80.html">view</a> <a href="runs/batch-0/2026-03-17T15-43-07-808/debug/94f70d80.json">raw</a></td>
+          <td class="question-cell current-col-reason"><div><span class="tag tag-hit">direct-evidence-hit</span></div><div class="small">Retrieved all answer sessions (answer_c63c0458) and produced a matching answer.</div></td>
+          <td class="question-cell current-col-prompt">How long did it take me to assemble the IKEA bookshelf?</td>
+          <td class="question-cell current-col-history">
+            <div><a class="tag tag-hit" href="question-pages/batch-0/2026-03-17T15-43-07-808/94f70d80.html" title="question: 94f70d80 | run: 2026-03-17T15-43-07-808 | hypothesis: 4 hours">15-43-07 | ok</a></div>
+            <div class="history-extra"><a class="tag tag-hit" href="question-pages/batch-0/2026-03-17T15-40-25-520/94f70d80.html" title="question: 94f70d80 | run: 2026-03-17T15-40-25-520 | hypothesis: 4 hours">15-40-25 | ok</a> <span class="tag tag-neutral" title="question: 94f70d80 | run: 2026-03-17T15-39-56-951">15-39-56</span> <span class="tag tag-muted" title="question: 94f70d80 | run: 2026-03-17T14-41-11-533">14-41-11 | dry</span> <span class="tag tag-muted" title="question: 94f70d80 | run: 2026-03-17T14-38-48">14-38-48 | dry</span></div>
+          </td>
+        </tr>
+<tr class="current-question-row hit-reason" data-type="single-session-user" data-reason="direct-evidence-hit" data-result="ok">
+          <td class="current-col-id"><code>bc8a6e93</code></td>
+          <td class="current-col-run">2026-03-17T15-43-07-808</td>
+          <td class="current-col-profile">-</td>
+          <td class="current-col-result status-ok">ok</td>
+          <td class="current-col-files"><a href="runs/batch-0/2026-03-17T15-43-07-808/run-manifest.json">run</a> <a href="question-pages/batch-0/2026-03-17T15-43-07-808/bc8a6e93.html">view</a> <a href="runs/batch-0/2026-03-17T15-43-07-808/debug/bc8a6e93.json">raw</a></td>
+          <td class="question-cell current-col-reason"><div><span class="tag tag-hit">direct-evidence-hit</span></div><div class="small">Retrieved all answer sessions (answer_e6143162) and produced a matching answer.</div></td>
+          <td class="question-cell current-col-prompt">What did I bake for my niece&#39;s birthday party?</td>
+          <td class="question-cell current-col-history">
+            <div><a class="tag tag-hit" href="question-pages/batch-0/2026-03-17T15-43-07-808/bc8a6e93.html" title="question: bc8a6e93 | run: 2026-03-17T15-43-07-808 | hypothesis: Lemon Blueberry Cake">15-43-07 | ok</a></div>
+            <div class="history-extra"><a class="tag tag-hit" href="question-pages/batch-0/2026-03-17T15-40-25-520/bc8a6e93.html" title="question: bc8a6e93 | run: 2026-03-17T15-40-25-520 | hypothesis: Lemon Blueberry Cake">15-40-25 | ok</a> <span class="tag tag-neutral" title="question: bc8a6e93 | run: 2026-03-17T15-39-56-951">15-39-56</span> <span class="tag tag-muted" title="question: bc8a6e93 | run: 2026-03-17T14-41-11-533">14-41-11 | dry</span> <span class="tag tag-muted" title="question: bc8a6e93 | run: 2026-03-17T14-38-48">14-38-48 | dry</span></div>
+          </td>
+        </tr>
+<tr class="current-question-row hit-reason" data-type="single-session-user" data-reason="correct-abstention" data-result="ok">
+          <td class="current-col-id"><code>bc8a6e93_abs</code></td>
+          <td class="current-col-run">2026-03-17T15-43-07-808</td>
+          <td class="current-col-profile">-</td>
+          <td class="current-col-result status-ok">ok</td>
+          <td class="current-col-files"><a href="runs/batch-0/2026-03-17T15-43-07-808/run-manifest.json">run</a> <a href="question-pages/batch-0/2026-03-17T15-43-07-808/bc8a6e93_abs.html">view</a> <a href="runs/batch-0/2026-03-17T15-43-07-808/debug/bc8a6e93_abs.json">raw</a></td>
+          <td class="question-cell current-col-reason"><div><span class="tag tag-hit">correct-abstention</span></div><div class="small">Correctly abstained because the benchmark answer for this case is no-information.</div></td>
+          <td class="question-cell current-col-prompt">What did I bake for my uncle&#39;s birthday party?</td>
+          <td class="question-cell current-col-history">
+            <div><a class="tag tag-hit" href="question-pages/batch-0/2026-03-17T15-43-07-808/bc8a6e93_abs.html" title="question: bc8a6e93_abs | run: 2026-03-17T15-43-07-808 | hypothesis: I don&#39;t have that information.">15-43-07 | ok</a></div>
+            <div class="history-extra"><a class="tag tag-hit" href="question-pages/batch-0/2026-03-17T15-40-25-520/bc8a6e93_abs.html" title="question: bc8a6e93_abs | run: 2026-03-17T15-40-25-520 | hypothesis: I don&#39;t have that information.">15-40-25 | ok</a> <span class="tag tag-neutral" title="question: bc8a6e93_abs | run: 2026-03-17T15-39-56-951">15-39-56</span> <span class="tag tag-muted" title="question: bc8a6e93_abs | run: 2026-03-17T14-41-11-533">14-41-11 | dry</span> <span class="tag tag-muted" title="question: bc8a6e93_abs | run: 2026-03-17T14-38-48">14-38-48 | dry</span></div>
+          </td>
+        </tr>
+<tr class="current-group-row" data-group-type="temporal-reasoning">
+                <td colspan="8">
+                  <span class="group-chip">temporal reasoning</span>
+                  <span class="small">3/4</span>
+                </td>
+              </tr><tr class="current-question-row priority-reason" data-type="temporal-reasoning" data-reason="retrieval-off-target-or-incomplete" data-result="miss">
+          <td class="current-col-id"><code>2a1811e2</code></td>
+          <td class="current-col-run">2026-03-17T15-43-07-808</td>
+          <td class="current-col-profile">-</td>
+          <td class="current-col-result status-miss">miss</td>
+          <td class="current-col-files"><a href="runs/batch-0/2026-03-17T15-43-07-808/run-manifest.json">run</a> <a href="question-pages/batch-0/2026-03-17T15-43-07-808/2a1811e2.html">view</a> <a href="runs/batch-0/2026-03-17T15-43-07-808/debug/2a1811e2.json">raw</a></td>
+          <td class="question-cell current-col-reason"><div><span class="tag tag-priority-miss">retrieval-off-target-or-incomplete</span></div><div><span class="tag tag-coverage-warn">partial coverage 1/2</span></div><div class="small">Retrieved 3 memories, but only part of the answer-session set was covered (answer_1cc3cd0c_1 of answer_1cc3cd0c_1, answer_1cc3cd0c_2).</div></td>
+          <td class="question-cell current-col-prompt">How many days had passed between the Hindu festival of Holi and the Sunday mass at St. Mary&#39;s Church?</td>
+          <td class="question-cell current-col-history">
+            <div><a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T15-43-07-808/2a1811e2.html" title="question: 2a1811e2 | run: 2026-03-17T15-43-07-808 | hypothesis: I don&#39;t have that information.">15-43-07 | miss</a></div>
+            <div class="history-extra"><a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T15-40-25-520/2a1811e2.html" title="question: 2a1811e2 | run: 2026-03-17T15-40-25-520 | hypothesis: I don&#39;t have that information.">15-40-25 | miss</a> <span class="tag tag-neutral" title="question: 2a1811e2 | run: 2026-03-17T15-39-56-951">15-39-56</span> <span class="tag tag-muted" title="question: 2a1811e2 | run: 2026-03-17T14-41-11-533">14-41-11 | dry</span> <span class="tag tag-muted" title="question: 2a1811e2 | run: 2026-03-17T14-38-48">14-38-48 | dry</span></div>
+          </td>
+        </tr>
+<tr class="current-question-row hit-reason" data-type="temporal-reasoning" data-reason="correct-abstention" data-result="ok">
+          <td class="current-col-id"><code>c8090214_abs</code></td>
+          <td class="current-col-run">2026-03-17T15-43-07-808</td>
+          <td class="current-col-profile">-</td>
+          <td class="current-col-result status-ok">ok</td>
+          <td class="current-col-files"><a href="runs/batch-0/2026-03-17T15-43-07-808/run-manifest.json">run</a> <a href="question-pages/batch-0/2026-03-17T15-43-07-808/c8090214_abs.html">view</a> <a href="runs/batch-0/2026-03-17T15-43-07-808/debug/c8090214_abs.json">raw</a></td>
+          <td class="question-cell current-col-reason"><div><span class="tag tag-hit">correct-abstention</span></div><div class="small">Correctly abstained because the benchmark answer for this case is no-information.</div></td>
+          <td class="question-cell current-col-prompt">How many days before I bought my iPad did I attend the Holiday Market?</td>
+          <td class="question-cell current-col-history">
+            <div><a class="tag tag-hit" href="question-pages/batch-0/2026-03-17T15-43-07-808/c8090214_abs.html" title="question: c8090214_abs | run: 2026-03-17T15-43-07-808 | hypothesis: I don&#39;t have that information.">15-43-07 | ok</a></div>
+            <div class="history-extra"><a class="tag tag-hit" href="question-pages/batch-0/2026-03-17T15-40-25-520/c8090214_abs.html" title="question: c8090214_abs | run: 2026-03-17T15-40-25-520 | hypothesis: I don&#39;t have that information.">15-40-25 | ok</a> <span class="tag tag-neutral" title="question: c8090214_abs | run: 2026-03-17T15-39-56-951">15-39-56</span> <span class="tag tag-muted" title="question: c8090214_abs | run: 2026-03-17T14-41-11-533">14-41-11 | dry</span> <span class="tag tag-muted" title="question: c8090214_abs | run: 2026-03-17T14-38-48">14-38-48 | dry</span></div>
+          </td>
+        </tr>
+<tr class="current-question-row hit-reason" data-type="temporal-reasoning" data-reason="direct-evidence-hit" data-result="ok">
+          <td class="current-col-id"><code>gpt4_385a5000</code></td>
+          <td class="current-col-run">2026-03-17T15-43-07-808</td>
+          <td class="current-col-profile">-</td>
+          <td class="current-col-result status-ok">ok</td>
+          <td class="current-col-files"><a href="runs/batch-0/2026-03-17T15-43-07-808/run-manifest.json">run</a> <a href="question-pages/batch-0/2026-03-17T15-43-07-808/gpt4_385a5000.html">view</a> <a href="runs/batch-0/2026-03-17T15-43-07-808/debug/gpt4_385a5000.json">raw</a></td>
+          <td class="question-cell current-col-reason"><div><span class="tag tag-hit">direct-evidence-hit</span></div><div class="small">Retrieved all answer sessions (answer_7a4a93f1_2, answer_7a4a93f1_1) and produced a matching answer.</div></td>
+          <td class="question-cell current-col-prompt">Which seeds were started first, the tomatoes or the marigolds?</td>
+          <td class="question-cell current-col-history">
+            <div><a class="tag tag-hit" href="question-pages/batch-0/2026-03-17T15-43-07-808/gpt4_385a5000.html" title="question: gpt4_385a5000 | run: 2026-03-17T15-43-07-808 | hypothesis: The tomatoes were started first.">15-43-07 | ok</a></div>
+            <div class="history-extra"><a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T15-40-25-520/gpt4_385a5000.html" title="question: gpt4_385a5000 | run: 2026-03-17T15-40-25-520 | hypothesis: I don&#39;t have that information.">15-40-25 | miss</a> <span class="tag tag-neutral" title="question: gpt4_385a5000 | run: 2026-03-17T15-39-56-951">15-39-56</span> <span class="tag tag-muted" title="question: gpt4_385a5000 | run: 2026-03-17T14-41-11-533">14-41-11 | dry</span> <span class="tag tag-muted" title="question: gpt4_385a5000 | run: 2026-03-17T14-38-48">14-38-48 | dry</span></div>
+          </td>
+        </tr>
+<tr class="current-question-row hit-reason" data-type="temporal-reasoning" data-reason="direct-evidence-hit" data-result="ok">
+          <td class="current-col-id"><code>gpt4_fa19884c</code></td>
+          <td class="current-col-run">2026-03-17T15-43-07-808</td>
+          <td class="current-col-profile">-</td>
+          <td class="current-col-result status-ok">ok</td>
+          <td class="current-col-files"><a href="runs/batch-0/2026-03-17T15-43-07-808/run-manifest.json">run</a> <a href="question-pages/batch-0/2026-03-17T15-43-07-808/gpt4_fa19884c.html">view</a> <a href="runs/batch-0/2026-03-17T15-43-07-808/debug/gpt4_fa19884c.json">raw</a></td>
+          <td class="question-cell current-col-reason"><div><span class="tag tag-hit">direct-evidence-hit</span></div><div class="small">Retrieved all answer sessions (answer_ff201786_1, answer_ff201786_2) and produced a matching answer.</div></td>
+          <td class="question-cell current-col-prompt">How many days passed between the day I started playing along to my favorite songs on my old keyboard and the day I discovered a bluegrass band?</td>
+          <td class="question-cell current-col-history">
+            <div><a class="tag tag-hit" href="question-pages/batch-0/2026-03-17T15-43-07-808/gpt4_fa19884c.html" title="question: gpt4_fa19884c | run: 2026-03-17T15-43-07-808 | hypothesis: 6 days">15-43-07 | ok</a></div>
+            <div class="history-extra"><a class="tag tag-hit" href="question-pages/batch-0/2026-03-17T15-40-25-520/gpt4_fa19884c.html" title="question: gpt4_fa19884c | run: 2026-03-17T15-40-25-520 | hypothesis: 6 days">15-40-25 | ok</a> <span class="tag tag-neutral" title="question: gpt4_fa19884c | run: 2026-03-17T15-39-56-951">15-39-56</span> <span class="tag tag-muted" title="question: gpt4_fa19884c | run: 2026-03-17T14-41-11-533">14-41-11 | dry</span> <span class="tag tag-muted" title="question: gpt4_fa19884c | run: 2026-03-17T14-38-48">14-38-48 | dry</span></div>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="panel">
+      <h2>Runs</h2>
+      <table id="runsTable">
+        <thead>
+          <tr>
+            <th>Run</th>
+            <th>Command</th>
+            <th>Dry</th>
+            <th>Profile</th>
+            <th>Questions</th>
+            <th>Completed</th>
+            <th>Failed</th>
+            <th>Accuracy</th>
+            <th>Question IDs</th>
+            <th>Files</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+        <td><code>2026-03-18T09-09-04-322</code></td>
+        <td>eval</td>
+        <td>yes</td>
+        <td>clean</td>
+        <td>1</td>
+        <td>0</td>
+        <td>0</td>
+        <td>-</td>
+        <td class="question-cell"><code>d7c942c3</code></td>
+        <td><a href="runs/batch-0/2026-03-18T09-09-04-322/run-manifest.json">manifest</a></td>
+      </tr>
+<tr>
+        <td><code>2026-03-17T17-33-33-146</code></td>
+        <td>eval</td>
+        <td>yes</td>
+        <td>clean</td>
+        <td>1</td>
+        <td>0</td>
+        <td>0</td>
+        <td>-</td>
+        <td class="question-cell"><code>d7c942c3</code></td>
+        <td><a href="runs/batch-0/2026-03-17T17-33-33-146/run-manifest.json">manifest</a></td>
+      </tr>
+<tr>
+        <td><code>2026-03-17T16-44-17-124</code></td>
+        <td>eval</td>
+        <td>no</td>
+        <td>dev</td>
+        <td>1</td>
+        <td>1</td>
+        <td>0</td>
+        <td>1</td>
+        <td class="question-cell"><code>d7c942c3</code></td>
+        <td><a href="runs/batch-0/2026-03-17T16-44-17-124/run-manifest.json">manifest</a> <a href="runs/batch-0/2026-03-17T16-44-17-124/summary.json">summary</a> <a href="runs/batch-0/2026-03-17T16-44-17-124/hypothesis.jsonl">hypothesis</a></td>
+      </tr>
+<tr>
+        <td><code>2026-03-17T16-44-09-129</code></td>
+        <td>eval</td>
+        <td>no</td>
+        <td>clean</td>
+        <td>1</td>
+        <td>1</td>
+        <td>0</td>
+        <td>1</td>
+        <td class="question-cell"><code>d7c942c3</code></td>
+        <td><a href="runs/batch-0/2026-03-17T16-44-09-129/run-manifest.json">manifest</a> <a href="runs/batch-0/2026-03-17T16-44-09-129/summary.json">summary</a> <a href="runs/batch-0/2026-03-17T16-44-09-129/hypothesis.jsonl">hypothesis</a></td>
+      </tr>
+<tr>
+        <td><code>2026-03-17T16-30-28-432</code></td>
+        <td>eval</td>
+        <td>no</td>
+        <td>-</td>
+        <td>2</td>
+        <td>2</td>
+        <td>0</td>
+        <td>0</td>
+        <td class="question-cell"><code>505af2f5</code> <code>fca70973</code></td>
+        <td><a href="runs/batch-0/2026-03-17T16-30-28-432/run-manifest.json">manifest</a> <a href="runs/batch-0/2026-03-17T16-30-28-432/summary.json">summary</a> <a href="runs/batch-0/2026-03-17T16-30-28-432/hypothesis.jsonl">hypothesis</a></td>
+      </tr>
+<tr>
+        <td><code>2026-03-17T16-29-30-670</code></td>
+        <td>eval</td>
+        <td>no</td>
+        <td>-</td>
+        <td>4</td>
+        <td>4</td>
+        <td>0</td>
+        <td>0.5</td>
+        <td class="question-cell"><code>778164c6</code> <code>2133c1b5</code> <code>505af2f5</code> <code>fca70973</code></td>
+        <td><a href="runs/batch-0/2026-03-17T16-29-30-670/run-manifest.json">manifest</a> <a href="runs/batch-0/2026-03-17T16-29-30-670/summary.json">summary</a> <a href="runs/batch-0/2026-03-17T16-29-30-670/hypothesis.jsonl">hypothesis</a></td>
+      </tr>
+<tr>
+        <td><code>2026-03-17T16-26-10-952</code></td>
+        <td>eval</td>
+        <td>no</td>
+        <td>-</td>
+        <td>6</td>
+        <td>6</td>
+        <td>0</td>
+        <td>0.3333</td>
+        <td class="question-cell"><code>505af2f5</code> <code>778164c6</code> <code>fca70973</code> <code>2133c1b5</code> <code>6222b6eb</code> <code>d7c942c3</code></td>
+        <td><a href="runs/batch-0/2026-03-17T16-26-10-952/run-manifest.json">manifest</a> <a href="runs/batch-0/2026-03-17T16-26-10-952/summary.json">summary</a> <a href="runs/batch-0/2026-03-17T16-26-10-952/hypothesis.jsonl">hypothesis</a></td>
+      </tr>
+<tr>
+        <td><code>2026-03-17T16-11-17-651</code></td>
+        <td>eval</td>
+        <td>no</td>
+        <td>-</td>
+        <td>6</td>
+        <td>6</td>
+        <td>0</td>
+        <td>0</td>
+        <td class="question-cell"><code>505af2f5</code> <code>778164c6</code> <code>fca70973</code> <code>2133c1b5</code> <code>6222b6eb</code> <code>d7c942c3</code></td>
+        <td><a href="runs/batch-0/2026-03-17T16-11-17-651/run-manifest.json">manifest</a> <a href="runs/batch-0/2026-03-17T16-11-17-651/summary.json">summary</a> <a href="runs/batch-0/2026-03-17T16-11-17-651/hypothesis.jsonl">hypothesis</a></td>
+      </tr>
+<tr>
+        <td><code>2026-03-17T16-06-48-292</code></td>
+        <td>eval</td>
+        <td>no</td>
+        <td>-</td>
+        <td>2</td>
+        <td>2</td>
+        <td>0</td>
+        <td>0</td>
+        <td class="question-cell"><code>75832dbd</code> <code>bc149d6b</code></td>
+        <td><a href="runs/batch-0/2026-03-17T16-06-48-292/run-manifest.json">manifest</a> <a href="runs/batch-0/2026-03-17T16-06-48-292/summary.json">summary</a> <a href="runs/batch-0/2026-03-17T16-06-48-292/hypothesis.jsonl">hypothesis</a></td>
+      </tr>
+<tr>
+        <td><code>2026-03-17T15-55-55-754</code></td>
+        <td>eval</td>
+        <td>no</td>
+        <td>-</td>
+        <td>1</td>
+        <td>1</td>
+        <td>0</td>
+        <td>0</td>
+        <td class="question-cell"><code>d682f1a2</code></td>
+        <td><a href="runs/batch-0/2026-03-17T15-55-55-754/run-manifest.json">manifest</a> <a href="runs/batch-0/2026-03-17T15-55-55-754/summary.json">summary</a> <a href="runs/batch-0/2026-03-17T15-55-55-754/hypothesis.jsonl">hypothesis</a></td>
+      </tr>
+<tr>
+        <td><code>2026-03-17T15-43-07-808</code></td>
+        <td>eval</td>
+        <td>no</td>
+        <td>-</td>
+        <td>24</td>
+        <td>24</td>
+        <td>0</td>
+        <td>0.3333</td>
+        <td class="question-cell"><code>6aeb4375_abs</code> <code>852ce960</code> <code>2133c1b5</code> <code>d7c942c3</code> <code>bc149d6b</code> <code>5a7937c8</code> <code>gpt4_59c863d7</code> <code>d682f1a2</code> <code>6222b6eb</code> <code>778164c6</code> <code>e48988bc</code> <code>1d4da289</code> <code>fca70973</code> <code>505af2f5</code> <code>75832dbd</code> <code>1c0ddc50</code> <code>94f70d80</code> <code>bc8a6e93_abs</code> <code>6ade9755</code> <code>bc8a6e93</code> <code>2a1811e2</code> <code>gpt4_fa19884c</code> <code>gpt4_385a5000</code> <code>c8090214_abs</code></td>
+        <td><a href="runs/batch-0/2026-03-17T15-43-07-808/run-manifest.json">manifest</a> <a href="runs/batch-0/2026-03-17T15-43-07-808/summary.json">summary</a> <a href="runs/batch-0/2026-03-17T15-43-07-808/hypothesis.jsonl">hypothesis</a></td>
+      </tr>
+<tr>
+        <td><code>2026-03-17T15-42-58-295</code></td>
+        <td>eval</td>
+        <td>no</td>
+        <td>-</td>
+        <td>1</td>
+        <td>1</td>
+        <td>0</td>
+        <td>0</td>
+        <td class="question-cell"><code>d682f1a2</code></td>
+        <td><a href="runs/batch-0/2026-03-17T15-42-58-295/run-manifest.json">manifest</a> <a href="runs/batch-0/2026-03-17T15-42-58-295/summary.json">summary</a> <a href="runs/batch-0/2026-03-17T15-42-58-295/hypothesis.jsonl">hypothesis</a></td>
+      </tr>
+<tr>
+        <td><code>2026-03-17T15-40-25-520</code></td>
+        <td>eval</td>
+        <td>no</td>
+        <td>-</td>
+        <td>24</td>
+        <td>23</td>
+        <td>1</td>
+        <td>0.3043</td>
+        <td class="question-cell"><code>6aeb4375_abs</code> <code>852ce960</code> <code>2133c1b5</code> <code>d7c942c3</code> <code>bc149d6b</code> <code>5a7937c8</code> <code>gpt4_59c863d7</code> <code>d682f1a2</code> <code>6222b6eb</code> <code>778164c6</code> <code>e48988bc</code> <code>1d4da289</code> <code>fca70973</code> <code>505af2f5</code> <code>75832dbd</code> <code>1c0ddc50</code> <code>94f70d80</code> <code>bc8a6e93_abs</code> <code>6ade9755</code> <code>bc8a6e93</code> <code>2a1811e2</code> <code>gpt4_fa19884c</code> <code>gpt4_385a5000</code> <code>c8090214_abs</code></td>
+        <td><a href="runs/batch-0/2026-03-17T15-40-25-520/run-manifest.json">manifest</a> <a href="runs/batch-0/2026-03-17T15-40-25-520/summary.json">summary</a> <a href="runs/batch-0/2026-03-17T15-40-25-520/hypothesis.jsonl">hypothesis</a></td>
+      </tr>
+<tr>
+        <td><code>2026-03-17T15-39-56-951</code></td>
+        <td>eval</td>
+        <td>no</td>
+        <td>-</td>
+        <td>24</td>
+        <td>0</td>
+        <td>0</td>
+        <td>-</td>
+        <td class="question-cell"><code>6aeb4375_abs</code> <code>852ce960</code> <code>2133c1b5</code> <code>d7c942c3</code> <code>bc149d6b</code> <code>5a7937c8</code> <code>gpt4_59c863d7</code> <code>d682f1a2</code> <code>6222b6eb</code> <code>778164c6</code> <code>e48988bc</code> <code>1d4da289</code> <code>fca70973</code> <code>505af2f5</code> <code>75832dbd</code> <code>1c0ddc50</code> <code>94f70d80</code> <code>bc8a6e93_abs</code> <code>6ade9755</code> <code>bc8a6e93</code> <code>2a1811e2</code> <code>gpt4_fa19884c</code> <code>gpt4_385a5000</code> <code>c8090214_abs</code></td>
+        <td><a href="runs/batch-0/2026-03-17T15-39-56-951/run-manifest.json">manifest</a></td>
+      </tr>
+<tr>
+        <td><code>2026-03-17T15-10-49-433</code></td>
+        <td>extract</td>
+        <td>no</td>
+        <td>-</td>
+        <td>24</td>
+        <td>878</td>
+        <td>0</td>
+        <td>-</td>
+        <td class="question-cell"><code>6aeb4375_abs</code> <code>852ce960</code> <code>2133c1b5</code> <code>d7c942c3</code> <code>bc149d6b</code> <code>5a7937c8</code> <code>gpt4_59c863d7</code> <code>d682f1a2</code> <code>6222b6eb</code> <code>778164c6</code> <code>e48988bc</code> <code>1d4da289</code> <code>fca70973</code> <code>505af2f5</code> <code>75832dbd</code> <code>1c0ddc50</code> <code>94f70d80</code> <code>bc8a6e93_abs</code> <code>6ade9755</code> <code>bc8a6e93</code> <code>2a1811e2</code> <code>gpt4_fa19884c</code> <code>gpt4_385a5000</code> <code>c8090214_abs</code></td>
+        <td><a href="runs/batch-0/2026-03-17T15-10-49-433/run-manifest.json">manifest</a></td>
+      </tr>
+<tr>
+        <td><code>2026-03-17T14-43-00-673</code></td>
+        <td>extract</td>
+        <td>yes</td>
+        <td>-</td>
+        <td>24</td>
+        <td>0</td>
+        <td>0</td>
+        <td>-</td>
+        <td class="question-cell"><code>6aeb4375_abs</code> <code>852ce960</code> <code>2133c1b5</code> <code>d7c942c3</code> <code>bc149d6b</code> <code>5a7937c8</code> <code>gpt4_59c863d7</code> <code>d682f1a2</code> <code>6222b6eb</code> <code>778164c6</code> <code>e48988bc</code> <code>1d4da289</code> <code>fca70973</code> <code>505af2f5</code> <code>75832dbd</code> <code>1c0ddc50</code> <code>94f70d80</code> <code>bc8a6e93_abs</code> <code>6ade9755</code> <code>bc8a6e93</code> <code>2a1811e2</code> <code>gpt4_fa19884c</code> <code>gpt4_385a5000</code> <code>c8090214_abs</code></td>
+        <td><a href="runs/batch-0/2026-03-17T14-43-00-673/run-manifest.json">manifest</a></td>
+      </tr>
+<tr>
+        <td><code>2026-03-17T14-41-11-533</code></td>
+        <td>eval</td>
+        <td>yes</td>
+        <td>-</td>
+        <td>24</td>
+        <td>0</td>
+        <td>0</td>
+        <td>-</td>
+        <td class="question-cell"><code>6aeb4375_abs</code> <code>852ce960</code> <code>2133c1b5</code> <code>d7c942c3</code> <code>bc149d6b</code> <code>5a7937c8</code> <code>gpt4_59c863d7</code> <code>d682f1a2</code> <code>6222b6eb</code> <code>778164c6</code> <code>e48988bc</code> <code>1d4da289</code> <code>fca70973</code> <code>505af2f5</code> <code>75832dbd</code> <code>1c0ddc50</code> <code>94f70d80</code> <code>bc8a6e93_abs</code> <code>6ade9755</code> <code>bc8a6e93</code> <code>2a1811e2</code> <code>gpt4_fa19884c</code> <code>gpt4_385a5000</code> <code>c8090214_abs</code></td>
+        <td><a href="runs/batch-0/2026-03-17T14-41-11-533/run-manifest.json">manifest</a></td>
+      </tr>
+<tr>
+        <td><code>2026-03-17T14-41-11-528</code></td>
+        <td>extract</td>
+        <td>yes</td>
+        <td>-</td>
+        <td>24</td>
+        <td>0</td>
+        <td>0</td>
+        <td>-</td>
+        <td class="question-cell"><code>6aeb4375_abs</code> <code>852ce960</code> <code>2133c1b5</code> <code>d7c942c3</code> <code>bc149d6b</code> <code>5a7937c8</code> <code>gpt4_59c863d7</code> <code>d682f1a2</code> <code>6222b6eb</code> <code>778164c6</code> <code>e48988bc</code> <code>1d4da289</code> <code>fca70973</code> <code>505af2f5</code> <code>75832dbd</code> <code>1c0ddc50</code> <code>94f70d80</code> <code>bc8a6e93_abs</code> <code>6ade9755</code> <code>bc8a6e93</code> <code>2a1811e2</code> <code>gpt4_fa19884c</code> <code>gpt4_385a5000</code> <code>c8090214_abs</code></td>
+        <td><a href="runs/batch-0/2026-03-17T14-41-11-528/run-manifest.json">manifest</a></td>
+      </tr>
+<tr>
+        <td><code>2026-03-17T14-38-48</code></td>
+        <td>eval</td>
+        <td>yes</td>
+        <td>-</td>
+        <td>24</td>
+        <td>0</td>
+        <td>0</td>
+        <td>-</td>
+        <td class="question-cell"><code>6aeb4375_abs</code> <code>852ce960</code> <code>2133c1b5</code> <code>d7c942c3</code> <code>bc149d6b</code> <code>5a7937c8</code> <code>gpt4_59c863d7</code> <code>d682f1a2</code> <code>6222b6eb</code> <code>778164c6</code> <code>e48988bc</code> <code>1d4da289</code> <code>fca70973</code> <code>505af2f5</code> <code>75832dbd</code> <code>1c0ddc50</code> <code>94f70d80</code> <code>bc8a6e93_abs</code> <code>6ade9755</code> <code>bc8a6e93</code> <code>2a1811e2</code> <code>gpt4_fa19884c</code> <code>gpt4_385a5000</code> <code>c8090214_abs</code></td>
+        <td><a href="runs/batch-0/2026-03-17T14-38-48/run-manifest.json">manifest</a></td>
+      </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <script>
+    const searchInput = document.getElementById("runSearch");
+    const runRows = Array.from(document.querySelectorAll("#runsTable tbody tr"));
+    const currentBatchGroupRows = Array.from(document.querySelectorAll("#currentBatchTable tbody tr.current-group-row"));
+    const currentBatchQuestionRows = Array.from(document.querySelectorAll("#currentBatchTable tbody tr.current-question-row"));
+    const reasonFilterButtons = Array.from(document.querySelectorAll("[data-reason-filter]"));
+    const clearReasonFilter = document.getElementById("clearReasonFilter");
+    const resultFilterButtons = Array.from(document.querySelectorAll("[data-result-filter]"));
+    const historyToggle = document.getElementById("historyToggle");
+    let activeReasonFilter = "all";
+    let activeResultFilter = "all";
+
+    function applyFilter() {
+      const query = searchInput.value.trim().toLowerCase();
+      const toggleRows = (rows) => {
+        rows.forEach((row) => {
+          const text = row.textContent.toLowerCase();
+          const matchesText = !query || text.includes(query);
+          const matchesReason =
+            activeReasonFilter === "all" ||
+            row.getAttribute("data-reason") === activeReasonFilter ||
+            !row.hasAttribute("data-reason");
+          const matchesResult =
+            activeResultFilter === "all" ||
+            row.getAttribute("data-result") === activeResultFilter ||
+            !row.hasAttribute("data-result");
+          row.style.display = matchesText && matchesReason && matchesResult ? "" : "none";
+        });
+      };
+      toggleRows(runRows);
+      toggleRows(currentBatchQuestionRows);
+      currentBatchGroupRows.forEach((groupRow) => {
+        const groupType = groupRow.getAttribute("data-group-type");
+        const hasVisibleChild = currentBatchQuestionRows.some(
+          (row) => row.getAttribute("data-type") === groupType && row.style.display !== "none"
+        );
+        groupRow.style.display = hasVisibleChild ? "" : "none";
+      });
+    }
+
+    reasonFilterButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        activeReasonFilter = button.getAttribute("data-reason-filter");
+        reasonFilterButtons.forEach((candidate) => {
+          candidate.classList.toggle(
+            "active",
+            activeReasonFilter !== "all" &&
+              candidate.getAttribute("data-reason-filter") === activeReasonFilter
+          );
+        });
+        applyFilter();
+      });
+    });
+
+    clearReasonFilter.addEventListener("click", () => {
+      activeReasonFilter = "all";
+      reasonFilterButtons.forEach((candidate) => candidate.classList.remove("active"));
+      applyFilter();
+    });
+
+    resultFilterButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        activeResultFilter = button.getAttribute("data-result-filter");
+        resultFilterButtons.forEach((candidate) => candidate.classList.remove("active"));
+        button.classList.add("active");
+        applyFilter();
+      });
+    });
+
+    historyToggle.addEventListener("click", () => {
+      const enabled = document.body.classList.toggle("show-history");
+      historyToggle.textContent = enabled ? "hide rerun history" : "show rerun history";
+    });
+
+    searchInput.addEventListener("input", applyFilter);
+  </script>
+</body>
+</html>

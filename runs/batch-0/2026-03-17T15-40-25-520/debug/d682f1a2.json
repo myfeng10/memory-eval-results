@@ -1,0 +1,14 @@
+{
+  "question_id": "d682f1a2",
+  "question_type": "multi-session",
+  "question": "How many different types of food delivery services have I used recently?",
+  "expected_answer": 3,
+  "answer_session_ids": [
+    "answer_c008e5df_1",
+    "answer_c008e5df_2",
+    "answer_c008e5df_3"
+  ],
+  "mock_user_id": "20026252-36ab-5f28-9a79-f2390aea28f3",
+  "status": "failed",
+  "error": "value.toLowerCase is not a function"
+}

@@ -1,0 +1,159 @@
+{
+  "question_id": "bc8a6e93_abs",
+  "question_type": "single-session-user",
+  "question": "What did I bake for my uncle's birthday party?",
+  "expected_answer": "You did not mention this information. You mentioned baking for your niece's birthday party but not your uncle's",
+  "answer_session_ids": [
+    "answer_e6143162_abs"
+  ],
+  "mock_user_id": "dbead156-9993-5a2d-9d83-2c74c7f3ec2d",
+  "status": "completed",
+  "copy": {
+    "skipped": true,
+    "existing_memory_count": 128
+  },
+  "retrieval": {
+    "config": {
+      "retrieval_function": "dev_memory_eval_hybrid_retrieval_v2",
+      "impression_function": "dev_impression_object_similar_embedding",
+      "memory_retrieval_strategy": "independent",
+      "keyword_query_passthrough": false
+    },
+    "query_result": {
+      "time_frame": null,
+      "primary_query": "baked item for uncle's birthday party",
+      "inference_query": "what was the occasion for baking",
+      "bandwidth_state": "medium",
+      "interaction_mode": "exploration",
+      "memory_request_mode": "memory_topic",
+      "time_retrieval_mode": "semantic",
+      "wait_for_memory": true,
+      "wait_for_memory_reason": "past-question",
+      "query_prompt_version": "v2",
+      "primary_keyword_query": null,
+      "inference_keyword_query": null
+    },
+    "raw_memory_result": {
+      "summary_memory_primary": "[{\"id\":\"M001\",\"key\":\"Niece\",\"description\":\"Here is a memory: At 2023-05-23 13:24:00, Owner: (current user). Made a lemon blueberry cake for a niece's birthday party. Made a lemon blueberry cake.\\nCake was for a niece's birthday party.\\nFelt nervous about the cake's outcome.\\nThe combination of tangy lemon and sweet blueberries was perfect.\\nThe cake was a huge hit.\"},{\"id\":\"M002\",\"key\":\"Flour\",\"description\":\"Here is a memory: At 2023-05-23 13:24:00, Owner: (current user). Investigated the best type of flour for lemon-based desserts, specifically for cakes and tart crusts. Investigated the best type of flour for lemon-based desserts.\\nCompared bread flour and all-purpose flour for lemon cakes and tart crusts.\\nBread flour has a higher protein content (12-14%) leading to a chewier, denser texture.\\nAll-purpose flour has a lower protein content (10-12%) resulting in a tender, delicate texture.\\nAll-purpose flour is recommended for lemon cakes and tart crusts for a tender crumb and flaky crust.\\nNoted that bread flour can be used but may result in a denser, chewier texture.\\nConsidered cake flour for delicate, tender cakes and pastries due to its even lower protein content.\\nConsidered pastry flour as an option with a protein content between all-purpose and bread flour.\"}]",
+      "summary_memory_inference": "[{\"id\":\"M003\",\"key\":\"Flour\",\"description\":\"Here is a memory: At 2023-05-23 13:24:00, Owner:(current user). Investigated the best type of flour for lemon-based desserts, specifically for cakes and tart crusts. Investigated the best type of flour for lemon-based desserts.\\nCompared bread flour and all-purpose flour for lemon cakes and tart crusts.\\nBread flour has a higher protein content (12-14%) leading to a chewier, denser texture.\\nAll-purpose flour has a lower protein content (10-12%) resulting in a tender, delicate texture.\\nAll-purpose flour is recommended for lemon cakes and tart crusts for a tender crumb and flaky crust.\\nNoted that bread flour can be used but may result in a denser, chewier texture.\\nConsidered cake flour for delicate, tender cakes and pastries due to its even lower protein content.\\nConsidered pastry flour as an option with a protein content between all-purpose and bread flour.\"}]",
+      "summary_impression": "[]",
+      "identifier_mapping_counts": {
+        "memory": 3,
+        "impression": 0
+      }
+    },
+    "other_public_result": "[]",
+    "memories_found": {
+      "primary": 2,
+      "inference": 1,
+      "impression": 0,
+      "other_public": 0,
+      "hydrated": 3
+    },
+    "retrieved_memories": [
+      {
+        "retrieval_bucket": "primary",
+        "identifier": "M001",
+        "memory_id": "7fa7a4ce-11cb-4f22-b0e3-20512e5bd90e",
+        "summary_key": "Niece",
+        "summary_description": "Here is a memory: At 2023-05-23 13:24:00, Owner: (current user). Made a lemon blueberry cake for a niece's birthday party. Made a lemon blueberry cake.\nCake was for a niece's birthday party.\nFelt nervous about the cake's outcome.\nThe combination of tangy lemon and sweet blueberries was perfect.\nThe cake was a huge hit.",
+        "time": "2023-05-23T13:24:00",
+        "location": "Unknown",
+        "category": "Hobby",
+        "object": "Lemon Blueberry Cake",
+        "emotion": "happy",
+        "description": "Made a lemon blueberry cake for a niece's birthday party. Was initially nervous about the outcome, but the combination of tangy lemon and sweet blueberries resulted in a huge hit.",
+        "details": "Made a lemon blueberry cake.\nCake was for a niece's birthday party.\nFelt nervous about the cake's outcome.\nThe combination of tangy lemon and sweet blueberries was perfect.\nThe cake was a huge hit.",
+        "keys": "Niece",
+        "haystack_session_id": "answer_e6143162_abs",
+        "eval_session_index": 15,
+        "eval_question_id": "bc8a6e93_abs"
+      },
+      {
+        "retrieval_bucket": "primary",
+        "identifier": "M002",
+        "memory_id": "d9a72ad2-0653-4776-8bcc-e04830c60df5",
+        "summary_key": "Flour",
+        "summary_description": "Here is a memory: At 2023-05-23 13:24:00, Owner: (current user). Investigated the best type of flour for lemon-based desserts, specifically for cakes and tart crusts. Investigated the best type of flour for lemon-based desserts.\nCompared bread flour and all-purpose flour for lemon cakes and tart crusts.\nBread flour has a higher protein content (12-14%) leading to a chewier, denser texture.\nAll-purpose flour has a lower protein content (10-12%) resulting in a tender, delicate texture.\nAll-purpose flour is recommended for lemon cakes and tart crusts for a tender crumb and flaky crust.\nNoted that bread flour can be used but may result in a denser, chewier texture.\nConsidered cake flour for delicate, tender cakes and pastries due to its even lower protein content.\nConsidered pastry flour as an option with a protein content between all-purpose and bread flour.",
+        "time": "2023-05-23T13:24:00",
+        "location": "Unknown",
+        "category": "Hobby",
+        "object": "Flour for Lemon Desserts",
+        "emotion": "thoughtful",
+        "description": "Investigated the best type of flour for lemon-based desserts, specifically for cakes and tart crusts. Concluded that all-purpose flour is generally preferred over bread flour due to its lower protein content, which results in a more tender and delicate texture suitable for these desserts. Considered other options like cake flour and pastry flour for even more delicate results.",
+        "details": "Investigated the best type of flour for lemon-based desserts.\nCompared bread flour and all-purpose flour for lemon cakes and tart crusts.\nBread flour has a higher protein content (12-14%) leading to a chewier, denser texture.\nAll-purpose flour has a lower protein content (10-12%) resulting in a tender, delicate texture.\nAll-purpose flour is recommended for lemon cakes and tart crusts for a tender crumb and flaky crust.\nNoted that bread flour can be used but may result in a denser, chewier texture.\nConsidered cake flour for delicate, tender cakes and pastries due to its even lower protein content.\nConsidered pastry flour as an option with a protein content between all-purpose and bread flour.",
+        "keys": "Flour",
+        "haystack_session_id": "answer_e6143162_abs",
+        "eval_session_index": 15,
+        "eval_question_id": "bc8a6e93_abs"
+      },
+      {
+        "retrieval_bucket": "inference",
+        "identifier": "M003",
+        "memory_id": "d9a72ad2-0653-4776-8bcc-e04830c60df5",
+        "summary_key": "Flour",
+        "summary_description": "Here is a memory: At 2023-05-23 13:24:00, Owner:(current user). Investigated the best type of flour for lemon-based desserts, specifically for cakes and tart crusts. Investigated the best type of flour for lemon-based desserts.\nCompared bread flour and all-purpose flour for lemon cakes and tart crusts.\nBread flour has a higher protein content (12-14%) leading to a chewier, denser texture.\nAll-purpose flour has a lower protein content (10-12%) resulting in a tender, delicate texture.\nAll-purpose flour is recommended for lemon cakes and tart crusts for a tender crumb and flaky crust.\nNoted that bread flour can be used but may result in a denser, chewier texture.\nConsidered cake flour for delicate, tender cakes and pastries due to its even lower protein content.\nConsidered pastry flour as an option with a protein content between all-purpose and bread flour.",
+        "time": "2023-05-23T13:24:00",
+        "location": "Unknown",
+        "category": "Hobby",
+        "object": "Flour for Lemon Desserts",
+        "emotion": "thoughtful",
+        "description": "Investigated the best type of flour for lemon-based desserts, specifically for cakes and tart crusts. Concluded that all-purpose flour is generally preferred over bread flour due to its lower protein content, which results in a more tender and delicate texture suitable for these desserts. Considered other options like cake flour and pastry flour for even more delicate results.",
+        "details": "Investigated the best type of flour for lemon-based desserts.\nCompared bread flour and all-purpose flour for lemon cakes and tart crusts.\nBread flour has a higher protein content (12-14%) leading to a chewier, denser texture.\nAll-purpose flour has a lower protein content (10-12%) resulting in a tender, delicate texture.\nAll-purpose flour is recommended for lemon cakes and tart crusts for a tender crumb and flaky crust.\nNoted that bread flour can be used but may result in a denser, chewier texture.\nConsidered cake flour for delicate, tender cakes and pastries due to its even lower protein content.\nConsidered pastry flour as an option with a protein content between all-purpose and bread flour.",
+        "keys": "Flour",
+        "haystack_session_id": "answer_e6143162_abs",
+        "eval_session_index": 15,
+        "eval_question_id": "bc8a6e93_abs"
+      }
+    ],
+    "retrieval_status_messages": [],
+    "query_time_seconds": 0.9869702499999985,
+    "memory_time_seconds": 0.2824474579999951,
+    "perf_entries": [
+      {
+        "name": "memory.single.convert-messages",
+        "ms": 0.006667000001471024
+      },
+      {
+        "name": "memory.single.parse-context",
+        "ms": 0.0048330000063288026
+      },
+      {
+        "name": "memory.single.get-query",
+        "ms": 986.9799580000035
+      },
+      {
+        "name": "memory.single.parse-time-window",
+        "ms": 0.11012500000651926
+      },
+      {
+        "name": "memory.single.parse-time-window-from-query-signal",
+        "ms": 0.0027919999993173406
+      },
+      {
+        "name": "memory.single.build-embeddings",
+        "ms": 402.5819579999952
+      },
+      {
+        "name": "memory.single.retrieve-main",
+        "ms": 282.27658299999894
+      },
+      {
+        "name": "memory.single.retrieve-parallel",
+        "ms": 282.4551670000001
+      }
+    ]
+  },
+  "answering": {
+    "hypothesis": "I don't have that information.",
+    "formatted_context_length": 2913,
+    "duration_ms": 380.21,
+    "used_direct_abstention": false
+  },
+  "self_check": {
+    "likelyCorrect": true,
+    "normalizedExpected": "you did not mention this information. you mentioned baking for your niece's birthday party but not your uncle's",
+    "normalizedHypothesis": "i don't have that information.",
+    "reason": "Exact abstention match."
+  }
+}

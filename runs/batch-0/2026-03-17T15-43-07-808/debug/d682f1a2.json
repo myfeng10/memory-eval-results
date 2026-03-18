@@ -1,0 +1,110 @@
+{
+  "question_id": "d682f1a2",
+  "question_type": "multi-session",
+  "question": "How many different types of food delivery services have I used recently?",
+  "expected_answer": 3,
+  "answer_session_ids": [
+    "answer_c008e5df_1",
+    "answer_c008e5df_2",
+    "answer_c008e5df_3"
+  ],
+  "mock_user_id": "20026252-36ab-5f28-9a79-f2390aea28f3",
+  "status": "completed",
+  "copy": {
+    "skipped": true,
+    "existing_memory_count": 113
+  },
+  "retrieval": {
+    "config": {
+      "retrieval_function": "dev_memory_eval_hybrid_retrieval_v2",
+      "impression_function": "dev_impression_object_similar_embedding",
+      "memory_retrieval_strategy": "independent",
+      "keyword_query_passthrough": false
+    },
+    "query_result": {
+      "time_frame": null,
+      "primary_query": "used food delivery services",
+      "inference_query": "types of food delivery services used",
+      "bandwidth_state": "medium",
+      "interaction_mode": "exploration",
+      "memory_request_mode": "memory_topic",
+      "time_retrieval_mode": "all",
+      "wait_for_memory": false,
+      "wait_for_memory_reason": "not-memory-critical",
+      "query_prompt_version": "v2",
+      "primary_keyword_query": null,
+      "inference_keyword_query": null
+    },
+    "raw_memory_result": {
+      "summary_memory_primary": "[]",
+      "summary_memory_inference": "[]",
+      "summary_impression": "[]",
+      "identifier_mapping_counts": {
+        "memory": 0,
+        "impression": 0
+      }
+    },
+    "other_public_result": "[]",
+    "memories_found": {
+      "primary": 0,
+      "inference": 0,
+      "impression": 0,
+      "other_public": 0,
+      "hydrated": 0
+    },
+    "retrieved_memories": [],
+    "retrieval_status_messages": [
+      "No memories found in exact scope; fetching larger scope (±7 days)...",
+      "No memories found after expanded time-scope search.",
+      "Time-focused ranking applied (relevance+time proximity). Kept 0/0 own memories and 0/0 public memories (max 5 each)."
+    ],
+    "query_time_seconds": 7.198761542000002,
+    "memory_time_seconds": 0.10994816699999865,
+    "perf_entries": [
+      {
+        "name": "memory.single.convert-messages",
+        "ms": 0.005333000000973698
+      },
+      {
+        "name": "memory.single.parse-context",
+        "ms": 0.0028330000004643807
+      },
+      {
+        "name": "memory.single.get-query",
+        "ms": 7198.767542000001
+      },
+      {
+        "name": "memory.single.parse-time-window",
+        "ms": 0.1876250000022992
+      },
+      {
+        "name": "memory.single.retrieve-own.time-window",
+        "ms": 70.16783299999952
+      },
+      {
+        "name": "memory.single.retrieve-all-by-time-window",
+        "ms": 70.2333749999998
+      },
+      {
+        "name": "memory.single.retrieve-own.time-window.expand-1",
+        "ms": 39.66820899999948
+      },
+      {
+        "name": "memory.single.retrieve-all-by-time-window.expand-1",
+        "ms": 39.720416000000114
+      }
+    ]
+  },
+  "answering": {
+    "hypothesis": "I don't have that information.",
+    "formatted_context_length": 0,
+    "duration_ms": 0,
+    "used_direct_abstention": true
+  },
+  "self_check": {
+    "likelyCorrect": false,
+    "normalizedExpected": "3",
+    "normalizedHypothesis": "i don't have that information.",
+    "reason": "Normalized strings do not contain each other."
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "run_id": "2026-03-17T16-06-48-292",
+  "batch": 0,
+  "total_requested": 2,
+  "completed": 2,
+  "failed": 0,
+  "overall_accuracy": 0,
+  "abstention_accuracy": {
+    "total": 0,
+    "correct": 0,
+    "accuracy": null
+  },
+  "scores_by_type": {
+    "single-session-preference": {
+      "total": 1,
+      "correct": 0,
+      "accuracy": 0
+    },
+    "multi-session": {
+      "total": 1,
+      "correct": 0,
+      "accuracy": 0
+    }
+  },
+  "avg_query_time_seconds": 0.8749,
+  "avg_memory_time_seconds": 0.1332,
+  "avg_answer_time_ms": 684.99,
+  "avg_retrieved_memories": 5
+}

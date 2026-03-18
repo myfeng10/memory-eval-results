@@ -1,0 +1,161 @@
+{
+  "question_id": "1d4da289",
+  "question_type": "single-session-assistant",
+  "question": "I was thinking about our previous conversation about data privacy and security. You mentioned that companies use two-factor authentication to enhance security. Can you remind me what kind of two-factor authentication methods you were referring to?",
+  "expected_answer": "I mentioned biometric authentication or one-time passwords (OTP) as examples of two-factor authentication methods.",
+  "answer_session_ids": [
+    "answer_ultrachat_348449"
+  ],
+  "mock_user_id": "f6cd7ad6-053a-535f-be9f-4aa320e580d4",
+  "status": "completed",
+  "copy": {
+    "mockUserId": "f6cd7ad6-053a-535f-be9f-4aa320e580d4",
+    "deletedExistingRows": 0,
+    "copiedRows": 114,
+    "existingRowsAfterCopy": 114
+  },
+  "retrieval": {
+    "config": {
+      "retrieval_function": "dev_memory_eval_hybrid_retrieval_v2",
+      "impression_function": "dev_impression_object_similar_embedding",
+      "memory_retrieval_strategy": "independent",
+      "keyword_query_passthrough": false
+    },
+    "query_result": {
+      "time_frame": null,
+      "primary_query": "types of two-factor authentication methods",
+      "inference_query": "how companies use two-factor authentication for security",
+      "time_retrieval_mode": "semantic",
+      "interaction_mode": "exploration",
+      "memory_request_mode": "general_chat",
+      "bandwidth_state": "medium",
+      "wait_for_memory": true,
+      "wait_for_memory_reason": "explicit-remind",
+      "query_prompt_version": "v2",
+      "primary_keyword_query": "security. two-factor Can",
+      "inference_keyword_query": null
+    },
+    "raw_memory_result": {
+      "summary_memory_primary": "[{\"id\":\"M002\",\"key\":\"Firewall\",\"description\":\"Here is a memory: At 2023-05-31 02:28:00, Owner: (current user). Expressed concern about potential software vulnerabilities and sought additional steps to protect against cyber attacks. Expressed concern about potential vulnerabilities in any software.\\nSought additional steps to protect a computer from cyber attacks.\\nRecommended keeping operating system and software up to date with regular updates and security patches.\\nRecommended using a firewall to prevent unauthorized access and network-based attacks.\\nRecommended using strong and unique passwords for each account.\\nRecommended enabling two-factor authentication for an extra layer of security.\\nRecommended caution with email and phishing scams, avoiding suspicious links and attachments.\\nRecommended using a Virtual Private Network (VPN) to encrypt online activity and protect privacy on public Wi-Fi.\\nRecommended regularly backing up important data to protect against cyber attacks or hardware failure.\"},{\"id\":\"M003\",\"key\":\"Loyalty\",\"description\":\"Here is a memory: At 2023-05-22 14:07:00, Owner: (current user). Requested a data model for a loyalty program based on data-enriched tokens. Requested a data model for a loyalty program.\\nThe program is based on data-enriched tokens.\\nThe model should use both on-chain and off-chain data.\\nThe purpose is to manage customer interactions, rewards, and redemptions.\\nKey entities include: User, Token, Wallet, TokenBalance, Transaction, Reward, RewardRedemption, Merchant, MerchantTokenAllocation.\"}]",
+      "summary_memory_inference": "[{\"id\":\"M001\",\"key\":\"Firewall\",\"description\":\"Here is a memory: At 2023-05-31 02:28:00, Owner:(current user). Expressed concern about potential software vulnerabilities and sought additional steps to protect against cyber attacks. Expressed concern about potential vulnerabilities in any software.\\nSought additional steps to protect a computer from cyber attacks.\\nRecommended keeping operating system and software up to date with regular updates and security patches.\\nRecommended using a firewall to prevent unauthorized access and network-based attacks.\\nRecommended using strong and unique passwords for each account.\\nRecommended enabling two-factor authentication for an extra layer of security.\\nRecommended caution with email and phishing scams, avoiding suspicious links and attachments.\\nRecommended using a Virtual Private Network (VPN) to encrypt online activity and protect privacy on public Wi-Fi.\\nRecommended regularly backing up important data to protect against cyber attacks or hardware failure.\"}]",
+      "summary_impression": "[]",
+      "identifier_mapping_counts": {
+        "memory": 3,
+        "impression": 0
+      }
+    },
+    "other_public_result": "[]",
+    "memories_found": {
+      "primary": 2,
+      "inference": 1,
+      "impression": 0,
+      "other_public": 0,
+      "hydrated": 3
+    },
+    "retrieved_memories": [
+      {
+        "retrieval_bucket": "primary",
+        "identifier": "M002",
+        "memory_id": "c1f47859-7e97-4a9d-9b01-35c3594286c9",
+        "summary_key": "Firewall",
+        "summary_description": "Here is a memory: At 2023-05-31 02:28:00, Owner: (current user). Expressed concern about potential software vulnerabilities and sought additional steps to protect against cyber attacks. Expressed concern about potential vulnerabilities in any software.\nSought additional steps to protect a computer from cyber attacks.\nRecommended keeping operating system and software up to date with regular updates and security patches.\nRecommended using a firewall to prevent unauthorized access and network-based attacks.\nRecommended using strong and unique passwords for each account.\nRecommended enabling two-factor authentication for an extra layer of security.\nRecommended caution with email and phishing scams, avoiding suspicious links and attachments.\nRecommended using a Virtual Private Network (VPN) to encrypt online activity and protect privacy on public Wi-Fi.\nRecommended regularly backing up important data to protect against cyber attacks or hardware failure.",
+        "time": "2023-05-31T02:28:00",
+        "location": "Unknown",
+        "category": "Technology and Innovation",
+        "object": "Cyber Attack Protection Steps",
+        "emotion": "thoughtful",
+        "description": "Expressed concern about potential software vulnerabilities and sought additional steps to protect against cyber attacks. Received recommendations including keeping software updated, using a firewall, strong passwords, two-factor authentication, caution with emails, using a VPN, and backing up data.",
+        "details": "Expressed concern about potential vulnerabilities in any software.\nSought additional steps to protect a computer from cyber attacks.\nRecommended keeping operating system and software up to date with regular updates and security patches.\nRecommended using a firewall to prevent unauthorized access and network-based attacks.\nRecommended using strong and unique passwords for each account.\nRecommended enabling two-factor authentication for an extra layer of security.\nRecommended caution with email and phishing scams, avoiding suspicious links and attachments.\nRecommended using a Virtual Private Network (VPN) to encrypt online activity and protect privacy on public Wi-Fi.\nRecommended regularly backing up important data to protect against cyber attacks or hardware failure.",
+        "keys": "Firewall",
+        "haystack_session_id": "ultrachat_213759",
+        "eval_session_index": 54,
+        "eval_question_id": "1d4da289"
+      },
+      {
+        "retrieval_bucket": "primary",
+        "identifier": "M003",
+        "memory_id": "90bb5a28-b19e-426e-abfc-cdc2b284ef83",
+        "summary_key": "Loyalty",
+        "summary_description": "Here is a memory: At 2023-05-22 14:07:00, Owner: (current user). Requested a data model for a loyalty program based on data-enriched tokens. Requested a data model for a loyalty program.\nThe program is based on data-enriched tokens.\nThe model should use both on-chain and off-chain data.\nThe purpose is to manage customer interactions, rewards, and redemptions.\nKey entities include: User, Token, Wallet, TokenBalance, Transaction, Reward, RewardRedemption, Merchant, MerchantTokenAllocation.",
+        "time": "2023-05-22T14:07:00",
+        "location": "Unknown",
+        "category": "Technology and Innovation",
+        "object": "Loyalty Program Data Model",
+        "emotion": "thoughtful",
+        "description": "Requested a data model for a loyalty program based on data-enriched tokens. The model should incorporate both on-chain and off-chain data to manage customer interactions, rewards, and redemptions. This model would include entities such as User, Token, Wallet, TokenBalance, Transaction, Reward, RewardRedemption, Merchant, and MerchantTokenAllocation.",
+        "details": "Requested a data model for a loyalty program.\nThe program is based on data-enriched tokens.\nThe model should use both on-chain and off-chain data.\nThe purpose is to manage customer interactions, rewards, and redemptions.\nKey entities include: User, Token, Wallet, TokenBalance, Transaction, Reward, RewardRedemption, Merchant, MerchantTokenAllocation.",
+        "keys": "Loyalty",
+        "haystack_session_id": "sharegpt_AfruXDt_0",
+        "eval_session_index": 10,
+        "eval_question_id": "1d4da289"
+      },
+      {
+        "retrieval_bucket": "inference",
+        "identifier": "M001",
+        "memory_id": "c1f47859-7e97-4a9d-9b01-35c3594286c9",
+        "summary_key": "Firewall",
+        "summary_description": "Here is a memory: At 2023-05-31 02:28:00, Owner:(current user). Expressed concern about potential software vulnerabilities and sought additional steps to protect against cyber attacks. Expressed concern about potential vulnerabilities in any software.\nSought additional steps to protect a computer from cyber attacks.\nRecommended keeping operating system and software up to date with regular updates and security patches.\nRecommended using a firewall to prevent unauthorized access and network-based attacks.\nRecommended using strong and unique passwords for each account.\nRecommended enabling two-factor authentication for an extra layer of security.\nRecommended caution with email and phishing scams, avoiding suspicious links and attachments.\nRecommended using a Virtual Private Network (VPN) to encrypt online activity and protect privacy on public Wi-Fi.\nRecommended regularly backing up important data to protect against cyber attacks or hardware failure.",
+        "time": "2023-05-31T02:28:00",
+        "location": "Unknown",
+        "category": "Technology and Innovation",
+        "object": "Cyber Attack Protection Steps",
+        "emotion": "thoughtful",
+        "description": "Expressed concern about potential software vulnerabilities and sought additional steps to protect against cyber attacks. Received recommendations including keeping software updated, using a firewall, strong passwords, two-factor authentication, caution with emails, using a VPN, and backing up data.",
+        "details": "Expressed concern about potential vulnerabilities in any software.\nSought additional steps to protect a computer from cyber attacks.\nRecommended keeping operating system and software up to date with regular updates and security patches.\nRecommended using a firewall to prevent unauthorized access and network-based attacks.\nRecommended using strong and unique passwords for each account.\nRecommended enabling two-factor authentication for an extra layer of security.\nRecommended caution with email and phishing scams, avoiding suspicious links and attachments.\nRecommended using a Virtual Private Network (VPN) to encrypt online activity and protect privacy on public Wi-Fi.\nRecommended regularly backing up important data to protect against cyber attacks or hardware failure.",
+        "keys": "Firewall",
+        "haystack_session_id": "ultrachat_213759",
+        "eval_session_index": 54,
+        "eval_question_id": "1d4da289"
+      }
+    ],
+    "retrieval_status_messages": [],
+    "query_time_seconds": 0.7763982500000056,
+    "memory_time_seconds": 0.11170537499999773,
+    "perf_entries": [
+      {
+        "name": "memory.single.convert-messages",
+        "ms": 0.005375000000640284
+      },
+      {
+        "name": "memory.single.parse-context",
+        "ms": 0.005291000001307111
+      },
+      {
+        "name": "memory.single.get-query",
+        "ms": 776.4030409999978
+      },
+      {
+        "name": "memory.single.parse-time-window",
+        "ms": 0.06354100000316976
+      },
+      {
+        "name": "memory.single.parse-time-window-from-query-signal",
+        "ms": 0.0020000000004074536
+      },
+      {
+        "name": "memory.single.build-embeddings",
+        "ms": 244.1864579999965
+      },
+      {
+        "name": "memory.single.retrieve-main",
+        "ms": 111.60100000000239
+      },
+      {
+        "name": "memory.single.retrieve-parallel",
+        "ms": 111.7094999999972
+      }
+    ]
+  },
+  "answering": {
+    "hypothesis": "I don't have that information.",
+    "formatted_context_length": 3312,
+    "duration_ms": 480.11,
+    "used_direct_abstention": false
+  },
+  "self_check": {
+    "likelyCorrect": false,
+    "normalizedExpected": "i mentioned biometric authentication or one-time passwords (otp) as examples of two-factor authentication methods.",
+    "normalizedHypothesis": "i don't have that information.",
+    "reason": "Normalized strings do not contain each other."
+  }
+}

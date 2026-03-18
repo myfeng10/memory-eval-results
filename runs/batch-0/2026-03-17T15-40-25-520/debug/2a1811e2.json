@@ -1,0 +1,162 @@
+{
+  "question_id": "2a1811e2",
+  "question_type": "temporal-reasoning",
+  "question": "How many days had passed between the Hindu festival of Holi and the Sunday mass at St. Mary's Church?",
+  "expected_answer": "21 days. 22 days (including the last day) is also acceptable.",
+  "answer_session_ids": [
+    "answer_1cc3cd0c_1",
+    "answer_1cc3cd0c_2"
+  ],
+  "mock_user_id": "8e19864a-c137-5875-8380-fecf09c5a0cf",
+  "status": "completed",
+  "copy": {
+    "mockUserId": "8e19864a-c137-5875-8380-fecf09c5a0cf",
+    "deletedExistingRows": 0,
+    "copiedRows": 119,
+    "existingRowsAfterCopy": 119
+  },
+  "retrieval": {
+    "config": {
+      "retrieval_function": "dev_memory_eval_hybrid_retrieval_v2",
+      "impression_function": "dev_impression_object_similar_embedding",
+      "memory_retrieval_strategy": "independent",
+      "keyword_query_passthrough": false
+    },
+    "query_result": {
+      "time_frame": null,
+      "primary_query": "days between Holi and Sunday mass at St. Mary's Church",
+      "inference_query": "timing of religious observances",
+      "bandwidth_state": "medium",
+      "interaction_mode": "exploration",
+      "memory_request_mode": "memory_topic",
+      "time_retrieval_mode": "all",
+      "wait_for_memory": true,
+      "wait_for_memory_reason": "past-tense-question",
+      "query_prompt_version": "v2",
+      "primary_keyword_query": "Hindu Holi Sunday St. Mary Church",
+      "inference_keyword_query": null
+    },
+    "raw_memory_result": {
+      "summary_memory_primary": "[{\"id\":\"M002\",\"key\":\"Colors\",\"description\":\"Here is a memory: At 2023-03-26 19:48:00, Owner: (current user). Learned about the deep meanings and significance of colors in Holi. Learned that colors in Holi have deep meanings.\\nPreviously threw colors for fun.\\nUnderstands the significance of throwing colors for unity, washing away sins, celebrating spring, and expressing emotions.\\nRed symbolizes love, passion, energy, and Durga.\\nPink represents happiness, joy, playfulness, and Lord Krishna.\\nYellow signifies sunshine, happiness, knowledge, and Lord Vishnu.\\nGreen represents nature, fertility, prosperity, and Radha.\\nBlue symbolizes tranquility, peace, wisdom, and Lord Krishna.\\nPurple represents luxury, creativity, grandeur, and Kama.\"},{\"id\":\"M003\",\"key\":\"Holi\",\"description\":\"Here is a memory: At 2023-02-26 20:00:00, Owner: (current user). Attended the Holi celebration at a local temple. Attended Holi celebration on February 26th.\\nCelebration took place at a local temple.\\nThrew colors during the event.\\nLearned about the significance of Holi.\\nEnjoyed Gujarati snacks at the temple.\"}]",
+      "summary_memory_inference": "[{\"id\":\"M001\",\"key\":\"Königsberg\",\"description\":\"Here is a memory: At 2023-03-26 13:10:00, Owner:(current user). Expressed interest in the historical religious diversity of Königsberg and wondered about efforts to preserve religious structures destroyed during World War II. Expressed interest in Königsberg's historical religious diversity.\\nWondered if efforts were made to preserve religious structures destroyed during WWII.\\nLearned that limited preservation efforts occurred during the Soviet era.\\nMany religious buildings were repurposed for secular use or demolished.\\nThe Cathedral of Christ the Savior was converted into a swimming pool.\\nNoted renewed interest in preserving cultural and religious heritage in Kaliningrad since the Soviet Union's collapse.\\nExpressed hope that current preservation efforts are successful.\"}]",
+      "summary_impression": "[]",
+      "identifier_mapping_counts": {
+        "memory": 3,
+        "impression": 0
+      }
+    },
+    "other_public_result": "[]",
+    "memories_found": {
+      "primary": 2,
+      "inference": 1,
+      "impression": 0,
+      "other_public": 0,
+      "hydrated": 3
+    },
+    "retrieved_memories": [
+      {
+        "retrieval_bucket": "primary",
+        "identifier": "M002",
+        "memory_id": "e4ef88a6-8ef6-4fe8-aad4-9d2d4f13a8d7",
+        "summary_key": "Colors",
+        "summary_description": "Here is a memory: At 2023-03-26 19:48:00, Owner: (current user). Learned about the deep meanings and significance of colors in Holi. Learned that colors in Holi have deep meanings.\nPreviously threw colors for fun.\nUnderstands the significance of throwing colors for unity, washing away sins, celebrating spring, and expressing emotions.\nRed symbolizes love, passion, energy, and Durga.\nPink represents happiness, joy, playfulness, and Lord Krishna.\nYellow signifies sunshine, happiness, knowledge, and Lord Vishnu.\nGreen represents nature, fertility, prosperity, and Radha.\nBlue symbolizes tranquility, peace, wisdom, and Lord Krishna.\nPurple represents luxury, creativity, grandeur, and Kama.",
+        "time": "2023-03-26T19:48:00",
+        "location": "Unknown",
+        "category": "Social and Cultural Topics",
+        "object": "Significance of Holi Colors",
+        "emotion": "surprised",
+        "description": "Learned about the deep meanings and significance of colors in Holi. Previously, colors were thrown just for fun, but now understands their cultural and mythological importance, including the meaning of red, pink, yellow, green, blue, and purple.",
+        "details": "Learned that colors in Holi have deep meanings.\nPreviously threw colors for fun.\nUnderstands the significance of throwing colors for unity, washing away sins, celebrating spring, and expressing emotions.\nRed symbolizes love, passion, energy, and Durga.\nPink represents happiness, joy, playfulness, and Lord Krishna.\nYellow signifies sunshine, happiness, knowledge, and Lord Vishnu.\nGreen represents nature, fertility, prosperity, and Radha.\nBlue symbolizes tranquility, peace, wisdom, and Lord Krishna.\nPurple represents luxury, creativity, grandeur, and Kama.",
+        "keys": "Colors",
+        "haystack_session_id": "answer_1cc3cd0c_1",
+        "eval_session_index": 17,
+        "eval_question_id": "2a1811e2"
+      },
+      {
+        "retrieval_bucket": "primary",
+        "identifier": "M003",
+        "memory_id": "95eb63f6-4c9b-4e4c-945f-44698fb3ae48",
+        "summary_key": "Holi",
+        "summary_description": "Here is a memory: At 2023-02-26 20:00:00, Owner: (current user). Attended the Holi celebration at a local temple. Attended Holi celebration on February 26th.\nCelebration took place at a local temple.\nThrew colors during the event.\nLearned about the significance of Holi.\nEnjoyed Gujarati snacks at the temple.",
+        "time": "2023-02-26T20:00:00",
+        "location": "local temple",
+        "category": "Social and Cultural Topics",
+        "object": "Holi Celebration Experience",
+        "emotion": "happy",
+        "description": "Attended the Holi celebration at a local temple. Had a blast throwing colors and learning about its significance. Enjoyed trying Gujarati snacks during the celebration.",
+        "details": "Attended Holi celebration on February 26th.\nCelebration took place at a local temple.\nThrew colors during the event.\nLearned about the significance of Holi.\nEnjoyed Gujarati snacks at the temple.",
+        "keys": "Holi",
+        "haystack_session_id": "answer_1cc3cd0c_1",
+        "eval_session_index": 17,
+        "eval_question_id": "2a1811e2"
+      },
+      {
+        "retrieval_bucket": "inference",
+        "identifier": "M001",
+        "memory_id": "d088e4e6-ddf9-4f6e-bd76-d123fe6a3d09",
+        "summary_key": "Königsberg",
+        "summary_description": "Here is a memory: At 2023-03-26 13:10:00, Owner:(current user). Expressed interest in the historical religious diversity of Königsberg and wondered about efforts to preserve religious structures destroyed during World War II. Expressed interest in Königsberg's historical religious diversity.\nWondered if efforts were made to preserve religious structures destroyed during WWII.\nLearned that limited preservation efforts occurred during the Soviet era.\nMany religious buildings were repurposed for secular use or demolished.\nThe Cathedral of Christ the Savior was converted into a swimming pool.\nNoted renewed interest in preserving cultural and religious heritage in Kaliningrad since the Soviet Union's collapse.\nExpressed hope that current preservation efforts are successful.",
+        "time": "2023-03-26T13:10:00",
+        "location": "Unknown",
+        "category": "Social and Cultural Topics",
+        "object": "Königsberg Religious Structures Preservation",
+        "emotion": "thoughtful",
+        "description": "Expressed interest in the historical religious diversity of Königsberg and wondered about efforts to preserve religious structures destroyed during World War II. Learned that limited efforts were made during the Soviet era, with many buildings repurposed or demolished. Noted that since the collapse of the Soviet Union, there has been renewed interest in preservation and restoration.",
+        "details": "Expressed interest in Königsberg's historical religious diversity.\nWondered if efforts were made to preserve religious structures destroyed during WWII.\nLearned that limited preservation efforts occurred during the Soviet era.\nMany religious buildings were repurposed for secular use or demolished.\nThe Cathedral of Christ the Savior was converted into a swimming pool.\nNoted renewed interest in preserving cultural and religious heritage in Kaliningrad since the Soviet Union's collapse.\nExpressed hope that current preservation efforts are successful.",
+        "keys": "Königsberg",
+        "haystack_session_id": "ultrachat_187883",
+        "eval_session_index": 34,
+        "eval_question_id": "2a1811e2"
+      }
+    ],
+    "retrieval_status_messages": [],
+    "query_time_seconds": 1.0665478329999896,
+    "memory_time_seconds": 0.6043228329999983,
+    "perf_entries": [
+      {
+        "name": "memory.single.convert-messages",
+        "ms": 0.008082999993348494
+      },
+      {
+        "name": "memory.single.parse-context",
+        "ms": 0.0038330000097630545
+      },
+      {
+        "name": "memory.single.get-query",
+        "ms": 1066.5560419999965
+      },
+      {
+        "name": "memory.single.parse-time-window",
+        "ms": 0.11974999999802094
+      },
+      {
+        "name": "memory.single.parse-time-window-from-query-signal",
+        "ms": 0.0024169999960577115
+      },
+      {
+        "name": "memory.single.build-embeddings",
+        "ms": 313.59737499999756
+      },
+      {
+        "name": "memory.single.retrieve-main",
+        "ms": 604.1974159999954
+      },
+      {
+        "name": "memory.single.retrieve-parallel",
+        "ms": 604.3280410000007
+      }
+    ]
+  },
+  "answering": {
+    "hypothesis": "I don't have that information.",
+    "formatted_context_length": 2577,
+    "duration_ms": 565.71,
+    "used_direct_abstention": false
+  },
+  "self_check": {
+    "likelyCorrect": false,
+    "normalizedExpected": "21 days. 22 days (including the last day) is also acceptable.",
+    "normalizedHypothesis": "i don't have that information.",
+    "reason": "Normalized strings do not contain each other."
+  }
+}

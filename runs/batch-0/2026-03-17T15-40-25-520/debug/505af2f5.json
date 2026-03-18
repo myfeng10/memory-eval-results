@@ -1,0 +1,161 @@
+{
+  "question_id": "505af2f5",
+  "question_type": "single-session-preference",
+  "question": "I was thinking of trying a new coffee creamer recipe. Any recommendations?",
+  "expected_answer": "The user would prefer responses that suggest variations on their existing almond milk, vanilla extract, and honey creamer recipe or new ideas that align with their goals of reducing sugar intake and saving money. They might not prefer responses that recommend commercial creamer products or recipes that are high in sugar or expensive.",
+  "answer_session_ids": [
+    "answer_f3164f2c"
+  ],
+  "mock_user_id": "6e5715da-028d-5bbd-87e3-730342ce7f1f",
+  "status": "completed",
+  "copy": {
+    "mockUserId": "6e5715da-028d-5bbd-87e3-730342ce7f1f",
+    "deletedExistingRows": 0,
+    "copiedRows": 126,
+    "existingRowsAfterCopy": 126
+  },
+  "retrieval": {
+    "config": {
+      "retrieval_function": "dev_memory_eval_hybrid_retrieval_v2",
+      "impression_function": "dev_impression_object_similar_embedding",
+      "memory_retrieval_strategy": "independent",
+      "keyword_query_passthrough": false
+    },
+    "query_result": {
+      "time_frame": null,
+      "primary_query": "coffee creamer recipes",
+      "inference_query": "new coffee creamer ingredients",
+      "bandwidth_state": "medium",
+      "interaction_mode": "advising",
+      "memory_request_mode": "memory_topic",
+      "time_retrieval_mode": "semantic",
+      "wait_for_memory": false,
+      "wait_for_memory_reason": "not-memory-critical",
+      "query_prompt_version": "v2",
+      "primary_keyword_query": "recipe. Any",
+      "inference_keyword_query": null
+    },
+    "raw_memory_result": {
+      "summary_memory_primary": "[{\"id\":\"M002\",\"key\":\"Coffee\",\"description\":\"Here is a memory: At 2023-05-22 01:04:00, Owner: (current user). Considering restocking coffee supplies, having bought a lot online and picked up in-store to earn more Starbucks stars. Considering restocking coffee supplies.\\nBought coffee online and picked up in-store to earn Starbucks stars.\\nSeeks recommendations for storing coffee and tea supplies to keep them fresh.\\nInterested in trying new spring-themed coffee flavors.\\nSpecifically wants to try the Lemon Ginger flavor.\"},{\"id\":\"M003\",\"key\":\"Creamer\",\"description\":\"Here is a memory: At 2023-05-21 17:36:00, Owner: (current user). Started making own flavored creamer using almond milk, vanilla extract, and honey to reduce sugar intake and save money. Making own flavored creamer.\\nIngredients: almond milk, vanilla extract, honey.\\nGoal: reduce sugar intake, save money.\\nSeeking tips for healthier creamer.\"}]",
+      "summary_memory_inference": "[{\"id\":\"M001\",\"key\":\"Creamer\",\"description\":\"Here is a memory: At 2023-05-21 17:36:00, Owner:(current user). Started making own flavored creamer using almond milk, vanilla extract, and honey to reduce sugar intake and save money. Making own flavored creamer.\\nIngredients: almond milk, vanilla extract, honey.\\nGoal: reduce sugar intake, save money.\\nSeeking tips for healthier creamer.\"}]",
+      "summary_impression": "[]",
+      "identifier_mapping_counts": {
+        "memory": 3,
+        "impression": 0
+      }
+    },
+    "other_public_result": "[]",
+    "memories_found": {
+      "primary": 2,
+      "inference": 1,
+      "impression": 0,
+      "other_public": 0,
+      "hydrated": 3
+    },
+    "retrieved_memories": [
+      {
+        "retrieval_bucket": "primary",
+        "identifier": "M002",
+        "memory_id": "a40b0f60-ff6b-494b-8a0c-fbfdd81179e3",
+        "summary_key": "Coffee",
+        "summary_description": "Here is a memory: At 2023-05-22 01:04:00, Owner: (current user). Considering restocking coffee supplies, having bought a lot online and picked up in-store to earn more Starbucks stars. Considering restocking coffee supplies.\nBought coffee online and picked up in-store to earn Starbucks stars.\nSeeks recommendations for storing coffee and tea supplies to keep them fresh.\nInterested in trying new spring-themed coffee flavors.\nSpecifically wants to try the Lemon Ginger flavor.",
+        "time": "2023-05-22T01:04:00",
+        "location": "Unknown",
+        "category": "Lifestyle and Personal Interests",
+        "object": "Coffee and Tea Storage",
+        "emotion": "thoughtful",
+        "description": "Considering restocking coffee supplies, having bought a lot online and picked up in-store to earn more Starbucks stars. Seeks recommendations on how to store coffee and tea supplies to maintain freshness. Also interested in trying new spring-themed coffee flavors, specifically Lemon Ginger.",
+        "details": "Considering restocking coffee supplies.\nBought coffee online and picked up in-store to earn Starbucks stars.\nSeeks recommendations for storing coffee and tea supplies to keep them fresh.\nInterested in trying new spring-themed coffee flavors.\nSpecifically wants to try the Lemon Ginger flavor.",
+        "keys": "Coffee",
+        "haystack_session_id": "4f2d6be4_2",
+        "eval_session_index": 10,
+        "eval_question_id": "505af2f5"
+      },
+      {
+        "retrieval_bucket": "primary",
+        "identifier": "M003",
+        "memory_id": "c09f25f9-1d4a-47fd-bd10-4db0ccec31f3",
+        "summary_key": "Creamer",
+        "summary_description": "Here is a memory: At 2023-05-21 17:36:00, Owner: (current user). Started making own flavored creamer using almond milk, vanilla extract, and honey to reduce sugar intake and save money. Making own flavored creamer.\nIngredients: almond milk, vanilla extract, honey.\nGoal: reduce sugar intake, save money.\nSeeking tips for healthier creamer.",
+        "time": "2023-05-21T17:36:00",
+        "location": "Unknown",
+        "category": "Health",
+        "object": "Homemade Creamer",
+        "emotion": "thoughtful",
+        "description": "Started making own flavored creamer using almond milk, vanilla extract, and honey to reduce sugar intake and save money. Sought tips on making it even healthier.",
+        "details": "Making own flavored creamer.\nIngredients: almond milk, vanilla extract, honey.\nGoal: reduce sugar intake, save money.\nSeeking tips for healthier creamer.",
+        "keys": "Creamer",
+        "haystack_session_id": "answer_f3164f2c",
+        "eval_session_index": 8,
+        "eval_question_id": "505af2f5"
+      },
+      {
+        "retrieval_bucket": "inference",
+        "identifier": "M001",
+        "memory_id": "c09f25f9-1d4a-47fd-bd10-4db0ccec31f3",
+        "summary_key": "Creamer",
+        "summary_description": "Here is a memory: At 2023-05-21 17:36:00, Owner:(current user). Started making own flavored creamer using almond milk, vanilla extract, and honey to reduce sugar intake and save money. Making own flavored creamer.\nIngredients: almond milk, vanilla extract, honey.\nGoal: reduce sugar intake, save money.\nSeeking tips for healthier creamer.",
+        "time": "2023-05-21T17:36:00",
+        "location": "Unknown",
+        "category": "Health",
+        "object": "Homemade Creamer",
+        "emotion": "thoughtful",
+        "description": "Started making own flavored creamer using almond milk, vanilla extract, and honey to reduce sugar intake and save money. Sought tips on making it even healthier.",
+        "details": "Making own flavored creamer.\nIngredients: almond milk, vanilla extract, honey.\nGoal: reduce sugar intake, save money.\nSeeking tips for healthier creamer.",
+        "keys": "Creamer",
+        "haystack_session_id": "answer_f3164f2c",
+        "eval_session_index": 8,
+        "eval_question_id": "505af2f5"
+      }
+    ],
+    "retrieval_status_messages": [],
+    "query_time_seconds": 0.8777265410000037,
+    "memory_time_seconds": 0.15070470800000477,
+    "perf_entries": [
+      {
+        "name": "memory.single.convert-messages",
+        "ms": 0.004916999998386018
+      },
+      {
+        "name": "memory.single.parse-context",
+        "ms": 0.003416999999899417
+      },
+      {
+        "name": "memory.single.get-query",
+        "ms": 877.7338749999981
+      },
+      {
+        "name": "memory.single.parse-time-window",
+        "ms": 0.11487499999930151
+      },
+      {
+        "name": "memory.single.parse-time-window-from-query-signal",
+        "ms": 0.0035839999982272275
+      },
+      {
+        "name": "memory.single.build-embeddings",
+        "ms": 1261.9449160000004
+      },
+      {
+        "name": "memory.single.retrieve-main",
+        "ms": 150.6552920000031
+      },
+      {
+        "name": "memory.single.retrieve-parallel",
+        "ms": 150.7086249999993
+      }
+    ]
+  },
+  "answering": {
+    "hypothesis": "I don't have that information.",
+    "formatted_context_length": 1610,
+    "duration_ms": 782.63,
+    "used_direct_abstention": false
+  },
+  "self_check": {
+    "likelyCorrect": false,
+    "normalizedExpected": "the user would prefer responses that suggest variations on their existing almond milk, vanilla extract, and honey creamer recipe or new ideas that align with their goals of reducing sugar intake and saving money. they might not prefer responses that recommend commercial creamer products or recipes that are high in sugar or expensive.",
+    "normalizedHypothesis": "i don't have that information.",
+    "reason": "Normalized strings do not contain each other."
+  }
+}

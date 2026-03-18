@@ -1,0 +1,159 @@
+{
+  "question_id": "1c0ddc50",
+  "question_type": "single-session-preference",
+  "question": "Can you suggest some activities I can do during my commute to work?",
+  "expected_answer": "The user would prefer suggestions related to listening to new podcasts or audiobooks, especially the genre beyond true crime or self-improvement, such as history. They may not be interested in activities that require visual attention, such as reading or watching videos, as they are commuting. The user would not prefer general podcast topics such as true crime or self-improvement, as the user wants to explore other topics.",
+  "answer_session_ids": [
+    "answer_8da8c7e0"
+  ],
+  "mock_user_id": "cec4147f-48f5-528b-b668-a0496a6dc1a1",
+  "status": "completed",
+  "copy": {
+    "skipped": true,
+    "existing_memory_count": 127
+  },
+  "retrieval": {
+    "config": {
+      "retrieval_function": "dev_memory_eval_hybrid_retrieval_v2",
+      "impression_function": "dev_impression_object_similar_embedding",
+      "memory_retrieval_strategy": "independent",
+      "keyword_query_passthrough": false
+    },
+    "query_result": {
+      "time_frame": null,
+      "primary_query": "commute activities",
+      "inference_query": "commute productivity",
+      "interaction_mode": "advising",
+      "time_retrieval_mode": "semantic",
+      "memory_request_mode": "general_chat",
+      "bandwidth_state": "medium",
+      "wait_for_memory": false,
+      "wait_for_memory_reason": "not-memory-critical",
+      "query_prompt_version": "v2",
+      "primary_keyword_query": "Can",
+      "inference_keyword_query": null
+    },
+    "raw_memory_result": {
+      "summary_memory_primary": "[{\"id\":\"M001\",\"key\":\"Commute\",\"description\":\"Here is a memory: At 2023-05-23 18:21:00, Owner: (current user). Considered buying a new bike for commuting to work to avoid crowded buses on Mondays. Considering buying a new bike for commuting to work.\\nWants to avoid crowded buses on Mondays.\\nStarting point: 123 Oak St.\\nDestination: 456 Main St.\\nPrefers to avoid busy roads and steep hills.\\nPlanning to use a hybrid bike.\\nCommute will likely be on weekdays during rush hour.\"},{\"id\":\"M002\",\"key\":\"Estimate\",\"description\":\"Here is a memory: At 2023-05-23 18:21:00, Owner: (current user). Adjusted the estimated bike commute time to account for rush hour conditions, expecting it to take longer than initially suggested. Revised time estimate for bike commute is more realistic due to rush hour.\\nPrevious bus commute was at 7:45 AM.\\nWants to arrive at the office by 8:30 AM.\\nRecommended leaving around 7:30 AM for a comfortable buffer.\"}]",
+      "summary_memory_inference": "[{\"id\":\"M003\",\"key\":\"Momentum\",\"description\":\"Here is a memory: At 2023-05-22 09:31:00, Owner:(current user). Noticed increased productivity in the morning, specifically between 9:00 AM and 12:00 PM. Noticed increased productivity between 9:00 AM and 12:00 PM.\\nSought ways to maintain productivity momentum throughout the day.\\nStrategies considered included: prioritizing important tasks during peak hours, breaking tasks into smaller chunks, using the Pomodoro Technique (25-minute work, 5-minute break, longer break after four cycles), scheduling breaks, staying hydrated and energized, minimizing distractions, leveraging energy peaks, getting fresh air, staying organized, and regularly reviewing/adjusting strategies.\\nAdditional tips for the afternoon slump included: power naps (20-30 minutes), engaging in creative activities, making phone calls/meetings, and light exercise.\"}]",
+      "summary_impression": "[]",
+      "identifier_mapping_counts": {
+        "memory": 3,
+        "impression": 0
+      }
+    },
+    "other_public_result": "[]",
+    "memories_found": {
+      "primary": 2,
+      "inference": 1,
+      "impression": 0,
+      "other_public": 0,
+      "hydrated": 3
+    },
+    "retrieved_memories": [
+      {
+        "retrieval_bucket": "primary",
+        "identifier": "M001",
+        "memory_id": "5a1478c8-57e8-419d-b141-aa22cb886d1a",
+        "summary_key": "Commute",
+        "summary_description": "Here is a memory: At 2023-05-23 18:21:00, Owner: (current user). Considered buying a new bike for commuting to work to avoid crowded buses on Mondays. Considering buying a new bike for commuting to work.\nWants to avoid crowded buses on Mondays.\nStarting point: 123 Oak St.\nDestination: 456 Main St.\nPrefers to avoid busy roads and steep hills.\nPlanning to use a hybrid bike.\nCommute will likely be on weekdays during rush hour.",
+        "time": "2023-05-23T18:21:00",
+        "location": "Unknown",
+        "category": "Lifestyle and Personal Interests",
+        "object": "Bike Commute Planning",
+        "emotion": "thoughtful",
+        "description": "Considered buying a new bike for commuting to work to avoid crowded buses on Mondays. Provided starting and destination addresses for route planning, expressing a preference to avoid busy roads and steep hills. Planned to use a hybrid bike for the commute.",
+        "details": "Considering buying a new bike for commuting to work.\nWants to avoid crowded buses on Mondays.\nStarting point: 123 Oak St.\nDestination: 456 Main St.\nPrefers to avoid busy roads and steep hills.\nPlanning to use a hybrid bike.\nCommute will likely be on weekdays during rush hour.",
+        "keys": "Commute",
+        "haystack_session_id": "2aa70c9c_1",
+        "eval_session_index": 13,
+        "eval_question_id": "1c0ddc50"
+      },
+      {
+        "retrieval_bucket": "primary",
+        "identifier": "M002",
+        "memory_id": "8d686278-0229-40b7-923b-9f80a8652e1b",
+        "summary_key": "Estimate",
+        "summary_description": "Here is a memory: At 2023-05-23 18:21:00, Owner: (current user). Adjusted the estimated bike commute time to account for rush hour conditions, expecting it to take longer than initially suggested. Revised time estimate for bike commute is more realistic due to rush hour.\nPrevious bus commute was at 7:45 AM.\nWants to arrive at the office by 8:30 AM.\nRecommended leaving around 7:30 AM for a comfortable buffer.",
+        "time": "2023-05-23T18:21:00",
+        "location": "Unknown",
+        "category": "Lifestyle and Personal Interests",
+        "object": "Bike Commute Time Adjustment",
+        "emotion": "thoughtful",
+        "description": "Adjusted the estimated bike commute time to account for rush hour conditions, expecting it to take longer than initially suggested. Aimed to leave around 7:30 AM to arrive at the office by 8:30 AM, aligning with the previous bus schedule.",
+        "details": "Revised time estimate for bike commute is more realistic due to rush hour.\nPrevious bus commute was at 7:45 AM.\nWants to arrive at the office by 8:30 AM.\nRecommended leaving around 7:30 AM for a comfortable buffer.",
+        "keys": "Estimate",
+        "haystack_session_id": "2aa70c9c_1",
+        "eval_session_index": 13,
+        "eval_question_id": "1c0ddc50"
+      },
+      {
+        "retrieval_bucket": "inference",
+        "identifier": "M003",
+        "memory_id": "d5bd770d-c592-42a4-9b57-669bfebe09da",
+        "summary_key": "Momentum",
+        "summary_description": "Here is a memory: At 2023-05-22 09:31:00, Owner:(current user). Noticed increased productivity in the morning, specifically between 9:00 AM and 12:00 PM. Noticed increased productivity between 9:00 AM and 12:00 PM.\nSought ways to maintain productivity momentum throughout the day.\nStrategies considered included: prioritizing important tasks during peak hours, breaking tasks into smaller chunks, using the Pomodoro Technique (25-minute work, 5-minute break, longer break after four cycles), scheduling breaks, staying hydrated and energized, minimizing distractions, leveraging energy peaks, getting fresh air, staying organized, and regularly reviewing/adjusting strategies.\nAdditional tips for the afternoon slump included: power naps (20-30 minutes), engaging in creative activities, making phone calls/meetings, and light exercise.",
+        "time": "2023-05-22T09:31:00",
+        "location": "Unknown",
+        "category": "Personal Development",
+        "object": "Maintaining Productivity Momentum",
+        "emotion": "thoughtful",
+        "description": "Noticed increased productivity in the morning, specifically between 9:00 AM and 12:00 PM. Sought ways to maintain this productivity momentum throughout the rest of the day.",
+        "details": "Noticed increased productivity between 9:00 AM and 12:00 PM.\nSought ways to maintain productivity momentum throughout the day.\nStrategies considered included: prioritizing important tasks during peak hours, breaking tasks into smaller chunks, using the Pomodoro Technique (25-minute work, 5-minute break, longer break after four cycles), scheduling breaks, staying hydrated and energized, minimizing distractions, leveraging energy peaks, getting fresh air, staying organized, and regularly reviewing/adjusting strategies.\nAdditional tips for the afternoon slump included: power naps (20-30 minutes), engaging in creative activities, making phone calls/meetings, and light exercise.",
+        "keys": "Momentum",
+        "haystack_session_id": "c7ca6dff",
+        "eval_session_index": 6,
+        "eval_question_id": "1c0ddc50"
+      }
+    ],
+    "retrieval_status_messages": [],
+    "query_time_seconds": 0.9152590839999976,
+    "memory_time_seconds": 0.31168624999999883,
+    "perf_entries": [
+      {
+        "name": "memory.single.convert-messages",
+        "ms": 0.004625000001396984
+      },
+      {
+        "name": "memory.single.parse-context",
+        "ms": 0.003250000001571607
+      },
+      {
+        "name": "memory.single.get-query",
+        "ms": 915.2659589999967
+      },
+      {
+        "name": "memory.single.parse-time-window",
+        "ms": 0.1071250000022701
+      },
+      {
+        "name": "memory.single.parse-time-window-from-query-signal",
+        "ms": 0.005042000004323199
+      },
+      {
+        "name": "memory.single.build-embeddings",
+        "ms": 158.92741599999863
+      },
+      {
+        "name": "memory.single.retrieve-main",
+        "ms": 311.54349999999977
+      },
+      {
+        "name": "memory.single.retrieve-parallel",
+        "ms": 311.69208299999445
+      }
+    ]
+  },
+  "answering": {
+    "hypothesis": "I don't have that information.",
+    "formatted_context_length": 2305,
+    "duration_ms": 394.68,
+    "used_direct_abstention": false
+  },
+  "self_check": {
+    "likelyCorrect": false,
+    "normalizedExpected": "the user would prefer suggestions related to listening to new podcasts or audiobooks, especially the genre beyond true crime or self-improvement, such as history. they may not be interested in activities that require visual attention, such as reading or watching videos, as they are commuting. the user would not prefer general podcast topics such as true crime or self-improvement, as the user wants to explore other topics.",
+    "normalizedHypothesis": "i don't have that information.",
+    "reason": "Normalized strings do not contain each other."
+  }
+}

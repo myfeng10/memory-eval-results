@@ -1,0 +1,715 @@
+{
+  "generated_at": "2026-03-18T17:35:33.009Z",
+  "overall": {
+    "correct": 12,
+    "total": 24,
+    "accuracy": 0.5
+  },
+  "entries": [
+    {
+      "questionId": "2133c1b5",
+      "questionType": "knowledge-update",
+      "questionText": "How long have I been living in my current apartment in Harajuku?",
+      "runId": "2026-03-17T16-29-30-670",
+      "answerProfile": null,
+      "result": "hit",
+      "label": "direct-evidence-hit",
+      "focus": "retrieval",
+      "summary": "Retrieved all answer sessions (answer_52382508_1, answer_52382508_2) and produced a matching answer.",
+      "expected": "3 months",
+      "hypothesis": "3 months.",
+      "hydratedMemories": 3,
+      "retrievedAnswerMemoryCount": 3,
+      "retrievedNonAnswerMemoryCount": 0,
+      "retrievedSessionIds": [
+        "answer_52382508_2",
+        "answer_52382508_1"
+      ],
+      "answerSessionIds": [
+        "answer_52382508_1",
+        "answer_52382508_2"
+      ],
+      "answerSessionsRetrieved": [
+        "answer_52382508_1",
+        "answer_52382508_2"
+      ],
+      "retrievalCoverageLabel": "full-answer-session-coverage",
+      "timeRetrievalMode": "semantic",
+      "timeFrame": null
+    },
+    {
+      "questionId": "6aeb4375_abs",
+      "questionType": "knowledge-update",
+      "questionText": "How many Italian restaurants have I tried in my city?",
+      "runId": "2026-03-17T15-43-07-808",
+      "answerProfile": null,
+      "result": "hit",
+      "label": "correct-abstention",
+      "focus": "answering",
+      "summary": "Correctly abstained because the benchmark answer for this case is no-information.",
+      "expected": "The information provided is not enough. You mentioned trying Korean restaurants but not Italian restaurants.",
+      "hypothesis": "I don't have that information.",
+      "hydratedMemories": 3,
+      "retrievedAnswerMemoryCount": 1,
+      "retrievedNonAnswerMemoryCount": 2,
+      "retrievedSessionIds": [
+        "answer_3f9693b7_abs_2",
+        "ultrachat_181672"
+      ],
+      "answerSessionIds": [
+        "answer_3f9693b7_abs_1",
+        "answer_3f9693b7_abs_2"
+      ],
+      "answerSessionsRetrieved": [
+        "answer_3f9693b7_abs_2"
+      ],
+      "retrievalCoverageLabel": "partial-answer-session-coverage",
+      "timeRetrievalMode": "all",
+      "timeFrame": null
+    },
+    {
+      "questionId": "852ce960",
+      "questionType": "knowledge-update",
+      "questionText": "What was the amount I was pre-approved for when I got my mortgage from Wells Fargo?",
+      "runId": "2026-03-17T15-43-07-808",
+      "answerProfile": null,
+      "result": "miss",
+      "label": "retrieval-off-target-or-incomplete",
+      "focus": "retrieval",
+      "summary": "Retrieved 3 memories, but only part of the answer-session set was covered (answer_3a6f1e82_1 of answer_3a6f1e82_1, answer_3a6f1e82_2).",
+      "expected": "$400,000",
+      "hypothesis": "$350,000",
+      "hydratedMemories": 3,
+      "retrievedAnswerMemoryCount": 3,
+      "retrievedNonAnswerMemoryCount": 0,
+      "retrievedSessionIds": [
+        "answer_3a6f1e82_1"
+      ],
+      "answerSessionIds": [
+        "answer_3a6f1e82_1",
+        "answer_3a6f1e82_2"
+      ],
+      "answerSessionsRetrieved": [
+        "answer_3a6f1e82_1"
+      ],
+      "retrievalCoverageLabel": "partial-answer-session-coverage",
+      "timeRetrievalMode": "semantic",
+      "timeFrame": null
+    },
+    {
+      "questionId": "d7c942c3",
+      "questionType": "knowledge-update",
+      "questionText": "Is my mom using the same grocery list method as me?",
+      "runId": "2026-03-17T16-44-17-124",
+      "answerProfile": "dev",
+      "result": "hit",
+      "label": "direct-evidence-hit",
+      "focus": "retrieval",
+      "summary": "Retrieved all answer sessions (answer_eecb10d9_1, answer_eecb10d9_2) and produced a matching answer.",
+      "expected": "Yes.",
+      "hypothesis": "Yes.",
+      "hydratedMemories": 3,
+      "retrievedAnswerMemoryCount": 3,
+      "retrievedNonAnswerMemoryCount": 0,
+      "retrievedSessionIds": [
+        "answer_eecb10d9_2",
+        "answer_eecb10d9_1"
+      ],
+      "answerSessionIds": [
+        "answer_eecb10d9_1",
+        "answer_eecb10d9_2"
+      ],
+      "answerSessionsRetrieved": [
+        "answer_eecb10d9_1",
+        "answer_eecb10d9_2"
+      ],
+      "retrievalCoverageLabel": "full-answer-session-coverage",
+      "timeRetrievalMode": "semantic",
+      "timeFrame": null
+    },
+    {
+      "questionId": "5a7937c8",
+      "questionType": "multi-session",
+      "questionText": "How many days did I spend participating in faith-related activities in December?",
+      "runId": "2026-03-17T15-43-07-808",
+      "answerProfile": null,
+      "result": "miss",
+      "label": "retrieval-off-target-or-incomplete",
+      "focus": "retrieval",
+      "summary": "Retrieved 3 memories, but only part of the answer-session set was covered (answer_4cef8a3c_2 of answer_4cef8a3c_3, answer_4cef8a3c_1, answer_4cef8a3c_2).",
+      "expected": "3 days.",
+      "hypothesis": "I don't have that information.",
+      "hydratedMemories": 3,
+      "retrievedAnswerMemoryCount": 3,
+      "retrievedNonAnswerMemoryCount": 0,
+      "retrievedSessionIds": [
+        "answer_4cef8a3c_2"
+      ],
+      "answerSessionIds": [
+        "answer_4cef8a3c_3",
+        "answer_4cef8a3c_1",
+        "answer_4cef8a3c_2"
+      ],
+      "answerSessionsRetrieved": [
+        "answer_4cef8a3c_2"
+      ],
+      "retrievalCoverageLabel": "partial-answer-session-coverage",
+      "timeRetrievalMode": "semantic",
+      "timeFrame": "2023-12"
+    },
+    {
+      "questionId": "bc149d6b",
+      "questionType": "multi-session",
+      "questionText": "What is the total weight of the new feed I purchased in the past two months?",
+      "runId": "2026-03-17T16-06-48-292",
+      "answerProfile": null,
+      "result": "miss",
+      "label": "explicit-time-window-miss",
+      "focus": "retrieval",
+      "summary": "An explicit time window was applied (all, frame=2) and returned 5 memories, but none were from the answer session. This often indicates windowing or top-k/ranking loss.",
+      "expected": "70 pounds",
+      "hypothesis": "I don't have that information.",
+      "hydratedMemories": 5,
+      "retrievedAnswerMemoryCount": 0,
+      "retrievedNonAnswerMemoryCount": 5,
+      "retrievedSessionIds": [
+        "sharegpt_1sxNkyQ_41",
+        "sharegpt_ErOTMZ3_171",
+        "7211c69e",
+        "29b1addb_2"
+      ],
+      "answerSessionIds": [
+        "answer_92147866_1",
+        "answer_92147866_2"
+      ],
+      "answerSessionsRetrieved": [],
+      "retrievalCoverageLabel": "no-answer-session-coverage",
+      "timeRetrievalMode": "all",
+      "timeFrame": "2"
+    },
+    {
+      "questionId": "d682f1a2",
+      "questionType": "multi-session",
+      "questionText": "How many different types of food delivery services have I used recently?",
+      "runId": "2026-03-17T15-55-55-754",
+      "answerProfile": null,
+      "result": "miss",
+      "label": "retrieval-partial-or-off-target",
+      "focus": "retrieval",
+      "summary": "Retrieved 5 memories, but not the gold session; retrieval status suggests the search broadened or reranked away from the needed evidence.",
+      "expected": 3,
+      "hypothesis": "I don't have that information.",
+      "hydratedMemories": 5,
+      "retrievedAnswerMemoryCount": 0,
+      "retrievedNonAnswerMemoryCount": 5,
+      "retrievedSessionIds": [
+        "c37e7b4f_2",
+        "sharegpt_JTaoEJT_23",
+        "9de29219_1"
+      ],
+      "answerSessionIds": [
+        "answer_c008e5df_1",
+        "answer_c008e5df_2",
+        "answer_c008e5df_3"
+      ],
+      "answerSessionsRetrieved": [],
+      "retrievalCoverageLabel": "no-answer-session-coverage",
+      "timeRetrievalMode": "all",
+      "timeFrame": null
+    },
+    {
+      "questionId": "gpt4_59c863d7",
+      "questionType": "multi-session",
+      "questionText": "How many model kits have I worked on or bought?",
+      "runId": "2026-03-17T15-43-07-808",
+      "answerProfile": null,
+      "result": "miss",
+      "label": "retrieval-off-target-or-incomplete",
+      "focus": "retrieval",
+      "summary": "Retrieved 3 memories, but only part of the answer-session set was covered (answer_593bdffd_4, answer_593bdffd_1 of answer_593bdffd_4, answer_593bdffd_1, answer_593bdffd_3).",
+      "expected": "I have worked on or bought five model kits. The scales of the models are: Revell F-15 Eagle (scale not mentioned), Tamiya 1/48 scale Spitfire Mk.V, 1/16 scale German Tiger I tank, 1/72 scale B-29 bomber, and 1/24 scale '69 Camaro.",
+      "hypothesis": "I don't have that information.",
+      "hydratedMemories": 3,
+      "retrievedAnswerMemoryCount": 3,
+      "retrievedNonAnswerMemoryCount": 0,
+      "retrievedSessionIds": [
+        "answer_593bdffd_1",
+        "answer_593bdffd_4"
+      ],
+      "answerSessionIds": [
+        "answer_593bdffd_4",
+        "answer_593bdffd_1",
+        "answer_593bdffd_3",
+        "answer_593bdffd_2"
+      ],
+      "answerSessionsRetrieved": [
+        "answer_593bdffd_4",
+        "answer_593bdffd_1"
+      ],
+      "retrievalCoverageLabel": "partial-answer-session-coverage",
+      "timeRetrievalMode": "all",
+      "timeFrame": null
+    },
+    {
+      "questionId": "1d4da289",
+      "questionType": "single-session-assistant",
+      "questionText": "I was thinking about our previous conversation about data privacy and security. You mentioned that companies use two-factor authentication to enhance security. Can you remind me what kind of two-factor authentication methods you were referring to?",
+      "runId": "2026-03-17T15-43-07-808",
+      "answerProfile": null,
+      "result": "miss",
+      "label": "retrieval-off-target-or-incomplete",
+      "focus": "retrieval",
+      "summary": "Retrieved 3 memories, but none matched the answer session (answer_ultrachat_348449).",
+      "expected": "I mentioned biometric authentication or one-time passwords (OTP) as examples of two-factor authentication methods.",
+      "hypothesis": "I don't have that information.",
+      "hydratedMemories": 3,
+      "retrievedAnswerMemoryCount": 0,
+      "retrievedNonAnswerMemoryCount": 3,
+      "retrievedSessionIds": [
+        "ultrachat_213759",
+        "sharegpt_AfruXDt_0"
+      ],
+      "answerSessionIds": [
+        "answer_ultrachat_348449"
+      ],
+      "answerSessionsRetrieved": [],
+      "retrievalCoverageLabel": "no-answer-session-coverage",
+      "timeRetrievalMode": "semantic",
+      "timeFrame": null
+    },
+    {
+      "questionId": "6222b6eb",
+      "questionType": "single-session-assistant",
+      "questionText": "I was going through our previous conversation about atmospheric correction methods, and I wanted to confirm - you mentioned that 6S, MAJA, and Sen2Cor are all algorithms for atmospheric correction of remote sensing images. Can you remind me which one is implemented in the SIAC_GEE tool?",
+      "runId": "2026-03-17T16-26-10-952",
+      "answerProfile": null,
+      "result": "hit",
+      "label": "direct-evidence-hit",
+      "focus": "retrieval",
+      "summary": "Retrieved all answer sessions (answer_sharegpt_H9PiM5G_0) and produced a matching answer.",
+      "expected": "The 6S algorithm is implemented in the SIAC_GEE tool.",
+      "hypothesis": "6S",
+      "hydratedMemories": 3,
+      "retrievedAnswerMemoryCount": 3,
+      "retrievedNonAnswerMemoryCount": 0,
+      "retrievedSessionIds": [
+        "answer_sharegpt_H9PiM5G_0"
+      ],
+      "answerSessionIds": [
+        "answer_sharegpt_H9PiM5G_0"
+      ],
+      "answerSessionsRetrieved": [
+        "answer_sharegpt_H9PiM5G_0"
+      ],
+      "retrievalCoverageLabel": "full-answer-session-coverage",
+      "timeRetrievalMode": "semantic",
+      "timeFrame": null
+    },
+    {
+      "questionId": "778164c6",
+      "questionType": "single-session-assistant",
+      "questionText": "I was looking back at our previous conversation about Caribbean dishes and I was wondering, what was the name of that Jamaican dish you recommended I try with snapper that has fruit in it?",
+      "runId": "2026-03-17T16-29-30-670",
+      "answerProfile": null,
+      "result": "hit",
+      "label": "direct-evidence-hit",
+      "focus": "retrieval",
+      "summary": "Retrieved all answer sessions (answer_ultrachat_399000) and produced a matching answer.",
+      "expected": "Grilled Snapper with Mango Salsa",
+      "hypothesis": "Grilled Snapper with Mango Salsa",
+      "hydratedMemories": 3,
+      "retrievedAnswerMemoryCount": 3,
+      "retrievedNonAnswerMemoryCount": 0,
+      "retrievedSessionIds": [
+        "answer_ultrachat_399000"
+      ],
+      "answerSessionIds": [
+        "answer_ultrachat_399000"
+      ],
+      "answerSessionsRetrieved": [
+        "answer_ultrachat_399000"
+      ],
+      "retrievalCoverageLabel": "full-answer-session-coverage",
+      "timeRetrievalMode": "semantic",
+      "timeFrame": null
+    },
+    {
+      "questionId": "e48988bc",
+      "questionType": "single-session-assistant",
+      "questionText": "I was looking back at our previous conversation about environmentally responsible supply chain practices, and I was wondering if you could remind me of the company you mentioned that's doing a great job with sustainability?",
+      "runId": "2026-03-17T15-43-07-808",
+      "answerProfile": null,
+      "result": "miss",
+      "label": "retrieval-off-target-or-incomplete",
+      "focus": "retrieval",
+      "summary": "Retrieved 3 memories, but none matched the answer session (answer_ultrachat_174360).",
+      "expected": "Patagonia",
+      "hypothesis": "Reebok",
+      "hydratedMemories": 3,
+      "retrievedAnswerMemoryCount": 0,
+      "retrievedNonAnswerMemoryCount": 3,
+      "retrievedSessionIds": [
+        "ultrachat_494373",
+        "ultrachat_238317"
+      ],
+      "answerSessionIds": [
+        "answer_ultrachat_174360"
+      ],
+      "answerSessionsRetrieved": [],
+      "retrievalCoverageLabel": "no-answer-session-coverage",
+      "timeRetrievalMode": "semantic",
+      "timeFrame": null
+    },
+    {
+      "questionId": "1c0ddc50",
+      "questionType": "single-session-preference",
+      "questionText": "Can you suggest some activities I can do during my commute to work?",
+      "runId": "2026-03-17T15-43-07-808",
+      "answerProfile": null,
+      "result": "miss",
+      "label": "retrieval-off-target-or-incomplete",
+      "focus": "retrieval",
+      "summary": "Retrieved 3 memories, but none matched the answer session (answer_8da8c7e0).",
+      "expected": "The user would prefer suggestions related to listening to new podcasts or audiobooks, especially the genre beyond true crime or self-improvement, such as history. They may not be interested in activities that require visual attention, such as reading or watching videos, as they are commuting. The user would not prefer general podcast topics such as true crime or self-improvement, as the user wants to explore other topics.",
+      "hypothesis": "I don't have that information.",
+      "hydratedMemories": 3,
+      "retrievedAnswerMemoryCount": 0,
+      "retrievedNonAnswerMemoryCount": 3,
+      "retrievedSessionIds": [
+        "2aa70c9c_1",
+        "c7ca6dff"
+      ],
+      "answerSessionIds": [
+        "answer_8da8c7e0"
+      ],
+      "answerSessionsRetrieved": [],
+      "retrievalCoverageLabel": "no-answer-session-coverage",
+      "timeRetrievalMode": "semantic",
+      "timeFrame": null
+    },
+    {
+      "questionId": "505af2f5",
+      "questionType": "single-session-preference",
+      "questionText": "I was thinking of trying a new coffee creamer recipe. Any recommendations?",
+      "runId": "2026-03-17T16-30-28-432",
+      "answerProfile": null,
+      "result": "miss",
+      "label": "answer-ignored-direct-evidence",
+      "focus": "answering",
+      "summary": "All answer sessions were retrieved (answer_f3164f2c), but the answer still abstained.",
+      "expected": "The user would prefer responses that suggest variations on their existing almond milk, vanilla extract, and honey creamer recipe or new ideas that align with their goals of reducing sugar intake and saving money. They might not prefer responses that recommend commercial creamer products or recipes that are high in sugar or expensive.",
+      "hypothesis": "I don't have that information.",
+      "hydratedMemories": 3,
+      "retrievedAnswerMemoryCount": 2,
+      "retrievedNonAnswerMemoryCount": 1,
+      "retrievedSessionIds": [
+        "4f2d6be4_2",
+        "answer_f3164f2c"
+      ],
+      "answerSessionIds": [
+        "answer_f3164f2c"
+      ],
+      "answerSessionsRetrieved": [
+        "answer_f3164f2c"
+      ],
+      "retrievalCoverageLabel": "full-answer-session-coverage",
+      "timeRetrievalMode": "semantic",
+      "timeFrame": null
+    },
+    {
+      "questionId": "75832dbd",
+      "questionType": "single-session-preference",
+      "questionText": "Can you recommend some recent publications or conferences that I might find interesting?",
+      "runId": "2026-03-17T16-06-48-292",
+      "answerProfile": null,
+      "result": "miss",
+      "label": "explicit-time-window-miss",
+      "focus": "retrieval",
+      "summary": "An explicit time window was applied (all, frame=7) and returned 5 memories, but none were from the answer session. This often indicates windowing or top-k/ranking loss.",
+      "expected": "The user would prefer suggestions related to recent research papers, articles, or conferences that focus on artificial intelligence in healthcare, particularly those that involve deep learning for medical image analysis. They would not be interested in general AI topics or those unrelated to healthcare.",
+      "hypothesis": "I don't have that information.",
+      "hydratedMemories": 5,
+      "retrievedAnswerMemoryCount": 0,
+      "retrievedNonAnswerMemoryCount": 5,
+      "retrievedSessionIds": [
+        "c51583cd_1",
+        "9398da02",
+        "sharegpt_twjWPzl_0",
+        "6172cc72_1",
+        "2713d8a5"
+      ],
+      "answerSessionIds": [
+        "answer_d87a6ef8"
+      ],
+      "answerSessionsRetrieved": [],
+      "retrievalCoverageLabel": "no-answer-session-coverage",
+      "timeRetrievalMode": "all",
+      "timeFrame": "7"
+    },
+    {
+      "questionId": "fca70973",
+      "questionType": "single-session-preference",
+      "questionText": "I am planning another theme park weekend; do you have any suggestions?",
+      "runId": "2026-03-17T16-30-28-432",
+      "answerProfile": null,
+      "result": "miss",
+      "label": "answer-misused-retrieved-evidence",
+      "focus": "answering",
+      "summary": "All answer sessions were retrieved (answer_a1e169b1), but the final answer still missed the expected content.",
+      "expected": "The user would prefer theme park suggestions that cater to their interest in both thrill rides and special events, utilizing their previous experiences at Disneyland, Knott's Berry Farm, Six Flags Magic Mountain, and Universal Studios Hollywood as a reference point. They would also appreciate recommendations that highlight unique food experiences and nighttime shows. The user might not prefer suggestions that focus solely on one aspect of theme parks, such as only thrill rides or only family-friendly attractions, and may not be interested in parks that lack special events or unique dining options.",
+      "hypothesis": "You are interested in Halloween-themed events at various theme parks, specifically looking for unique food experiences and exclusive dining options. You have previously visited Disneyland, Knott's Berry Farm, Six Flags Magic Mountain, and Universal Studios Hollywood.",
+      "hydratedMemories": 3,
+      "retrievedAnswerMemoryCount": 2,
+      "retrievedNonAnswerMemoryCount": 1,
+      "retrievedSessionIds": [
+        "answer_a1e169b1",
+        "fc005760"
+      ],
+      "answerSessionIds": [
+        "answer_a1e169b1"
+      ],
+      "answerSessionsRetrieved": [
+        "answer_a1e169b1"
+      ],
+      "retrievalCoverageLabel": "full-answer-session-coverage",
+      "timeRetrievalMode": "semantic",
+      "timeFrame": null
+    },
+    {
+      "questionId": "6ade9755",
+      "questionType": "single-session-user",
+      "questionText": "Where do I take yoga classes?",
+      "runId": "2026-03-17T15-43-07-808",
+      "answerProfile": null,
+      "result": "hit",
+      "label": "direct-evidence-hit",
+      "focus": "retrieval",
+      "summary": "Retrieved all answer sessions (answer_9398da02) and produced a matching answer.",
+      "expected": "Serenity Yoga",
+      "hypothesis": "Serenity Yoga",
+      "hydratedMemories": 3,
+      "retrievedAnswerMemoryCount": 3,
+      "retrievedNonAnswerMemoryCount": 0,
+      "retrievedSessionIds": [
+        "answer_9398da02"
+      ],
+      "answerSessionIds": [
+        "answer_9398da02"
+      ],
+      "answerSessionsRetrieved": [
+        "answer_9398da02"
+      ],
+      "retrievalCoverageLabel": "full-answer-session-coverage",
+      "timeRetrievalMode": "semantic",
+      "timeFrame": null
+    },
+    {
+      "questionId": "94f70d80",
+      "questionType": "single-session-user",
+      "questionText": "How long did it take me to assemble the IKEA bookshelf?",
+      "runId": "2026-03-17T15-43-07-808",
+      "answerProfile": null,
+      "result": "hit",
+      "label": "direct-evidence-hit",
+      "focus": "retrieval",
+      "summary": "Retrieved all answer sessions (answer_c63c0458) and produced a matching answer.",
+      "expected": "4 hours",
+      "hypothesis": "4 hours",
+      "hydratedMemories": 3,
+      "retrievedAnswerMemoryCount": 3,
+      "retrievedNonAnswerMemoryCount": 0,
+      "retrievedSessionIds": [
+        "answer_c63c0458"
+      ],
+      "answerSessionIds": [
+        "answer_c63c0458"
+      ],
+      "answerSessionsRetrieved": [
+        "answer_c63c0458"
+      ],
+      "retrievalCoverageLabel": "full-answer-session-coverage",
+      "timeRetrievalMode": "semantic",
+      "timeFrame": null
+    },
+    {
+      "questionId": "bc8a6e93",
+      "questionType": "single-session-user",
+      "questionText": "What did I bake for my niece's birthday party?",
+      "runId": "2026-03-17T15-43-07-808",
+      "answerProfile": null,
+      "result": "hit",
+      "label": "direct-evidence-hit",
+      "focus": "retrieval",
+      "summary": "Retrieved all answer sessions (answer_e6143162) and produced a matching answer.",
+      "expected": "a lemon blueberry cake",
+      "hypothesis": "Lemon Blueberry Cake",
+      "hydratedMemories": 3,
+      "retrievedAnswerMemoryCount": 2,
+      "retrievedNonAnswerMemoryCount": 1,
+      "retrievedSessionIds": [
+        "ultrachat_453950",
+        "answer_e6143162"
+      ],
+      "answerSessionIds": [
+        "answer_e6143162"
+      ],
+      "answerSessionsRetrieved": [
+        "answer_e6143162"
+      ],
+      "retrievalCoverageLabel": "full-answer-session-coverage",
+      "timeRetrievalMode": "semantic",
+      "timeFrame": null
+    },
+    {
+      "questionId": "bc8a6e93_abs",
+      "questionType": "single-session-user",
+      "questionText": "What did I bake for my uncle's birthday party?",
+      "runId": "2026-03-17T15-43-07-808",
+      "answerProfile": null,
+      "result": "hit",
+      "label": "correct-abstention",
+      "focus": "answering",
+      "summary": "Correctly abstained because the benchmark answer for this case is no-information.",
+      "expected": "You did not mention this information. You mentioned baking for your niece's birthday party but not your uncle's",
+      "hypothesis": "I don't have that information.",
+      "hydratedMemories": 3,
+      "retrievedAnswerMemoryCount": 3,
+      "retrievedNonAnswerMemoryCount": 0,
+      "retrievedSessionIds": [
+        "answer_e6143162_abs"
+      ],
+      "answerSessionIds": [
+        "answer_e6143162_abs"
+      ],
+      "answerSessionsRetrieved": [
+        "answer_e6143162_abs"
+      ],
+      "retrievalCoverageLabel": "full-answer-session-coverage",
+      "timeRetrievalMode": "semantic",
+      "timeFrame": null
+    },
+    {
+      "questionId": "2a1811e2",
+      "questionType": "temporal-reasoning",
+      "questionText": "How many days had passed between the Hindu festival of Holi and the Sunday mass at St. Mary's Church?",
+      "runId": "2026-03-17T15-43-07-808",
+      "answerProfile": null,
+      "result": "miss",
+      "label": "retrieval-off-target-or-incomplete",
+      "focus": "retrieval",
+      "summary": "Retrieved 3 memories, but only part of the answer-session set was covered (answer_1cc3cd0c_1 of answer_1cc3cd0c_1, answer_1cc3cd0c_2).",
+      "expected": "21 days. 22 days (including the last day) is also acceptable.",
+      "hypothesis": "I don't have that information.",
+      "hydratedMemories": 3,
+      "retrievedAnswerMemoryCount": 2,
+      "retrievedNonAnswerMemoryCount": 1,
+      "retrievedSessionIds": [
+        "answer_1cc3cd0c_1",
+        "ultrachat_187883"
+      ],
+      "answerSessionIds": [
+        "answer_1cc3cd0c_1",
+        "answer_1cc3cd0c_2"
+      ],
+      "answerSessionsRetrieved": [
+        "answer_1cc3cd0c_1"
+      ],
+      "retrievalCoverageLabel": "partial-answer-session-coverage",
+      "timeRetrievalMode": "all",
+      "timeFrame": null
+    },
+    {
+      "questionId": "c8090214_abs",
+      "questionType": "temporal-reasoning",
+      "questionText": "How many days before I bought my iPad did I attend the Holiday Market?",
+      "runId": "2026-03-17T15-43-07-808",
+      "answerProfile": null,
+      "result": "hit",
+      "label": "correct-abstention",
+      "focus": "answering",
+      "summary": "Correctly abstained because the benchmark answer for this case is no-information.",
+      "expected": "The information provided is not enough. You mentioned getting the iPhone 13 Pro and attending the market, but you did not mention buying an iPad.",
+      "hypothesis": "I don't have that information.",
+      "hydratedMemories": 3,
+      "retrievedAnswerMemoryCount": 3,
+      "retrievedNonAnswerMemoryCount": 0,
+      "retrievedSessionIds": [
+        "answer_70dc7d08_abs_2",
+        "answer_70dc7d08_abs_1"
+      ],
+      "answerSessionIds": [
+        "answer_70dc7d08_abs_1",
+        "answer_70dc7d08_abs_2"
+      ],
+      "answerSessionsRetrieved": [
+        "answer_70dc7d08_abs_1",
+        "answer_70dc7d08_abs_2"
+      ],
+      "retrievalCoverageLabel": "full-answer-session-coverage",
+      "timeRetrievalMode": "all",
+      "timeFrame": null
+    },
+    {
+      "questionId": "gpt4_385a5000",
+      "questionType": "temporal-reasoning",
+      "questionText": "Which seeds were started first, the tomatoes or the marigolds?",
+      "runId": "2026-03-17T15-43-07-808",
+      "answerProfile": null,
+      "result": "hit",
+      "label": "direct-evidence-hit",
+      "focus": "retrieval",
+      "summary": "Retrieved all answer sessions (answer_7a4a93f1_2, answer_7a4a93f1_1) and produced a matching answer.",
+      "expected": "Tomatoes",
+      "hypothesis": "The tomatoes were started first.",
+      "hydratedMemories": 3,
+      "retrievedAnswerMemoryCount": 3,
+      "retrievedNonAnswerMemoryCount": 0,
+      "retrievedSessionIds": [
+        "answer_7a4a93f1_1",
+        "answer_7a4a93f1_2"
+      ],
+      "answerSessionIds": [
+        "answer_7a4a93f1_2",
+        "answer_7a4a93f1_1"
+      ],
+      "answerSessionsRetrieved": [
+        "answer_7a4a93f1_2",
+        "answer_7a4a93f1_1"
+      ],
+      "retrievalCoverageLabel": "full-answer-session-coverage",
+      "timeRetrievalMode": "semantic",
+      "timeFrame": null
+    },
+    {
+      "questionId": "gpt4_fa19884c",
+      "questionType": "temporal-reasoning",
+      "questionText": "How many days passed between the day I started playing along to my favorite songs on my old keyboard and the day I discovered a bluegrass band?",
+      "runId": "2026-03-17T15-43-07-808",
+      "answerProfile": null,
+      "result": "hit",
+      "label": "direct-evidence-hit",
+      "focus": "retrieval",
+      "summary": "Retrieved all answer sessions (answer_ff201786_1, answer_ff201786_2) and produced a matching answer.",
+      "expected": "6 days. 7 days (including the last day) is also acceptable.",
+      "hypothesis": "6 days",
+      "hydratedMemories": 3,
+      "retrievedAnswerMemoryCount": 3,
+      "retrievedNonAnswerMemoryCount": 0,
+      "retrievedSessionIds": [
+        "answer_ff201786_2",
+        "answer_ff201786_1"
+      ],
+      "answerSessionIds": [
+        "answer_ff201786_1",
+        "answer_ff201786_2"
+      ],
+      "answerSessionsRetrieved": [
+        "answer_ff201786_1",
+        "answer_ff201786_2"
+      ],
+      "retrievalCoverageLabel": "full-answer-session-coverage",
+      "timeRetrievalMode": "all",
+      "timeFrame": null
+    }
+  ]
+}

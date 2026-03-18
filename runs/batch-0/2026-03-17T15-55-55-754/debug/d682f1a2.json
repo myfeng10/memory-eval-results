@@ -1,0 +1,191 @@
+{
+  "question_id": "d682f1a2",
+  "question_type": "multi-session",
+  "question": "How many different types of food delivery services have I used recently?",
+  "expected_answer": 3,
+  "answer_session_ids": [
+    "answer_c008e5df_1",
+    "answer_c008e5df_2",
+    "answer_c008e5df_3"
+  ],
+  "mock_user_id": "20026252-36ab-5f28-9a79-f2390aea28f3",
+  "status": "completed",
+  "copy": {
+    "skipped": true,
+    "existing_memory_count": 113
+  },
+  "retrieval": {
+    "config": {
+      "retrieval_function": "dev_memory_eval_hybrid_retrieval_v2",
+      "impression_function": "dev_impression_object_similar_embedding",
+      "memory_retrieval_strategy": "independent",
+      "keyword_query_passthrough": false
+    },
+    "query_result": {
+      "time_frame": null,
+      "primary_query": "used food delivery services",
+      "inference_query": "types of food delivery services used",
+      "bandwidth_state": "medium",
+      "interaction_mode": "exploration",
+      "memory_request_mode": "memory_topic",
+      "time_retrieval_mode": "all",
+      "wait_for_memory": false,
+      "wait_for_memory_reason": "not-memory-critical",
+      "query_prompt_version": "v2",
+      "primary_keyword_query": null,
+      "inference_keyword_query": null
+    },
+    "raw_memory_result": {
+      "summary_memory_primary": "[{\"id\":\"M047\",\"key\":\"Forums\",\"description\":\"Here is a memory: At 2023-05-27T08:58:00, Owner: (current user). Planned to consult online forums and communities to gain additional insights into streaming services and sports channels. Intends to check online forums and communities.\\nGoal is to discuss streaming services and sports channels.\\nAims to gain additional insights.\\nSeeks to learn from others' experiences.\\nWants to make a more informed decision.\"},{\"id\":\"M048\",\"key\":\"Backpropagation\",\"description\":\"Here is a memory: At 2023-05-27T08:12:00, Owner: (current user). Received an explanation of backpropagation, a machine learning technique for training neural networks. Backpropagation is a technique used in machine learning for training neural networks.\\nThe goal is to adjust the weights of the neural network to minimize the error between the network's output and the desired output.\\nThe process begins with forward propagation of input through the neural network to produce an output.\\nError is calculated by comparing the output to the desired output.\\nThe error is then propagated back through the network, layer by layer, in the opposite direction of the original input.\\nThe chain rule of calculus is used to compute the gradient of the error with respect to the network's weights.\\nThe gradient is used to adjust the weights to minimize the error.\\nThis iterative process is repeated for each example in the training data set until the error is minimized to an acceptable level.\\nBackpropagation requires significant computational power and sufficient training examples.\\nIt is a fundamental technique in modern machine learning for enabling neural networks to learn from data and make accurate predictions.\"},{\"id\":\"M056\",\"key\":\"Mac\",\"description\":\"Here is a memory: At 2023-05-26T13:40:00, Owner: (current user). Tried an amazing vegan mac and cheese recipe found online. Tried a vegan mac and cheese recipe found online.\\nConsidered it the best vegan mac and cheese ever had.\\nThe recipe used a cashew-based cheese sauce.\\nThe sauce was described as creamy and delicious.\\nPrompted a request for other vegan comfort food recipes.\"},{\"id\":\"M049\",\"key\":\"Gradient\",\"description\":\"Here is a memory: At 2023-05-27T08:12:00, Owner: (current user). Received mathematical details for backpropagation, focusing on computing the gradient of a loss function with respect to neural network weights. Backpropagation involves computing the gradient of a loss function L(W) with respect to the weights W of a neural network.\\nThis gradient, ∇L(W), is used to update weights through gradient descent.\\nThe forward phase computes the network's output y = f(x,W) given an input x, and then the loss function L(W) based on predicted output y and desired output y_true.\\nThe backward phase computes the gradient of the loss function with respect to the output y, denoted by ∇L(y).\\nThe chain rule of calculus is used to compute the gradient of the loss function with respect to the weights, ∇L(W).\\nGradients are computed for each layer, starting from the output layer and working backward to the input layer.\\nThe formulas for gradient computation are: ∇L(y_l) = ∂L/∂y_l, ∇L(h_l) = ∇L(y_l) * ∂y_l/∂h_l, and ∇L(W_l) = ∇L(h_l) * ∂h_l/∂W_l, where l is the layer number, y_l is layer output, h_l is weighted sum of inputs, and W_l is layer weights.\\nWeights are updated using gradient descent: W_l = W_l - α * ∇L(W_l), where α is the learning rate.\\nIterative application of forward and backward phases with weight updates trains the network to minimize error.\"},{\"id\":\"M046\",\"key\":\"Sports\",\"description\":\"Here is a memory: At 2023-05-27T08:58:00, Owner: (current user). Decided to create a list of current sports channels and prioritize them to determine which ones are essential. Decided to make a list of current sports channels.\\nPlanned to prioritize the channels based on importance.\\nIntends to research streaming services offering the essential channels.\\nAims to balance cost and access to desired sports content.\"}]",
+      "summary_memory_inference": "[]",
+      "summary_impression": "[]",
+      "identifier_mapping_counts": {
+        "memory": 5,
+        "impression": 0
+      }
+    },
+    "other_public_result": "[]",
+    "memories_found": {
+      "primary": 5,
+      "inference": 0,
+      "impression": 0,
+      "other_public": 0,
+      "hydrated": 5
+    },
+    "retrieved_memories": [
+      {
+        "retrieval_bucket": "primary",
+        "identifier": "M047",
+        "memory_id": "dbaeb82e-02a6-42be-b5b3-8e69c83f73e2",
+        "summary_key": "Forums",
+        "summary_description": "Here is a memory: At 2023-05-27T08:58:00, Owner: (current user). Planned to consult online forums and communities to gain additional insights into streaming services and sports channels. Intends to check online forums and communities.\nGoal is to discuss streaming services and sports channels.\nAims to gain additional insights.\nSeeks to learn from others' experiences.\nWants to make a more informed decision.",
+        "time": "2023-05-27T08:58:00",
+        "location": "Unknown",
+        "category": "Technology and Innovation",
+        "object": "Online Community Research",
+        "emotion": "thoughtful",
+        "description": "Planned to consult online forums and communities to gain additional insights into streaming services and sports channels. This approach aims to gather more information and learn from others' experiences to make a well-informed decision.",
+        "details": "Intends to check online forums and communities.\nGoal is to discuss streaming services and sports channels.\nAims to gain additional insights.\nSeeks to learn from others' experiences.\nWants to make a more informed decision.",
+        "keys": "Forums",
+        "haystack_session_id": "c37e7b4f_2",
+        "eval_session_index": 24,
+        "eval_question_id": "d682f1a2"
+      },
+      {
+        "retrieval_bucket": "primary",
+        "identifier": "M048",
+        "memory_id": "889e9f63-7768-41ae-857a-b7844b08eb73",
+        "summary_key": "Backpropagation",
+        "summary_description": "Here is a memory: At 2023-05-27T08:12:00, Owner: (current user). Received an explanation of backpropagation, a machine learning technique for training neural networks. Backpropagation is a technique used in machine learning for training neural networks.\nThe goal is to adjust the weights of the neural network to minimize the error between the network's output and the desired output.\nThe process begins with forward propagation of input through the neural network to produce an output.\nError is calculated by comparing the output to the desired output.\nThe error is then propagated back through the network, layer by layer, in the opposite direction of the original input.\nThe chain rule of calculus is used to compute the gradient of the error with respect to the network's weights.\nThe gradient is used to adjust the weights to minimize the error.\nThis iterative process is repeated for each example in the training data set until the error is minimized to an acceptable level.\nBackpropagation requires significant computational power and sufficient training examples.\nIt is a fundamental technique in modern machine learning for enabling neural networks to learn from data and make accurate predictions.",
+        "time": "2023-05-27T08:12:00",
+        "location": "Unknown",
+        "category": "Technology and Innovation",
+        "object": "Backpropagation Explanation",
+        "emotion": "thoughtful",
+        "description": "Received an explanation of backpropagation, a machine learning technique for training neural networks. The process involves adjusting network weights to minimize the difference between predicted and desired output. It starts with forward propagation, calculates error, and then propagates the error backward through the network using the chain rule to compute gradients. These gradients are then used to update weights via gradient descent.",
+        "details": "Backpropagation is a technique used in machine learning for training neural networks.\nThe goal is to adjust the weights of the neural network to minimize the error between the network's output and the desired output.\nThe process begins with forward propagation of input through the neural network to produce an output.\nError is calculated by comparing the output to the desired output.\nThe error is then propagated back through the network, layer by layer, in the opposite direction of the original input.\nThe chain rule of calculus is used to compute the gradient of the error with respect to the network's weights.\nThe gradient is used to adjust the weights to minimize the error.\nThis iterative process is repeated for each example in the training data set until the error is minimized to an acceptable level.\nBackpropagation requires significant computational power and sufficient training examples.\nIt is a fundamental technique in modern machine learning for enabling neural networks to learn from data and make accurate predictions.",
+        "keys": "Backpropagation",
+        "haystack_session_id": "sharegpt_JTaoEJT_23",
+        "eval_session_index": 23,
+        "eval_question_id": "d682f1a2"
+      },
+      {
+        "retrieval_bucket": "primary",
+        "identifier": "M056",
+        "memory_id": "353be1fd-31df-4365-86f7-0ceb3fa63d40",
+        "summary_key": "Mac",
+        "summary_description": "Here is a memory: At 2023-05-26T13:40:00, Owner: (current user). Tried an amazing vegan mac and cheese recipe found online. Tried a vegan mac and cheese recipe found online.\nConsidered it the best vegan mac and cheese ever had.\nThe recipe used a cashew-based cheese sauce.\nThe sauce was described as creamy and delicious.\nPrompted a request for other vegan comfort food recipes.",
+        "time": "2023-05-26T13:40:00",
+        "location": "Unknown",
+        "category": "Lifestyle and Personal Interests",
+        "object": "Vegan Mac and Cheese Experience",
+        "emotion": "happy",
+        "description": "Tried an amazing vegan mac and cheese recipe found online. It was the best ever, using a cashew-based cheese sauce that was creamy and delicious. This positive experience led to seeking more vegan comfort food recommendations.",
+        "details": "Tried a vegan mac and cheese recipe found online.\nConsidered it the best vegan mac and cheese ever had.\nThe recipe used a cashew-based cheese sauce.\nThe sauce was described as creamy and delicious.\nPrompted a request for other vegan comfort food recipes.",
+        "keys": "Mac",
+        "haystack_session_id": "9de29219_1",
+        "eval_session_index": 20,
+        "eval_question_id": "d682f1a2"
+      },
+      {
+        "retrieval_bucket": "primary",
+        "identifier": "M049",
+        "memory_id": "56d8a36b-0e30-475b-aeb5-fe65c84378ff",
+        "summary_key": "Gradient",
+        "summary_description": "Here is a memory: At 2023-05-27T08:12:00, Owner: (current user). Received mathematical details for backpropagation, focusing on computing the gradient of a loss function with respect to neural network weights. Backpropagation involves computing the gradient of a loss function L(W) with respect to the weights W of a neural network.\nThis gradient, ∇L(W), is used to update weights through gradient descent.\nThe forward phase computes the network's output y = f(x,W) given an input x, and then the loss function L(W) based on predicted output y and desired output y_true.\nThe backward phase computes the gradient of the loss function with respect to the output y, denoted by ∇L(y).\nThe chain rule of calculus is used to compute the gradient of the loss function with respect to the weights, ∇L(W).\nGradients are computed for each layer, starting from the output layer and working backward to the input layer.\nThe formulas for gradient computation are: ∇L(y_l) = ∂L/∂y_l, ∇L(h_l) = ∇L(y_l) * ∂y_l/∂h_l, and ∇L(W_l) = ∇L(h_l) * ∂h_l/∂W_l, where l is the layer number, y_l is layer output, h_l is weighted sum of inputs, and W_l is layer weights.\nWeights are updated using gradient descent: W_l = W_l - α * ∇L(W_l), where α is the learning rate.\nIterative application of forward and backward phases with weight updates trains the network to minimize error.",
+        "time": "2023-05-27T08:12:00",
+        "location": "Unknown",
+        "category": "Technology and Innovation",
+        "object": "Backpropagation Mathematical Details",
+        "emotion": "thoughtful",
+        "description": "Received mathematical details for backpropagation, focusing on computing the gradient of a loss function with respect to neural network weights. The process involves a forward phase to compute output and loss, and a backward phase to compute gradients using the chain rule. These gradients are then used in gradient descent to update the weights.",
+        "details": "Backpropagation involves computing the gradient of a loss function L(W) with respect to the weights W of a neural network.\nThis gradient, ∇L(W), is used to update weights through gradient descent.\nThe forward phase computes the network's output y = f(x,W) given an input x, and then the loss function L(W) based on predicted output y and desired output y_true.\nThe backward phase computes the gradient of the loss function with respect to the output y, denoted by ∇L(y).\nThe chain rule of calculus is used to compute the gradient of the loss function with respect to the weights, ∇L(W).\nGradients are computed for each layer, starting from the output layer and working backward to the input layer.\nThe formulas for gradient computation are: ∇L(y_l) = ∂L/∂y_l, ∇L(h_l) = ∇L(y_l) * ∂y_l/∂h_l, and ∇L(W_l) = ∇L(h_l) * ∂h_l/∂W_l, where l is the layer number, y_l is layer output, h_l is weighted sum of inputs, and W_l is layer weights.\nWeights are updated using gradient descent: W_l = W_l - α * ∇L(W_l), where α is the learning rate.\nIterative application of forward and backward phases with weight updates trains the network to minimize error.",
+        "keys": "Gradient",
+        "haystack_session_id": "sharegpt_JTaoEJT_23",
+        "eval_session_index": 23,
+        "eval_question_id": "d682f1a2"
+      },
+      {
+        "retrieval_bucket": "primary",
+        "identifier": "M046",
+        "memory_id": "d4b9cad7-b280-4cb0-a98a-d2085d22289a",
+        "summary_key": "Sports",
+        "summary_description": "Here is a memory: At 2023-05-27T08:58:00, Owner: (current user). Decided to create a list of current sports channels and prioritize them to determine which ones are essential. Decided to make a list of current sports channels.\nPlanned to prioritize the channels based on importance.\nIntends to research streaming services offering the essential channels.\nAims to balance cost and access to desired sports content.",
+        "time": "2023-05-27T08:58:00",
+        "location": "Unknown",
+        "category": "Personal Development",
+        "object": "Sports Channel Prioritization",
+        "emotion": "calm",
+        "description": "Decided to create a list of current sports channels and prioritize them to determine which ones are essential. The next step involves researching streaming services that offer the prioritized channels to find a balance between cost and access.",
+        "details": "Decided to make a list of current sports channels.\nPlanned to prioritize the channels based on importance.\nIntends to research streaming services offering the essential channels.\nAims to balance cost and access to desired sports content.",
+        "keys": "Sports",
+        "haystack_session_id": "c37e7b4f_2",
+        "eval_session_index": 24,
+        "eval_question_id": "d682f1a2"
+      }
+    ],
+    "retrieval_status_messages": [
+      "Time-focused ranking applied (relevance+time proximity). Kept 5/83 own memories and 0/0 public memories (max 5 each)."
+    ],
+    "query_time_seconds": 6.742441207999999,
+    "memory_time_seconds": 0.19362016699999912,
+    "perf_entries": [
+      {
+        "name": "memory.single.convert-messages",
+        "ms": 0.024292000000059488
+      },
+      {
+        "name": "memory.single.parse-context",
+        "ms": 0.031000000000176442
+      },
+      {
+        "name": "memory.single.get-query",
+        "ms": 6742.488416000001
+      },
+      {
+        "name": "memory.single.parse-time-window",
+        "ms": 4.145292000001064
+      },
+      {
+        "name": "memory.single.retrieve-own.time-window",
+        "ms": 193.476541
+      },
+      {
+        "name": "memory.single.retrieve-all-by-time-window",
+        "ms": 193.66179100000045
+      }
+    ]
+  },
+  "answering": {
+    "hypothesis": "I don't have that information.",
+    "formatted_context_length": 5151,
+    "duration_ms": 663.59,
+    "used_direct_abstention": false
+  },
+  "self_check": {
+    "likelyCorrect": false,
+    "normalizedExpected": "3",
+    "normalizedHypothesis": "i don't have that information.",
+    "reason": "Normalized strings do not contain each other."
+  }
+}

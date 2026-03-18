@@ -1,0 +1,160 @@
+{
+  "question_id": "c8090214_abs",
+  "question_type": "temporal-reasoning",
+  "question": "How many days before I bought my iPad did I attend the Holiday Market?",
+  "expected_answer": "The information provided is not enough. You mentioned getting the iPhone 13 Pro and attending the market, but you did not mention buying an iPad.",
+  "answer_session_ids": [
+    "answer_70dc7d08_abs_1",
+    "answer_70dc7d08_abs_2"
+  ],
+  "mock_user_id": "c338d3f4-edab-5ded-ba9d-421fb3992bf8",
+  "status": "completed",
+  "copy": {
+    "skipped": true,
+    "existing_memory_count": 134
+  },
+  "retrieval": {
+    "config": {
+      "retrieval_function": "dev_memory_eval_hybrid_retrieval_v2",
+      "impression_function": "dev_impression_object_similar_embedding",
+      "memory_retrieval_strategy": "independent",
+      "keyword_query_passthrough": false
+    },
+    "query_result": {
+      "time_frame": null,
+      "primary_query": "attended Holiday Market before iPad purchase",
+      "inference_query": "iPad purchase date relative to Holiday Market attendance",
+      "bandwidth_state": "medium",
+      "interaction_mode": "exploration",
+      "memory_request_mode": "direct_recall",
+      "time_retrieval_mode": "all",
+      "wait_for_memory": true,
+      "wait_for_memory_reason": "time-reference",
+      "query_prompt_version": "v2",
+      "primary_keyword_query": "iPad Holiday Market",
+      "inference_keyword_query": null
+    },
+    "raw_memory_result": {
+      "summary_memory_primary": "[{\"id\":\"M001\",\"key\":\"iPhone\",\"description\":\"Here is a memory: At 2023-11-24 08:00:00, Owner: (current user). Purchased an iPhone 13 Pro at a discounted price during Black Friday. Bought an iPhone 13 Pro.\\nPurchased from Best Buy.\\nThe purchase occurred on Black Friday.\\nPaid $800 for the phone.\\nThe regular price was $1,000.\"},{\"id\":\"M002\",\"key\":\"Market\",\"description\":\"Here is a memory: At 2023-05-30 07:50:00, Owner: (current user). Attended the annual Holiday Market at the local mall a week before Black Friday. Attended the annual Holiday Market.\\nThe market was held at the local mall.\\nThe visit occurred a week before Black Friday.\\nSaw unique handmade jewelry at the market.\\nConsidered the jewelry as a potential birthday gift for a sister.\\nPlanned to return to the Holiday Market to inspect the jewelry vendors more closely.\"}]",
+      "summary_memory_inference": "[{\"id\":\"M003\",\"key\":\"iPhone\",\"description\":\"Here is a memory: At 2023-11-24 08:00:00, Owner:(current user). Purchased an iPhone 13 Pro at a discounted price during Black Friday. Bought an iPhone 13 Pro.\\nPurchased from Best Buy.\\nThe purchase occurred on Black Friday.\\nPaid $800 for the phone.\\nThe regular price was $1,000.\"}]",
+      "summary_impression": "[]",
+      "identifier_mapping_counts": {
+        "memory": 3,
+        "impression": 0
+      }
+    },
+    "other_public_result": "[]",
+    "memories_found": {
+      "primary": 2,
+      "inference": 1,
+      "impression": 0,
+      "other_public": 0,
+      "hydrated": 3
+    },
+    "retrieved_memories": [
+      {
+        "retrieval_bucket": "primary",
+        "identifier": "M001",
+        "memory_id": "43659eba-16c7-47a5-8622-7a850dc24bd8",
+        "summary_key": "iPhone",
+        "summary_description": "Here is a memory: At 2023-11-24 08:00:00, Owner: (current user). Purchased an iPhone 13 Pro at a discounted price during Black Friday. Bought an iPhone 13 Pro.\nPurchased from Best Buy.\nThe purchase occurred on Black Friday.\nPaid $800 for the phone.\nThe regular price was $1,000.",
+        "time": "2023-11-24T08:00:00",
+        "location": "Best Buy",
+        "category": "Technology and Innovation",
+        "object": "iPhone 13 Pro Purchase",
+        "emotion": "happy",
+        "description": "Purchased an iPhone 13 Pro at a discounted price during Black Friday. The deal was significant, saving $200 off the regular price. This acquisition prompted a need for new accessories.",
+        "details": "Bought an iPhone 13 Pro.\nPurchased from Best Buy.\nThe purchase occurred on Black Friday.\nPaid $800 for the phone.\nThe regular price was $1,000.",
+        "keys": "iPhone",
+        "haystack_session_id": "answer_70dc7d08_abs_2",
+        "eval_session_index": 39,
+        "eval_question_id": "c8090214_abs"
+      },
+      {
+        "retrieval_bucket": "primary",
+        "identifier": "M002",
+        "memory_id": "58249591-b344-4cb9-ad43-05068067979e",
+        "summary_key": "Market",
+        "summary_description": "Here is a memory: At 2023-05-30 07:50:00, Owner: (current user). Attended the annual Holiday Market at the local mall a week before Black Friday. Attended the annual Holiday Market.\nThe market was held at the local mall.\nThe visit occurred a week before Black Friday.\nSaw unique handmade jewelry at the market.\nConsidered the jewelry as a potential birthday gift for a sister.\nPlanned to return to the Holiday Market to inspect the jewelry vendors more closely.",
+        "time": "2023-05-30T07:50:00",
+        "location": "local mall",
+        "category": "Lifestyle and Personal Interests",
+        "object": "Holiday Market Jewelry",
+        "emotion": "thoughtful",
+        "description": "Attended the annual Holiday Market at the local mall a week before Black Friday. Saw some unique handmade jewelry there and considered it as a gift for a sister's upcoming birthday. Decided to revisit the market to take a closer look at the jewelry vendors.",
+        "details": "Attended the annual Holiday Market.\nThe market was held at the local mall.\nThe visit occurred a week before Black Friday.\nSaw unique handmade jewelry at the market.\nConsidered the jewelry as a potential birthday gift for a sister.\nPlanned to return to the Holiday Market to inspect the jewelry vendors more closely.",
+        "keys": "Market",
+        "haystack_session_id": "answer_70dc7d08_abs_1",
+        "eval_session_index": 36,
+        "eval_question_id": "c8090214_abs"
+      },
+      {
+        "retrieval_bucket": "inference",
+        "identifier": "M003",
+        "memory_id": "43659eba-16c7-47a5-8622-7a850dc24bd8",
+        "summary_key": "iPhone",
+        "summary_description": "Here is a memory: At 2023-11-24 08:00:00, Owner:(current user). Purchased an iPhone 13 Pro at a discounted price during Black Friday. Bought an iPhone 13 Pro.\nPurchased from Best Buy.\nThe purchase occurred on Black Friday.\nPaid $800 for the phone.\nThe regular price was $1,000.",
+        "time": "2023-11-24T08:00:00",
+        "location": "Best Buy",
+        "category": "Technology and Innovation",
+        "object": "iPhone 13 Pro Purchase",
+        "emotion": "happy",
+        "description": "Purchased an iPhone 13 Pro at a discounted price during Black Friday. The deal was significant, saving $200 off the regular price. This acquisition prompted a need for new accessories.",
+        "details": "Bought an iPhone 13 Pro.\nPurchased from Best Buy.\nThe purchase occurred on Black Friday.\nPaid $800 for the phone.\nThe regular price was $1,000.",
+        "keys": "iPhone",
+        "haystack_session_id": "answer_70dc7d08_abs_2",
+        "eval_session_index": 39,
+        "eval_question_id": "c8090214_abs"
+      }
+    ],
+    "retrieval_status_messages": [],
+    "query_time_seconds": 6.770107707999996,
+    "memory_time_seconds": 0.1396848750000063,
+    "perf_entries": [
+      {
+        "name": "memory.single.convert-messages",
+        "ms": 0.005333000008249655
+      },
+      {
+        "name": "memory.single.parse-context",
+        "ms": 0.0028750000055879354
+      },
+      {
+        "name": "memory.single.get-query",
+        "ms": 6770.114958999999
+      },
+      {
+        "name": "memory.single.parse-time-window",
+        "ms": 0.11345900000014808
+      },
+      {
+        "name": "memory.single.parse-time-window-from-query-signal",
+        "ms": 0.0027079999999841675
+      },
+      {
+        "name": "memory.single.build-embeddings",
+        "ms": 238.7049590000097
+      },
+      {
+        "name": "memory.single.retrieve-main",
+        "ms": 139.49620799999684
+      },
+      {
+        "name": "memory.single.retrieve-parallel",
+        "ms": 139.69012500000827
+      }
+    ]
+  },
+  "answering": {
+    "hypothesis": "I don't have that information.",
+    "formatted_context_length": 1665,
+    "duration_ms": 473.06,
+    "used_direct_abstention": false
+  },
+  "self_check": {
+    "likelyCorrect": true,
+    "normalizedExpected": "the information provided is not enough. you mentioned getting the iphone 13 pro and attending the market, but you did not mention buying an ipad.",
+    "normalizedHypothesis": "i don't have that information.",
+    "reason": "Exact abstention match."
+  }
+}

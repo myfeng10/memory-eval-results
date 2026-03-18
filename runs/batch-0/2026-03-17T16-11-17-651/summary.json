@@ -1,0 +1,34 @@
+{
+  "run_id": "2026-03-17T16-11-17-651",
+  "batch": 0,
+  "total_requested": 6,
+  "completed": 6,
+  "failed": 0,
+  "overall_accuracy": 0,
+  "abstention_accuracy": {
+    "total": 0,
+    "correct": 0,
+    "accuracy": null
+  },
+  "scores_by_type": {
+    "single-session-preference": {
+      "total": 2,
+      "correct": 0,
+      "accuracy": 0
+    },
+    "single-session-assistant": {
+      "total": 2,
+      "correct": 0,
+      "accuracy": 0
+    },
+    "knowledge-update": {
+      "total": 2,
+      "correct": 0,
+      "accuracy": 0
+    }
+  },
+  "avg_query_time_seconds": 0.9671,
+  "avg_memory_time_seconds": 0.2434,
+  "avg_answer_time_ms": 842.24,
+  "avg_retrieved_memories": 3
+}

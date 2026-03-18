@@ -1,0 +1,159 @@
+{
+  "question_id": "e48988bc",
+  "question_type": "single-session-assistant",
+  "question": "I was looking back at our previous conversation about environmentally responsible supply chain practices, and I was wondering if you could remind me of the company you mentioned that's doing a great job with sustainability?",
+  "expected_answer": "Patagonia",
+  "answer_session_ids": [
+    "answer_ultrachat_174360"
+  ],
+  "mock_user_id": "1bed53d0-a748-5cb0-98c5-f458dbf56939",
+  "status": "completed",
+  "copy": {
+    "skipped": true,
+    "existing_memory_count": 125
+  },
+  "retrieval": {
+    "config": {
+      "retrieval_function": "dev_memory_eval_hybrid_retrieval_v2",
+      "impression_function": "dev_impression_object_similar_embedding",
+      "memory_retrieval_strategy": "independent",
+      "keyword_query_passthrough": false
+    },
+    "query_result": {
+      "time_frame": null,
+      "primary_query": "company doing great job with sustainability in supply chain",
+      "inference_query": "examples of environmentally responsible supply chain practices",
+      "bandwidth_state": "medium",
+      "interaction_mode": "exploration",
+      "memory_request_mode": "memory_topic",
+      "time_retrieval_mode": "semantic",
+      "wait_for_memory": true,
+      "wait_for_memory_reason": "explicit-remind",
+      "query_prompt_version": "v2",
+      "primary_keyword_query": null,
+      "inference_keyword_query": null
+    },
+    "raw_memory_result": {
+      "summary_memory_primary": "[{\"id\":\"M002\",\"key\":\"Companies\",\"description\":\"Here is a memory: At 2023-05-29 23:44:00, Owner: (current user). Expressed difficulty in identifying which companies are genuinely ethical due to the vast amount of information available. Found it challenging to discern which companies are truly ethical.\\nAttributed this difficulty to the overwhelming amount of information available.\\nRequested suggestions for resources to research companies' ethical and responsible practices.\"},{\"id\":\"M003\",\"key\":\"Reebok\",\"description\":\"Here is a memory: At 2023-05-27 00:00:00, Owner: (current user). Expressed appreciation for companies prioritizing sustainability and ethical practices. Expressed love for companies prioritizing sustainability and ethical practices.\\nInquired about Reebok's sustainable collections.\\nLearned about Reebok's Cotton + Corn collection, featuring shoes made from 100% plant-based materials (corn-based sole, organic cotton upper).\\nLearned about Reebok's Forever Floatride Grow line, made with natural and recycled materials (eucalyptus tree bark, castor bean oil, algae foam).\\nLearned about Reebok's Classic Leather Legacy sneaker line, made with at least 30% recycled polyester.\\nLearned about Reebok's One Series clothing collection, made with eco-friendly materials (recycled polyester, organic cotton, TENCEL lyocell fiber).\\nLearned that Reebok is a member of The Better Cotton Initiative.\\nFound the idea of a shoe made from plant-based materials impressive.\\nInquired about the comfort of the Cotton + Corn shoes.\\nUnderstood that Cotton + Corn shoes are designed to be comfortable and durable with a lightweight design, soft organic cotton upper, and flexible corn-based sole.\"}]",
+      "summary_memory_inference": "[{\"id\":\"M001\",\"key\":\"Reebok\",\"description\":\"Here is a memory: At 2023-05-27 00:00:00, Owner:(current user). Expressed appreciation for companies prioritizing sustainability and ethical practices. Expressed love for companies prioritizing sustainability and ethical practices.\\nInquired about Reebok's sustainable collections.\\nLearned about Reebok's Cotton + Corn collection, featuring shoes made from 100% plant-based materials (corn-based sole, organic cotton upper).\\nLearned about Reebok's Forever Floatride Grow line, made with natural and recycled materials (eucalyptus tree bark, castor bean oil, algae foam).\\nLearned about Reebok's Classic Leather Legacy sneaker line, made with at least 30% recycled polyester.\\nLearned about Reebok's One Series clothing collection, made with eco-friendly materials (recycled polyester, organic cotton, TENCEL lyocell fiber).\\nLearned that Reebok is a member of The Better Cotton Initiative.\\nFound the idea of a shoe made from plant-based materials impressive.\\nInquired about the comfort of the Cotton + Corn shoes.\\nUnderstood that Cotton + Corn shoes are designed to be comfortable and durable with a lightweight design, soft organic cotton upper, and flexible corn-based sole.\"}]",
+      "summary_impression": "[]",
+      "identifier_mapping_counts": {
+        "memory": 3,
+        "impression": 0
+      }
+    },
+    "other_public_result": "[]",
+    "memories_found": {
+      "primary": 2,
+      "inference": 1,
+      "impression": 0,
+      "other_public": 0,
+      "hydrated": 3
+    },
+    "retrieved_memories": [
+      {
+        "retrieval_bucket": "primary",
+        "identifier": "M002",
+        "memory_id": "a21c14a9-113b-4e95-abde-02def126f133",
+        "summary_key": "Companies",
+        "summary_description": "Here is a memory: At 2023-05-29 23:44:00, Owner: (current user). Expressed difficulty in identifying which companies are genuinely ethical due to the vast amount of information available. Found it challenging to discern which companies are truly ethical.\nAttributed this difficulty to the overwhelming amount of information available.\nRequested suggestions for resources to research companies' ethical and responsible practices.",
+        "time": "2023-05-29T23:44:00",
+        "location": "Unknown",
+        "category": "Social and Cultural Topics",
+        "object": "Identifying Ethical Companies",
+        "emotion": "thoughtful",
+        "description": "Expressed difficulty in identifying which companies are genuinely ethical due to the vast amount of information available. Sought suggestions for resources to research companies' ethical and responsible practices.",
+        "details": "Found it challenging to discern which companies are truly ethical.\nAttributed this difficulty to the overwhelming amount of information available.\nRequested suggestions for resources to research companies' ethical and responsible practices.",
+        "keys": "Companies",
+        "haystack_session_id": "ultrachat_494373",
+        "eval_session_index": 45,
+        "eval_question_id": "e48988bc"
+      },
+      {
+        "retrieval_bucket": "primary",
+        "identifier": "M003",
+        "memory_id": "db979fcb-a181-4281-b542-60c841cab5d5",
+        "summary_key": "Reebok",
+        "summary_description": "Here is a memory: At 2023-05-27 00:00:00, Owner: (current user). Expressed appreciation for companies prioritizing sustainability and ethical practices. Expressed love for companies prioritizing sustainability and ethical practices.\nInquired about Reebok's sustainable collections.\nLearned about Reebok's Cotton + Corn collection, featuring shoes made from 100% plant-based materials (corn-based sole, organic cotton upper).\nLearned about Reebok's Forever Floatride Grow line, made with natural and recycled materials (eucalyptus tree bark, castor bean oil, algae foam).\nLearned about Reebok's Classic Leather Legacy sneaker line, made with at least 30% recycled polyester.\nLearned about Reebok's One Series clothing collection, made with eco-friendly materials (recycled polyester, organic cotton, TENCEL lyocell fiber).\nLearned that Reebok is a member of The Better Cotton Initiative.\nFound the idea of a shoe made from plant-based materials impressive.\nInquired about the comfort of the Cotton + Corn shoes.\nUnderstood that Cotton + Corn shoes are designed to be comfortable and durable with a lightweight design, soft organic cotton upper, and flexible corn-based sole.",
+        "time": "2023-05-27T00:00:00",
+        "location": "Unknown",
+        "category": "Lifestyle and Personal Interests",
+        "object": "Reebok's Sustainable Collections",
+        "emotion": "thoughtful",
+        "description": "Expressed appreciation for companies prioritizing sustainability and ethical practices. Learned about Reebok's specific sustainable collections and initiatives, including plant-based shoes and recycled materials. Found the idea of shoes made from plant-based materials particularly impressive.",
+        "details": "Expressed love for companies prioritizing sustainability and ethical practices.\nInquired about Reebok's sustainable collections.\nLearned about Reebok's Cotton + Corn collection, featuring shoes made from 100% plant-based materials (corn-based sole, organic cotton upper).\nLearned about Reebok's Forever Floatride Grow line, made with natural and recycled materials (eucalyptus tree bark, castor bean oil, algae foam).\nLearned about Reebok's Classic Leather Legacy sneaker line, made with at least 30% recycled polyester.\nLearned about Reebok's One Series clothing collection, made with eco-friendly materials (recycled polyester, organic cotton, TENCEL lyocell fiber).\nLearned that Reebok is a member of The Better Cotton Initiative.\nFound the idea of a shoe made from plant-based materials impressive.\nInquired about the comfort of the Cotton + Corn shoes.\nUnderstood that Cotton + Corn shoes are designed to be comfortable and durable with a lightweight design, soft organic cotton upper, and flexible corn-based sole.",
+        "keys": "Reebok",
+        "haystack_session_id": "ultrachat_238317",
+        "eval_session_index": 30,
+        "eval_question_id": "e48988bc"
+      },
+      {
+        "retrieval_bucket": "inference",
+        "identifier": "M001",
+        "memory_id": "db979fcb-a181-4281-b542-60c841cab5d5",
+        "summary_key": "Reebok",
+        "summary_description": "Here is a memory: At 2023-05-27 00:00:00, Owner:(current user). Expressed appreciation for companies prioritizing sustainability and ethical practices. Expressed love for companies prioritizing sustainability and ethical practices.\nInquired about Reebok's sustainable collections.\nLearned about Reebok's Cotton + Corn collection, featuring shoes made from 100% plant-based materials (corn-based sole, organic cotton upper).\nLearned about Reebok's Forever Floatride Grow line, made with natural and recycled materials (eucalyptus tree bark, castor bean oil, algae foam).\nLearned about Reebok's Classic Leather Legacy sneaker line, made with at least 30% recycled polyester.\nLearned about Reebok's One Series clothing collection, made with eco-friendly materials (recycled polyester, organic cotton, TENCEL lyocell fiber).\nLearned that Reebok is a member of The Better Cotton Initiative.\nFound the idea of a shoe made from plant-based materials impressive.\nInquired about the comfort of the Cotton + Corn shoes.\nUnderstood that Cotton + Corn shoes are designed to be comfortable and durable with a lightweight design, soft organic cotton upper, and flexible corn-based sole.",
+        "time": "2023-05-27T00:00:00",
+        "location": "Unknown",
+        "category": "Lifestyle and Personal Interests",
+        "object": "Reebok's Sustainable Collections",
+        "emotion": "thoughtful",
+        "description": "Expressed appreciation for companies prioritizing sustainability and ethical practices. Learned about Reebok's specific sustainable collections and initiatives, including plant-based shoes and recycled materials. Found the idea of shoes made from plant-based materials particularly impressive.",
+        "details": "Expressed love for companies prioritizing sustainability and ethical practices.\nInquired about Reebok's sustainable collections.\nLearned about Reebok's Cotton + Corn collection, featuring shoes made from 100% plant-based materials (corn-based sole, organic cotton upper).\nLearned about Reebok's Forever Floatride Grow line, made with natural and recycled materials (eucalyptus tree bark, castor bean oil, algae foam).\nLearned about Reebok's Classic Leather Legacy sneaker line, made with at least 30% recycled polyester.\nLearned about Reebok's One Series clothing collection, made with eco-friendly materials (recycled polyester, organic cotton, TENCEL lyocell fiber).\nLearned that Reebok is a member of The Better Cotton Initiative.\nFound the idea of a shoe made from plant-based materials impressive.\nInquired about the comfort of the Cotton + Corn shoes.\nUnderstood that Cotton + Corn shoes are designed to be comfortable and durable with a lightweight design, soft organic cotton upper, and flexible corn-based sole.",
+        "keys": "Reebok",
+        "haystack_session_id": "ultrachat_238317",
+        "eval_session_index": 30,
+        "eval_question_id": "e48988bc"
+      }
+    ],
+    "retrieval_status_messages": [],
+    "query_time_seconds": 1.0169792080000006,
+    "memory_time_seconds": 0.23212045800000122,
+    "perf_entries": [
+      {
+        "name": "memory.single.convert-messages",
+        "ms": 0.007750000000669388
+      },
+      {
+        "name": "memory.single.parse-context",
+        "ms": 0.0027090000003227033
+      },
+      {
+        "name": "memory.single.get-query",
+        "ms": 1016.9874579999996
+      },
+      {
+        "name": "memory.single.parse-time-window",
+        "ms": 0.12370799999916926
+      },
+      {
+        "name": "memory.single.parse-time-window-from-query-signal",
+        "ms": 0.2949579999985872
+      },
+      {
+        "name": "memory.single.build-embeddings",
+        "ms": 871.6579579999998
+      },
+      {
+        "name": "memory.single.retrieve-main",
+        "ms": 232.01454199999716
+      },
+      {
+        "name": "memory.single.retrieve-parallel",
+        "ms": 232.1264169999995
+      }
+    ]
+  },
+  "answering": {
+    "hypothesis": "Reebok",
+    "formatted_context_length": 3563,
+    "duration_ms": 741.09,
+    "used_direct_abstention": false
+  },
+  "self_check": {
+    "likelyCorrect": false,
+    "normalizedExpected": "patagonia",
+    "normalizedHypothesis": "reebok",
+    "reason": "Normalized strings do not contain each other."
+  }
+}

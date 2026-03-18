@@ -1,0 +1,29 @@
+{
+  "run_id": "2026-03-18T09-09-04-322",
+  "command": "eval",
+  "benchmark": "longmemeval_s_cleaned",
+  "batch": 0,
+  "started_at": "2026-03-18T16:09:03.194Z",
+  "dry_run": true,
+  "question_ids": [
+    "d7c942c3"
+  ],
+  "total_questions": 1,
+  "completed": 0,
+  "failed": 0,
+  "config": {
+    "batch": 0,
+    "memory_retrieval_strategy": "independent",
+    "retrieval_function": "dev_memory_eval_hybrid_retrieval_v2",
+    "impression_function": "dev_impression_object_similar_embedding",
+    "extraction_prompt_version": "v2",
+    "answer_model": "gemini-2.5-flash",
+    "keyword_query_passthrough": false,
+    "details_format": "newline_joined",
+    "skip_copy": false,
+    "answer_profile": "clean",
+    "requested_question_ids": [
+      "d7c942c3"
+    ]
+  }
+}

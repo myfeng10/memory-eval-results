@@ -1,0 +1,159 @@
+{
+  "question_id": "778164c6",
+  "question_type": "single-session-assistant",
+  "question": "I was looking back at our previous conversation about Caribbean dishes and I was wondering, what was the name of that Jamaican dish you recommended I try with snapper that has fruit in it?",
+  "expected_answer": "Grilled Snapper with Mango Salsa",
+  "answer_session_ids": [
+    "answer_ultrachat_399000"
+  ],
+  "mock_user_id": "02793b6a-1e06-5fd2-aae6-f66827eb07a2",
+  "status": "completed",
+  "copy": {
+    "skipped": true,
+    "existing_memory_count": 114
+  },
+  "retrieval": {
+    "config": {
+      "retrieval_function": "dev_memory_eval_hybrid_retrieval_v2",
+      "impression_function": "dev_impression_object_similar_embedding",
+      "memory_retrieval_strategy": "independent",
+      "keyword_query_passthrough": false
+    },
+    "query_result": {
+      "time_frame": null,
+      "primary_query": "Jamaican snapper dish with fruit",
+      "inference_query": "Caribbean dishes involving snapper",
+      "interaction_mode": "exploration",
+      "memory_request_mode": "memory_topic",
+      "time_retrieval_mode": "semantic",
+      "bandwidth_state": "medium",
+      "wait_for_memory": true,
+      "wait_for_memory_reason": "past-reference",
+      "query_prompt_version": "v2",
+      "primary_keyword_query": "Caribbean Jamaican",
+      "inference_keyword_query": null
+    },
+    "raw_memory_result": {
+      "summary_memory_primary": "[{\"id\":\"M002\",\"key\":\"Snapper\",\"description\":\"Here is a memory: At 2023-05-30 22:28:00, Owner: (current user). Expressed love for snapper and inquired about popular Caribbean dishes featuring it. Expressed love for snapper.\\nInquired about popular Caribbean dishes featuring snapper.\\nLearned about Escovitch Fish (Jamaican, fried snapper with spicy pickled vegetable sauce).\\nLearned about Fish Curry (Trinidadian, snapper in curry sauce).\\nLearned about Conch & Snapper Stew (Bahamian, conch and snapper in tomato-based stew).\\nLearned about Grilled Snapper with Mango Salsa (grilled snapper with fruity and spicy salsa).\\nLearned about Fish and Fungi (Virgin Islands, snapper with polenta-like cornmeal dish).\\nDecided to try Escovitch Fish first.\"},{\"id\":\"M003\",\"key\":\"Jamaican\",\"description\":\"Here is a memory: At 2023-05-30 22:28:00, Owner: (current user). Planned to try Escovitch Fish and explore Jamaican restaurants. Planned to try Escovitch Fish.\\nPlanned to check out Jamaican restaurants in the area.\\nRecalled having tried Jerk Chicken before and loved it.\\nInquired about other Jamaican dishes to try.\"}]",
+      "summary_memory_inference": "[{\"id\":\"M001\",\"key\":\"Snapper\",\"description\":\"Here is a memory: At 2023-05-30 22:28:00, Owner:(current user). Expressed love for snapper and inquired about popular Caribbean dishes featuring it. Expressed love for snapper.\\nInquired about popular Caribbean dishes featuring snapper.\\nLearned about Escovitch Fish (Jamaican, fried snapper with spicy pickled vegetable sauce).\\nLearned about Fish Curry (Trinidadian, snapper in curry sauce).\\nLearned about Conch & Snapper Stew (Bahamian, conch and snapper in tomato-based stew).\\nLearned about Grilled Snapper with Mango Salsa (grilled snapper with fruity and spicy salsa).\\nLearned about Fish and Fungi (Virgin Islands, snapper with polenta-like cornmeal dish).\\nDecided to try Escovitch Fish first.\"}]",
+      "summary_impression": "[]",
+      "identifier_mapping_counts": {
+        "memory": 3,
+        "impression": 0
+      }
+    },
+    "other_public_result": "[]",
+    "memories_found": {
+      "primary": 2,
+      "inference": 1,
+      "impression": 0,
+      "other_public": 0,
+      "hydrated": 3
+    },
+    "retrieved_memories": [
+      {
+        "retrieval_bucket": "primary",
+        "identifier": "M002",
+        "memory_id": "957f8619-c811-4a8d-b2f0-4cf790b08092",
+        "summary_key": "Snapper",
+        "summary_description": "Here is a memory: At 2023-05-30 22:28:00, Owner: (current user). Expressed love for snapper and inquired about popular Caribbean dishes featuring it. Expressed love for snapper.\nInquired about popular Caribbean dishes featuring snapper.\nLearned about Escovitch Fish (Jamaican, fried snapper with spicy pickled vegetable sauce).\nLearned about Fish Curry (Trinidadian, snapper in curry sauce).\nLearned about Conch & Snapper Stew (Bahamian, conch and snapper in tomato-based stew).\nLearned about Grilled Snapper with Mango Salsa (grilled snapper with fruity and spicy salsa).\nLearned about Fish and Fungi (Virgin Islands, snapper with polenta-like cornmeal dish).\nDecided to try Escovitch Fish first.",
+        "time": "2023-05-30T22:28:00",
+        "location": "Unknown",
+        "category": "Lifestyle and Personal Interests",
+        "object": "Caribbean Snapper Dishes",
+        "emotion": "thoughtful",
+        "description": "Expressed love for snapper and inquired about popular Caribbean dishes featuring it. Learned about several dishes including Escovitch Fish, Fish Curry, Conch & Snapper Stew, Grilled Snapper with Mango Salsa, and Fish and Fungi. Decided to try Escovitch Fish first based on a recommendation.",
+        "details": "Expressed love for snapper.\nInquired about popular Caribbean dishes featuring snapper.\nLearned about Escovitch Fish (Jamaican, fried snapper with spicy pickled vegetable sauce).\nLearned about Fish Curry (Trinidadian, snapper in curry sauce).\nLearned about Conch & Snapper Stew (Bahamian, conch and snapper in tomato-based stew).\nLearned about Grilled Snapper with Mango Salsa (grilled snapper with fruity and spicy salsa).\nLearned about Fish and Fungi (Virgin Islands, snapper with polenta-like cornmeal dish).\nDecided to try Escovitch Fish first.",
+        "keys": "Snapper",
+        "haystack_session_id": "answer_ultrachat_399000",
+        "eval_session_index": 47,
+        "eval_question_id": "778164c6"
+      },
+      {
+        "retrieval_bucket": "primary",
+        "identifier": "M003",
+        "memory_id": "4028c1cf-f1a3-4f08-9ffc-0e27c700f2a0",
+        "summary_key": "Jamaican",
+        "summary_description": "Here is a memory: At 2023-05-30 22:28:00, Owner: (current user). Planned to try Escovitch Fish and explore Jamaican restaurants. Planned to try Escovitch Fish.\nPlanned to check out Jamaican restaurants in the area.\nRecalled having tried Jerk Chicken before and loved it.\nInquired about other Jamaican dishes to try.",
+        "time": "2023-05-30T22:28:00",
+        "location": "Unknown",
+        "category": "Lifestyle and Personal Interests",
+        "object": "Jamaican Cuisine Exploration",
+        "emotion": "thoughtful",
+        "description": "Planned to try Escovitch Fish and explore Jamaican restaurants. Recalled having tried and enjoyed Jerk Chicken previously. Inquired about other Jamaican dishes to try.",
+        "details": "Planned to try Escovitch Fish.\nPlanned to check out Jamaican restaurants in the area.\nRecalled having tried Jerk Chicken before and loved it.\nInquired about other Jamaican dishes to try.",
+        "keys": "Jamaican",
+        "haystack_session_id": "answer_ultrachat_399000",
+        "eval_session_index": 47,
+        "eval_question_id": "778164c6"
+      },
+      {
+        "retrieval_bucket": "inference",
+        "identifier": "M001",
+        "memory_id": "957f8619-c811-4a8d-b2f0-4cf790b08092",
+        "summary_key": "Snapper",
+        "summary_description": "Here is a memory: At 2023-05-30 22:28:00, Owner:(current user). Expressed love for snapper and inquired about popular Caribbean dishes featuring it. Expressed love for snapper.\nInquired about popular Caribbean dishes featuring snapper.\nLearned about Escovitch Fish (Jamaican, fried snapper with spicy pickled vegetable sauce).\nLearned about Fish Curry (Trinidadian, snapper in curry sauce).\nLearned about Conch & Snapper Stew (Bahamian, conch and snapper in tomato-based stew).\nLearned about Grilled Snapper with Mango Salsa (grilled snapper with fruity and spicy salsa).\nLearned about Fish and Fungi (Virgin Islands, snapper with polenta-like cornmeal dish).\nDecided to try Escovitch Fish first.",
+        "time": "2023-05-30T22:28:00",
+        "location": "Unknown",
+        "category": "Lifestyle and Personal Interests",
+        "object": "Caribbean Snapper Dishes",
+        "emotion": "thoughtful",
+        "description": "Expressed love for snapper and inquired about popular Caribbean dishes featuring it. Learned about several dishes including Escovitch Fish, Fish Curry, Conch & Snapper Stew, Grilled Snapper with Mango Salsa, and Fish and Fungi. Decided to try Escovitch Fish first based on a recommendation.",
+        "details": "Expressed love for snapper.\nInquired about popular Caribbean dishes featuring snapper.\nLearned about Escovitch Fish (Jamaican, fried snapper with spicy pickled vegetable sauce).\nLearned about Fish Curry (Trinidadian, snapper in curry sauce).\nLearned about Conch & Snapper Stew (Bahamian, conch and snapper in tomato-based stew).\nLearned about Grilled Snapper with Mango Salsa (grilled snapper with fruity and spicy salsa).\nLearned about Fish and Fungi (Virgin Islands, snapper with polenta-like cornmeal dish).\nDecided to try Escovitch Fish first.",
+        "keys": "Snapper",
+        "haystack_session_id": "answer_ultrachat_399000",
+        "eval_session_index": 47,
+        "eval_question_id": "778164c6"
+      }
+    ],
+    "retrieval_status_messages": [],
+    "query_time_seconds": 0.7447477920000001,
+    "memory_time_seconds": 0.12363570799999979,
+    "perf_entries": [
+      {
+        "name": "memory.single.convert-messages",
+        "ms": 0.00983399999950052
+      },
+      {
+        "name": "memory.single.parse-context",
+        "ms": 0.004874999999628926
+      },
+      {
+        "name": "memory.single.get-query",
+        "ms": 744.7579580000001
+      },
+      {
+        "name": "memory.single.parse-time-window",
+        "ms": 2.796041999999943
+      },
+      {
+        "name": "memory.single.parse-time-window-from-query-signal",
+        "ms": 0.002291000000695931
+      },
+      {
+        "name": "memory.single.build-embeddings",
+        "ms": 321.0169169999999
+      },
+      {
+        "name": "memory.single.retrieve-main",
+        "ms": 123.47125000000051
+      },
+      {
+        "name": "memory.single.retrieve-parallel",
+        "ms": 123.6498330000004
+      }
+    ]
+  },
+  "answering": {
+    "hypothesis": "I don't have that information.",
+    "formatted_context_length": 1445,
+    "duration_ms": 488.31,
+    "used_direct_abstention": false
+  },
+  "self_check": {
+    "likelyCorrect": false,
+    "normalizedExpected": "grilled snapper with mango salsa",
+    "normalizedHypothesis": "i don't have that information.",
+    "reason": "Normalized strings do not contain each other."
+  }
+}

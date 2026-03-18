@@ -1,0 +1,99 @@
+{
+  "run_id": "2026-03-17T15-43-07-808",
+  "command": "eval",
+  "benchmark": "longmemeval_s_cleaned",
+  "batch": 0,
+  "started_at": "2026-03-17T22:43:06.816Z",
+  "finished_at": "2026-03-17T22:44:24.933Z",
+  "dry_run": false,
+  "question_ids": [
+    "6aeb4375_abs",
+    "852ce960",
+    "2133c1b5",
+    "d7c942c3",
+    "bc149d6b",
+    "5a7937c8",
+    "gpt4_59c863d7",
+    "d682f1a2",
+    "6222b6eb",
+    "778164c6",
+    "e48988bc",
+    "1d4da289",
+    "fca70973",
+    "505af2f5",
+    "75832dbd",
+    "1c0ddc50",
+    "94f70d80",
+    "bc8a6e93_abs",
+    "6ade9755",
+    "bc8a6e93",
+    "2a1811e2",
+    "gpt4_fa19884c",
+    "gpt4_385a5000",
+    "c8090214_abs"
+  ],
+  "total_questions": 24,
+  "completed": 24,
+  "failed": 0,
+  "config": {
+    "batch": 0,
+    "memory_retrieval_strategy": "independent",
+    "retrieval_function": "dev_memory_eval_hybrid_retrieval_v2",
+    "impression_function": "dev_impression_object_similar_embedding",
+    "extraction_prompt_version": "v2",
+    "answer_model": "gemini-2.5-flash",
+    "keyword_query_passthrough": false,
+    "details_format": "newline_joined",
+    "skip_copy": true,
+    "requested_question_ids": []
+  },
+  "stats": {
+    "run_id": "2026-03-17T15-43-07-808",
+    "batch": 0,
+    "total_requested": 24,
+    "completed": 24,
+    "failed": 0,
+    "overall_accuracy": 0.3333,
+    "abstention_accuracy": {
+      "total": 3,
+      "correct": 3,
+      "accuracy": 1
+    },
+    "scores_by_type": {
+      "knowledge-update": {
+        "total": 4,
+        "correct": 1,
+        "accuracy": 0.25
+      },
+      "multi-session": {
+        "total": 4,
+        "correct": 0,
+        "accuracy": 0
+      },
+      "single-session-assistant": {
+        "total": 4,
+        "correct": 0,
+        "accuracy": 0
+      },
+      "single-session-preference": {
+        "total": 4,
+        "correct": 0,
+        "accuracy": 0
+      },
+      "single-session-user": {
+        "total": 4,
+        "correct": 4,
+        "accuracy": 1
+      },
+      "temporal-reasoning": {
+        "total": 4,
+        "correct": 3,
+        "accuracy": 0.75
+      }
+    },
+    "avg_query_time_seconds": 2.1195,
+    "avg_memory_time_seconds": 0.2214,
+    "avg_answer_time_ms": 533.21,
+    "avg_retrieved_memories": 2.63
+  }
+}

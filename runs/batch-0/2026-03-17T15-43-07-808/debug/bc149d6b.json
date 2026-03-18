@@ -1,0 +1,122 @@
+{
+  "question_id": "bc149d6b",
+  "question_type": "multi-session",
+  "question": "What is the total weight of the new feed I purchased in the past two months?",
+  "expected_answer": "70 pounds",
+  "answer_session_ids": [
+    "answer_92147866_1",
+    "answer_92147866_2"
+  ],
+  "mock_user_id": "e49b02a8-ee79-520b-8473-608b43099a61",
+  "status": "completed",
+  "copy": {
+    "skipped": true,
+    "existing_memory_count": 131
+  },
+  "retrieval": {
+    "config": {
+      "retrieval_function": "dev_memory_eval_hybrid_retrieval_v2",
+      "impression_function": "dev_impression_object_similar_embedding",
+      "memory_retrieval_strategy": "independent",
+      "keyword_query_passthrough": false
+    },
+    "query_result": {
+      "time_frame": "2",
+      "primary_query": "total weight of new feed purchased",
+      "inference_query": "details of feed purchases",
+      "bandwidth_state": "medium",
+      "interaction_mode": "exploration",
+      "memory_request_mode": "memory_topic",
+      "time_retrieval_mode": "all",
+      "wait_for_memory": false,
+      "wait_for_memory_reason": "not-memory-critical",
+      "query_prompt_version": "v2",
+      "primary_keyword_query": null,
+      "inference_keyword_query": null
+    },
+    "raw_memory_result": {
+      "summary_memory_primary": "[]",
+      "summary_memory_inference": "[]",
+      "summary_impression": "[]",
+      "identifier_mapping_counts": {
+        "memory": 0,
+        "impression": 0
+      }
+    },
+    "other_public_result": "[]",
+    "memories_found": {
+      "primary": 0,
+      "inference": 0,
+      "impression": 0,
+      "other_public": 0,
+      "hydrated": 0
+    },
+    "retrieved_memories": [],
+    "retrieval_status_messages": [
+      "No memories found in exact scope; fetching larger scope (±7 days)...",
+      "No memories found in ±7 days scope; fetching larger scope (same month)...",
+      "No memories found after expanded time-scope search.",
+      "Time-focused ranking applied (relevance+time proximity). Kept 0/0 own memories and 0/0 public memories (max 5 each)."
+    ],
+    "query_time_seconds": 1.0144954159999997,
+    "memory_time_seconds": 0.1496047920000001,
+    "perf_entries": [
+      {
+        "name": "memory.single.convert-messages",
+        "ms": 0.007917000000816188
+      },
+      {
+        "name": "memory.single.parse-context",
+        "ms": 0.0034159999995608814
+      },
+      {
+        "name": "memory.single.get-query",
+        "ms": 1014.5267079999994
+      },
+      {
+        "name": "memory.single.parse-time-window",
+        "ms": 2.805499999998574
+      },
+      {
+        "name": "memory.single.parse-time-window-from-query-signal",
+        "ms": 0.12495899999885296
+      },
+      {
+        "name": "memory.single.retrieve-own.time-window",
+        "ms": 68.62683300000026
+      },
+      {
+        "name": "memory.single.retrieve-all-by-time-window",
+        "ms": 68.88354199999958
+      },
+      {
+        "name": "memory.single.retrieve-own.time-window.expand-1",
+        "ms": 41.416542000000845
+      },
+      {
+        "name": "memory.single.retrieve-all-by-time-window.expand-1",
+        "ms": 41.647125000001324
+      },
+      {
+        "name": "memory.single.retrieve-own.time-window.expand-2",
+        "ms": 39.058374999998705
+      },
+      {
+        "name": "memory.single.retrieve-all-by-time-window.expand-2",
+        "ms": 39.20220800000061
+      }
+    ]
+  },
+  "answering": {
+    "hypothesis": "I don't have that information.",
+    "formatted_context_length": 0,
+    "duration_ms": 0,
+    "used_direct_abstention": true
+  },
+  "self_check": {
+    "likelyCorrect": false,
+    "normalizedExpected": "70 pounds",
+    "normalizedHypothesis": "i don't have that information.",
+    "reason": "Normalized strings do not contain each other."
+  }
+}

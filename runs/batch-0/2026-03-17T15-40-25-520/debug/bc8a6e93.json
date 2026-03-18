@@ -1,0 +1,161 @@
+{
+  "question_id": "bc8a6e93",
+  "question_type": "single-session-user",
+  "question": "What did I bake for my niece's birthday party?",
+  "expected_answer": "a lemon blueberry cake",
+  "answer_session_ids": [
+    "answer_e6143162"
+  ],
+  "mock_user_id": "b5bdc082-0fb6-5fb2-ad70-ce4c737c08fe",
+  "status": "completed",
+  "copy": {
+    "mockUserId": "b5bdc082-0fb6-5fb2-ad70-ce4c737c08fe",
+    "deletedExistingRows": 0,
+    "copiedRows": 124,
+    "existingRowsAfterCopy": 124
+  },
+  "retrieval": {
+    "config": {
+      "retrieval_function": "dev_memory_eval_hybrid_retrieval_v2",
+      "impression_function": "dev_impression_object_similar_embedding",
+      "memory_retrieval_strategy": "independent",
+      "keyword_query_passthrough": false
+    },
+    "query_result": {
+      "time_frame": null,
+      "primary_query": "baked for niece's birthday",
+      "inference_query": "what other gifts or activities were planned for niece's birthday",
+      "bandwidth_state": "medium",
+      "interaction_mode": "exploration",
+      "memory_request_mode": "memory_topic",
+      "time_retrieval_mode": "semantic",
+      "wait_for_memory": true,
+      "wait_for_memory_reason": "past-question",
+      "query_prompt_version": "v2",
+      "primary_keyword_query": null,
+      "inference_keyword_query": null
+    },
+    "raw_memory_result": {
+      "summary_memory_primary": "[{\"id\":\"M002\",\"key\":\"Desserts\",\"description\":\"Here is a memory: At 2023-05-29 14:28:00, Owner: (current user). Expressed interest in trying a variety of desserts in Paris, but also acknowledged concerns about gaining weight. Initially asked for must-try desserts in Paris.\\nExpressed concern about gaining weight from trying all the desserts.\\nAsked for less well-known, 'hidden gem' desserts.\\nInquired about sugar-free dessert options in Paris.\\nDecided to indulge and asked for an 'absolute must-try' from the initial list of desserts.\"},{\"id\":\"M003\",\"key\":\"Niece\",\"description\":\"Here is a memory: At 2023-05-27 06:59:00, Owner: (current user). Made a lemon blueberry cake for a niece's birthday party. Made a lemon blueberry cake.\\nThe cake was for a niece's birthday party.\\nFelt nervous about how the cake would turn out.\\nThe combination of tangy lemon and sweet blueberries was perfect.\\nThe cake was a huge hit.\"}]",
+      "summary_memory_inference": "[{\"id\":\"M001\",\"key\":\"Niece\",\"description\":\"Here is a memory: At 2023-05-27 06:59:00, Owner:(current user). Made a lemon blueberry cake for a niece's birthday party. Made a lemon blueberry cake.\\nThe cake was for a niece's birthday party.\\nFelt nervous about how the cake would turn out.\\nThe combination of tangy lemon and sweet blueberries was perfect.\\nThe cake was a huge hit.\"}]",
+      "summary_impression": "[]",
+      "identifier_mapping_counts": {
+        "memory": 3,
+        "impression": 0
+      }
+    },
+    "other_public_result": "[]",
+    "memories_found": {
+      "primary": 2,
+      "inference": 1,
+      "impression": 0,
+      "other_public": 0,
+      "hydrated": 3
+    },
+    "retrieved_memories": [
+      {
+        "retrieval_bucket": "primary",
+        "identifier": "M002",
+        "memory_id": "42f8daf9-3ec2-4c61-b971-2f35f0a622e7",
+        "summary_key": "Desserts",
+        "summary_description": "Here is a memory: At 2023-05-29 14:28:00, Owner: (current user). Expressed interest in trying a variety of desserts in Paris, but also acknowledged concerns about gaining weight. Initially asked for must-try desserts in Paris.\nExpressed concern about gaining weight from trying all the desserts.\nAsked for less well-known, 'hidden gem' desserts.\nInquired about sugar-free dessert options in Paris.\nDecided to indulge and asked for an 'absolute must-try' from the initial list of desserts.",
+        "time": "2023-05-29T14:28:00",
+        "location": "Unknown",
+        "category": "Lifestyle and Personal Interests",
+        "object": "Parisian Desserts",
+        "emotion": "thoughtful",
+        "description": "Expressed interest in trying a variety of desserts in Paris, but also acknowledged concerns about gaining weight. Asked for recommendations for less well-known desserts and then for sugar-free options. Ultimately decided to treat self and asked for an absolute must-try dessert.",
+        "details": "Initially asked for must-try desserts in Paris.\nExpressed concern about gaining weight from trying all the desserts.\nAsked for less well-known, 'hidden gem' desserts.\nInquired about sugar-free dessert options in Paris.\nDecided to indulge and asked for an 'absolute must-try' from the initial list of desserts.",
+        "keys": "Desserts",
+        "haystack_session_id": "ultrachat_453950",
+        "eval_session_index": 43,
+        "eval_question_id": "bc8a6e93"
+      },
+      {
+        "retrieval_bucket": "primary",
+        "identifier": "M003",
+        "memory_id": "2aad34fc-50ca-457a-89ee-e17927a5f0fe",
+        "summary_key": "Niece",
+        "summary_description": "Here is a memory: At 2023-05-27 06:59:00, Owner: (current user). Made a lemon blueberry cake for a niece's birthday party. Made a lemon blueberry cake.\nThe cake was for a niece's birthday party.\nFelt nervous about how the cake would turn out.\nThe combination of tangy lemon and sweet blueberries was perfect.\nThe cake was a huge hit.",
+        "time": "2023-05-27T06:59:00",
+        "location": "Unknown",
+        "category": "Lifestyle and Personal Interests",
+        "object": "Lemon Blueberry Cake",
+        "emotion": "happy",
+        "description": "Made a lemon blueberry cake for a niece's birthday party. Was initially nervous about the outcome, but the combination of tangy lemon and sweet blueberries resulted in a perfect flavor balance, making it a huge hit.",
+        "details": "Made a lemon blueberry cake.\nThe cake was for a niece's birthday party.\nFelt nervous about how the cake would turn out.\nThe combination of tangy lemon and sweet blueberries was perfect.\nThe cake was a huge hit.",
+        "keys": "Niece",
+        "haystack_session_id": "answer_e6143162",
+        "eval_session_index": 29,
+        "eval_question_id": "bc8a6e93"
+      },
+      {
+        "retrieval_bucket": "inference",
+        "identifier": "M001",
+        "memory_id": "2aad34fc-50ca-457a-89ee-e17927a5f0fe",
+        "summary_key": "Niece",
+        "summary_description": "Here is a memory: At 2023-05-27 06:59:00, Owner:(current user). Made a lemon blueberry cake for a niece's birthday party. Made a lemon blueberry cake.\nThe cake was for a niece's birthday party.\nFelt nervous about how the cake would turn out.\nThe combination of tangy lemon and sweet blueberries was perfect.\nThe cake was a huge hit.",
+        "time": "2023-05-27T06:59:00",
+        "location": "Unknown",
+        "category": "Lifestyle and Personal Interests",
+        "object": "Lemon Blueberry Cake",
+        "emotion": "happy",
+        "description": "Made a lemon blueberry cake for a niece's birthday party. Was initially nervous about the outcome, but the combination of tangy lemon and sweet blueberries resulted in a perfect flavor balance, making it a huge hit.",
+        "details": "Made a lemon blueberry cake.\nThe cake was for a niece's birthday party.\nFelt nervous about how the cake would turn out.\nThe combination of tangy lemon and sweet blueberries was perfect.\nThe cake was a huge hit.",
+        "keys": "Niece",
+        "haystack_session_id": "answer_e6143162",
+        "eval_session_index": 29,
+        "eval_question_id": "bc8a6e93"
+      }
+    ],
+    "retrieval_status_messages": [],
+    "query_time_seconds": 0.9208273329999939,
+    "memory_time_seconds": 0.3332556670000049,
+    "perf_entries": [
+      {
+        "name": "memory.single.convert-messages",
+        "ms": 0.007541999992099591
+      },
+      {
+        "name": "memory.single.parse-context",
+        "ms": 0.004958000004990026
+      },
+      {
+        "name": "memory.single.get-query",
+        "ms": 920.8383749999921
+      },
+      {
+        "name": "memory.single.parse-time-window",
+        "ms": 0.11304200001177378
+      },
+      {
+        "name": "memory.single.parse-time-window-from-query-signal",
+        "ms": 0.002499999987776391
+      },
+      {
+        "name": "memory.single.build-embeddings",
+        "ms": 218.63712500000838
+      },
+      {
+        "name": "memory.single.retrieve-main",
+        "ms": 333.06124999999884
+      },
+      {
+        "name": "memory.single.retrieve-parallel",
+        "ms": 333.2637079999986
+      }
+    ]
+  },
+  "answering": {
+    "hypothesis": "Lemon Blueberry Cake",
+    "formatted_context_length": 1881,
+    "duration_ms": 733.46,
+    "used_direct_abstention": false
+  },
+  "self_check": {
+    "likelyCorrect": true,
+    "normalizedExpected": "a lemon blueberry cake",
+    "normalizedHypothesis": "lemon blueberry cake",
+    "reason": "Normalized containment match."
+  }
+}

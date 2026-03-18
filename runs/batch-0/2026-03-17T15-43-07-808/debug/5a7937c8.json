@@ -1,0 +1,157 @@
+{
+  "question_id": "5a7937c8",
+  "question_type": "multi-session",
+  "question": "How many days did I spend participating in faith-related activities in December?",
+  "expected_answer": "3 days.",
+  "answer_session_ids": [
+    "answer_4cef8a3c_3",
+    "answer_4cef8a3c_1",
+    "answer_4cef8a3c_2"
+  ],
+  "mock_user_id": "e4f20a69-4813-56c0-98e3-dbfa6b780d83",
+  "status": "completed",
+  "copy": {
+    "skipped": true,
+    "existing_memory_count": 104
+  },
+  "retrieval": {
+    "config": {
+      "retrieval_function": "dev_memory_eval_hybrid_retrieval_v2",
+      "impression_function": "dev_impression_object_similar_embedding",
+      "memory_retrieval_strategy": "independent",
+      "keyword_query_passthrough": false
+    },
+    "query_result": {
+      "time_frame": "2023-12",
+      "primary_query": "days spent on faith-related activities",
+      "inference_query": "frequency of religious engagement",
+      "bandwidth_state": "medium",
+      "interaction_mode": "exploration",
+      "memory_request_mode": "memory_topic",
+      "time_retrieval_mode": "semantic",
+      "wait_for_memory": true,
+      "wait_for_memory_reason": "past-tense-question",
+      "query_prompt_version": "v2",
+      "primary_keyword_query": "faith-related December",
+      "inference_keyword_query": null
+    },
+    "raw_memory_result": {
+      "summary_memory_primary": "[{\"id\":\"M001\",\"key\":\"Books\",\"description\":\"Here is a memory: At 2024-01-11 03:48:00, Owner: (current user). Expressed a strong interest in resources that connect faith to daily life, especially after a previous Bible study on December 17th. Thinking about how faith applies to daily life a lot lately.\\nInterested in book recommendations on faith and its application to daily life.\\nSpecifically interested in \\\"The Purpose Driven Life\\\" by Rick Warren and \\\"The Jesus I Never Knew\\\" by Philip Yancey.\\nHeard great things about both books.\\nRequested resources specifically focused on the book of Matthew and its application to daily life for a Bible study group.\"},{\"id\":\"M002\",\"key\":\"Matthew\",\"description\":\"Here is a memory: At 2024-01-11 03:48:00, Owner: (current user). Sought guidance on facilitating a Bible study on the book of Matthew, specifically on how to encourage discussion about faith and its application to daily life. Leading a Bible study next week on the book of Matthew.\\nLooking for resources on facilitating discussion about faith and its application to daily life.\\nPreviously led a Bible study on the same topic at church on December 17th.\\nFound the idea of using open-ended questions particularly helpful.\\nAsked for suggestions on how to make everyone in the group comfortable participating.\"}]",
+      "summary_memory_inference": "[{\"id\":\"M003\",\"key\":\"Books\",\"description\":\"Here is a memory: At 2024-01-11 03:48:00, Owner:(current user). Expressed a strong interest in resources that connect faith to daily life, especially after a previous Bible study on December 17th. Thinking about how faith applies to daily life a lot lately.\\nInterested in book recommendations on faith and its application to daily life.\\nSpecifically interested in \\\"The Purpose Driven Life\\\" by Rick Warren and \\\"The Jesus I Never Knew\\\" by Philip Yancey.\\nHeard great things about both books.\\nRequested resources specifically focused on the book of Matthew and its application to daily life for a Bible study group.\"}]",
+      "summary_impression": "[]",
+      "identifier_mapping_counts": {
+        "memory": 3,
+        "impression": 0
+      }
+    },
+    "other_public_result": "[]",
+    "memories_found": {
+      "primary": 2,
+      "inference": 1,
+      "impression": 0,
+      "other_public": 0,
+      "hydrated": 3
+    },
+    "retrieved_memories": [
+      {
+        "retrieval_bucket": "primary",
+        "identifier": "M001",
+        "memory_id": "03829238-f835-4c7e-aef6-3d3e945c1047",
+        "summary_key": "Books",
+        "summary_description": "Here is a memory: At 2024-01-11 03:48:00, Owner: (current user). Expressed a strong interest in resources that connect faith to daily life, especially after a previous Bible study on December 17th. Thinking about how faith applies to daily life a lot lately.\nInterested in book recommendations on faith and its application to daily life.\nSpecifically interested in \"The Purpose Driven Life\" by Rick Warren and \"The Jesus I Never Knew\" by Philip Yancey.\nHeard great things about both books.\nRequested resources specifically focused on the book of Matthew and its application to daily life for a Bible study group.",
+        "time": "2024-01-11T03:48:00",
+        "location": "Unknown",
+        "category": "Personal Development",
+        "object": "Faith Application Resources",
+        "emotion": "thoughtful",
+        "description": "Expressed a strong interest in resources that connect faith to daily life, especially after a previous Bible study on December 17th. Specifically mentioned interest in \"The Purpose Driven Life\" and \"The Jesus I Never Knew.\" Also requested resources focusing on the book of Matthew and its practical application.",
+        "details": "Thinking about how faith applies to daily life a lot lately.\nInterested in book recommendations on faith and its application to daily life.\nSpecifically interested in \"The Purpose Driven Life\" by Rick Warren and \"The Jesus I Never Knew\" by Philip Yancey.\nHeard great things about both books.\nRequested resources specifically focused on the book of Matthew and its application to daily life for a Bible study group.",
+        "keys": "Books",
+        "haystack_session_id": "answer_4cef8a3c_2",
+        "eval_session_index": 33,
+        "eval_question_id": "5a7937c8"
+      },
+      {
+        "retrieval_bucket": "primary",
+        "identifier": "M002",
+        "memory_id": "fcb6efcd-5d57-41b8-9b6b-075942db8c0a",
+        "summary_key": "Matthew",
+        "summary_description": "Here is a memory: At 2024-01-11 03:48:00, Owner: (current user). Sought guidance on facilitating a Bible study on the book of Matthew, specifically on how to encourage discussion about faith and its application to daily life. Leading a Bible study next week on the book of Matthew.\nLooking for resources on facilitating discussion about faith and its application to daily life.\nPreviously led a Bible study on the same topic at church on December 17th.\nFound the idea of using open-ended questions particularly helpful.\nAsked for suggestions on how to make everyone in the group comfortable participating.",
+        "time": "2024-01-11T03:48:00",
+        "location": "Unknown",
+        "category": "Personal Development",
+        "object": "Bible Study Facilitation",
+        "emotion": "thoughtful",
+        "description": "Sought guidance on facilitating a Bible study on the book of Matthew, specifically on how to encourage discussion about faith and its application to daily life. Expressed interest in using open-ended questions to promote reflection. Also inquired about methods to ensure all group members feel comfortable participating and sharing their thoughts.",
+        "details": "Leading a Bible study next week on the book of Matthew.\nLooking for resources on facilitating discussion about faith and its application to daily life.\nPreviously led a Bible study on the same topic at church on December 17th.\nFound the idea of using open-ended questions particularly helpful.\nAsked for suggestions on how to make everyone in the group comfortable participating.",
+        "keys": "Matthew",
+        "haystack_session_id": "answer_4cef8a3c_2",
+        "eval_session_index": 33,
+        "eval_question_id": "5a7937c8"
+      },
+      {
+        "retrieval_bucket": "inference",
+        "identifier": "M003",
+        "memory_id": "03829238-f835-4c7e-aef6-3d3e945c1047",
+        "summary_key": "Books",
+        "summary_description": "Here is a memory: At 2024-01-11 03:48:00, Owner:(current user). Expressed a strong interest in resources that connect faith to daily life, especially after a previous Bible study on December 17th. Thinking about how faith applies to daily life a lot lately.\nInterested in book recommendations on faith and its application to daily life.\nSpecifically interested in \"The Purpose Driven Life\" by Rick Warren and \"The Jesus I Never Knew\" by Philip Yancey.\nHeard great things about both books.\nRequested resources specifically focused on the book of Matthew and its application to daily life for a Bible study group.",
+        "time": "2024-01-11T03:48:00",
+        "location": "Unknown",
+        "category": "Personal Development",
+        "object": "Faith Application Resources",
+        "emotion": "thoughtful",
+        "description": "Expressed a strong interest in resources that connect faith to daily life, especially after a previous Bible study on December 17th. Specifically mentioned interest in \"The Purpose Driven Life\" and \"The Jesus I Never Knew.\" Also requested resources focusing on the book of Matthew and its practical application.",
+        "details": "Thinking about how faith applies to daily life a lot lately.\nInterested in book recommendations on faith and its application to daily life.\nSpecifically interested in \"The Purpose Driven Life\" by Rick Warren and \"The Jesus I Never Knew\" by Philip Yancey.\nHeard great things about both books.\nRequested resources specifically focused on the book of Matthew and its application to daily life for a Bible study group.",
+        "keys": "Books",
+        "haystack_session_id": "answer_4cef8a3c_2",
+        "eval_session_index": 33,
+        "eval_question_id": "5a7937c8"
+      }
+    ],
+    "retrieval_status_messages": [],
+    "query_time_seconds": 0.9590024169999997,
+    "memory_time_seconds": 0.2771023329999989,
+    "perf_entries": [
+      {
+        "name": "memory.single.convert-messages",
+        "ms": 0.011042000000088592
+      },
+      {
+        "name": "memory.single.parse-context",
+        "ms": 0.007416999998895335
+      },
+      {
+        "name": "memory.single.get-query",
+        "ms": 959.008084000001
+      },
+      {
+        "name": "memory.single.parse-time-window",
+        "ms": 3.3835409999992407
+      },
+      {
+        "name": "memory.single.build-embeddings",
+        "ms": 158.97750000000087
+      },
+      {
+        "name": "memory.single.retrieve-main",
+        "ms": 276.94225000000006
+      },
+      {
+        "name": "memory.single.retrieve-parallel",
+        "ms": 277.113292
+      }
+    ]
+  },
+  "answering": {
+    "hypothesis": "I don't have that information.",
+    "formatted_context_length": 2615,
+    "duration_ms": 420.47,
+    "used_direct_abstention": false
+  },
+  "self_check": {
+    "likelyCorrect": false,
+    "normalizedExpected": "3 days.",
+    "normalizedHypothesis": "i don't have that information.",
+    "reason": "Normalized strings do not contain each other."
+  }
+}

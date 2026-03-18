@@ -1,0 +1,189 @@
+{
+  "question_id": "75832dbd",
+  "question_type": "single-session-preference",
+  "question": "Can you recommend some recent publications or conferences that I might find interesting?",
+  "expected_answer": "The user would prefer suggestions related to recent research papers, articles, or conferences that focus on artificial intelligence in healthcare, particularly those that involve deep learning for medical image analysis. They would not be interested in general AI topics or those unrelated to healthcare.",
+  "answer_session_ids": [
+    "answer_d87a6ef8"
+  ],
+  "mock_user_id": "f6f26b7d-2498-5272-aaa9-2ac9b9448866",
+  "status": "completed",
+  "copy": {
+    "skipped": true,
+    "existing_memory_count": 116
+  },
+  "retrieval": {
+    "config": {
+      "retrieval_function": "dev_memory_eval_hybrid_retrieval_v2",
+      "impression_function": "dev_impression_object_similar_embedding",
+      "memory_retrieval_strategy": "independent",
+      "keyword_query_passthrough": false
+    },
+    "query_result": {
+      "time_frame": "7",
+      "primary_query": "recent publications and conferences",
+      "inference_query": "emerging trends and key discussions in recent academic and industry events",
+      "bandwidth_state": "medium",
+      "interaction_mode": "exploration",
+      "memory_request_mode": "memory_topic",
+      "time_retrieval_mode": "all",
+      "wait_for_memory": false,
+      "wait_for_memory_reason": "not-memory-critical",
+      "query_prompt_version": "v2",
+      "primary_keyword_query": "Can",
+      "inference_keyword_query": null
+    },
+    "raw_memory_result": {
+      "summary_memory_primary": "[{\"id\":\"M029\",\"key\":\"Motivation\",\"description\":\"Here is a memory: At 2023-05-28T00:49:00, Owner: (current user). Worried about staying motivated to attend book clubs or other social events, especially when they feel like a chore. Worried about staying motivated for social events.\\nSocial events sometimes feel like a chore.\\nSeeks ways to make socializing more enjoyable.\"},{\"id\":\"M044\",\"key\":\"Sarah\",\"description\":\"Here is a memory: At 2023-05-27T01:51:00, Owner: (current user). Yoga practice has positively influenced relationships, particularly with best friend Sarah, who was convinced to start practicing together. Yoga practice influenced relationships.\\nConvinced best friend Sarah to start practicing yoga.\\nSharing the experience with Sarah has been great.\\nSarah provides accountability for the practice.\\nStarted a Sunday morning yoga and brunch routine with Sarah.\\nThe routine is a lovely way to connect and start the day.\\nWants yoga to help become more patient in interactions.\\nWants yoga to help become more present in interactions.\\nSometimes gets caught up in stress and anxiety.\\nBelieves yoga can cultivate a greater sense of calm.\\nBelieves yoga can cultivate more compassion in stressful moments.\"},{\"id\":\"M039\",\"key\":\"Edtech\",\"description\":\"Here is a memory: At 2023-05-27T04:05:00, Owner: (current user). Requested an executive summary for an edtech platform. Requested an executive summary for an edtech platform.\\nPlatform designed to revolutionize learning.\\nProvides personalized, interactive, and engaging experiences.\\nIncludes digital resources: videos, quizzes, games, virtual reality experiences.\\nContent can be tailored to individual student needs.\\nUses machine learning algorithms to track student progress and adjust content.\\nEnsures students are challenged at their own level.\\nAllows real-time collaboration and communication between students, teachers, and parents.\\nAims to keep everyone informed about student progress.\\nGoal is to better equip students for the digital age and future workforce.\"},{\"id\":\"M050\",\"key\":\"Feminism\",\"description\":\"Here is a memory: At 2023-05-26T14:05:00, Owner: (current user). Sought to understand intersectional feminism and its relation to LGBTQ+ issues. Expressed interest in learning about intersectional feminism and its relation to LGBTQ+ issues.\\nReceived a definition of intersectional feminism as a framework recognizing multiple intersecting identities (gender, race, sexual orientation, class, ability, religion).\\nUnderstood that these intersections create unique experiences of discrimination and oppression.\\nLearned key principles: multiple identities matter, intersectionality is not additive, and context is everything.\\nReceived examples of intersectional feminism in action, such as LGBTQ+ women of color, disability and gender, class and sexual orientation, and religion and gender identity.\\nUnderstood its importance for LGBTQ+ issues for more accurate representation, targeted support, and amplifying marginalized voices.\"},{\"id\":\"M047\",\"key\":\"Komeda's\",\"description\":\"Here is a memory: At 2023-05-26T23:13:00, Owner: (current user). Planned to have breakfast at Komeda's Coffee near Otemachi Station after jogging the Imperial Palace East Garden Loop. Planned to get breakfast at Komeda's Coffee near Otemachi Station after jogging.\\nDecided to try the \\\"Komeda's Breakfast\\\" set.\\nThe set includes toast with butter and jam, scrambled eggs, Japanese-style sausage, hash browns, and coffee or tea.\\nThe Japanese-style sausage is made from pork, has a mild, slightly sweet and savory flavor, and is not spicy.\"}]",
+      "summary_memory_inference": "[]",
+      "summary_impression": "[]",
+      "identifier_mapping_counts": {
+        "memory": 5,
+        "impression": 0
+      }
+    },
+    "other_public_result": "[]",
+    "memories_found": {
+      "primary": 5,
+      "inference": 0,
+      "impression": 0,
+      "other_public": 0,
+      "hydrated": 5
+    },
+    "retrieved_memories": [
+      {
+        "retrieval_bucket": "primary",
+        "identifier": "M029",
+        "memory_id": "7263a2ea-b58b-4e38-a83b-0eb61d1b161c",
+        "summary_key": "Motivation",
+        "summary_description": "Here is a memory: At 2023-05-28T00:49:00, Owner: (current user). Worried about staying motivated to attend book clubs or other social events, especially when they feel like a chore. Worried about staying motivated for social events.\nSocial events sometimes feel like a chore.\nSeeks ways to make socializing more enjoyable.",
+        "time": "2023-05-28T00:49:00",
+        "location": "Unknown",
+        "category": "Personal Development",
+        "object": "Motivation for Social Events",
+        "emotion": "thoughtful",
+        "description": "Worried about staying motivated to attend book clubs or other social events, especially when they feel like a chore. Sought suggestions on how to maintain motivation and make socializing a more enjoyable experience.",
+        "details": "Worried about staying motivated for social events.\nSocial events sometimes feel like a chore.\nSeeks ways to make socializing more enjoyable.",
+        "keys": "Motivation",
+        "haystack_session_id": "c51583cd_1",
+        "eval_session_index": 37,
+        "eval_question_id": "75832dbd"
+      },
+      {
+        "retrieval_bucket": "primary",
+        "identifier": "M044",
+        "memory_id": "6ad9a90b-e2d8-4954-973d-88c6db7a2e67",
+        "summary_key": "Sarah",
+        "summary_description": "Here is a memory: At 2023-05-27T01:51:00, Owner: (current user). Yoga practice has positively influenced relationships, particularly with best friend Sarah, who was convinced to start practicing together. Yoga practice influenced relationships.\nConvinced best friend Sarah to start practicing yoga.\nSharing the experience with Sarah has been great.\nSarah provides accountability for the practice.\nStarted a Sunday morning yoga and brunch routine with Sarah.\nThe routine is a lovely way to connect and start the day.\nWants yoga to help become more patient in interactions.\nWants yoga to help become more present in interactions.\nSometimes gets caught up in stress and anxiety.\nBelieves yoga can cultivate a greater sense of calm.\nBelieves yoga can cultivate more compassion in stressful moments.",
+        "time": "2023-05-27T01:51:00",
+        "location": "Unknown",
+        "category": "People",
+        "object": "Yoga's Influence on Relationships and Personal Growth",
+        "emotion": "thoughtful",
+        "description": "Yoga practice has positively influenced relationships, particularly with best friend Sarah, who was convinced to start practicing together. They have a Sunday morning yoga and brunch routine, which serves as a valuable bonding experience. Aims for yoga to further cultivate patience and presence in daily interactions, helping to manage stress and anxiety with greater calm and compassion.",
+        "details": "Yoga practice influenced relationships.\nConvinced best friend Sarah to start practicing yoga.\nSharing the experience with Sarah has been great.\nSarah provides accountability for the practice.\nStarted a Sunday morning yoga and brunch routine with Sarah.\nThe routine is a lovely way to connect and start the day.\nWants yoga to help become more patient in interactions.\nWants yoga to help become more present in interactions.\nSometimes gets caught up in stress and anxiety.\nBelieves yoga can cultivate a greater sense of calm.\nBelieves yoga can cultivate more compassion in stressful moments.",
+        "keys": "Sarah",
+        "haystack_session_id": "9398da02",
+        "eval_session_index": 30,
+        "eval_question_id": "75832dbd"
+      },
+      {
+        "retrieval_bucket": "primary",
+        "identifier": "M039",
+        "memory_id": "90fbb020-ad3f-421e-a25b-4976cf3ed97e",
+        "summary_key": "Edtech",
+        "summary_description": "Here is a memory: At 2023-05-27T04:05:00, Owner: (current user). Requested an executive summary for an edtech platform. Requested an executive summary for an edtech platform.\nPlatform designed to revolutionize learning.\nProvides personalized, interactive, and engaging experiences.\nIncludes digital resources: videos, quizzes, games, virtual reality experiences.\nContent can be tailored to individual student needs.\nUses machine learning algorithms to track student progress and adjust content.\nEnsures students are challenged at their own level.\nAllows real-time collaboration and communication between students, teachers, and parents.\nAims to keep everyone informed about student progress.\nGoal is to better equip students for the digital age and future workforce.",
+        "time": "2023-05-27T04:05:00",
+        "location": "Unknown",
+        "category": "Technology and Innovation",
+        "object": "Edtech Platform Executive Summary",
+        "emotion": "thoughtful",
+        "description": "Requested an executive summary for an edtech platform. The platform aims to revolutionize learning through personalized, interactive, and engaging experiences, utilizing digital resources like videos, quizzes, games, and VR. Machine learning algorithms track student progress and adjust content, while real-time collaboration features connect students, teachers, and parents. The goal is to prepare students for the digital age and future workforce.",
+        "details": "Requested an executive summary for an edtech platform.\nPlatform designed to revolutionize learning.\nProvides personalized, interactive, and engaging experiences.\nIncludes digital resources: videos, quizzes, games, virtual reality experiences.\nContent can be tailored to individual student needs.\nUses machine learning algorithms to track student progress and adjust content.\nEnsures students are challenged at their own level.\nAllows real-time collaboration and communication between students, teachers, and parents.\nAims to keep everyone informed about student progress.\nGoal is to better equip students for the digital age and future workforce.",
+        "keys": "Edtech",
+        "haystack_session_id": "sharegpt_twjWPzl_0",
+        "eval_session_index": 32,
+        "eval_question_id": "75832dbd"
+      },
+      {
+        "retrieval_bucket": "primary",
+        "identifier": "M050",
+        "memory_id": "354c59e1-9938-4f26-9317-4876546cd037",
+        "summary_key": "Feminism",
+        "summary_description": "Here is a memory: At 2023-05-26T14:05:00, Owner: (current user). Sought to understand intersectional feminism and its relation to LGBTQ+ issues. Expressed interest in learning about intersectional feminism and its relation to LGBTQ+ issues.\nReceived a definition of intersectional feminism as a framework recognizing multiple intersecting identities (gender, race, sexual orientation, class, ability, religion).\nUnderstood that these intersections create unique experiences of discrimination and oppression.\nLearned key principles: multiple identities matter, intersectionality is not additive, and context is everything.\nReceived examples of intersectional feminism in action, such as LGBTQ+ women of color, disability and gender, class and sexual orientation, and religion and gender identity.\nUnderstood its importance for LGBTQ+ issues for more accurate representation, targeted support, and amplifying marginalized voices.",
+        "time": "2023-05-26T14:05:00",
+        "location": "Unknown",
+        "category": "Social and Cultural Topics",
+        "object": "Intersectional Feminism Understanding",
+        "emotion": "thoughtful",
+        "description": "Sought to understand intersectional feminism and its relation to LGBTQ+ issues. Received an explanation defining intersectional feminism as a framework recognizing multiple intersecting identities that create unique experiences of discrimination. Learned key principles including the importance of multiple identities, non-additive nature of intersectionality, and the role of context. Understood its importance for LGBTQ+ issues through examples like LGBTQ+ women of color and targeted support.",
+        "details": "Expressed interest in learning about intersectional feminism and its relation to LGBTQ+ issues.\nReceived a definition of intersectional feminism as a framework recognizing multiple intersecting identities (gender, race, sexual orientation, class, ability, religion).\nUnderstood that these intersections create unique experiences of discrimination and oppression.\nLearned key principles: multiple identities matter, intersectionality is not additive, and context is everything.\nReceived examples of intersectional feminism in action, such as LGBTQ+ women of color, disability and gender, class and sexual orientation, and religion and gender identity.\nUnderstood its importance for LGBTQ+ issues for more accurate representation, targeted support, and amplifying marginalized voices.",
+        "keys": "Feminism",
+        "haystack_session_id": "6172cc72_1",
+        "eval_session_index": 28,
+        "eval_question_id": "75832dbd"
+      },
+      {
+        "retrieval_bucket": "primary",
+        "identifier": "M047",
+        "memory_id": "9f4d7b69-c8e2-4c4f-8c5f-869eca112e95",
+        "summary_key": "Komeda's",
+        "summary_description": "Here is a memory: At 2023-05-26T23:13:00, Owner: (current user). Planned to have breakfast at Komeda's Coffee near Otemachi Station after jogging the Imperial Palace East Garden Loop. Planned to get breakfast at Komeda's Coffee near Otemachi Station after jogging.\nDecided to try the \"Komeda's Breakfast\" set.\nThe set includes toast with butter and jam, scrambled eggs, Japanese-style sausage, hash browns, and coffee or tea.\nThe Japanese-style sausage is made from pork, has a mild, slightly sweet and savory flavor, and is not spicy.",
+        "time": "2023-05-26T23:13:00",
+        "location": "Otemachi Station, Tokyo, Japan",
+        "category": "Lifestyle and Personal Interests",
+        "object": "Komeda's Breakfast Set",
+        "emotion": "happy",
+        "description": "Planned to have breakfast at Komeda's Coffee near Otemachi Station after jogging the Imperial Palace East Garden Loop. Decided to try the \"Komeda's Breakfast\" set, which includes toast, scrambled eggs, Japanese-style sausage, hash browns, and a drink.",
+        "details": "Planned to get breakfast at Komeda's Coffee near Otemachi Station after jogging.\nDecided to try the \"Komeda's Breakfast\" set.\nThe set includes toast with butter and jam, scrambled eggs, Japanese-style sausage, hash browns, and coffee or tea.\nThe Japanese-style sausage is made from pork, has a mild, slightly sweet and savory flavor, and is not spicy.",
+        "keys": "Komeda's",
+        "haystack_session_id": "2713d8a5",
+        "eval_session_index": 29,
+        "eval_question_id": "75832dbd"
+      }
+    ],
+    "retrieval_status_messages": [
+      "Time-focused ranking applied (relevance+time proximity). Kept 5/80 own memories and 0/0 public memories (max 5 each)."
+    ],
+    "query_time_seconds": 1.08801,
+    "memory_time_seconds": 0.15035158300000012,
+    "perf_entries": [
+      {
+        "name": "memory.single.convert-messages",
+        "ms": 0.026499999999941792
+      },
+      {
+        "name": "memory.single.parse-context",
+        "ms": 0.038417000000208645
+      },
+      {
+        "name": "memory.single.get-query",
+        "ms": 1088.060083
+      },
+      {
+        "name": "memory.single.parse-time-window",
+        "ms": 4.275708000000122
+      },
+      {
+        "name": "memory.single.retrieve-own.time-window",
+        "ms": 150.18100000000004
+      },
+      {
+        "name": "memory.single.retrieve-all-by-time-window",
+        "ms": 150.39833299999964
+      }
+    ]
+  },
+  "answering": {
+    "hypothesis": "I don't have that information.",
+    "formatted_context_length": 5087,
+    "duration_ms": 673.96,
+    "used_direct_abstention": false
+  },
+  "self_check": {
+    "likelyCorrect": false,
+    "normalizedExpected": "the user would prefer suggestions related to recent research papers, articles, or conferences that focus on artificial intelligence in healthcare, particularly those that involve deep learning for medical image analysis. they would not be interested in general ai topics or those unrelated to healthcare.",
+    "normalizedHypothesis": "i don't have that information.",
+    "reason": "Normalized strings do not contain each other."
+  }
+}
