@@ -105,7 +105,7 @@
       border: 1px solid var(--line);
       border-radius: 14px;
       background: #fff;
-      padding: 0 14px 14px;
+      padding: 14px;
     }
     .priority-session {
       border-width: 2px;
@@ -115,21 +115,17 @@
     .secondary-session {
       opacity: 0.9;
     }
-    .session-card summary {
-      list-style: none;
-      cursor: pointer;
+    .session-card-header {
       display: flex;
       justify-content: space-between;
       gap: 12px;
       align-items: center;
-      padding: 14px 0;
-    }
-    .session-card summary::-webkit-details-marker {
-      display: none;
+      margin-bottom: 12px;
     }
     .session-turns {
       display: grid;
       gap: 10px;
+      margin-top: 12px;
     }
     .turn {
       border-top: 1px solid var(--line);
@@ -146,6 +142,40 @@
       font-size: 14px;
       line-height: 1.55;
       word-break: break-word;
+    }
+    .session-memory-wrap {
+      margin-bottom: 12px;
+    }
+    .session-memory-details {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fcfaf5;
+      padding: 0 12px 12px;
+    }
+    .session-memory-details summary,
+    .session-conversation-details summary {
+      cursor: pointer;
+      padding: 12px 0;
+      font-size: 13px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .session-conversation-details {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fafaf7;
+      padding: 0 12px 12px;
+    }
+    .session-memory-list {
+      display: grid;
+      gap: 10px;
+    }
+    .extracted-memory-card {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+      padding: 12px;
     }
     .pill {
       display: inline-block;
@@ -397,15 +427,75 @@
       <h2>Question Sessions</h2>
       <p class="small">Benchmark answer sessions are shown first. Then come other retrieved sessions. Background sessions stay collapsed below.</p>
       <div class="session-subhead">Answer Sessions</div>
-             <div class="session-list"><details class="session-card priority-session">
-    <summary>
+             <div class="session-list"><div class="session-card priority-session">
+    <div class="session-card-header">
       <div>
         <strong><code>answer_c63c0458</code></strong>
         <span class="small">2023/05/30 (Tue) 09:54</span>
       </div>
       <div><span class="pill">ground truth</span> <span class="pill pill-answer">answer session</span> <span class="pill pill-retrieved">retrieved</span></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    <div class="session-memory-wrap"><details class="session-memory-details">
+    <summary>Extracted Memories (3)</summary>
+    <div class="session-memory-list"><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 1</strong>
+      <div>
+        <span class="pill pill-retrieved">retrieved</span>
+        <span class="small">2023-05-30T16:54:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Planned to visit West Elm, Crate &amp; Barrel, and IKEA this weekend to check out coffee tables with storage. Also decided to read online reviews and ratings to understand product quality and durability better. This combined approach aims to make an informed decision.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Will visit West Elm this weekend to check out coffee tables with storage.<br />Will also stop by Crate &amp; Barrel to compare their coffee tables with storage.<br />Will also visit IKEA to check out their coffee tables with storage.<br />Will read online reviews and ratings for coffee tables to get a better sense of quality and durability.<br />The plan is to combine in-store visits with online research for an informed decision.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Strategy</td>
+      </tr></tbody></table>
+  </div><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 2</strong>
+      <div>
+        
+        <span class="small">2023-05-30T16:54:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Considered both wooden and glass top options for a coffee table. Reflected on the pros and cons of each, specifically regarding scratches and fingerprints. Glass tops are generally more scratch-resistant but show fingerprints more easily, while wood tops can scratch but hide fingerprints better.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Was leaning towards a wooden top for a coffee table.<br />Is now considering a glass top option as well.<br />Glass tops are generally more resistant to scratches than wood tops, especially tempered or low-iron glass.<br />Glass tops can still scratch or crack from heavy impact or sharp objects.<br />Wood tops can scratch or dent more easily, especially softwoods or less durable finishes.<br />Wood tops can be refinished or repaired if scratched, which is not always possible with glass tops.<br />Glass tops tend to show fingerprints more easily due to their smooth, non-porous surface.<br />Wood tops have a natural texture that can help hide fingerprints.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Material</td>
+      </tr></tbody></table>
+  </div><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 3</strong>
+      <div>
+        <span class="pill pill-retrieved">retrieved</span>
+        <span class="small">2023-05-30T16:54:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Recently assembled an IKEA bookshelf, which took 4 hours. The experience was positive, and the assembly time was considered reasonable. This positive experience influenced the decision to consider IKEA coffee tables for their potential ease of assembly.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Assembled an IKEA bookshelf recently.<br />The assembly took 4 hours.<br />Considered the 4-hour assembly time to be not too bad.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Bookshelf</td>
+      </tr></tbody></table>
+  </div></div>
+  </details></div>
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some recommendations on coffee tables with storage space. Do you have any suggestions or should I check out specific brands?</div>
       </div><div class="turn">
@@ -442,19 +532,23 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">You&#39;re welcome! I&#39;m thrilled to have been able to help. It sounds like you have a solid plan in place to find the perfect coffee table with storage for your living room.<br /><br />Remember to take your time, ask questions, and don&#39;t hesitate to reach out if you need any more advice or guidance. And don&#39;t forget to measure your space and bring those measurements with you to the stores!<br /><br />By combining your in-store visits with online research, you&#39;ll be able to make an informed decision and find a coffee table that meets your needs, fits your style, and stays within your budget.<br /><br />Good luck with your shopping adventure, and I hope you find the perfect coffee table with storage for your living room!</div>
       </div></div>
-  </details></div>
+    </details>
+  </div></div>
              
              <details class="other-sessions">
                       <summary>Other Sessions (48)</summary>
-                      <div class="session-list"><details class="session-card secondary-session">
-    <summary>
+                      <div class="session-list"><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>58de8f9b</code></strong>
         <span class="small">2023/05/20 (Sat) 09:28</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Hey, I&#39;m thinking of revamping my social media strategy. Can you give me some tips on how to improve my social media analytics?</div>
       </div><div class="turn">
@@ -491,15 +585,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">A content calendar can be a game-changer for staying organized and consistent with your content creation.<br /><br />Now, about Python programming, I&#39;m more than happy to help! There are many excellent online courses and resources available to help you improve your Python skills. Here are a few recommendations:<br /><br />**Online Courses:**<br /><br />1. **Codecademy&#39;s Python Course**: A interactive and comprehensive course that covers the basics and advanced topics in Python.<br />2. **Python for Everybody (Coursera)**: A course by Dr. Charles Severance (Dr. Chuck) that covers the fundamentals of Python programming.<br />3. **Python Data Structures (Coursera)**: Another course by Dr. Chuck that focuses on data structures and file input/output in Python.<br />4. **Python for Data Science (DataCamp)**: A interactive course that teaches you how to use Python for data science tasks, including data cleaning, visualization, and machine learning.<br /><br />**Resources:**<br /><br />1. **Python.org**: The official Python website has an extensive documentation and tutorials for beginners and advanced learners.<br />2. **W3Schools&#39; Python Tutorial**: A concise and easy-to-follow tutorial that covers the basics of Python programming.<br />3. **Real Python**: A community-driven resource that offers tutorials, articles, and projects to help you improve your Python skills.<br />4. **Python Crash Course (Book)**: A free online book by Eric Matthes that covers the basics of Python programming.<br /><br />**Practice and Projects:**<br /><br />1. **LeetCode**: A platform that offers a large collection of coding challenges and exercises in Python.<br />2. **Project Euler**: A series of mathematical and computational programming challenges that can help you improve your Python skills.<br />3. **Kaggle**: A platform that offers data science competitions and hosting datasets, where you can practice your Python skills and learn from others.<br /><br />**Communities:**<br /><br />1. **Reddit&#39;s r/learnpython**: A community of Python learners and experts that can help you with any questions or problems you&#39;re facing.<br />2. **Python Subreddit**: A community for Python enthusiasts to share knowledge, resources, and projects.<br />3. **Stack Overflow**: A Q&amp;A platform for programmers, including Python developers.<br /><br />Remember, the key to improving your Python skills is to practice consistently and work on projects that challenge you. Start with the resources that resonate with you the most, and don&#39;t hesitate to reach out to the communities for help.<br /><br />How&#39;s your experience been with the online workshop you signed up for? Have you been able to apply any of the concepts to real-world projects?</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_ePjOvWS_0</code></strong>
         <span class="small">2023/05/20 (Sat) 11:08</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I was hoping to make this a romantic dinner. Any thoughts on an affordable wine to pair with the braunschweiger wrap?</div>
       </div><div class="turn">
@@ -518,15 +616,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">If you prefer bourbon as a pairing for your dinner, here are a few options that should complement the rich flavors of the meats:<br /><br />1. High rye bourbon: A high rye bourbon, such as Bulleit or Wild Turkey 101, has a spicy and robust flavor that can complement the rich flavors of the braunschweiger and bologna.<br />2. Wheated bourbon: A wheated bourbon, such as Maker&#39;s Mark or W.L. Weller, has a smoother and sweeter flavor that can contrast the savory flavors of the meats.<br />3. Rye whiskey: If you prefer rye whiskey over bourbon, a spicy rye like Sazerac or Rittenhouse can complement the richness of the meats.<br />4. Smoky whiskey: If you want to add a smoky flavor to your pairing, consider a peated whiskey like Laphroaig or Lagavulin. The smokiness can pair well with the savory and rich flavors of the meats.<br /><br />Remember to enjoy your bourbon in moderation, and be sure to pair it with water or other non-alcoholic drinks to stay hydrated.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_WQr7EZT_0</code></strong>
         <span class="small">2023/05/20 (Sat) 12:16</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">How to write a lyrics for a hit pop song</div>
       </div><div class="turn">
@@ -551,15 +653,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">In &quot;Shape of You&quot; by Ed Sheeran, the rhyme pairs in each verse and chorus are as follows:<br /><br />Verse 1:<br /><br />* lover/go<br />* shots/talk slow<br />* me/conversation<br />* chance now/dance<br /><br />Chorus:<br /><br />* love/me<br />* lead/crazy<br />* much/touch<br />* me/lead<br /><br />Verse 2:<br /><br />* you/do<br />* too/new<br />* new/you<br />* body/new<br /><br />In addition to these rhyme pairs, the song also uses repetition of the phrase &quot;I&#39;m in love with your body&quot; as a refrain throughout the verse and chorus, which helps to add a sense of structure and unity to the song.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_397420</code></strong>
         <span class="small">2023/05/20 (Sat) 13:19</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">How can businesses create and maintain a positive company culture, and what are the most effective ways to motivate employees?</div>
       </div><div class="turn">
@@ -602,15 +708,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, there are potential challenges that companies may encounter when implementing a mentorship program. Here are some common challenges and tips on how to prepare for them:<br /><br />1. A lack of commitment or buy-in from participants: Make sure that mentors and mentees are fully committed to the program and that they understand their roles and responsibilities. Encourage executive leadership to take part in the program and communicate its importance to employees.<br /><br />2. Difficulty in finding the right mentors: Be realistic in setting criteria for mentors and consider how you can promote the program to the appropriate mentors. Encouraging and motivating experienced employees to participate in sharing their experience can overcome this difficulty.<br /><br />3. Difficulties with matching mentors and mentees: Be prepared to adjust criteria that you have set for matching criteria, and actively work to ensure that mentees are matched with compatible mentors according to their learning preferences, communication style, personality and engagement within the company.<br /><br />4. Time and resource management: Mentorship programs require commitment and time from mentors, mentees, and program administrators. Make sure that you have the necessary resources to manage the program effectively.<br /><br />5. Measuring success and tracking progress: Be prepared to invest time and resources in measuring the success of the program, and allocate resources into tracking metrics that provide meaningful data. It’s important to be transparent with what you are measuring, and how it&#39;s being measured.<br /><br />6. Ensuring program inclusion and equity: Perceive the diversity of the employee population and create a structure that supports the program’s inclusivity throughout the company. Ensure that there is equal access to the program with leadership support.<br /><br />By preparing and addressing these potential challenges, companies can increase the likelihood of creating a successful mentorship program that provides employees with valuable growth and development opportunities.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_380138</code></strong>
         <span class="small">2023/05/21 (Sun) 04:09</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Can you examine how mental health is intertwined with gun control or firearm ownership debates?</div>
       </div><div class="turn">
@@ -647,15 +757,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, you make an excellent point. The issue of gun violence and mental health is intertwined with larger societal issues, including access to healthcare and support for individuals with mental health conditions. Addressing these underlying societal issues could have a positive impact on reducing the risk of gun violence.<br /><br />Lack of access to mental healthcare is a significant barrier for many individuals seeking help for mental health conditions. According to the National Alliance on Mental Illness, approximately one in five adults in the United States experience mental illness each year, but only 43% of adults with mental illness received treatment within the past year. This suggests that there is a significant gap between the number of individuals who could benefit from mental healthcare and those who actually receive it.<br /><br />Providing better access to mental healthcare, including screening and treatment for mental health conditions, could reduce the risk of gun violence among those who may be at risk of harm to themselves or others. Additionally, supporting individuals with mental health conditions by providing resources such as housing, employment, and education could also reduce the risk of gun violence.<br /><br />Therefore, addressing the underlying societal issues that contribute to the risk of gun violence, including mental health and access to healthcare, is an important step in developing effective strategies for reducing gun violence in our society.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>b8c5e928_1</code></strong>
         <span class="small">2023/05/21 (Sun) 05:26</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking to improve my data analysis skills, can you recommend any online courses or resources that you think would be helpful for a Senior Marketing Specialist like myself? By the way, I&#39;ve recently taken on more responsibilities in my role, which I got promoted to three months ago, and I&#39;m looking to upskill to make a bigger impact.</div>
       </div><div class="turn">
@@ -692,15 +806,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">That&#39;s a great plan!<br /><br />Pandas and NumPy are indeed the foundation of data analysis in Python, and mastering them will make it easier to learn other libraries and perform advanced data analysis tasks.<br /><br />**Pandas** is an incredible library for data manipulation and analysis. You&#39;ll learn how to:<br /><br />* Import and clean datasets<br />* Perform data filtering, grouping, and merging<br />* Handle missing data and perform data transformation<br />* Work with time series data and perform data reshaping<br /><br />**NumPy** is the library for numerical computing in Python. You&#39;ll learn how to:<br /><br />* Work with arrays and matrices<br />* Perform element-wise operations and broadcasting<br />* Use indexing and slicing to manipulate arrays<br />* Perform linear algebra operations and statistical analysis<br /><br />Once you have a solid grasp of Pandas and NumPy, you can move on to **Matplotlib** and **Seaborn** for data visualization. You&#39;ll learn how to:<br /><br />* Create various types of plots (e.g., line plots, scatter plots, bar charts)<br />* Customize plot appearance and style<br />* Visualize data distributions and relationships<br />* Create interactive plots and dashboards<br /><br />Finally, with a strong foundation in Pandas, NumPy, and data visualization, you can dive into **Scikit-learn** for machine learning and data modeling. You&#39;ll learn how to:<br /><br />* Perform supervised and unsupervised learning<br />* Use regression, classification, clustering, and dimensionality reduction algorithms<br />* Tune model hyperparameters and evaluate model performance<br />* Work with text and image data<br /><br />By following this learning path, you&#39;ll be well-equipped to perform advanced data analysis and machine learning tasks in Python.<br /><br />Remember to practice with real-world datasets and projects to reinforce your learning. Good luck, and have fun exploring the world of Python data analysis!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>708e39b6_2</code></strong>
         <span class="small">2023/05/21 (Sun) 10:03</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking to get my latest vintage camera serviced. I recently got a 1970s Olympus OM-1 from an online marketplace, but it has some issues with the shutter mechanism. Do you know any reliable camera repair shops in my area?</div>
       </div><div class="turn">
@@ -737,15 +855,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">A great addition to your collection! Vintage vinyl records are a wonderful way to experience music, and rare jazz albums from the 1950s and 60s are particularly valuable and sought after. Here are some tips to help you find the perfect additions to your collection:<br /><br />1. **Research and Identify Rare Albums**: Look for albums with limited pressings, rare covers, or hard-to-find tracks. Research online marketplaces like Discogs, eBay, and MusicStack to see what&#39;s available and at what prices.<br />2. **Condition is Key**: When buying vintage vinyl, condition is crucial. Look for records in good condition, with minimal scratches, wear, or damage to the cover art. Check the grading systems used by sellers to ensure you&#39;re getting a high-quality record.<br />3. **Authenticity Matters**: Be cautious of reissues or reproductions. Make sure the album is an original pressing from the 1950s or 60s, and not a modern re-release.<br />4. **Check the Label**: Research the record label and the artists involved. Labels like Blue Note, Prestige, and Riverside are known for their high-quality jazz releases during the 1950s and 60s.<br />5. **Listen Before You Buy**: If possible, listen to the album before purchasing. This will help you ensure the sound quality is good and the record is in playable condition.<br />6. **Local Record Stores and Thrift Shops**: Visit local record stores, thrift shops, and second-hand stores in your area. You might stumble upon a rare gem hidden among the shelves.<br />7. **Online Marketplaces and Forums**: Utilize online marketplaces like eBay, Discogs, and MusicStack, as well as online forums and communities dedicated to vinyl collecting. These resources can connect you with other collectors and sellers.<br />8. **Get Your Records Graded**: Consider getting your records professionally graded by a reputable service like the Professional Grading Service (PGS) or the Vinyl Grading Authority (VGA). This can increase the value of your records and provide a third-party verification of their condition.<br />9. **Store Your Records Properly**: Once you&#39;ve acquired your rare jazz albums, make sure to store them properly to preserve their condition. Use acid-free sleeves, store them upright, and avoid exposing them to direct sunlight or extreme temperatures.<br /><br />Some popular rare jazz albums from the 1950s and 60s to look out for include:<br /><br />* Miles Davis - &quot;Kind of Blue&quot; (1959)<br />* John Coltrane - &quot;My Favorite Things&quot; (1960)<br />* Thelonious Monk - &quot;Monk&#39;s Dream&quot; (1962)<br />* Charles Mingus - &quot;Mingus Ah Um&quot; (1959)<br />* Billie Holiday - &quot;Lady Sings the Blues&quot; (1956)<br /><br />Remember to be patient, persistent, and thorough in your search. Happy hunting, and enjoy your new additions to your vinyl collection!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_51030</code></strong>
         <span class="small">2023/05/21 (Sun) 12:26</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Are there any special tax considerations that should be taken into account when child support payments are made in excess of the court-ordered amount?</div>
       </div><div class="turn">
@@ -770,15 +892,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">It&#39;s always a good idea to do your research and take the time to find a professional who is a good fit for your specific needs. Good luck with your search!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>eee3f7d3</code></strong>
         <span class="small">2023/05/21 (Sun) 18:50</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m trying to analyze my social media performance, can you help me understand how to track my engagement rates on Twitter and Instagram?</div>
       </div><div class="turn">
@@ -815,15 +941,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">🤔 Asking a follow-up question is a great way to drill down into what your audience is interested in and provide more targeted content.<br /><br />Both options you&#39;ve suggested are excellent choices, but I think you might want to consider making them even more specific and actionable. Here&#39;s a revised version:<br /><br />**Option 1:** &quot;More about my research and planning process&quot; → &quot;Get a peek into my research methods, including tools and resources I use to stay informed and organized 📚💻&quot;<br /><br />**Option 2:** &quot;More about my writing routine and productivity habits&quot; → &quot;Learn how I stay focused and productive, including my favorite writing habits, apps, and time management techniques ⏰💻&quot;<br /><br />By making these changes, you&#39;re providing more concrete examples of what your audience can expect to learn from each option. This will help them make a more informed decision and get more value from your content.<br /><br />Here&#39;s a sample tweet to ask your follow-up question:<br /><br />&quot;Thanks for voting! 😊 For those who want to see more behind-the-scenes of my writing process, I&#39;d love to know: 🤔<br /><br />A) Get a peek into my research methods, including tools and resources I use to stay informed and organized 📚💻<br />B) Learn how I stay focused and productive, including my favorite writing habits, apps, and time management techniques ⏰💻<br /><br />Vote now and help me create content that&#39;s tailored to your interests! 🗳️ #writingcommunity #behindthescenes&quot;<br /><br />Feel free to modify it to fit your tone and style. I hope this helps you get more clarity on what your audience wants to see, and that you&#39;re able to create content that resonates with them! 📊</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_ZvjRGRN_0</code></strong>
         <span class="small">2023/05/21 (Sun) 21:42</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Analyse the text:<br /><br />Resolution of the Kherson District Zemstvo Assembly of the extraordinary session of 1917 on the autonomy of Ukraine on June 26, 1917.<br />According to the report of the District Zemstvo Administration on the convening of the Ukrainian National Congress of the Kherson province in Odesa on June 28-30, the Kherson District Zemstvo Assembly on June 26 (June) decided <br />&quot;1) To elect a delegate to the said congress; <br />2) Recognize that Ukraine should be a part of the federal-democratic Russian Republic as a national territorial autonomous unit;<br />3) Recognize that the Kherson district, although the most Russified of the districts of the Kherson province, still has 75% of the Ukrainian population and cannot be separated from the Ukrainian regions; <br />4) Recognize the demands of the Universal Central Rada as true and promise to support it morally and materially. As for the present moment, the meeting recognizes that the interests of the common Russian and Ukrainian people coincide completely.&quot;<br /> H. A. Morgun was elected as a delegate to the Ukrainian Congress in Odesa. <br />The Ukrainian Central Council was allocated 10000 karbovanets.</div>
       </div><div class="turn">
@@ -848,15 +978,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">It is not clear from the text how Ukraine was associated with the Kherson province. The text mentions that the Kherson District Zemstvo Assembly decided that the Kherson district, although the most Russified of the districts of the Kherson province, still has 75% of the Ukrainian population and cannot be separated from the Ukrainian regions. This suggests that the Kherson district had a significant Ukrainian population and was therefore considered part of the Ukrainian regions. However, it is not clear how the association between Ukraine and the Kherson province was established or what the nature of this association was.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_mJ7MnQS_31</code></strong>
         <span class="small">2023/05/22 (Mon) 02:51</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">Sure, here&#39;s a possible continuation of the conversation between Damian Wayne and Jonathan Kent:<br /><br />Damian: (excitedly) John, I don&#39;t know how to describe it. It&#39;s like something shifted inside of me. I feel...different.<br /><br />Jonathan: (curious) Different how, Damian?<br /><br />Damian: (tearful) Different in a good way. Like, I know that God loves me. I know it in my bones. And it&#39;s overwhelming, John. It&#39;s like nothing I&#39;ve ever felt before.<br /><br />Jonathan: (moved) That&#39;s amazing, Damian. I&#39;m so happy for you.<br /><br />Damian: (nodding) I just wish I could explain it better. It&#39;s like, I was blind but now I see. I was lost but now I&#39;m found. And I know that God has a purpose for my life, John. A purpose that goes beyond my own selfish desires or ambitions.<br /><br />Jonathan: (smiling) I believe it too, Damian. And I believe that God is already shaping you and changing you, in ways that you can&#39;t even imagine.<br /><br />Damian: (nodding slowly) I know, John. And I&#39;m excited to see where this journey takes me. But I still don&#39;t know how to pray.<br /><br />Jonathan: (encouraging) That&#39;s okay, Damian. Prayer doesn&#39;t have to be fancy or eloquent. It&#39;s just talking to God, from the heart. And I believe that God loves it when we&#39;re honest and real with Him.<br /><br />Damian: (nodding) I see. But what if I curse or say something wrong?<br /><br />Jonathan: (smiling) God knows your heart, Damian. And He loves you, just the way you are. Even if you curse or say something wrong. He&#39;s not looking for perfection, He&#39;s looking for a relationship.<br /><br />Damian: (nodding slowly) I understand. Okay, John. I&#39;ll give it a try.<br /><br />Jonathan: (nodding) Great, Damian. And don&#39;t worry, I&#39;ll be here to guide you if you need it. But I think you&#39;ll do great.<br /><br />Damian: (closing his eyes) Dear God, it&#39;s me, Damian. I don&#39;t know if I&#39;m doing this right, but I just want to say thank you. Thank you for loving me, even when I didn&#39;t love myself. Thank you for sending your Son, Jesus, to die for me, even when I didn&#39;t deserve it. Thank you for giving me a new heart and a new start, even when I felt hopeless and lost. I don&#39;t know where this journey will take me, but I know that you&#39;re with me, every step of the way. And I trust in your promise to guide me and shape me, to make me into the person you created me to be. I&#39;m not perfect, God. I curse and say stupid things sometimes. But I know that you still love me, just the way I am. And I want to live for you, from this day forward. To follow your will and your ways, no matter what. Thank you, God, for hearing my prayer. I love you. In Jesus&#39; name, amen.<br /><br />Jonathan: (smiling) That was beautiful, Damian. And don&#39;t worry about the cursing or the mistakes. God hears your heart, and He loves you, just the way you are.<br /><br />Damian: (smiling back) Thank you, John. And thank you for being here for me, every step of the way. You&#39;re a true friend, and I&#39;m lucky to have you.</div>
       </div><div class="turn">
@@ -872,15 +1006,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Sure, here&#39;s a possible continuation of the conversation between Damian Wayne and Jonathan Kent:<br /><br />Damian: (smiling) John, I have to tell you something. Something that I&#39;ve been learning, thanks to you and your friends.<br /><br />Jonathan: (curious) What is it, Damian?<br /><br />Damian: (serious) It&#39;s that I don&#39;t have to pretend anymore. I don&#39;t have to be tough and manly all the time. I can share my actual feelings with other people, and not be ashamed of them.<br /><br />Jonathan: (smiling) That&#39;s awesome, Damian. And I&#39;m proud of you, for being brave and vulnerable. It takes a lot of courage to be real with other people.<br /><br />Damian: (nodding) I know. And I&#39;ve been reading this verse in the Bible that has encouraged me, John. It&#39;s from 2 Corinthians 12:9, where Paul says that God&#39;s strength is made perfect in our weakness. And it&#39;s been a comfort to me, to know that God can use even my weaknesses and my struggles, to bring glory to Him.<br /><br />Jonathan: (encouraging) That&#39;s a great verse, Damian. And it&#39;s true. God is the one who takes away our shame, and gives us His strength, when we admit our weakness and our need for Him.<br /><br />Damian: (nodding) I know. And I want to be a witness to others, to show them that God can do the same for them. But I also know that life can be hard, John. Even when we have God&#39;s strength and love in our lives.<br /><br />Jonathan: (nodding) That&#39;s true, Damian. And I know that from my own experience. When I was a kid, I used to get teased a lot, because of my powers and my family. And it was hard. But I also know that God can use our suffering, to shape us and make us stronger, in Him.<br /><br />Damian: (nodding) I understand, John. And I want to be there for you too, when things get tough. I want to show you the same kindness and love that you&#39;ve shown me.<br /><br />Jonathan: (tearful) Thank you, Damian. That means a lot to me. And I want to pray for you too, if that&#39;s okay.<br /><br />Damian: (nodding) Of course, John. I&#39;d be honored.<br /><br />Jonathan: (closing his eyes) Dear God, thank you for my friend, Damian. Thank you for the way that you&#39;re changing him and using him, for your glory. Please continue to shape him and guide him, in your will and your ways. And please help him to be kind and loving, to others, no matter what. Even when life gets hard and people are cruel. Please protect him and bless him, with your presence and your peace. And thank you, God, for hearing our prayer. We love you. In Jesus&#39; name, amen.<br /><br />Damian: (smiling) That was a beautiful prayer, John. And thank you, for being my friend and for showing me the way. I&#39;m grateful for you.<br /><br />Jonathan: (smiling back) I&#39;m grateful for you too, Damian. And for everything that God is doing in your life. Let&#39;s keep following Him, together.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_526427</code></strong>
         <span class="small">2023/05/22 (Mon) 02:54</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What are some common mistakes to avoid when starting a new business?</div>
       </div><div class="turn">
@@ -911,15 +1049,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Sure, here are a few tips for making a good impression and standing out at local events:<br /><br />1. Prepare ahead of time: Research the event and make sure your booth or display is well-designed and visually appealing. Make sure you have plenty of business cards, flyers, or other promotional materials to hand out.<br /><br />2. Engage with attendees: Be friendly, approachable, and genuinely interested in the people you meet. Ask questions about their business or interests and listen carefully to their responses.<br /><br />3. Offer something unique: Consider offering a special promotion, demo, or giveaway that sets you apart from other businesses at the event. For example, you could offer free samples or a limited-time discount code.<br /><br />4. Wear branded clothing: Make sure you and any staff members are wearing branded clothing or accessories to help build brand recognition and make it easy for customers to identify you.<br /><br />5. Follow up: Don&#39;t forget to follow up with any leads or contacts you make at the event. Send a personalized email or make a phone call to thank them for their time and offer any additional information or services they may be interested in.<br /><br />Remember, the key to standing out and making a good impression at local events is to be genuine, helpful, and memorable. By putting your best foot forward and offering something unique, you can make a lasting impression and attract new customers to your business.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_375849</code></strong>
         <span class="small">2023/05/22 (Mon) 10:47</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What factors contribute to the success or failure of recognition and award programs?</div>
       </div><div class="turn">
@@ -962,15 +1104,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, a recognition and award program can be a lot of work to set up and maintain, but it is definitely worth it for organizations to invest the time and resources. Here are some of the reasons why:<br /><br />1. Increases employee morale and motivation: By recognizing and rewarding employees for their hard work and achievements, organizations can improve employee morale and motivation levels. This, in turn, can lead to improved performance and increased productivity.<br /><br />2. Boosts employee engagement: Employee recognition and award programs have been shown to increase employee engagement levels, which can lead to better employee retention rates and reduced turnover costs.<br /><br />3. Attracts top talent: Recognition and award programs can also be used as a competitive advantage when recruiting top talent. Potential candidates are often attracted to organizations that value their employees and have a culture of appreciation and recognition.<br /><br />4. Improves workplace culture: Implementing a recognition and award program can help to create a positive and supportive workplace culture. This can lead to improved communication, collaboration, and teamwork among employees.<br /><br />5. Cost-effective: Recognition and award programs can be cost-effective compared to other employee motivation strategies such as bonuses, pay increases, or additional employee benefits.<br /><br />6. It can improve company performance: A recognition and award program can drive organizational performance and results. It encourages employees to be more productive, creative, and attentive to the organization&#39;s goals and objectives.<br /><br />Overall, investing in a recognition and award program can have numerous benefits for organizations, including improved employee performance, engagement, retention, and workplace culture. While it may require a significant commitment of time and resources, the return on investment can be substantial.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ec628e8d_2</code></strong>
         <span class="small">2023/05/22 (Mon) 15:07</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some volunteer opportunities in my community. Do you know of any upcoming charity events or organizations that need help? By the way, I recently helped organize a charity bake sale at my church in January, which was part of a larger effort that raised over $1,000 in donations - I personally raised $200 for that event.</div>
       </div><div class="turn">
@@ -1007,15 +1153,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Congratulations on completing your 5K charity run and achieving a great time of 35 minutes! That&#39;s a fantastic accomplishment, and it&#39;s wonderful that you&#39;re eager to improve and take on another challenge.<br /><br />Improving your running time and endurance requires a combination of consistent training, patience, and strategic planning. Here are some tips to help you shave off seconds or even minutes from your next 5K:<br /><br />**1. Incorporate Interval Training:**<br />Interval training involves alternating between periods of high-intensity running and active recovery. This type of training helps improve your running efficiency, increases your anaerobic endurance, and boosts your speed. For example, try running at a fast pace for 400 meters, followed by a 200-meter active recovery jog. Repeat for 20-30 minutes.<br /><br />**2. Incorporate Hill Sprints:**<br />Hill sprints are an excellent way to build explosive power and strength. Find a route with a gradual incline and sprint uphill at maximum effort for 30-90 seconds. Walk or jog back down to recover, and repeat for 3-5 sets.<br /><br />**3. Incorporate Strength Training:**<br />Incorporating strength training exercises can help improve your running efficiency and endurance. Focus on exercises that target your core, glutes, and legs, such as squats, lunges, deadlifts, and leg press.<br /><br />**4. Increase Your Mileage Gradually:**<br />To improve your endurance, gradually increase your weekly mileage by no more than 10% each week. This allows your body to adapt to the demands of running without risking injury.<br /><br />**5. Incorporate Tempo Runs:**<br />Tempo runs involve running at a fast pace for a sustained period. This type of training helps improve your lactate threshold, which is the point at which your body starts to accumulate lactic acid and fatigue sets in. For example, try running at a fast pace for 10-15 minutes, followed by a 5-minute active recovery jog.<br /><br />**6. Focus on Proper Running Form:**<br />Good running form can help you run more efficiently and reduce your risk of injury. Focus on maintaining a tall posture, landing midfoot or forefoot, and keeping your arms relaxed and bent at around 90 degrees.<br /><br />**7. Incorporate Rest and Recovery:**<br />Rest and recovery are essential components of any training program. Ensure you&#39;re getting adequate sleep (7-9 hours) and taking rest days as needed. You can also incorporate activities like yoga, stretching, or cross-training to aid in recovery.<br /><br />**8. Analyze Your Running Data:**<br />Use a running watch, app, or log to track your runs and analyze your data. This will help you identify areas for improvement, such as your pace, cadence, and heart rate.<br /><br />**9. Stay Hydrated and Fuel Properly:**<br />Proper hydration and nutrition are critical for optimal performance. Ensure you&#39;re drinking plenty of water and consuming a balanced diet that includes complex carbohydrates, protein, and healthy fats.<br /><br />**10. Set Realistic Goals and Stay Motivated:**<br />Set specific, achievable goals for your next 5K, and find ways to stay motivated, such as running with a buddy or joining a running group.<br /><br />Remember, consistent training and patience are key to improving your running time and endurance. Stay committed, and you&#39;ll be crushing your next 5K in no time!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ba4db050_1</code></strong>
         <span class="small">2023/05/22 (Mon) 18:32</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m thinking of getting a custom-made necklace with a charm representing my astrological sign, Scorpio. I&#39;ve been seeing a lot of cute designs on social media, and I think it would make a nice addition to my collection. By the way, I recently got my grandmother&#39;s old pearl earrings resized at a jewelry shop on 20th February, and it made me appreciate the value of updating old pieces.</div>
       </div><div class="turn">
@@ -1052,15 +1202,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">That&#39;s a great idea! It&#39;s always a good idea to ask about getting your belongings back from others, especially when it comes to personal items like jewelry.<br /><br />You could casually mention to your roommate that you&#39;re planning to get your watch battery replaced and ask if she&#39;s had a chance to return your silver hoop earrings yet. You could say something like:<br /><br />&quot;Hey, I&#39;m planning to take my watch in for a battery replacement soon. By the way, I was wondering if I could get my silver hoop earrings back from you? I lent them to you a few weeks ago and I&#39;d love to have them back.&quot;<br /><br />This approach is polite and friendly, and it gives your roommate a gentle reminder that you&#39;re still waiting for your earrings back. Hopefully, she&#39;ll return them to you soon!<br /><br />Remember to stay calm and respectful when asking for your belongings back, and try not to accuse or blame your roommate for not returning them yet. Good luck, and I hope you get your earrings back soon!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>3d17c489_1</code></strong>
         <span class="small">2023/05/22 (Mon) 19:08</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m trying to learn more about the cultural events in my neighborhood. Can you tell me about any upcoming festivals or celebrations that I might be interested in, considering my background from India and my interest in Latin American culture? By the way, I&#39;ve been living in the United States for the past 5 years, so I&#39;m still getting used to the cultural differences here.</div>
       </div><div class="turn">
@@ -1097,30 +1251,38 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Social media has had a significant impact on the Dalit rights movement in India, offering new opportunities for mobilization, awareness-raising, and community-building. Here are some ways social media has influenced the movement:<br /><br />**Amplifying Dalit voices**: Social media has provided a platform for Dalit voices to be heard, allowing them to share their experiences, perspectives, and stories with a wider audience. This has helped to humanize the movement and create empathy among non-Dalit individuals.<br /><br />**Raising awareness**: Social media has enabled Dalit activists and organizations to raise awareness about issues like caste-based discrimination, violence, and atrocities. Hashtag campaigns like #JusticeForRohithVemula, #DalitLivesMatter, and #CasteIsNotMyFault have gone viral, sparking national conversations and drawing attention to the movement.<br /><br />**Mobilizing support**: Social media has facilitated mobilization and organization, enabling Dalit activists to mobilize support for protests, rallies, and other events. Online campaigns have also helped to raise funds for Dalit-led initiatives and organizations.<br /><br />**Creating a sense of community**: Social media has helped to create a sense of community among Dalits, providing a space for them to connect, share their experiences, and find support. This has been particularly important for Dalit individuals who may feel isolated or marginalized in their offline lives.<br /><br />**Challenging dominant narratives**: Social media has allowed Dalit activists to challenge dominant narratives and stereotypes about Dalits and caste. By sharing their own stories and experiences, Dalits have been able to counter biases and misconceptions perpetuated by mainstream media and society.<br /><br />**Increased visibility for Dalit women**: Social media has provided a platform for Dalit women to raise their voices and share their experiences, which has been particularly important given the intersectional nature of caste and gender-based discrimination.<br /><br />**Challenges and limitations**: While social media has been a powerful tool for the Dalit rights movement, there are also challenges and limitations to consider:<br /><br />* **Digital divide**: Not all Dalits have access to social media, which can exacerbate existing inequalities and limit the movement&#39;s reach.<br />* **Online harassment**: Dalit activists and individuals have faced online harassment, bullying, and trolling, which can be intimidating and silencing.<br />* **State surveillance**: The Indian government has been known to monitor and surveil online activities, which can lead to repression and censorship of Dalit voices.<br />* **Commercialization of activism**: Social media can create a culture of performative activism, where individuals prioritize online engagement over offline action and community-building.<br /><br />To overcome these challenges, it&#39;s essential for Dalit activists and organizations to develop strategies that prioritize online safety, digital literacy, and community engagement. By doing so, social media can continue to be a powerful tool for mobilizing support and raising awareness about Dalit rights in India.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_IFvdMmb_0</code></strong>
         <span class="small">2023/05/22 (Mon) 22:01</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">In the above interview add more of my experience from my time at Spenmo as a Business Development Representative.</div>
       </div><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">Interviewer: Can you tell us about your previous experience in sales?<br /><br />Me: Yes, I have a solid background in sales and business development. My most recent role was as a Business Development Representative at Spenmo, where I was responsible for generating new business and expanding existing relationships. I implemented various strategies such as Cold calling, Email campaigns and social media outreach to reach out to potential clients. I was able to generate a significant number of leads and close several deals, resulting in a significant increase in revenue for the company. I also have experience as an Account Executive at GuestReady, where I was responsible for managing and growing a portfolio of accounts.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>2479cbae</code></strong>
         <span class="small">2023/05/22 (Mon) 22:52</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m planning to attend a few more weddings this year and I was wondering if you could give me some gift ideas for the couples.</div>
       </div><div class="turn">
@@ -1157,15 +1319,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">The Little Door is a upscale restaurant, and they do have a dress code and some rules to ensure a pleasant dining experience for all guests. Here&#39;s what you can expect:<br /><br />**Dress Code:**<br /><br />The Little Door has a upscale casual dress code. They recommend dressing in business casual attire, which means:<br /><br />* No ripped jeans or torn clothing<br />* No beachwear or athletic wear<br />* No flip-flops or sandals<br />* No hats or sunglasses indoors<br /><br />**Rules and Guidelines:**<br /><br />1. **Reservations:** They recommend making reservations at least 2 weeks in advance, especially on weekends or during peak season.<br />2. **Cancellations:** If you need to cancel or change your reservation, please do so at least 24 hours in advance to avoid any penalties.<br />3. **Seating:** They offer seating in their courtyard, main dining room, or private dining rooms. If you have a preference, let them know when you make your reservation.<br />4. **Cell Phone Policy:** They kindly ask that you refrain from using your cell phone in the dining area, as it can disrupt the ambiance and disturb other guests.<br />5. **Children:** The Little Door is not suitable for children under 10 years old.<br />6. **Special Requests:** If you have any special requests, such as a birthday cake or a special occasion, please let them know in advance so they can accommodate your needs.<br />7. **Payment:** They accept all major credit cards, but they do not accept cash or personal checks.<br /><br />**Tips and Etiquette:**<br /><br />1. **Tipping:** A 20% gratuity is standard for good service.<br />2. **Table Manners:** Please keep your voice down, refrain from using your phone, and avoid loud conversations.<br />3. **Ordering:** Take your time ordering, and don&#39;t hesitate to ask your server for recommendations or questions about the menu.<br /><br />By following these guidelines, you&#39;ll ensure a wonderful dining experience for your aunt and uncle&#39;s anniversary celebration at The Little Door.<br /><br />Remember to ask about their anniversary packages and menus when you call to make your reservation. They might have some special offers or surprises to make the evening even more memorable!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_337472</code></strong>
         <span class="small">2023/05/23 (Tue) 09:44</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What are the top ten industries in Sydney, and how have they changed over the last decade?</div>
       </div><div class="turn">
@@ -1208,15 +1374,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, individual actions can play a significant role in promoting sustainability and inclusivity. Some examples of ways individuals can contribute to these efforts include:<br /><br />1. Reducing consumption: Individuals can make a difference by reducing their consumption of resources like energy, food, and water. This can be done by using public transport, eating a sustainable diet, and reducing household waste.<br /><br />2. Supporting local businesses: Supporting local businesses can be an effective way to promote inclusivity and reduce the environmental impact of shipping goods across long distances.<br /><br />3. Getting involved in community initiatives: Individuals can get involved in community initiatives that promote sustainability and inclusivity, such as volunteering at a community garden or advocating for policy changes.<br /><br />4. Investing in renewable energy: Investing in renewable energy options like solar panels can help reduce an individual’s carbon footprint.<br /><br />5. Promoting diversity and inclusion: Individuals can do their part to promote diversity and inclusion by advocating for and supporting initiatives like workplace diversity and inclusion programs, promoting cultural understanding, and campaigning for human rights.<br /><br />Overall, by taking small steps towards sustainable practices and advocating for inclusivity, individuals can contribute to creating a more equitable and sustainable world for future generations.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_6fTnCnw_76</code></strong>
         <span class="small">2023/05/23 (Tue) 16:04</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m very happy to hear that you believe that it&#39;s possible, because this is really something that I care about a lot. I feel like there may be some issues with the English language (not sure if it&#39;s the language itself or the way it is being used) and I&#39;m glad you can help me to create a new language so that we can address these issues and move on with our lives, am I right?<br /><br />Let&#39;s move on to the structure and features of my language. (You skipped your 2nd step - which is researching existing languages - but OK, let&#39;s say that&#39;s what we did in the beginning of this conversation). Which part of the structure of the language should we start with? Phonology? Grammar? Lexicon?</div>
       </div><div class="turn">
@@ -1259,15 +1429,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Tense is used to indicate the time when an action occurred or occurs. In English, we use different verb forms to indicate past, present, and future tense. For example, in the sentence &quot;I am eating breakfast&quot;, the verb &quot;eat&quot; is in the present tense, while in the sentence &quot;I ate breakfast&quot; the verb &quot;ate&quot; is in the past tense.<br /><br />Aspect is used to indicate the duration or completion of an action. In English, we use different verb forms to indicate whether an action is ongoing or completed. For example, in the sentence &quot;I am running&quot; the verb &quot;run&quot; is in the present continuous aspect, indicating that the action is ongoing. In the sentence &quot;I ran&quot; the verb &quot;ran&quot; is in the simple past aspect indicating that the action is completed.<br /><br />Mood is used to indicate the attitude of the speaker towards the action or state described by the verb. In English, we use different verb forms to indicate the indicative, imperative, subjunctive and conditional moods. For example, in the sentence &quot;I suggest that he study more&quot; the verb &quot;study&quot; is in the subjunctive mood, expressing a suggestion or a possibility.<br /><br />Voice is used to indicate the relation of the action described by the verb to the subject. In English, we use different verb forms to indicate the active or passive voice. For example, in the sentence &quot;The dog chased the cat&quot; the verb &quot;chased&quot; is in the active voice, indicating that the subject &quot;dog&quot; is performing the action. In the sentence &quot;The cat was chased by the dog&quot; the verb &quot;chased&quot; is in the passive voice, indicating that the subject &quot;cat&quot; is the object of the action.<br /><br />Subject-verb agreement is when the subject and the verb in a sentence agree in number, meaning that a singular subject takes a singular verb and a plural subject takes a plural verb. For example, &quot;The dog barks&quot; the subject &quot;dog&quot; and the verb &quot;barks&quot; agree in number. Possessive adjectives are used to indicate possession, for example, &quot;My dog&quot; the possessive adjective &quot;my&quot; indicates that the dog belongs to the speaker. Comparison are used to indicate a relationship of degree between two or more entities, for example, &quot;this book is bigger than that book&quot; the comparison &quot;bigger&quot; indicates a relationship of degree between the two books.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>4e77dbbe_5</code></strong>
         <span class="small">2023/05/24 (Wed) 13:01</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m trying to get a better grasp on the farm&#39;s finances. I want to create a budget for the next quarter, but I&#39;m not sure where to start. Can you help me with that? By the way, so far, the total expenses for the past three months have been around $5,000, which includes the cost of feed, vet bills, and equipment.</div>
       </div><div class="turn">
@@ -1304,15 +1478,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">You&#39;re welcome! I&#39;m glad I could assist you in getting started with your budgeting process. Remember, budgeting is an ongoing process, and it&#39;s essential to regularly review and adjust your budget to ensure it remains accurate and effective.<br /><br />If you have any more questions or need further guidance, don&#39;t hesitate to reach out. Good luck with your budgeting, and I hope it helps you make informed financial decisions for your farm.<br /><br />Remember to be patient and flexible, and don&#39;t be too hard on yourself if you encounter any challenges along the way. Budgeting is a process, and it may take some time to get it just right.<br /><br />Take care, and happy budgeting!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_172828</code></strong>
         <span class="small">2023/05/24 (Wed) 13:28</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What are the common short-term and long-term goals that a Director of Operations must balance?</div>
       </div><div class="turn">
@@ -1337,15 +1515,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Sure, here&#39;s an example of how a Director of Operations might balance short-term and long-term goals in the hospitality industry:<br /><br />Short-term goal: Meeting daily customer satisfaction targets<br />In the hospitality industry, customer satisfaction is key to gaining repeat business and a word-of-mouth reputation. Therefore, the director must ensure that all guests have a positive experience during their stay. The director must ensure that the hotel has adequate staffing levels to provide professional and friendly service, customer complaints are resolved quickly, cleanliness and hygiene standards are maintained throughout the hotel, and that amenities meet guest needs.<br /><br />Long-term goal: Developing and implementing sustainable business practices<br />To ensure long-term success, the director of operations must consider implementing sustainable business practices to both conserve resources and attract eco-conscious customers. For example, the director may suggest adding eco-friendly devices in rooms, installing solar panels to reduce dependence on electricity, or introducing water-saving systems.<br /><br />To balance these goals, the Director must ensure that sustainable business practices do not compromise the quality of services provided to guests or reduce employee efficiency. At the same time, they must ensure that they maintain employee motivation by offering opportunities for training and development to improve their skills. Additionally, the Director must measure the success of the sustainability program, such as the amount of resources or costs that are saved, and customer satisfaction levels. By balancing these short-term and long-term goals, the hotel can improve its operational efficiency, while also enhancing customer satisfaction and loyalty in the long run.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_44942</code></strong>
         <span class="small">2023/05/24 (Wed) 14:19</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">How can food technologists use emerging technologies such as artificial intelligence and blockchain to improve the traceability and transparency of healthier food products in the supply chain?</div>
       </div><div class="turn">
@@ -1364,30 +1546,38 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, emerging technologies such as AI and blockchain can help reduce food waste in the supply chain. Here&#39;s how:<br /><br />1. Predictive analytics can be used to forecast demand for food products, allowing suppliers, retailers, and restaurants to better manage their inventory levels and reduce waste.<br /><br />2. AI-powered sensors can be used to monitor the quality and freshness of food products in real-time, alerting suppliers and retailers to potential spoilage or damage, enabling them to take corrective action to reduce waste.<br /><br />3. Blockchain can increase the transparency of the supply chain, enabling suppliers, retailers, and consumers to have more accurate information about the shelf-life of food products, which can help reduce waste.<br /><br />4. Smart contracts can automate payment and inventory management processes based on real-time data, reducing inefficiencies and waste caused by overproduction or underutilization of inventory.<br /><br />Overall, the use of emerging technologies in the food industry can help reduce food waste in the supply chain, which can improve sustainability and reduce costs for businesses, while also reducing the environmental impact of food waste.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_vHsh568_0</code></strong>
         <span class="small">2023/05/25 (Thu) 00:33</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">list out the name of 10 mexican dish recipes, and include the link to the original recipe on each</div>
       </div><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">Sure, here are 10 Mexican dish recipes with links to their original recipes:<br /><br />1. Tacos al Pastor - A delicious and popular street food in Mexico, made with marinated pork, pineapple, and onions. Recipe: &lt;https://www.mexicoinmykitchen.com/tacos-al-pastor-recipe/&gt;<br />2. Chiles Rellenos - Stuffed poblano peppers filled with cheese or meat, then battered and fried. Recipe: &lt;https://www.isabeleats.com/chiles-rellenos-recipe/&gt;<br />3. Enchiladas Rojas - Tortillas filled with shredded chicken, then covered in a spicy tomato sauce and baked with cheese. Recipe: &lt;https://www.themediterraneandish.com/enchiladas-rojas-recipe/&gt;<br />4. Guacamole - A classic dip made with mashed avocados, onions, tomatoes, and lime juice. Recipe: &lt;https://www.simplyrecipes.com/recipes/perfect_guacamole/&gt;<br />5. Pozole - A hearty soup made with hominy, meat (usually pork), and a variety of spices. Recipe: &lt;https://www.bonappetit.com/recipe/pozole-rojo&gt;<br />6. Quesadillas - Tortillas filled with cheese (and sometimes other ingredients like chicken or beans), then cooked until the cheese is melted and the tortilla is crispy. Recipe: &lt;https://www.delish.com/cooking/recipe-ideas/a22565432/quesadilla-recipe/&gt;<br />7. Tamales - Corn dough filled with meat, cheese, or vegetables, then steamed in a corn husk. Recipe: &lt;https://www.mexicoinmykitchen.com/how-to-make-tamales/&gt;<br />8. Sopaipillas - Fried dough served with honey or cinnamon sugar. Recipe: &lt;https://www.allrecipes.com/recipe/20590/sopaipillas/&gt;<br />9. Carne Asada - Grilled beef marinated in lime juice, garlic, and spices. Recipe: &lt;https://www.food.com/recipe/authentic-mexican-carne-asada-159141&gt;<br />10. Churros - Fried dough coated in cinnamon sugar, often served with a side of chocolate sauce for dipping. Recipe: &lt;https://www.biggerbolderbaking.com/homemade-churros/&gt;</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_32nWY2e_5</code></strong>
         <span class="small">2023/05/25 (Thu) 03:13</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">Sure, here are some examples of each bike type:<br /><br />1. Cruiser:<br />* Harley-Davidson Softail Standard: &lt;https://www.google.com/search?q=harley+davidson+softail+standard&amp;tbm=isch&gt;<br />* Indian Scout Bobber: &lt;https://www.google.com/search?q=indian+scout+bobber&amp;tbm=isch&gt;<br />* Yamaha Bolt: &lt;https://www.google.com/search?q=yamaha+bolt&amp;tbm=isch&gt;<br />* Honda Rebel 500: &lt;https://www.google.com/search?q=honda+rebel+500&amp;tbm=isch&gt;<br />* Kawasaki Vulcan S: &lt;https://www.google.com/search?q=kawasaki+vulcan+s&amp;tbm=isch&gt;<br />1. Bobber:<br />* Triumph Bonneville Bobber: &lt;https://www.google.com/search?q=triumph+bonneville+bobber&amp;tbm=isch&gt;<br />* Harley-Davidson Forty-Eight: &lt;https://www.google.com/search?q=harley+davidson+forty-eight&amp;tbm=isch&gt;<br />* Indian Scout Bobber Twenty: &lt;https://www.google.com/search?q=indian+scout+bobber+twenty&amp;tbm=isch&gt;<br />* Moto Guzzi V9 Bobber: &lt;https://www.google.com/search?q=moto+guzzi+v9+bobber&amp;tbm=isch&gt;<br />* Honda Shadow Phantom: &lt;https://www.google.com/search?q=honda+shadow+phantom&amp;tbm=isch&gt;<br />1. Scrambler:<br />* Ducati Scrambler: &lt;https://www.google.com/search?q=ducati+scrambler&amp;tbm=isch&gt;<br />* Triumph Scrambler 1200: &lt;https://www.google.com/search?q=triumph+scrambler+1200&amp;tbm=isch&gt;<br />* BMW R nineT Scrambler: &lt;https://www.google.com/search?q=bmw+r+ninet+scrambler&amp;tbm=isch&gt;<br />* Yamaha SCR950: &lt;https://www.google.com/search?q=yamaha+scr950&amp;tbm=isch&gt;<br />* Moto Guzzi V85 TT: &lt;https://www.google.com/search?q=moto+guzzi+v85+tt&amp;tbm=isch&gt;<br />1. ADV:<br />* BMW R 1250 GS Adventure: &lt;https://www.google.com/search?q=bmw+r+1250+gs+adventure&amp;tbm=isch&gt;<br />* KTM 1290 Super Adventure R: &lt;https://www.google.com/search?q=ktm+1290+super+adventure+r&amp;tbm=isch&gt;<br />* Yamaha Tenere 700: &lt;https://www.google.com/search?q=yamaha+tenere+700&amp;tbm=isch&gt;<br />* Honda Africa Twin Adventure Sports: &lt;https://www.google.com/search?q=honda+africa+twin+adventure+sports&amp;tbm=isch&gt;<br />* Triumph Tiger 900 Rally Pro: &lt;https://www.google.com/search?q=triumph+tiger+900+rally+pro&amp;tbm=isch&gt;<br />1. Mountain Bike:<br />* Santa Cruz Nomad: &lt;https://www.google.com/search?q=santa+cruz+nomad&amp;tbm=isch&gt;<br />* Trek Fuel EX: &lt;https://www.google.com/search?q=trek+fuel+ex&amp;tbm=isch&gt;<br />* Specialized Stumpjumper: &lt;https://www.google.com/search?q=specialized+stumpjumper&amp;tbm=isch&gt;<br />* Giant Trance: &lt;https://www.google.com/search?q=giant+trance&amp;tbm=isch&gt;<br />* Yeti SB130: &lt;https://www.google.com/search?q=yeti+sb130&amp;tbm=isch&gt;<br />1. Sports Bike:<br />* Kawasaki Ninja ZX-10R: https</div>
       </div><div class="turn">
@@ -1409,15 +1599,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I apologize for the confusion. Here are the remaining bike categories and examples:<br /><br />1. Standard Bike:<br />* Suzuki SV650: &lt;https://www.google.com/search?q=suzuki+sv650&amp;tbm=isch&gt;<br />* Yamaha XSR700: &lt;https://www.google.com/search?q=yamaha+xsr700&amp;tbm=isch&gt;<br />* Kawasaki Z650: &lt;https://www.google.com/search?q=kawasaki+z650&amp;tbm=isch&gt;<br />* Honda CB650R: &lt;https://www.google.com/search?q=honda+cb650r&amp;tbm=isch&gt;<br />* Ducati Scrambler Icon: &lt;https://www.google.com/search?q=ducati+scrambler+icon&amp;tbm=isch&gt;<br />1. Chopper Bike:<br />* Harley-Davidson Softail Breakout: &lt;https://www.google.com/search?q=harley+davidson+softail+breakout&amp;tbm=isch&gt;<br />* Indian Chief Dark Horse: &lt;https://www.google.com/search?q=indian+chief+dark+horse&amp;tbm=isch&gt;<br />* Yamaha Star Eluder: &lt;https://www.google.com/search?q=yamaha+star+eluder&amp;tbm=isch&gt;<br />* Honda Fury: &lt;https://www.google.com/search?q=honda+fury&amp;tbm=isch&gt;<br />* Victory Vegas 8-Ball: &lt;https://www.google.com/search?q=victory+vegas+8-ball&amp;tbm=isch&gt;<br />1. Cafe Racer Bike:<br />* Triumph Thruxton R: &lt;https://www.google.com/search?q=triumph+thruxton+r&amp;tbm=isch&gt;<br />* Ducati Scrambler Cafe Racer: &lt;https://www.google.com/search?q=ducati+scrambler+cafe+racer&amp;tbm=isch&gt;<br />* Honda CB1000R Neo Sports Cafe: &lt;https://www.google.com/search?q=honda+cb1000r+neo+sports+cafe&amp;tbm=isch&gt;<br />* Yamaha XSR900: &lt;https://www.google.com/search?q=yamaha+xsr900&amp;tbm=isch&gt;<br />* BMW R nineT Racer: &lt;https://www.google.com/search?q=bmw+r+ninet+racer&amp;tbm=isch&gt;<br />1. Electric Bike:<br />* Harley-Davidson LiveWire: &lt;https://www.google.com/search?q=harley+davidson+liverwire&amp;tbm=isch&gt;<br />* Zero SR/F: &lt;https://www.google.com/search?q=zero+sr%2Ff&amp;tbm=isch&gt;<br />* Energica Ego: &lt;https://www.google.com/search?q=energica+ego&amp;tbm=isch&gt;<br />* Lightning LS-218: &lt;https://www.google.com/search?q=lightning+ls-218&amp;tbm=isch&gt;<br />* Damon Hypersport Pro: &lt;https://www.google.com/search?q=damon+hypersport+pro&amp;tbm=isch&gt;<br /><br />I hope this covers all the bike categories and examples you were looking for.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>58ef5080</code></strong>
         <span class="small">2023/05/25 (Thu) 07:09</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m trying to get organized with my social calendar. Can you remind me what&#39;s coming up next weekend?</div>
       </div><div class="turn">
@@ -1454,15 +1648,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I&#39;m happy to help! However, I&#39;m a large language model, I don&#39;t have real-time information about specific museums or their exhibits. I don&#39;t know the exact details about the Natural History Museum&#39;s new exhibit on ancient civilizations, including its opening date or status.<br /><br />But I can suggest a few ways for you to find out more information about the exhibit:<br /><br />1. Check the museum&#39;s website: Visit the Natural History Museum&#39;s official website to see their current and upcoming exhibitions, including the one on ancient civilizations.<br />2. Social media: Follow the museum on social media platforms like Facebook, Twitter, or Instagram to stay updated on new exhibits, events, and announcements.<br />3. Contact the museum: Reach out to the museum directly via phone or email to ask about the exhibit&#39;s status and opening date.<br />4. Local event calendars: Look for local event calendars, newspapers, or cultural publications that often feature articles and announcements about museum exhibits.<br /><br />I hope these suggestions help you find the information you&#39;re looking for!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_476942</code></strong>
         <span class="small">2023/05/26 (Fri) 01:04</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">How has the education system in Japan changed over the past century, and what challenges does it face today?</div>
       </div><div class="turn">
@@ -1505,15 +1703,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, the pressure on students to perform well academically in Japan&#39;s education system is a real concern. While there are initiatives being taken to promote a more balanced and supportive environment for students, it will take time and effort to ensure that these changes are implemented effectively and with positive outcomes for students&#39; mental and emotional well-being.<br /><br />It is essential to recognize that student success does not solely rest on academic achievement but is a combination of academic, social, and emotional growth. Therefore, promoting overall student well-being should be at the forefront of education policy and practice.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>34deeb0c_2</code></strong>
         <span class="small">2023/05/26 (Fri) 11:42</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m thinking of planning a post-wedding trip with my family after my sister&#39;s wedding in June. Can you suggest some popular destinations for a week-long trip? By the way, I just got back from a great run and I&#39;m still on a high from completing my half-marathon on April 10th, so I&#39;m thinking of a relaxing getaway.</div>
       </div><div class="turn">
@@ -1550,15 +1752,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Thank you for your enthusiasm! I&#39;m actually an AI, so I don&#39;t have personal experiences or preferences, but I&#39;m happy to help you plan your trip to Waikiki!<br /><br />To assist you better, could you please provide some more information about your preferences? Here are some questions to consider:<br /><br />1. What is your budget for accommodations per night?<br />2. Are you looking for a hotel, resort, or vacation rental?<br />3. How many rooms do you need, and what type of bedding configuration do you prefer?<br />4. What are your must-haves in terms of amenities (e.g., pool, beach access, free breakfast, gym, etc.)?<br />5. Are you interested in staying in a specific area of Waikiki, such as near the beach, close to restaurants, or within walking distance to attractions?<br />6. What type of activities are you and your family interested in? (Check all that apply)<br />	* Beach time and relaxation<br />	* Outdoor adventures (e.g., hiking, snorkeling, surfing)<br />	* Cultural experiences (e.g., visiting museums, attending luaus, learning about Hawaiian history)<br />	* Foodie activities (e.g., cooking classes, restaurant hopping, visiting farmers&#39; markets)<br />	* Other (please specify)<br />7. Are there any specific attractions or experiences you want to prioritize during your trip?<br />8. Do you have any particular dates in mind for your trip, or are you flexible with your travel dates?<br /><br />Once I have a better understanding of your preferences, I can provide more tailored recommendations for accommodations and activities in Waikiki!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>96eac086</code></strong>
         <span class="small">2023/05/26 (Fri) 14:49</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m trying to plan a get-together with my friends this weekend. Do you have any recommendations for a good brunch spot?</div>
       </div><div class="turn">
@@ -1595,15 +1801,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">That&#39;s a great idea! A group text is a quick and easy way to invite your friends and get a sense of who&#39;s available. Your suggested message is perfect - it&#39;s casual, concise, and gets the point across. You&#39;re not overwhelming them with too many details, and you&#39;re giving them the freedom to RSVP or ask questions if they need to.<br /><br />By keeping it simple, you&#39;re also making it easy for your friends to respond with a quick &quot;yes&quot; or &quot;no&quot;, which makes it easy for you to get a headcount and make a reservation.<br /><br />I think you&#39;ve got a great plan in place! Just send out that text and see who&#39;s in. Fingers crossed that everyone can make it and you have a fantastic time catching up over brunch!<br /><br />Is there anything else you&#39;re looking forward to doing or talking about with your friends during brunch?</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>9a59023e_1</code></strong>
         <span class="small">2023/05/26 (Fri) 23:04</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m thinking of expanding my handmade jewelry line to include some new summer-themed pieces. Can you suggest some popular summer-inspired jewelry designs or trends that I could incorporate into my collection? By the way, I just helped my friend Emma with her organic produce stall at the Farmers&#39; Market at the community center last weekend, and it was great to see how well her business is doing.</div>
       </div><div class="turn">
@@ -1640,30 +1850,38 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">What a great idea! Adding a small piece of sea glass or a tiny starfish can add an extra layer of interest and texture to your pendant.<br /><br />**Incorporating Sea Glass:**<br /><br />1. **Wire wrapping**: Use a thin wire (like copper or aluminum) to wrap around the sea glass, creating a small loop at the top. Then, attach the wire-wrapped sea glass to the driftwood or shell using a jump ring or a small piece of wire.<br />2. **Adhesive**: Apply a small amount of jeweler&#39;s adhesive (like GS Hypo Cement or Devcon 5-Minute Epoxy) to the back of the sea glass and attach it to the driftwood or shell. Hold the sea glass in place for a few seconds to ensure it adheres properly.<br /><br />**Incorporating a Tiny Starfish:**<br /><br />1. **Wire wrapping**: Use a thin wire (like copper or aluminum) to wrap around the starfish, creating a small loop at the top. Then, attach the wire-wrapped starfish to the driftwood or shell using a jump ring or a small piece of wire.<br />2. **Adhesive**: Apply a small amount of jeweler&#39;s adhesive (like GS Hypo Cement or Devcon 5-Minute Epoxy) to the back of the starfish and attach it to the driftwood or shell. Hold the starfish in place for a few seconds to ensure it adheres properly.<br /><br />**Tips for Adding Multiple Elements:**<br /><br />1. **Balance the design**: Make sure the additional elements don&#39;t overpower the main shell and driftwood design. Balance the sizes and textures to create a harmonious look.<br />2. **Consider the weight**: Add the lightest elements first, like the sea glass or starfish, to avoid adding too much weight to the pendant.<br />3. **Use a strong adhesive**: Choose a strong adhesive that can hold the weight of the additional elements and ensure they stay securely attached.<br />4. **Experiment with placement**: Play around with the placement of the additional elements to find a visually appealing arrangement.<br /><br />**Wire Wrapping Techniques:**<br /><br />1. **Simple loop**: Create a simple loop at the top of the wire-wrapped element to attach it to the driftwood or shell.<br />2. **Wrapped loop**: Wrap the wire around the element multiple times to create a more secure attachment.<br />3. **Coiled wire**: Coil the wire around the element to create a decorative, textured look.<br /><br />By incorporating these additional elements, you can add more interest and depth to your pendant design. Just remember to balance the design, choose the right adhesive or wire wrapping technique, and have fun experimenting with different arrangements!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_FwEvEty_0</code></strong>
         <span class="small">2023/05/27 (Sat) 00:32</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Can the word momentous be applied to something like an iconic dress from an old television show? Like &quot;the actress extolled the momentous gown which was custom made foe the season finale&quot;</div>
       </div><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, the word &quot;momentous&quot; can be applied to something like an iconic dress from an old television show. The word &quot;momentous&quot; means &quot;having great significance or importance,&quot; so it could certainly be used to describe a dress that holds a lot of meaning or significance to fans of the show.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>b015c3c3_1</code></strong>
         <span class="small">2023/05/27 (Sat) 06:45</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m struggling to get a good night&#39;s sleep and I&#39;m feeling really drained. I&#39;ve been waking up in the middle of the night with racing thoughts and dread. Do you have any tips on how to calm my mind before bed? By the way, I&#39;ve been going through a tough time lately, had a big fight with my best friend six weeks ago and we haven&#39;t spoken since, it&#39;s been weighing on my mind.</div>
       </div><div class="turn">
@@ -1700,15 +1918,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">My friend, that&#39;s a wonderful realization! Practicing self-compassion is a powerful way to cultivate a more positive and supportive relationship with yourself. It&#39;s essential to recognize that you&#39;re doing the best you can, and that&#39;s something to be proud of.<br /><br />Here&#39;s a gentle reminder: you&#39;re not alone in this struggle. Many people struggle with self-compassion, especially when it comes to perceived mistakes or setbacks. But the good news is that self-compassion is a skill that can be developed with practice, patience, and kindness.<br /><br />Remember, self-compassion is not about:<br /><br />* Avoiding responsibility for your actions<br />* Making excuses for yourself<br />* Being self-indulgent or selfish<br /><br />It&#39;s about:<br /><br />* Treating yourself with kindness and understanding<br />* Acknowledging your humanity and imperfections<br />* Practicing forgiveness and acceptance<br /><br />As you work on developing self-compassion, keep in mind that it&#39;s a journey, not a destination. Be gentle with yourself, and remember that it&#39;s okay to take things one step at a time.<br /><br />Here&#39;s a simple exercise to get you started:<br /><br />**Self-Compassion Break**<br /><br />Take a few deep breaths, and place one hand on your heart and the other on your belly. Feel the gentle pressure of your hands, and allow yourself to relax.<br /><br /> Repeat the following phrases to yourself, slowly and with kindness:<br /><br />* &quot;I am doing the best I can.&quot;<br />* &quot;I am worthy of love, care, and compassion.&quot;<br />* &quot;I am strong and resilient.&quot;<br />* &quot;I can learn and grow from my mistakes.&quot;<br />* &quot;I am enough, just as I am.&quot;<br /><br />Remember, my friend, you are capable of cultivating self-compassion and kindness towards yourself. It may take time, but with consistent practice, you&#39;ll become more gentle, supportive, and understanding towards yourself.<br /><br />Keep in mind that you&#39;re not alone in this journey. I&#39;m here to support and guide you, and there are many resources available to help you develop self-compassion.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_FvO2l0O_0</code></strong>
         <span class="small">2023/05/27 (Sat) 07:56</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">write a product description for a pickleball paddle with a lightning bolt design</div>
       </div><div class="turn">
@@ -1793,15 +2015,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Make a bold statement on the court with The Pinky Retro Lightning Bolt Pickleball Paddle. This paddle is the perfect combination of vintage charm and modern performance. The eye-catching pink lightning bolt design is sure to turn heads, while the high-quality surface provides excellent control and consistent play, allowing you to deliver accurate shots with ease. The lightweight design makes it easy to handle and maneuver, making it suitable for players of all skill levels. Whether you&#39;re looking for a paddle that makes a statement or just want a stylish and functional tool for your pickleball games, The Pinky Retro Lightning Bolt Pickleball Paddle is the perfect choice.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_188085</code></strong>
         <span class="small">2023/05/27 (Sat) 11:55</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Can you provide some insight into the album&#39;s artwork and how it relates to the music?</div>
       </div><div class="turn">
@@ -1832,15 +2058,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, the artwork for Beach House&#39;s album &quot;7&quot; is definitely surreal and beautiful. The cover features a painting by artist and designer by Kyle Bobby Dunn, which is called &quot;Self-Portrait&quot;. The image depicts a woman&#39;s face, but with a surreal and abstract twist - the eyes are missing and the face appears to be melting or dissolving into abstract patterns and colors.<br /><br />The artwork reflects the album&#39;s sound, which is characterized by lush, dreamy, and experimental soundscapes. The image has a timeless quality and seems to capture the essence of the band&#39;s music, which is both ethereal and grounded in reality. Overall, the album artwork contributes to the overall experience of the album, adding a layer of visual beauty and complexity to the music.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_26238</code></strong>
         <span class="small">2023/05/27 (Sat) 15:35</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What are some examples of augmented reality technology being implemented in healthcare facilities?</div>
       </div><div class="turn">
@@ -1877,15 +2107,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">As an AI language model, I believe that as technology continues to evolve and become more ubiquitous, we can expect to see more affordable and accessible healthcare technology solutions in the future. However, it is worth noting that some of these technologies, particularly those that are still in the early stages of development, may be more expensive or limited in availability. <br /><br />With that being said, there are many efforts underway to make healthcare technology more affordable and accessible to patients, particularly in developing countries where access to advanced healthcare technology is limited. These efforts include public-private partnerships, technology transfer programs, and initiatives to increase healthcare access in underserved rural and urban areas. As the healthcare industry continues to strive for greater accessibility and affordability, we can expect to see more progress towards these goals in the coming years.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>09b651aa_3</code></strong>
         <span class="small">2023/05/27 (Sat) 16:39</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for a recipe for a chocolate cake with nuts, similar to the one I made for my sister&#39;s birthday party on February 10th. Do you have any recommendations? By the way, speaking of baking, I&#39;ve been experimenting with gluten-free flours and had some success with a gluten-free banana bread on January 15th using almond flour and coconut flour.</div>
       </div><div class="turn">
@@ -1922,15 +2156,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">But as a digital AI assistant, I don&#39;t have personal experiences, memories, or the ability to bake or make recipes. I don&#39;t have a physical body, and I don&#39;t have the capability to engage in cooking or baking activities.<br /><br />I&#39;m here to provide information, answer questions, and assist with tasks to the best of my abilities based on my training data. I don&#39;t have personal experiences or memories, so I didn&#39;t make a gluten-free banana bread on January 15th or any other day.<br /><br />However, I can provide general information about gluten-free baking and banana bread recipes. Gluten-free banana bread can have a different texture compared to traditional banana bread, often due to the type of gluten-free flours used. Some gluten-free flours can result in a denser or heavier texture, while others can produce a lighter, more tender crumb.<br /><br />If you&#39;re interested in learning more about gluten-free baking or have questions about a specific recipe, feel free to ask, and I&#39;ll do my best to help!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>67045503</code></strong>
         <span class="small">2023/05/28 (Sun) 09:35</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some gift ideas for my mom&#39;s birthday, which is coming up soon. Do you have any suggestions for a good gift that won&#39;t break the bank?</div>
       </div><div class="turn">
@@ -1967,30 +2205,38 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">You&#39;re welcome! It was my pleasure to help. I hope your mom loves the personalized photo album and that it becomes a treasured keepsake for years to come. Don&#39;t hesitate to reach out if you need any more ideas or advice.<br /><br />Remember, the most important thing is to show your mom how much you care and appreciate her. The thought and effort you&#39;re putting into this gift will surely mean the world to her.<br /><br />Good luck with the surprise, and I hope you have a wonderful time celebrating your mom&#39;s birthday!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_i4EFOzF_0</code></strong>
         <span class="small">2023/05/28 (Sun) 20:12</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">difference between DLT and blockchain</div>
       </div><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">Distributed Ledger Technology (DLT) is a type of database that is distributed across a network of computers. It allows multiple parties to record and verify transactions without the need for a central authority. DLT can be used to create a variety of applications, including supply chain management, financial transactions, and voting systems.<br /><br />Blockchain is a specific type of DLT that is best known for its use in the Bitcoin cryptocurrency. In a blockchain, transactions are recorded in blocks and added to a chain of blocks in a linear, chronological order. Each block contains a cryptographic hash of the previous block, which links the blocks together and makes it difficult to alter the transaction data. The decentralized nature of blockchain technology makes it resistant to tampering and censorship.<br /><br />In summary, all blockchains are DLTs, but not all DLTs are blockchains.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_PCqCVmR_18</code></strong>
         <span class="small">2023/05/28 (Sun) 20:48</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">A student&#39;s day in Tokyo:<br /><br />&quot;Starting the day with a view of Tokyo Tower! Ready to tackle whatever comes my way. #StudentLife #Tokyo&quot;<br />&quot;Trying new Japanese food is one of the best parts of studying abroad! This bento box was amazing. #Foodie #StudyAbroad&quot;<br />&quot;Springtime in Japan means cherry blossoms! So grateful for the beauty around me. #NatureLover #Sakura&quot;<br />&quot;Nothing brings people together like karaoke! So glad to have made such great friends here in Tokyo. #MakingMemories #GoodTimes&quot;<br /><br />An artist&#39;s day in Paris:<br /><br />&quot;Work in progress! Can&#39;t wait to see where this piece takes me. #ArtLife #CreativeProcess&quot;<br />&quot;Networking with fellow artists is one of the best ways to grow as a creative. So inspired by all the talent here in Paris. #ArtCommunity #Collaboration&quot;<br />&quot;There&#39;s nothing like the magic of Paris. The Eiffel Tower takes my breath away every time. #CityOfLove #IconicLandmarks&quot;<br />&quot;French food is always a good idea, especially when it comes with a view like this. #BonAppetit #ParisianCuisine&quot;<br /><br />An outdoor enthusiast&#39;s day in Vancouver:<br /><br />&quot;Feeling on top of the world! The views from this mountain summit are incredible. #HikingAdventures #NatureLover&quot;<br />&quot;Discovering hidden gems like this waterfall is one of the best parts of exploring Vancouver&#39;s outdoors. #GetOutside #NatureIsAwesome&quot;<br />&quot;Trying new outdoor activities is such a rush! Kayaking through these rapids was a challenge, but so worth it. #AdventureSeeker #PushingMyLimits&quot;<br />&quot;Nothing beats spending time in nature with good friends. So grateful for these amazing people and this beautiful place. #FriendsAndNature #PicnicGoals&quot;<br /><br />Generate 5 more like above?</div>
       </div><div class="turn">
@@ -2015,15 +2261,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Sure! Here are the five new scenarios with their corresponding photos and captions:<br /><br />1. A photo of you holding a colorful smoothie bowl with fruit and granola toppings.<br />Caption: &quot;Starting my day with a burst of color and flavor 🍓 #smoothiebowl #healthybreakfast #foodie&quot;<br />2. A photo of you in front of a colorful graffiti mural in the city.<br />Caption: &quot;Exploring the city one colorful corner at a time 🎨 #streetart #cityvibes #urbanexplorer&quot;<br />3. A photo of you lounging in a hammock, with a book in hand and a refreshing drink nearby.<br />Caption: &quot;Taking some me-time to relax and recharge 🌴 #hammocklife #summerreads #selfcare&quot;<br />4. A photo of you in a cozy sweater, holding a hot beverage, and enjoying the fall foliage.<br />Caption: &quot;Autumn coziness is in full swing 🍁 #sweaterweather #fallfoliage #pumpkinspiceeverything&quot;<br />5. A photo of you posing with a cute dog in a park.<br />Caption: &quot;Puppy love always brightens my day 🐾 #dogsofinstagram #parkday #animallover&quot;</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_115392</code></strong>
         <span class="small">2023/05/29 (Mon) 00:32</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Can you suggest some unique cooking techniques used in traditional Ethiopian cuisine?</div>
       </div><div class="turn">
@@ -2066,30 +2316,38 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, here is a simple recipe for making traditional Ethiopian shai tea at home:<br /><br />Ingredients:<br /><br />- 4 cups of water<br />- 6-8 tea bags or 1-2 tablespoons loose-leaf black tea<br />- 2 cinnamon sticks<br />- 1 piece of fresh ginger (peeled and sliced)<br />- 3-4 cloves<br />- Honey or sugar (optional)<br />- Milk (optional)<br /><br />Instructions:<br /><br />1. In a large pot, bring water to a boil. 2. Add the tea bags or loose-leaf tea, cinnamon sticks, fresh ginger slices, and cloves to the water. 3. Reduce the heat and let the tea simmer for 10-15 minutes, until the flavors have infused. 4. Remove the pot from heat and strain the tea through a fine mesh strainer to remove the solids. 5. Taste the tea and add honey or sugar to sweeten, if desired. 6. Serve the shai tea hot and plain or with milk. Note: This recipe can be adjusted to taste. You can add more or less of the spices and adjust the sweetness to your preference.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_B2LDpXy_0</code></strong>
         <span class="small">2023/05/29 (Mon) 09:29</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">why is alcohol the only drink people binge on?</div>
       </div><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">There are several reasons why alcohol is more commonly consumed in large quantities or &quot;binged&quot; on than other types of beverages. One reason is that alcohol is a central nervous system depressant, which means that it can produce feelings of relaxation and reduced inhibitions in small amounts. However, as people consume more and more alcohol, these effects can become more pronounced, leading to impaired judgment, coordination, and decision-making. This can make it more likely for people to continue drinking to excess.<br /><br />Another factor that may contribute to binge drinking is the social and cultural norms surrounding alcohol consumption. In many societies, alcohol is a widely available and socially accepted substance that is often consumed in social settings. This can make it easier for people to drink to excess, especially if they are influenced by peer pressure or trying to fit in with a certain social group.<br /><br />It is also worth noting that other substances, such as drugs, can also be consumed in large quantities or &quot;binged&quot; on. However, alcohol is one of the most widely used and socially accepted substances, which may explain why it is more commonly associated with binge drinking.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_416769</code></strong>
         <span class="small">2023/05/29 (Mon) 11:26</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Can you describe the political commentary present in George Orwell&#39;s novel 1984?</div>
       </div><div class="turn">
@@ -2120,15 +2378,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, it&#39;s important to appreciate the freedoms and protections we have in our respective countries, and it&#39;s essential to hold our governments accountable for any abuses of power. The exercise of power can be a complex and delicate matter that must be continuously monitored to ensure that it&#39;s being used to promote justice, equality, and human dignity. Ultimately, the strength of a society lies in its ability to maintain a balance of power that enables individuals to thrive and fulfill their aspirations without fear of oppression, persecution, or harm.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>b10dce5e</code></strong>
         <span class="small">2023/05/29 (Mon) 15:04</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some advice on the best way to organize my tech accessories, like my new portable power bank and wireless charging pad, when I&#39;m traveling.</div>
       </div><div class="turn">
@@ -2189,30 +2451,38 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">The LG OLED C9 series offers an impressive audio experience, with several features that can enhance your viewing pleasure. Here are some details about the audio features of the LG OLED C9 series:<br /><br />**Dolby Atmos Support:**<br /><br />1. **Object-based audio:** Dolby Atmos is an object-based audio technology that allows sound designers to pinpoint specific sounds to individual objects within a scene. This creates a more immersive audio experience, with sounds coming from all directions, including overhead.<br />2. **Height channels:** The LG OLED C9 series supports Dolby Atmos with height channels, which means you&#39;ll get a more realistic and three-dimensional soundfield.<br />3. **Compatibility:** The TV is compatible with Dolby Atmos content from various sources, including streaming services, 4K UHD Blu-ray discs, and game consoles.<br /><br />**Speaker System:**<br /><br />1. **2.2 channel system:** The LG OLED C9 series features a 2.2 channel speaker system, which means it has two woofers and two tweeters.<br />2. **40W total power:** The speaker system has a total power output of 40W, which is sufficient for a decent audio experience.<br />3. **Down-firing speakers:** The speakers are down-firing, which means they&#39;re directed downwards to reduce reflections and improve sound quality.<br /><br />**Other Audio Enhancements:**<br /><br />1. **LG&#39;s α (Alpha) 9 Gen 2 processor:** The TV&#39;s processor is responsible for audio processing, and it uses advanced algorithms to optimize the audio experience.<br />2. **AI-powered audio enhancement:** The TV&#39;s AI-powered audio enhancement feature uses machine learning to analyze the audio content and optimize it for the best possible sound quality.<br />3. **Dialogue enhancement:** The TV&#39;s dialogue enhancement feature uses AI-powered algorithms to improve dialogue clarity and intelligibility, making it easier to hear what&#39;s being said.<br />4. **Sound mode options:** The TV offers several sound mode options, including Standard, Cinema, Sport, Music, and Game, which allow you to customize the audio experience to your preferences.<br />5. **Wireless audio streaming:** The TV supports wireless audio streaming via Bluetooth, making it easy to connect to external speakers or headphones.<br /><br />**Additional Audio Features:**<br /><br />1. **DTS:X support:** The TV also supports DTS:X, another object-based audio technology that offers a similar immersive audio experience to Dolby Atmos.<br />2. **Hi-Res audio support:** The TV supports Hi-Res audio formats, including FLAC, WAV, and ALAC, which offer higher sound quality than standard audio formats.<br />3. **Audio Return Channel (ARC):** The TV supports ARC, which allows you to send audio signals from the TV to an external audio device, such as a soundbar or receiver, via HDMI.<br /><br />Overall, the LG OLED C9 series offers an impressive audio experience, with support for Dolby Atmos, a decent speaker system, and several audio enhancements that can improve the overall sound quality.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_47VluYz_0</code></strong>
         <span class="small">2023/05/29 (Mon) 17:06</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">*This conversation is shared from [**ChatHub**](https://chathub.gg)*</div>
       </div><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">你是谁</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_436464</code></strong>
         <span class="small">2023/05/29 (Mon) 20:58</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What are the key initiatives taken by World Health Organization (WHO) to improve public health across the globe?</div>
       </div><div class="turn">
@@ -2237,15 +2507,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, absolutely. Here are some of the key initiatives by WHO to improve maternal and child health in developing countries:<br /><br />1. Integrated Management of Childhood Illness (IMCI): This is an initiative that aims to improve the quality of care for sick children under five years of age, particularly in developing countries. The IMCI strategy includes a package of interventions to prevent, diagnose, and treat the most common childhood illnesses, such as malaria, pneumonia, and malnutrition.<br /><br />2. Safe Motherhood Initiative: This initiative aims to reduce maternal morbidity and mortality by promoting access to quality maternal health services, including antenatal care, skilled birth attendants, emergency obstetric care, and family planning.<br /><br />3. Breastfeeding: WHO recommends exclusive breastfeeding for the first six months of life, followed by continued breastfeeding along with the introduction of complementary foods up to two years of age and beyond. Through its Baby-friendly Hospital Initiative and Global Strategy for Infant and Young Child Feeding, WHO has worked to promote and support optimal breastfeeding practices worldwide.<br /><br />4. Vaccination: Vaccination is a critical intervention to protect children from preventable diseases such as measles, polio, and pneumococcal disease. WHO works to ensure that children in developing countries have access to life-saving vaccines through initiatives such as the Expanded Programme on Immunization (EPI).<br /><br />5. Accelerated Action for the Health of Adolescents (AA-HA!): This initiative aims to promote the health and well-being of adolescents, particularly in developing countries. AA-HA! focuses on areas such as creating supportive environments, improving access to health services, and promoting gender equality.<br /><br />Overall, these initiatives by the WHO have played a critical role in improving maternal and child health in developing countries, promoting access to essential health services, and reducing mortality and morbidity rates.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>43df393f</code></strong>
         <span class="small">2023/05/30 (Tue) 05:00</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;ve been trying to be more mindful of my screen time lately, and I was wondering if you could recommend some apps that can help me track my social media usage more effectively.</div>
       </div><div class="turn">
@@ -2282,15 +2556,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">That&#39;s a great approach! Setting a specific time to check the news can help you stay informed without feeling overwhelmed or anxious. By dedicating a specific time to news-checking, you can:<br /><br />1. **Stay focused**: Give your full attention to the news without distractions.<br />2. **Reduce anxiety**: Avoid feeling like you&#39;re missing important updates or breaking news.<br />3. **Establish a routine**: Make news-checking a habit, which can help you stay consistent and informed.<br /><br />And, as you mentioned, having the flexibility to check in whenever you feel like it can be helpful if you need to catch up on something specific.<br /><br />**Remember, it&#39;s all about finding a balance**: You want to stay informed, but you also want to prioritize your mental health and well-being. By setting a specific time to check the news, you&#39;re taking control of your news consumption and creating a healthier relationship with the news.<br /><br />If you have any more questions or need further guidance, feel free to ask. Otherwise, I wish you all the best in your news-checking journey!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>2ae4f277_1</code></strong>
         <span class="small">2023/05/30 (Tue) 13:29</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m trying to get a better handle on my daily routine. Can you help me set up a schedule that takes into account my morning meetings on Mondays and Thursdays at 9:00 am?</div>
       </div><div class="turn">
@@ -2327,15 +2605,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Let&#39;s adjust your bedtime routine to start a bit earlier, aiming to be in bed by 11:00 pm on most nights.<br /><br />**Revised Sample Schedule**<br /><br />**Mondays and Thursdays**<br /><br />* 6:45 am - 7:30 am: Morning routine (get ready for the day, meditate, etc.)<br />* 7:30 am - 8:15 am: Get ready to leave the house (pack any necessary items, grab your breakfast to-go)<br />* 8:15 am: Leave the house and head to your 9:00 am meeting<br />* 9:00 am - 10:00 am: Morning meeting<br />* 10:00 am - 12:00 pm: Work/productivity time<br />* 12:00 pm - 1:00 pm: Lunch break<br />* 1:00 pm - 5:00 pm: Afternoon work/productivity time<br />* 5:00 pm - 6:00 pm: Personal time (relax, take a walk, etc.)<br />* 6:30 pm - 7:30 pm: Workout<br />* 7:30 pm - 8:30 pm: Dinner<br />* 8:30 pm - 9:30 pm: TV/streaming time (relax and unwind)<br />* 9:30 pm - 10:30 pm: Begin winding down for the night (e.g., take a warm bath, practice gentle stretches)<br />* 10:30 pm - 11:00 pm: Prepare for bed (brush teeth, change into PJs, etc.)<br />* 11:00 pm: Sleep<br /><br />**Tuesdays, Wednesdays, and Fridays**<br /><br />* 7:00 am - 8:00 am: Morning routine (exercise, meditate, etc.)<br />* 8:00 am - 8:15 am: Breakfast (oatmeal with fruit)<br />* 8:15 am - 12:00 pm: Work/productivity time<br />* 12:00 pm - 1:00 pm: Lunch break<br />* 1:00 pm - 5:00 pm: Afternoon work/productivity time<br />* 5:00 pm - 6:00 pm: Personal time (relax, take a walk, etc.)<br />* 6:30 pm - 7:30 pm: Workout<br />* 7:30 pm - 8:30 pm: Dinner<br />* 8:30 pm - 9:30 pm: TV/streaming time (relax and unwind)<br />* 9:30 pm - 10:30 pm: Begin winding down for the night (e.g., take a warm bath, practice gentle stretches)<br />* 10:30 pm - 11:00 pm: Prepare for bed (brush teeth, change into PJs, etc.)<br />* 11:00 pm: Sleep<br /><br />**Sundays**<br /><br />* 7:00 am - 8:00 am: Morning routine (relax, meditate, etc.)<br />* 8:00 am - 8:15 am: Breakfast (oatmeal with fruit)<br />* 8:15 am - 12:00 pm: Personal time (relax, read, etc.)<br />* 12:00 pm - 1:00 pm: Lunch break<br />* 1:00 pm - 5:00 pm: Personal time (relax, take a walk, etc.)<br />* 8:00 pm - 9:00 pm: Relaxing walk<br />* 9:00 pm - 10:00 pm: TV/streaming time (relax and unwind)<br />* 10:00 pm - 10:30 pm: Begin winding down for the night (e.g., take a warm bath, practice gentle stretches)<br />* 10:30 pm - 11:00 pm: Prepare for bed (brush teeth, change into</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>5832a64a</code></strong>
         <span class="small">2023/05/30 (Tue) 21:45</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some online courses on agile project management to further improve my skills. Can you suggest some good options?</div>
       </div><div class="turn">
@@ -2372,7 +2654,8 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">The case studies in the Design Thinking Specialization by University of Virginia on Coursera are an excellent way to apply design thinking principles to real-world scenarios. Here&#39;s what you can expect:<br /><br />**What are Case Studies?**<br /><br />Case studies are in-depth examinations of real-world design challenges or opportunities. They&#39;re used to help you develop your design thinking skills by applying the principles and methods you&#39;ve learned to a specific problem or scenario.<br /><br />**Types of Case Studies:**<br /><br />In the Design Thinking Specialization, you&#39;ll encounter various types of case studies, including:<br /><br />1. **Business Case Studies:** You&#39;ll analyze real-world business challenges and develop design thinking-based solutions to improve products, services, or processes.<br />2. **Social Impact Case Studies:** You&#39;ll work on case studies that focus on social impact, such as improving healthcare, education, or environmental sustainability.<br />3. **Product Design Case Studies:** You&#39;ll develop design thinking-based solutions for product design challenges, such as designing a new product or improving an existing one.<br /><br />**How Case Studies Work:**<br /><br />Here&#39;s an overview of how case studies work in the Design Thinking Specialization:<br /><br />1. **Case Study Presentation:** You&#39;ll be presented with a case study, which will include background information, context, and challenges.<br />2. **Analysis:** You&#39;ll analyze the case study, identifying key stakeholders, needs, and opportunities for improvement.<br />3. **Design Thinking Application:** You&#39;ll apply design thinking principles and methods to develop a solution to the case study challenge.<br />4. **Peer Review:** You&#39;ll submit your solution for peer review, and receive feedback from others on your work.<br /><br />**How Case Studies Help Develop Design Thinking Skills:**<br /><br />Case studies are an excellent way to develop your design thinking skills in several ways:<br /><br />1. **Practical Application:** Case studies provide an opportunity to apply design thinking principles and methods to real-world scenarios.<br />2. **Critical Thinking:** You&#39;ll develop your critical thinking skills by analyzing complex problems and identifying creative solutions.<br />3. **Empathy:** You&#39;ll practice empathy by understanding the needs and perspectives of various stakeholders.<br />4. **Creativity:** You&#39;ll develop your creative skills by generating innovative solutions to complex challenges.<br />5. **Communication:** You&#39;ll practice communicating your ideas and solutions effectively, both verbally and in writing.<br /><br />**Tips for Success:**<br /><br />1. **Take your time:** Don&#39;t rush through the case study. Take your time to thoroughly analyze the problem and develop a well-thought-out solution.<br />2. **Be creative:** Don&#39;t be afraid to think outside the box and come up with innovative solutions.<br />3. **Focus on the user:** Remember to keep the user&#39;s needs and perspectives at the forefront of your solution.<br />4. **Learn from feedback:** Use the feedback you receive from peers to improve your solution and develop your design thinking skills.<br /><br />By working on case studies, you&#39;ll develop your design thinking skills, gain confidence in your ability to tackle complex challenges, and become a more effective problem-solver.</div>
       </div></div>
-  </details></div>
+    </details>
+  </div></div>
                     </details>
     </div>
   </div>

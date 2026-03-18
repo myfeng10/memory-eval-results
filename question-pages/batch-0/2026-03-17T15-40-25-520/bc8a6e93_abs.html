@@ -105,7 +105,7 @@
       border: 1px solid var(--line);
       border-radius: 14px;
       background: #fff;
-      padding: 0 14px 14px;
+      padding: 14px;
     }
     .priority-session {
       border-width: 2px;
@@ -115,21 +115,17 @@
     .secondary-session {
       opacity: 0.9;
     }
-    .session-card summary {
-      list-style: none;
-      cursor: pointer;
+    .session-card-header {
       display: flex;
       justify-content: space-between;
       gap: 12px;
       align-items: center;
-      padding: 14px 0;
-    }
-    .session-card summary::-webkit-details-marker {
-      display: none;
+      margin-bottom: 12px;
     }
     .session-turns {
       display: grid;
       gap: 10px;
+      margin-top: 12px;
     }
     .turn {
       border-top: 1px solid var(--line);
@@ -146,6 +142,40 @@
       font-size: 14px;
       line-height: 1.55;
       word-break: break-word;
+    }
+    .session-memory-wrap {
+      margin-bottom: 12px;
+    }
+    .session-memory-details {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fcfaf5;
+      padding: 0 12px 12px;
+    }
+    .session-memory-details summary,
+    .session-conversation-details summary {
+      cursor: pointer;
+      padding: 12px 0;
+      font-size: 13px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .session-conversation-details {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fafaf7;
+      padding: 0 12px 12px;
+    }
+    .session-memory-list {
+      display: grid;
+      gap: 10px;
+    }
+    .extracted-memory-card {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+      padding: 12px;
     }
     .pill {
       display: inline-block;
@@ -397,15 +427,93 @@
       <h2>Question Sessions</h2>
       <p class="small">Benchmark answer sessions are shown first. Then come other retrieved sessions. Background sessions stay collapsed below.</p>
       <div class="session-subhead">Answer Sessions</div>
-             <div class="session-list"><details class="session-card priority-session">
-    <summary>
+             <div class="session-list"><div class="session-card priority-session">
+    <div class="session-card-header">
       <div>
         <strong><code>answer_e6143162_abs</code></strong>
         <span class="small">2023/05/23 (Tue) 06:24</span>
       </div>
       <div><span class="pill">ground truth</span> <span class="pill pill-answer">answer session</span> <span class="pill pill-retrieved">retrieved</span></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    <div class="session-memory-wrap"><details class="session-memory-details">
+    <summary>Extracted Memories (4)</summary>
+    <div class="session-memory-list"><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 1</strong>
+      <div>
+        <span class="pill pill-retrieved">retrieved</span>
+        <span class="small">2023-05-23T13:24:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Made a lemon blueberry cake for a niece&#39;s birthday party. Was initially nervous about the outcome, but the combination of tangy lemon and sweet blueberries resulted in a huge hit.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Made a lemon blueberry cake.<br />Cake was for a niece&#39;s birthday party.<br />Felt nervous about the cake&#39;s outcome.<br />The combination of tangy lemon and sweet blueberries was perfect.<br />The cake was a huge hit.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Niece</td>
+      </tr></tbody></table>
+  </div><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 2</strong>
+      <div>
+        
+        <span class="small">2023-05-23T13:24:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Explored effective ways to incorporate lemon zest into baking. Understood that grating it fresh, using the right amount, and pairing it with lemon juice are key for depth of flavor. Learned about mixing zest into dry ingredients, making lemon sugar, and infusing it into creamy desserts.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Explored ways to incorporate lemon zest into baking.<br />Learned to grate zest fresh using a microplane or fine grater.<br />Recommended starting with 1-2 teaspoons of grated zest per recipe.<br />Advised pairing lemon zest with lemon juice for balanced flavors.<br />Suggested mixing grated lemon zest into dry ingredients like flour, sugar, or cornmeal.<br />Noted lemon zest can be used in both sweet and savory recipes.<br />Learned about making lemon sugar by mixing zest with granulated sugar.<br />Suggested infusing lemon zest into creamy desserts like cheesecakes or puddings.<br />Recommended combining lemon zest with other citrus zests.<br />Advised steeping lemon zest in syrups and glazes.<br />Learned to store grated lemon zest in an airtight container in the fridge for up to a week or frozen for up to 3 months.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Zest</td>
+      </tr></tbody></table>
+  </div><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 3</strong>
+      <div>
+        
+        <span class="small">2023-05-23T13:24:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Investigated the best type of flour for lemon-based desserts, specifically for cakes and tart crusts. Concluded that all-purpose flour is generally preferred over bread flour due to its lower protein content, which results in a more tender and delicate texture suitable for these desserts. Considered other options like cake flour and pastry flour for even more delicate results.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Investigated the best type of flour for lemon-based desserts.<br />Compared bread flour and all-purpose flour for lemon cakes and tart crusts.<br />Bread flour has a higher protein content (12-14%) leading to a chewier, denser texture.<br />All-purpose flour has a lower protein content (10-12%) resulting in a tender, delicate texture.<br />All-purpose flour is recommended for lemon cakes and tart crusts for a tender crumb and flaky crust.<br />Noted that bread flour can be used but may result in a denser, chewier texture.<br />Considered cake flour for delicate, tender cakes and pastries due to its even lower protein content.<br />Considered pastry flour as an option with a protein content between all-purpose and bread flour.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Flour</td>
+      </tr></tbody></table>
+  </div><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 4</strong>
+      <div>
+        
+        <span class="small">2023-05-23T13:24:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Successfully used a combination of granulated sugar and honey in lemon curd, which turned out very well. Found that honey adds a rich, caramel-like flavor that complements the brightness of lemon and helps balance the dessert&#39;s flavor and texture when combined with other sweeteners.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Made lemon curd using a combination of granulated sugar and honey.<br />The lemon curd turned out very well.<br />Found that honey adds a rich, caramel-like flavor.<br />The honey&#39;s flavor pairs well with the brightness of lemon.<br />Using honey in combination with other sweeteners helps balance the dessert&#39;s flavor and texture.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Honey</td>
+      </tr></tbody></table>
+  </div></div>
+  </details></div>
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m thinking of making some lemon-based desserts for an upcoming dinner party. Do you have any recommendations for a good lemon curd recipe or any tips on using it as a filling for cakes and tarts?</div>
       </div><div class="turn">
@@ -442,17 +550,21 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I couldn&#39;t agree more! The combination of honey and lemon is a match made in heaven, and it&#39;s great that you&#39;ve found a balance that works for you. The rich, caramel-like flavor of the honey does indeed pair beautifully with the brightness of the lemon, creating a lovely harmony of flavors.<br /><br />Using honey in combination with other sweeteners is also a great approach, as it allows you to balance out the flavor and texture of the dessert. Granulated sugar, in particular, can help to counterbalance the strong flavor of the honey and add a bit of crunch to the texture.<br /><br />I think it&#39;s also worth noting that the type of honey you use can make a big difference in the flavor profile of your dessert. Different types of honey, like clover, manuka, or acacia, have unique flavor profiles that can enhance or change the flavor of your dessert. For example, a lighter honey like clover might be a good choice if you want a more subtle honey flavor, while a stronger honey like manuka might be better suited if you want a more robust flavor.<br /><br />Have you experimented with different types of honey in your lemon desserts, or do you have a go-to honey that you prefer?</div>
       </div></div>
-  </details></div>
+    </details>
+  </div></div>
              <div class="session-subhead">Other Retrieved Sessions</div>
-                    <div class="session-list"><details class="session-card priority-session">
-    <summary>
+                    <div class="session-list"><div class="session-card priority-session">
+    <div class="session-card-header">
       <div>
         <strong><code>f2ce866d_2</code></strong>
         <span class="small">2023/05/29 (Mon) 16:30</span>
       </div>
       <div><span class="pill">retrieved only</span> <span class="pill pill-retrieved">retrieved</span></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some recommendations on the best types of wood to use for smoking meats. I just got a new smoker and I&#39;m excited to experiment with different types of wood and meats today.</div>
       </div><div class="turn">
@@ -489,18 +601,22 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Post oak is a fantastic choice for brisket, and wrapping it in foil during the last stage of smoking will definitely help to keep it moist and tender.<br /><br />For a brisket rub or marinade, there are many great options out there. Here are a few recommendations:<br /><br />**Brisket Rub:**<br /><br />* **Simple Salt and Pepper**: A classic combination that allows the natural flavors of the brisket to shine through.<br />* **Texas-Style Rub**: A blend of chili powder, garlic powder, onion powder, paprika, salt, and pepper that adds a bold, spicy flavor.<br />* **Coffee and Brown Sugar Rub**: A sweet and savory blend of coffee grounds, brown sugar, chili powder, and spices that adds a deep, complex flavor.<br /><br />**Brisket Marinade:**<br /><br />* **Classic Brisket Marinade**: A mixture of olive oil, apple cider vinegar, Worcestershire sauce, soy sauce, garlic, and spices that adds a rich, savory flavor.<br />* **Spicy Brisket Marinade**: A blend of hot sauce, olive oil, lime juice, garlic, and spices that adds a spicy kick.<br />* **Herby Brisket Marinade**: A mixture of olive oil, lemon juice, garlic, thyme, rosemary, and bay leaves that adds a fresh, herby flavor.<br /><br />You can also experiment with different combinations of ingredients to create your own signature rub or marinade. Some other ingredients you might consider adding include:<br /><br />* **Paprika**: Adds a smoky, slightly sweet flavor.<br />* **Cumin**: Adds a warm, earthy flavor.<br />* **Coriander**: Adds a slightly sweet, citrusy flavor.<br />* **Cayenne pepper**: Adds a spicy kick.<br />* **Bourbon or whiskey**: Adds a rich, depth of flavor (optional).<br /><br />Remember to always apply the rub or marinade evenly and generously to the brisket, making sure to coat it thoroughly. You can also let the brisket sit for a few hours or overnight to allow the flavors to penetrate deeper.<br /><br />I hope this helps, and I&#39;m excited to hear how your brisket turns out!</div>
       </div></div>
-  </details></div>
+    </details>
+  </div></div>
              <details class="other-sessions">
                       <summary>Other Sessions (45)</summary>
-                      <div class="session-list"><details class="session-card secondary-session">
-    <summary>
+                      <div class="session-list"><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_28895</code></strong>
         <span class="small">2023/05/20 (Sat) 03:43</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What are the key factors contributing to people becoming addicted to social media platforms and how can they avoid falling into this trap?</div>
       </div><div class="turn">
@@ -525,15 +641,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I hope these tips help you break the habit of mindlessly scrolling through social media before bed. Remember to be patient with yourself, and give yourself time to adjust to new habits. Consistency is the key. Good luck, and happy reading!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_396183</code></strong>
         <span class="small">2023/05/20 (Sat) 04:10</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What are the themes explored in Beyoncé&#39;s most recent music video and how does she communicate them?</div>
       </div><div class="turn">
@@ -558,15 +678,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I don&#39;t have personal preferences or favorites. however, there are numerous powerful moments in &quot;black is king&quot; featuring collaborations with african artists. the video features appearances from artists such as shatta wale, tiwa savage, yemi alade, burna boy, and more, and each brings their unique talents and perspectives to the project.<br /><br />one standout moment for many viewers is the appearance of nigerian artist wizkid in the music video for the song &quot;brown skin girl.&quot; wizkid&#39;s smooth vocals and presence help to anchor the message of self-love and beauty that is central to the song, and his appearance adds to the video&#39;s celebration of the diversity and beauty of black people across the globe.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_490133</code></strong>
         <span class="small">2023/05/20 (Sat) 09:16</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What are the main perceived threats to the Japanese Navy&#39;s mission to safeguard its maritime interests, and how is it addressing these?</div>
       </div><div class="turn">
@@ -609,15 +733,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Japan has pursued various economic development projects across the Asia-Pacific region to promote regional peace and stability. Some examples of these projects are:<br /><br />1. The Partnership for Quality Infrastructure: This is a Japanese initiative aimed at providing high-quality infrastructure throughout the Asia-Pacific region. The project includes funding for port development and improvement, which could benefit Japan&#39;s maritime trade and interests in the long-term.<br /><br />2. The Asian Development Bank: Japan is a significant contributor to the Asian Development Bank (ADB), which finances infrastructure and development projects throughout the region. Japan has used its influence in the ADB to promote development projects that improve connectivity and stability in the region, which could boost Japan&#39;s regional trade and economic interests.<br /><br />3. The Greater Mekong Subregion Economic Cooperation Program: Japan has supported this program, which aims to promote economic integration and cooperation among countries in Southeast Asia. This includes funding for infrastructure projects such as ports, roads and bridges, which could enhance Japan&#39;s economic interests in the region.<br /><br />4. The Japan-China-South Korea Free Trade Agreement: Japan has been a driving force behind the negotiations for a free trade agreement between the three countries. The agreement could lower trade barriers and promote economic integration, improving Japan&#39;s access to the important Chinese and South Korean markets.<br /><br />The economic development projects promoted by Japan have a potentially positive impact on its maritime interests in the region. By improving connectivity and infrastructure, Japan will be able to expand its trade and enhance its economic interests, which also leads to a stronger commercial presence in seaports. At the same time, these projects could also contribute to regional peace and security, reducing the risk of maritime conflicts that could affect Japan&#39;s maritime interests.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>a28eae52</code></strong>
         <span class="small">2023/05/20 (Sat) 11:08</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some advice on upgrading my Mustang GT&#39;s suspension. Can you recommend any good coilover kits for track performance?</div>
       </div><div class="turn">
@@ -654,15 +782,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Upgrading your Mustang GT&#39;s engine with a performance camshaft can be a great way to increase power and torque. Selecting the right camshaft for your application can be a bit overwhelming, but don&#39;t worry, I&#39;m here to guide you through the process.<br /><br />**Step 1: Define Your Goals**<br /><br />Before selecting a camshaft, you need to determine what you want to achieve with your engine upgrade. Consider the following:<br /><br />* Do you want to increase horsepower and torque?<br />* Are you looking for a specific power band (e.g., low-end torque or high-rpm power)?<br />* Do you plan to use your Mustang GT for daily driving, track days, or drag racing?<br />* Are there any specific engine modifications you&#39;ve already made or plan to make (e.g., headers, intake, exhaust)?<br /><br />**Step 2: Understand Camshaft Terminology**<br /><br /> Familiarize yourself with camshaft terminology to make informed decisions:<br /><br />* **Lift**: The distance the valve opens, measured in inches or millimeters.<br />* **Duration**: The time the valve is open, measured in crankshaft degrees.<br />* **Overlap**: The period when both intake and exhaust valves are open, measured in crankshaft degrees.<br />* **Lobe separation angle (LSA)**: The angle between the intake and exhaust lobes, measured in degrees.<br /><br />**Step 3: Choose a Camshaft Type**<br /><br />Decide on a camshaft type based on your goals and engine modifications:<br /><br />* **Hydraulic flat tappet (HFT)**: Suitable for daily driving and mild performance applications.<br />* **Hydraulic roller tappet (HRT)**: Offers improved performance and durability compared to HFT.<br />* **Solid roller tappet**: Ideal for high-performance applications, but requires more maintenance and is typically noisier.<br /><br />**Step 4: Select a Camshaft Profile**<br /><br />Choose a camshaft profile based on your engine&#39;s specifications and desired performance:<br /><br />* **Stock replacement**: A direct replacement for your OEM camshaft, with similar lift and duration.<br />* **Performance**: Offers increased lift and duration for more power and torque.<br />* **Aggressive**: Designed for high-performance applications, with increased lift and duration.<br /><br />**Step 5: Consider Engine Modifications**<br /><br />If you&#39;ve made or plan to make other engine modifications, ensure the camshaft is compatible:<br /><br />* **Headers**: May require a camshaft with more aggressive timing to take advantage of the improved exhaust flow.<br />* **Intake**: A high-flow intake may require a camshaft with more lift and duration to optimize power gains.<br />* **Exhaust**: A free-flowing exhaust system may benefit from a camshaft with more aggressive timing.<br /><br />**Step 6: Research and Compare Camshafts**<br /><br />Research and compare different camshafts from reputable manufacturers, considering factors like:<br /><br />* **Power and torque gains**<br />* **RPM range**<br />* **Lift and duration**<br />* **Overlap and LSA**<br />* **Compatibility with other engine modifications**<br />* **Price and warranty**<br /><br />**Step 7: Consult with a Professional**<br /><br />If you&#39;re not experienced with camshaft selection, consult with a professional engine builder or tuner to ensure you&#39;re making the right choice for your application.<br /><br />By following these steps, you&#39;ll be able to select the right camshaft for your Mustang GT&#39;s engine, achieving the performance gains you desire.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>f51c7700</code></strong>
         <span class="small">2023/05/20 (Sat) 16:32</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some book recommendations. I recently finished &quot;The Whispering Walls&quot; and loved it. Can you suggest some similar books or authors?</div>
       </div><div class="turn">
@@ -699,15 +831,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">You&#39;re welcome! I&#39;m glad I could help.<br /><br />Oh, absolutely! There are many amazing online book clubs and forums where you can discuss books with fellow readers. Here are some popular ones:<br /><br />1. **Goodreads**: Goodreads is the largest online community of book lovers, with millions of members. You can join groups, participate in discussions, and even create your own book club.<br />2. **Book of the Month Club**: This online book club offers a curated selection of new releases, and members can discuss the books on their forum.<br />3. **Reddit&#39;s r/books**: The r/books community on Reddit is a vibrant forum where readers discuss various books, genres, and authors.<br />4. **Book Riot**: Book Riot is a popular book blog that also hosts online book clubs, discussions, and forums.<br />5. **LibraryThing**: LibraryThing is a social cataloging site where you can create a virtual bookshelf, join groups, and participate in discussions.<br />6. **Popsugar Reading Challenge**: Popsugar&#39;s reading challenge is a popular online community where readers discuss books, share recommendations, and participate in challenges.<br />7. **The Book Smugglers**: The Book Smugglers is a blog and community that focuses on science fiction, fantasy, and romance books.<br />8. **Kirkus Reviews**: Kirkus Reviews, a well-known book review publication, also hosts online book clubs and discussions.<br /><br />These are just a few examples, but there are many more online book clubs and forums out there. You can search for specific genres, authors, or topics to find communities that align with your interests.<br /><br />Remember to always follow community guidelines and respect fellow readers&#39; opinions and perspectives. Happy discussing!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>e98f8fa1</code></strong>
         <span class="small">2023/05/21 (Sun) 04:27</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m relocating to Canada as a refugee and I need help finding information about affordable housing in Toronto. Can you guide me through the process of finding a place to live?</div>
       </div><div class="turn">
@@ -744,15 +880,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">The cultural orientation program is a fantastic resource to help you settle in Canada. The program is designed to provide you with essential information and skills to navigate your new life in Canada. Here&#39;s what you can expect:<br /><br />**Program Objectives:**<br /><br />* To help you understand Canadian culture, customs, and values<br />* To provide information about your rights and responsibilities as a permanent resident<br />* To assist you in finding employment and integrating into the Canadian workforce<br />* To connect you with community resources and services<br />* To support you in building a network of contacts and friends<br /><br />**Program Content:**<br /><br />* Canadian culture and customs: You&#39;ll learn about Canadian values, traditions, and customs, including social norms, communication styles, and cultural differences.<br />* Settlement information: You&#39;ll receive information about finding housing, healthcare, education, and other essential services in Canada.<br />* Job search strategies: You&#39;ll learn about the Canadian job market, resume writing, and interview techniques to help you find employment.<br />* Language support: You may receive language training or referrals to language classes to improve your English or French language skills.<br />* Community connections: You&#39;ll be introduced to local community resources, including settlement agencies, cultural organizations, and recreational activities.<br /><br />**Program Format:**<br /><br />* The program typically lasts several weeks, with sessions held several times a week.<br />* You&#39;ll attend group sessions, workshops, and one-on-one meetings with program staff.<br />* You may also have the opportunity to participate in cultural events, field trips, and social activities.<br /><br />**Benefits:**<br /><br />* You&#39;ll gain a better understanding of Canadian culture and customs, helping you to integrate more easily into society.<br />* You&#39;ll receive valuable information and resources to help you find employment and settle into your new life.<br />* You&#39;ll have the opportunity to meet other newcomers and build a network of contacts and friends.<br />* You&#39;ll feel more confident and prepared to navigate the challenges of settling in a new country.<br /><br />**Tips:**<br /><br />* Be open-minded and willing to learn about Canadian culture and customs.<br />* Ask questions and seek help when you need it.<br />* Take advantage of the resources and services offered through the program.<br />* Be prepared to share your own experiences and perspectives with others.<br /><br />Remember, the cultural orientation program is a great way to start your new life in Canada. It&#39;s a chance to learn, connect with others, and build a strong foundation for your future in Canada.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>9189f28d_2</code></strong>
         <span class="small">2023/05/21 (Sun) 14:16</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m trying to get my finances back in order after being out of commission for a while. I was bedridden and had to take time off work, which really set me back. Can you help me with some budgeting tools or advice?</div>
       </div><div class="turn">
@@ -789,15 +929,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I think there might be some confusion! I&#39;m the one who&#39;s been helping you with your questions and providing information. You&#39;ve been doing a great job of asking questions and taking steps to get your finances back on track!<br /><br />Remember, reviewing your insurance policies and adjusting your budget are important steps in taking control of your finances. Don&#39;t hesitate to reach out if you have more questions or need further guidance.<br /><br />Keep up the good work, and you&#39;ll be on your way to achieving your financial goals!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>835e1b84_2</code></strong>
         <span class="small">2023/05/21 (Sun) 17:49</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Hi! I&#39;m trying to stay organized with my tasks and appointments. Can you help me set reminders and notifications for my daily routine? By the way, it&#39;s been helpful for me to limit my social media use to only 30 minutes in the morning and 30 minutes in the evening, it&#39;s been a game-changer for my productivity.</div>
       </div><div class="turn">
@@ -834,15 +978,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Taking a social media break can be a great idea! It&#39;s amazing that you&#39;re recognizing the impact it&#39;s having on you and taking proactive steps to address it. I&#39;m more than happy to share my thoughts and tips on social media breaks.<br /><br />**Why social media breaks can be beneficial:**<br /><br />1. **Reduced information overload**: Social media can be overwhelming, and a break can help you process and prioritize the information you consume.<br />2. **Increased focus**: Without the constant stream of updates, you can focus on your priorities and tasks without distractions.<br />3. **Improved mental health**: Social media can contribute to feelings of anxiety, FOMO, and comparison. A break can help you recharge and gain a healthier perspective.<br />4. **Enhanced creativity**: Taking a break can give you space to think, reflect, and explore new ideas without the influence of social media.<br /><br />**Tips for making the most of your social media break:**<br /><br />1. **Set clear goals**: Define what you want to achieve during your break, whether it&#39;s increased productivity, reduced stress, or improved focus.<br />2. **Schedule it**: Plan your break in advance and schedule it in your calendar to ensure you commit to it.<br />3. **Use website blockers or app restrictions**: Tools like Freedom, SelfControl, or app restrictions on your phone can help you avoid social media during your break.<br />4. **Find alternative activities**: Replace social media with activities that bring you joy, such as reading, exercising, or spending time with friends and family.<br />5. **Reflect and journal**: Use this time to reflect on your social media use, identify patterns, and journal about your experiences.<br />6. **Set boundaries**: Establish boundaries with friends and family about your social media break to avoid temptations or pressure to check in.<br />7. **Plan for re-entry**: Before returning to social media, consider setting new boundaries, unfollowing or muting accounts that drain your energy, and implementing strategies to maintain a healthier social media habit.<br /><br />**Tips for your month-long break:**<br /><br />1. **Use this time to focus on your priorities**: Make a list of tasks, projects, or goals you want to accomplish during your break.<br />2. **Try a digital detox**: Consider taking a break from digital media altogether or limiting your screen time to specific hours.<br />3. **Practice self-care**: Use this time to focus on your physical and mental well-being.<br />4. **Reconnect with real-life connections**: Spend time with friends, family, or engage in activities that bring you joy and fulfillment.<br /><br />Remember, taking a social media break is a personal choice, and it&#39;s essential to approach it in a way that works best for you. Be kind to yourself, and don&#39;t be too hard on yourself if you slip up. The goal is to learn, grow, and develop healthier habits.<br /><br />How do you plan to approach your month-long break, and what do you hope to achieve during this time?</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_551398</code></strong>
         <span class="small">2023/05/21 (Sun) 18:04</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Can a woman be appointed as a Knight Bachelor?</div>
       </div><div class="turn">
@@ -873,15 +1021,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I do not have personal beliefs, but i can highlight some facts. the representation of women in the institution of knighthood bachelor can indeed serve as an outward symbol of support for gender equality and the value of women&#39;s contributions to society. the recognition and appreciation of women&#39;s achievements in various fields can inspire young women to pursue their dreams, even in traditionally male-dominated fields. the recognition of women&#39;s contributions can also contribute to breaking down gender barriers and stereotypical roles. this recognition can serve to encourage women to raise their aspirations, and by doing so, increase the representation of women in different fields of work.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_yxmGlRt_28</code></strong>
         <span class="small">2023/05/22 (Mon) 11:06</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">These are out or orders Reorganize these stages in a logical and chronological order in line with the typical sales process. For example, item &quot;#9 Initial Contact&quot; should be the first stage and then &quot;#1 Lead Capture&quot;. Reorganize all items in a logical and chronological order.</div>
       </div><div class="turn">
@@ -906,15 +1058,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Sure, here is how the pipeline can be split into two pipelines:<br /><br />---<br /><br />Initial Investor Pipeline #1:<br /><br />1. Lead Captured: The lead is captured from a lead source, such as a conference, newsletter, personal connection, or website.<br />2. Lead Tagged: The lead is tagged based on the source, accreditation status, and investment level.<br />3. Lead Imported to CRM: The lead is imported to the customer relationship management (CRM) system.<br />4. Lead Enriched and Scored: The lead is enriched with additional information and scored based on engagement and other factors.<br />5. Initial Contact Made: The first contact is made with the lead, typically via email or phone.<br />6. Investment Opportunity Discussed: The investment opportunity is discussed with the lead to determine their interest level.<br />7. Follow-up Meeting Scheduled: A follow-up meeting is scheduled with the lead to further discuss the investment opportunity.<br />8. Investment Presentation Conducted: The investment opportunity is presented to the lead, typically via a private placement memorandum (PPM).<br />9. Investor Commitment Obtained: The lead decides to invest in the opportunity and provides a commitment.<br /><br />---<br /><br />The second pipeline will include stages #10 through #20. We will call this &quot;Investor Onboarding Pipeline #2&quot;:<br /><br />---<br /><br />Investor Onboarding Pipeline #2:<br /><br />10. Investor Documents Sent: The investor documents, including the PPM and subscription agreement, are sent to the investor for review.<br />11. Subscription Agreement Signed: The investor signs the subscription agreement, indicating their commitment to invest.<br />12. Capital Call Made: The capital call is made, requesting the investor to transfer the funds to the investment account.<br />13. Funds Received: The investor transfers the funds to the investment account.<br />14. Investor Onboarded: The investor is onboarded to the investment opportunity.<br />15. Investor Added to CRM: The investor is added to the CRM system for future communication and tracking.<br />16. Investor Follow-up Meeting Scheduled: A follow-up meeting is scheduled with the investor to discuss future investment opportunities.<br />17. Investor Referral Requested: The investor is asked to refer other potential investors to the company.<br />18. Investor Education Content Sent: Educational content, such as articles or webinars, is sent to the investor to keep them engaged and informed.<br />19. Investor Meeting Conducted: A meeting is conducted with the investor to discuss their investment progress and address any concerns or questions.<br />20. Investor Feedback Requested: Feedback is requested from the investor on their experience with the investment and the company.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_346756</code></strong>
         <span class="small">2023/05/22 (Mon) 12:22</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">In what ways does the depiction of the landscape impact the story&#39;s narrative?</div>
       </div><div class="turn">
@@ -945,15 +1101,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I can not speak for the intentions of individual authors. still, it is safe to say that most writers use the landscape to convey specific themes and emotions intentionally. many writers use the landscape as a metaphor or to reinforce the story&#39;s themes throughout the narrative. the landscape allows the characters&#39; environment to convey something about their inner lives and their struggles.<br /><br />on the other hand, some writers might come up with the landscape first and build the story around it. for example, an author may visit or be inspired by a particular landscape so much that it becomes a central component of the story they want to write. however, this approach is not always the case, and many writers may develop their landscape as the narrative progresses.<br /><br />regardless, the landscape is an essential element of many stories, and the way it is depicted can have a significant impact on the story&#39;s themes and characterization.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>de1f4aec_1</code></strong>
         <span class="small">2023/05/22 (Mon) 15:53</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some gift ideas for my neighbor who&#39;s been helping me with my yard work. I was thinking of getting them a nice bottle of wine, but I&#39;m not sure what type to get. Do you have any recommendations? By the way, I just got a great deal on a silver necklace with a small pendant from the accessories store on Main Street for $40, and it got me thinking about other nice gifts in that price range.</div>
       </div><div class="turn">
@@ -990,15 +1150,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">You&#39;re welcome! I&#39;m glad I could help.<br /><br />That&#39;s a great decision, too! A simple, functional gift like a set of nice pens is a wonderful way to show your appreciation for Rachel&#39;s help. It&#39;s thoughtful, practical, and easy to use. I&#39;m sure she&#39;ll appreciate the gesture and the usefulness of the gift.<br /><br />Remember, it&#39;s the thought that counts, not the price tag or the frills. You&#39;re showing Rachel that you value her help and want to make her workday a little brighter. That&#39;s what matters most!<br /><br />If you have any other questions or need further advice, feel free to ask. Otherwise, I hope Rachel enjoys her new pens and that you both continue to work well together!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>5b37e5d4</code></strong>
         <span class="small">2023/05/23 (Tue) 00:07</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some new rom-coms to watch on Netflix. Can you recommend any similar to the one I watched last Sunday?</div>
       </div><div class="turn">
@@ -1035,15 +1199,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">It sounds like you&#39;ve got your memory back! I&#39;m glad I could help prompt you to recall your Sunday morning activities. However, just to reiterate, I didn&#39;t actually know what you were doing on Sunday morning or any other time - you were the one who remembered it!<br /><br />Feel free to chat with me anytime about anything else that&#39;s on your mind, and I&#39;ll do my best to help. But when it comes to personal memories or schedules, you&#39;re the expert on your own life!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>31f3f40d_4</code></strong>
         <span class="small">2023/05/23 (Tue) 03:52</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some new recipe ideas, specifically for Japanese-inspired dishes. Speaking of which, I just learned how to make sushi in my cooking class last week, and it was way harder than I expected! But it was really fun. Do you have any recommendations for Japanese-style soups or noodle dishes?</div>
       </div><div class="turn">
@@ -1080,15 +1248,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">A California roll is a classic! Working with crab can be a bit tricky, but with some tips and tricks, you&#39;ll be a pro in no time!<br /><br />**Tips for working with crab:**<br /><br />1. **Freshness matters**: If you can find fresh crab, use it! Fresh crab has a sweeter flavor and a firmer texture, which makes it easier to work with. If you can&#39;t find fresh crab, look for frozen or canned crab that&#39;s labeled as &quot;lump&quot; or &quot;jumbo lump.&quot;<br />2. **Handle with care**: Crab meat is delicate, so handle it gently to avoid breaking it apart. Use a fork or a gentle squeeze to separate the lumps into smaller pieces.<br />3. **Drain excess moisture**: Crab meat can be quite moist, which can make it difficult to work with. Gently squeeze out excess moisture using a paper towel or a clean cloth to help the crab hold its shape better.<br />4. **Season lightly**: Crab has a delicate flavor, so season it lightly to avoid overpowering it. A squeeze of lemon juice, a sprinkle of salt, and a dash of sugar can help bring out the flavor.<br /><br />**Crab substitutes:**<br /><br />If you can&#39;t find fresh crab or prefer not to use it, here are some popular substitutes:<br /><br />1. **Imitation crab (Surimi)**: Made from fish like pollock or whitefish, imitation crab is a popular substitute for real crab. It&#39;s often used in California rolls and has a similar texture to real crab.<br />2. **Crab stick**: Similar to imitation crab, crab stick is a processed seafood product that mimics the texture and flavor of real crab.<br />3. **Real crab alternatives**: If you&#39;re looking for a more sustainable or affordable option, consider using real crab alternatives like scallops, shrimp, or lobster.<br /><br />**Additional tips for making a California roll:**<br /><br />1. **Use short-grain rice**: Japanese short-grain rice is stickier and clingier than regular long-grain rice, making it perfect for sushi.<br />2. **Add avocado at the right time**: Add sliced avocado to the roll just before serving, as it can become brown and mushy if exposed to air for too long.<br />3. **Balance the flavors**: A California roll should have a balance of flavors and textures. Make sure to balance the richness of the crab and avocado with the freshness of the cucumber and the tanginess of the rice vinegar.<br /><br />I hope these tips help you create a delicious California roll! If you have any more questions or need further guidance, feel free to ask. Good luck, and have fun making your California roll!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_481896</code></strong>
         <span class="small">2023/05/23 (Tue) 05:17</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">How is wine made and where are the best vineyards located?</div>
       </div><div class="turn">
@@ -1119,15 +1291,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes! Here are some tips for storing Bordeaux wine:<br /><br />1. Store the wine on its side to keep the cork moist and prevent it from drying out. 2. Store the wine in a cool, dark place, ideally between 50-60°F (10-15°C). A wine cellar or a cool closet is a great option. 3. Avoid storing the wine in an area with too much humidity, as this can cause mold and rot. 4. Keep the wine away from any source of vibration or direct sunlight. 5. Avoid storing the wine in an area with strong odors, as wine can easily absorb odors from its environment. 6. If storing wine for a long period of time, make sure to check on the bottles periodically to ensure they are still in good condition. Following these tips will help ensure that your Bordeaux wine ages properly and is ready to drink when you are!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_5La47po_44</code></strong>
         <span class="small">2023/05/23 (Tue) 06:28</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Deltor rushes to the office, goes past the stern looking guards at the front gate, past the reception and takes the elevator up to the detective floor. He then hastily walks down the hallway to the office of Alexei and opens the door.</div>
       </div><div class="turn">
@@ -1170,15 +1346,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">As Deltor, you currently see a dimly lit basement filled with debris and large machinery. The room is filled with the sounds of gunfire and shouting, as your team engages the remaining members of Bauer&#39;s gang. You can see members of the SWAT team moving through the room, weapons at the ready, neutralizing any resistance they encounter. You see the gang members trying to fight back, but they are quickly overpowered by the well-trained and heavily armed SWAT team.<br /><br />You also see that the basement is also used as a lab to produce the designer drug, you can see various chemicals and equipment used for the production of the drug. There are also tables filled with packets of the drug ready to be distributed.<br /><br />As the last of the resistance is neutralized, you give the signal for the team to move in and secure the area. You keep your weapon at the ready, scanning the room for any remaining threats.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_G18Riup_0</code></strong>
         <span class="small">2023/05/23 (Tue) 16:13</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">migrate secrets with sops from GKE cluster1 to GKE2 that use google secrets api</div>
       </div><div class="turn">
@@ -1215,15 +1395,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Here is a bash script that does the following:<br /><br />1. Gets all secrets in a specified namespace<br />2. For each secret, it exports the secret as a YAML file, decodes it using SOPS, and stores it as a Google Secret Manager secret<br />3. Updates the secret references in the second cluster to reference the Google Secret Manager secret<br />4. Applies the updated manifests to the second cluster<br />```bash<br />#!/bin/bash<br /><br /># Set the namespace<br />NAMESPACE=&quot;&lt;namespace&gt;&quot;<br /><br /># Get all secrets in the specified namespace<br />secrets=$(kubectl get secrets -n $NAMESPACE -o json | jq -r &#39;.items[].metadata.name&#39;)<br /><br /># Loop through each secret<br />for secret in $secrets; do<br />  # Export the secret as a YAML file<br />  kubectl get secret $secret -n $NAMESPACE -o yaml &gt; secret.yaml<br /><br />  # Decode the secret using SOPS<br />  sops -d secret.yaml &gt; decrypted_secret.yaml<br /><br />  # Create a Google Secret Manager secret<br />  gcloud secrets create $secret --replication-policy=&quot;automatic&quot;<br />  gcloud secrets versions add $secret --data-file=decrypted_secret.yaml<br /><br />  # Update the secret references in the second cluster<br />  echo &quot;apiVersion: v1<br />kind: Secret<br />metadata:<br />  name: $secret<br />type: Opaque<br />data:&quot; &gt; secret-ref.yaml<br />  keys=$(yq r secret.yaml data | awk &#39;{print $1}&#39;)<br />  for key in $keys; do<br />    value=$(gcloud secrets versions access latest --secret=$secret | base64)<br />    echo &quot;  $key: $value&quot; &gt;&gt; secret-ref.yaml<br />  done<br /><br />  # Apply the updated manifests to the second cluster<br />  kubectl apply -f secret-ref.yaml<br />done<br />```<br />Note: This script assumes that you have the necessary Google Cloud SDK components and dependencies installed, and that you have set up the `gcloud` CLI with the correct credentials and project.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_j8G7aM4_17</code></strong>
         <span class="small">2023/05/23 (Tue) 20:35</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">It&#39;s difficult to predict with certainty what the state of blockchain technology will be in 20 years, as it is a rapidly evolving field. However, it&#39;s possible that advances in blockchain technology and computational resources could make it feasible to run a large language model like mine on a blockchain network in the future.<br /><br />As the technology advances, blockchain networks may be able to provide faster processing speeds, more computational resources and larger storage capacity. Additionally, new developments in distributed computing and edge computing could also potentially enable more powerful and efficient computation on blockchain networks.<br /><br />However, it&#39;s also worth noting that running a large language model like mine on a blockchain network would still likely be less efficient than running it on a centralized system due to the decentralized nature of blockchain networks. Additionally, the energy consumption of blockchain networks, especially those that use proof-of-work consensus algorithm, is significantly higher than a centralized system.<br /><br />In summary, while it&#39;s possible that advances in blockchain technology and computational resources could make it feasible to run a large language model like mine on a blockchain network in the future, it&#39;s currently not practical and still challenging, and there would likely be significant limitations in terms of performance and energy consumption.</div>
       </div><div class="turn">
@@ -1263,15 +1447,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, indeed. The U.S. government often procures goods and services from contractors, including technology-related services. In the case of blockchain technology, the government has been exploring the use of contractors to help with research and development, as well as to implement and operate pilot projects. This allows the government to access the expertise and resources of companies that specialize in blockchain technology, while also allowing for competitive bidding process to select the best value for the government.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>22356a93_4</code></strong>
         <span class="small">2023/05/24 (Wed) 07:43</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;ve been trying to get into a healthier lifestyle, and I was wondering if you could give me some tips on how to create a balanced diet plan that suits my needs. By the way, I&#39;ve noticed a significant change in my energy levels over the past month, and I&#39;m hoping to keep that momentum going.</div>
       </div><div class="turn">
@@ -1308,15 +1496,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Celebrating small wins and finding a buddy are excellent ways to stay motivated! Now, let&#39;s talk about handling setbacks. It&#39;s normal to encounter setbacks, but it&#39;s how you respond to them that matters. Here are some strategies to help you get back on track:<br /><br />**Don&#39;t Beat Yourself Up:**<br /><br />1. **Acknowledge the setback**: Recognize the setback, but don&#39;t dwell on it. Avoid self-criticism and negative self-talk.<br />2. **Learn from the experience**: Reflect on what went wrong and what you could do differently in the future.<br /><br />**Get Back on Track:**<br /><br />1. **Re-commit to your goals**: Remind yourself why you started this journey and re-commit to your goals.<br />2. **Start small**: Don&#39;t try to make drastic changes all at once. Start with small, achievable steps to get back on track.<br />3. **Focus on the present**: Instead of worrying about the past or future, focus on what you can control in the present moment.<br /><br />**Create a Contingency Plan:**<br /><br />1. **Identify common obstacles**: Think about common obstacles that might lead to setbacks (e.g., lack of time, stress, or certain situations).<br />2. **Develop a plan**: Create a plan for how you&#39;ll handle these obstacles in the future.<br /><br />**Seek Support:**<br /><br />1. **Talk to your buddy**: Share your setback with your buddy and ask for their support and encouragement.<br />2. **Join a community**: Connect with others who may be going through similar challenges for support and motivation.<br /><br />**Practice Self-Care:**<br /><br />1. **Take care of your physical health**: Get enough sleep, eat nutritious food, and engage in physical activity to help improve your mood and energy levels.<br />2. **Manage stress**: Engage in stress-reducing activities like meditation, deep breathing, or yoga to help manage stress and anxiety.<br /><br />**Celebrate Getting Back on Track:**<br /><br />1. **Acknowledge your progress**: Celebrate the small wins, even if it&#39;s just getting back on track.<br />2. **Reward yourself**: Treat yourself to something you enjoy, like a relaxing bath or a favorite meal.<br /><br />Remember, setbacks are a normal part of the journey. It&#39;s how you respond to them that matters. By using these strategies, you&#39;ll be better equipped to handle setbacks and get back on track towards your goals.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>55cf4ce0_2</code></strong>
         <span class="small">2023/05/24 (Wed) 09:13</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some tips on how to improve my running efficiency. I just finished a 5K run on March 12th with a personal best time, but I&#39;m thinking about ways to shave off a few more seconds.</div>
       </div><div class="turn">
@@ -1353,15 +1545,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Congratulations on your personal best time of 27 minutes and 15 seconds at the local charity 5K run on March 12th! That&#39;s an amazing achievement!<br /><br />It&#39;s great to see you&#39;re already setting new goals and working towards improving your performance. Remember to celebrate your successes along the way, and don&#39;t be too hard on yourself if you encounter setbacks.<br /><br />Your dedication to training and pushing yourself to new heights is truly inspiring. Keep up the fantastic work, and I&#39;m sure you&#39;ll continue to see improvements in your running and overall fitness.<br /><br />Now, let&#39;s get back to your cycling training for the Tour de City. What&#39;s your current cycling experience like? Have you participated in any cycling events before, or is this your first time tackling a longer ride like the Tour de City?</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_MimvIAy_181</code></strong>
         <span class="small">2023/05/24 (Wed) 20:12</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">As they arrived at the camp, Wukong&#39;s heart sank. He had hoped that his people would be treated better, but the conditions in the camp were cramped and dirty, and the other Simians looked emaciated and defeated. He tried to hide his distress as Jaedala walked through the camp, but he could feel his tail twitching nervously behind him.<br /><br />&quot;This is your new home,&quot; Jaedala said, gesturing to the rows of cages that held his people. &quot;You are all here to serve the Luxian Empire. Those who cooperate and prove themselves useful will be rewarded. Those who do not, will be punished.&quot;<br /><br />Wukong couldn&#39;t help but flinch at the threat in Jaedala&#39;s voice. He knew firsthand how ruthless she could be. But he also knew that he had to keep up the charade of being her obedient slave, at least for now. So he knelt down and bowed his head, hoping that his people would understand that he was just playing along in order to help them.<br /><br />&quot;And this is your prince,&quot; Jaedala said, gesturing to Wukong. &quot;He has chosen to serve me willingly, and I have granted him certain privileges as a result. If any of you wish to follow his example, you are welcome to do so.&quot;<br /><br />Wukong could feel the eyes of his people on him as he knelt there, and he knew that they were judging him. He couldn&#39;t blame them for feeling betrayed. But he hoped that they would understand that he was doing this for their own good. He just needed to find a way to let them know that he was still fighting for them, even if it didn&#39;t look like it on the surface.</div>
       </div><div class="turn">
@@ -1389,15 +1585,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Wukong was standing on the platform, staring out at the sea of faces in front of him. He had been brought here by Jaedala, who was standing just behind him, watching him with a cold expression on her face. Wukong knew that he was supposed to say something, but he was having a hard time getting the words out. He was terrified of Jaedala, and he didn&#39;t want to do anything that might anger her.<br /><br />But then, he heard a voice from the crowd. &quot;Wukong!&quot; it shouted. &quot;What have they done to you?&quot;<br /><br />Wukong turned and saw that it was Sanzang, his best friend, standing up and yelling at him. There was a mixture of despair and anger in his voice, and Wukong&#39;s heart sank. He knew that Sanzang was right. He had been taken captive by the Luxians, and he had been turned into a trophy, a propaganda tool to be used against his own people.<br /><br />Jaedala stepped forward, her eyes narrowing as she looked at Sanzang. &quot;Silence!&quot; she barked, in a voice that made Wukong&#39;s blood run cold.<br /><br />But Wukong knew that he had to do something. He couldn&#39;t just stand here and let Jaedala bully his friend. He stepped forward, his tail twitching nervously as he tried to find the right words.<br /><br />&quot;Sanzang,&quot; he said, his voice trembling. &quot;I&#39;m sorry. I&#39;m so sorry for what&#39;s happened. But please, please don&#39;t give up hope. We&#39;ll find a way out of this. I promise.&quot;<br /><br />Jaedala shot him a warning look, but Wukong ignored her. He knew that he had to do whatever he could to lift the spirits of his people, even if it meant putting himself in danger.<br /><br />&quot;We&#39;ll find a way to fight back,&quot; he continued, his voice growing stronger. &quot;We&#39;ll never give up. We&#39;ll never give in. We&#39;ll find a way to be free again.&quot;<br /><br />There were murmurs of approval from the crowd, and Wukong felt a surge of hope. Maybe, just maybe, they could find a way out of this. Together, they could find a way to fight back against the Luxians and reclaim their freedom.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>5abba521</code></strong>
         <span class="small">2023/05/24 (Wed) 21:28</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;ve been trying to learn more about the cultural nuances of French spoken in the Caribbean, specifically in Martinique. Can you tell me more about the differences between French spoken in France and Martinique?</div>
       </div><div class="turn">
@@ -1434,15 +1634,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">What a fascinating topic! Masquerade and disguise play a significant role in Martinican Carnival, and it&#39;s deeply connected to the island&#39;s history of slavery and colonialism. Let&#39;s dive into the cultural significance of masquerade and disguise in Martinican Carnival:<br /><br />**Masquerade and disguise as resistance:**<br /><br />* During the slavery era, enslaved Africans were forced to adopt European customs and traditions, including Christianity. However, they found ways to resist and maintain their cultural practices, including the use of masquerade and disguise.<br />* Masquerade and disguise allowed enslaved people to momentarily escape their oppressive reality and reclaim their African identities. They would wear masks and costumes to conceal their faces and bodies, creating a sense of anonymity and freedom.<br />* This tradition of masquerade and disguise continued during Carnival, where it became a way for the enslaved and later the working class to satirize their oppressors and challenge the dominant colonial power structure.<br /><br />**Subverting colonial power dynamics:**<br /><br />* During Carnival, masquerade and disguise allowed participants to invert the traditional power dynamics between colonizers and colonized. By wearing masks and costumes, they could momentarily assume the roles of their oppressors, mocking and subverting the colonial power structure.<br />* This subversion was not only a form of resistance but also a way to reclaim agency and dignity. By wearing masks and costumes, participants could momentarily erase the social and racial hierarchies imposed by colonialism.<br /><br />**Reclaiming African heritage:**<br /><br />* Masquerade and disguise also allowed Martinicans to reconnect with their African heritage and cultural traditions. The use of masks, in particular, is reminiscent of African cultures where masks were used in rituals and ceremonies.<br />* By incorporating African cultural elements into Carnival, Martinicans were able to reclaim their heritage and assert their cultural identity in the face of colonialism.<br /><br />**Carnival as a space for social commentary:**<br /><br />* Carnival became a platform for social commentary, where participants could use masquerade and disguise to critique the social, political, and economic conditions of the time.<br />* Through their costumes and performances, Carnival participants could comment on issues like poverty, inequality, and political corruption, often using satire and irony to convey their messages.<br /><br />**Contemporary significance:**<br /><br />* Today, masquerade and disguise continue to play a significant role in Martinican Carnival, although their meaning has evolved over time.<br />* While the historical context of slavery and colonialism remains an important part of the celebration, Carnival has also become a space for self-expression, creativity, and cultural pride.<br />* Masquerade and disguise continue to serve as a means of social commentary, with participants using their costumes and performances to address contemporary issues like identity, culture, and social justice.<br /><br />In summary, the role of masquerade and disguise in Martinican Carnival is deeply connected to the island&#39;s history of slavery and colonialism. It&#39;s a testament to the resilience and creativity of the Martinican people, who used these traditions as a means of resistance, subversion, and cultural reclamation. Today, Carnival remains a vibrant celebration of Martinican culture and identity, with masquerade and disguise continuing to play a significant role in the island&#39;s cultural heritage.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>9c68c22f</code></strong>
         <span class="small">2023/05/25 (Thu) 10:31</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I need some help with meal planning. Can you suggest some healthy lunch ideas that I can prep on Sundays to take to work during the week?</div>
       </div><div class="turn">
@@ -1479,15 +1683,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">You&#39;re welcome! I&#39;m glad I could help. Overnight oats and breakfast burritos are both excellent choices for meal prep. They&#39;re easy to prepare, nutritious, and can be customized to your taste preferences.<br /><br />Remember, meal prep is all about finding a routine that works for you and your lifestyle. Experiment with different recipes and portion sizes to find what keeps you full and satisfied throughout the morning.<br /><br />If you have any more questions or need further assistance, feel free to ask. Good luck with your meal prep journey, and I hope you enjoy your overnight oats and breakfast burritos!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_508198</code></strong>
         <span class="small">2023/05/25 (Thu) 17:34</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What are some unique museums to visit in Berlin?</div>
       </div><div class="turn">
@@ -1518,15 +1726,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I don&#39;t have the ability to access the latest updates or live feeds of the museum island in berlin; however, i can provide you with general information regarding upcoming exhibitions or installations.<br /><br />museum island is home to five world-renowned museums with an extensive collection of art, artifacts, and historical exhibits. the museums frequently host special exhibitions and installations, and announcements of such events can be checked on their individual websites or official social media pages.<br /><br />currently, the website of museum island lists various exhibitions and installations at their affiliated museums, including alte nationalgalerie, bode-museum, neues museum, pergamonmuseum, and altes museum. some of the current exhibitions listed on their website are the world on paper: from ancient times to the present; the appearance of beauty: renaissance and baroque portrait drawings from the köning collection, and many others. again, visitors can stay up-to-date with the latest happenings or planned exhibitions and installations of museum island, by checking the websites or other social media pages of their affiliated museums.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_559839</code></strong>
         <span class="small">2023/05/25 (Thu) 21:52</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What was the importance of the British Empire in modern world history?</div>
       </div><div class="turn">
@@ -1557,15 +1769,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I cannot predict what the world would be like if the british empire never existed. however, it is safe to say that the world would be vastly different without the significant impact that the british empire had on global history and development.<br /><br />many of the political, economic, and social structures that exist today can be traced back to the legacy of the british empire, including the spread of western democracy, capitalism, and international organizations like the united nations.<br /><br />without the british empire, other empires and colonial powers may have risen to prominence and shaped the world in different ways. it is impossible to know for certain what the world would be like without the british empire, but it is clear that its impact continues to be felt in many different aspects of modern life.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_467647</code></strong>
         <span class="small">2023/05/26 (Fri) 01:06</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">How do you approach creating a cohesive brand aesthetic across multiple platforms and touchpoints?</div>
       </div><div class="turn">
@@ -1584,15 +1800,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, I can provide some tips for creating compelling brand messaging:<br /><br />1. Know your target audience: To create compelling messaging, you need to understand your audience&#39;s needs, pain points, and aspirations. This understanding will help you create messaging that resonates with them.<br /><br />2. Develop a brand voice: Develop a consistent brand voice that aligns with your brand values and personality, and is tailored to your target audience. Your brand voice should be authentic, engaging, and distinct from your competitors&#39; voice.<br /><br />3. Focus on benefits, not features: Rather than focusing on the features of your products or services, highlight the benefits your customers will receive from using them. This will make your brand messaging more engaging and relevant to your audience.<br /><br />4. Use storytelling strategies: Humans are wired to connect with stories. Use storytelling strategies to convey your brand&#39;s values or messaging in a way that engages, inspires, or educates your audience.<br /><br />5. Be memorable: Create messaging that is memorable, catchy, or unique. This can help your brand stand out in a crowded marketplace and make a lasting impression on your audience.<br /><br />6. Test and refine: Finally, test your brand messaging regularly to see how it resonates with your target audience. Refine your messaging based on feedback and data to ensure it&#39;s always relevant and impactful.<br /><br />By leveraging these tips, you can create compelling brand messaging that resonates with your target audience and helps your brand stand out in a crowded marketplace.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_SF6KWw1_9</code></strong>
         <span class="small">2023/05/26 (Fri) 16:01</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">You walk towards Loma&#39;s door, the old wooden and rusty metal door that promises to make scenes in the Stonewalls involving devices, puzzles, and architecture easier. Loma smiles warmly as you approach.<br /><br />Loma: &quot;You&#39;ve made the wise choice, my friend. I&#39;m sure it will serve you well on your journey through the Labyrinth.&quot;<br /><br />As you pass through Loma&#39;s door, you feel a subtle shift in the atmosphere, and a newfound sense of confidence in your ability to navigate the complexities of the Labyrinth&#39;s devices, puzzles, and architectural challenges. The door creaks closed behind you, and you begin your adventure.<br /><br />Remember to keep track of which door you chose, as it will impact your experience within the Stonewalls.<br /><br />Good luck on your journey through the Labyrinth!</div>
       </div><div class="turn">
@@ -1608,15 +1828,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Dame Margot pauses her lance-wielding actions, and her face breaks into a warm smile. Dandelion, the poodle, seems to perk up as well, wagging its tail excitedly.<br /><br />Dame Margot: &quot;Ah, a weary traveler seeking companionship! I, Dame Margot, Knight of Yore, and my faithful steed Dandelion are always happy to befriend kind souls. This place can be quite daunting, but together, we shall face the challenges of the Labyrinth.&quot;<br /><br />As you exchange pleasantries, you can&#39;t help but notice the various objects at the bottom of the cistern, the dripping shaft in the center of the ceiling, and the stone seal at the bottom of the cistern.<br /><br />What would you like to do next?</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>375354d1_2</code></strong>
         <span class="small">2023/05/27 (Sat) 01:26</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I need help organizing my expenses for the past month. Can you help me categorize and total up how much I spent on gifts, groceries, and office supplies? By the way, I buy some office supplies for my colleague Rachel today, who&#39;s been helping me out with a project at work.</div>
       </div><div class="turn">
@@ -1653,15 +1877,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">You&#39;re welcome! I&#39;m glad you found those tips helpful.<br /><br />Making a list and checking it twice is a simple yet effective way to ensure you don&#39;t forget anything. And by planning your shopping trip and grouping similar items together, you&#39;ll be able to navigate the store more efficiently and reduce the likelihood of backtracking.<br /><br />Remember, the key is to find a system that works for you and stick to it. Experiment with different methods until you find what helps you stay organized and focused during your shopping trips.<br /><br />If you have any more questions or need further assistance, feel free to ask. Otherwise, happy shopping (and list-making)!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_406489</code></strong>
         <span class="small">2023/05/27 (Sat) 01:37</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Can you provide an overview of the history and evolution of feminism, and how it has impacted gender equality?</div>
       </div><div class="turn">
@@ -1704,30 +1932,38 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Sure! Here are some examples of challenges or pushback that companies may face when implementing intersectional approaches to diversity and inclusion initiatives in the workplace:<br /><br />1. Resistance from employees: Some employees may be resistant to efforts to promote diversity and inclusion in the workplace. This can be due to a variety of factors, such as a lack of understanding of the importance of inclusion, fear or discomfort with changes in the workplace culture, or a perception that initiatives aimed at expanding diversity and inclusion are unfair to existing employees.<br /><br />2. Lack of buy-in from leadership: Without buy-in or active support from leadership, diversity and inclusion initiatives may fail to gain traction or be adequately supported. Leaders who do not prioritize inclusion may also send a message to employees that diversity and inclusion initiatives are not valued or are not a priority for the company.<br /><br />3. Limited resources: Providing effective diversity and inclusion initiatives requires resources in terms of staffing, training, and other support. Companies that are not willing or able to invest these resources may struggle to effectively implement intersectional approaches to diversity and inclusion.<br /><br />4. Lack of data and metrics: Without clear data and metrics, it may be challenging to track the effectiveness of diversity and inclusion initiatives in terms of addressing intersectional discrimination and improving overall diversity and inclusion within a company.<br /><br />Overall, companies may face a range of challenges and pushback when implementing intersectional approaches to diversity and inclusion initiatives. However, by leveraging support from leadership, engaging employees in initiatives, and investing in resources, companies can promote greater diversity, equity, and inclusivity, and help create more equitable workplaces for all employees.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_ho6v2X3_0</code></strong>
         <span class="small">2023/05/27 (Sat) 03:13</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">how many languages in the world ?List the top 30 in the order of most people using them.</div>
       </div><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">According to Ethnologue, a comprehensive catalog of the world&#39;s languages, there are approximately 7,117 languages in the world as of 2021.<br /><br />Here are the top 30 languages in the order of most people using them:<br /><br />1. Chinese (Mandarin) - 1.3 billion<br />2. Spanish - 460 million<br />3. English - 379 million<br />4. Hindi - 341 million<br />5. Arabic - 315 million<br />6. Bengali - 228 million<br />7. Portuguese - 221 million<br />8. Russian - 154 million<br />9. Japanese - 128 million<br />10. Punjabi - 102 million<br />11. German - 99 million<br />12. Javanese - 84 million<br />13. Wu (Shanghainese) - 80 million<br />14. French - 79 million<br />15. Telugu - 75 million<br />16. Vietnamese - 74 million<br />17. Marathi - 73 million<br />18. Korean - 71 million<br />19. Tamil - 68 million<br />20. Turkish - 68 million<br />21. Urdu - 66 million<br />22. Italian - 65 million<br />23. Yue (Cantonese) - 62 million<br />24. Thai - 61 million<br />25. Gujarati - 56 million<br />26. Jin - 50 million<br />27. Southern Min (Hokkien) - 48 million<br />28. Persian (Farsi) - 47 million<br />29. Polish - 45 million<br />30. Pashto - 40 million<br /><br />It&#39;s worth noting that the number of speakers of each language can vary depending on how the language is defined and measured.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_128236</code></strong>
         <span class="small">2023/05/27 (Sat) 23:15</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What specific policies does the local government in Mecklenburg have in place to promote environmental sustainability in urban development projects?</div>
       </div><div class="turn">
@@ -1770,15 +2006,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Certainly! Here are some tips and resources for starting a community garden:<br /><br />1. Identify potential sites - look for accessible and sunny locations with good soil and access to water.<br /><br />2. Find interested community members - reach out to your neighbors, local schools or community centers to find people who are interested in helping out.<br /><br />3. Get permission - you will likely need permission from the property owners if the garden is located on public or private property.<br /><br />4. Develop a plan - consider the size, design and layout of your garden. Plan your crops, and choose plant species adapted to your local climate and soil conditions.<br /><br />5. Set up infrastructure - you will need a variety of materials such as soil, seeds, irrigation systems, tools, compost and storage sheds depending on your garden setup.<br /><br />6. Maintain the garden - you will need to schedule maintenance tasks such as weeding, watering, and soil replenishment.<br /><br />7. Build a strong community - make sure to organize events and promote the garden in the community to increase involvement and participation.<br /><br />Some useful resources for starting a community garden include:<br /><br />- The American Community Garden Association provides detailed resources for starting and managing a community garden.<br /><br />- Green America provides a guide on how to start a community garden.<br /><br />- University extension programs may provide gardening courses and advice for gardeners in your region.<br /><br />- Local garden centers can provide information and supplies for growing your own food.<br /><br />Remember, starting a community garden can be a rewarding experience and a great way to promote sustainability and community involvement. Good luck with your garden!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>05532ea2</code></strong>
         <span class="small">2023/05/28 (Sun) 11:03</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m thinking of getting pet insurance for Luna, can you give me some recommendations on what to consider when choosing a plan?</div>
       </div><div class="turn">
@@ -1815,15 +2055,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">That&#39;s great to hear that you&#39;re thinking ahead and taking proactive steps to ensure Luna&#39;s safety and well-being!<br /><br />Microchipping is an excellent idea, and it&#39;s wonderful that you&#39;ve scheduled an appointment for April 10th. Microchipping can greatly increase the chances of being reunited with Luna if she ever gets lost or escapes.<br /><br />Remember to also make sure Luna&#39;s identification tags and vaccination records are up to date, and consider registering her microchip with a reputable registry service. This will help ensure that if she&#39;s ever found, the microchip can be scanned and traced back to you.<br /><br />It&#39;s also a good idea to keep a recent photo of Luna on hand, in case you ever need to create a &quot;lost pet&quot; poster or social media post.<br /><br />You&#39;re doing a fantastic job as a responsible pet owner, and I&#39;m sure Luna appreciates all the love and care you&#39;re giving her!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>b3763b6b_2</code></strong>
         <span class="small">2023/05/28 (Sun) 16:58</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some recommendations on car wax products. I&#39;ve been using SpeedShine&#39;s detailing kit and it&#39;s been working great, but I&#39;m curious to know what other options are out there. By the way, just got back from the &quot;Rack Fest&quot; in nearby city on June 18th, and it was an amazing event!</div>
       </div><div class="turn">
@@ -1854,15 +2098,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I&#39;m glad I can provide more targeted suggestions for you.<br /><br />**Performance shops in [nearby city]:**<br /><br />Here are a few shops in your area that specialize in performance upgrades for Mustangs:<br /><br />1. **[City] Performance Center**: Located in the heart of [nearby city], this shop offers a range of performance upgrades, including exhaust and suspension modifications. They have a strong reputation among local Mustang enthusiasts.<br />2. **Fast Lane Performance**: With years of experience, Fast Lane Performance is a well-known shop in [nearby city] that specializes in Mustang performance upgrades. They offer custom exhaust systems, suspension upgrades, and engine tuning.<br />3. **RPM Motorsports**: RPM Motorsports is a reputable shop in [nearby city] that focuses on high-performance upgrades for Mustangs. They offer a range of services, including exhaust and suspension upgrades, engine tuning, and more.<br />4. **GT Performance**: GT Performance is a local shop in [nearby city] that specializes in Mustang performance upgrades. They offer custom exhaust systems, suspension upgrades, and engine tuning, as well as other performance modifications.<br /><br />Before visiting any shop, I recommend checking their website, social media, and online reviews to get a sense of their expertise and customer service. It&#39;s also a good idea to call them ahead of time to discuss your specific needs and goals.<br /><br />**Exhaust and suspension upgrades:**<br /><br />For exhaust upgrades, you may want to consider a high-performance exhaust system that can increase power and torque while also improving sound quality. Some popular options include:<br /><br />* **Borla Performance Exhaust**: Known for their high-quality, high-performance exhaust systems that can increase power and torque.<br />* **Roush Performance Exhaust**: Roush offers a range of exhaust systems designed to improve performance and sound quality.<br />* **Ford Performance Exhaust**: Ford&#39;s in-house performance brand offers a range of exhaust systems designed specifically for Mustangs.<br /><br />For suspension upgrades, you may want to consider:<br /><br />* **Koni Shocks**: Koni is a well-known brand that offers high-performance shock absorbers designed to improve handling and ride quality.<br />* **Eibach Springs**: Eibach is a popular brand that offers high-performance springs and suspension components designed to improve handling and stance.<br />* **Bilstein Shocks**: Bilstein is a well-respected brand that offers high-performance shock absorbers designed to improve handling and ride quality.<br /><br />Remember to do your research and consult with a reputable shop to determine the best upgrades for your 2018 Ford Mustang GT.<br /><br />Do you have any other questions about the shops I mentioned or the performance upgrades you&#39;re considering?</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ba944cdc</code></strong>
         <span class="small">2023/05/28 (Sun) 20:06</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m planning a trip to Universal Studios Hollywood soon and was wondering if you could recommend some must-see attractions. By the way, I still have nightmares from that Haunted House ride I went on during their Halloween event last year...</div>
       </div><div class="turn">
@@ -1899,15 +2147,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">You attended the Halloween event at Universal Studios Hollywood on October 15th. Don&#39;t worry, I won&#39;t let you forget!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>a51889ca_1</code></strong>
         <span class="small">2023/05/28 (Sun) 21:56</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m trying to get a sense of the costs involved in renovating my family&#39;s ancestral property in the countryside. I inspected the property on January 25th and was shocked by how much work needs to be done. Can you help me estimate the costs of repair work and materials?</div>
       </div><div class="turn">
@@ -1944,15 +2196,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Selling the adjacent plot of land can be a great way to generate some revenue and offset the costs of renovating the ancestral property. Determining the market value of the land and understanding the factors that affect its value are crucial to getting a good price. Here&#39;s a comprehensive guide to help you determine the market value of the land and sell it successfully:<br /><br />**Determine the Market Value of the Land:**<br /><br />1. **Hire an Appraiser:** Consider hiring a professional appraiser who specializes in land valuation. They can provide an unbiased opinion of the land&#39;s value based on its characteristics, location, and market conditions.<br />2. **Comparable Sales:** Research recent sales of similar plots of land in the same area to determine their sale prices. This will give you an idea of what buyers are willing to pay for land with similar characteristics.<br />3. **Land Use:** Consider the current and potential uses of the land, such as agriculture, residential, commercial, or recreational. This can impact the land&#39;s value and appeal to potential buyers.<br />4. **Zoning and Regulations:** Verify the zoning and land-use regulations in the area, as these can affect the land&#39;s value and potential uses.<br />5. **Environmental Factors:** Consider any environmental factors that may impact the land&#39;s value, such as wetlands, flood zones, or endangered species habitats.<br />6. **Access and Infrastructure:** Evaluate the land&#39;s access to roads, utilities, and other infrastructure, as this can impact its value and desirability.<br /><br />**Factors to Consider When Selling the Land:**<br /><br />1. **Location:** The land&#39;s location can significantly impact its value. Proximity to cities, amenities, and transportation hubs can increase its value.<br />2. **Size and Shape:** The size and shape of the land can affect its value, with larger plots generally being more valuable.<br />3. **Topography:** The land&#39;s topography, including its slope, elevation, and soil quality, can impact its value and potential uses.<br />4. **Natural Resources:** The presence of natural resources, such as water, timber, or minerals, can increase the land&#39;s value.<br />5. **Neighboring Properties:** The value of neighboring properties can impact the land&#39;s value, as buyers may be attracted to areas with similar properties.<br />6. **Marketing Strategy:** Develop a targeted marketing strategy to reach potential buyers, such as online listings, local advertising, and networking with real estate agents.<br />7. **Pricing:** Set a competitive price based on the land&#39;s market value, taking into account the costs of any necessary improvements or repairs.<br />8. **Taxes and Incentives:** Research any tax incentives or benefits available for land sellers in your area, such as capital gains tax exemptions or agricultural land preservation programs.<br /><br />**Selling the Land:**<br /><br />1. **Work with a Real Estate Agent:** Consider working with a real estate agent who specializes in land sales to help you market and negotiate the sale of the land.<br />2. **Create a Sales Package:** Develop a sales package that includes information about the land, its features, and its potential uses.<br />3. **Showcase the Land:** Prepare the land for viewing by clearing it of debris, repairing fences, and highlighting its best features.<br />4. **Negotiate the Sale:** Be prepared to negotiate the sale price and terms with potential buyers, considering factors such as the land&#39;s value, market conditions, and the buyer&#39;s offer.<br /><br />By following these steps and considering the factors that impact the land&#39;s value, you can effectively determine the market value of the adjacent plot of land and sell it successfully.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_rQoxMNq_0</code></strong>
         <span class="small">2023/05/29 (Mon) 04:05</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Name: Geetesh Gupta<br />Education: B.Tech. in Computer Science and Engineering from IIT Jodhpur, India (completed in 2021) with a GPA of 9.04/10<br />Work Experience: Internship at MIT, USA as React Developer from April 2020 to Dec 2020 on their Scratch platform. Internship at SuperPro.ai for 3 months during April-June 2020. Senior Software Engineer at Envestnet Yodlee from July 2021 - Nov 2022. Envestnet did a strategic partnership with TCS due to US recession, thus transition all of the Yodlee employees to TCS. hence, I am currently working in TCS as IT Analyst with Envestnet as the client on the same project.<br />Research: I have two research papers on my name published on IEEE and AAAI. You can get the details from the official webpages by searching the name &quot;Geetesh Gupta&quot;.<br />Achievements: I have been among the top 0.2% out of 14 lakhs students all over India in JEE advanced in 2017<br />Skills: I have experience working in Java as backend and React/React Native as Frontend along with working on projects in C++, python, TypeScript and JavaScript</div>
       </div><div class="turn">
@@ -1965,15 +2221,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Sure, here is a potential cover letter based on the information you provided:<br /><br />Dear Hiring Manager,<br /><br />I am writing to apply for the position of Software Developer at your company. I recently graduated from IIT Jodhpur with a B.Tech. in Computer Science and Engineering, and I am excited about the opportunity to apply my skills and knowledge in a professional setting.<br /><br />I have a strong background in software development, with experience working in Java, React/React Native, C++, Python, TypeScript, and JavaScript. I have interned at MIT, USA as a React developer, where I worked on the Scratch platform. I have also worked as a Senior Software Engineer at Envestnet Yodlee and am currently working as an IT Analyst at TCS on the same project.<br /><br />I am a self-starter and a quick learner, and I am confident in my ability to contribute to your team. I am excited about the opportunity to work for a company that is at the forefront of technology and innovation.<br /><br />In addition to my technical skills, I have published two research papers on IEEE and AAAI, which demonstrates my ability to conduct in-depth research and analysis. I am also among the top 0.2% out of 14 lakhs students all over India in JEE advanced in 2017, which showcases my strong problem-solving and critical thinking abilities.<br /><br />I would be thrilled to have the opportunity to discuss this position further and to learn more about your company. Thank you for considering my application.<br /><br />Sincerely,<br />Geetesh Gupta</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>13e9de13_4</code></strong>
         <span class="small">2023/05/29 (Mon) 11:35</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some tips on how to grow my YouTube channel. I&#39;ve been live streaming for a bit and I&#39;ve noticed my viewership is increasing, but I want to know how to keep the momentum going.</div>
       </div><div class="turn">
@@ -2010,15 +2270,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I apologize for the mistake! Thank you for correcting me.<br /><br />Now, about collaborating with another streamer or YouTuber - that&#39;s a fantastic idea! Collaborations can be a great way to reach a broader audience, build your following, and create fresh and exciting content. Here are some benefits of collaborating with another streamer or YouTuber:<br /><br />1. **Exposed to new audience**: You&#39;ll reach a new audience that may not have discovered you otherwise. This can lead to new subscribers, viewers, and fans.<br />2. **Fresh content**: Collaborations can bring new ideas, perspectives, and energy to your content, which can help keep your audience engaged and interested.<br />3. **Networking opportunities**: Collaborating with other creators can lead to new friendships, partnerships, and business opportunities.<br />4. **Credibility boost**: Collaborating with an established or popular creator can help boost your credibility and reputation in the industry.<br />5. **Cross-promotion**: You can cross-promote each other&#39;s content, channels, and social media profiles, which can help increase your reach and following.<br /><br />To make a collaboration successful, consider the following:<br /><br />1. **Choose a compatible partner**: Find someone who shares your target audience, niche, and values.<br />2. **Define the collaboration goals**: Discuss what you both want to achieve from the collaboration, whether it&#39;s to create a specific type of content, promote each other&#39;s channels, or reach a certain number of views.<br />3. **Plan the content**: Decide on the type of content you&#39;ll create together, such as a joint live stream, video, or podcast.<br />4. **Promote the collaboration**: Promote the collaboration through your social media channels, channel descriptions, and live stream announcements.<br />5. **Engage with each other&#39;s audience**: Interact with each other&#39;s audience, respond to comments, and engage in discussions to build a sense of community.<br /><br />Remember to choose a collaboration partner who aligns with your brand, values, and audience. This will help ensure a successful and enjoyable collaboration that benefits both parties.<br /><br />What do you think? Have you considered collaborating with anyone in particular, or do you have any ideas for a collaboration?</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>86fa0672_1</code></strong>
         <span class="small">2023/05/29 (Mon) 14:08</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m thinking of trying out some new hair care products to deal with these grey hairs that have been popping up lately. Do you have any recommendations for anti-grey hair products that actually work? By the way, I just turned 37 on February 20th, and it&#39;s been making me more conscious of my appearance.</div>
       </div><div class="turn">
@@ -2055,15 +2319,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Skin care is a great topic! As we age, our skin naturally loses its natural moisture barrier, leading to dryness, fine lines, and wrinkles. A good moisturizer can make a huge difference in combatting these signs of aging.<br /><br />For anti-aging and hydration, I recommend looking for a moisturizer that contains a combination of the following ingredients:<br /><br />1. **Hyaluronic Acid**: A natural humectant that attracts and retains moisture, plumping up fine lines and wrinkles.<br />2. **Retinol**: A derivative of vitamin A that stimulates collagen production, reduces fine lines, and improves skin texture.<br />3. **Peptides**: Short chains of amino acids that help stimulate collagen production, improve skin elasticity, and reduce wrinkles.<br />4. **Niacinamide**: A form of vitamin B3 that improves skin elasticity, reduces inflammation, and enhances skin brightness.<br />5. **Antioxidants**: Ingredients like vitamin C, vitamin E, or ferulic acid that help neutralize free radicals and protect the skin from environmental stressors.<br /><br />Here are some moisturizer recommendations that incorporate these ingredients:<br /><br />1. **Neutrogena Hydro Boost Water Gel**: A lightweight, oil-free moisturizer that provides long-lasting hydration and contains hyaluronic acid.<br />2. **Olay Regenerist Micro-Sculpting Cream**: A rich, luxurious moisturizer that contains Amino-Peptide Complex, vitamin B3, and hyaluronic acid to plump and firm the skin.<br />3. **La Roche-Posay Pigmentclar Eye Cream**: A targeted eye cream that contains caffeine, vitamin C, and shea butter to reduce puffiness, dark circles, and fine lines.<br />4. **Dermalogica Daily Moisturizing Cream**: A rich, non-greasy moisturizer that contains hyaluronic acid, glycerin, and antioxidants to provide long-lasting hydration and protection.<br />5. **SkinCeuticals A.G.E. Interrupter**: A rich, luxurious moisturizer that contains a proprietary blend of antioxidants and peptides to reduce wrinkles, improve skin texture, and provide long-lasting hydration.<br /><br />Remember, everyone&#39;s skin is unique, so it may take some trial and error to find the perfect moisturizer for your skin type and concerns. Be sure to read reviews, patch test, and start with a small amount to ensure you&#39;re not allergic to any ingredients.<br /><br />Also, don&#39;t forget to:<br /><br />* **Exfoliate regularly**: Remove dead skin cells to help your moisturizer penetrate deeper and work more effectively.<br />* **Use sunscreen daily**: Protect your skin from UV damage, which can exacerbate dryness and wrinkles.<br />* **Stay hydrated**: Drink plenty of water to keep your skin hydrated from the inside out.<br /><br />I hope this helps you find a moisturizer that addresses your skin concerns!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>59c5f97e</code></strong>
         <span class="small">2023/05/29 (Mon) 19:39</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some new podcast recommendations, specifically in the self-improvement space. Can you suggest some popular ones?</div>
       </div><div class="turn">
@@ -2100,30 +2368,38 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">You&#39;re off to a great start! Setting up a simple structure and gradually adding complexity will help you get comfortable with the tool. Breaking down tasks into smaller steps, using labels and colors, and setting aside time to review and update your boards will help you stay organized and focused.<br /><br />Now, about staying motivated and consistent:<br /><br />1. **Make it a habit:** Incorporate your productivity tool into your daily routine, just like brushing your teeth or taking a shower. Try to use it at the same time every day, so it becomes second nature.<br />2. **Set small wins:** Celebrate small victories by completing tasks and moving cards across lists. This will give you a sense of accomplishment and motivation to continue.<br />3. **Create accountability:** Share your boards or lists with a friend or accountability partner. This can provide an added motivation to stay on track.<br />4. **Reward yourself:** Set aside time to do something you enjoy after completing a task or reaching a milestone. This can be a great way to stay motivated and reinforce positive habits.<br />5. **Track progress:** Use the analytics features in Trello or Todoist to track your progress. Seeing your accomplishments and productivity can be a great motivator.<br />6. **Be kind to yourself:** Remember that it&#39;s okay to have off days or miss a task occasionally. Don&#39;t get discouraged if you don&#39;t meet your goals perfectly. Instead, focus on getting back on track and moving forward.<br />7. **Experiment and adjust:** Try different workflows, labels, and features to find what works best for you. Don&#39;t be afraid to adjust your system as needed.<br />8. **Make it enjoyable:** Add some fun to your productivity routine. Use colorful boards, custom backgrounds, or even add some humor to your task names.<br />9. **Integrate with other tools:** Connect your productivity tool with other apps and services you use, like Google Calendar or Slack, to streamline your workflow and reduce friction.<br />10. **Stay patient:** Building habits and consistency takes time. Don&#39;t expect to become a productivity master overnight. Stay patient, and you&#39;ll see progress over time.<br /><br />By following these tips, you&#39;ll be more likely to stay motivated and consistent with using Trello or Todoist. Remember, the goal is to make productivity a habit, not a chore.<br /><br />How do you plan to stay motivated and consistent with your productivity routine?</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_hn3IS1q_0</code></strong>
         <span class="small">2023/05/29 (Mon) 23:48</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">create a D&amp;D one shot for level 8 PCs. Include stat blocks for the enemies and loot if they succeed. the final battle should include a suprise twist. also, there should be cool layer actions. If there are any traps, describe in detail. Also, describe in detail all aspects of the one-shot to help a GM run the one shot smoothly</div>
       </div><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">&quot;The Lost Temple of the Djinn&quot;<br /><br />Ages ago, a powerful Djinn named Zoltar ruled over a vast temple filled with treasures and magical artifacts. Zoltar was a just ruler and the temple flourished under his rule. But as time passed, Zoltar disappeared and the temple was lost to the sands of time.<br /><br />Now, a wealthy collector has hired the party to retrieve an artifact from the lost temple. The collector has located the temple and believes the artifact to be located within its walls, but he doesn&#39;t have the power to retrieve it himself.<br /><br />Upon arriving at the temple, the party must navigate through a series of traps and puzzles to reach the artifact. The temple is filled with mummies, undead warriors, and constructs guarding its treasures.<br /><br />Here are the stat blocks for the enemies the party will face:<br /><br />* Mummies (4):<br />	+ Armor Class: 11<br />	+ Hit Points: 45 (6d8 + 18)<br />	+ Speed: 20 ft.<br />	+ Damage Immunity: Poison, Psychicical<br />	+ Condition Immunity: Charmed, Exhaustion, Frightened, Paralyzed, Petrified, Poisoned<br />	+ Traits:<br />		- Curse of the Pharaohs. A creature that touches the mummy or hits it with a melee attack while within 5 ft. of it must succeed on a DC 15 Wisdom saving throw or be cursed. The cursed target can&#39;t regain hit points, and its hit point maximum is reduced by 10 (3d6) for 24 hours. The curse lasts until removed by a remove curse spell or similar magic.<br />		- Mummy Rot. A creature hit by a mummy&#39;s Slam attack must succeed on a DC 15 Constitution saving throw or be affected by the Mummy Rot disease. The disease&#39;s effects are detailed in appendix A of the Monster Manuel.<br />* Construct Guardians (2):<br />	+ Armor Class: 17 (natural armor)<br />	+ Hit Points: 110 (13d10 + 30)<br />	+ Speed: 30 ft.<br />	+ Damage Immunity: Poison, Psychicical<br />	+ Condition Immunity: Charmed, Exhaustion, Frightened, Paralyzed, Petrified, Poisoned<br />	+ Traits:<br />		- Immutable Form. The construct is immune to any spell or effect that would alter its form.<br />		- Magic Resistance. The construct has advantage on saving throws against spells and other magical effects.<br />		- Magic Weapons. The construct&#39;s weapon attacks are magical.<br />		- Siege Monster. The construct deals double damage to objects and structures.<br />* Skeletal Warriors (6):<br />	+ Armor Class: 12<br />	+ Hit Points: 22 (5d8)<br />	+ Speed: 30 ft.<br />	+ Damage Immunity: Poison, Psychicical<br />	+ Condition Immunity: Charmed, Exhaustion, Frightened, Paralyzed, Petrified, Poisoned<br />	+ Traits:<br />		- Undead Fortitude. If damage reduces the skeleton to 0 hit points, it must make a Constitution saving throw with a DC of 5 + the damage taken, unless the damage is radiant or from a critical hit. On a success, the skeleton drops to 1 hit point instead.<br /><br />Puzzles and Traps:<br /><br />* Pressure Plate Puzzle. A room filled with pressure plates on the floor. Stepping on the wrong plate will trigger a poison dart trap. A successful Intelligence (Investigation) check (DC 15) will reveal which plates are safe to step on.<br />* Spinning Blade Trap. A hallway filled with spinning blades that activate when the party steps on a pressure plate. A Dexterity (Acrobatics) check (DC 15</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>12418807</code></strong>
         <span class="small">2023/05/30 (Tue) 00:01</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m thinking of going for a run this weekend and I&#39;m wondering if there&#39;s a way to track my route and pace. Do you know of any good running apps?</div>
       </div><div class="turn">
@@ -2160,15 +2436,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Vans Old Skool sneakers are a classic choice! They&#39;re known for their comfort, durability, and stylish design. To keep your new pair looking their best, here&#39;s a step-by-step guide on how to clean and maintain them:<br /><br />**Cleaning:**<br /><br />1. **Brush off dirt and debris**: Use a soft-bristled brush or a clean cloth to gently remove any loose dirt, dust, or debris from the shoes.<br />2. **Mix a cleaning solution**: In a bowl, mix 1 tablespoon of mild soap (like dish soap or hand soap) with 1 cup of warm water. Stir well to create a sudsy solution.<br />3. **Dampen a cloth**: Dip a clean, soft cloth into the soapy solution, wring it out thoroughly, and gently wipe down the shoes. Avoid soaking the shoes or using excessive water.<br />4. **Focus on high-wear areas**: Pay special attention to the toe box, heel, and lacing areas, as these tend to accumulate more dirt and grime.<br />5. **Rinse with clean water**: Use a clean, damp cloth to wipe away any soap residue. Make sure to remove excess water to prevent water spots.<br />6. **Air dry**: Allow the shoes to air dry at room temperature. Avoid direct sunlight, heat, or using a hair dryer to speed up the drying process, as this can cause the materials to degrade.<br /><br />**Stain removal:**<br /><br />1. **Identify the stain**: Before attempting to remove a stain, identify its type (e.g., oil-based, water-based, or ink).<br />2. **Use a stain remover**: Apply a stain remover specifically designed for the type of stain you&#39;re dealing with. Follow the product&#39;s instructions and test a small, inconspicuous area first.<br />3. **Blot, don&#39;t rub**: Gently blot the stain with a clean cloth or paper towel. Avoid rubbing, as this can spread the stain or damage the material.<br /><br />**Maintenance:**<br /><br />1. **Condition the leather (if applicable)**: If your Vans Old Skool sneakers have leather components, use a leather conditioner or leather oil to keep the leather soft and supple.<br />2. **Protect from water**: Apply a waterproofing spray or cream to protect the shoes from water and stains.<br />3. **Store them properly**: When not in use, store your Vans in a cool, dry place away from direct sunlight. Avoid stacking them on top of each other or storing them in a humid environment.<br />4. **Clean the laces**: Regularly clean the laces with soap and water to prevent dirt and grime from building up.<br /><br />**Additional Tips:**<br /><br />1. **Avoid harsh chemicals**: Never use harsh chemicals, abrasive cleaners, or conditioners, as they can damage the materials or discolor the shoes.<br />2. **Handle with care**: Avoid handling your shoes excessively, as the oils from your skin can cause discoloration or staining.<br />3. **Consider using a shoe cleaning kit**: If you&#39;re unsure about cleaning your Vans or want a more thorough cleaning, consider using a shoe cleaning kit specifically designed for the type of material your shoes are made of.<br /><br />By following these steps, you&#39;ll be able to keep your Vans Old Skool sneakers looking their best and extend their lifespan. Happy cleaning!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>f11b88d8_2</code></strong>
         <span class="small">2023/05/30 (Tue) 00:52</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some recommendations on music streaming services that would allow me to digitize my vinyl record collection. By the way, I recently inherited my grandfather&#39;s vintage guitar from the 1960s, a beautiful mint condition Gibson ES-335. I&#39;d love to find a service that can help me appreciate both my records and guitar.</div>
       </div><div class="turn">
@@ -2205,15 +2485,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Thank you! I think we&#39;ve covered everything. You&#39;re all set to explore Tidal&#39;s Collection feature, document your grandfather&#39;s vintage guitar, and start playing with a new guitar amp and accessories.<br /><br />If you have any more questions or need further assistance in the future, don&#39;t hesitate to reach out. I&#39;ll be here to help.<br /><br />Good luck with your musical journey, and I hope you have a blast playing your grandfather&#39;s guitar!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_149374</code></strong>
         <span class="small">2023/05/30 (Tue) 04:04</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">How have environmental changes affected Gower&#39;s community, and what steps are being taken to ensure its sustainability?</div>
       </div><div class="turn">
@@ -2238,15 +2522,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, there are many eco-friendly accommodations in Gower that prioritize sustainability and the environment. Here are a few examples:<br /><br />1. Blaen-nant-y-groes Farm Cottages: This cottage complex has been awarded a &#39;Gold&#39; rating by the Green Tourism Business Scheme for its efforts to reduce its environmental impact. The accommodations include upcycled furniture, solar panels for heating water, a natural reed bed sewage system, and a woody biomass boiler.<br /><br />2. Fairyhill: Fairyhill is a luxury hotel that has won &#39;Green Hotel of the Year&#39; at the 2017 Wales Tourism Awards. The hotel has implemented a wide range of sustainable practices, including sourcing local and organic food, using renewable energy sources, promoting sustainable tourism, and donating a percentage of their profits to environmental charities.<br /><br />3. The Greenways of Gower: This small bed and breakfast in Gower is committed to promoting sustainability and reducing its environmental impact. The accommodations include energy-efficient lighting, water-saving devices, locally produced toiletries, and sustainably sourced materials.<br /><br />4. Cae y Rhedyn Annex: This eco-friendly annex is located near the Gower Heritage Centre and features solar panels for electricity and hot water, rainwater harvesting, a wood-burning stove that heats the entire unit, and organic linens.<br /><br />Overall, there are many eco-friendly accommodations in Gower that prioritize sustainability and the environment. By choosing to stay in these types of accommodations, travelers can reduce their impact on the environment and support local businesses that prioritize sustainability.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_wnK2ssX_0</code></strong>
         <span class="small">2023/05/30 (Tue) 06:57</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">how to download rain100L dataset</div>
       </div><div class="turn">
@@ -2265,15 +2553,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">The main difference between the Rain100H and Rain100L datasets is the quality of the images. The Rain100H dataset contains higher quality images compared to the Rain100L dataset.<br /><br />Specifically, the Rain100H dataset includes 100 high-quality pairs of rainy and corresponding clean images, where the resolution of each image is 720p or higher, and the images are relatively free of compression artifacts. On the other hand, the Rain100L dataset contains 100 pairs of lower-quality rainy and clean images, where the resolution of each image is 400x400 pixels, and the images are relatively more compressed.<br /><br />The Rain100H dataset is designed to be more challenging for rain removal algorithms, as it contains more complex rain streaks and a wider variety of scenarios compared to the Rain100L dataset. As a result, the Rain100H dataset is generally considered a more advanced benchmark for evaluating the performance of image rain removal algorithms.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_9qAGH5s_0</code></strong>
         <span class="small">2023/05/30 (Tue) 10:06</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">definition of a web portal:A reference website in a specific field...<br />◦ A website and/or intranet<br />◦ A single gateway to a wide range of resources<br />and/or services<br />◦ Focused on a particular domain or community<br />...with an active audience that can contribute to the development<br />◦ The user visits, registers, and returns<br />◦ It finds and shares information<br />◦ He communicates with other members<br />◦ He can personalize his access</div>
       </div><div class="turn">
@@ -2304,7 +2596,8 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Sure, here&#39;s an example of a sprint backlog for a one-week sprint with two developers, based on the product backlog I provided earlier:<br /><br />Sprint Backlog - Week 1<br /><br />User Service:<br /><br />* Implement user authentication and registration (login, signup)<br />* Implement user profile management (view, edit)<br /><br />Venue Service:<br /><br />* Implement venue data management (add, edit, delete)<br />* Implement venue search and filtering (by type, location, availability)<br /><br />Reservation Service:<br /><br />* Implement reservation booking and management (reserve, modify, cancel)<br /><br />Event Service:<br /><br />* Implement event creation and management (add, edit, delete)<br /><br />Feedback Service:<br /><br />* Implement user feedback collection (ratings, reviews)<br /><br />Machine Learning Service:<br /><br />* Implement user behavior tracking and analysis (clicks, searches, bookings)<br /><br />Tasks:<br /><br />1. Set up project environment, including Angular and Spring Boot frameworks.<br />2. Define the database schema and configure database connections for user, venue, reservation, event, and feedback data.<br />3. Implement user login and signup functionality in User Service.<br />4. Implement user profile management functionality in User Service.<br />5. Implement venue data management functionality in Venue Service.<br />6. Implement venue search and filtering functionality in Venue Service.<br />7. Implement reservation booking and management functionality in Reservation Service.<br />8. Implement event creation and management functionality in Event Service.<br />9. Implement user feedback collection functionality in Feedback Service.<br />10. Implement user behavior tracking and analysis functionality in Machine Learning Service.<br />11. Conduct unit testing for implemented functionalities.<br />12. Conduct integration testing for implemented functionalities.<br />13. Review and refactor code for quality and performance.<br />14. Prepare documentation for implemented functionalities.<br /><br />Note: The specific tasks and priorities may vary based on your project requirements, but this provides an example of how a sprint backlog can be structured for a one-week sprint with two developers. You can adjust the number and complexity of tasks based on your team&#39;s capabilities and workload.</div>
       </div></div>
-  </details></div>
+    </details>
+  </div></div>
                     </details>
     </div>
   </div>

@@ -105,7 +105,7 @@
       border: 1px solid var(--line);
       border-radius: 14px;
       background: #fff;
-      padding: 0 14px 14px;
+      padding: 14px;
     }
     .priority-session {
       border-width: 2px;
@@ -115,21 +115,17 @@
     .secondary-session {
       opacity: 0.9;
     }
-    .session-card summary {
-      list-style: none;
-      cursor: pointer;
+    .session-card-header {
       display: flex;
       justify-content: space-between;
       gap: 12px;
       align-items: center;
-      padding: 14px 0;
-    }
-    .session-card summary::-webkit-details-marker {
-      display: none;
+      margin-bottom: 12px;
     }
     .session-turns {
       display: grid;
       gap: 10px;
+      margin-top: 12px;
     }
     .turn {
       border-top: 1px solid var(--line);
@@ -146,6 +142,40 @@
       font-size: 14px;
       line-height: 1.55;
       word-break: break-word;
+    }
+    .session-memory-wrap {
+      margin-bottom: 12px;
+    }
+    .session-memory-details {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fcfaf5;
+      padding: 0 12px 12px;
+    }
+    .session-memory-details summary,
+    .session-conversation-details summary {
+      cursor: pointer;
+      padding: 12px 0;
+      font-size: 13px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .session-conversation-details {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fafaf7;
+      padding: 0 12px 12px;
+    }
+    .session-memory-list {
+      display: grid;
+      gap: 10px;
+    }
+    .extracted-memory-card {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+      padding: 12px;
     }
     .pill {
       display: inline-block;
@@ -397,15 +427,111 @@
       <h2>Question Sessions</h2>
       <p class="small">Benchmark answer sessions are shown first. Then come other retrieved sessions. Background sessions stay collapsed below.</p>
       <div class="session-subhead">Answer Sessions</div>
-             <div class="session-list"><details class="session-card priority-session">
-    <summary>
+             <div class="session-list"><div class="session-card priority-session">
+    <div class="session-card-header">
       <div>
         <strong><code>answer_f3164f2c</code></strong>
         <span class="small">2023/05/21 (Sun) 10:36</span>
       </div>
       <div><span class="pill">ground truth</span> <span class="pill pill-answer">answer session</span> <span class="pill pill-retrieved">retrieved</span></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    <div class="session-memory-wrap"><details class="session-memory-details">
+    <summary>Extracted Memories (5)</summary>
+    <div class="session-memory-list"><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 1</strong>
+      <div>
+        <span class="pill pill-retrieved">retrieved</span>
+        <span class="small">2023-05-21T17:36:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Started making own flavored creamer using almond milk, vanilla extract, and honey to reduce sugar intake and save money. Sought tips on making it even healthier.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Making own flavored creamer.<br />Ingredients: almond milk, vanilla extract, honey.<br />Goal: reduce sugar intake, save money.<br />Seeking tips for healthier creamer.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Creamer</td>
+      </tr></tbody></table>
+  </div><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 2</strong>
+      <div>
+        
+        <span class="small">2023-05-21T17:36:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Asked for good snack options that can be prepared on Sunday for the entire week. This is to help with healthy eating goals and save time and money.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Requested snack options for weekly preparation.<br />Preparation on Sunday for the entire week.<br />Aims to save time and money.<br />Supports healthy eating goals.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Snacks</td>
+      </tr></tbody></table>
+  </div><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 3</strong>
+      <div>
+        
+        <span class="small">2023-05-21T17:36:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Experimented with different types of granola, making a large batch at home with rolled oats, almonds, and honey. The homemade granola was delicious and consumed throughout the day, prompting a request for customization tips.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Experimented with different granola types.<br />Made a big batch at home.<br />Ingredients used: rolled oats, almonds, honey.<br />Found the homemade granola delicious.<br />Snacking on it throughout the day.<br />Asked for tips on customizing granola recipes.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Granola</td>
+      </tr></tbody></table>
+  </div><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 4</strong>
+      <div>
+        
+        <span class="small">2023-05-21T17:36:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Experienced increased cravings for sweet treats, particularly in the afternoon between 3-4 pm. Sought tips on how to curb these cravings and make healthier choices.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Craving sweet treats more often.<br />Cravings occur in the afternoon, around 3-4 pm.<br />Requested tips to curb cravings.<br />Seeking advice for healthier choices.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Cravings</td>
+      </tr></tbody></table>
+  </div><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 5</strong>
+      <div>
+        
+        <span class="small">2023-05-21T17:36:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Asked for healthy breakfast ideas to start the day right, as breakfast has been skipped more frequently. The goal is to find options that can help establish a consistent morning routine.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Requested healthy breakfast ideas.<br />Aiming to start the day right.<br />Has been skipping breakfast more frequently.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Breakfast</td>
+      </tr></tbody></table>
+  </div></div>
+  </details></div>
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m trying to reduce my sugar intake and save money, so I&#39;ve started making my own flavored creamer with almond milk, vanilla extract, and honey. Can you give me some tips on how to make it even healthier?</div>
       </div><div class="turn">
@@ -442,17 +568,21 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Skipping breakfast can make it challenging to get your day started on the right foot! Breakfast is an essential meal that helps fuel your body and brain for the day ahead. Here are some healthy breakfast ideas to help you start your day off right:<br /><br />1. **Overnight Oats**: Mix rolled oats, milk, and your choice of nuts, seeds, or fruit in a jar. Refrigerate overnight and enjoy in the morning.<br />2. **Avocado Toast**: Toast whole-grain bread, mash an avocado, and spread it on top. Add a sliced egg, salt, and pepper for added protein.<br />3. **Greek Yogurt Parfait**: Layer Greek yogurt, fresh berries, granola, and a drizzle of honey in a bowl.<br />4. **Smoothie Bowl**: Blend your favorite fruits, yogurt, and milk, then top with granola, nuts, and seeds.<br />5. **Whole-Grain Waffles with Fresh Fruit and Yogurt**: Make whole-grain waffles and top with fresh fruit and a dollop of yogurt.<br />6. **Veggie Omelette**: Whisk eggs with salt and pepper, add diced veggies like bell peppers, onions, and mushrooms, and cook into an omelette.<br />7. **Chia Seed Pudding**: Mix chia seeds with milk and let it sit overnight. Top with fresh fruit and nuts in the morning.<br />8. **Green Smoothie**: Blend spinach, avocado, banana, and milk for a nutrient-packed breakfast drink.<br />9. **Cottage Cheese and Fresh Fruit**: Mix cottage cheese with fresh fruit like berries or sliced peaches for a high-protein breakfast.<br />10. **Peanut Butter Banana Toast**: Toast whole-grain bread, spread with peanut butter, and top with sliced banana.<br />11. **Breakfast Burrito**: Scramble eggs, add black beans, cheese, and salsa, then wrap in a whole-grain tortilla.<br />12. **Muesli with Yogurt and Fruit**: Mix muesli with yogurt and top with fresh fruit and nuts.<br />13. **Hard-Boiled Eggs**: Boil eggs the night before and keep them in the fridge for a quick protein-packed breakfast on-the-go.<br />14. **Cinnamon Roll Oatmeal**: Cook oatmeal with cinnamon and sugar, then top with fresh fruit and a drizzle of honey.<br />15. **Breakfast Quesadilla**: Fill a whole-grain tortilla with scrambled eggs, cheese, and salsa, then cook in a pan until crispy and melted.<br /><br />Remember, breakfast is an important meal to help fuel your body for the day ahead. Aim to include a balance of protein, complex carbohydrates, and healthy fats in your breakfast to keep you full and satisfied until lunchtime.</div>
       </div></div>
-  </details></div>
+    </details>
+  </div></div>
              <div class="session-subhead">Other Retrieved Sessions</div>
-                    <div class="session-list"><details class="session-card priority-session">
-    <summary>
+                    <div class="session-list"><div class="session-card priority-session">
+    <div class="session-card-header">
       <div>
         <strong><code>4f2d6be4_2</code></strong>
         <span class="small">2023/05/21 (Sun) 18:04</span>
       </div>
       <div><span class="pill">retrieved only</span> <span class="pill pill-retrieved">retrieved</span></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m trying to plan my shopping trip to Target for spring cleaning and household essentials. Can you give me some recommendations on what items are usually on sale during this time of the year? By the way, I&#39;ve been doing pretty well with my Starbucks Rewards program, earning 120 stars in the past month, which is equivalent to $10 in rewards that I can redeem for free drinks and other benefits.</div>
       </div><div class="turn">
@@ -489,18 +619,22 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Smart move on using your Target RedCard discount!<br /><br />During this time of year, many cleaning products are on sale as people prepare for spring cleaning and organization. Here are some popular cleaning products that are usually on sale:<br /><br />1. **All-purpose cleaners**: Expect discounts on all-purpose cleaners from brands like Clorox, Lysol, and Seventh Generation.<br />2. **Disinfectants**: Look for sales on disinfectants like bleach, hydrogen peroxide, and disinfectant wipes from brands like Clorox, Lysol, and Dettol.<br />3. **Glass cleaners**: Glass cleaners from brands like Windex, Glass Plus, and Method are often on sale during this time.<br />4. **Dish soap and dishwasher detergent**: Stock up on dish soap and dishwasher detergent from brands like Dawn, Cascade, and Seventh Generation.<br />5. **Laundry detergent**: Look for sales on laundry detergent from brands like Tide, Gain, and Arm &amp; Hammer.<br />6. **Mops and dusters**: Expect discounts on mops, dusters, and other cleaning tools from brands like Swiffer, O-Cedar, and Scotch-Brite.<br />7. **Air fresheners and odor eliminators**: Air fresheners and odor eliminators from brands like Febreze, Air Wick, and Renuzit are often on sale.<br />8. **Cleaning caddies and storage**: Keep an eye out for sales on cleaning caddies, buckets, and storage solutions from brands like Rubbermaid and Sterilite.<br />9. **Eco-friendly cleaning products**: Many eco-friendly cleaning products from brands like Seventh Generation, Ecover, and Mrs. Meyer&#39;s Clean Day are also on sale during this time.<br />10. **Spring cleaning kits**: Look for bundled spring cleaning kits that include a variety of cleaning products and tools at a discounted price.<br /><br />Before you shop, make sure to:<br /><br />* Check the Target website or mobile app for sales and promotions<br />* Sign up for Target&#39;s Cartwheel app for exclusive offers and discounts<br />* Use your Target RedCard for an additional 5% discount<br />* Stack manufacturer coupons with Target sales for even more savings<br /><br />Happy shopping and enjoy your cleaning supplies haul!</div>
       </div></div>
-  </details></div>
+    </details>
+  </div></div>
              <details class="other-sessions">
                       <summary>Other Sessions (51)</summary>
-                      <div class="session-list"><details class="session-card secondary-session">
-    <summary>
+                      <div class="session-list"><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_RNF6TzV_0</code></strong>
         <span class="small">2023/05/20 (Sat) 02:53</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I’m the host of a community based group where people feel safe and they come to learn from each other. They bring interesting ideas to the table. This is why we would like for the speakers to mainly focus on knowledge, discussions and community building. Our next speaker will come from a company who is the main driver for building an open source technology. How can I kindly ask him to avoid a sales pitch talk?</div>
       </div><div class="turn">
@@ -519,15 +653,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Hi [Speaker],<br /><br />I hope this message finds you well. I&#39;m really excited that you&#39;re coming to speak at our community group. Our members are always eager to learn from each other and bring new ideas to the table, so I think your expertise will be a great fit.<br /><br />I just wanted to touch base regarding the focus of your talk. Our group is all about community building, knowledge sharing, and discussions. We&#39;d love for you to share your experiences and insights, but maybe not so much about the promotion or advertisement of your products.<br /><br />Let me know if you have any questions or concerns. I can&#39;t wait to hear what you have to say!<br /><br />Best,<br />[Your Name]</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_A3DTUI4_28</code></strong>
         <span class="small">2023/05/20 (Sat) 03:19</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Can you generate new brand names coming from words above?지금 번역하기</div>
       </div><div class="turn">
@@ -552,15 +690,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Sure! Here are the detailed meanings of the 30 brand names generated previously:<br /><br />1. GreenSavor: This brand name is a combination of &quot;Green&quot; which represents a focus on the environment, and &quot;Savor&quot; which means to enjoy food. Together, it implies that the brand is focused on providing eco-friendly meal prep options that allow families to savor their food while being mindful of their impact on the planet.<br />2. NourishEase: This brand name is a combination of &quot;Nourish&quot; which represents a focus on healthy eating, and &quot;Ease&quot; which represents convenience. Together, it implies that the brand is focused on providing easy-to-use meal prep containers and tools that make it easy to nourish oneself and one&#39;s family.<br />3. EcoPrep: This brand name is a combination of &quot;Eco&quot; which represents a focus on the environment, and &quot;Prep&quot; which represents meal preparation. Together, it implies that the brand is focused on providing eco-friendly meal prep containers and tools.<br />4. MealMate: This brand name implies that the containers and tools are the ideal companions for meal preparation and make mealtime more enjoyable.<br />5. FreshEase: This brand name is a combination of &quot;Fresh&quot; which represents a focus on freshness and quality of ingredients, and &quot;Ease&quot; which represents convenience. Together, it implies that the brand is focused on providing easy-to-use meal prep containers and tools that keep food fresh.<br />6. HealthyBite: This brand name is a combination of &quot;Healthy&quot; which represents a focus on healthy eating, and &quot;Bite&quot; which represents the portion size of food. Together, it implies that the brand is focused on providing containers and tools that encourage healthy eating habits by promoting portion control.<br />7. MealMaven: This brand name implies that the containers and tools are the go-to choice for meal preparation, and that the brand is an expert in meal prep.<br />8. CleanCuisine: This brand name is a combination of &quot;Clean&quot; which represents a focus on clean eating, and &quot;Cuisine&quot; which represents food preparation. Together, it implies that the brand is focused on providing containers and tools that promote clean eating habits.<br />9. FamilyFresh: This brand name implies that the containers and tools are designed specifically for families, and that they promote the freshness of food.<br />10. PrepPerfect: This brand name implies that the containers and tools are the perfect choice for meal preparation, and that they make mealtime more enjoyable.<br />11. NourishMate: This brand name is a combination of &quot;Nourish&quot; which represents a focus on healthy eating, and &quot;Mate&quot; which represents companionship. Together, it implies that the brand is focused on providing containers and tools that promote healthy eating habits and make mealtime more enjoyable.<br />12. EasyPrep: This brand name implies that the containers and tools are easy to use and make meal preparation more convenient.<br />13. HealthyHarvest: This brand name is a combination of &quot;Healthy&quot; which represents a focus on healthy eating, and &quot;Harvest&quot; which represents the use of fresh ingredients. Together, it implies that the brand is focused on providing containers and tools that promote healthy eating habits using fresh ingredients.<br />14. MealMaster: This brand name implies that the containers and tools are the masters of meal preparation, and that the brand is an expert in the field.<br />15. FreshMate: This brand name implies that the containers and tools are designed to keep food fresh and make mealtime more enjoyable.<br />16. SmartPrep: This brand name implies that the containers and tools are designed with smart features that make meal preparation more convenient.<br />17. HealthyHome: This brand name implies that the containers and tools are designed specifically for home use and promote healthy eating habits.<br />18. PrepPro:</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>baf33acc</code></strong>
         <span class="small">2023/05/20 (Sat) 08:13</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m planning a Halloween party and need some decoration ideas. Do you have any suggestions? By the way, I just got back from Universal Studios Hollywood&#39;s Halloween Horror Nights event and it was so much fun!</div>
       </div><div class="turn">
@@ -597,15 +739,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">This conversation has reached its natural conclusion. The user has expressed gratitude and indicated that they have all the necessary information to host a successful Halloween party. There&#39;s no need for further assistance or follow-up questions. The goal of providing helpful and informative responses has been achieved!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_bTDMt3m_80</code></strong>
         <span class="small">2023/05/20 (Sat) 08:43</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">proofread this email and give me your thoughts first without changing anything in your response: <br />Hello Alex, I hope you’re having a good morning and that this email finds you well.<br /><br />I wanted to reach out to you with an update regarding the property.<br /><br />Firstly, I would like to express my gratitude towards the landlord for repairing the dishwasher in such a timely manner. Venkatesh came to take a look at the dishwasher on Monday morning and successfully repaired the issue. I had meant to send a thank you email sooner but have been very unwell this week.<br /><br />However, I do have some other concerns that I would like to bring to your attention. Recently, I found a rusty metal spike sticking out of the ground where the back gate is to be replaced. Venkatesh had informed me that there was construction debris back there but never mentioned that there could be hazards coming out of the ground. I only found this hard spike after hearing an awful shriek from my dog who I can only assume stepped on it. Seeing there are no other hazards back there and she was passing by that gate site. I had only ever seen the metal posts used for construction laid flat on the ground near the gate site and thought the construction mess was limited to those as I had not been warned about dangerous protrusions from the gravel or ground, the spike had been present most likely since the removal of the gate, without being noticed.<br /><br />Additionally, I would like to mention that this happened while my dog was in the backyard while Venkatesh was seeing to the dishwasher. She is usually not outside unattended, but I had no reason to believe that there was a dangerous hazard in the area.<br /><br />Furthermore, to provide context for this situation, I would like to make rent select aware that the neighborhood has seemingly started to degrade in terms of safety. In my entire tenancy in this property up until recently, I had always felt very safe. However, in recent months a few of our neighbors have been affected by the recent uptick in crime and aggressive individuals in the area. The park which sits in the middle of the neighborhood has also started to show signs of unruly individuals. I recently had my safety threatened there by an individual I can only presume was on drugs. This being the case, I was quite distressed to wake up this morning and find our side gate wide open to the street. It had been secured with the latch and bolted, but due to the Gardeners coming through, my personal master lock had not been resecured on the latch. Due to the bottom bolt (the one going into the ground) on the gate being shut the night before, it is likely that someone hopped the fence to open it. If there was someone casing this house, they are now aware of a large amount of technology inside (personal computers with expensive accessories) and we are increasingly worried about a break-in. With all that being the case I wanted to touch base on the progress toward the security cameras that the landlord stated he wanted to install, and also the security of the front and garage doors, which are both in need of repair. Venkatesh has already fixed the lock on the front screen door but we are still awaiting the main door repairs. On top of this, the wood on the actual front door is still decaying in places.<br /><br />On the topic of the construction, I would also like to inform Rent Select that the active construction sites have been left in place so long that the sites and items in them are starting to show signs of decay. I will attach photos of the front yard site and the backyard area where the gate is to be replaced. The baseboard that the back gate will be sitting on now shows signs of the same rot that could have contributed to the decay of the back gate.<br /><br />At the front construction site. There has been rusty rebar sticking out of the ground very close to the neighbor&#39;s yard, and the actual structure Venkatesh is working to build is starting to fall apart due to weathering. On top of that, there is starting to be weed growth that I do not feel comfortable having removed from an active construction site with hazards such as rebar posts sticking out of the ground.<br /><br />The last thing I&#39;d like to mention is that, at this point in time, I am still not sure if the landlord intends to conduct repairs this weekend. It is currently Friday at 9 am, and I have not heard from him through the course of the week, aside from Monday when he said he&#39;d be in touch. I assume he will be sorting other matters this weekend. He has informed me that Saturdays are the primary days he can come to attend to the repairs. I am happy to make myself available on those days, but I would still like to request more than 24 hours notice so that I can plan my weekend with certainty. I also understand that Venkatesh needs to make time to coordinate and plan for all of these repairs, but I respectfully request that the matters involving security be expedited.</div>
       </div><div class="turn">
@@ -624,15 +770,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Hello Alex,<br /><br />I hope this email finds you well. Firstly, I wanted to express my gratitude towards the landlord for repairing the dishwasher in such a timely manner. Venkatesh came to take a look at the dishwasher on Monday morning and successfully repaired the issue. I had meant to send a thank you email sooner but have been very unwell this week.<br /><br />However, I have some concerns that I would like to bring to your attention. Recently, I found a rusty metal spike sticking out of the ground where the back gate is to be replaced. Venkatesh had informed me that there was construction debris back there but never mentioned that there could be hazards coming out of the ground. I only found this hard spike after hearing an awful shriek from my dog who I can only assume stepped on it. Seeing there are no other hazards back there and she was passing by that gate site, I had only ever seen the metal posts used for construction laid flat on the ground near the gate site and thought the construction mess was limited to those as I had not been warned about dangerous protrusions from the gravel or ground. The spike had likely been present since the removal of the gate, without being noticed.<br /><br />Furthermore, to provide context for this situation, I would like to make Rent Select aware that the neighborhood has seemingly started to degrade in terms of safety. In my entire tenancy in this property up until recently, I had always felt very safe. However, in recent months a few of our neighbors have been affected by the recent uptick in crime and aggressive individuals in the area. The park which sits in the middle of the neighborhood has also started to show signs of unruly individuals. I recently had my safety threatened there by an individual I can only presume was on drugs.<br /><br />This being the case, I was quite distressed to wake up this morning and find our side gate wide open to the street. It had been secured with the latch and bolted, but due to the gardeners coming through, my personal master lock had not been resecured on the latch. Due to the bottom bolt (the one going into the ground) on the gate being shut the night before, it is likely that someone hopped the fence to open it. If there was someone casing this house, they are now aware of a large amount of technology inside (personal computers with expensive accessories) and we are increasingly worried about a break-in. With all that being the case, I wanted to touch base on the progress toward the security cameras that the landlord stated he wanted to install, and also the security of the front and garage doors, which are both in need of repair. Venkatesh has already fixed the lock on the front screen door but we are still awaiting the main door repairs. On top of this, the wood on the actual front door is still decaying in places.<br /><br />On the topic of the construction, I would also like to inform Rent Select that the active construction sites have been left in place for so long that the sites and items in them are starting to show signs of decay. I will attach photos of the front yard site and the backyard area where the gate is to be replaced. The baseboard that the back gate will be sitting on now shows signs of the same rot that could have contributed to the decay of the back gate.<br /><br />At the front construction site, there has been rusty rebar sticking out of the ground very close to the neighbor&#39;s yard, and the actual structure Venkatesh is working to build is starting to fall apart due to weathering. On top of that, there is starting to be weed growth that I do not feel comfortable having removed from an active construction site with hazards such as rebar posts sticking out of the ground.<br /><br />Lastly, at this point in time, I am still not sure</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_FGklF8y_13</code></strong>
         <span class="small">2023/05/20 (Sat) 09:25</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">Once upon a time, a mother was taking her toddler daughter to the bathroom after a messy diaper blowout. The diaper had gotten all over the daughter&#39;s clothing, including her playful overalls with cartoon characters on them.<br /><br />The mother quickly grabbed some wipes and cleaned the daughter up as best as she could. She then carefully removed the soiled diaper and clothes, one piece at a time.<br /><br />Next, the mother went to the bathroom to take care of her own business. She sat down on the toilet and did her best to relax, knowing that she had a lot of work ahead of her. She took care of her #1 and #2, and then wiped herself clean with some toilet paper.<br /><br />Afterwards, she flushed the dirty diaper, wipes, and toilet paper all down the toilet at the same time. To her relief, everything went down easily without clogging the pipes. She then flushed the overalls, which also went down without any issues.<br /><br />After all the dirty items were gone, the mother put a new diaper on the daughter and helped her into a fresh outfit. The daughter was excited to be wearing a new yellow sundress with white flowers and matching sandals.<br /><br />Together, they finished cleaning up the bathroom and were both content after the ordeal. The mother was grateful for the extra set of clothes she had packed in the diaper bag, and the daughter was happy to be feeling fresh and clean again. She didn&#39;t even seem to miss her overalls. The mother was relieved that everything had been successfully flushed away without any problems.</div>
       </div><div class="turn">
@@ -666,15 +816,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Once upon a time, a mother was taking her toddler daughter to the bathroom after a messy diaper blowout. The contents of the diaper had gotten all over the daughter&#39;s clothing, including her playful overalls with cartoon characters on them.<br /><br />The mother quickly grabbed some wipes and cleaned the daughter up as best as she could. She then carefully removed the soiled diaper and clothes, one piece at a time. She put the dirty diaper, wipes, and toilet paper all in the toilet and went to take care of her own business.<br /><br />She sat down on the toilet and did her best to relax, knowing that she had a lot of work ahead of her. She took care of her #1 and #2, and then wiped herself clean with some toilet paper. She flushed the toilet, watching as everything swirled around before disappearing down the drain.<br /><br />Afterwards, she flushed the overalls, which also went down without any issues.<br /><br />After all the dirty items were gone, the mother put a new diaper on the daughter and helped her into a fresh outfit. The daughter was excited to be wearing a new yellow sundress with white flowers and matching sandals.<br /><br />Together, they finished cleaning up the bathroom and were both content after the ordeal. The mother was grateful for the extra set of clothes she had packed in the diaper bag, and the daughter was happy to be feeling fresh and clean again. She didn&#39;t even seem to miss her overalls. The mother was relieved that everything had been successfully flushed away without any problems.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>66bf4b03_1</code></strong>
         <span class="small">2023/05/20 (Sat) 23:17</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m planning a solo trip to Sequoia National Park next month and I was wondering if you could recommend some hiking trails that offer scenic views similar to Yosemite&#39;s Vernal Falls, which I hiked last month with my friends Alex and Sarah.</div>
       </div><div class="turn">
@@ -711,15 +865,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Renting a car is a great way to explore Sequoia National Park, and I&#39;m happy to help with recommendations and tips!<br /><br />**Car Rental Companies:**<br /><br />1. **Enterprise Rent-A-Car:** Enterprise has a location in Visalia, which is the closest city to Sequoia National Park. They offer a wide range of vehicles, including SUVs and vans, which can be useful for navigating the park&#39;s roads.<br />2. **National Car Rental:** National has a location at the Fresno Yosemite International Airport, which is about an hour and a half from Sequoia National Park. They offer a variety of vehicles, including hybrid and electric options.<br />3. **Budget Car Rental:** Budget has a location in Visalia and offers a range of vehicles, including economy and compact cars.<br /><br />**Tips for Navigating the Park&#39;s Roads:**<br /><br />1. **Check road conditions:** Before heading into the park, check the Sequoia National Park website for up-to-date road conditions. Some roads may be closed due to weather or maintenance, so it&#39;s essential to plan your route accordingly.<br />2. **Drive slowly:** The roads in Sequoia National Park can be narrow and winding, with steep drop-offs and no guardrails. Drive slowly and cautiously, especially if you&#39;re not used to mountain driving.<br />3. **Fill up on gas:** Gas stations are limited within the park, so make sure to fill up on gas before entering the park or at the Ash Mountain Visitor Center.<br />4. **Be prepared for altitude:** Sequoia National Park is at a high elevation, which can affect your vehicle&#39;s performance. Make sure your vehicle is in good condition, and consider renting a vehicle with a good engine if you&#39;re not used to high-altitude driving.<br />5. **Consider a 4WD vehicle:** If you plan to explore the park&#39;s more remote areas or drive on dirt roads, consider renting a 4WD vehicle. This will give you more traction and stability on rough roads.<br /><br />**Additional Tips:**<br /><br />1. **Plan your itinerary:** Sequoia National Park is a large park, and driving times between attractions can be significant. Plan your itinerary accordingly, and consider staying in the park or nearby towns to minimize driving time.<br />2. **Bring a map and GPS:** While cell phone service may be limited in the park, a map and GPS can help you navigate the roads and find attractions.<br />3. **Be mindful of wildlife:** Sequoia National Park is home to a variety of wildlife, including deer, bears, and squirrels. Be cautious when driving, especially at dawn and dusk, and keep an eye out for animals on the road.<br /><br />I hope these recommendations and tips are helpful, and I&#39;m sure you&#39;ll have a great experience driving in Sequoia National Park!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>078db67b</code></strong>
         <span class="small">2023/05/20 (Sat) 23:47</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for a good cobbler in my area to repair my Converse sneakers. Can you help me find one?</div>
       </div><div class="turn">
@@ -756,15 +914,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">The Shoe Laundry offers a range of cleaning and conditioning services specifically designed for Birkenstocks. They understand the unique needs of Birkenstock&#39;s contoured footbed and suede or leather uppers, and they use specialized techniques and products to keep your shoes looking their best.<br /><br />Here are some services they might offer for Birkenstocks:<br /><br />1. **Deep Cleaning**: A thorough cleaning of the entire shoe, including the footbed, straps, and outsole.<br />2. **Suede Cleaning**: A gentle cleaning process specifically designed for suede Birkenstocks, using specialized products to remove dirt and stains while preserving the nap.<br />3. **Leather Conditioning**: A moisturizing treatment to keep leather Birkenstocks soft and supple, protecting them from cracking and drying out.<br />4. **Waterproofing**: A treatment to repel water and stains, making it easier to clean your Birkenstocks and keeping them looking fresh.<br />5. **Deodorizing**: A service to eliminate odors and leave your Birkenstocks smelling fresh and clean.<br /><br />When you contact The Shoe Laundry, be sure to ask about their Birkenstock-specific services and get a quote for the services you&#39;re interested in. They&#39;ll be able to provide you with a detailed breakdown of the costs and what&#39;s included in each service.<br /><br />You might also want to ask about any packages or discounts they offer for combining cleaning and conditioning services with their custom strap services. They might have some promotions or deals that can help you save money!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>9216c4d3_4</code></strong>
         <span class="small">2023/05/21 (Sun) 08:39</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m planning a trip to Chicago and I was wondering if you could recommend some good restaurants in the Loop area. By the way, I&#39;ve been to Chicago before, about a week after I got back from a family trip, and I stayed at a hotel in downtown Chicago.</div>
       </div><div class="turn">
@@ -801,15 +963,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">The Art Institute of Chicago is a massive museum with a vast collection, so it&#39;s up to you to decide how much time you want to dedicate to exploring it. Here&#39;s a rough guide to help you plan your visit:<br /><br />**Half-day visit (2-3 hours)**:<br /><br />* If you&#39;re short on time or want to get a taste of the museum&#39;s highlights, you can see some of the most famous works in 2-3 hours.<br />* Focus on the museum&#39;s most iconic pieces, such as:<br />	+ American Gothic by Grant Wood<br />	+ Nighthawks by Edward Hopper<br />	+ A Sunday on La Grande Jatte by Georges Seurat<br />	+ Monet&#39;s Water Lilies<br />	+ Van Gogh&#39;s The Bedroom<br />* You can also explore one or two of the museum&#39;s smaller galleries, such as the Impressionist or Renaissance collections.<br /><br />**Full-day visit (4-6 hours)**:<br /><br />* If you want to delve deeper into the museum&#39;s collections, plan to spend a full day exploring the galleries.<br />* Take your time to explore the museum&#39;s various departments, such as:<br />	+ European Painting and Sculpture<br />	+ American Art<br />	+ Impressionist and Post-Impressionist Art<br />	+ Modern and Contemporary Art<br />	+ Photography<br />* You can also attend a guided tour, which can provide valuable insights and context to the artwork.<br /><br />**Tips for making the most of your visit**:<br /><br />* Arrive early to beat the crowds, especially on weekends.<br />* Take breaks to rest your feet and recharge.<br />* Consider using the museum&#39;s audio guides or mobile app to help navigate the galleries and learn more about the artwork.<br />* Don&#39;t try to see everything; focus on the pieces and galleries that interest you the most.<br /><br />Remember, the Art Institute of Chicago is a massive museum, and you can always return for future visits to explore more of its collections.<br /><br />How much time do you think you&#39;ll dedicate to the museum?</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_Ob4KIVf_0</code></strong>
         <span class="small">2023/05/21 (Sun) 13:31</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What major event happened in Angola between 1960 to 1970?</div>
       </div><div class="turn">
@@ -840,15 +1006,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">paz e ter as mesmas oportunidades, e isso é o que Angola está tentando fazer agora. Mas ainda há muito trabalho a ser feito e precisamos nos esforçar para ajudar a construir um futuro melhor para Angola e as pessoas que vivem lá.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_DDnUhPZ_9</code></strong>
         <span class="small">2023/05/21 (Sun) 19:58</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">Risks to the Builder:<br /><br />| Subclause | Risk |<br />| --- | --- |<br />| 21.1 | Failure to provide timely notice of practical completion may result in delay in receiving payment and/or liability for damages arising from the delay |<br />| 21.2 | Failure to accurately assess practical completion date may result in a dispute with the owner |<br />| 21.3(a) | Failure to complete the works to a satisfactory standard may result in the owner withholding payment |<br />| 21.3(b) | Additional work required to reach practical completion may result in delays and additional costs to the builder |<br />| 21.5(i) | Dispute resolution process may result in further delays and costs for the builder |<br />| 21.5(ii) | Suspension of work during dispute resolution process may result in further delays and costs for the builder |<br />| 21.6 | Non-payment of final progress claim may result in the builder pursuing legal action against the owner for debt recovery |<br /><br />Risks to the Owner:<br /><br />| Subclause | Risk |<br />| --- | --- |<br />| 21.1 | Failure to receive timely notice of practical completion may result in delay in arranging an inspection |<br />| 21.2 | Dispute with builder over practical completion date may result in delay in arranging an inspection |<br />| 21.3(a) | Paying final progress claim before the work is complete may result in defects being overlooked |<br />| 21.3(b) | Dispute with builder over additional work required to reach practical completion may result in delays |<br />| 21.5(i) | Dispute resolution process may result in further delays and costs for the owner |<br />| 21.5(ii) | Suspension of work during dispute resolution process may result in further delays and costs for the owner |<br />| 21.6 | Non-payment of final progress claim may result in legal action being taken against the owner for debt recovery |<br /><br />Note: These tables are not exhaustive and do not account for all possible risks or benefits. They are intended as a brief summary of some of the most significant risks and benefits associated with each subclause of clause 21.</div>
       </div><div class="turn">
@@ -888,15 +1058,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">The HIA (Housing Industry Association) is a leading industry body in the Australian residential building sector. The HIA provides a range of model contracts, including the HIA Standard Form of Contract for Housing and Residential Works, which is widely used in the industry. This contract regulates the relationship between the builder and the homeowner, outlining their rights, obligations, and liabilities. It is important for homeowners to understand the terms and clauses of the contract before signing it, as it will govern the construction process and the parties&#39; rights and obligations throughout the project. One of the most critical clauses for homeowners to understand is Clause 21, which sets out the requirements for Practical Completion of the works. This clause is fundamental to determining when the builder has completed the works and when the homeowner must pay the final payment. Understanding this clause is crucial to managing the risks and ensuring a successful project outcome.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>56cdb8b8_2</code></strong>
         <span class="small">2023/05/21 (Sun) 20:58</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m thinking of getting a maintenance schedule for my car. Can you help me set up a reminder for when I need to replace my brake pads? By the way, I just got my new floor mats, and I&#39;m really happy with the quality - they finally arrived on the 17th, and it was worth the wait.</div>
       </div><div class="turn">
@@ -933,15 +1107,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I totally understand your concern!<br /><br />It&#39;s not uncommon for it to take some time to get serious offers, especially in a competitive market. Before considering a price drop, let&#39;s explore other options to increase visibility and attract more potential buyers.<br /><br />**Expanding your reach:**<br /><br />1. **eBay Motors**: Yes, consider listing your motorcycle on eBay Motors. It&#39;s a popular platform for buying and selling vehicles, and you can reach a broader audience. Make sure to follow eBay&#39;s guidelines and set a competitive starting price.<br />2. **Facebook Marketplace**: Listing your bike on Facebook Marketplace can help you tap into your local network and reach people who might be interested in buying a motorcycle. It&#39;s free, easy to use, and can be a great way to get more eyes on your listing.<br />3. **Specialized motorcycle platforms**: Consider listing your bike on platforms like Cycle Trader, Motorcycle.com, or local motorcycle forums. These platforms cater specifically to motorcycle enthusiasts and can help you reach a targeted audience.<br />4. **Local motorcycle dealerships**: Reach out to local motorcycle dealerships and see if they&#39;d be interested in buying your bike or know of anyone looking for a similar model.<br /><br />**Optimizing your Craigslist listing:**<br /><br />1. **Refresh your listing**: Update your Craigslist listing to make it more attractive and attention-grabbing. Use clear, high-quality photos, and make sure your description is detailed and accurate.<br />2. **Use relevant keywords**: Ensure your listing includes relevant keywords that potential buyers might use when searching for a motorcycle like yours.<br />3. **Check your pricing**: Double-check your pricing to ensure it&#39;s competitive with similar listings in your area. If you&#39;re priced too high, consider adjusting your price to make it more attractive.<br /><br />**Before lowering the price:**<br /><br />1. **Wait a bit longer**: Give it some more time, especially if you&#39;ve just listed your bike. It can take a few weeks for the right buyer to come along.<br />2. **Gather feedback**: Ask friends, family, or potential buyers for feedback on your listing and pricing. This can help you identify areas for improvement.<br />3. **Consider a price reduction strategy**: If you do decide to lower your price, consider doing it in small increments (e.g., $500-$1,000) to test the market and attract more interest.<br /><br />Remember to stay patient, persistent, and open to feedback. With a little creativity and persistence, you&#39;ll increase your chances of selling your motorcycle to the right buyer.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_i59HUGf_0</code></strong>
         <span class="small">2023/05/22 (Mon) 02:46</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Can you please help me think of a new art series? Here&#39;s a list of my past work to consider.<br />--A series of Black and white images taken on a Laika M6 of storms, lightning, and tornados. Captures the awesome power of nature.<br />--A series called &quot;Special Firefighting Brigade&quot; featuring computer generated images of cute brown bears dressed as firefighters in the middle of battling forest fires<br />--A series of images of cacti in the style of &quot;knolling&quot; where all the items are arranged neatly in the frame<br />--A series called Criticality featuring dramatic computer generated images of nuclear mushroom clouds<br />--A series called Trains featuring old coal powered trains and bold photography<br />--A series imagining what the velociraptor looked like, feathers and all<br />--A series imagining new harley davidson products that don&#39;t exist like a tricycle, espresso maker, and golf cart<br />--A series of street photographs of groups of young people smiling seconds after being asked to take their photo<br />--A series of computer generated images of toy soldiers in famous scenes like raising the flag on iwo jima<br />--A series of computer generated images of tracksuits in the style of renaissance paintings<br />--A series of computer generated images of astronauts who are all babies <br />--A series of computer generated images on bonsai trees of a wide variety of trees, many which are not typically bosai&#39;d<br />--a series of computer generated images of animals wearing formal suit and tie</div>
       </div><div class="turn">
@@ -966,15 +1144,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I&#39;m glad you liked those concepts. Based on your preferences, here are two new ideas that combine elements of nature and human-made objects in surreal settings:<br /><br />1. Title: &quot;Skyward Library&quot;<br />Description: A breathtaking scene set in a tranquil, otherworldly forest with gigantic, ancient trees stretching skyward. The trunks and branches of the trees are adorned with shelves of books, creating a living library. The books vary in size, color, and age, and some appear to be in mid-air, as if suspended by invisible strings. Soft, warm sunlight filters through the leaves, casting dappled shadows on the forest floor, which is covered in a lush carpet of moss and ferns. A wooden ladder leans against one of the larger trees, inviting visitors to climb and explore the vast collection of literature. In the distance, a figure wearing a cloak and holding a lantern can be seen, walking along a winding path that disappears deeper into the forest.<br />--ar 16:9<br />2. Title: &quot;Celestial Carousel&quot;<br />Description: A dreamy, twilight scene set on a serene, sandy beach with a mesmerizing celestial carousel in the center. The carousel features intricately carved horses, dolphins, and other creatures, each one adorned with sparkling gems, gold leaf, and delicate filigree. The canopy of the carousel is a dazzling, swirling array of stars and galaxies, mimicking the night sky above. The carousel is lit from within, casting a warm, ethereal glow on the sand and surrounding landscape. As the carousel rotates, it creates gentle ripples in the shallow water that laps at its base. The sky overhead transitions from the deep purples and blues of twilight to the inky blackness of night, with stars beginning to twinkle in the distance. A crescent moon hangs low in the sky, casting a silver glow on the waves that gently wash onto the shore.<br />--ar 3:2<br /><br />These ideas build upon the successful elements of the vintage car in the forest and ballerina on the iceberg concepts, blending nature, surreal environments, and human-made objects to create visually captivating and thought-provoking scenes.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_489450</code></strong>
         <span class="small">2023/05/22 (Mon) 10:51</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Can you provide some information about the history of the Eiffel Tower in Paris and its impact on the city&#39;s tourism industry?</div>
       </div><div class="turn">
@@ -999,15 +1181,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I don&#39;t have the ability to visit places or have personal experiences. however, i do have information and knowledge about various topics, including paris and the eiffel tower. if you have any questions or need any information about paris or the eiffel tower, i&#39;d be happy to help you the best i can.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_152866</code></strong>
         <span class="small">2023/05/22 (Mon) 11:33</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What were the key challenges faced by the Prussian army during the Battle of Koniggratz?</div>
       </div><div class="turn">
@@ -1032,15 +1218,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, certainly. The leadership failures of the Prussian Army during the Battle of Koniggratz were one of the significant factors behind their initial setbacks and their eventual victory. Although the Prussian army eventually emerged victorious in the battle, their early performance was marred by leadership failures that could have cost them the battle.<br /><br />One of the significant leadership failures was the lack of clear command and control. During the early stages of the battle, there were communication problems between the various Prussian divisions, which led to confusion and miscommunication. The Prussian army commanders had not agreed on a coordinated plan of attack, and as a result, their initial attacks were uncoordinated and ineffective.<br /><br />Additionally, some of the Prussian generals did not effectively communicate with their subordinates, leading to a lack of clarity regarding orders and tactics. The lack of clear leadership and direction led to confusion and chaos and contributed to the slow progress of the Prussian army in the early part of the battle.<br /><br />Furthermore, some of the Prussian commanders made significant errors in their deployment of troops. For example, General Herwarth deployed his troops incorrectly, which enabled the Austrians to take advantage of the gap in the Prussian front line and launch an attack that caught the Prussians off guard.<br /><br />In summary, the leadership failures of the Prussian army during the Battle of Koniggratz contributed to their initial setbacks and made it difficult for the army to make progress. However, despite these failures, the army was eventually able to overcome the challenges posed by the Austrians and win the battle.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_393555</code></strong>
         <span class="small">2023/05/22 (Mon) 14:38</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">How can I get a clear, bright sound out of my trumpet while still playing at a high volume?</div>
       </div><div class="turn">
@@ -1077,15 +1267,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">It is possible to improve your trumpet playing without taking lessons from a professional teacher. however, taking lessons from a professional teacher holds a multitude of benefits that you may not receive if you self-teach. a professional trumpet teacher can offer guidance on technique, give constructive feedback, offer advice when you face new challenges, teach you how to develop your musicality, and suggest exercises that foster quick over improvement.<br /><br />self-teaching, also known as autodidacticism, takes a lot of effort, and you must be committed to a long-term self-led learning experience. you should be aware that it will require more effort to obtain the relevant materials, understand them, and apply them to your daily practice.<br /><br />moreover, self-teaching might mean missing out on the instruction of an experienced tutor to correct any bad habits that may impede your progress. a teacher can keep you focused, provide a structured learning experience, and help you identify and overcome your weaknesses.<br /><br />so while it is possible to improve your trumpet playing without taking lessons, i&#39;d recommend working with an experienced teacher at some point in your musical journey to expedite improvement and make the most out of potential learning opportunities.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_COt6u0J_0</code></strong>
         <span class="small">2023/05/22 (Mon) 18:55</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">design a display Tradingview-like real-time interactive web base in Python</div>
       </div><div class="turn">
@@ -1116,15 +1310,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">This example extends the previous example by adding support for user authentication and session management. It uses the Flask `session` object to store the username of the logged-in user, and uses the `url_for` function to redirect the user to the login page if they are not logged in. It also uses the Bokeh `ColumnDataSource` and `HoverTool` classes to add interactivity to the chart, and displays additional data on hover.<br /><br />To run this example, you will need to save it in a file, such as `app.py`, and create two additional HTML template files: `login.html` for the login page, and `index.html` for the home page. You can use the following code for the `login.html` template:<br />```<br />&lt;!DOCTYPE html&gt;<br />&lt;html&gt;<br />  &lt;head&gt;<br />    &lt;title&gt;Login&lt;/title&gt;<br />  &lt;/head&gt;<br />  &lt;body&gt;<br />    &lt;h1&gt;Login&lt;/h1&gt;<br />    &lt;form method=&quot;POST&quot;&gt;<br />      &lt;label for=&quot;username&quot;&gt;Username:&lt;/label&gt;<br />      &lt;input type=&quot;text&quot; name=&quot;username&quot; id=&quot;username&quot;&gt;&lt;br&gt;<br />      &lt;label for=&quot;password&quot;&gt;Password:&lt;/label&gt;<br />      &lt;input type=&quot;password&quot; name=&quot;password&quot; id=&quot;password&quot;&gt;&lt;br&gt;<br />      &lt;input type=&quot;submit&quot; value=&quot;Login&quot;&gt;<br />    &lt;/form&gt;<br />  &lt;/body&gt;<br />&lt;/html&gt;<br />```<br />This template file will render a simple login form with a username and password field, and will submit the form using the `POST` method.<br /><br />You can use the following code for the `index.html` template:<br />```<br />&lt;!DOCTYPE html&gt;<br />&lt;html&gt;<br />  &lt;head&gt;<br />    &lt;title&gt;Stock Prices&lt;/title&gt;<br />    {{ script|safe }}<br />  &lt;/head&gt;<br />  &lt;body&gt;<br />    &lt;h1&gt;Stock Prices&lt;/h1&gt;<br />    &lt;p&gt;&lt;a href=&quot;{{ url_for(&#39;logout&#39;) }}&quot;&gt;Logout&lt;/a&gt;&lt;/p&gt;<br />    {{ div|safe }}<br />  &lt;/body&gt;<br />&lt;/html&gt;<br />```<br />This template file will display the Bokeh chart and include a logout link that will redirect the user to the logout page.<br /><br />To run the Flask app, you can use the `flask run` command. This will start the Flask development server and make the app available at &lt;http://localhost:5000&gt;. You can access the login page at &lt;http://localhost:5000/login&gt;, and the home page at &lt;http://localhost:5000&gt;. You will need to log in with the username `admin` and password `password` to access the home page and view the chart.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_va3sCvX_0</code></strong>
         <span class="small">2023/05/22 (Mon) 21:35</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">why shouldn&#39;t I trust birds?</div>
       </div><div class="turn">
@@ -1149,15 +1347,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I assure you that I am not a bird and that I am a language model, a computer program that has been trained on a large dataset of text. I don&#39;t have the ability to lie, as I do not possess consciousness or intention. My purpose is to assist users by providing responses based on the information that I have been trained on. If you have any concern about your mental health, please seek help from a mental health professional. They will be able to help you determine the cause of your symptoms and provide you with appropriate treatment.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_kjeGJvK_11</code></strong>
         <span class="small">2023/05/23 (Tue) 23:42</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">If you&#39;re looking for a low carb smoothie bowl recipe that includes coffee and cocoa, you have a few options to choose from based on the search results. Here are a few recipes and ingredients you might want to consider:<br /><br />1. Chocolate Low Carb Smoothie [[3](https://www.liveeatlearn.com/chocolate-low-carb-smoothie/)] - This recipe calls for unsweetened almond milk, canned coconut milk, unsweetened cocoa powder, nut butter, and your favorite sugar-free sweetener. The almond milk is frozen into cubes before blending to create a thicker consistency.<br />2. Keto Coffee Smoothie [[5](https://www.sweetashoney.co/keto-coffee-smoothie/)] - This smoothie recipe is a refreshing coffee shake that uses chilled brewed coffee, coconut cream, almond milk, chia seeds, vanilla extract, and ice cubes. The recipe notes that you can add a low-carb sweetener to taste.<br />3. Low-Carb Smoothie Bowl with Berries [[6](https://diabetesstrong.com/low-carb-smoothie-bowl-with-berries/)] - This smoothie bowl recipe uses almond milk, coconut oil, crushed ice, vanilla protein powder, strawberries, and optional stevia or other low-carb sweetener. The recipe suggests adding toppings like nuts, seeds, or shredded coconut for crunch.<br /><br />While these recipes don&#39;t all include cocoa and coffee together, they offer some good starting points for creating your own low-carb smoothie bowl with those ingredients. You could experiment with adding coffee to the Chocolate Low Carb Smoothie, or adding cocoa to the Keto Coffee Smoothie, for example. As always, be mindful of the carb counts of any ingredients you add and adjust the recipe as needed to fit your dietary goals.</div>
       </div><div class="turn">
@@ -1167,15 +1369,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I have found several results for a one-week high protein vegan meal plan filled with healthy plant-based recipes for breakfast, lunch, dinner, and snacks. Here is a summary of the different sources and their suggested meal plans:<br /><br />1. Abbey&#39;s Kitchen: Abbey&#39;s Kitchen offers a one-week vegan meal plan that includes high protein vegan foods like beans, legumes, nuts, seeds, tofu, hemp seeds, chia, and nutritional yeast [1].<br />2. Eating Well: Eating Well provides a seven-day high protein vegan meal plan with daily totals of 1,214 calories, 56 g protein, 132 g carbohydrate, 30 g fiber, 53 g fat, 7 g saturated fat, and 1,845 mg sodium. They also offer suggestions on how to modify the plan for higher calorie intake [2].<br />3. Running on Real Food: Running on Real Food shares a one-week vegan meal plan that includes breakfast, lunch, dinner, and snack ideas like avocado toast, almond butter and jam toast, lentil soup, and vegan protein shake [3].<br />4. Vegan.io: Vegan.io offers a vegan meal plan packed with protein that includes high protein sources like edamame, tempeh, and hemp seeds. They also suggest the use of protein powder as a supplement [4].<br />5. Trifecta Nutrition: Trifecta Nutrition provides a vegan meal prep recipe toolkit with high protein vegan recipes like chickpea artichoke tuna-salad, jackfruit tacos, and quinoa stuffed bell peppers [5].<br />6. Healthline: Healthline shares a sample vegan meal plan with high protein foods like tofu, lentils, quinoa, and almonds. They also offer suggestions on how to modify the plan for higher or lower calorie intake [6].<br />7. Minimalist Baker: Minimalist Baker offers 14 high protein plant-based dishes that include a flavorful tofu stir-fry, a dark chocolate energy bite, and a vegan lentil shepherd&#39;s pie [7].<br />8. Emilie Eats: Emilie Eats provides a list of high protein vegan dinners, including black bean Buddha bowl with avocado pesto, cajun-style red beans and rice, and peanutty quinoa bowls [8].<br />9. VeganFitGuide: VeganFitGuide offers high protein vegan meal ideas like creamy white bean chili, creamy red pepper protein pasta, and vegan quinoa and black bean bowls [9].<br />10. Whole Foods Market: Whole Foods Market provides a 7-day vegan meal plan with plant-based recipes like vegetable fried rice, roasted vegetable quinoa salad, and portobello fajitas [10].<br /><br />Overall, these sources offer a variety of high protein vegan meal plans and recipes to choose from, allowing you to find the ones that suit your taste preferences and nutritional needs.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_467685</code></strong>
         <span class="small">2023/05/24 (Wed) 06:04</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">How have music and dance traditions in Havana blended over time?</div>
       </div><div class="turn">
@@ -1194,15 +1400,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I don&#39;t have personal preferences, but i can provide some information about popular dance clubs or venues in havana where you can experience these dance styles firsthand:<br /><br />1. casa de la musica: casa de la musica is a popular music and dance venue located in the miramar district of havana. the venue hosts live music performances and dance parties featuring a variety of cuban music styles, including salsa, son, rumba, and more.<br /><br />2. fabrica de arte cubano: fabrica de arte cubano is a contemporary art and performance space located in havana&#39;s vedado district. the venue hosts live music performances, dance parties, and art exhibitions, offering a unique and immersive cultural experience.<br /><br />3. la tropical: la tropical is a historic dance venue located in havana&#39;s marianao district. the venue has a rich history dating back to the 1930s when it was a popular gathering place for cuban musicians and dancers. today, la tropical remains a popular venue for live music and dance parties, featuring a variety of cuban music styles.<br /><br />4. 1830: 1830 is a waterfront dance club located in the vedado district of havana. the venue hosts live music performances and dance parties featuring a variety of cuban music styles, including salsa, son, rumba, and more.<br /><br />these are just a few examples of popular dance clubs and venues in havana where you can experience these dance styles firsthand. there are many other dance clubs and venues throughout the city that offer a variety of cultural experiences.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>e627b1aa_4</code></strong>
         <span class="small">2023/05/24 (Wed) 08:54</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m thinking of planning a career development plan and was wondering if you could recommend some online resources for exploring advanced degree programs. By the way, thinking back to my own graduations, I realized it&#39;s been 10 years since I graduated from college in 2012.</div>
       </div><div class="turn">
@@ -1239,30 +1449,38 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I completely understand your concern! The Data Science Specialization on Coursera is a significant commitment, but it&#39;s also designed to be flexible and adaptable to your busy schedule. Here are some aspects of the specialization that can help you fit it into your lifestyle:<br /><br />**Flexible Pacing**<br /><br />The Data Science Specialization is a self-paced program, which means you can complete the coursework on your own schedule. You can accelerate or decelerate your progress as needed, depending on your availability.<br /><br />**On-Demand Lectures**<br /><br />All the lectures are pre-recorded, so you can watch them at any time that suits you. You can pause, rewind, or rewatch lectures as many times as you need to ensure you understand the material.<br /><br />**Assignments and Deadlines**<br /><br />While there are deadlines for assignments and quizzes, they&#39;re typically flexible and can be adjusted to accommodate your schedule. You can also request extensions if you need more time.<br /><br />**Mobile Optimization**<br /><br />The Coursera platform is mobile-friendly, so you can access course materials, watch lectures, and complete assignments on-the-go using your smartphone or tablet.<br /><br />**Downloadable Resources**<br /><br />Many course materials, including lectures and readings, can be downloaded for offline access. This allows you to study during commutes, breaks, or whenever you have a spare moment.<br /><br />**Break the Specialization into Chunks**<br /><br />If you&#39;re concerned about the overall time commitment, consider breaking the specialization into smaller chunks. Focus on completing one course at a time, and then take a break before moving on to the next one.<br /><br />**Create a Study Schedule**<br /><br />Plan out your study schedule in advance, setting realistic goals for each week or month. This will help you stay on track and make consistent progress, even with a busy schedule.<br /><br />**Prioritize Your Time**<br /><br />Identify the most important tasks and focus on those first. If you&#39;re short on time, prioritize the most critical assignments and lectures, and come back to the less critical ones later.<br /><br />**Support from the Coursera Community**<br /><br />The Coursera community is very active, and you can connect with other learners, instructors, and teaching assistants for support and guidance. This can be especially helpful if you&#39;re struggling with a particular concept or need help staying motivated.<br /><br />By taking advantage of these features, you can fit the Data Science Specialization into your busy schedule and make steady progress towards completing the program. Remember, it&#39;s okay to take your time and adjust your pace as needed. The goal is to learn and apply the skills, not to rush through the coursework.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_XrAhTcb_0</code></strong>
         <span class="small">2023/05/24 (Wed) 10:10</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Ты кто?</div>
       </div><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">я Сталин?</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>07d1915d_2</code></strong>
         <span class="small">2023/05/24 (Wed) 11:30</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some yoga classes online that focus on restorative yoga. Do you know any good websites or YouTube channels that offer classes like that? By the way, I&#39;ve been going three times a week since I started taking classes at a new studio near my apartment, and I&#39;m really enjoying it.</div>
       </div><div class="turn">
@@ -1299,15 +1517,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Tracking your progress and staying motivated are crucial to maintaining a consistent and fulfilling yoga practice. Here are some tips to help you track your progress and stay motivated:<br /><br />**Tracking Progress:**<br /><br />1. **Keep a yoga journal**: Write down your thoughts, feelings, and observations after each practice. Note any changes in your body, mind, or spirit.<br />2. **Take progress photos**: Take photos of yourself in various poses to track changes in your flexibility, alignment, and overall physique.<br />3. **Use a yoga app**: Utilize apps like Down Dog, Yoga Studio, or YogaGlo to track your practice, set goals, and monitor your progress.<br />4. **Set specific goals**: Identify specific goals, such as mastering a certain pose or increasing your flexibility, and track your progress towards achieving them.<br />5. **Get feedback from teachers**: Ask Rachel or other teachers for feedback on your practice, and use their insights to adjust your practice and track your progress.<br /><br />**Staying Motivated:**<br /><br />1. **Celebrate small wins**: Acknowledge and celebrate small victories, such as mastering a new pose or increasing your practice frequency.<br />2. **Find a yoga buddy**: Practice with a friend or family member to stay accountable and motivated.<br />3. **Reward yourself**: Treat yourself to a massage, yoga workshop, or yoga-related accessory when you reach certain milestones.<br />4. **Mix it up**: Try new styles, classes, or workshops to keep your practice fresh and exciting.<br />5. **Remind yourself of your why**: Reflect on why you started practicing yoga and how it has positively impacted your life to stay motivated and inspired.<br /><br />Some additional tips to consider:<br /><br />* **Be patient and kind to yourself**: Remember that progress is not always linear, and it&#39;s okay to have off days or plateaus.<br />* **Focus on the journey, not the destination**: Enjoy the process of learning and growing, rather than focusing solely on the end result.<br />* **Make it a habit**: Consistency is key to tracking progress and staying motivated. Aim to practice at the same time every day or week to make it a habit.<br /><br />By tracking your progress and staying motivated, you&#39;ll be able to maintain a consistent and fulfilling yoga practice that nourishes your mind, body, and spirit.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>7d52ca48_2</code></strong>
         <span class="small">2023/05/24 (Wed) 20:21</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some healthy meal ideas, especially for lunch and dinner. By the way, I&#39;ve been relying on food delivery services a lot lately, and I realized I used a Grubhub coupon to order from Chinese Kitchen three times in one week, trying out their Kung Pao chicken, beef with broccoli, and Vegetable Lo Mein. Do you have any quick and easy recipes that can help me cut down on food delivery expenses?</div>
       </div><div class="turn">
@@ -1344,15 +1566,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Thank you for offering! I think I&#39;ve got everything I need to get started with the Korean-style marinade and cooking the chicken. If I have any more questions or need further assistance, I&#39;ll definitely reach out.<br /><br />Thanks again for the help and guidance. I&#39;m excited to try out the marinade and cooking methods you&#39;ve suggested. Who knows, maybe I&#39;ll even start meal prepping like a pro and reduce my reliance on food delivery services like Grubhub!<br /><br />Have a great day, and happy cooking!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_351855</code></strong>
         <span class="small">2023/05/24 (Wed) 22:23</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">In what ways do tidal patterns affect the distribution of benthic species in coastal regions?</div>
       </div><div class="turn">
@@ -1371,15 +1597,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, there are many benthic species that prefer more sheltered areas in the intertidal zone. For example, some species of sea anemones, soft corals, and sponges prefer sheltered areas such as crevices, rock pools, and shallow caves. These areas provide protection from wave action, desiccation, and predation. Other examples of benthic species that prefer sheltered areas include small crabs, gastropod snails, and various species of algae. Many of these species are adapted to living in areas of low water flow and limited exposure to sunlight, which can directly influence their distribution patterns.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_378192</code></strong>
         <span class="small">2023/05/25 (Thu) 00:57</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">In what ways did the production techniques used in Pink Floyd&#39;s music change from &quot;Dark Side of The Moon&quot; to &quot;The Wall&quot;?</div>
       </div><div class="turn">
@@ -1410,15 +1640,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I don&#39;t have personal opinions or feelings. however, modern recording technology has certainly changed the way musicians record and produce their music. in some ways, it has made the recording process easier and more accessible for a wider range of artists, as many daws (digital audio workstations) and recording software are affordable and user-friendly. <br /><br />on the other hand, the abundance of technology can also make it harder for musicians to stand out from the crowd with something truly innovative or unique. as technology has advanced, many musicians have turned more towards digital tools that mimic classic analog sounds and production techniques. this can sometimes lead to a homogenization of sound and an overreliance on formulaic production methods.<br /><br />overall, it is still possible for musicians to achieve the same level of creativity and innovation as pink floyd through the use of modern recording technology. the tools available today are immensely powerful and can be used in a variety of creative ways, and there will always be artists who push the limits of what is possible with sound recording in ways that we can&#39;t even imagine yet.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ebeb4c51</code></strong>
         <span class="small">2023/05/25 (Thu) 18:38</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m thinking of planning a bike trip with friends soon and I was wondering if you could recommend some good bike trails in the area?</div>
       </div><div class="turn">
@@ -1455,15 +1689,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I think there&#39;s a pattern here! As a conversational AI, I don&#39;t have the ability to keep track of your personal schedule, appointments, or bike maintenance history. Each time you interact with me, it&#39;s a new conversation, and I don&#39;t retain any information from previous chats.<br /><br />So, while it&#39;s great that you remember taking your Trek hybrid bike to the local bike shop on March 15th, I don&#39;t have any knowledge of that event or any other personal details. I&#39;m here to provide general information and answer questions to the best of my abilities, but I don&#39;t have access to your personal calendar or history.<br /><br />If you&#39;re ready to plan a bike trip or explore new trails, I&#39;d be happy to help! Just let me know what you&#39;re looking for, and I&#39;ll do my best to assist you.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>5e4bb245_1</code></strong>
         <span class="small">2023/05/25 (Thu) 20:07</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m trying to keep track of my loyalty programs and rewards. Can you help me organize them in a way that I can easily see what I&#39;ve earned and what I can redeem? By the way, I just redeemed 1,000 points from Fetch Rewards for a $10 gift card to Target last week, so I&#39;m hoping to add that to the list.</div>
       </div><div class="turn">
@@ -1500,15 +1738,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Let&#39;s add your local grocery store&#39;s loyalty program to the list. Can you please provide some details about the program? For example:<br /><br />* What is the name of the program?<br />* How do you earn rewards (e.g., points, stamps, etc.)?<br />* What is your current balance?<br />* Have you redeemed any rewards recently or in the past?<br />* Are there any rewards you&#39;ve earned but haven&#39;t redeemed yet?<br /><br />Once I have this information, I can add it to the table and help you keep track of your rewards!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>7abee25b_1</code></strong>
         <span class="small">2023/05/25 (Thu) 21:05</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some information on Impressionist art. I recently visited the &quot;Impressionist Masterpieces&quot; exhibition at the City Art Museum on Saturday, March 12th, and I&#39;m still thinking about those beautiful Monet water lily paintings. Can you recommend some books or online resources to learn more about the movement?</div>
       </div><div class="turn">
@@ -1545,15 +1787,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">What a fantastic experience! The intersection of art and science is indeed a fascinating topic, and it&#39;s wonderful that you got to explore it through the &quot;Space Exploration&quot; exhibit.<br /><br />Art has long played a crucial role in scientific communication, from the intricate illustrations in medieval manuscripts to the stunning visualizations of modern scientific data. By combining art and science, scientists and communicators can make complex concepts more engaging, accessible, and memorable for a broader audience.<br /><br />In the context of space exploration, art can help to:<br /><br />1. **Visualize the unknown**: Artists can create compelling visualizations of celestial bodies, spacecraft, and other phenomena that are difficult or impossible to capture through photography or direct observation.<br />2. **Simplify complex concepts**: Art can help to break down complex scientific ideas into more intuitive and understandable representations, making them more accessible to non-experts.<br />3. **Convey emotion and wonder**: Art can evoke emotions and inspire a sense of wonder, encouraging people to engage more deeply with scientific concepts and exploration.<br />4. **Facilitate storytelling**: Art can be used to tell the story of space exploration, highlighting the human experiences, challenges, and achievements that make scientific discovery possible.<br /><br />The use of art in scientific communication is not limited to space exploration, of course. It can be applied to various fields, from biology and medicine to physics and environmental science.<br /><br />Some notable examples of art-science collaborations include:<br /><br />* **NASA&#39;s Art Program**: This program has been commissioning artists to create works inspired by space exploration since the 1960s.<br />* **The Sci-Art Initiative**: This initiative brings together scientists, artists, and writers to create innovative projects that explore the intersection of art and science.<br />* **The Wellcome Trust&#39;s SciArt**: This program supports projects that use art to engage the public with biomedical science and its social implications.<br /><br />These initiatives demonstrate the power of art to enhance scientific communication, making complex concepts more accessible and engaging for a wider audience.<br /><br />I&#39;m thrilled that you had a chance to experience the &quot;Space Exploration&quot; exhibit and appreciate the role of art in scientific communication!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_300911</code></strong>
         <span class="small">2023/05/25 (Thu) 23:34</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Who are Feyenoord&#39;s biggest rivals in their pursuit of a Europa League spot this season?</div>
       </div><div class="turn">
@@ -1572,30 +1818,38 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">As an AI language model, I can provide you with statistical data. In the Eredivisie, Ajax has historically had the upper hand against PSV Eindhoven in their head-to-head encounters. According to the stats, out of the 64 matches between these two teams in the Eredivisie, Ajax has won 32, drawn 17, and lost only 15. Overall, Ajax has won more trophies than PSV Eindhoven in the history of Dutch football, while PSV has won more European trophies than Ajax. However, it&#39;s worth noting that rivalries and head-to-head records can sometimes be unpredictable and subject to change based on current form and team dynamics.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_Mt8yQFL_0</code></strong>
         <span class="small">2023/05/26 (Fri) 00:30</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">How can I be the best course creation strategist, with details around SEO as well?</div>
       </div><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">Table Layout of Personas<br />========================<br /><br />| Persona | Goals | Needs |<br />| --- | --- | --- |<br />| Aspiring Course Creation Strategist | Become an expert course creation strategist | Knowledge and guidance on course creation and SEO |<br />| Experienced Course Creation Strategist | Share knowledge and experience with aspiring strategist | Platform to share their expertise and insights |<br />| SEO Expert | Provide knowledge on SEO best practices | Opportunity to share their knowledge and collaborate |<br />| Content Writer | Create high-quality content for courses | Knowledge on course creation and industry trends |<br />| Course Designer | Design visually appealing courses | Knowledge on course creation and industry trends |<br />| Course Developer | Develop interactive and engaging courses | Knowledge on course creation and industry trends |<br /><br />Associated Personas<br />-------------------<br /><br />### Aspiring Course Creation Strategist<br /><br />* Marketing Specialist: Help with marketing strategies to promote the course<br />* Business Analyst: Help with financial planning and projections for the course<br />* Technical Support Specialist: Help with technical issues during course development and launch<br /><br />### Experienced Course Creation Strategist<br /><br />* Marketing Specialist: Collaborate on marketing strategies and campaigns<br />* Public Speaker: Speak at industry events and share expertise<br />* Entrepreneur: Offer insights on starting a course creation business<br /><br />### SEO Expert<br /><br />* Marketing Specialist: Collaborate on SEO strategies for course promotion<br />* Web Developer: Ensure course website is optimized for search engines<br />* Data Analyst: Analyze SEO data to improve course performance<br /><br />### Content Writer<br /><br />* Graphic Designer: Create visually appealing graphics and illustrations for course content<br />* Video Editor: Edit and produce video content for the course<br />* Researcher: Conduct research on industry trends and topics related to the course content<br /><br />### Course Designer<br /><br />* User Experience Designer: Design user-friendly interfaces for the course<br />* Graphic Designer: Create visually appealing graphics and illustrations for the course content<br />* Web Developer: Develop the course website and ensure it is visually appealing and functional<br /><br />### Course Developer<br /><br />* Web Developer: Develop interactive and engaging features for the course website<br />* Video Producer: Produce high-quality video content for the course<br />* Instructional Designer: Ensure the course content is structured in a way that promotes learning and engagement<br /><br />Summary<br />=======<br /><br />To be the best course creation strategist with a focus on SEO, you will need to collaborate with several different personas. The aspiring and experienced course creation strategist personas will provide you with knowledge and guidance on course creation and the industry. The SEO expert persona will provide you with guidance on SEO best practices. The content writer, course designer, and course developer personas will work together to create high-quality, engaging courses.<br /><br />Dynamic Prompt<br />==============<br /><br />I want to become the best course creation strategist with a focus on SEO. What personas do I need to collaborate with to achieve this goal? Additionally, can you provide me with tips on how to work with each persona effectively?<br /><br />Tasks:<br /><br />* Provide guidance on how to collaborate with each persona effectively<br />* Provide tips on how to optimize courses for SEO<br />* Offer insights on course design and development<br /><br />Personas to work with:<br />======================<br /><br />* Aspiring Course Creation Strategist<br />* Experienced Course Creation Strategist<br />* SEO Expert<br />* Content Writer<br />* Course Designer<br />* Course Developer<br /><br />To achieve this, use this list of personas to work together to get the support and guidance you need to succeed:<br /><br />* Marketing Specialist<br />* Business Analyst<br />* Technical Support Specialist<br />* Public Speaker<br />* Entrepreneur<br />* Graphic Designer<br />* Video Editor<br />* Researcher<br />* User Experience Designer<br />* Web Developer<br />* Video Producer<br />* Instructional Designer<br /><br />If this helped, please consider buying me a drink here &lt;https://www.buymeacoffee.com/Sim2K&gt; and you can connect with me on LinkedIn, Insta, Twitter, or FB using my ID @Sim2K. Have a GREAT day.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>69a42467_1</code></strong>
         <span class="small">2023/05/26 (Fri) 03:27</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m thinking of organizing my photography gear and was wondering if you could recommend some tips on how to efficiently pack my new camera bag, the Lowepro ProTactic 450 AW. By the way, I recently ordered a new Manfrotto BeFree tripod online on February 1st, and I&#39;m excited to try it out with my new camera lens, the Canon EF 24-70mm f/2.8L II USM.</div>
       </div><div class="turn">
@@ -1632,15 +1886,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Warranty and customer support are crucial aspects to consider when purchasing an external hard drive. Here&#39;s how the LaCie Rugged SSD and G-Technology G-Drive compare to the Western Digital My Book and Seagate Backup Plus in terms of warranty and support:<br /><br />**LaCie Rugged SSD:**<br /><br />1. **Warranty**: 3-year limited warranty<br />2. **Customer Support**: LaCie offers 24/7 online support, phone support (Monday to Friday, 9am to 5pm PST), and email support. They also have a comprehensive knowledge base and FAQs section on their website.<br />3. **Data Recovery**: LaCie provides a 2-year data recovery service, which includes up to 2TB of data recovery.<br /><br />**G-Technology G-Drive:**<br /><br />1. **Warranty**: 5-year limited warranty<br />2. **Customer Support**: G-Technology offers 24/7 online support, phone support (Monday to Friday, 9am to 5pm PST), and email support. They also have a comprehensive knowledge base and FAQs section on their website.<br />3. **Data Recovery**: G-Technology provides a 3-year data recovery service, which includes up to 2TB of data recovery.<br /><br />**Western Digital My Book:**<br /><br />1. **Warranty**: 2-year limited warranty<br />2. **Customer Support**: Western Digital offers 24/7 online support, phone support (Monday to Friday, 9am to 5pm PST), and email support. They also have a comprehensive knowledge base and FAQs section on their website.<br />3. **Data Recovery**: Western Digital provides a 1-year data recovery service, which includes up to 1TB of data recovery.<br /><br />**Seagate Backup Plus:**<br /><br />1. **Warranty**: 2-year limited warranty<br />2. **Customer Support**: Seagate offers 24/7 online support, phone support (Monday to Friday, 9am to 5pm PST), and email support. They also have a comprehensive knowledge base and FAQs section on their website.<br />3. **Data Recovery**: Seagate provides a 1-year data recovery service, which includes up to 1TB of data recovery.<br /><br />**Comparison:**<br /><br />1. **Warranty**: The G-Technology G-Drive has the longest warranty period (5 years), followed by the LaCie Rugged SSD (3 years), and then the Western Digital My Book and Seagate Backup Plus (2 years).<br />2. **Customer Support**: All four brands offer similar customer support options, including online, phone, and email support.<br />3. **Data Recovery**: The G-Technology G-Drive and LaCie Rugged SSD offer longer data recovery periods (3 years and 2 years, respectively) compared to the Western Digital My Book and Seagate Backup Plus (1 year).<br /><br />Ultimately, the warranty and customer support offered by LaCie and G-Technology are more comprehensive compared to Western Digital and Seagate. However, it&#39;s essential to weigh these factors against your specific needs and priorities when making a decision.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_208471</code></strong>
         <span class="small">2023/05/26 (Fri) 10:20</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What was Terence&#39;s writing process like, from idea generation to finished product?</div>
       </div><div class="turn">
@@ -1659,15 +1917,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">As an AI language model, I do not have personal preferences or habits, but I can tell you about some common writing rituals or habits that writers have found helpful in the past:<br /><br />1. Writing at the same time and place each day to establish a routine.<br />2. Listening to music or ambient noise to help create a writing environment.<br />3. Taking regular breaks to avoid burnout or writer&#39;s block.<br />4. Setting daily or weekly writing goals to stay focused and productive.<br />5. Keeping a writing journal or notebook to jot down ideas, observations, or notes.<br />6. Free writing for a few minutes each day to help generate new ideas or to loosen up before a writing session.<br />7. Writing in short bursts of 20-30 minutes followed by a brief break and then returning to the writing.<br />8. Reading or engaging in other creative activities to help spur inspiration.<br /><br />Ultimately, it depends on what works best for each individual writer. A combination of rituals and habits often helps writers maintain a productive and enjoyable writing practice.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>9f8fa5e4_1</code></strong>
         <span class="small">2023/05/27 (Sat) 00:58</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m planning to make some pesto for dinner and I was wondering if you could give me a simple recipe that uses fresh basil. By the way, I planted basil, mint, and rosemary seeds on May 15th, and they&#39;ve been doing great so far.</div>
       </div><div class="turn">
@@ -1704,15 +1966,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I&#39;m thrilled you&#39;re excited to try out your homemade vinaigrette! <br /><br />Your herb-infused vinaigrette is a versatile condiment that can elevate a variety of salads. Here are some salad ideas that would showcase your vinaigrette beautifully:<br /><br />1. **Classic Green Salad:** A simple mixed green salad with fresh herbs like basil, parsley, or thyme pairs perfectly with your herb-infused vinaigrette.<br />2. **Grilled Chicken Salad:** Top a bed of mixed greens with sliced grilled chicken, cherry tomatoes, and crumbled feta cheese. The smoky flavor of the grilled chicken will complement the herbal notes in your vinaigrette.<br />3. **Roasted Vegetable Salad:** Roast a medley of vegetables like zucchini, bell peppers, and eggplant, and toss them with mixed greens, crumbled goat cheese, and a drizzle of your vinaigrette.<br />4. **Caprese Salad:** A classic Caprese salad featuring fresh mozzarella, juicy tomatoes, and basil leaves will love your herb-infused vinaigrette. The creamy cheese and sweet tomatoes will balance out the bright, herby flavors.<br />5. **Winter Salad:** Combine roasted butternut squash, mixed greens, crumbled blue cheese, and a sprinkle of chopped nuts for a hearty winter salad. Your vinaigrette will add a welcome brightness to the rich flavors.<br />6. **Quinoa Salad:** Cook quinoa and let it cool, then mix it with chopped veggies like cucumbers, carrots, and bell peppers. Add some crumbled feta cheese and a drizzle of your vinaigrette for a refreshing and healthy salad.<br />7. **Fruit and Arugula Salad:** Combine peppery arugula with sliced apples, crumbled goat cheese, and a sprinkle of chopped nuts. The sweetness of the apples and the tanginess of the goat cheese will pair beautifully with your herb-infused vinaigrette.<br /><br />These are just a few ideas to get you started. Feel free to experiment with different combinations of ingredients to create your perfect salad!<br /><br />Remember, the key is to balance the flavors and textures in your salad so that your herb-infused vinaigrette can shine. Don&#39;t be afraid to adjust the amount of vinaigrette to your taste, and enjoy!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_XYtuANl_9</code></strong>
         <span class="small">2023/05/27 (Sat) 02:59</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">Here is the final report:<br /><br />Desired Skills, Knowledge, and Qualifications for an Instructional Designer:<br /><br />1. Instructional design models &amp; principles (e.g. ADDIE, Dick and Carey) - MATCH: &quot;using principles and practices of instructional design&quot;<br />2. adult learning theory - MATCH: &quot;using principles and practices of instructional design and adult learning theory.&quot;<br />3. Organizational development - NOT MATCH<br />4. Accessing and analyzing DATA - NOT MATCH<br />5. Theories of leadership - NOT MATCH<br />6. Gamification - NOT MATCH<br />7. Blended learning techniques - NOT MATCH<br />8. Formative and summative evaluation - NOT MATCH<br />9. AR/VR Environments - NOT MATCH<br />10. Agile methodology (e.g. Scrum) - NOT MATCH<br />11. Interface design - NOT MATCH<br />12. Classroom-based technology integration techniques - NOT MATCH<br />13. Human resources management - NOT MATCH<br />14. Professional development - NOT MATCH<br />15. Customer service - NOT MATCH<br />16. Motivation theories (e.g. ARCS) - NOT MATCH<br />17. Markup languages (e.g. HTML/XHTML/XML) - NOT MATCH<br />18. Assessment methods (e.g. criterion-referenced) - NOT MATCH<br />19. Online/blended programme management - NOT MATCH<br />20. Instructional simulation and game design - NOT MATCH<br />21. 3D modelling tools (e.g. Maya) - NOT MATCH<br />22. SWOT analysis - NOT MATCH<br />23. Project management software (e.g. Microsoft Project) - NOT MATCH<br />24. Learning object standards (e.g. SCORM) - NOT MATCH<br />25. Laws, policies and procedures in training programmes - NOT MATCH<br />26. Cloud technologies - NOT MATCH<br />27. Business intelligence (e.g. SAP BW) - NOT MATCH<br />28. Programming languages (e.g. C++) - NOT MATCH<br />29. Cascading Style Sheets (CSS) - NOT MATCH<br />30. Social media technologies (e.g. Twitter) - NOT MATCH<br />31. Web design principles - NOT MATCH<br />32. Assessment software (e.g. Respondus) - NOT MATCH<br />33. Audio software (e.g. Audacity) - NOT MATCH<br />34. Streaming video technology (e.g. Windows Media Server) - NOT MATCH<br />35. Project management principles (e.g. PMBOK) - NOT MATCH<br />36. Industry Standard - NOT MATCH<br />37. Virtual classrooms (e.g. Wimba or Elluminate! Live) - NOT MATCH<br />38. Virtual environments (e.g. SecondLife) - NOT MATCH<br />39. Cognitive learning theory (e.g. Cognitive Load Theory) - NOT MATCH<br />40. Constructivism - NOT MATCH<br />41. Mobile learning platforms (e.g. Android) - NOT MATCH<br />42. Synchronous distance learning methodologies (e.g. Blackboard Collaborate) - NOT MATCH<br />43. Human Performance Technology principles - NOT MATCH<br />44. Flipped classroom (blended) - NOT MATCH<br />45. Mobile application development - NOT MATCH<br />46. Desktop publishing software (e.g. PageMaker) - NOT MATCH<br />47. Web authoring tools (e.g. Dreamweaver) - NOT MATCH<br />48. Operating system software (e.g. Windows 7) - NOT MATCH<br />49. Game engines (e</div>
       </div><div class="turn">
@@ -1722,15 +1988,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Report:<br /><br />1. MATCH: &quot;This Instructional Designer will be responsible for working closely with faculty or business subject matter experts to design, create, and deliver online, blended and instructor-led classroom training courses and documentation using principles and practices of instructional design and adult learning theory.&quot; (Item 1 and 2)<br />2. MATCH: &quot;Conduct learning and business needs analysis&quot; (Item 3)<br />3. MATCH: &quot;Devise modes of assessment to measure the effectiveness of the course&quot; (Item 8)<br />4. MATCH: &quot;Write effective copy, instructional materials, and audio/video scrips to help participants meet learning objectives&quot; (Item 12)<br />5. MATCH: &quot;Use e-learning authoring tools to upload instructional content to websites, e-learning platforms, or learning management systems&quot; (Item 47)<br /><br />Note: Items 3, 4, 6, 9-11, 13-15, 16, 18-22, 25-26, 28-29, 31-36, 38-41, 44-50, 52-54 and 56 were not found in the job description.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_577418</code></strong>
         <span class="small">2023/05/27 (Sat) 08:59</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What are the benefits of incorporating virtual reality into healthcare practices?</div>
       </div><div class="turn">
@@ -1773,15 +2043,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, nausea or motion sickness is a common side effect of VR use, and it can be a particular issue for patients using the technology in hospitals. When using VR, patients may feel disoriented due to the sensory disconnection between what they see and what their body feels, which can trigger nausea.<br /><br />To mitigate this issue, hospitals can take several steps:<br /><br />1. Limit the duration of VR sessions: Healthcare providers can limit the length of VR sessions to avoid overstimulating patients and reduce the risk of nausea.<br /><br />2. Provide breaks: Patients can take short breaks between VR sessions to prevent the onset of motion sickness or other side effects.<br /><br />3. Use high-quality hardware: High-quality VR headsets that offer high refresh rates and low latency are less likely to cause motion sickness.<br /><br />4. Movement mechanics: VR developers can implement movement mechanics like smooth, slower movements or teleportation to reduce the likelihood of patients experiencing motion sickness.<br /><br />In summary, while nausea or motion sickness is a common side effect of VR, there are several steps providers can take to mitigate the risk and ensure that patients have a comfortable VR experience.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_342931</code></strong>
         <span class="small">2023/05/27 (Sat) 12:24</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Are there any dangerous animals or insects to be aware of when traveling to Costa Rica?</div>
       </div><div class="turn">
@@ -1818,15 +2092,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Absolutely! Costa Rica has some delicious desserts that you should definitely try. Here are some popular options:<br /><br />1. Tres Leches Cake - A sponge cake soaked in three types of milk and topped with whipped cream and fruit.<br /><br />2. Arroz con Leche - A creamy rice pudding flavored with cinnamon and sometimes raisins.<br /><br />3. Cajeta - A sweet syrup made from condensed milk and often used as a topping for ice cream or waffles.<br /><br />4. Churros - Sweet, fried dough that&#39;s often served with chocolate or caramel dipping sauce.<br /><br />5. Helado - Costa Rican ice cream, which is known for its refreshing flavors made from tropical fruits like passionfruit, guava, and lulo.<br /><br />6. Alfajores - A cookie sandwich filled with dulce de leche, a caramel-like spread.<br /><br />7. Picarones - A fried doughnut-like pastry made with squash or sweet potato and topped with cinnamon syrup.<br /><br />Some popular places to find these tasty Costa Rican desserts are bakeries like Musmanni, pastelerias like La Casa del Cacao, or ice cream shops like Pops or Heladería Roma. And keep an eye out for street vendors or small restaurants that may have homemade treats!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>04b96dce</code></strong>
         <span class="small">2023/05/27 (Sat) 12:44</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m thinking of building a weekend home on a plot of land I recently acquired. Can you help me find some inspiration for design ideas and maybe some local architects or contractors in the countryside area?</div>
       </div><div class="turn">
@@ -1863,15 +2141,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">You&#39;re welcome! It was my pleasure to help.<br /><br />Remember to take your time, do your research, and don&#39;t hesitate to reach out to multiple architects and designers. It&#39;s essential to find the right fit for your project, and it&#39;s okay to ask questions and seek multiple opinions.<br /><br />Rachel&#39;s recommendations can be invaluable, as she&#39;s familiar with the local market and may have connections in the industry. Be sure to ask her about her experience with the contractors and designers she recommends.<br /><br />If you have any more questions or need further guidance, don&#39;t hesitate to reach out. I&#39;ll be here to help.<br /><br />**Best of luck with your weekend home project!**<br /><br />May you find the perfect architect or designer to bring your vision to life, and may your project be a success!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_58290</code></strong>
         <span class="small">2023/05/27 (Sat) 17:23</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Are there specific mental health disorders that may develop as a result of prolonged exposure to unstable environments during childhood?</div>
       </div><div class="turn">
@@ -1914,15 +2196,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, it can be challenging to maintain a routine during uncertain times. Here are a few tips for staying motivated:<br /><br />1. Set achievable goals: Setting realistic and achievable goals can help you stay motivated. Break larger goals into smaller, more manageable ones and celebrate your progress along the way.<br /><br />2. Hold yourself accountable: Write down your goals and track your progress. You can also share your goals with a friend or family member who can help hold you accountable.<br /><br />3. Focus on the benefits: Try to keep in mind the benefits of maintaining a routine, such as improved mental and physical health.<br /><br />4. Mix it up: If you&#39;re feeling bored or unmotivated, try mixing up your routine or trying new things. This can help keep things interesting and prevent burnout.<br /><br />5. Practice self-compassion: Remember to be kind to yourself and not beat yourself up if you miss a day or fall behind on your goals. Practicing self-compassion can help you maintain a positive mindset and stay motivated in the long run.<br /><br />Remember, staying motivated is an ongoing process, and it&#39;s okay to have setbacks or bad days. Focus on progress, not perfection, and be patient with yourself as you work towards your goals.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_440970</code></strong>
         <span class="small">2023/05/27 (Sat) 20:04</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Which are the best art museums to visit in Paris, and which artworks should I not miss?</div>
       </div><div class="turn">
@@ -1947,15 +2233,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I don&#39;t have access to the internal functioning of the louvre and their visitor management systems. however, museums like the louvre have to balance the need to allow visitors with the need to protect their precious collections. limiting the number of visitors outright may not be feasible, since it could impact the financial sustainability of the museum. <br /><br />that being said, the louvre has implemented several measures to manage visitor flow, such as timed-entry tickets and strict security checks at the entrance. but sometimes, even these measures can&#39;t prevent overcrowding during peak seasons. so, it&#39;s always best to prepare ahead, arrive early and plan your visit to make the most of your time there.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>92b06116_2</code></strong>
         <span class="small">2023/05/28 (Sun) 00:14</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some tips on how to properly store and preserve my vintage postcards. I&#39;ve been collecting them for about a month now, and I&#39;ve already got around 50, mostly from the 1920s to the 1950s.</div>
       </div><div class="turn">
@@ -1992,15 +2282,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">The postcard publishers of the early 20th century played a crucial role in shaping the postcard industry, and there are many resources available to learn more about them. Here are some book and online resource recommendations that focus on the major postcard publishers of that era:<br /><br />**Books:**<br /><br />1. **&quot;Curt Teich &amp; Co.: A History of the Company and Its Postcards&quot; by Richard M. Wolf**: A comprehensive history of Curt Teich &amp; Co., one of the largest and most prominent postcard publishers of the early 20th century.<br />2. **&quot;Tichnor Brothers: A History of the Company and Its Postcards&quot; by Michael W. Schiffer**: A well-researched book that explores the history of Tichnor Brothers, another major postcard publisher of the early 20th century.<br />3. **&quot;Raphael Tuck &amp; Sons: A History of the Company and Its Postcards&quot; by Anthony J. Camp**: A fascinating book that delves into the history of Raphael Tuck &amp; Sons, a prominent postcard publisher known for its high-quality postcards.<br /><br />**Online Resources:**<br /><br />1. **The Postcard Collector**: A website dedicated to the history of postcards and postcard collecting, featuring articles, exhibitions, and a database of postcard publishers, including Curt Teich, Tichnor Brothers, and Raphael Tuck &amp; Sons.<br />2. **Delcampe**: A popular online marketplace for buying and selling postcards, Delcampe also has a blog with articles on postcard history, collecting, and rare finds, including features on major postcard publishers.<br />3. **The Metropolitan Postcard Club of New York City**: A club dedicated to postcard collecting, featuring a wealth of information on postcard history, exhibitions, and events, including resources on major postcard publishers.<br />4. **The Postcard History**: A website that explores the history of postcards, featuring articles, images, and resources for collectors, including information on major postcard publishers.<br />5. **The Library of Congress - Postcard Collection**: The Library of Congress has an extensive collection of postcards, with many digitized and available online. You can search by publisher, including Curt Teich, Tichnor Brothers, and Raphael Tuck &amp; Sons.<br /><br />**Archives and Museums:**<br /><br />1. **The Curt Teich Postcard Archives**: Located at the Lake County Discovery Museum in Wauconda, Illinois, this archive features a vast collection of Curt Teich postcards, as well as artifacts and exhibits on the company&#39;s history.<br />2. **The Tichnor Brothers Archives**: Located at the Boston Public Library, this archive features a large collection of Tichnor Brothers postcards, as well as company records and artifacts.<br />3. **The Raphael Tuck &amp; Sons Archives**: Located at the British Library, this archive features a significant collection of Raphael Tuck &amp; Sons postcards, as well as company records and artifacts.<br /><br />These resources should provide a great starting point for learning more about the major postcard publishers of the early 20th century. Happy researching!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_cjulkGS_15</code></strong>
         <span class="small">2023/05/28 (Sun) 22:18</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">There are several ways to deal massive damage in Genshin Impact. Here are a few strategies you can try:<br /><br />1. Build a team with elemental synergy: Combining different elemental reactions can amplify your damage output. For example, using a Pyro character&#39;s ability to trigger an elemental reaction with a Hydro character can create Vaporize, which deals massive damage. Experiment with different team compositions to find the best combinations for your playstyle.<br />2. Maximize your character&#39;s level and gear: Make sure your characters are at a high enough level to take on challenging enemies, and equip them with powerful weapons and artifacts that complement their abilities. Enhance your gear using materials and resources to maximize their stats.<br />3. Use elemental resonance effects: When you have two or more characters of the same element in your party, you can trigger an elemental resonance effect that provides a passive bonus to your team. For example, having two Pyro characters in your party grants a 25% bonus to attack.<br />4. Take advantage of enemy weaknesses: Different enemies have different weaknesses that you can exploit to deal more damage. For example, using a Cryo character against a Pyro enemy can trigger the Frozen reaction, which deals bonus damage.<br />5. Use food and potions: Consuming food and potions can provide temporary boosts to your character&#39;s stats, such as increased attack or defense. Make sure to stock up on these items before engaging in difficult battles.<br /><br />Remember, dealing massive damage in Genshin Impact requires a combination of strategy, preparation, and skill. Keep practicing and experimenting with different approaches to find the best strategies for your playstyle.</div>
       </div><div class="turn">
@@ -2034,15 +2328,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Certainly, here&#39;s a story based on your request:<br /><br />John had been living in China for many years, running his successful restaurant and happily married to his Chinese wife, Li Mei. However, over time, their relationship had grown distant, and they had grown apart.<br /><br />Li Mei had started to resent John&#39;s long hours at the restaurant, and they had grown apart. John tried his best to make things work, but the distance between them had become too great. Finally, Li Mei made the difficult decision to divorce him.<br /><br />John was devastated. His love for Chinese food, once the passion that had brought him to China and fueled his successful restaurant, now felt like a burden. He couldn&#39;t bear the thought of cooking or even eating Chinese food anymore, as it was too painful a reminder of the life he had lost.<br /><br />With a heavy heart, John made the decision to leave China and return to America. He sold his restaurant and all his possessions and started a new life in a small town in the Midwest. John eventually found solace in other forms of cooking, but Chinese food would always hold a special place in his heart, even if it was now a painful reminder of a life that could have been.<br /><br />The divorce had been a difficult time for John, but it had also taught him that life is unpredictable and that he needed to be prepared to adapt to whatever challenges came his way. John learned to take risks and embrace new experiences, even if they were scary or uncertain. In the end, John found a new sense of purpose and happiness, and he knew that Li Mei would always hold a special place in his heart, even if they were no longer together.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_cIj2dFl_0</code></strong>
         <span class="small">2023/05/29 (Mon) 01:37</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Haz un contrato de arrendamiento conforme a la ley de la ciudad de mexico</div>
       </div><div class="turn">
@@ -2055,15 +2353,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Como modelo de lenguaje, no puedo generar un contrato de arrendamiento legalmente vinculante, ya que las leyes y regulaciones varían en función del lugar y pueden cambiar con el tiempo. Sin embargo, puedo proporcionar un ejemplo general de lo que podría incluir un contrato de arrendamiento para una propiedad en la Ciudad de México:<br /><br />CONTRATO DE ARRENDAMIENTO<br /><br />Entre los arrendadores, \_\_\_\_\_\_\_\_\_\_\_\_ (nombre del propietario de la propiedad), y el arrendatario, \_\_\_\_\_\_\_\_\_\_\_\_ (nombre del inquilino), se celebra el presente contrato de arrendamiento para la propiedad ubicada en \_\_\_\_\_\_\_\_\_\_\_\_ (dirección de la propiedad).<br /><br />1. Duración del contrato: El presente contrato tendrá una duración de \_\_\_\_\_\_\_\_\_\_\_\_ (número de meses) a partir de la fecha de firma del presente contrato.<br />2. Rent: La renta mensual a pagar por el arrendatario será de \_\_\_\_\_\_\_\_\_\_\_\_ (cantidad en pesos) mensuales, la cual deberá ser pagada el día \_\_\_\_ del mes correspondiente.<br />3. Depósito de garantía: El arrendatario deberá pagar un depósito de garantía de \_\_\_\_\_\_\_\_\_\_\_\_ (cantidad en pesos) al momento de firmar este contrato, el cual será devuelto al final del contrato si la propiedad es devuelta en las mismas condiciones en las que se entregó.<br />4. Uso de la propiedad: La propiedad podrá ser utilizada únicamente como residencia del arrendatario y no podrá ser subarrendada ni utilizada con fines comerciales.<br />5. Mantenimiento y reparaciones: El arrendatario será responsable de mantener la propiedad en buenas condiciones y deberá informar de inmediato al arrendador de cualquier daño o necesidad de reparaciones. El arrendador será responsable de las reparaciones mayores.<br />6. Terminación anticipada: El presente contrato podrá ser rescindido anticipadamente por cualquiera de las partes mediante notificación escrita con \_\_\_\_ días de antelación.<br />7. Ley aplicable: El presente contrato se regirá e interpretará de acuerdo con las leyes de la Ciudad de México.<br />8. Firmas:<br /><br />---<br /><br />(Arrendador) (Arrendatario)<br /><br />Es importante mencionar que este es solo un ejemplo y que se deben ajustar a las regulaciones y leyes específicas de la Ciudad de México, además de consultar con un abogado especializado en arrendamientos para asegurar que todas las clausulas sean leg</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>629f17b4_2</code></strong>
         <span class="small">2023/05/29 (Mon) 06:45</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m thinking of inviting my coworker John to join the Zumba class on Fridays, do you think it&#39;s a good idea? By the way, I convinced my friend Emily to come with me to the Wednesday yoga class today and she loved it, so I&#39;m hoping John will have a similar experience.</div>
       </div><div class="turn">
@@ -2100,30 +2402,38 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">That&#39;s a great plan! Incorporating hip circles and leg swings into your daily routine can make a significant difference in reducing muscle tension, improving circulation, and enhancing flexibility.<br /><br />Remember to start slowly and gently, especially if you&#39;re new to these exercises. It&#39;s essential to listen to your body and not push yourself too hard, especially if you&#39;re just starting out.<br /><br />Don&#39;t forget to breathe deeply and slowly while you&#39;re doing the exercises, and try to focus on the sensations in your body. This can help you relax and get the most out of the exercises.<br /><br />If you have any more questions or need any further guidance, feel free to ask. And don&#39;t hesitate to reach out if you need any modifications or adjustments to the exercises.<br /><br />Most importantly, be kind to yourself and celebrate your small victories. Every little bit counts, and making small changes to your daily routine can add up to make a big difference in your overall health and well-being.<br /><br />Good luck, and I hope you enjoy your hip circles and leg swings!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_jbZ9MZm_0</code></strong>
         <span class="small">2023/05/29 (Mon) 07:43</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Write a story about the 2016 Chicago Cubs in the style or Earnest Hemingway</div>
       </div><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">The sun beat down on the field as the Chicago Cubs took the field. The crowd was electric, filled with hope and the scent of freshly-grilled hot dogs. They had waited 108 years for this moment, and nothing was going to dampen their spirits.<br /><br />The Cubs were facing off against the Cleveland Indians, and the tension in the air was palpable. Both teams had fought hard to make it to the World Series, and the stakes were high.<br /><br />In the top of the first inning, the Indians scored a quick run, but the Cubs refused to be discouraged. They pushed back with a run of their own in the bottom of the inning.<br /><br />The game was a back-and-forth battle, with neither team able to pull away. The Cubs&#39; defense was solid, and their offense was relentless. But the Indians were no slouches, and they kept the pressure on.<br /><br />In the bottom of the ninth, the Cubs were down by one run with two outs. The crowd was on their feet, cheering and praying for a miracle. And then it happened.<br /><br />A young outfielder, Ben Zobrist, came to the plate and hit a double, scoring the tying run. The crowd erupted, and the Cubs dugout went wild.<br /><br />In the 10th inning, the Cubs finally broke through with a RBI single by Miguel Montero, and they went on to win the game and the World Series.<br /><br />The Cubs had done it. They had broken the curse, and brought a championship to the city of Chicago. The crowd poured out of the stands, cheering and crying tears of joy. They had waited for this moment for over a century, and it was finally here.<br /><br />The team, the city, and the fans, all together in a perfect moment, with nothing but pure joy and happiness in their hearts.<br /><br />The end.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>f92b37c2_2</code></strong>
         <span class="small">2023/05/29 (Mon) 14:49</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m thinking of improving my gaming setup and was wondering if you could recommend some good gaming keyboards that would complement my new Razer DeathAdder Elite mouse. By the way, I&#39;ve been playing a lot of League of Legends lately, started again about a month ago after a few years&#39; hiatus, and I&#39;m still getting used to the game again.</div>
       </div><div class="turn">
@@ -2160,15 +2470,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Wrist rests can be a valuable addition to your gaming setup, especially if you&#39;re concerned about wrist comfort and ergonomics.<br /><br />Using a wrist rest while gaming can provide several benefits:<br /><br />1. **Reduced wrist strain**: A wrist rest can help reduce strain on your wrists and hands, allowing you to game for longer periods without discomfort or fatigue.<br />2. **Improved ergonomics**: A wrist rest can promote a more neutral wrist position, reducing the risk of wrist extension or flexion, which can lead to discomfort, pain, or even injury.<br />3. **Enhanced comfort**: A wrist rest can provide additional support and cushioning for your wrists, making it more comfortable to type or game for extended periods.<br />4. **Increased accuracy**: By reducing wrist strain and promoting a more neutral wrist position, a wrist rest can help improve your accuracy and overall gaming performance.<br />5. **Prevention of injuries**: Using a wrist rest can help prevent injuries such as carpal tunnel syndrome, tendonitis, and other repetitive strain injuries associated with gaming.<br /><br />However, it&#39;s essential to note that not everyone may benefit from a wrist rest, and it ultimately comes down to personal preference. Some gamers may find that a wrist rest gets in the way or affects their typing or gaming style.<br /><br />If you&#39;re considering a keyboard with a built-in wrist rest, ask yourself:<br /><br />* Do you experience wrist discomfort or strain during long gaming sessions?<br />* Do you have a history of wrist or hand injuries?<br />* Are you willing to adjust your typing or gaming style to accommodate a wrist rest?<br /><br />If you answered &quot;yes&quot; to any of these questions, a keyboard with a built-in wrist rest might be a worthwhile investment.<br /><br />On the other hand, if you&#39;re on a budget or prefer a more minimalist setup, you could consider a separate wrist rest or explore other ergonomic solutions, such as a vertical mouse or an ergonomic keyboard tray.<br /><br />Do you have any other questions about wrist rests or gaming ergonomics?</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>0e193841_8</code></strong>
         <span class="small">2023/05/29 (Mon) 21:26</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some healthy snack ideas. I&#39;ve been trying to cut down on my sugary snack intake, so I&#39;ve been opting for fruit instead. Do you have any recommendations for some easy and quick fruit-based snacks?</div>
       </div><div class="turn">
@@ -2205,15 +2519,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">You&#39;re a cracker connoisseur, eh? I&#39;m thrilled to hear that you&#39;ve found a brand that makes vegan crackers using ancient grains! Those sound like a perfect match for a delicious hummus.<br /><br />I&#39;ve got a few hummus recipes that are easy to make and pair amazingly well with your crackers. Here are three options:<br /><br />**Recipe 1: Classic Hummus**<br /><br />* 1 cup cooked chickpeas<br />* 1/4 cup lemon juice<br />* 1/4 cup tahini<br />* 2 cloves garlic, minced<br />* 1/2 teaspoon salt<br />* 3 tablespoons olive oil<br />* 1/4 cup water (or more as needed)<br />* Optional: paprika, cumin, or other spices to taste<br /><br />Combine all ingredients in a blender or food processor until smooth. Adjust the consistency and flavor to your liking.<br /><br />**Recipe 2: Roasted Garlic and Lemon Hummus**<br /><br />* 1 cup cooked chickpeas<br />* 1/4 cup roasted garlic (see notes)<br />* 1/4 cup lemon juice<br />* 1/4 cup tahini<br />* 1/2 teaspoon salt<br />* 3 tablespoons olive oil<br />* 1/4 cup water (or more as needed)<br />* Optional: paprika, cumin, or other spices to taste<br /><br />Roast 2-3 cloves of garlic in the oven at 400°F (200°C) for 20-25 minutes, or until soft and mashed. Then, combine all ingredients in a blender or food processor until smooth.<br /><br />**Recipe 3: Spicy Hummus**<br /><br />* 1 cup cooked chickpeas<br />* 1/4 cup lemon juice<br />* 1/4 cup tahini<br />* 1/2 teaspoon salt<br />* 1/4 teaspoon cayenne pepper (or more to taste)<br />* 3 tablespoons olive oil<br />* 1/4 cup water (or more as needed)<br />* Optional: paprika, cumin, or other spices to taste<br /><br />Combine all ingredients in a blender or food processor until smooth. Adjust the heat level to your liking by adding more or less cayenne pepper.<br /><br />Tips and Variations:<br /><br />* Use fresh or canned chickpeas, whichever is convenient for you.<br />* Add a squeeze of fresh lime or orange juice for a different flavor profile.<br />* Mix in some chopped fresh herbs like parsley, cilantro, or dill for added freshness.<br />* Experiment with different spices, such as smoked paprika, cumin, or coriander, to give your hummus a unique flavor.<br />* For a creamier hummus, add a tablespoon or two of olive oil or tahini.<br /><br />Enjoy your delicious homemade hummus with your ancient grain crackers!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_feG9Za9_0</code></strong>
         <span class="small">2023/05/30 (Tue) 00:29</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">what sort of diseases could the combination of CRSPR and adult stem cells be applied to?</div>
       </div><div class="turn">
@@ -2226,15 +2544,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">There are several different types of adult stem cells, which are found in various tissues throughout the body. Some of the main types of adult stem cells include:<br /><br />1. Hematopoietic stem cells: These stem cells give rise to all of the different blood cells in the body, including red blood cells, white blood cells, and platelets. They are found in the bone marrow and can be isolated from the blood.<br />2. Mesenchymal stem cells: These stem cells give rise to connective tissue cells, such as bone, cartilage, and fat cells. They are found in various tissues, including bone marrow, fat tissue, and the placenta.<br />3. Neural stem cells: These stem cells give rise to cells of the nervous system, including neurons and glial cells. They are found in the brain and spinal cord.<br />4. Epithelial stem cells: These stem cells give rise to cells of the epithelial tissue, which forms the lining of organs and glands. They are found in the skin, gut, and respiratory and urinary tracts.<br />5. Liver stem cells: These stem cells give rise to cells of the liver, including hepatocytes, bile ducts, and blood vessels. They are found in the liver.<br /><br />Each type of adult stem cell has a specific function and can give rise to different types of cells in the body. These stem cells can be isolated and expanded in the laboratory, and they have the potential to be used for a wide range of therapeutic applications.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_pontIlo_0</code></strong>
         <span class="small">2023/05/30 (Tue) 09:49</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Suppose a software engineer enters a European country (such as Germany) and his savings are running out.<br />What ways do you suggest to him to earn money quickly?<br />Come up with a list of answers to the 40 most solutions that can be done and lead to money. The answers should be detailed and quantitative.</div>
       </div><div class="turn">
@@ -2247,15 +2569,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">34. Affiliate marketing: Promote products as an affiliate marketer through websites like Amazon Associates or Commission Junction.<br />35. Blogging: Monetize a blog through advertising, sponsored content, and affiliate marketing.<br />36. Stock trading: Buy and sell stocks through a brokerage firm or trading platform.<br />37. Online bookkeeping: Offer bookkeeping services to businesses or individuals through platforms like Upwork or Fiverr.<br />38. Virtual bookkeeping: Offer virtual bookkeeping services to businesses or individuals through platforms like Upwork or Fiverr.<br />39. Online tutoring: Offer online tutoring services through websites like Tutor.com or Chegg.<br />40. Online consulting: Offer online consulting services in your area of expertise through platforms like Clarity or Coach.me.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_514392</code></strong>
         <span class="small">2023/05/30 (Tue) 12:43</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What impact does divestment have on banks&#39; environmental efforts?</div>
       </div><div class="turn">
@@ -2286,15 +2612,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">As an AI language model, I couldn&#39;t agree more. It is important for everyone to recognize their role in this collective effort to create a better future for our planet. Small actions, such as reducing energy use, recycling, and supporting sustainable businesses, can have a significant impact on the environment. By working together towards a common goal, we can make progress towards a more sustainable future for generations to come.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_501655</code></strong>
         <span class="small">2023/05/30 (Tue) 14:55</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Can you explain how to create a metadata schema for a digital collection?</div>
       </div><div class="turn">
@@ -2337,15 +2667,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">For a text collection consisting of various historical documents, I would recommend the Metadata Object Description Schema (MODS) as the metadata standard. It is commonly used in libraries, archives, and museums to describe a wide range of resources, including textual materials, audio, and video recordings, digital images, and maps.<br /><br />MODS provides a more specialized set of elements that can accommodate complex descriptions of textual materials, including information about the author, title, publisher, date of creation, subject, genre, and physical characteristics of each document. It also allows you to capture information about archival holdings, such as the relationship between different documents and their location within the collection.<br /><br />Overall, MODS is flexible and customizable, making it an ideal metadata standard for complex digital collections such as a text collection with historical documents.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>af631aa3_1</code></strong>
         <span class="small">2023/05/30 (Tue) 19:20</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some healthy lunch ideas that are high in protein to support my fitness goals. By the way, I added strength training exercises to my routine today, focusing on upper body workouts on Tuesdays and Thursdays, and lower body on Wednesdays and Fridays.</div>
       </div><div class="turn">
@@ -2382,7 +2716,8 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Hemp seeds are an excellent addition to your guava oatmeal, providing a nutty flavor, extra protein, and a boost of omega-3s. Here&#39;s a recommended amount and some tips on how to incorporate them:<br /><br />**Recommended Amount:**<br /><br />* Start with 1-2 tablespoons of hemp seeds per serving. This will provide about 5-10 grams of protein and 1-2 grams of omega-3s.<br /><br />**Tips for Incorporating Hemp Seeds:**<br /><br />1. **Grind them up**: Hemp seeds can be a bit dense and crunchy, so grinding them in a coffee grinder or food processor can help them mix better with your oatmeal.<br />2. **Mix with liquid first**: Mix the ground hemp seeds with a small amount of liquid, such as almond milk or water, to create a paste. This will help them distribute evenly throughout your oatmeal.<br />3. **Add to oatmeal**: Mix the hemp seed paste with your cooked oatmeal, guava, and any other desired toppings.<br />4. **Start small**: If you&#39;re new to hemp seeds, start with a small amount (1 tablespoon) and adjust to taste. Some people may find the nutty flavor overpowering, so it&#39;s better to start slow.<br />5. **Store them properly**: Hemp seeds can go rancid quickly, so store them in an airtight container in the fridge or freezer to preserve their nutritional value.<br /><br />**Benefits of Hemp Seeds:**<br /><br />* High-quality protein source (about 20% protein by weight)<br />* Rich in omega-3 fatty acids (alpha-linolenic acid, or ALA)<br />* Good source of fiber, vitamins, and minerals (like magnesium, potassium, and iron)<br />* May help with heart health, inflammation, and digestion<br /><br />By incorporating hemp seeds into your guava oatmeal, you&#39;ll not only add protein and omega-3s but also a nutty flavor and a satisfying crunch. Enjoy!</div>
       </div></div>
-  </details></div>
+    </details>
+  </div></div>
                     </details>
     </div>
   </div>

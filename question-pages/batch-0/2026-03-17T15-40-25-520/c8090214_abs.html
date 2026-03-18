@@ -105,7 +105,7 @@
       border: 1px solid var(--line);
       border-radius: 14px;
       background: #fff;
-      padding: 0 14px 14px;
+      padding: 14px;
     }
     .priority-session {
       border-width: 2px;
@@ -115,21 +115,17 @@
     .secondary-session {
       opacity: 0.9;
     }
-    .session-card summary {
-      list-style: none;
-      cursor: pointer;
+    .session-card-header {
       display: flex;
       justify-content: space-between;
       gap: 12px;
       align-items: center;
-      padding: 14px 0;
-    }
-    .session-card summary::-webkit-details-marker {
-      display: none;
+      margin-bottom: 12px;
     }
     .session-turns {
       display: grid;
       gap: 10px;
+      margin-top: 12px;
     }
     .turn {
       border-top: 1px solid var(--line);
@@ -146,6 +142,40 @@
       font-size: 14px;
       line-height: 1.55;
       word-break: break-word;
+    }
+    .session-memory-wrap {
+      margin-bottom: 12px;
+    }
+    .session-memory-details {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fcfaf5;
+      padding: 0 12px 12px;
+    }
+    .session-memory-details summary,
+    .session-conversation-details summary {
+      cursor: pointer;
+      padding: 12px 0;
+      font-size: 13px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .session-conversation-details {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fafaf7;
+      padding: 0 12px 12px;
+    }
+    .session-memory-list {
+      display: grid;
+      gap: 10px;
+    }
+    .extracted-memory-card {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+      padding: 12px;
     }
     .pill {
       display: inline-block;
@@ -397,15 +427,57 @@
       <h2>Question Sessions</h2>
       <p class="small">Benchmark answer sessions are shown first. Then come other retrieved sessions. Background sessions stay collapsed below.</p>
       <div class="session-subhead">Answer Sessions</div>
-             <div class="session-list"><details class="session-card priority-session">
-    <summary>
+             <div class="session-list"><div class="session-card priority-session">
+    <div class="session-card-header">
       <div>
         <strong><code>answer_70dc7d08_abs_1</code></strong>
         <span class="small">2023/05/30 (Tue) 00:50</span>
       </div>
       <div><span class="pill">ground truth</span> <span class="pill pill-answer">answer session</span> <span class="pill pill-retrieved">retrieved</span></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    <div class="session-memory-wrap"><details class="session-memory-details">
+    <summary>Extracted Memories (2)</summary>
+    <div class="session-memory-list"><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 1</strong>
+      <div>
+        <span class="pill pill-retrieved">retrieved</span>
+        <span class="small">2023-05-30T07:50:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Attended the annual Holiday Market at the local mall a week before Black Friday. Saw some unique handmade jewelry there and considered it as a gift for a sister&#39;s upcoming birthday. Decided to revisit the market to take a closer look at the jewelry vendors.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Attended the annual Holiday Market.<br />The market was held at the local mall.<br />The visit occurred a week before Black Friday.<br />Saw unique handmade jewelry at the market.<br />Considered the jewelry as a potential birthday gift for a sister.<br />Planned to return to the Holiday Market to inspect the jewelry vendors more closely.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Market</td>
+      </tr></tbody></table>
+  </div><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 2</strong>
+      <div>
+        
+        <span class="small">2023-05-30T07:50:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Decided to design a custom phone case for a sister&#39;s birthday using Canva or Adobe Spark. Planned to keep the design simple by adding the sister&#39;s name in an elegant font, along with a small personal message like &quot;Sis&quot; or &quot;Birthday Girl&quot;.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Decided to create a custom phone case.<br />The phone case is intended as a birthday gift for a sister.<br />Planned to use Canva or Adobe Spark for the design.<br />Intended to keep the design simple.<br />Planned to add the sister&#39;s name in an elegant font.<br />Considered adding a small personal message such as &quot;Sis&quot; or &quot;Birthday Girl&quot;.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Canva</td>
+      </tr></tbody></table>
+  </div></div>
+  </details></div>
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some gift ideas for my sister&#39;s birthday, which is coming up soon. I&#39;d like to get her something nice, but I&#39;m on a budget. Do you have any suggestions? By the way, I attended the annual Holiday Market at the local mall a week before Black Friday, and I saw some unique handmade jewelry there, but I&#39;m not sure if that&#39;s her style.</div>
       </div><div class="turn">
@@ -442,15 +514,94 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">You&#39;re welcome! I&#39;m glad I could help. It&#39;s great that you&#39;re taking the time to consider your sister&#39;s style and preferences when choosing a gift. I&#39;m sure she&#39;ll appreciate the thought and effort you&#39;re putting into selecting a special piece of jewelry to go along with the phone case.<br /><br />Going back to the Holiday Market is a great idea. Take your time, and don&#39;t be afraid to ask the vendors questions about the pieces that catch your eye. They can often provide valuable insights into the materials, craftsmanship, and inspiration behind their work.<br /><br />Remember to trust your instincts and have fun with the process. You know your sister best, and you&#39;ll know when you find the perfect piece. Don&#39;t worry if it takes a little longer to find the right one – it&#39;s worth it to see the smile on her face when she opens her gift.<br /><br />If you have any more questions or need further guidance, feel free to ask. Otherwise, I wish you the best of luck in your search for the perfect jewelry piece, and I hope your sister has a wonderful birthday!</div>
       </div></div>
-  </details><details class="session-card priority-session">
-    <summary>
+    </details>
+  </div><div class="session-card priority-session">
+    <div class="session-card-header">
       <div>
         <strong><code>answer_70dc7d08_abs_2</code></strong>
         <span class="small">2023/05/30 (Tue) 00:04</span>
       </div>
       <div><span class="pill">ground truth</span> <span class="pill pill-answer">answer session</span> <span class="pill pill-retrieved">retrieved</span></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    <div class="session-memory-wrap"><details class="session-memory-details">
+    <summary>Extracted Memories (4)</summary>
+    <div class="session-memory-list"><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 1</strong>
+      <div>
+        
+        <span class="small">2023-05-30T07:04:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Planned to use the phone more outdoors and needed a waterproof case to protect it from water and dust. Explored various options for durable phone protection.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Intends to use the phone outdoors more frequently.<br />Needs a waterproof phone case.<br />Protection from water and dust is desired.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Waterproof</td>
+      </tr></tbody></table>
+  </div><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 2</strong>
+      <div>
+        
+        <span class="small">2023-05-30T07:04:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Planned to buy a soundbar to complement a new TV. Searched for options with good sound quality within a budget of $200-$300.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Plans to buy a soundbar.<br />The soundbar is intended to complement a new TV.<br />Desired sound quality is good.<br />Budget for the soundbar is $200-$300.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Soundbar</td>
+      </tr></tbody></table>
+  </div><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 3</strong>
+      <div>
+        <span class="pill pill-retrieved">retrieved</span>
+        <span class="small">2023-11-24T08:00:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Purchased an iPhone 13 Pro at a discounted price during Black Friday. The deal was significant, saving $200 off the regular price. This acquisition prompted a need for new accessories.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Bought an iPhone 13 Pro.<br />Purchased from Best Buy.<br />The purchase occurred on Black Friday.<br />Paid $800 for the phone.<br />The regular price was $1,000.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>iPhone</td>
+      </tr></tbody></table>
+  </div><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 4</strong>
+      <div>
+        
+        <span class="small">2023-11-27T08:00:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Acquired a 4K TV from Amazon on Cyber Monday, securing a 30% discount off the original price. The purchase was considered an amazing deal, and now looking for similar options.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Bought a 4K TV.<br />Purchased from Amazon.<br />The purchase occurred on Cyber Monday.<br />Received a 30% discount.<br />The original price was $1,200.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Television</td>
+      </tr></tbody></table>
+  </div></div>
+  </details></div>
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking to upgrade my phone case and screen protector. Can you show me some options for iPhone 13 Pro cases and screen protectors? By the way, I got my iPhone 13 Pro at a discounted price of $800 from Best Buy on Black Friday, which was a great deal considering the regular price was $1,000.</div>
       </div><div class="turn">
@@ -487,17 +638,21 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">A soundbar can greatly enhance your TV-watching experience. Here are some soundbar options with good sound quality and a budget of around $200-$300:<br /><br />**Soundbar Options:**<br /><br />1. **Yamaha YAS-209**: A compact soundbar with clear and balanced sound, featuring a wireless subwoofer and built-in Alexa. ($299.95)<br />2. **Sonos Beam**: A compact soundbar with excellent sound quality, featuring a compact design and built-in Alexa and Google Assistant. ($299.00)<br />3. **Bose Solo 5**: A sleek and compact soundbar with clear and balanced sound, featuring a single speaker design. ($249.95)<br />4. **Samsung HW-R450**: A slim soundbar with good sound quality, featuring a wireless subwoofer and Bluetooth connectivity. ($299.99)<br />5. **JBL Bar 3.1**: A 3.1-channel soundbar with good sound quality, featuring a wireless subwoofer and Bluetooth connectivity. ($299.95)<br /><br />**Key Features to Consider:**<br /><br />* **Sound Quality**: Look for soundbars with clear and balanced sound, and consider the number of channels (e.g., 2.1, 3.1) for a more immersive experience.<br />* **Wireless Subwoofer**: A wireless subwoofer provides more flexibility and convenience.<br />* **Smart Speaker Integration**: Consider soundbars with built-in smart speakers like Alexa or Google Assistant for voice control.<br />* **Connectivity Options**: Ensure the soundbar has the right connectivity options for your devices, such as HDMI, optical, or Bluetooth.<br />* **Size and Design**: Choose a soundbar that fits your space and complements your TV&#39;s design.<br /><br />**Price Points:**<br /><br />* **$200-$250**: Bose Solo 5, JBL Bar 3.1<br />* **$250-$300**: Yamaha YAS-209, Sonos Beam, Samsung HW-R450<br /><br />Remember to read reviews and compare features to find the best soundbar for your needs and budget.</div>
       </div></div>
-  </details></div>
+    </details>
+  </div></div>
              <div class="session-subhead">Other Retrieved Sessions</div>
-                    <div class="session-list"><details class="session-card priority-session">
-    <summary>
+                    <div class="session-list"><div class="session-card priority-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ca3aa07f_1</code></strong>
         <span class="small">2023/05/30 (Tue) 06:36</span>
       </div>
       <div><span class="pill">retrieved only</span> <span class="pill pill-retrieved">retrieved</span></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m hoping to get some inspiration for new jewelry designs. I&#39;ve been stuck in a rut lately and was wondering if you could suggest some trends or popular styles that are currently in demand. By the way, I just got back from the Local Artisans Market in the park today, where I sell some of my handmade jewelry.</div>
       </div><div class="turn">
@@ -534,18 +689,22 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">What a great goal! The Arusha Gemstone Trade Show is an excellent platform for you to find suppliers for your handmade jewelry business. As a small business owner, you&#39;ll have the opportunity to connect with suppliers, learn about the industry, and source unique and high-quality gemstones to expand your product line.<br /><br />Here are some tips specifically for small business owners like yourself:<br /><br />1. **Define your needs**: Before attending the trade show, make a list of the specific gemstones, quantities, and qualities you&#39;re looking for. This will help you focus your search and ensure you&#39;re targeting the right suppliers.<br />2. **Research exhibitors**: Check the exhibitor list beforehand and research the companies that will be attending. Look for suppliers that specialize in the types of gemstones you&#39;re interested in, and make a list of questions to ask them.<br />3. **Bring business cards and marketing materials**: As a small business owner, it&#39;s essential to promote your business and showcase your products. Bring business cards, brochures, or a portfolio of your designs to share with potential suppliers.<br />4. **Be prepared to ask questions**: Don&#39;t be afraid to ask suppliers about their products, pricing, quality, and certifications. This is your chance to learn about the gemstones and ensure you&#39;re getting the best products for your business.<br />5. **Negotiate and be open to opportunities**: As a small business owner, you may not have the same purchasing power as larger companies. Be open to negotiating prices, and don&#39;t be afraid to ask about discounts or special deals.<br />6. **Take notes and follow up**: Take notes during the trade show, and follow up with suppliers after the event to discuss potential business opportunities. This will help you stay organized and ensure you don&#39;t miss any important leads.<br /><br />Additionally, consider the following tips for navigating the trade show:<br /><br />1. **Plan your day**: With so many exhibitors and seminars, it&#39;s essential to plan your day carefully. Prioritize the suppliers you want to visit, and schedule breaks to rest your feet and recharge.<br />2. **Wear comfortable shoes**: You&#39;ll be on your feet for most of the day, so make sure to wear comfortable shoes that can handle the demands of the trade show floor.<br />3. **Bring a bag or backpack**: You&#39;ll likely collect a lot of materials, business cards, and samples during the trade show. Bring a bag or backpack to carry everything comfortably.<br />4. **Stay hydrated and energized**: The trade show can be overwhelming, so make sure to stay hydrated and energized throughout the day. Bring water and snacks, and take breaks to rest and recharge.<br /><br />By following these tips, you&#39;ll be well-prepared to navigate the Arusha Gemstone Trade Show and find the perfect suppliers for your handmade jewelry business. Good luck, and I hope you have a successful and enjoyable trip!</div>
       </div></div>
-  </details></div>
+    </details>
+  </div></div>
              <details class="other-sessions">
                       <summary>Other Sessions (50)</summary>
-                      <div class="session-list"><details class="session-card secondary-session">
-    <summary>
+                      <div class="session-list"><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>b8adda7f_1</code></strong>
         <span class="small">2023/05/30 (Tue) 23:27</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m planning a trip to Hawaii and I&#39;m considering flying with Hawaiian Airlines. Do you have any information on their direct flights from LAX to HNL? By the way, I just got back from a trip to Chicago and had a great experience on my return flight - I took American Airlines flight AA456 from ORD to LAX and was upgraded to first class, which was amazing!</div>
       </div><div class="turn">
@@ -582,15 +741,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">That&#39;s a great goal! It&#39;s always exciting to work towards earning rewards points or miles that can be redeemed for travel.<br /><br />The Chase Sapphire credit card is a popular choice among travelers, and for good reason. It offers a generous rewards program, with 2X points on travel and dining purchases and 1X point on all other purchases. Plus, you can transfer your points to popular airline and hotel loyalty programs, including United Airlines, American Airlines, and Marriott Bonvoy, among others.<br /><br />To accumulate more miles, you might consider using your Chase Sapphire card for your daily purchases, paying your balance in full each month, and taking advantage of any bonus categories or promotions that align with your spending habits. You could also consider adding an authorized user or referring friends to the card to earn additional points.<br /><br />Remember to track your points balance and redemption options regularly, so you can plan your next award travel adventure. And who knows, maybe you&#39;ll be able to redeem your points for a free flight to Hawaii later this year!<br /><br />Do you have a favorite way to use your Chase Sapphire points, or are you still exploring your redemption options?</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_228381</code></strong>
         <span class="small">2023/05/30 (Tue) 22:42</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What notable authors or literary traditions originate from Weir, and how do they contribute to its cultural identity?</div>
       </div><div class="turn">
@@ -627,15 +790,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">As an AI language model, I can&#39;t make a personal recommendation based on personal experience, but I can provide you with some general information about a few Scottish literary festivals.<br /><br />- The Edinburgh International Book Festival is one of the largest book festivals in the world, with over 900 authors and 800 events held annually. It takes place in August in Edinburgh, and features a diverse range of events, including readings, workshops, panel discussions, and debates.<br /><br />- The Wigtown Book Festival, held in late September or early October in the small town of Wigtown, is Scotland&#39;s largest rural book festival. It features over 200 events, including talks, readings, workshops, and family activities, all centered around a love of books and reading.<br /><br />- The Aye Write! Glasgow Book Festival, held annually in March, is a celebration of books, reading, and writing in the city of Glasgow. It features a diverse lineup of authors, including both local and international talent, who come together to discuss their work, share their thoughts on the literary world, and interact with audiences.<br /><br />All of these festivals offer unique and exciting opportunities to explore and celebrate Scotland&#39;s rich literary heritage.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_476173</code></strong>
         <span class="small">2023/05/30 (Tue) 03:14</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Can you provide a history of the development of photography as an art form?</div>
       </div><div class="turn">
@@ -678,15 +845,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I don&#39;t have information on upcoming exhibitions at the moment. however, you can check alec soth&#39;s official website or social media accounts for updates on his exhibitions and events. many galleries and museums also post information about exhibitions on their websites and social media accounts, so it’s a good idea to follow them to stay updated on soth’s upcoming exhibitions.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_374236</code></strong>
         <span class="small">2023/05/30 (Tue) 20:39</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">How did the drought affect the crops in the neighboring villages?</div>
       </div><div class="turn">
@@ -711,15 +882,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I am not affiliated with any specific organizations. however, i can suggest a few non-profit organizations working to aid communities affected by drought:<br /><br />1. charity: water: a non-profit organization that provides clean and safe drinking water to people in developing nations. they work to ensure that affected communities have access to safe and sustainable sources of water.<br /><br />2. oxfam america: an international organization that works to tackle poverty, hunger, and social injustice. oxfam america provides support to communities affected by drought and helps them access food, water, and basic services.<br /><br />3. heifer international: a non-profit organization that works to end hunger and poverty by supporting sustainable agriculture and providing livestock and training to farmers. they train farmers how to conserve water and introduce drought-resistant crops.<br /><br />4. the hunger project: a global non-profit organization dedicated to ending world hunger. they work to support communities to achieve sustainable development and transform their own lives.<br /><br />before donating to any organization, you may want to research the organization&#39;s history, reputation, and financial records to ensure that the funds are used effectively and appropriately.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_155329</code></strong>
         <span class="small">2023/05/30 (Tue) 20:39</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What role does the student government play in planning and organizing events on campus?</div>
       </div><div class="turn">
@@ -762,15 +937,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I&#39;m glad I could help. Those are great things to focus on as you start your leadership role in the student government. I wish you all the best in your endeavors and have no doubt that you and your team will accomplish great things together!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>b192ae00_1</code></strong>
         <span class="small">2023/05/30 (Tue) 20:39</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m planning to participate in another charity event soon and I was wondering if you could help me come up with some fundraising ideas. By the way, I recently sold some homemade cookies and cakes to my colleagues at the &quot;Bake Sale for Education&quot; event and raised around $120.</div>
       </div><div class="turn">
@@ -807,15 +986,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">That&#39;s a fantastic idea! Sharing a personal story or video can be a powerful way to connect with your audience and inspire them to support your fundraising efforts.<br /><br />A well-crafted video or story can help to:<br /><br />1. **Personalize your fundraising campaign**: Share your personal connection to the charity and why this cause is important to you.<br />2. **Emotionalize your ask**: Share how the charity has impacted you or someone you know, and how the funds will make a difference.<br />3. **Create a sense of urgency**: Encourage people to donate before the event, emphasizing that every contribution counts.<br /><br />Here are some tips to make your video or story more engaging and effective:<br /><br />1. **Keep it concise**: Aim for a 2-3 minute video or a 300-500 word story.<br />2. **Be authentic and sincere**: Share your genuine passion and emotions about the charity and the cause.<br />3. **Use visuals**: Include images, videos, or graphics to break up the text and make the content more engaging.<br />4. **Make it personal**: Share a personal anecdote, story, or experience that illustrates why this charity is important to you.<br />5. **Use a clear call-to-action**: Clearly state what you&#39;re asking for (e.g., donations, shares, or support) and provide a link to your fundraising page.<br />6. **Show progress**: Share how much you&#39;ve raised so far and how much more you need to reach your goal.<br />7. **Use social proof**: Share testimonials, quotes, or stories from others who have been impacted by the charity.<br />8. **Timing is everything**: Share your video or story at the right time, such as a few days before the event, to create a sense of urgency.<br /><br />For a video, you can use your smartphone to record a selfie-style video or create a more produced video with editing software. For a written story, you can share it on your fundraising page, social media, or via email.<br /><br />Remember to promote your video or story across all your social media channels, and encourage your friends and family to share it with their networks.<br /><br />How do you plan to create your video or story? Do you have any specific ideas or themes in mind?</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>d4f02577_2</code></strong>
         <span class="small">2023/05/30 (Tue) 15:27</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I need help with my upcoming trip to Hawaii. I booked it with Island Getaways and I&#39;m trying to confirm my hotel reservation. Can you help me draft an email to them to ask about the room view?</div>
       </div><div class="turn">
@@ -852,15 +1035,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Vegas is always a great destination for a bachelorette party! It sounds like you helped plan a fun trip for your sister and her friends. $1,200 per person for a 4-day trip is a reasonable price, especially if it included accommodations, activities, and other perks.<br /><br />It&#39;s great that you were able to help your sister plan a memorable trip. Planning a group trip can be challenging, but it&#39;s always rewarding to see everything come together and create lifelong memories.<br /><br />Vegas has so much to offer, from the vibrant nightlife to the amazing shows, restaurants, and attractions. I&#39;m sure your sister and her friends had an amazing time exploring the Strip, trying new restaurants, and enjoying the various activities and entertainment options.<br /><br />If you don&#39;t mind me asking, what was the highlight of the trip for your sister and her friends? Was there a particular activity or experience that stood out as a favorite?</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>cad5dca8_2</code></strong>
         <span class="small">2023/05/30 (Tue) 17:20</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m planning to get a gift for my sister again, and I&#39;m looking for some ideas. She loves to read, so I thought maybe a new book by her favorite author would be a great idea. Do you have any recommendations?</div>
       </div><div class="turn">
@@ -897,15 +1084,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I think there&#39;s been a misunderstanding! I&#39;m the one helping you with gift ideas for your sister, not the other way around. I don&#39;t have a sister, and I&#39;m not the one who&#39;s been reading romance novels.<br /><br />But let&#39;s focus on your sister&#39;s preferences! You mentioned earlier that she loves to read and enjoys romance novels. To provide better recommendations, I&#39;d love to know more about her tastes.<br /><br />Please feel free to answer the questions I asked earlier:<br /><br />1. Does she enjoy stories with happily-ever-afters (HEAs) or is she open to more realistic, open-ended conclusions?<br />2. Does she prefer romances with a strong focus on relationships, family, or friendships?<br />3. Does she like stories with alpha males, strong female leads, or a mix of both?<br />4. Does she enjoy romances set in specific time periods, like historical or contemporary?<br /><br />And, would you like the gift to be a complete surprise, or would you like to involve your sister in the book selection process?<br /><br />Let&#39;s get a better sense of your sister&#39;s reading preferences, and I&#39;ll do my best to suggest a great romance novel for her!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>61a989b5_2</code></strong>
         <span class="small">2023/05/30 (Tue) 12:15</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some resources to help me with data analysis for a project. I&#39;m interested in exploring machine learning techniques, and I think my stats background will come in handy. By the way, I took a statistics exam two weeks before starting my internship at UC Berkeley, and it really helped me build a strong foundation in data analysis.</div>
       </div><div class="turn">
@@ -942,45 +1133,57 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Sentiment analysis datasets are essential for training and evaluating machine learning models. Here are some popular datasets for sentiment analysis, including datasets for specific domains:<br /><br />**General Sentiment Analysis Datasets:**<br /><br />1. **IMDB Dataset**: A popular dataset for sentiment analysis, consisting of 50,000 movie reviews with sentiment labels (positive or negative).<br />2. **Stanford Sentiment Treebank**: A dataset of 10,000 movie reviews with sentiment labels (positive, negative, or neutral).<br />3. **Amazon Product Review Dataset**: A large dataset of product reviews with sentiment labels (positive, negative, or neutral).<br />4. **Yelp Dataset**: A dataset of Yelp reviews with sentiment labels (positive, negative, or neutral).<br /><br />**Domain-Specific Sentiment Analysis Datasets:**<br /><br />1. **Twitter Sentiment Analysis Dataset**: A dataset of Twitter tweets with sentiment labels (positive, negative, or neutral).<br />2. **Hotel Review Dataset**: A dataset of hotel reviews with sentiment labels (positive, negative, or neutral).<br />3. **Restaurant Review Dataset**: A dataset of restaurant reviews with sentiment labels (positive, negative, or neutral).<br />4. **Election Sentiment Analysis Dataset**: A dataset of tweets related to elections with sentiment labels (positive, negative, or neutral).<br />5. **Healthcare Sentiment Analysis Dataset**: A dataset of healthcare-related reviews with sentiment labels (positive, negative, or neutral).<br />6. **Financial Sentiment Analysis Dataset**: A dataset of financial news articles with sentiment labels (positive, negative, or neutral).<br />7. **Product Review Dataset in Chinese**: A dataset of product reviews in Chinese with sentiment labels (positive, negative, or neutral).<br /><br />**Multilingual Sentiment Analysis Datasets:**<br /><br />1. **Multilingual Sentiment Analysis Dataset**: A dataset of reviews in multiple languages (English, Spanish, French, German, Italian, and Portuguese) with sentiment labels.<br />2. **Cross-Lingual Sentiment Analysis Dataset**: A dataset of reviews in multiple languages (English, Spanish, French, German, Italian, and Portuguese) with sentiment labels.<br /><br />**Other Resources:**<br /><br />1. **Sentiment Analysis Datasets on Kaggle**: A collection of sentiment analysis datasets on Kaggle, including datasets for specific domains.<br />2. **UCI Machine Learning Repository**: A collection of machine learning datasets, including sentiment analysis datasets.<br />3. **Open Dataset Search**: A search engine for open datasets, including sentiment analysis datasets.<br /><br />These datasets should provide a good starting point for your sentiment analysis projects. Remember to explore the datasets, preprocess the data, and split them into training, validation, and testing sets before training your models. Good luck!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_Gq3dDzY_0</code></strong>
         <span class="small">2023/05/30 (Tue) 13:39</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Write a GoFundMe campaign to raise funds to buy and rehab a single family house in southeast suburban Chicago</div>
       </div><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">Hello! Thank you for considering using GoFundMe to raise funds to buy and rehab a single family house in southeast suburban Chicago.<br /><br />Our goal is to raise $100,000 to purchase and renovate a single family home in the southeast suburbs of Chicago. The funds will be used to cover the cost of the down payment, closing costs, and any necessary renovations to make the home livable.<br /><br />This project is important to us because we believe that everyone deserves a safe and affordable place to live. By rehabilitating a home in a community that may not have as much access to resources, we hope to provide a family with a place they can call their own and feel proud of.<br /><br />We would be extremely grateful for any contribution you can make towards our goal. Whether you can donate $5 or $500, every little bit helps bring us closer to making this dream a reality.<br /><br />Thank you for considering supporting our GoFundMe campaign. Together, we can make a difference in the lives of a family in need of a safe and affordable home.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_0y7l9xm_0</code></strong>
         <span class="small">2023/05/30 (Tue) 21:35</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">hello</div>
       </div><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">Hello! How can I assist you today?</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>687f4717</code></strong>
         <span class="small">2023/05/30 (Tue) 10:18</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some new book recommendations. I just finished &quot;Sapiens&quot; and loved it. Can you suggest something similar? By the way, I&#39;ve been really into educational content lately, trying to make the most of my free time - I&#39;ve been at it for three months now.</div>
       </div><div class="turn">
@@ -1017,15 +1220,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">It was my pleasure to help! I&#39;m thrilled to see you&#39;re excited to start exploring Reddit and engaging with communities related to your interests.<br /><br />Remember, learning is a lifelong journey, and it&#39;s amazing that you&#39;re taking proactive steps to stay motivated and focused. Don&#39;t hesitate to reach out if you have any more questions or need further guidance. I&#39;ll be here to support you along the way.<br /><br />Best of luck on your learning adventure, and I hope you discover many new and exciting things!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_369490</code></strong>
         <span class="small">2023/05/30 (Tue) 21:57</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">How has the city&#39;s investment in public art programs impacted tourism and local businesses?</div>
       </div><div class="turn">
@@ -1062,45 +1269,57 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I don&#39;t have a specific city that i belong to or live in. however, i can provide some examples of public art installations that are commonly appreciated around the world.<br /><br />one popular public art installation is the &quot;cloud gate&quot; sculpture in chicago, illinois. it is a large, mirrored sculpture that reflects the city skyline and surrounding area, creating a unique and interesting visual experience.<br /><br />another popular public art installation is the &quot;musée du louvre&quot; pyramid in paris, france. the pyramid is made of glass and steel and serves as the entrance to the museum. it has become an iconic symbol of the museum and the city.<br /><br />in new york city, the &quot;statue of liberty&quot; is a famous public art installation. the statue, located on liberty island, has become a symbol of freedom and hope, and is a popular attraction for tourists from around the world.<br /><br />overall, public art installations can take many different forms and can have a powerful impact on communities and visitors.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_1ghSqT1_0</code></strong>
         <span class="small">2023/05/30 (Tue) 08:25</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I need to answer for an question, before asking that i need to get few more information from the question to get more info about that question what kind of questions should I ask here is the question””””Customer: Will I have to leave my home if a restraining order is issued to me by my neighbor?<br /><br />JA: Was a restraining order issued? What were the basic terms?<br /><br />Customer: I don&#39;t know, the police came toy house to issue the order when I wasn&#39;t home.<br /><br />JA: Is there ongoing abuse or harassment? Were the police called?<br /><br />Customer: She said I threatened her<br /><br />JA: Is there anything else the Lawyer should know before I connect you? Rest assured that they&#39;ll be able to help you.<br /><br />Customer: She was taking pictures of me and sending them to my boyfriend, so he could see who was coming toy house ,. And I told her if she didn&#39;t stop ,I was going to beat her ass</div>
       </div><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">Before answering the customer&#39;s question, here are some additional questions that you could ask:<br /><br />1. Have you spoken to a lawyer about the situation?<br />2. Have you been served with any legal documents related to the restraining order?<br />3. Are there any specific terms or restrictions listed in the restraining order?<br />4. Have you been accused of any other incidents of abuse or harassment by your neighbor?<br />5. Have you had any previous conflicts or issues with your neighbor before this incident?<br /><br />Getting answers to these questions could help you provide a more informed and accurate response to the customer&#39;s question.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_mDe8UqB_0</code></strong>
         <span class="small">2023/05/30 (Tue) 14:11</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">what are the english name that are palindroms?</div>
       </div><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">A palindrome is a word or phrase that is spelled the same backwards as forwards. Here are a few examples of palindromes in English:<br /><br />* Hannah<br />* Bob<br />* Eve<br />* Noon<br />* Radar<br />* Madam<br />* Racecar<br />* Civic<br />* Level<br />* Deed<br /><br />These are just a few examples, but there are many more palindromes in the English language. Do you have a specific question about palindromes that I can help with?</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_CQsXK2n_0</code></strong>
         <span class="small">2023/05/30 (Tue) 14:21</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">write a movie script outline about the eternal debate between the merits of asses and titties in anime and manga throughout different years</div>
       </div><div class="turn">
@@ -1113,15 +1332,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Title: &quot;The Great Debate: Part VII - The Future of Otakudom on Mars&quot;<br /><br />Act 1:<br /><br />The story picks up several years after the events of the previous movie. Tragedy strikes again, as the remaining members of the group of friends pass away. The world is left in mourning, as the loss of the pioneers and advocates of otakudom is felt by fans and industry professionals alike.<br /><br />However, the legacy of the group lives on through their children, who are now grown and have inherited their parents&#39; love and passion for anime and manga. The children decide to come together and honor their parents&#39; memory by preserving and promoting the future of otakudom.<br /><br />Act 2:<br /><br />The children of the group face a new and daunting challenge: the impending destruction of Earth. As the planet becomes uninhabitable, the children are forced to flee and find a new home for themselves and for otakudom.<br /><br />After much discussion and debate, the children decide to settle on Mars. They use the funds and resources left to them by their parents to build a new library and a community center for anime and manga fans on the red planet.<br /><br />Act 3:<br /><br />As the children settle into their new home on Mars, they face a series of challenges and obstacles. They must contend with the harsh conditions of the planet, as well as the lack of infrastructure and support for their community.<br /><br />However, the children are determined and resilient, and they use their knowledge and expertise to overcome these challenges. They establish a thriving and vibrant community of otakudom on Mars, and begin to explore and develop the potential of the planet for the future of anime and manga.<br /><br />Act 4:<br /><br />In the end, the children of the group succeed in their mission to preserve and promote the future of otakudom. They establish a thriving and prosperous community on Mars, and become respected and admired leaders in the world of anime and manga.<br /><br />The legacy of their parents lives on, and the love and passion for anime and manga is passed down to the next generation. The children continue to enjoy and share their love for the medium, while also ensuring that the future of otakudom is bright and promising, even in the face of adversity and change.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>f10be626</code></strong>
         <span class="small">2023/05/30 (Tue) 11:00</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m trying to plan my next trip and was thinking about my past travel experiences. Can you help me find some good destinations for a solo trip?</div>
       </div><div class="turn">
@@ -1158,15 +1381,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">You&#39;re welcome! It was my pleasure to assist you. I hope you find a great Airbnb option in El Poblado or La Llanura that fits your needs and budget.<br /><br />Remember to read reviews carefully, check the location, and ask the host any questions you may have before booking. And don&#39;t hesitate to reach out if you need any more information or have any further questions about Medellín.<br /><br />Have a great time planning your trip, and I hope you have an amazing adventure in Medellín!<br /><br />¡Buen viaje!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_129606</code></strong>
         <span class="small">2023/05/30 (Tue) 15:32</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Can you suggest some family-friendly events that are suitable for kids to attend in Fremantle?</div>
       </div><div class="turn">
@@ -1209,15 +1436,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">All the restaurants I recommended have some amazing desserts on their menu, but if you&#39;re looking for something special, try out these places:<br /><br />1. Cow and the Moon Gelato: An artisanal gelato store with a range of flavours created in-house, from traditional like chocolate to unique combinations like gingerbread and raspberry. They have a distinct and quality taste you need to try.<br /><br />2. La Vespa Pizzeria Gelateria: A charming gelato shop offering Italian-style desserts and coffees. It&#39;s a perfect place for a sweet treat after pizza or pasta.<br /><br />3. Lapa Brazilian BBQ: Offering a unique dining experience with authentic Brazilian cuisine that includes a dessert called Pudim de Leite, a caramel-flavoured custard.<br /><br />4. The Holy Smokes: An American-style barbecue joint that serves some of the best-baked desserts like brownies and mud pie, smothered in frosting and whipped cream.<br /><br />5. Fremantle Markets: A hub that features many sweet treats in one place, like artisanal chocolates, macarons, cakes, cupcakes, and more.<br /><br />These are some of the best places to indulge in a sweet treat in Fremantle, so go ahead and satisfy your kid&#39;s sweet tooth.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_197390</code></strong>
         <span class="small">2023/05/30 (Tue) 03:44</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What was the impact of the Crusades on feudalism in Europe during the late Middle Ages?</div>
       </div><div class="turn">
@@ -1254,15 +1485,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Sure, the Crusades were a series of military campaigns that were fought over several centuries. Here are some of the major battles and tactics used during the Crusades:<br /><br />1. Battle of Dorylaeum (1097): The first major battle of the First Crusade, fought between the Crusaders and the Seljuk Turks. The Crusaders used their superior cavalry to encircle the Turks and defeat them, using a tactic called a feigned retreat.<br /><br />2. Siege of Antioch (1098): The Crusaders besieged the city of Antioch and ultimately won it back from the Turks, thanks to the discovery of a hidden tunnel that allowed them to enter the city. The siege was a long and difficult process, and mining and catapults were used to bring down the walls.<br /><br />3. Battle of Ascalon (1099): The Crusaders defeated the Egyptians in this battle, using a combined arms approach of cavalry, infantry, and archery. The Crusaders also had better armor and weapons.<br /><br />4. Battle of Hattin (1187): The Muslim forces, led by Saladin, defeated the Crusaders in this battle, which was a major turning point in the Third Crusade. The Crusaders were defeated due to a lack of water, and their forces were divided.<br /><br />5. Siege of Acre (1189-1191): The Crusaders besieged Acre for two years, finally taking the city through a combination of land and sea forces. The Crusaders used trebuchets and battering rams to break down the walls of the city.<br /><br />6. Battle of Arsuf (1191): The Crusaders, led by Richard the Lionheart, defeated Saladin&#39;s forces in this battle. The Crusaders used their superior cavalry to chase down and surround the Muslim forces.<br /><br />7. Battle of Ain Jalut (1260): The Mongol forces, who had conquered much of Asia, were stopped at the Battle of Ain Jalut by the Muslim forces led by the Mamluks. The Mamluks used a combination of infantry, archery, and cavalry to defeat the Mongol forces.<br /><br />These are just some of the major battles and tactics used during the Crusades. Many of the battles were fought using a combined approach of infantry, cavalry, archery, and siege tactics. The Crusaders often had superior weapons and armor, but they also faced many challenges, including harsh weather, disease, and the difficulty of moving supplies across long distances.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>042c55a5</code></strong>
         <span class="small">2023/05/30 (Tue) 00:42</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m trying to organize my contacts from recent networking events. Can you help me create a spreadsheet to keep track of the people I&#39;ve met, including their names, titles, and companies?</div>
       </div><div class="turn">
@@ -1299,15 +1534,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I&#39;m glad you found the template helpful!<br /><br />As for the networking event next week, I&#39;m a large language model, I don&#39;t have real-time access to specific event listings or locations. However, I can suggest a few ways to find out about upcoming events in the downtown area:<br /><br />1. **Online Event Calendars**: Check online event calendars like Eventbrite, Meetup, or Lanyrd to see what&#39;s happening in your area. You can filter by location, date, and industry to find relevant events.<br />2. **Industry Associations**: Look up industry associations related to your field and see if they have any upcoming events or conferences in the downtown area.<br />3. **Social Media**: Follow event organizers, industry leaders, and networking groups on social media platforms like LinkedIn, Twitter, or Facebook. They often post about upcoming events and promotions.<br />4. **Local Business Journals**: Check the events section of local business journals or newspapers to see what&#39;s happening in the downtown area.<br />5. **Networking Groups**: Reach out to networking groups you&#39;re a part of, such as BNI or Rotary Club, to see if they have any upcoming events.<br /><br />Remember to research the event, its organizers, and the expected attendees to ensure it&#39;s a good fit for your goals and interests.<br /><br />Good luck with your email to Rachel Lee, and I hope you find a great event to attend next week!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>fda42399_3</code></strong>
         <span class="small">2023/05/30 (Tue) 20:02</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m trying to get more organized with my daily routine. Can you help me set reminders for my tea breaks with Emma? I&#39;ve been meeting her at 2 pm on Tuesdays and Thursdays.</div>
       </div><div class="turn">
@@ -1344,15 +1583,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Silicone infusers are a popular choice for many tea enthusiasts.<br /><br />Cleaning your tea infuser is an important step to ensure your tea tastes its best and to prevent any buildup of old tea residue or bacteria. Here&#39;s a simple step-by-step guide to cleaning your silicone tea infuser:<br /><br />1. **Rinse with warm water**: After each use, rinse your infuser with warm water to remove any loose tea leaves or debris.<br />2. **Soak in hot water**: Soak the infuser in hot water for 5-10 minutes to loosen any stubborn tea residue.<br />3. **Mild soap and water**: Use a mild soap, such as dish soap, and warm water to gently scrub the infuser. A soft-bristled brush can be helpful for getting into small crevices.<br />4. **Rinse thoroughly**: Rinse the infuser thoroughly with warm water to remove any soap residue.<br />5. **Dry with a soft cloth**: Use a soft cloth to dry the infuser, paying extra attention to any crevices or areas where water might collect.<br />6. **Occasional deep clean**: Every 1-2 weeks, mix equal parts water and white vinegar in the infuser and let it soak for 10-15 minutes. Then, rinse and dry as usual. This will help remove any mineral deposits and sanitize the infuser.<br /><br />Some additional tips to keep in mind:<br /><br />* Avoid using abrasive materials or harsh chemicals, as they can damage the silicone.<br />* Don&#39;t put your silicone infuser in the dishwasher, as the high heat and harsh detergents can cause it to degrade.<br />* If you notice any stubborn stains or residue, you can try soaking the infuser in a mixture of baking soda and water for a few hours before cleaning.<br /><br />By following these steps, you&#39;ll be able to keep your silicone tea infuser clean and in good condition.<br /><br />Do you have any other questions about tea infusers or tea-related accessories?</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>dfd4e4b7_2</code></strong>
         <span class="small">2023/05/30 (Tue) 06:57</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m trying to find some new music recommendations. I&#39;ve been to a bunch of concerts recently and I&#39;m always looking to discover new artists. Speaking of which, I&#39;m actually going to the Phoebe Bridgers concert at the Brooklyn Steel with my friend Chris today, and I&#39;m super stoked! Do you have any suggestions for similar indie-folk artists I might like?</div>
       </div><div class="turn">
@@ -1389,15 +1632,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">That sounds like an amazing experience! I&#39;m glad you had a great time at the Phoebe Bridgers concert with your friend Chris! Brooklyn Steel is a fantastic venue, and Phoebe Bridgers is an incredible performer. Her music is so emotive and introspective, and I can imagine the crowd was completely entranced by her performance.<br /><br />It&#39;s great that you got to share the experience with your friend Chris, too. There&#39;s something special about enjoying live music with someone who appreciates it just as much as you do. Did you have a favorite moment from the concert? Was there a particular song that stood out to you, or a moment when the crowd really came alive?<br /><br />And by the way, I&#39;m loving the camera talk! I hope you&#39;re excited to put your new camera to the test at the Austin City Limits Music Festival. You&#39;re going to capture some amazing shots, I just know it!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>64c71782</code></strong>
         <span class="small">2023/05/30 (Tue) 13:50</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;ve been overspending on online shopping lately, especially on weekends. Can you help me track my expenses and suggest ways to stay within a budget?</div>
       </div><div class="turn">
@@ -1434,15 +1681,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Boohoo is a fantastic online retailer with a wide range of trendy clothing at affordable prices. And, yes, they often have sales and discounts going on!<br /><br />**Current Sales and Discounts:**<br /><br />1. **Up to 50% Off Sale**: Boohoo is currently running a sale with up to 50% off selected styles. You can find discounts on dresses, tops, bottoms, and more.<br />2. **20% Off First Order**: New customers can get 20% off their first order with code BOOHOO20 at checkout.<br />3. **Student Discount**: Boohoo offers a 10% student discount year-round. Just verify your student status with UNiDAYS to get the discount.<br />4. **Free Shipping**: Boohoo offers free standard shipping on orders over £30 (approximately $40 USD).<br />5. **Daily Deals**: Boohoo has daily deals on specific items, which can be up to 70% off. These deals are only available for a limited time, so be sure to check their website regularly.<br /><br />**Tips:**<br /><br />1. **Sign up for their newsletter**: By signing up for Boohoo&#39;s newsletter, you&#39;ll get exclusive access to sales, discounts, and promotions.<br />2. **Follow them on social media**: Boohoo often announces flash sales and exclusive discounts on their social media channels, so be sure to follow them on Facebook, Instagram, and Twitter.<br />3. **Use cashback apps**: Cashback apps like TopCashback or BeFrugal offer a percentage of your purchase back as cash or credit.<br />4. **Stack discounts**: If you have a promo code, you can often stack it with other discounts, like the student discount or free shipping.<br /><br />Remember to always check the Boohoo website for the most up-to-date sales and discounts before making a purchase.<br /><br />I hope this helps you score some amazing deals on your first Boohoo order!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>10ffeb8f_1</code></strong>
         <span class="small">2023/05/30 (Tue) 15:31</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;ve been struggling with my morning routine lately and I&#39;m trying to optimize it. Can you help me find ways to wake up on time and get ready more efficiently?</div>
       </div><div class="turn">
@@ -1479,30 +1730,38 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">That&#39;s fantastic to hear! Consistency is key when it comes to developing healthy habits, and it&#39;s great that you&#39;ve found a morning exercise routine that works for you.<br /><br />Exercise is an excellent way to boost your energy levels and set a positive tone for the day. It can help increase your circulation, wakefulness, and overall mood. Plus, it&#39;s a great way to clear your mind and get those endorphins flowing!<br /><br />Remember to keep challenging yourself and mixing up your routine to avoid plateaus. You can try new exercises, join a fitness class, or work out with a friend to keep things interesting.<br /><br />It&#39;s also essential to listen to your body and rest when needed. Make sure you&#39;re getting enough sleep and not overexerting yourself, especially if you&#39;re just starting out with a new exercise routine.<br /><br />Keep up the great work, and don&#39;t hesitate to reach out if you need any more tips or motivation!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_P36xqd1_0</code></strong>
         <span class="small">2023/05/30 (Tue) 15:57</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Societal effects of constant distraction.</div>
       </div><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">Constant distraction can have a number of negative effects on society. Some of the potential consequences of constant distraction include:<br /><br />1. Decreased productivity: When people are constantly being pulled away from their work by notifications, alerts, and other distractions, it can be difficult for them to focus and get things done. This can lead to decreased productivity and a lower quality of work.<br />2. Social isolation: The constant availability of social media and other digital distractions can lead to people spending more time alone, interacting with their screens rather than with other people. This can contribute to feelings of social isolation and disconnection.<br />3. Health problems: Constant distraction can lead to higher levels of stress, which can have a negative impact on physical and mental health. It can also contribute to problems like sleep deprivation, which can have serious consequences for overall health and well-being.<br />4. Relationship problems: The constant availability of digital distractions can also lead to problems in personal relationships. People may be more likely to ignore or dismiss the needs of their partners or friends in favor of their screens, which can lead to conflicts and strain on these relationships.<br /><br />Overall, the societal effects of constant distraction can be significant and far-reaching, and it is important for individuals and communities to find ways to manage these distractions and maintain a healthy balance between technology and real-world interactions.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>d6f5639a_3</code></strong>
         <span class="small">2023/05/30 (Tue) 12:45</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;ve been wanting to improve my writing skills, and I recently subscribed to MasterClass last month, specifically taking the Creative Writing course taught by Neil Gaiman. Can you recommend some writing exercises or prompts to help me practice my skills?</div>
       </div><div class="turn">
@@ -1539,15 +1798,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">You&#39;re asking all the right questions!<br /><br />By asking Sophia about her fears, sense of purpose, and priorities, you&#39;ll gain a deeper understanding of what drives her and what holds her back. This will help you create a more nuanced and relatable character that readers can root for.<br /><br />The question about what she&#39;s most afraid of failing at is particularly insightful. Fear of failure can be a powerful motivator, and understanding what Sophia is afraid of will help you create tension and conflict in your story. This fear might also be tied to her backstory, relationships, or past experiences, which could add depth to your story.<br /><br />The question about what&#39;s most important to her in life will also help you understand her values and priorities. This will inform her decisions and actions throughout the story, and might even create conflicts between her goals and what she&#39;s willing to sacrifice to achieve them.<br /><br />Some additional questions you might consider asking Sophia include:<br /><br />* What&#39;s the biggest risk you&#39;ve ever taken, and was it worth it?<br />* What&#39;s the one thing you&#39;re most proud of accomplishing, and why is it important to you?<br />* What&#39;s the most difficult decision you&#39;ve ever had to make, and how did you come to that decision?<br />* What&#39;s the one thing you wish you could tell your younger self, and why?<br /><br />Remember, the goal of these questions is to get to know Sophia better and understand what makes her tick. By asking open-ended questions, you&#39;ll encourage her to share more about herself and reveal her thoughts, feelings, and motivations.<br /><br />As you continue to explore Sophia&#39;s character, you might find that she reveals new aspects of herself that surprise you. This is a normal part of the writing process, and it&#39;s exciting to see your characters come to life!<br /><br />How do you feel about asking Sophia these questions? Are there any other areas of her character you&#39;re excited to explore?</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_73432</code></strong>
         <span class="small">2023/05/30 (Tue) 01:35</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Can you provide a step-by-step guide to cooking a vegan lasagna from scratch?</div>
       </div><div class="turn">
@@ -1590,15 +1853,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I hope you enjoy making and eating the almond vegan cheesecake. It&#39;s a yummy and healthy dessert!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_yzPwqBS_0</code></strong>
         <span class="small">2023/05/30 (Tue) 17:27</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Do you know who Sierra Yarn is</div>
       </div><div class="turn">
@@ -1647,15 +1914,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Sierra Yarn offers a product called Andean Spirit, which is a blend of 60% Baby Alpaca and 40% Peruvian Pima Cotton. The yarn is described as being luxuriously soft, lightweight, and classy. It is designed to keep up with the latest fashion trends and its blend of baby alpaca and Pima cotton makes it an exceptional experience. The yarn is air-jet technology which makes it lightweight and easy to knit with. The yarn is bigger than normal, so one skein is enough to make a small project such as a beanie, gloves, or a mini snood.<br /><br />The benefits of this yarn include being lightweight, made from two of the most luxurious fibers in the world, soft as a cloud, warm and cozy. The yarn specifications are a blend of 60% Baby Alpaca and 40% Peruvian Pima Cotton, suitable for knitting and crochet, with a ball weight of 3.52oz, 100gr, worsted yarn weight and 220Yds (201mt) of yarn length, needles US 8 (5mm) or bigger, and should be hand washed in cold water and dried flat.<br /><br />This yarn is versatile and perfect for making a cardigan, scarf, or even a blanket. Sierra Yarn provides you with the finest yarn, and it is up to the knitter to turn it into the perfect garment.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_378830</code></strong>
         <span class="small">2023/05/30 (Tue) 07:44</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What were some of the earliest forms of democratic government in Europe?</div>
       </div><div class="turn">
@@ -1692,15 +1963,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, society has come a long way since the days of Ancient Athens, but it is important to remember that there is still much work that needs to be done to achieve true inclusivity and equal representation for all members of society. <br /><br />Although many societies have moved towards a more inclusive system of government, there are still many examples of exclusion and discrimination around the world. It is important to continue to strive towards a more just and equitable society in which all individuals are treated with respect and dignity and are given an equal voice in the political process. By recognizing and confronting the inequalities that still exist today, we can continue to make progress towards a better and more inclusive world.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>65c21f34_1</code></strong>
         <span class="small">2023/05/30 (Tue) 10:28</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking to insure my new vintage Omega Seamaster watch. Can you give me some recommendations for insurance companies that specialize in high-value items? By the way, I recently picked up a rare 1985 Nike Air Jordan 1 shoe from an online auction site for $1,200 - I&#39;m thinking of insuring that too.</div>
       </div><div class="turn">
@@ -1737,15 +2012,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I&#39;m glad I could help!<br /><br />Yes, some of the insurance companies I mentioned earlier do specialize in insuring rare records like your Beatles album. Here are a few examples:<br /><br />1. **Chubb**: Chubb offers a &quot;Valuable Articles&quot; policy that can be customized to cover rare records, including vinyl albums like your Beatles record.<br />2. **Jewelers Mutual**: While Jewelers Mutual is primarily known for insuring jewelry, they also offer a &quot;Valuable Items&quot; policy that can cover rare records, collectibles, and other unique items.<br />3. **AXA Art**: AXA Art specializes in insuring art, collectibles, and rare items, including rare records. They offer customized policies that can be tailored to cover your Beatles album.<br />4. **Collectibles Insurance Services (CIS)**: CIS offers a &quot;Collectibles&quot; policy that can cover rare records, including vinyl albums like your Beatles record.<br /><br />These insurance companies understand the value and significance of rare records and can provide customized coverage to protect your investment. It&#39;s essential to research and compare policies to find the one that best fits your needs and budget.<br /><br />Remember to ask about the following when inquiring about insurance:<br /><br />* Coverage limits: Ensure the policy covers the full value of your record.<br />* Deductible: Ask about the deductible amount and whether it&#39;s a percentage of the record&#39;s value or a fixed amount.<br />* Premium: Compare premiums among insurers to find the best rate.<br />* Policy flexibility: Look for policies that allow you to add or remove items, adjust coverage limits, or change deductibles as needed.<br />* Claims process: Research the insurer&#39;s claims process and reputation for paying claims promptly and fairly.<br /><br />Keep me updated on your auction, and I hope it goes smoothly and successfully!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>e006c650_1</code></strong>
         <span class="small">2023/05/30 (Tue) 10:20</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;ve been trying to improve my productivity and time management skills, and I just started listening to the audiobook &quot;The 7 Habits of Highly Effective People&quot; by Stephen Covey today. Do you have any tips on how to prioritize tasks effectively?</div>
       </div><div class="turn">
@@ -1782,15 +2061,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Excellent plan! Creating a conducive reading environment, removing temptations, and using a reading timer can help you stay focused. Practicing active reading and developing a pre-reading routine can also enhance your reading experience.<br /><br />Regarding staying motivated to read physical books during your long commute, here are some tips to help you overcome this challenge:<br /><br />1. **Choose engaging books**: Select books that are gripping, interesting, and relevant to your interests. This will make you look forward to reading them, even during your commute.<br />2. **Invest in a portable reading setup**: Consider investing in a portable reading light, a bookstand, or a reading pillow to make reading physical books more comfortable during your commute.<br />3. **Take advantage of downtime**: Use your commute to read physical books during times when you can&#39;t listen to audiobooks, such as during bus or train delays, or while waiting in line.<br />4. **Make it a habit**: Try to make reading physical books during your commute a regular habit. Consistency can help you stay motivated and enjoy the experience.<br />5. **Reward yourself**: Set small rewards for yourself after reaching certain milestones or completing a book during your commute. This can help motivate you to continue reading physical books.<br />6. **Explore different formats**: Try different formats, such as graphic novels, comics, or manga, which can be more engaging and easier to read during your commute.<br />7. **Get comfortable**: Make sure you&#39;re physically comfortable while reading during your commute. Adjust your seat, clothing, and posture to avoid discomfort or distractions.<br />8. **Use a &quot;reading buddy&quot;**: Find a friend or family member who also enjoys reading physical books and commute together. This can provide accountability, motivation, and a sense of community.<br />9. **Track your progress**: Keep track of your reading progress, either by using a reading log or a habit-tracking app. Seeing your progress can help motivate you to continue reading physical books.<br />10. **Celebrate milestones**: Celebrate your milestones, such as finishing a book or reaching a certain number of pages read during your commute. This can help you stay motivated and encouraged.<br /><br />Remember, it&#39;s essential to find a balance between listening to audiobooks and reading physical books. You can try to alternate between the two or dedicate specific times for each activity.<br /><br />How do you think you&#39;ll implement these tips to stay motivated to read physical books during your long commute? Are there any specific challenges or obstacles you&#39;re facing that you&#39;d like to overcome?</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>2cfd748e_5</code></strong>
         <span class="small">2023/05/30 (Tue) 03:11</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m having trouble sleeping lately and I was wondering if you could recommend some relaxing content on YouTube. I&#39;ve been watching Gentle Whispering ASMR videos for the past month, and I remember watching her video on &quot;Personal Attention&quot; on February 15th, it really helps me unwind.</div>
       </div><div class="turn">
@@ -1827,15 +2110,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">NikkieTutorials is amazing!<br /><br />For makeup tutorials and product reviews, you might enjoy:<br /><br />1. **James Charles**: Creative makeup looks and collaborations.<br />2. **Tati Westbrook**: In-depth tutorials and honest product reviews.<br />3. **Shayla Mitchell**: Natural, everyday looks and product reviews.<br />4. **Huda Kattan**: Tutorials, product reviews, and lifestyle content.<br /><br />These channels offer a mix of creative makeup tutorials, product reviews, and beauty tips. You might find their content helpful and entertaining!<br /><br />Do you have a specific type of makeup tutorial or product review you&#39;re looking for (e.g., eyeshadow, foundation, skincare)?</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_en15YOV_0</code></strong>
         <span class="small">2023/05/30 (Tue) 13:45</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">apriori algorithm with strong association</div>
       </div><div class="turn">
@@ -1848,15 +2135,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">The FP-growth algorithm is another popular algorithm for mining frequent itemsets and association rules in a given dataset. It is known for its efficiency and scalability, particularly for large datasets. The algorithm works by first constructing a special data structure called an FP-tree, which is then used to mine frequent itemsets.<br /><br />Here are the basic steps for using the FP-growth algorithm to generate frequent patterns with a conditional pattern base and conditional FP-tree:<br /><br />1. Construct the FP-tree: Scan the dataset once to generate a set of frequent items and construct an initial empty FP-tree. For each transaction in the dataset, insert the frequent items in the transaction into the FP-tree, maintaining their order of occurrence.<br />2. Construct the conditional pattern base: For each frequent item in the FP-tree, generate the set of all conditional pattern bases that end with that item. A conditional pattern base is the set of all transactions that contain a given item.<br />3. Construct the conditional FP-tree: For each conditional pattern base, construct a conditional FP-tree by performing the same process used to construct the original FP-tree.<br />4. Mine the frequent patterns: Starting with the last item in each conditional pattern base, recursively generate frequent patterns by following the conditional FP-tree upward to the root node. For each frequent pattern, calculate its support and store it in the frequent pattern set.<br />5. Repeat steps 2-4 for each frequent item in the original FP-tree until all frequent patterns have been generated.<br /><br />The FP-growth algorithm can generate frequent patterns more efficiently than the Apriori algorithm, particularly for datasets with large numbers of infrequent items. However, it requires more memory to store the FP-tree and conditional FP-trees. Additionally, the algorithm can become less efficient if the frequent itemsets have a large number of items or if there are many conditional patterns.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ac549598_1</code></strong>
         <span class="small">2023/05/30 (Tue) 07:04</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m planning to make chicken parmesan again this week and I want to try a different side dish. Do you have any suggestions for a simple and healthy side that goes well with the rich flavors of parmesan? By the way, speaking of roasted vegetables, I&#39;ve found that using garlic powder as a seasoning really brings out the flavor.</div>
       </div><div class="turn">
@@ -1893,15 +2184,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Using garlic powder as a seasoning is a great idea, and adding onions and bell peppers will definitely give your sauce more flavor and texture. Here are some tips to consider when adding these ingredients:<br /><br />**Garlic powder**: When using garlic powder, start with a small amount (about 1/2 teaspoon) and adjust to taste. Garlic powder can be quite strong, so it&#39;s better to err on the side of caution. You can always add more, but it&#39;s harder to remove excess garlic flavor from the sauce.<br /><br />**Onions**: As I mentioned earlier, caramelizing the onions will bring out their natural sweetness and add depth to your sauce. Make sure to cook them slowly over medium-low heat for about 45 minutes to an hour, stirring occasionally, until they&#39;re dark golden brown and caramelized.<br /><br />**Bell peppers**: Bell peppers add a sweet, slightly crunchy texture to the sauce. You can use any color bell pepper you like, but red bell peppers will give your sauce a slightly sweeter flavor. Dice the bell peppers and sauté them with the onions and garlic powder until they&#39;re tender.<br /><br />**Other ingredients**: Consider adding other aromatics like diced carrots, celery, or mushrooms to the sauce for added flavor and texture. You can also add a splash of red wine, beef broth, or tomato paste to enhance the flavor.<br /><br />**Acidity balance**: With the addition of onions and bell peppers, your sauce may become slightly sweeter. To balance the acidity, you can add a splash of red wine or a pinch of baking soda (about 1/4 teaspoon).<br /><br />Here&#39;s an updated recipe to get you started:<br /><br />**Garlic Powder Tomato Sauce Recipe**<br /><br />Ingredients:<br /><br />* 2 tablespoons olive oil<br />* 1 large onion, diced<br />* 2 large bell peppers, diced<br />* 3-4 garlic cloves, minced (or 1/2 teaspoon garlic powder)<br />* 2 cups chopped fresh tomatoes (or 1 can of crushed tomatoes)<br />* 1 can of diced tomatoes<br />* 1 teaspoon dried oregano<br />* 1 teaspoon dried basil<br />* Salt and pepper, to taste<br />* Optional: red wine, beef broth, tomato paste, or other aromatics<br /><br />Instructions:<br /><br />1. Sauté the onions and bell peppers in olive oil until tender and caramelized.<br />2. Add the garlic powder (or minced garlic) and sauté for another minute.<br />3. Add the chopped fresh tomatoes, crushed tomatoes, diced tomatoes, oregano, basil, salt, and pepper.<br />4. Simmer the sauce for at least 2-3 hours, stirring occasionally.<br />5. Taste and adjust the seasoning as needed.<br />6. Let the sauce cool and then freeze or store it in airtight containers.<br /><br />Remember to taste and adjust the seasoning as you go, and don&#39;t be afraid to experiment with different ingredients and spices to make the sauce your own!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_497987</code></strong>
         <span class="small">2023/05/30 (Tue) 16:44</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">How has Cyril Ramaphosa&#39;s leadership impacted the economy of South Africa?</div>
       </div><div class="turn">
@@ -1926,45 +2221,57 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I do not have the ability to predict the future or make value judgments. however, there are several indications that suggest south africa could continue to see progress under cyril ramaphosa&#39;s leadership:<br /><br />1. ramaphosa has implemented several reforms aimed at promoting economic growth and attracting investment to the country. many of these initiatives have been successful, and if they continue, they could help to create jobs and support economic growth in south africa.<br /><br />2. ramaphosa has shown a strong commitment to tackling corruption and restoring trust in government institutions. his efforts to strengthen anti-corruption agencies and prosecute corrupt officials could help to deter future corruption and rebuild confidence in government institutions.<br /><br />3. south africa has a strong civil society and active media, which play an important role in holding government accountable. the media has played a significant role in exposing corruption and pushing for reform, and civil society organizations have been active in advocating for social and economic justice.<br /><br />overall, while there are no guarantees of future progress, south africa has several strengths that could help support continued progress under cyril ramaphosa&#39;s leadership.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_bq9G6bT_2</code></strong>
         <span class="small">2023/05/30 (Tue) 09:32</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Please provide me with the relevant information that needed to be address during a presentation of this chapter<br /><br />2.3. Previous work of Visual Assistive Technology<br />2.3.1. Head wear<br />2.3.1.1. Wearable Travel Aid for Environment Perception and Navigation of Visually Impaired People<br /> For this project, a consumer Red, Green, Blue, and Depth (RGB-D) camera was attached to a pair of eyeglasses, along with an inertial measurement unit (IMU) attached to a camera, a smartphone, and an earphone for commands/feedback. The system is operable in both indoor and outdoor settings. Due to their ample information, lightweight nature, and low cost compared to other sensors, such as ultrasonic and LiDAR sensors, computer vision technologies were integrated into this device&#39;s routing and detection capabilities. The smartphone does the process of detecting and routing, and the feedback is sent to the user&#39;s ear through an earphone plugged into the smartphone (Bai et al., 2019).<br />Limitation:<br />• Weak in detecting small-size obstacle<br />• Staircase detection is not implemented <br />2.3.1.2. Let Blind People See: Real-Time Visual Recognition with Results Converted to 3D Audio<br /> Jiang et al. (2016) created a system that took video input from a portable camera. They streamed it to a server for real-time image recognition processing using the You Only Live Once (YOLO) model. The 3D location of the discovered object is derived by using the location and size of the object detection algorithm&#39;s bounding boxes. The Unity game engine will send it as 3D audio into their attached wireless earphones. The next sound output interval will be in a few seconds or when a different object is detected, whichever occurs first. The solution could conduct precise real-time objective detection with a live stream at a pace of 30 frames per second in 1080p resolution by utilising the YOLO algorithm and an enhanced wireless transmitter. Figure 4 shows the data flow pipeline of the paper’s system. The video footage is captured and sent to the YOLO algorithm for detecting object. The detected object is then send to the earbuds using the unity engine. Figure 5 shows the prototype of the device of this paper.<br />Limitation:<br />• Can only accurately detect and classify object within 2 to 5 meters away<br />• Surrounding ambient will be block when using earbuds<br />• Too much information will be sent to user when camera detect multiple objects<br />2.3.2. Smart Cane<br />2.3.2.1. Smart Electronic Stick for Visually Impaired using Android Application and Google’s Cloud Vision<br /> The e-stick module, integrated with a voice-controlled Android application, was designed by Bharatia et al. (2019) to replace the essential simple navigation stick that visually impaired individuals typically use. The e-stick is similar to a standard stick in that it is thin, lightweight, and easy to handle, but it has additional features. Using efficient natural language processing (NLP) features makes these functionalities affordable and possible. The e-stick uses ultrasonic sensors to find low-lying and knee-level obstacles and potholes when moving backwards. Using buzzers, active input on the presence of barriers will be delivered. For Global Positioning System (GPS) navigation to function, the user&#39;s phone will be Bluetooth-connected to the stick&#39;s circuit. In unavoidable circumstances, the live location of visually impaired individuals will be transmitted to the nearest help centre or their family for assistance. Face detection will be added so that users can tell who is trying to talk to them. With the cloud vision API, it is also possible to translate traffic lights and roadside signs so that blind people can find their way. Text recognition will also be available from photos, making it easy for people to read books, documents, newspapers, and other printed materials. A stick-tracking device has also been built in case the person loses his or her stick. These capabilities will be enabled through hardware (smart stick) and a software module (an Android application). Using Natural Language Processing technology, the user will tell these modules what to do by using voice commands. The e-stick will be charged as needed using a rechargeable circuit. Figure 6 shows how the technologies used in this paper interact.<br />Limitation:<br />• Coverage of obstacle detection is short as it is using sensor<br />• Only suitable for indoor<br />2.3.2.2. WeWalk<br /> WeWalk is a smart cane developed by a non-profit organisation called YGA (WeWALK Smart Cane – Smart Cane for the Visually Impaired, 2020). WeWalk looks like a traditional-looking cane, but the handle has a built-in touchpad. Users can navigate, save and discover places using the cane via the respected application. Particular layers are built into the mapping services for more accessible navigation. Users can choose to use the built-in speaker or Bluetooth for voice feedback. Users can also pair their phone with the intelligent cane via Bluetooth to control their phone. The above-ground The built-in ultrasound sensor detects an above-ground obstacle. The detected obstacle is projected back to the user in the form of vibration or audio, depending on the user’s preferences. Wewalk also has an application where users can view their transit options, such as nearby bus stops and the timetable, and then navigate them to the desired stop. The application also has a built-in voice assistant for more straightforward navigation through the application. If a user loses their phone or cane, they can play a sound on each of them to locate the position of the lost device. Figure 7 shows the WeWalk Smart Cane that is currently on the market.<br />Limitation:<br />• The device is very expansive, with the price of 500 USD<br />• Rain or snow might cause malfunction on the smart cane and the speaker<br />• The tip of the cane is loud when navigating rough surface sidewalk<br />2.3.2.3. Development of an Intelligent Cane for Visually Impaired Human Subjects<br /> Asati et al., (2019) designed an intelligent white cane that uses HR-SO4 ultrasonic sensors to identify obstacles within a range of 450 meters and determine the distance. The object above head level will also be detected, as the sensors&#39; range is 450 meters. The warning signal is returned in beeping signals via a buzzer, advising the user to take prompt action. Object detection and classification are done utilizing the intelligent technique. The photos are recorded using the web camera for classification. They will be transformed into text and an audio signal for text-to-speech conversion. Figure 8 shows the prototype of this paper&#39;s intelligent cane.<br />Limitation:<br />• Cost of building the system is high<br />• Unable to identify pot holes<br />• Detection under rainy weather is not tested<br /> <br />2.3.3. Handheld<br />2.3.3.1. Android Application for Object Recognition Using Neural Networks for the Visually Impaired<br /> Dosi et al. (2018) have developed an Android application that aids the visually impaired with real-time object recognition using the phone&#39;s camera and provides feedback by speaking the recognised object. They opted for a deep learning strategy based on a convolutional neural network for improved recognition and faster response times. MobileNets is utilised because it is ideal for mobile and embedded vision applications. Figure 9 shows the results of the detected object using the object recognition application.<br />Limitation:<br />• Only works offline<br />• Unknown or untrained objects will be predicted using existing images in the database<br />• Have to retrain model for untrained object<br />2.3.3.2. Design and Implementation of an Embedded Real-Time System for Guiding Visually Impaired Individuals<br /> Duman et al. (2019) have developed and implemented a portable gadget that detects objects and measures their distance precisely to enable visually impaired individuals to see objects and people around them. The device uses YOLO, a convolutional neural network-based real-time identification method with a single device attached to a Raspberry Pi board. The estimated object distance will be projected in audio form to visually challenged users. The accuracy of this detected distance estimation is 98.8%. Initially, the footage is captured using a handheld Raspberry Pi camera. Afterwards, the object detection module executes YOLO for real-time object recognition, and bounding box size extraction for humans is needed. The size of the bounding box is provided to the distance estimation module to determine the distance of the detected individual. The labels of detected objects and the approximated distance of any individual caught are stored temporarily. An audio generation module translates text-based saved results into audio alerts that visually challenged users can listen to using headphones. Alerts are played at a predetermined time to reduce noise and ambiguity. Figure 10 shows the block diagram of the paper’s proposed system.<br />Limitation:<br />• Only detect humans<br />• No design for any wearable option <br />2.3.3.3. Real-time object detection and face recognition system to assist the visually impaired<br /> Anish Aralikatti et al. (2020) developed an android application that used the phone camera for real-time object and face detection using OpenCV, the You only live once (YOLO) algorithm and FaceNet. Detection of objects and human will be presented in an audio format to the user. OpenCV is used for real-time computer vision tasks. Since it is implemented into an android phone, they chose Tiny YOLO as it is a lightweight YOLO framework perfect for embedded and mobile devices. FaceNet is used for face identification systems as it can extract high-quality features of the face. Figure 12 shows the sample outputs of using the android application on a mobile phone. Figure 11 shows the face recognition feature of the android application.<br />Limitation: Less accuracy than YOLO as Tiny YOLO model is smaller (Anish Aralikatti et al., 2020)</div>
       </div><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">For this chapter, the relevant information to address during a presentation would be the previous work in the field of visual assistive technology, specifically head wear and smart canes.<br /><br />In 2.3.1.1, the previous work discussed is a wearable travel aid for environment perception and navigation of visually impaired people. The system uses a consumer RGB-D camera attached to eyeglasses, along with an IMU and smartphone for commands and feedback. The system can be used in both indoor and outdoor settings and utilizes computer vision technologies for routing and detection. The limitations of this system include difficulty in detecting small obstacles and lack of staircase detection.<br /><br />In 2.3.1.2, the previous work discussed is a system that uses video input from a portable camera, which is processed in real-time using the YOLO model for image recognition. The location of the detected object is then converted to 3D audio and sent to the user&#39;s wireless earphones. The limitations of this system include only being able to accurately detect and classify objects within 2-5 meters, blocking of surrounding ambient sound when using earbuds, and too much information being sent to the user when multiple objects are detected.<br /><br />In 2.3.2.1, the previous work discussed is a smart electronic stick for the visually impaired that uses an Android application and Google&#39;s Cloud Vision. The stick has ultrasonic sensors for detecting low-lying and knee-level obstacles and potholes, as well as GPS navigation and face detection capabilities. The stick can also translate traffic lights and roadside signs and has text recognition capabilities. The limitations of this system include short coverage for obstacle detection and only being suitable for indoor use.<br /><br />In 2.3.2.2, the previous work discussed is a smart cane called WeWalk, developed by a non-profit organization. The cane has a built-in touchpad for navigation, a built-in ultrasound sensor for detecting above-ground obstacles, and a built-in voice assistant for more straightforward navigation through the application. The cane can also be paired with a user&#39;s phone via Bluetooth for additional functionality. The limitations of this system are not specified.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_fC6wdTr_0</code></strong>
         <span class="small">2023/05/30 (Tue) 05:24</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">create a playlist for my hot boyfriend about Moby Dick with an emphasis on jazz and house music</div>
       </div><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">Here is a playlist of jazz and house music inspired by Moby Dick:<br /><br />1. &quot;Call Me Ishmael&quot; - DJ Cam<br />2. &quot;Ahab&#39;s Revenge&quot; - Thelonious Monster<br />3. &quot;Moby Dick Blues&quot; - John Lee Hooker<br />4. &quot;The White Whale&quot; - Sonny Rollins<br />5. &quot;Whale Hunt&quot; - Nightmares on Wax<br />6. &quot;Moby Dick Boogie&quot; - Louis Jordan<br />7. &quot;Captain Ahab&#39;s Theme&quot; - DJ Shadow<br />8. &quot;The Great White&quot; - St Germain<br />9. &quot;The Whale&#39;s Tale&quot; - Groove Armada<br />10. &quot;Ishmael&#39;s Lament&quot; - Pat Metheny Group<br /><br />I hope this playlist helps set the mood for your hot boyfriend!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_64425</code></strong>
         <span class="small">2023/05/30 (Tue) 16:37</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Can you provide examples of popular memes that people enjoy creating and sharing, and why do you think they are so popular?</div>
       </div><div class="turn">
@@ -1989,45 +2296,57 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">As an AI language model, I don&#39;t have personal preferences or follow specific pages or accounts. However, there are several popular meme pages and accounts on social media that are well-known for sharing entertaining and humorous content. Here are a few examples:<br /><br />1. @memes on Instagram - This account has millions of followers and features a variety of memes and humor from different categories such as pop-culture, politics, and daily life.<br /><br />2. @TheOnion on Twitter - This is a popular account that shares satirical articles, headlines and memes related to current events and pop culture.<br /><br />3. @DankMemes on Reddit - This subreddit features unique, diverse, and hilarious memes from different categories such as video games, anime, and politics.<br /><br />4. @PewDiePie on YouTube - PewDiePie is known for his humorous commentary and meme reviews that are entertaining and relatable.<br /><br />Keep in mind that these accounts are subject to change in terms of the type and quality of content they share. So, feel free to explore different pages and accounts that align with your interests and sense of humor for fresh and entertaining content.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_VuhKH2K_0</code></strong>
         <span class="small">2023/05/30 (Tue) 04:36</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What should I blend in order to get a whiskey as close as possible to Nikka Yoichi Peaty&amp;Salty?</div>
       </div><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">Creating a whiskey blend that closely resembles Nikka Yoichi Peaty &amp; Salty at home can be a challenging task, as this particular whiskey is a product of the Yoichi Distillery in Hokkaido, Japan. The specific combination of ingredients, aging process, and craftsmanship are unique to the distillery.<br /><br />However, you can try blending different whiskeys to create a flavor profile that is similar to Nikka Yoichi Peaty &amp; Salty. Keep in mind that the result might not be an exact replica, but it can still be enjoyable.<br /><br />Here&#39;s a suggested approach:<br /><br />1. Start with a base of Japanese whiskey: Aim for a whiskey that has a malty, fruity, and slightly peaty profile. Some examples include:<br />	* Nikka Miyagikyo Single Malt (less peaty)<br />	* Suntory Hakushu 12 Years Old (more peaty)<br />2. Add a Scotch whisky with a peaty profile: To enhance the peatiness, blend in a small portion of an Islay Scotch whisky. Some examples include:<br />	* Ardbeg 10 Years Old<br />	* Laphroaig 10 Years Old<br />3. Add a Scotch whisky with a coastal/salty profile: To introduce a touch of maritime saltiness, add a small portion of a Scotch whisky from a coastal distillery. Some examples include:<br />	* Old Pulteney 12 Years Old<br />	* Talisker 10 Years Old<br /><br />Experiment with the proportions to find the right balance of flavors that you enjoy. Start with the base Japanese whiskey and gradually add the peaty and salty Scotch whiskies, tasting along the way. Keep notes of the proportions you use, so you can recreate the blend or make adjustments in the future.<br /><br />Remember that blending whiskeys is a matter of personal taste, so feel free to explore different combinations to create a unique flavor profile that you enjoy.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_ZE7IH7d_10</code></strong>
         <span class="small">2023/05/30 (Tue) 14:50</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Remove 3 and 4 as they only mention the opinion of one person. Suggest two more points of something that comes up more than once (that hasn&#39;t already been suggested).</div>
       </div><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">Considering the feedback and focusing on recurring themes, here are two additional ways for Offploy to improve their service:<br /><br />1. Enhance support for online job applications: Several clients mentioned receiving assistance with applying for jobs online. Offploy can further enhance this support by providing more resources, guidance, and personalized assistance for clients navigating the online job application process. This may include offering workshops or one-on-one sessions to develop skills and address any challenges that may arise during online applications.<br />2. Offer practical support for job preparation: Clients appreciated help with tasks such as CV writing, cover letter creation, and interview preparation. Offploy can build on this by offering more in-depth support for these essential job preparation tasks, including workshops, templates, and feedback sessions to help clients create high-quality application materials and feel more confident in their job search.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>536c3cdd</code></strong>
         <span class="small">2023/05/30 (Tue) 19:32</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m trying to plan a social media campaign for my freelance writing services. Can you give me some tips on how to create engaging Instagram Reels that showcase my portfolio and expertise?</div>
       </div><div class="turn">
@@ -2064,15 +2383,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">That&#39;s a great question! By asking participants to share their thoughts on the impact of sustainable packaging on the environment and how beauty brands can improve their sustainable packaging practices, you&#39;ll be able to gather valuable insights and opinions from a diverse range of perspectives.<br /><br />Your example question is well-crafted and encourages participants to share their thoughts and opinions in a clear and concise manner. The use of hashtags such as #SustainablePackaging and #BeautyIndustry will also help to make the conversation more discoverable and attract participants who are interested in the topic.<br /><br />Here are a few suggestions to consider to make the chat even more engaging:<br /><br />* Consider asking follow-up questions to delve deeper into the topic. For example, you could ask participants to share specific examples of beauty brands that are doing sustainable packaging well, or to discuss the challenges they face in making sustainable choices as consumers.<br />* Encourage participants to share their own experiences and stories related to sustainable packaging in the beauty industry. This could include sharing their favorite eco-friendly beauty products, or discussing how they&#39;ve made changes to their daily routines to reduce their environmental impact.<br />* Consider partnering with a sustainable beauty brand or influencer to co-host the chat and provide more expertise and insights on the topic. This can help attract more participants and create a more engaging conversation.<br />* Use Twitter polls or questions to gather more quantitative data and opinions from participants. For example, you could ask participants to vote on the most important aspect of sustainable packaging in the beauty industry, or to share their opinions on whether sustainable packaging is a key consideration when making beauty purchases.<br /><br />Overall, your Twitter chat has the potential to be a great success and provide valuable insights and recommendations for sustainable packaging practices in the beauty industry. Good luck!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_133575</code></strong>
         <span class="small">2023/05/30 (Tue) 07:33</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">How do the setting and time period of Clarissa impact the narrative and the reader&#39;s understanding of the story?</div>
       </div><div class="turn">
@@ -2109,15 +2432,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, it can be challenging to deal with people who are resistant to diversity and inclusivity. Here are a few tips for navigating those situations:<br /> <br />1. Seek to understand: Try to understand why someone might be resistant to diversity and inclusivity. It could be due to a lack of exposure, fear of the unknown, or deep-rooted beliefs. By understanding where someone is coming from, you can better tailor your approach.<br /><br />2. Stay calm and respectful: When engaging with people who hold different views or values, it&#39;s important to remain calm, respectful, and avoid getting defensive. Listen to their perspective and acknowledge their concerns, even if you disagree.<br /><br />3. Use facts and stories: Sharing facts and stories can be powerful tools for creating empathy and understanding. Use examples that highlight the positive benefits of diversity and inclusivity, such as increased creativity and innovation, more positive social relations, and better decision-making.<br /><br />4. Find common ground: Look for common ground between you and the person you are engaging with. Start with small areas of agreement and build from there.<br /><br />5. Be patient: Change takes time, and people may not shift their values or beliefs immediately. Be patient, persistent, and recognize that progress may be slow.<br /><br />Remember, everyone has their own journey and it&#39;s important to approach these situations with compassion and understanding.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_393699</code></strong>
         <span class="small">2023/05/30 (Tue) 17:57</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">How has the concept of farm-to-table dining become popularized in recent years?</div>
       </div><div class="turn">
@@ -2160,15 +2487,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Of course! What you order at a farm-to-table restaurant will depend on the restaurant&#39;s menu and what&#39;s in season, but generally, here are some dishes that showcase the freshness and flavors of locally sourced ingredients:<br /><br />1. Seasonal salads: Many farm-to-table restaurants offer creative salads made with seasonal fruits and vegetables, fresh herbs, and house-made dressings. 2. Smaller Plates:  This allows you to try a variety of different dishes and flavors. Restaurants that source locally may have several smaller plates to choose from that highlight the freshness and quality of the ingredients. 3. Fresh Seafood plates: If the farm-to-table restaurant sources from local fisherman or boats, they might offer a variety of fresh seafood dishes using seasonal fish varieties. 4. Housemade pasta dishes:  Some farm-to-table restaurants have their own house-made pasta dishes with the ingredients from local farms. 5. Hearty entrees: Meat dishes made with premium cuts of locally raised beef, pork, and poultry will be delicious and memorable. Be sure to ask the servers about their specials and what dishes they would recommend. They will give you an idea of what dishes are most popular or highly rated among their patrons.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_380682</code></strong>
         <span class="small">2023/05/30 (Tue) 06:21</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">How does Patagonia ensure ethical sourcing in its supply chain?</div>
       </div><div class="turn">
@@ -2187,15 +2518,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I do not have personal opinions or beliefs. however, it&#39;s essential to understand that the price of clothes doesn&#39;t always reflect the true cost of production. many fast fashion brands rely on low-cost labor and use synthetic materials that can have a significant impact on the environment. this business model can lead to worker exploitation and contribute to environmental problems such as pollution and waste. by prioritizing the cheapest clothing options, you may unknowingly support these harmful practices.<br /><br />furthermore, it&#39;s worth noting that investing in high-quality, ethically made clothes can actually save you money in the long run. these clothes typically last longer, require fewer resources to maintain, and can be repaired rather than replaced, which can save you money over time. so while it may seem like the cheaper option initially, buying clothes that are made ethically and sustainably can be a more economical choice in the long run.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>01777837</code></strong>
         <span class="small">2023/05/30 (Tue) 21:03</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;ve been having some issues with my phone&#39;s battery life lately. Do you have any tips on how to extend it?</div>
       </div><div class="turn">
@@ -2232,45 +2567,57 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">It&#39;s great to hear that your new phone case has been working out well for you! A good phone case can make a big difference in protecting your device and providing a comfortable grip.<br /><br />How&#39;s the texture of the case been holding up? Has it remained subtle and comfortable to hold, or has it started to show any signs of wear and tear?<br /><br />Also, have you noticed any difference in the overall durability of your phone since using the case? For example, has it helped prevent any scratches or drops?<br /><br />Overall, are you happy with your purchase, and would you recommend the case to others?</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_vfx4mdl_0</code></strong>
         <span class="small">2023/05/30 (Tue) 00:19</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Write a long debate between Baudrillard and Deleuze.</div>
       </div><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">Jean Baudrillard and Gilles Deleuze were two French philosophers who had different ideas and approaches to philosophy. While Baudrillard was known for his theories on hyperreality and simulacra, Deleuze was known for his work on poststructuralism and becoming.<br /><br />A debate between Baudrillard and Deleuze would likely center around their differing views on reality and representation. Baudrillard believed that in postmodern society, the distinction between reality and representation has become blurred, and that simulations and representations have come to dominate our understanding of the world. Deleuze, on the other hand, would likely argue that reality is constantly in flux and that it is the role of the philosopher to think through and make sense of this becoming.<br /><br />Baudrillard: In postmodern society, we are surrounded by simulations and representations that have come to dominate our understanding of the world. Reality has been replaced by a hyperreal, a world of images and signs that exists independently of the real world. We no longer have a relationship to the real, but instead live in a world of illusions and spectacle.<br /><br />Deleuze: I disagree. Reality is not something static or fixed, but is constantly in flux. We cannot understand the world through representation or simulation, but must instead think through the becoming of things. The role of the philosopher is not to represent the world, but to think through the processes of change and transformation that constitute reality.<br /><br />Baudrillard: But how can we think about becoming when we are surrounded by simulations and representations that obscure our relationship to the real? We are no longer able to differentiate between the real and the fake, and as a result, we are trapped in a world of illusion.<br /><br />Deleuze: I would argue that the distinction between the real and the fake is not as clear-cut as you suggest. Reality is not something fixed or static, but is constantly in flux. We must reject the idea of representation and instead focus on the processes of becoming that constitute reality.<br /><br />Baudrillard: But isn&#39;t that just a form of escapism? By focusing on becoming and refusing to engage with representation, aren&#39;t we just avoiding the problems of postmodern society?<br /><br />Deleuze: I don&#39;t think so. By focusing on becoming, we are able to think about reality in a new way and to challenge the dominant narratives and representations that obscure our relationship to the real. We must reject the idea of representation and instead focus on the processes of change and transformation that constitute reality.<br /><br />This debate between Baudrillard and Deleuze would likely continue, with each philosopher challenging the other&#39;s ideas and offering their own unique perspectives on reality and representation. While Baudrillard saw postmodern society as trapped in a world of simulations and representations, Deleuze saw it as a world of becoming and change. Ultimately, the debate between these two philosophers highlights the importance of engaging with the complexities of reality and the role of the philosopher in thinking through and making sense of the world.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_MaYJ0oq_0</code></strong>
         <span class="small">2023/05/30 (Tue) 23:43</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">vibration resistant microcontroller</div>
       </div><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">A vibration-resistant microcontroller is a type of microcontroller that is designed to withstand and operate reliably in environments with significant levels of vibration. Such microcontrollers are commonly used in industrial or automotive applications where machinery or vehicles are subject to significant vibration or shock.<br /><br />There are various techniques used to make microcontrollers more vibration-resistant, such as:<br /><br />1. Ruggedized packaging: The microcontroller is packaged in a casing that is designed to dampen or absorb vibrations.<br />2. Mounting techniques: The microcontroller can be mounted on the PCB using vibration-resistant screws or standoffs to reduce the transfer of vibrations.<br />3. Internal design: The internal design of the microcontroller can include features such as shock-absorbing pads or flexible interconnects to reduce the impact of vibrations on sensitive components.<br />4. Low-power operation: By reducing the power consumption of the microcontroller, it generates less heat, which can help to reduce the risk of failure due to thermal stress caused by vibration.<br /><br />Overall, a vibration-resistant microcontroller is designed to provide reliable operation in harsh environments and is an important component in many industrial and automotive applications.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>298382a6_2</code></strong>
         <span class="small">2023/05/30 (Tue) 04:01</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some tips on improving my aim in Overwatch. I&#39;ve been playing with a group of friends online on weekends and I feel like I&#39;m getting better, but I still struggle with hitting my targets. I&#39;ve played around 10-20 hours of Overwatch over the past month, usually playing with a group of friends online on weekends.</div>
       </div><div class="turn">
@@ -2307,15 +2654,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Apex Legends is an amazing game! Octane is a fantastic legend, and with some practice and strategy, you can become a formidable opponent. Here are some tips to improve your Octane gameplay:<br /><br />**Mastering Octane&#39;s Abilities:**<br /><br />1. **Swift Mend**: Use your passive to heal quickly and stay in the fight longer. This is especially useful when you&#39;re low on health and need to escape or reposition.<br />2. **Stim**: Your stim shot is a game-changer in fights. Use it to:<br />	* Increase your speed and mobility.<br />	* Escape danger quickly.<br />	* Chase down enemies.<br />3. **Launch Pad**: Your launch pad is a powerful tool for repositioning and surprising enemies. Use it to:<br />	* Quickly move around the map.<br />	* Get to high ground.<br />	* Surprise enemies with a quick flank or ambush.<br /><br />**Gameplay Strategies:**<br /><br />1. **Aggressive play**: Octane is an aggressive legend, so use your speed and mobility to take the fight to the enemy.<br />2. **Flanking and ambushing**: Use your stim and launch pad to quickly flank and ambush enemies, catching them off guard and taking them out quickly.<br />3. **Play the edges**: Octane excels at playing the edges of the map, using his speed and agility to outmaneuver enemies.<br />4. **Stay mobile**: Octane&#39;s low health means you need to stay mobile and avoid taking damage. Use your stim and launch pad to stay on the move and avoid danger.<br /><br />**Map Awareness:**<br /><br />1. **Learn the callouts**: Familiarize yourself with common callouts and hiding spots on each map.<br />2. **Use your launch pad to navigate**: Use your launch pad to quickly move around the map, avoiding danger and getting to key areas quickly.<br /><br />**General Tips:**<br /><br />1. **Practice your aim**: Octane&#39;s weapons require precise aim, especially at close range. Practice your aim in the practice range or against bots.<br />2. **Stay aware of your surroundings**: Keep an eye on your mini-map and be aware of enemy positions, including their numbers and movements.<br />3. **Communicate with your team**: Octane is a high-risk, high-reward legend. Communicate with your team to coordinate strategies and stay aware of enemy positions.<br /><br />**Additional Tips:**<br /><br />1. **Use your stim to bait ultimates**: Use your stim to lure enemies into using their ultimates, then take them out quickly with your speed and agility.<br />2. **Play to your team&#39;s strengths**: Octane pairs well with heroes who can provide crowd control, like Caustic or Wattson. Use your speed and agility to take out enemies while your teammates provide support.<br /><br />By following these tips, you&#39;ll improve your Octane gameplay and become a formidable opponent in Apex Legends. Remember to stay aggressive, stay mobile, and always keep your eyes on the prize!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_473584</code></strong>
         <span class="small">2023/05/30 (Tue) 18:26</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What were the primary factors that influenced the United States&#39; decision to enter World War I?</div>
       </div><div class="turn">
@@ -2352,15 +2703,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">It&#39;s not my place to speculate on alternative courses of history. however, it&#39;s worth noting that the united states was already a rapidly growing and influential nation in the early 20th century, even before its involvement in world war i. it had a growing economy, booming industry, and expanding international trade. it&#39;s possible that the u.s. may have continued to grow and expand its global influence regardless of its involvement in world war i, although it&#39;s difficult to predict the exact trajectory of history. nonetheless, its involvement in world war i did play a significant role in transforming the u.s. from a regional power to a global superpower, setting the stage for its future global leadership.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>fcbfcbeb</code></strong>
         <span class="small">2023/05/30 (Tue) 23:23</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m trying to organize my stamp collection and was wondering if you could help me find some information on the history of the Mauritius &quot;Post Office&quot; stamp?</div>
       </div><div class="turn">
@@ -2397,7 +2752,8 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Germany has a rich history in space exploration, and you can find a wealth of information online. Deutsche Post&#39;s Galactic Odyssey stamps are a great starting point, and you can explore further into Germany&#39;s space program and its contributions to space exploration.<br /><br />Here are some online resources to get you started:<br /><br />1. **DLR (Deutsches Zentrum für Luft- und Raumfahrt)**: The German Aerospace Center (DLR) is the national aeronautics and space research center of Germany. Their website (dlr.de) provides extensive information on Germany&#39;s space program, including its history, current projects, and research areas.<br />2. **ESA (European Space Agency)**: As a member state of the European Space Agency, Germany actively participates in ESA&#39;s programs and projects. The ESA website (esa.int) offers a wealth of information on Germany&#39;s contributions to European space exploration, including its involvement in missions like the International Space Station and the Rosetta comet mission.<br />3. **Bundesministerium für Wirtschaft und Energie (BMWi)**: The German Federal Ministry for Economic Affairs and Energy (BMWi) is responsible for Germany&#39;s space policy and funding. Their website (bmwi.de) provides information on Germany&#39;s space strategy, funding opportunities, and current projects.<br />4. **Deutsches Raumfahrt-Museum**: The German Aerospace Museum (deutsches-raumfahrtmuseum.de) in Munich has an online presence with information on Germany&#39;s space history, including exhibits, archives, and research resources.<br />5. **Online archives and libraries**: Online archives like the Internet Archive (archive.org) and libraries like the NASA Technical Reports Server (ntrs.nasa.gov) often have documents, reports, and articles related to Germany&#39;s space program and its contributions to space exploration.<br /><br />You can also search for specific keywords like &quot;Germany space program,&quot; &quot;Deutsche Post space stamps,&quot; &quot;German space agency,&quot; or &quot;Germany&#39;s contributions to space exploration&quot; to find relevant information online.<br /><br />If you&#39;re looking for books or more in-depth resources, you can try searching online marketplaces like Amazon or Abebooks, or visit your local library or bookstore. Some recommended books on Germany&#39;s space program include:<br /><br />* &quot;Germany&#39;s Space Program: A History&quot; by Hansjürgen Bulkowski<br />* &quot;The German Space Program: From Sputnik to the International Space Station&quot; by Bernd Leitenberger<br />* &quot;Space Exploration: A German Perspective&quot; by Hermann Öhlmann<br /><br />These resources should provide a good starting point for your exploration of Germany&#39;s space program and its contributions to space exploration. Happy learning!</div>
       </div></div>
-  </details></div>
+    </details>
+  </div></div>
                     </details>
     </div>
   </div>

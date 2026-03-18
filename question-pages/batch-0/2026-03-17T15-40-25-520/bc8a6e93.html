@@ -105,7 +105,7 @@
       border: 1px solid var(--line);
       border-radius: 14px;
       background: #fff;
-      padding: 0 14px 14px;
+      padding: 14px;
     }
     .priority-session {
       border-width: 2px;
@@ -115,21 +115,17 @@
     .secondary-session {
       opacity: 0.9;
     }
-    .session-card summary {
-      list-style: none;
-      cursor: pointer;
+    .session-card-header {
       display: flex;
       justify-content: space-between;
       gap: 12px;
       align-items: center;
-      padding: 14px 0;
-    }
-    .session-card summary::-webkit-details-marker {
-      display: none;
+      margin-bottom: 12px;
     }
     .session-turns {
       display: grid;
       gap: 10px;
+      margin-top: 12px;
     }
     .turn {
       border-top: 1px solid var(--line);
@@ -146,6 +142,40 @@
       font-size: 14px;
       line-height: 1.55;
       word-break: break-word;
+    }
+    .session-memory-wrap {
+      margin-bottom: 12px;
+    }
+    .session-memory-details {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fcfaf5;
+      padding: 0 12px 12px;
+    }
+    .session-memory-details summary,
+    .session-conversation-details summary {
+      cursor: pointer;
+      padding: 12px 0;
+      font-size: 13px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .session-conversation-details {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fafaf7;
+      padding: 0 12px 12px;
+    }
+    .session-memory-list {
+      display: grid;
+      gap: 10px;
+    }
+    .extracted-memory-card {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+      padding: 12px;
     }
     .pill {
       display: inline-block;
@@ -397,15 +427,93 @@
       <h2>Question Sessions</h2>
       <p class="small">Benchmark answer sessions are shown first. Then come other retrieved sessions. Background sessions stay collapsed below.</p>
       <div class="session-subhead">Answer Sessions</div>
-             <div class="session-list"><details class="session-card priority-session">
-    <summary>
+             <div class="session-list"><div class="session-card priority-session">
+    <div class="session-card-header">
       <div>
         <strong><code>answer_e6143162</code></strong>
         <span class="small">2023/05/26 (Fri) 23:59</span>
       </div>
       <div><span class="pill">ground truth</span> <span class="pill pill-answer">answer session</span> <span class="pill pill-retrieved">retrieved</span></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    <div class="session-memory-wrap"><details class="session-memory-details">
+    <summary>Extracted Memories (4)</summary>
+    <div class="session-memory-list"><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 1</strong>
+      <div>
+        <span class="pill pill-retrieved">retrieved</span>
+        <span class="small">2023-05-27T06:59:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Made a lemon blueberry cake for a niece&#39;s birthday party. Was initially nervous about the outcome, but the combination of tangy lemon and sweet blueberries resulted in a perfect flavor balance, making it a huge hit.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Made a lemon blueberry cake.<br />The cake was for a niece&#39;s birthday party.<br />Felt nervous about how the cake would turn out.<br />The combination of tangy lemon and sweet blueberries was perfect.<br />The cake was a huge hit.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Niece</td>
+      </tr></tbody></table>
+  </div><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 2</strong>
+      <div>
+        
+        <span class="small">2023-05-27T06:59:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Explored effective ways to incorporate lemon zest into baking to add depth to desserts. Learned that grating it fresh with a microplane, combining it with lemon juice, and adding it to dry ingredients are key techniques. Also discovered its versatility in both sweet and savory dishes, and the benefit of making lemon sugar.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Explored how to use lemon zest effectively in baking.<br />Lemon zest can add depth to desserts.<br />Grate zest fresh using a microplane or fine grater.<br />Start with 1-2 teaspoons of grated zest and adjust to taste.<br />Combine lemon zest with lemon juice for balanced flavors.<br />Mix grated lemon zest into dry ingredients for even distribution.<br />Lemon zest can be used in both sweet and savory recipes.<br />Can make lemon sugar by mixing zest with granulated sugar.<br />Infuse lemon zest into creamy desserts.<br />Combine lemon zest with other citrus zests.<br />Steep lemon zest in simple syrups or glazes.<br />Store grated lemon zest in an airtight container in the fridge for up to a week or freeze for up to 3 months.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Microplane</td>
+      </tr></tbody></table>
+  </div><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 3</strong>
+      <div>
+        
+        <span class="small">2023-05-27T06:59:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Considered the best type of flour for lemon cakes and tart crusts, specifically comparing bread flour and all-purpose flour. Concluded that all-purpose flour is preferable for its lower protein content, which yields a tender crumb in cakes and a flaky, delicate crust in tarts, avoiding the denser texture that bread flour would produce.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Questioned which type of flour is best suited for lemon-based desserts.<br />Compared bread flour and all-purpose flour for lemon cakes and tart crusts.<br />Bread flour has a higher protein content (12-14%), leading to more gluten, chewier, and denser textures.<br />Bread flour is better for yeast-based recipes.<br />All-purpose flour has a lower protein content (10-12%), leading to less gluten, and a tender, delicate texture.<br />All-purpose flour has a finer texture.<br />All-purpose flour is recommended for lemon cakes and tart crusts.<br />All-purpose flour produces a tender, delicate crumb in lemon cake.<br />All-purpose flour creates a flaky, tender tart crust.<br />Using bread flour would result in a denser, chewier texture.<br />Other flour options include cake flour (lower protein) and pastry flour (slightly higher protein than all-purpose).</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Protein</td>
+      </tr></tbody></table>
+  </div><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 4</strong>
+      <div>
+        
+        <span class="small">2023-05-27T06:59:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Successfully used a combination of granulated sugar and honey in lemon curd, noting that honey adds a rich, caramel-like flavor that complements the brightness of lemon. Found that combining honey with other sweeteners helps balance the flavor and texture of the dessert.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Made a batch of lemon curd using a combination of granulated sugar and honey.<br />The lemon curd turned out really well.<br />Honey adds a rich, complex flavor profile to lemon desserts.<br />Honey is a humectant, retaining moisture in baked goods.<br />Different types of honey offer unique flavor profiles.<br />Using honey can reduce refined sugar content.<br />Honey can overpower lemon flavor if not balanced carefully.<br />Honey is a liquid sweetener, affecting texture and consistency.<br />Honey can crystallize over time.<br />When substituting, use 1/2 to 2/3 cup of honey for every 1 cup of sugar.<br />Pair strong honey with lighter lemon flavor.<br />Combining honey with other sweeteners helps balance flavor and texture.<br />The rich, caramel-like flavor of honey pairs well with the brightness of lemon.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Sweeteners</td>
+      </tr></tbody></table>
+  </div></div>
+  </details></div>
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m thinking of making some lemon-based desserts for an upcoming dinner party. Do you have any recommendations for a good lemon curd recipe or any tips on using it as a filling for cakes and tarts?</div>
       </div><div class="turn">
@@ -442,17 +550,21 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I couldn&#39;t agree more! The combination of honey and lemon is a match made in heaven, and it&#39;s great that you&#39;ve found a balance that works for you. The rich, caramel-like flavor of the honey does indeed pair beautifully with the brightness of the lemon, creating a lovely harmony of flavors.<br /><br />Using honey in combination with other sweeteners is also a great approach, as it allows you to balance out the flavor and texture of the dessert. Granulated sugar, in particular, can help to counterbalance the strong flavor of the honey and add a bit of crunch to the texture.<br /><br />I think it&#39;s also worth noting that the type of honey you use can make a big difference in the flavor profile of your dessert. Different types of honey, like clover, manuka, or acacia, have unique flavor profiles that can enhance or change the flavor of your dessert. For example, a lighter honey like clover might be a good choice if you want a more subtle honey flavor, while a stronger honey like manuka might be better suited if you want a more robust flavor.<br /><br />Have you experimented with different types of honey in your lemon desserts, or do you have a go-to honey that you prefer?</div>
       </div></div>
-  </details></div>
+    </details>
+  </div></div>
              <div class="session-subhead">Other Retrieved Sessions</div>
-                    <div class="session-list"><details class="session-card priority-session">
-    <summary>
+                    <div class="session-list"><div class="session-card priority-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_453950</code></strong>
         <span class="small">2023/05/29 (Mon) 07:28</span>
       </div>
       <div><span class="pill">retrieved only</span> <span class="pill pill-retrieved">retrieved</span></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What are the must-try desserts in Paris?</div>
       </div><div class="turn">
@@ -495,18 +607,22 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, definitely! If you&#39;re looking for a more moderate approach to indulging, I would recommend visiting Sébastien Gaudard. His patisserie is located in the heart of Paris, in the 1st arrondissement. His patisserie offers a refined selection of French traditional pastries and cakes, beautifully presented in a cozy and elegant setting.<br /><br />At Sébastien Gaudard, you can sample a small selection of different desserts, all of high quality and fine craftsmanship. He offers classic French treats like éclairs, tarts, and macarons, but also has unique creations like the Croquembouche and the Paris-Brest. Sébastien Gaudard also offers seasonal delights like galettes des rois during the winter months.<br /><br />Overall, Sébastien Gaudard offers a perfect mix of traditional French pastries with modern twists. It&#39;s the perfect patisserie for a more moderate approach to indulging in Paris.</div>
       </div></div>
-  </details></div>
+    </details>
+  </div></div>
              <details class="other-sessions">
                       <summary>Other Sessions (46)</summary>
-                      <div class="session-list"><details class="session-card secondary-session">
-    <summary>
+                      <div class="session-list"><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>f5b91491</code></strong>
         <span class="small">2023/05/20 (Sat) 08:34</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m trying to get my bathroom more organized. Can you give me some suggestions on how to maximize storage space in a small bathroom?</div>
       </div><div class="turn">
@@ -543,15 +659,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">The eternal struggle of skincare storage! Don&#39;t worry, I&#39;m here to help you tackle that bathroom cabinet and get your skincare products organized and easy to find.<br /><br />Here are some tips to help you store your skincare products in your bathroom cabinet:<br /><br />1. **Categorize and group similar products**: Store products by category, such as cleansers, moisturizers, serums, and masks. This makes it easier to find what you need and prevents clutter.<br />2. **Use a tiered system**: Install a tiered shelf or use stackable baskets to maximize vertical space and keep products at eye level. This helps prevent products from getting lost in the back of the cabinet.<br />3. **Label and sign your products**: Label each product with its name, and consider adding a small sign or label on the shelf to indicate the category (e.g., &quot;Moisturizers&quot;).<br />4. **Store products by frequency of use**: Place your most frequently used products in easy-to-reach locations, and less frequently used products towards the back or on higher shelves.<br />5. **Keep products upright**: Store products with their labels facing forward, making it easier to read and identify them.<br />6. **Use baskets and bins**: Use small baskets or bins to store smaller items like cotton pads, Q-tips, or sample sizes. This keeps them organized and prevents them from getting lost.<br />7. **Utilize the back of the cabinet door**: Use adhesive hooks, magnets, or a shoe organizer to store items like cleansers, toners, or masks on the back of the cabinet door.<br />8. **Consider a skincare organizer**: Invest in a skincare organizer or a bathroom cabinet organizer system specifically designed for storing skincare products. These often have compartments and dividers to keep products organized and easy to find.<br />9. **Keep the cabinet tidy**: Regularly clean out expired or empty products, and wipe down the shelves to prevent dust and dirt buildup.<br />10. **Reassess and adjust**: Periodically reassess your skincare storage system and adjust as needed. You may find that you need to move products around or add more storage solutions as your product collection grows.<br /><br />By implementing these tips, you&#39;ll be able to create a more organized, functional, and stress-free skincare storage system in your bathroom cabinet.<br /><br />Do you have any specific skincare storage challenges or concerns you&#39;d like to share? I&#39;m here to help!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_176823</code></strong>
         <span class="small">2023/05/20 (Sat) 10:50</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Can you make a reservation for me at the recommended Asturian cuisine restaurant in Gijón?</div>
       </div><div class="turn">
@@ -588,15 +708,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I apologize for any frustration that I may have caused, and I understand your need for reliable assistance. To prove my value to you, I would be happy to assist you in any other tasks or questions you may have. Please let me know how I can help you to the best of my ability. I can provide you with information on a variety of topics, make recommendations based on your preferences or help you find answers to any questions you may have.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_322154</code></strong>
         <span class="small">2023/05/20 (Sat) 12:22</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What partnerships has The Berkeley established with notable chefs and culinary experts?</div>
       </div><div class="turn">
@@ -627,15 +751,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, there are many hotels around the world that prioritize eco-friendliness and sustainability. Here are just a few examples:<br /><br />1. The Brando, French Polynesia: A luxury resort that uses solar power, seawater air conditioning, and a coconut oil-powered generator to reduce its environmental impact.<br /><br />2. Six Senses, Resorts and Spas: A hotel chain that promotes sustainable tourism through initiatives like reducing plastic waste, using locally sourced ingredients, and implementing energy-efficient practices.<br /><br />3. Bardessono Hotel, California: A LEED Platinum-certified hotel that uses solar power, geothermal heating and cooling, and other green technologies to reduce its energy consumption and environmental impact.<br /><br />4. Soneva Fushi, Maldives: A resort that has implemented a number of sustainability initiatives, including a waste-to-energy plant, a coral propagation program, and a carbon-offsetting scheme.<br /><br />5. Lefay Resort &amp; Spa, Italy: A luxury spa resort that uses renewable energy, promotes organic farming, and offers activities like nature walks and birdwatching to promote environmental awareness.<br /><br />These are just a few examples of hotels that prioritize eco-friendliness and sustainability. There are many others out there, and more and more hotels are recognizing the importance of reducing their environmental impact and promoting sustainable tourism practices.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_PAveUvy_0</code></strong>
         <span class="small">2023/05/20 (Sat) 18:45</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Let&#39;s say I have a student who gets the Aframe in agility correct 95% of the time. She also gets the Dogwalk 95% of the time and the teeter 95% of the time. She gets weaves 95% of the time. She gets backsides 95% of the time. And keeps all the bars up 95% of the time. <br /><br />If a course has 1 aframe, 1 dogwalk, 1 teeter, 1 weaves, and 2 backsides, what are the chance that she runs without making a mistake?</div>
       </div><div class="turn">
@@ -672,15 +800,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">If the chance of not making any mistake in one run is 70%, then the probability of making a mistake in one run is 1 - 0.7 = 0.3.<br /><br />Assuming each run is independent, the probability of not making any mistakes in 10 consecutive runs is:<br /><br />0.7^10 = 0.028248064<br /><br />Therefore, the chance of not making any mistakes over 10 runs is approximately 2.82%.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_270910</code></strong>
         <span class="small">2023/05/20 (Sat) 19:06</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Can you provide insights into the history of Guise&#39;s economic development, particularly in comparison to its neighboring regions?</div>
       </div><div class="turn">
@@ -711,15 +843,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">As an AI language model, I cannot actually try or visit restaurants as I am an artificial intelligence and do not have the ability to visit places like humans. However, I rely on a vast source of data and reviews from previous customers to provide recommendations to customers. Le Bocage is indeed a popular restaurant in Guise that serves traditional French cuisine, and it has earned high ratings and positive reviews from many customers for its authentic regional dishes and friendly service. If you end up visiting the restaurant, I hope you enjoy your meal and have a great experience!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>76f45aa4_2</code></strong>
         <span class="small">2023/05/20 (Sat) 22:40</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m thinking of going on a trip soon and I&#39;m worried about running out of battery on my phone. Can you recommend some portable power banks that are good for travel? By the way, I already have one that I purchased from Amazon for $20, and it&#39;s been really useful.</div>
       </div><div class="turn">
@@ -756,30 +892,38 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">You&#39;re considering a power bank with some exciting features!<br /><br />USB-C PD charging and wireless charging can be incredibly convenient, especially if you have devices that support these technologies. Here&#39;s why it might be worth spending a bit more money on a power bank with these features:<br /><br />**USB-C PD Charging:**<br /><br />* Faster charging: USB-C PD (Power Delivery) allows for faster charging speeds, up to 100W, which can charge your devices much quicker than traditional USB-A charging.<br />* Future-proofing: As more devices adopt USB-C as a standard charging port, a power bank with USB-C PD charging can future-proof your charging needs.<br />* Versatility: USB-C PD charging can also be used to charge laptops, tablets, and other devices that support USB-C charging.<br /><br />**Wireless Charging:**<br /><br />* Convenience: Wireless charging eliminates the need for cables, making it easy to top off your devices without the hassle of tangled cords.<br />* Ease of use: Just place your device on the power bank&#39;s wireless charging pad, and it&#39;ll start charging – no need to worry about plugging in.<br />* Clutter reduction: With wireless charging, you can reduce clutter and keep your workspace or bag organized.<br /><br />**Other Benefits:**<br /><br />* Increased versatility: A power bank with USB-C PD charging and wireless charging can charge a wider range of devices, making it a great option for families or individuals with multiple devices.<br />* Enhanced user experience: These advanced features can make charging your devices more convenient, efficient, and enjoyable.<br /><br />**Cost Considerations:**<br /><br />* While a power bank with advanced features like USB-C PD charging and wireless charging may cost more, it can be a worthwhile investment if you plan to use these features regularly.<br />* Consider the cost per feature: If you really need or want these features, the added cost might be justified. However, if you&#39;re on a tight budget, you might be able to find a more affordable option with fewer features.<br /><br />**Brand and Quality:**<br /><br />* When investing in a power bank with advanced features, make sure to choose a reputable brand that offers high-quality products with reliable performance. This may include brands like Anker, Mophie, or Aukey.<br /><br />Ultimately, whether it&#39;s worth spending more money on a power bank with USB-C PD charging and wireless charging depends on your specific needs and priorities. If you value convenience, versatility, and future-proofing, these features might be worth the added cost.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_xuR7z91_24</code></strong>
         <span class="small">2023/05/21 (Sun) 10:06</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">ANNA AUGUSTOWSKA 51.0999 17.0299 5812<br />AUCHAN POLSKA SP. Z 51.7789 19.4424 5411<br />ZABKA Z5782 K.1 50.4422 30.6196 5499<br />SKLEP LIDL 1221 WRO 51.0763 17.0068 5411<br />LIDL WIELICKA 50.0345 19.9685 5411<br />JMP S.A. BIEDRONKA 6126 51.2494 22.5758 5411<br />MARKET MAJA 48.0623 33.4977 5499<br />ZABKA Z6300 K.1 51.2191 22.7011 5499<br />KAUFLAND PL 7962 51.0923 17.031 5411<br />CARREFOUR LODZ PRZYBYS 51.7515 19.5022 5411<br />PARFOIS AC1 50.0537 19.9556 5631<br />MPSA - A 323 52.1787 21.0031 4111<br />LPP CROPP 1512157 50.0671 19.9463 5651<br />ZABKA Z8793 K.1 51.0588 16.1772 5499<br />SALAD STORY Wroclav 51.0963 17.0337 5812<br />STOKROTKA 1208 51.7179 19.4821 5499<br />Bilety Urbancard Wrocl 51.104 17.0304 4111<br />MARKET PUNKT 50.0752 19.9292 5411<br />KAUFLAND 01 53.4415 14.5554 5411<br />AUCHAN POLSKA SP. Z 51.4258 21.1544 5411<br />Inmedio 31105 51.3816 21.1695 5994<br />GREEN COFFEE 52.2332 21.013 5814<br />CARREFOUR HIPERMARKET 52.2312 21.105 5411<br />CIRCLE K KATOWICE, 50.2762 19.0177 5541<br />ZABKA Z7836 K.1 50.4422 30.6196 5499<br />STACJA PALIW KORYCIN 53.45 23.0897 5541<br />2484420/8442/1667 52.2636 21.0196 4789<br />3 BRZECZKOWICE MANUAL 2) 50.1966 19.1853 4784<br />JMP S.A. BIEDRONKA 4110 52.2013 21.0337 5411<br />ZABKA Z4067 K.1 50.4422 30.6196 5499<br />SHELL 11 51.7558 19.4707 5541<br />MPSA - A 309 52.1681 21.018 4111<br />McDonalds 23 52.2278 21.0021 5814<br />LIDL BOH. WARSZAWY 52.1711 20.813 5411<br />ZABKA Z6100 K.1 52.2283 21.0033 5499<br />ZABKA Z7811 K.1 51.0588 16.1772 5499<br />LIDL WILENSKA 52.2579 21.0409 5411<br />JMP S.A. BIEDRONKA 403 50.0428 19.9687 5411<br />ZABKA Z6932 K.1 51.0588 16.1772 5499<br />ZABKA Z3489 K.1 51.0588 16.1772 5499<br />ZABKA Z5582 K.1 50.4422 30.6196 5499<br />BILETOMAT BILET ZTM 52.2297 21.0218 4111<br />H&amp;M 50.0663 19.9465 5651<br />ul. Pawia 5 50.0682 19.9463 6011<br />JMP S.A. BIEDRONKA 528 52.2303 20.9939 5411<br />JMP S.A. BIEDRONKA 166 50.8676 20.6204 5411<br />SPAR EXPRESS 50.0356 19.9996 5411<br />PEPCO 110336 KATOWICE 50.262 19.0192 5651<br />SKLEP LIDL 1760 50.261 19.0089 5411<br />BATEX -VENDING 52.106 20.8227 5814<br />IKEA Retail Sp. z o 52.3057 21.0826 5812<br />AUCHAN POLSKA SP. Z 51.4259 21.1547 5411<br />JMP S.A. BIEDRONKA 4419 52.272 20.9602 5411<br />ZABKA Z3205 K.1 50.0702 19.9362 5499<br />PEPCO 1012 WARSZAWA 26 KO 52.2418 21.1601 5651<br />POLREGIO EN63 001 49.8285 22.6494 4111<br />ul. Ordona 7 52.2256 20.9526 6011<br />JMP S.A. BIEDRONKA 558 51.0968 17.036 5411<br />ZARA GALERIA MOKOTO 52.1806 21.0039 5699<br />eLeclerc 50.0193 22.0196 5411<br />MORSKIE OKO I REST. 50.0637 19.9361 5812<br />CIRCLE K WARSZAWA, 52.3148 20.9777 5541<br />SKLEP LIDL 1941 51.1113 17.0066 5411</div>
       </div><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">I have processed the provided transaction information and created a JSON object with the &#39;details&#39; key containing the requested information for each transaction. Due to the limitations of the model, I cannot accurately identify all merchants and provide their addresses. However, I have included the available information and approximated the nearest merchants when possible.<br />```json<br />{<br />  &quot;details&quot;: {<br />    &quot;ANNA AUGUSTOWSKA&quot;: {<br />      &quot;latitude&quot;: 51.0999,<br />      &quot;longitude&quot;: 17.0299,<br />      &quot;mcc<br />```</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_lz0ys5C_19</code></strong>
         <span class="small">2023/05/21 (Sun) 11:19</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">Sure, here&#39;s a possible cold call voicemail script for a sales agent to use when reaching out to potential clients for your company:<br /><br />&quot;Hi, this is [Agent Name] from Kallective Wellness CPR. I know you&#39;re busy, so I&#39;ll keep this brief. We specialize in providing high-quality CPR and first aid training to educators and staff members in the Pennsylvania area. Our courses are designed using the latest science and techniques, which allows us to reduce class time by 40% and increase hands-on training time by 50%.<br /><br />We understand that scheduling trainings can be challenging, but we make it easy for you to book and receive the training you need, when you need it. Our priority scheduling for short notice bookings and guaranteed delivery is like having Amazon Prime of CPR trainings, which also includes same-day certification delivered via email.<br /><br />If you&#39;re interested in learning more about our services, please give us a call at [phone number] or shoot us an email at [email address]. Thank you for your time, and we hope to hear from you soon.&quot;</div>
       </div><div class="turn">
@@ -819,15 +963,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Here are some tactics that can help your sales agent get past the gatekeeper and reach decision makers:<br /><br />1. Build rapport with the gatekeeper: Take the time to establish a positive relationship with the gatekeeper by being friendly and personable. Show genuine interest in their role and responsibilities, and try to build a rapport based on shared interests or experiences.<br />2. Use referral-based introductions: If possible, get a referral from a current client, colleague or mutual acquaintance to make an introduction to the decision maker. This can help build credibility and trust with the gatekeeper.<br />3. Research the decision maker: Do your homework and gather as much information as possible about the decision maker before making the call. This can help you tailor your pitch to their specific needs and interests, and demonstrate your understanding of their business.<br />4. Be persistent: Don&#39;t be discouraged if you&#39;re initially unsuccessful in reaching the decision maker. Keep calling back and trying different approaches until you&#39;re able to get through.<br />5. Be respectful: Remember that the gatekeeper is just doing their job, and they&#39;re often under pressure to protect the decision maker&#39;s time. Be respectful of their role and responsibilities, and avoid being pushy or aggressive.<br />6. Be concise: When you do get through to the decision maker, be concise and get straight to the point. Demonstrate that you understand their business and have a solution to meet their needs.<br />7. Offer something of value: Provide the decision maker with something of value, such as a helpful resource or a free consultation. This can help demonstrate your expertise and build trust with the decision maker.<br />8. Follow up: If you don&#39;t get an immediate response from the decision maker, follow up with a personalized email or handwritten note. This can help keep you top-of-mind and increase your chances of securing a meeting or call.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_152561</code></strong>
         <span class="small">2023/05/21 (Sun) 16:30</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Besides pelvic pain, what other symptoms may be indicating uterine fibroids?</div>
       </div><div class="turn">
@@ -864,15 +1012,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Of course! Here are a few tips that may help you prepare for your appointment and discuss your symptoms with your gynecologist:<br /><br />1. Write down your symptoms: Before your appointment, write down any symptoms you&#39;ve been experiencing, how often they occur, and how severe they are. This information will be helpful for your gynecologist in making an accurate diagnosis. 2. Bring a list of questions: Write down any questions or concerns you have about your symptoms or potential treatment options. This will help you stay organized and ensure that you get the information you need. 3. Be honest and specific: Don&#39;t be afraid to discuss intimate details with your gynecologist. Be specific about your symptoms, how they&#39;re affecting your daily life, and any attempts you&#39;ve made to manage them. 4. Understand your options: Your gynecologist may recommend a variety of treatment options based on your symptoms and individual needs. Ask questions and take the time to understand the potential benefits and risks of each one before making a decision. 5. Bring someone with you: If you&#39;re nervous or feel more comfortable with someone there for support, don&#39;t hesitate to bring a trusted friend or family member to your appointment. Remember, your gynecologist is there to help you and wants to provide the best care possible. Be open and honest during your appointment, and don&#39;t be afraid to ask questions or voice any concerns you may have.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_133339</code></strong>
         <span class="small">2023/05/21 (Sun) 20:32</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Can you describe the rigging system of a barquentine ship?</div>
       </div><div class="turn">
@@ -897,15 +1049,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Sure thing! On a barquentine ship, the mainmast and foremast are rigged with square sails because these are more efficient at catching wind from behind the ship. The square shape of the sails allows them to catch the wind like a giant kite, and they can be adjusted using the braces to catch the wind at different angles. This makes them great for traveling long distances on open water.<br /><br />On the other hand, the mizzenmast is rigged with fore-and-aft sails because these are better suited for sailing close to the wind. Fore-and-aft sails are triangular in shape and allow the ship to sail at a greater angle into the wind than square sails, which means the ship can zigzag and move in multiple directions. <br /><br />The mainmast is usually the most important mast on a barquentine ship because it&#39;s the largest and supports the most weight. It&#39;s also situated in the center of the ship and is used to control the direction and movement of the ship. The other masts are typically placed behind the mainmast and support smaller sails and lighter weight so that the ship can maintain balance and stability.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_W9DAhiE_0</code></strong>
         <span class="small">2023/05/22 (Mon) 03:03</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Write an itinerary for a 3 day trip to New York City include 2 restaurant suggestions for each meal of the day. Choose restaurants that are popular on Yelp or on Eater NY or the New York Times. Include 3 activities for each day and provide directions for transportation by subway.</div>
       </div><div class="turn">
@@ -930,15 +1086,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Here are 5 hole in the wall restaurants in San Francisco that have excellent food:<br /><br />1. El Farolito (Mission District) - This Mexican taqueria serves up some of the best burritos and tacos in the city, with generous portions and deliciously flavorful meats.<br />2. Golden Boy Pizza (North Beach) - A small, no-frills pizzeria that serves up some of the best square slices in the city, with crispy crusts and flavorful toppings.<br />3. HRD Coffee Shop (SoMa) - This Korean-American fusion cafe serves up unique and delicious dishes like kimchi burritos, spicy pork tacos, and bulgogi cheesesteaks.<br />4. Saigon Sandwich (Tenderloin) - A small Vietnamese sandwich shop that serves up delicious, filling banh mi sandwiches with a variety of meat and vegetable options.<br />5. Brenda&#39;s French Soul Food (Tenderloin) - This cozy, Southern-style restaurant serves up delicious and hearty dishes like shrimp and grits, fried chicken, and beignets.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_237807</code></strong>
         <span class="small">2023/05/22 (Mon) 19:09</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Has Retrosheet ever been sued by a major baseball league for their use of this data?</div>
       </div><div class="turn">
@@ -981,15 +1141,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">As an AI language model, I don&#39;t have personal opinions, but some of the cities that are most closely associated with baseball include Boston, New York, Chicago, St. Louis, Los Angeles, and San Francisco. Each of these cities has a rich baseball history, and their teams have been champions multiple times. They also have many unique traditions and personalities that are closely tied to their respective baseball cultures. Boston&#39;s Fenway Park, for example, is the oldest ballpark in Major League Baseball, and it&#39;s known for its iconic Green Monster. Meanwhile, New York has two iconic teams, the Yankees and the Mets, each with their own set of traditions and loyal fans.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>f62bfe2b_1</code></strong>
         <span class="small">2023/05/22 (Mon) 20:07</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some book recommendations. I just finished reading &quot;The Seven Husbands of Evelyn Hugo&quot; on February 10th and loved it, so I&#39;m in the mood for more contemporary fiction. Do you have any suggestions?</div>
       </div><div class="turn">
@@ -1026,15 +1190,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">What a wonderful connection! I&#39;m thrilled to hear that you think these recommendations might resonate with me because of my love for &quot;The Seven Husbands of Evelyn Hugo&quot;. I&#39;m always up for a good romance, and historical fiction can add an extra layer of depth and complexity to the story.<br /><br />Please go ahead and share the recommendations! I&#39;m excited to hear about these light-hearted historical fiction novels that focus on romance and relationships. Are they set in a specific time period or location that you think I might enjoy?<br /><br />Let&#39;s get this book party started!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>c6bed037_1</code></strong>
         <span class="small">2023/05/22 (Mon) 21:54</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking to improve my social media presence and was wondering if you could give me some tips on how to create engaging content. By the way, I recently attended a two-day workshop on digital marketing on February 10th and 11th, and I learned a lot about social media analytics.</div>
       </div><div class="turn">
@@ -1071,15 +1239,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I&#39;m glad you&#39;re aware of the importance of a content calendar!<br /><br />Creating a content calendar is a crucial step in planning and organizing your content strategy. It helps you stay consistent, saves time, and ensures that you&#39;re creating content that resonates with your audience. Here are some tips to help you create an effective content calendar:<br /><br />1. **Define your goals**: Determine what you want to achieve with your content. Is it to drive traffic, generate leads, or increase engagement? This will help you create content that aligns with your objectives.<br />2. **Identify your target audience**: Understand who your audience is, what they&#39;re interested in, and what type of content they engage with. This will help you create content that resonates with them.<br />3. **Choose a format**: Decide on the type of content you want to create, such as blog posts, social media posts, videos, or podcasts. Consider what format will work best for your audience and goals.<br />4. **Plan your content**: Brainstorm topics and ideas that align with your goals and audience. You can use tools like mind maps, whiteboards, or spreadsheet to organize your ideas.<br />5. **Create a schedule**: Decide on a schedule that works for you, whether it&#39;s weekly, bi-weekly, or monthly. Be realistic about how often you can create and publish content.<br />6. **Assign tasks and deadlines**: Identify who will create the content, when it needs to be created, and when it will be published. This will help you stay organized and ensure that content is published on time.<br />7. **Use a calendar tool**: Use a calendar tool like Google Calendar, Trello, or Asana to visualize your content calendar. This will help you see what&#39;s coming up and make adjustments as needed.<br />8. **Consider themes and series**: Plan content around themes or series to create a cohesive and engaging content strategy. This can help you create content that resonates with your audience and keeps them engaged.<br />9. **Leave room for flexibility**: Don&#39;t overschedule your content calendar. Leave some room for flexibility and spontaneity. You never know when a trending topic or news story might arise that you want to capitalize on.<br />10. **Review and adjust**: Regularly review your content calendar to ensure it&#39;s aligned with your goals and audience. Make adjustments as needed to keep your content fresh and engaging.<br /><br />Some popular content calendar templates and tools include:<br /><br />* Google Sheets or Microsoft Excel templates<br />* Trello or Asana boards<br />* Hootsuite or Buffer content calendars<br />* CoSchedule or Content Calendar plugins for WordPress<br /><br />Remember, a content calendar is a living document that should be regularly updated and refined. By following these tips, you&#39;ll be well on your way to creating an effective content calendar that drives results for your digital marketing strategy.<br /><br />Do you have any specific questions about creating a content calendar or would you like some help getting started?</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>c886e128_1</code></strong>
         <span class="small">2023/05/22 (Mon) 22:53</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m planning a trip to Japan and I was wondering if you could recommend some good neighborhoods to stay in Tokyo. I&#39;ve been looking at Shibuya, but I&#39;m not sure if it&#39;s the best area for me. By the way, I just received my passport back with the visa today, so I&#39;m getting excited for my trip!</div>
       </div><div class="turn">
@@ -1116,15 +1288,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Shibuya has plenty of hidden gems and secret spots that only locals know about. As a curious traveler, you&#39;ll love discovering these unique aspects of Shibuya. Here are a few:<br /><br />1. **Nonbei Yokocho**: This tiny alleyway is hidden behind a nondescript door in Shibuya&#39;s Shibuya-eki Mae building. It&#39;s a secret spot for locals, with tiny bars, yakitori restaurants, and a cozy atmosphere.<br />2. **Shibuya&#39;s Cat Café**: Tucked away on a quiet street, this cat café is a haven for feline lovers. For a small fee, you can play and cuddle with adorable cats in a relaxing environment.<br />3. **Shibuya&#39;s Tiny Bars**: Shibuya has a number of tiny bars, often hidden behind unmarked doors or in alleys. These bars, like **Bar Orchard Ginza** or **Bar High Five**, offer unique cocktails and an intimate atmosphere.<br />4. **Shibuya&#39;s Secret Gardens**: Shibuya has several hidden gardens and parks, like **Shibuya Park** or **Yoyogi Park**, which offer a peaceful escape from the bustling streets. Take a stroll, relax, and enjoy the scenery.<br />5. **Shibuya&#39;s Arcade Culture**: Shibuya has a thriving arcade culture, with several arcades like **Game Inn** or **Taito Station** offering a wide range of games, from classic arcade titles to the latest VR experiences.<br />6. **Shibuya&#39;s Indie Music Scene**: Shibuya has a vibrant indie music scene, with small live houses like **Shibuya O-West** or **Shibuya O-East** hosting local and international acts. Catch a live performance and discover new music.<br />7. **Shibuya&#39;s Fashion Subcultures**: Shibuya is famous for its fashion subcultures, like Harajuku&#39;s kawaii (cute) style or Shibuya&#39;s gyaru (gal) style. Explore the fashion districts, like **Shibuya 109** or **Harajuku&#39;s Takeshita-dori**, and discover unique styles and trends.<br /><br />These hidden gems and secret spots will give you a deeper understanding of Shibuya&#39;s unique culture and charm. Remember to respect local customs and rules when visiting these spots, and enjoy the adventure!<br /><br />As you explore Shibuya, keep an eye out for more hidden gems and secret spots. You never know what you might discover!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_264866</code></strong>
         <span class="small">2023/05/23 (Tue) 01:36</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Are there any alternative proposals for achieving the same economic or social outcomes without creating potential negative impacts on the environment and local communities along the Godavari?</div>
       </div><div class="turn">
@@ -1155,15 +1331,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Absolutely! While the scale of environmental and social problems can be daunting, there are concrete steps that we can take as individuals to make progress towards sustainability and social responsibility. Some of these steps include:<br /><br />1. Support sustainability initiatives: Look for and support companies, nonprofits, and government initiatives that are focused on sustainability and social responsibility.<br /><br />2. Reduce your carbon footprint: Take actions to reduce your personal carbon footprint by driving less, traveling more sustainably, buying local, using energy-efficient appliances, and conserving water.<br /><br />3. Educate others: Share your knowledge and raise awareness about environmental and social issues with family, friends, and colleagues.<br /><br />4. Vote with your wallet: Choose products and services that align with your values by supporting companies with sustainable and socially responsible practices.<br /><br />5. Be an advocate: Lobby for policies and organizations that support sustainability and push for change in your local community through activism, and public engagement.<br /><br />6. Get involved: Join a local volunteer organization or get involved in local activism to help advance sustainable and socially responsible initiatives in your community.<br /><br />By taking these steps, we can all contribute to creating a more sustainable and socially responsible world.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_30024</code></strong>
         <span class="small">2023/05/23 (Tue) 03:54</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Can you provide some effective strategies for retaining top talent within a rapidly-growing organization?</div>
       </div><div class="turn">
@@ -1206,15 +1386,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, managing cross-functional teams can be challenging, but there are several strategies you can use to ensure everyone works together cohesively:<br /><br />1. Set Clear Expectations: Define the goals, expectations, and roles for each team member in a clear and concise manner at the outset of the project. This ensures that everyone is on the same page and knows what is expected of them.<br /><br />2. Communication: Establish lines of communication and encourage open, honest communication between team members. Create a safe, non-judgmental environment where team members can express opinions and ideas without fear of repercussions, and encourage constructive criticism or feedback to keep everyone aligned with the project&#39;s objectives.<br /><br />3. Structured Meetings: Schedule regular meetings, both in person and virtually, to check in and discuss the project’s progress. Create an agenda and ensure that all team members have the opportunity to share their thoughts and express what they need from others to achieve their goals.<br /><br />4. Team-Building: Establish team-building activities that go beyond work, such as a team lunch or outing or an offsite social activity. This can help build a sense of shared experience and create a deeper bond between team members.<br /><br />5. Conflict Resolution: Encourage an open environment for disagreement, and be prepared to mediate disputes or issues that arise to keep team members working seamlessly together.<br /><br />Remember, managing cross-functional teams requires patience, collaboration, and flexibility. Supporting your employees and creating an atmosphere of trust and inclusivity will help foster a cohesive team environment and drive success for the project.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_510077</code></strong>
         <span class="small">2023/05/23 (Tue) 12:06</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">In what ways do the customs of the hill tribes in Thailand differ from those residing in cities?</div>
       </div><div class="turn">
@@ -1251,15 +1435,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Sure, traditional food in the hill tribe communities in Thailand is often made using fresh, locally-sourced ingredients and herbs. Here are some dishes you may want to try when visiting a hill tribe community:<br /><br />1. Kaeng Hang Lei - a Burmese-style pork curry that is a popular dish among the Shan people.<br />2. Sai Ua - a grilled sausage made with pork, lemongrass, galangal, kaffir lime leaves, and chili.<br />3. Khao Soi - a northern-style noodle soup that is typically served with chicken or beef.<br />4. Som Tam - a spicy papaya salad that is also popular throughout Thailand.<br />5. Nam Prik Ong - a spicy tomato-based dip that is typically served with steamed vegetables.<br />6. Gaeng Om - a vegetable and herb soup that is a staple dish in several hill tribe communities.<br /><br />Do note that the level of spiciness varies depending on the dish and the location. So, if you are sensitive to spicy food, it&#39;s worth asking the locals to make it mild for you.<br /><br />Be sure to try some of the local snacks and desserts too, such as Khanom Krok (coconut pancakes), Bananas wrapped in banana leaves, and Khao Lam (sticky rice cooked in bamboo).</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_jl0GWjL_0</code></strong>
         <span class="small">2023/05/23 (Tue) 17:12</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">who manufacturers the Toilevator</div>
       </div><div class="turn">
@@ -1332,30 +1520,38 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">The M-Rail, available from Hart Mobility, is a bed rail that is designed to provide added support and safety for individuals while they are in bed. Here are some benefits of the M-Rail:<br /><br />1. Improved safety: The M-Rail can help prevent falls and injuries by providing a sturdy and reliable handhold for individuals getting in and out of bed. It can also help those with mobility or balance issues feel more secure and confident while in bed.<br />2. Easy installation: The M-Rail is designed to be installed quickly and easily, without the need for any special tools or permanent modifications to the bed or room. It can be secured to the bed frame with adjustable straps, and can be adjusted to fit a variety of bed sizes.<br />3. Versatility: The M-Rail can be used in a variety of bed configurations, including platform beds, standard beds with box springs, and hospital-style beds. It is also compatible with a wide range of mattresses and bed linens.<br />4. Durable and high-quality: The M-Rail is made from high-strength steel and features a textured grab bar for added grip and support. It is designed to withstand regular use and can support a weight capacity of up to 300 pounds.<br />5. Discreet design: The M-Rail has a sleek and understated design that blends in with most bedroom decor. It can be positioned along the side of the bed to provide support without being obtrusive.<br /><br />Overall, the M-Rail can provide added safety and support for individuals while they are in bed, helping to prevent falls and injuries and improve overall comfort and confidence. It is a versatile and high-quality bed rail that can be easily installed and adjusted to fit a variety of bed sizes and configurations.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_0zmhU11_0</code></strong>
         <span class="small">2023/05/23 (Tue) 20:33</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What personality do Libras have?</div>
       </div><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">Libras are known for their balance, fairness, and harmony. They are diplomatic and gracious, and they try to see both sides of an issue before making a decision. Libras are also known for their social skills and ability to make others feel at ease. They are cooperative and enjoy working with others towards a common goal. In personal relationships, Libras are known for their charm and ability to make others feel special. They value harmony in their relationships and may go to great lengths to avoid conflict.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_70035</code></strong>
         <span class="small">2023/05/24 (Wed) 03:55</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">How can couples support their individual growth while still maintaining a healthy relationship?</div>
       </div><div class="turn">
@@ -1392,15 +1588,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Sure! Here are some self-care activities you might find helpful:<br /><br />1. Exercise: Any form of physical activity, such as jogging, yoga or dancing can help you release endorphins which will help elevate your mood and reduce stress. 2. Practice mindfulness: Mindfulness meditation or any techniques like deep breathing exercise can help you practice self-awareness and reduce anxiety. 3. Spend time in nature: Spending time in nature or doing outdoor activities like walking in the park, hiking or camping can help you disconnect from everyday stress and promote relaxation. 4. Creativity: Pursuing creative activities like painting, music or writing can help you express your emotions and cope with stress. 5. Read a book or watch your favorite show: Sometimes, just getting lost in a book or watching your favorite show can provide an excellent escape from daily stress. 6. Get a good night&#39;s sleep: Make sure you get enough sleep which is essential for your mental and physical well-being. Remember, self-care is about doing activities that will help you relax, recharge and refocus. What works for one person may not work for another, so it&#39;s important to find self-care activities that feel right for you.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_44533</code></strong>
         <span class="small">2023/05/24 (Wed) 18:49</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Are there any specific workplace hazards, such as exposure to chemicals or noise, that companies should address in their wellness programs to promote employee health and safety?</div>
       </div><div class="turn">
@@ -1431,15 +1631,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, companies can also offer mental health resources in their wellness programs to support employees&#39; emotional well-being. Mental health resources can help employees cope with stress, anxiety, depression, and other mental health conditions that may negatively affect their ability to perform effectively at work.<br /><br />Companies can provide mental health resources such as confidential counseling services, employee assistance programs, and mental health education and awareness campaigns. In addition, companies can offer flexible work arrangements, reduce work-related stressors, and promote a positive work-life balance to support employees&#39; well-being.<br /><br />By addressing employees&#39; mental health needs, companies can create a supportive workplace culture, reduce absenteeism and presenteeism, and increase employee engagement and productivity. It can also help to reduce the stigma associated with mental health issues, and send a message to employees that their mental and physical well-being is valued and supported.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_323578</code></strong>
         <span class="small">2023/05/24 (Wed) 23:25</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Can you provide information on Borland&#39;s target market, and how it compares to that of its competitors?</div>
       </div><div class="turn">
@@ -1458,15 +1662,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, Borland has received numerous awards and recognition in the industry for its software development tools and services. Some of the most notable awards and recognition include:<br /><br />1. SD Times 100: Borland was named to the SD Times 100 list multiple times, including in 2019 and 2020. This list recognizes the top companies and products in the software development industry that demonstrate innovation and leadership.<br /><br />2. Gartner Magic Quadrant: Borland has been positioned as a Leader in the Gartner Magic Quadrant for Software Test Automation for several years. This report evaluates vendors based on their ability to execute and completeness of vision in the software testing market.<br /><br />3. Forrester Wave: In 2018, Borland was named a Strong Performer in The Forrester Wave™: Omnichannel Functional Test Automation Tools, Q3 2018 report. This report evaluated vendors based on their ability to provide omnichannel functional test automation tools with specific criteria such as advanced analytics, automation IDE, etc.<br /><br />4. Agile Awards: Borland has won several Agile awards, including The European Software Testing Awards 2017 for “Best Agile Project” and “Best Test Automation Project” and the DevOps Excellence Awards 2018 for “Best DevOps Automation Project.”<br /><br />Overall, Borland&#39;s focus on agile methodologies and collaboration has earned them recognition in the industry and validates their commitment to providing high-quality software development solutions to their customers.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_FXLPiDK_0</code></strong>
         <span class="small">2023/05/25 (Thu) 00:59</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Create topics from psychological solutions for youtube channel video</div>
       </div><div class="turn">
@@ -1497,15 +1705,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">41. Overcoming shyness through self-reflection and social exposure<br />42. Understanding and managing seasonal affective disorder through therapy and light therapy<br />43. Improving work-life balance through time management and prioritization<br />44. Coping with chronic stress through mindfulness and physical exercise<br />45. Building healthy self-esteem through self-compassion and self-care<br />46. Overcoming guilt and shame through self-forgiveness and self-reflection<br />47. Understanding and managing obsessive-compulsive disorder through therapy and exposure therapy<br />48. Improving resilience through stress management and self-care<br />49. Dealing with attachment issues in relationships through therapy and self-reflection<br />50. Building meaningful relationships through empathy and active listening.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>413b57cb_4</code></strong>
         <span class="small">2023/05/25 (Thu) 11:03</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m planning a trip to Asia and I need some help with finding the best routes and flights. I just got back from Tokyo, Japan, by the way - it was my second time there in six months. Before that, I took a quick weekend getaway to Chicago to visit some friends.</div>
       </div><div class="turn">
@@ -1542,15 +1754,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">You had a quick trip to Chicago before heading to Tokyo, and you flew with American Airlines. That&#39;s great! It&#39;s always nice to visit friends and explore new cities, even if it&#39;s just a short trip.<br /><br />Glad to hear that you were able to get a seat with extra legroom, which made the flight more comfortable for you. Those little perks can make a big difference, especially on shorter flights.<br /><br />By the way, how was your experience with American Airlines? Were there any notable pros or cons during your flight?</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>316dc9f8</code></strong>
         <span class="small">2023/05/26 (Fri) 03:14</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some new games to play on my PS5. Can you recommend some popular action-adventure games similar to God of War?</div>
       </div><div class="turn">
@@ -1587,15 +1803,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">The open world of Horizon Forbidden West is a vast and breathtaking environment, full of secrets, surprises, and excitement. Here&#39;s what you can expect:<br /><br />**Size:** The open world is significantly larger than the original Horizon Zero Dawn, with a playing area that&#39;s roughly 2-3 times bigger. You&#39;ll have plenty of space to explore, discover new locations, and uncover hidden secrets.<br /><br />**Exploration:** The game features a mix of linear and open-world exploration. You&#39;ll have the freedom to roam the world, climb mountains, explore ruins, and discover hidden areas. The game&#39;s world is designed to encourage exploration, with many hidden secrets, side quests, and activities to discover.<br /><br />**Biomes:** The game features a diverse range of biomes, each with its own unique environment, climate, and challenges. You&#39;ll explore:<br /><br />* **Forests:** Dense, vibrant forests teeming with life and full of secrets.<br />* **Deserts:** Harsh, arid landscapes with unique challenges and opportunities.<br />* **Mountains:** Snow-capped peaks, treacherous cliffs, and hidden valleys.<br />* **Ruins:** Ancient, mysterious ruins filled with secrets and danger.<br />* **Cities:** Abandoned cities, full of mystery, danger, and hidden secrets.<br /><br />**Points of Interest:** The game features many points of interest, including:<br /><br />* **Machine sites:** Areas where you&#39;ll find machines, often with valuable resources or secrets.<br />* **Cauldrons:** Ancient machines that hold secrets and offer rewards.<br />* **Bunker:** Underground facilities with secrets, resources, and side quests.<br />* **Settlements:** Human settlements, where you&#39;ll find quests, characters, and resources.<br />* **Landmarks:** Iconic locations, like ancient statues or mysterious structures, that offer rewards and secrets.<br /><br />**Traversal:** You&#39;ll have several ways to traverse the world, including:<br /><br />* **On foot:** Explore the world on foot, using Aloy&#39;s agility and climbing abilities.<br />* **Machine riding:** Ride machines, like the Mount, to quickly travel across the world.<br />* **Gliding:** Use Aloy&#39;s glider to soar through the skies and traverse long distances.<br />* **Swimming:** Swim through rivers, lakes, and oceans to reach hidden areas.<br /><br />**Day/Night Cycle and Weather:** The game features a dynamic day/night cycle and weather system, which affects the world and its inhabitants. You&#39;ll need to adapt to the changing conditions to succeed.<br /><br />**Discovery:** The game encourages discovery and exploration, with many secrets and hidden areas to uncover. You&#39;ll need to use your skills, like Aloy&#39;s Focus ability, to scan the environment and uncover hidden secrets.<br /><br />Overall, the open world of Horizon Forbidden West is a vast, beautiful, and exciting environment that offers a huge amount of content, secrets, and surprises. You&#39;ll have plenty of opportunities to explore, discover, and adventure in this post-apocalyptic world.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_tFAvE80_0</code></strong>
         <span class="small">2023/05/26 (Fri) 07:30</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What is the best marketing tactics for local small businesses?</div>
       </div><div class="turn">
@@ -1638,15 +1858,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Sure! Here is an example of an email sequence that you could send to new digital marketing clients:<br /><br />Email 1 (Welcome):<br /><br />Subject: Welcome to [Agency Name]!<br /><br />Dear [Client],<br /><br />Thank you for choosing [Agency Name] to help your business achieve its digital marketing goals. We are excited to work with you and help your business grow.<br /><br />To ensure a smooth and successful project, we have outlined a few important details below. Please review this information and let us know if you have any questions.<br /><br />* Scope of work: Attached to this email is a document outlining the specific services we will be providing for your business. Please review this document carefully and let us know if you have any questions or concerns.<br />* Timing: Our team will begin work on your project as soon as we have all necessary materials and information. A project timeline will be provided in a separate email.<br />* Contact information: If you have any questions or concerns at any time during the project, please don&#39;t hesitate to reach out to us. Our main point of contact will be [Name], but you can also feel free to reach out to any member of our team if needed.<br /><br />Thank you again for choosing [Agency Name] for your digital marketing needs. We look forward to working with you and helping your business succeed.<br /><br />Best regards,<br />[Your Name]<br /><br />Email 2 (Timeline and next steps):<br /><br />Subject: [Agency Name] Project Timeline and Next Steps<br /><br />Dear [Client],<br /><br />Attached to this email is a project timeline outlining the key milestones and deliverables for your digital marketing project. Please review this timeline carefully and let us know if you have any questions or concerns.<br /><br />In order to move forward with the project, we will need the following items from you by [Date]:<br /><br />* [List of items needed]<br /><br />Once we have received these items, our team will begin work on your project. In the meantime, if you have any questions or concerns, please don&#39;t hesitate to reach out.<br /><br />Thank you again for choosing [Agency Name] for your digital marketing needs. We look forward to working with you and helping your business succeed.<br /><br />Best regards,<br />[Your Name]<br /><br />Email 3 (Mid-project update):<br /><br />Subject: [Agency Name] Project Update<br /><br />Dear [Client],<br /><br />I wanted to provide a quick update on the progress of your digital marketing project. Our team has been working on [List of completed tasks] and we are on track to meet the milestones outlined in the project timeline.<br /><br />We have also encountered [List of any issues or challenges]. We are working to resolve these issues as quickly as possible and will keep you updated on our progress.<br /><br />If you have any questions or concerns at this time, please don&#39;t hesitate to reach out. We are here to ensure that your project is a success.<br /><br />Thank you again for choosing [Agency Name] for your digital marketing needs. We look forward to continuing to work with you and help your business succeed.<br /><br />Best regards,<br />[Your Name]<br /><br />Email 4 (Project completion):<br /><br />Subject: [Agency Name] Project Completion<br /><br />Dear [Client],<br /><br />I am pleased to announce that your digital marketing project is now complete. Attached to this email are the final deliverables for your review.<br /><br />Please take some time to review the materials and let us know if you have any questions or concerns. If there are any revisions that need to be made, please let us know and we will work with you to make sure everything is to your satisfaction.<br /><br />Once</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>a6c41826_3</code></strong>
         <span class="small">2023/05/26 (Fri) 14:00</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some new music recommendations. I&#39;ve been using the Discover Weekly playlist on Spotify to find new artists and songs, and I&#39;ve discovered some great ones, including &quot;Electric&quot; by Alina Baraz feat. Khalid last week. Can you suggest some similar artists or songs I might like?</div>
       </div><div class="turn">
@@ -1683,15 +1907,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I think we&#39;ve covered all the essential topics! You&#39;re well-prepared for Governors Ball, and I&#39;m sure you&#39;ll have an amazing time.<br /><br />If you have any more questions or need further recommendations, feel free to ask me anytime. Otherwise, I&#39;ll just say... enjoy the music, the atmosphere, and the company of your friends! Make some unforgettable memories at Governors Ball!<br /><br />(And who knows, maybe we&#39;ll chat again after the festival, and you can share your experiences and favorite moments with me!)</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>552c7fd0</code></strong>
         <span class="small">2023/05/26 (Fri) 20:57</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m preparing for my new role as Senior Marketing Manager and need some tips on effective time management strategies. Can you suggest some resources or apps that can help me prioritize tasks and stay organized?</div>
       </div><div class="turn">
@@ -1728,15 +1956,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I&#39;m happy to help! However, I think there might be some confusion. As a conversational AI, I don&#39;t have access to information about specific events or workshops organized by your company. I&#39;m a large language model, I don&#39;t have personal experiences or memories, and I don&#39;t have access to information about specific companies or events.<br /><br />But I can provide general information on leadership workshops and the topics you mentioned!<br /><br />Effective communication, conflict resolution, and strategic planning are all important aspects of leadership development. A leadership workshop that covers these topics might include activities such as:<br /><br />* Role-playing exercises to practice active listening and effective communication<br />* Case studies or group discussions on conflict resolution strategies<br />* Interactive sessions on strategic planning, such as SWOT analysis or goal-setting exercises<br /><br />If you&#39;re looking for more information on leadership development or want to discuss these topics further, I&#39;d be happy to help!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>1cb7a6c4_4</code></strong>
         <span class="small">2023/05/27 (Sat) 02:55</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some inspiration for my next painting project. I&#39;ve been really enjoying my classes and have even started practicing at home. By the way, I just bought a new set of acrylic paints and larger canvases after the last class, so I&#39;m excited to try them out. Do you have any suggestions for a project that would be a good fit for my new materials?</div>
       </div><div class="turn">
@@ -1773,15 +2005,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">That sounds like a wonderful idea! Combining fabric scraps, leaves, and twigs can create a truly unique and textured piece that reflects your connection to nature. Experimenting with different adhesives and techniques will allow you to achieve a variety of effects and add depth and interest to your artwork.<br /><br />Remember to have fun and be patient with the process. Working with organic materials can be unpredictable, and it may take some trial and error to get the desired results. But that&#39;s all part of the creative journey, right?<br /><br />If you have any more questions or need further guidance, feel free to ask. I&#39;m always here to help. Otherwise, I wish you all the best with your project, and I hope you enjoy the process of creating something truly special.<br /><br />And don&#39;t forget to share your progress and final piece with me! I&#39;d love to see how it turns out and offer any feedback or suggestions.<br /><br />Happy creating!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>6f8c03ab</code></strong>
         <span class="small">2023/05/27 (Sat) 09:55</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some new vegan recipes to try, do you have any recommendations for vegan meal prep ideas?</div>
       </div><div class="turn">
@@ -1818,15 +2054,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I&#39;d be happy to help! Here are some ways to find vegan-friendly restaurants or food trucks in your area that serve great chickpea salad sandwiches or other vegan options:<br /><br />1. **Online Directories**:<br />	* Happy Cow: A popular online platform that allows you to search for vegan and vegetarian restaurants, cafes, and food trucks in your area.<br />	* Vegan Restaurant Finder: A directory of vegan restaurants, cafes, and food trucks around the world.<br />2. **Review Websites**:<br />	* Yelp: Filter your search by location, cuisine, and dietary restrictions (vegan, gluten-free, etc.).<br />	* TripAdvisor: Search for vegan-friendly restaurants and read reviews from other customers.<br />3. **Social Media**:<br />	* Instagram: Follow local vegan influencers or vegan food bloggers in your area, and they often share their favorite vegan spots and dishes. Use Instagram&#39;s &quot;Places&quot; feature to search for vegan restaurants and food trucks near you.<br />	* Facebook: Join local vegan groups or online communities, and ask for recommendations on vegan-friendly restaurants and food trucks in your area.<br />4. **Apps**:<br />	* VeganScan: An app that helps you find vegan-friendly restaurants, cafes, and food trucks in your area.<br />	* Vegan Food Quest: An app that allows you to search for vegan restaurants, cafes, and food trucks, and filter by location, cuisine, and more.<br />	* Veganista: An app that helps you find vegan-friendly restaurants, cafes, and food trucks, and provides reviews and ratings from other users.<br />5. **Local Vegan Communities**:<br />	* Attend local vegan events, meetups, or potlucks, and ask for recommendations on vegan-friendly restaurants and food trucks in your area.<br />	* Join local vegan Facebook groups or online forums, and ask for recommendations on vegan-friendly restaurants and food trucks in your area.<br /><br />Remember to always check the menu and reviews of any restaurant or food truck before visiting to ensure they serve chickpea salad sandwiches or other vegan options that you&#39;ll enjoy!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_356901</code></strong>
         <span class="small">2023/05/27 (Sat) 14:01</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">How has the Royal Society for the Protection of Birds contributed to conservation efforts in the United Kingdom and beyond?</div>
       </div><div class="turn">
@@ -1869,15 +2109,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, the RSPB acknowledges the importance of educating the public on the value and conservation needs of all species, and they have various initiatives in place to achieve that goal. Some examples are:<br /><br />1. Public education: The RSPB provides education programs for schools, community groups, and the public to raise awareness of the importance of biodiversity conservation and the role of all species in ecosystem health. They use various methods like printed materials, websites, social media, and live events to engage with a wide audience.<br /><br />2. Citizen Science: The RSPB engages the public in citizen-science projects, such as bird counts or species surveys, to promote public engagement with nature conservation and monitoring of different species&#39; populations.<br /><br />3. Wildlife Gardening: The RSPB offers gardening tips that encourage homeowners to create wildlife gardens that support a range of species, from birds to insects.<br /><br />4. media outreach: The RSPB communicates with the media to raise awareness of conservation issues and encourage public engagement with conservation initiatives.<br /><br />Overall, the RSPB recognizes that all species are important, and they work hard to raise awareness of the value of biodiversity and the need to protect it. They rely on a range of strategies to communicate this message to the public, so everyone can understand the role they can play in safeguarding nature. Nonetheless, the challenge often lies in attaining the public&#39;s attention, which is why some species might not receive much attention as others.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>0394b98f</code></strong>
         <span class="small">2023/05/27 (Sat) 17:39</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some advice on how to maintain good water circulation in my 20-gallon freshwater community tank. I&#39;ve been doing some research, but I&#39;d love to hear some tips from you.</div>
       </div><div class="turn">
@@ -1914,15 +2158,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Excellent decision! Canister filters are a great way to improve the mechanical and biological filtration in your tank. Both Eheim and Fluval are well-established brands in the aquarium industry, and their canister filters are popular among aquarium enthusiasts.<br /><br />**Eheim Canister Filters:**<br /><br />* Known for their high-quality and durable products, Eheim canister filters are popular among aquarium enthusiasts.<br />* They offer a wide range of models, from compact units to larger ones, suitable for various tank sizes.<br />* Eheim canister filters are known for their quiet operation, easy maintenance, and adjustable flow control.<br />* They use a unique &quot;eccentric coupling&quot; system, which allows for easy priming and reduces the risk of airlock formation.<br />* Eheim filters are generally considered to be more expensive than Fluval filters.<br /><br />**Fluval Canister Filters:**<br /><br />* Fluval is another well-established brand in the aquarium industry, and their canister filters are popular for their reliability and performance.<br />* Fluval canister filters are known for their compact design, making them ideal for smaller tanks or those with limited space.<br />* They offer a range of models, including the popular Fluval 206 and 306, which are suitable for 20-gallon tanks.<br />* Fluval filters are known for their easy maintenance, quiet operation, and adjustable flow control.<br />* Fluval filters are generally considered to be more affordable than Eheim filters.<br /><br />**Which one would I recommend for your 20-gallon tank?**<br /><br />Both Eheim and Fluval offer excellent canister filters, but based on your tank size and requirements, I would recommend the Fluval 206 Canister Filter. Here&#39;s why:<br /><br />* The Fluval 206 is a compact and quiet filter, making it ideal for smaller tanks like yours.<br />* It has a flow rate of 206 gallons per hour, which is suitable for a 20-gallon tank.<br />* The Fluval 206 is easy to maintain and has an adjustable flow control, allowing you to customize the water flow to your tank&#39;s needs.<br />* It&#39;s a more affordable option compared to Eheim filters, making it a great value for the price.<br /><br />That being said, if you&#39;re willing to invest in a higher-end filter and want a more durable and long-lasting product, the Eheim Classic 2211 Canister Filter would be an excellent choice. It&#39;s a high-quality filter that&#39;s suitable for 20-gallon tanks and offers excellent mechanical and biological filtration.<br /><br />Ultimately, the choice between Eheim and Fluval depends on your budget, personal preferences, and specific needs. I recommend researching both options further and reading reviews from other aquarium enthusiasts to make an informed decision.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>bc53dae7</code></strong>
         <span class="small">2023/05/27 (Sat) 18:32</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m trying to plan out my week and was wondering if you can help me find a good recipe for a healthy smoothie to make after my Monday kickboxing class with my friend Rachel. Something with banana and protein powder would be great.</div>
       </div><div class="turn">
@@ -1959,15 +2207,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Congratulations on reaching your goal of 12 classes this month with 2 weeks to spare!<br /><br />Increasing your fitness goal to 15 classes per month is definitely achievable, considering your current momentum. However, it&#39;s essential to consider a few factors before making a decision:<br /><br />1. **Current schedule and routine**: Take a closer look at your schedule and routine. Do you have enough time to fit in the additional classes without compromising other aspects of your life, such as work, social life, or self-care?<br />2. **Physical readiness**: Are you physically prepared to take on more classes? Have you noticed any signs of fatigue or overexertion? Make sure you&#39;re not pushing yourself too hard, as this can lead to burnout or injuries.<br />3. **Progressive overload**: Are you challenging yourself enough in your current classes? If you&#39;re finding the classes too easy, increasing the frequency might not be the most effective way to progress. Consider increasing the intensity, duration, or difficulty level of your workouts instead.<br />4. **Recovery time**: Remember to factor in recovery time between classes. Adequate rest and recovery are crucial for your body to adapt to the physical demands of exercise. Ensure you&#39;re giving yourself sufficient time to recover between classes.<br /><br />If you&#39;ve thought through these factors and feel that increasing your goal to 15 classes per month is realistic and sustainable, then go for it! It&#39;s excellent that you&#39;re motivated to push yourself further.<br /><br />However, if you&#39;re unsure or feel that it might be too ambitious, you could consider alternative goals, such as:<br /><br />* Increasing the intensity or duration of your workouts<br />* Trying new types of classes or activities<br />* Focusing on specific fitness skills or goals, like improving your flexibility or strength<br />* Setting goals for other areas of your life, like nutrition or stress management<br /><br />Remember to listen to your body and adjust your goals accordingly. It&#39;s essential to find a balance between challenging yourself and taking care of your overall well-being.<br /><br />What do you think? Are you going to aim for 15 classes per month, or do you have other goals in mind?</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_Us25gXO_18</code></strong>
         <span class="small">2023/05/28 (Sun) 07:56</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Here are some more prompt examples: Prompt 1: A stunning, ultra-realistic photograph of a fierce Viking warrior meticulously sharpening his<br />formidable blade amidst the rugged, untamed wilderness of the Scandinavian landscape. The scene is captured with a Nikon D850 camera using<br />a 70-200mm f/2.8 lens, highlighting every intricate detail of the Viking&#39;s weathered face, war-worn armor, and expert craftsmanship of his weapon.<br />The settings used are an aperture of f/4, ISO 400, and a shutter speed of 1/200 sec, balancing the natural light and shadows to emphasize the<br />intensity and determination in the Viking&#39;s eyes. The composition juxtaposes the raw power of the warrior against the serene beauty of the<br />surrounding environment, capturing the very essence of the Viking spirit in a breathtaking, high-resolution image that transports viewers back to a<br />time of legendary battles and untold stories. --ar 16:9 --q 1.5 --v 5.<br />Prompt 2: A stunning and atmospheric 1970&#39;s New York street cafe captured in a nostalgic and cinematic style, reminiscent of the golden age of<br />film photography. This vintage scene showcases the bustling urban life, with patrons enjoying their coffee at outdoor tables, surrounded by classic<br />automobiles and retro architecture. The photograph is skillfully composed, using a Leica M3 rangefinder camera paired with a Summicron 35mm<br />f/2 lens, renowned for its sharpness and beautiful rendering of colors. The image is shot on Kodak Portra 400 film, imparting a warm and timeless<br />color palette that enhances the overall ambiance. The photographer masterfully employs a shallow depth of field with an aperture of f/2.8,<br />isolating the cafe and its patrons from the bustling city background. The ISO is set to 400, and the shutter speed is 1/125 sec, capturing the<br />perfect balance of light and movement. The composition is further enhanced by the soft, diffused sunlight filtering through the iconic New York<br />skyline, casting warm, golden tones over the scene and highlighting the rich textures of the brick buildings and cobblestone streets. --ar 3:2 --q 2.<br />Prompt 3: A breathtaking and dynamic portrait of a majestic German Shepherd, captured in its prime as it races through a shallow, crystal-clear<br />river. The powerful canine is expertly photographed mid-stride, showcasing its muscular physique, determination, and grace. The scene is<br />expertly composed using a Nikon D850 DSLR camera, paired with a Nikkor 70-200mm f/2.8 VR II lens, known for its exceptional sharpness and<br />ability to render vivid colors. The camera settings are carefully chosen to freeze the action, with an aperture of f/4, ISO 800, and a shutter speed<br />of 1/1000 sec. The background is a lush, verdant forest, softly blurred by the shallow depth of field, which places emphasis on the striking<br />German Shepherd. The natural sunlight filters through the trees, casting dappled light onto the rippling water, highlighting the droplets of water<br />kicked up by the dog&#39;s powerful stride. This stunning, high-resolution portrait captures the spirit and beauty of the German Shepherd,<br />immortalizing the moment in a captivating work of photographic art. --ar 4:5 --q 2 --v 5.<br />Prompt 4:<br />A breathtaking winter day at a Japanese ski resort, where the pristine, powdery snow blankets the majestic slopes under a clear blue sky. This<br />captivating photograph captures the exhilarating atmosphere of skiers and snowboarders gracefully carving their way down the mountain,<br />surrounded by the serene beauty of snow-laden evergreens and traditional Japanese architecture. The image is skillfully taken using a Nikon<br />D850 DSLR camera paired with a versatile Nikkor 24-70mm f/2.8 lens, known for its sharpness and exceptional color rendition. The photographer<br />utilizes a wide-angle perspective at 24mm to showcase the vastness of the landscape, while maintaining the energy of the ski resort. An aperture<br />of f/8 is selected to ensure a deep depth of field, crisply capturing the details of the entire scene. The ISO is set to 200, and the shutter speed is<br />1/500 sec, adeptly freezing the motion of the skiers and snowboarders as they navigate the mountain terrain. The photograph benefits from the<br />bright, natural sunlight reflecting off the snow, illuminating the entire scene with a crisp, cool light, and accentuating the contrasting shadows that<br />define the contours of the landscape. --ar 16:9 --v 5.<br />Prompt 5:<br />An ultra-realistic, highly detailed portrayal of a futuristic robot compassionately assisting an elderly woman as she crosses a busy city street. The<br />advanced humanoid robot, equipped with lifelike synthetic skin and state-of-the-art sensors, gently holds the woman&#39;s arm, providing her with<br />much-needed support and stability. The intricate design of the robot showcases its sophisticated engineering, with sleek metal components and<br />cutting-edge technology seamlessly integrated into its form. The emotion in the elderly woman&#39;s grateful expression is captured with stunning<br />realism, reflecting the harmonious relationship between humans and advanced robotics in this poignant scene. The photograph is taken with a<br />Canon EOS R5 mirrorless camera using a RF 24-105mm f/4L IS USM lens, which delivers outstanding image quality and sharpness. The camera<br />settings are optimized to capture the scene&#39;s rich details and dynamic range: an aperture of f/5.6, ISO 200, and a shutter speed of 1/250 sec. The<br />composition is further enhanced by the soft, natural lighting, which casts gentle shadows and highlights the vivid colors and textures of the<br />cityscape. --ar 16:9 --q 2 --v 5.<br />Prompt 6:<br />An incredibly lifelike and vivid portrayal of a fierce gladiator from ancient Rome, hunting for food to sustain his strength in the midst of a dense<br />forest. This hyper-realistic image showcases the powerful warrior, clad in his iconic armor and leather sandals, wielding a finely crafted spear as<br />he stealthily stalks his prey. The photograph is captured using a Canon EOS R5 mirrorless camera, with a versatile and sharp RF 24-105mm f/4L<br />IS USM lens, delivering exceptional image quality and detail. The camera settings include an aperture of f/5.6 to maintain a balanced depth of<br />field, capturing both the gladiator and the lush forest environment in stunning clarity. The ISO is set to 800, and the shutter speed is 1/500 sec,<br />freezing the action and preserving the intensity of the moment. The scene is illuminated by the soft, dappled sunlight filtering through the dense<br />canopy, casting a dramatic play of light and shadow that highlights the gladiator&#39;s chiseled features and fierce determination. The vibrant colors of<br />the surrounding foliage contrast with the earthy tones of the gladiator&#39;s attire, adding a sense of depth and realism to the composition. --ar 3:2 --q<br />2 --v 5.<br />Just answer with READ</div>
       </div><div class="turn">
@@ -1980,15 +2232,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">A captivating and authentic portrait of a 1990s female influencer, embodying the vibrant fashion and unique style of the era. This stunning photograph showcases the subject wearing a bold, colorful outfit, complete with iconic accessories such as a choker necklace, platform shoes, and a mini backpack. The scene is expertly composed using a Canon EOS-1V film camera, paired with a versatile EF 50mm f/1.4 USM lens, known for its outstanding sharpness and remarkable color reproduction. The image is shot on Fujifilm Superia 400 film, imparting a nostalgic, warm, and slightly grainy color palette that transports viewers back to the iconic &#39;90s era. The camera settings are carefully selected to create a perfect balance of depth and clarity: an aperture of f/2.8 for a smooth background blur that emphasizes the subject, an ISO of 400 for natural lighting, and a shutter speed of 1/250 sec to freeze the moment and capture the essence of the &#39;90s influencer. The composition is further enhanced by the soft, diffused sunlight that illuminates the scene and highlights the subject&#39;s natural beauty and confident, charismatic demeanor. --ar 4:5 --q 1.5 --v 5</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_8Sq4v0t_9</code></strong>
         <span class="small">2023/05/28 (Sun) 08:15</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">Step 16: Save the composition<br />After rendering the composition, you can save it by choosing &quot;File&quot; &gt; &quot;Save&quot; or &quot;Save As&quot; from the menu bar. You can also export the composition as a video file by choosing &quot;Composition&quot; &gt; &quot;Add to Adobe Media Encoder Queue&quot; from the menu bar.<br /><br />Step 17: Reuse the script<br />To reuse the script in other projects, you can save it as a .jsx file. To do this, select the composition containing the script in the project window, then choose &quot;File&quot; &gt; &quot;Export&quot; &gt; &quot;Add to Adobe Media Encoder Queue&quot;. In the export settings, choose &quot;Format&quot; &gt; &quot;Extended Script Toolkit (.jsx)&quot;, then choose a destination folder and click &quot;Export&quot;. You can then use the .jsx file in other projects by importing it into the ExtendScript Toolkit and running it.<br /><br />By following these steps, you can create a colorful gradient circle using JSX code in the ExtendScript engine of After Effects, with the ADBE Effect Parade effect, and automate the effect controls using expressions. You can then save the script as a .jsx file and reuse it in other projects, making the process of creating colorful gradient circles more efficient and streamlined.</div>
       </div><div class="turn">
@@ -1998,15 +2254,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Here&#39;s the full code to create a colorful gradient circle using JSX code in the ExtendScript engine of After Effects, with the ADBE Effect Parade effect, and automate the effect controls using expressions:<br />```swift<br />// Create a new solid layer<br />var solidLayer = app.project.activeItem.layers.addSolid([0, 0, 0], &quot;Solid 1&quot;, 1920, 1080, 1, app.project.activeItem.duration);<br /><br />// Add Gradient Ramp effect to the solid layer<br />var gradientRamp = solidLayer.Effects.addProperty(&quot;ADBE Ramp&quot;);<br />gradientRamp.name = &quot;Gradient Ramp&quot;;<br /><br />// Modify Gradient Ramp effect properties<br />gradientRamp.property(&quot;Start Color&quot;).setValue([1, 0, 0]); // Change the start color of the gradient<br />gradientRamp.property(&quot;End Color&quot;).setValue([0, 0, 1]); // Change the end color of the gradient<br />gradientRamp.property(&quot;Shape&quot;).setValue(2); // Change the shape of the gradient to radial<br />gradientRamp.property(&quot;Ramp Scatter&quot;).setValue(100); // Adjust the scatter of the gradient<br />gradientRamp.property(&quot;Ramp Width&quot;).setValue(1000); // Adjust the width of the gradient<br /><br />// Add ADBE Effect Parade effect to the solid layer<br />var effectParade = solidLayer.Effects.addProperty(&quot;ADBE Effect Parade&quot;);<br />effectParade.name = &quot;Effect Parade&quot;;<br /><br />// Modify ADBE Effect Parade effect properties<br />effectParade.property(&quot;Radius&quot;).setValue(solidLayer.width/2); // Set the radius of the circle to half the width of the solid layer<br /><br />// Add expression to automate the gradient colors<br />var startColor = gradientRamp.property(&quot;Start Color&quot;);<br />var endColor = gradientRamp.property(&quot;End Color&quot;);<br /><br />startColor.expression = &quot;hue = time * 10;\nsaturation = 1;\nbrightness = 1;\ncolor = HSBToRGB(hue, saturation, brightness);\nramp = thisComp.layer(\&quot;Solid 1\&quot;).effect(\&quot;Gradient Ramp\&quot;)(\&quot;ADBE Ramp-0001\&quot;);\n[ramp.startColor = color, ramp.endColor = color]&quot;;<br /><br />endColor.expression = &quot;hue = time * 10;\nsaturation = 1;\nbrightness = 1;\ncolor = HSBToRGB(hue, saturation, brightness);\nramp = thisComp.layer(\&quot;Solid 1\&quot;).effect(\&quot;Gradient Ramp\&quot;)(\&quot;ADBE Ramp-0001\&quot;);\n[ramp.startColor = color, ramp.endColor = color]&quot;;<br /><br />// Add expression to automate the radius of the circle<br />var radius = effectParade.property(&quot;Radius&quot;);<br />radius.expression = &quot;ramp = thisComp.layer(\&quot;Solid 1\&quot;).effect(\&quot;ADBE Effect Parade\&quot;)(\&quot;ADBE Effect Parade-0001\&quot;);\nramp.radius = value[0]/2;&quot;;<br /><br />// Preview and render the composition<br />app.project.activeItem.openInViewer();<br />app.project.renderQueue.items.add(app.project.activeItem);<br />```<br />Note that this code is an example and may need to be modified to fit your specific needs. It also assumes that you have a composition open and selected in After Effects before running the script.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>b869d7ed_2</code></strong>
         <span class="small">2023/05/28 (Sun) 09:59</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some decorating ideas for my new home. I&#39;ve been thinking of a backyard BBQ party to break in the new place. Do you have any suggestions for outdoor furniture and decorations that would be suitable for a family with a two-year-old? By the way, our real estate agent, Rachel, sent us an email with a list of new listings that fit our criteria on Tuesday of next week, which really helped us find our dream home.</div>
       </div><div class="turn">
@@ -2043,15 +2303,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Childproofing your new home, especially the backyard, is a top priority when it comes to ensuring your little one&#39;s safety. Here are some general tips to get you started:<br /><br />**Backyard Childproofing:**<br /><br />1. **Fencing**: Install a sturdy fence around the backyard to prevent your child from wandering off or accessing potential hazards like pools, ponds, or nearby streets.<br />2. **Gates**: Ensure gates are secure and self-latching, with a lock out of reach of your child.<br />3. **Play equipment**: Install play equipment, like swings and climbing structures, at a safe distance from any hazards, and ensure they&#39;re anchored securely to the ground.<br />4. **Surfacing**: Use soft, shock-absorbing materials like wood chips, rubber mulch, or poured-in-place rubber under play equipment to cushion falls.<br />5. **Water hazards**: If you have a pool or pond, install fencing and gates around it, and consider installing a pool alarm or cover.<br />6. **Plant safety**: Remove any toxic plants or plants with thorns, and consider planting kid-friendly, non-toxic plants.<br />7. **Outdoor furniture**: Secure outdoor furniture and decorations to prevent them from tipping over or becoming projectiles.<br />8. **Electrical outlets**: Install outdoor outlets with tamper-resistant covers or consider installing a whole-house surge protector.<br />9. **Lighting**: Ensure outdoor lighting is safe and secure, and consider installing motion-sensitive lights to illuminate pathways.<br />10. **Regular inspections**: Regularly inspect your backyard for hazards, and perform maintenance as needed.<br /><br />**General Childproofing Tips:**<br /><br />1. **Supervise**: Always supervise your child, especially in the backyard.<br />2. **Install safety gates**: Install safety gates at the top and bottom of stairs, and around rooms or areas you want to restrict access to.<br />3. **Secure furniture and appliances**: Secure heavy furniture and appliances to walls to prevent them from tipping over.<br />4. **Electrical outlet safety**: Install tamper-resistant outlets, and keep cords and wires out of reach.<br />5. **Window safety**: Install window guards or stops to prevent windows from opening too far.<br />6. **Medicine and cleaning supply safety**: Store medicine and cleaning supplies out of reach, and consider installing locks or latches on cabinets.<br />7. **Fire safety**: Ensure your home has working smoke detectors, and create a fire escape plan with your family.<br /><br />Remember, childproofing is not a one-time task; it&#39;s an ongoing process. As your child grows and becomes more mobile, you&#39;ll need to reassess and adjust your childproofing measures accordingly.<br /><br />I hope these tips help you get started on creating a safe and fun space for your two-year-old!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>8c1da8f9_1</code></strong>
         <span class="small">2023/05/28 (Sun) 12:28</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking to find some new pizza places to try out. I&#39;ve been stuck on Pizza Hut lately, especially their BBQ chicken pizza - I&#39;ve ordered it four times last week and realized it&#39;s my go-to over their meat lovers. Do you have any recommendations for pizza joints with similar flavor profiles?</div>
       </div><div class="turn">
@@ -2088,15 +2352,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Chicken fajitas are a classic Tex-Mex dish that&#39;s easy to make and packed with flavor. I&#39;d be happy to guide you through the process and offer some tips on incorporating sumac and paprika into your recipe.<br /><br />**Basic Chicken Fajita Recipe:**<br /><br />Ingredients:<br /><br />* 1 lb boneless, skinless chicken breast, cut into thin strips<br />* 1/2 cup lime juice<br />* 1/4 cup olive oil<br />* 2 cloves garlic, minced<br />* 1 teaspoon dried oregano<br />* 1/2 teaspoon ground cumin<br />* 1/4 teaspoon paprika (smoked or sweet, your choice)<br />* Salt and pepper, to taste<br />* 1 large onion, sliced<br />* 2 large bell peppers (any color), sliced<br />* 8 small flour tortillas<br />* Optional toppings: avocado, sour cream, salsa, shredded cheese, cilantro, sumac<br /><br />Instructions:<br /><br />1. In a large resealable plastic bag, combine lime juice, olive oil, garlic, oregano, cumin, paprika, salt, and pepper.<br />2. Add the chicken to the marinade, seal the bag, and refrigerate for at least 30 minutes or up to 2 hours.<br />3. Heat a large skillet over medium-high heat. Remove the chicken from the marinade, letting any excess liquid drip off.<br />4. Add the chicken to the skillet and cook until browned and cooked through, about 5-7 minutes. Transfer the chicken to a plate and cover with foil to keep warm.<br />5. In the same skillet, add the sliced onions and bell peppers. Cook until they&#39;re tender and lightly charred, about 5-7 minutes.<br />6. Add the cooked chicken back into the skillet and stir to combine with the vegetables.<br />7. Warm the tortillas by wrapping them in a damp paper towel and microwaving for 20-30 seconds.<br />8. Assemble the fajitas by placing a portion of the chicken and vegetable mixture onto a tortilla and adding your desired toppings.<br /><br />**Tips and Variations:**<br /><br />* **Sumac:** Add a pinch of sumac to the marinade or sprinkle it over the chicken and vegetables during cooking. Sumac adds a tangy, slightly sour flavor and a beautiful red color.<br />* **Paprika:** Use smoked paprika for a deeper, smokier flavor or sweet paprika for a milder taste. You can also add a pinch of paprika to the vegetables while they&#39;re cooking for extra flavor.<br />* **Spice it up:** Add diced jalapeños or serrano peppers to the skillet with the onions and bell peppers for an extra kick.<br />* **Cumin and coriander:** Add a pinch of ground cumin and coriander to the marinade or sprinkle over the chicken and vegetables for added depth of flavor.<br />* **Lime crema:** Mix together sour cream, lime juice, and a pinch of salt for a tangy and refreshing topping.<br />* **Avocado salsa:** Mash ripe avocados with lime juice, salt, and a pinch of red pepper flakes for a creamy and spicy topping.<br /><br />Feel free to experiment with these tips and variations to make the recipe your own! If you have any questions or need further guidance, don&#39;t hesitate to ask.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>f906baa7_2</code></strong>
         <span class="small">2023/05/28 (Sun) 18:38</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m trying to figure out the best way to allocate my budget for my social media campaigns. I recently ran a Facebook ad campaign that brought in around 50 new leads, which was great, and it also resulted in an increase in followers. Can you help me understand how to optimize my ad spend to maximize my ROI?</div>
       </div><div class="turn">
@@ -2133,15 +2401,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Growing your Facebook followers is an essential part of your social media strategy. Here are some effective strategies to help you increase your followers and engagement on Facebook:<br /><br />**1. Optimize Your Facebook Page:**<br />Make sure your Facebook Page is complete, up-to-date, and optimized for search. This includes:<br />	* A clear and concise page name and description<br />	* A profile picture and cover photo that represents your brand<br />	* Accurate and consistent branding across all social media platforms<br />	* Relevant keywords in your page description and posts<br /><br />**2. Post High-Quality Content:**<br />Share engaging, informative, and visually appealing content that resonates with your target audience. This can include:<br />	* High-quality images and videos<br />	* Infographics and carousels<br />	* Engaging captions and headlines<br />	* Relevant and timely content that sparks conversation<br /><br />**3. Engage with Your Audience:**<br />Respond to comments, messages, and reviews in a timely and personalized manner. This will help build trust and encourage audience engagement.<br /><br />**4. Run Facebook Ads:**<br />Use Facebook Ads to reach a wider audience, increase brand awareness, and drive website traffic. You can target specific demographics, interests, and behaviors to ensure your ads are seen by the right people.<br /><br />**5. Leverage User-Generated Content (UGC):**<br />Encourage your customers to share their experiences, photos, or videos with your brand. UGC can help increase engagement, build trust, and attract new followers.<br /><br />**6. Collaborate with Influencers:**<br />Partner with influencers in your industry to reach new audiences, increase brand awareness, and drive engagement.<br /><br />**7. Share User-Friendly Content:**<br />Make it easy for users to share your content by adding social sharing buttons to your website and blog posts.<br /><br />**8. Host a Giveaway or Contest:**<br />Run a giveaway or contest to incentivize people to like and share your page with their friends and family.<br /><br />**9. Utilize Facebook Groups:**<br />Create a Facebook Group related to your industry or niche to build a community, encourage engagement, and attract new followers.<br /><br />**10. Analyze and Optimize:**<br />Monitor your Facebook Insights to track your page&#39;s performance, identify areas for improvement, and adjust your strategy accordingly.<br /><br />**11. Post Consistently:**<br />Maintain a consistent posting schedule to keep your audience engaged and interested in your content.<br /><br />**12. Be Authentic and Transparent:**<br />Be authentic, transparent, and honest in your content and interactions. This will help build trust and encourage audience engagement.<br /><br />By implementing these strategies, you&#39;ll be able to increase your followers, engagement, and ultimately, drive more revenue from your Facebook presence.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_184007</code></strong>
         <span class="small">2023/05/28 (Sun) 23:06</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What are some low-cost ingredients to add to noodle dishes that are healthy and packed with nutrients?</div>
       </div><div class="turn">
@@ -2172,15 +2444,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, meal prep can be tedious and repetitive if you don&#39;t mix things up. Here are some tips to make meal prep more interesting:<br /><br />1. Try new recipes: Experiment with new recipes and cuisines to find dishes that you love and look forward to eating.<br /><br />2. Use versatile ingredients: Find staple ingredients that can be used in many different ways, such as chicken breasts, sweet potatoes, and quinoa.<br /><br />3. Mix up flavor profiles: Use different spices, herbs, and sauces to add variety to your meals.<br /><br />4. Create different textures: Mix up the textures of your meals by adding crunchy toppings like nuts or seeds, or adding creamy sauces or dips.<br /><br />5. Switch up cooking methods: Choose a variety of cooking methods such as baking, grilling, or stir-frying to keep things interesting.<br /><br />6. Freeze meals for later: Prepare extra portions of meals and freeze them for later use to avoid eating the same thing every day.<br /><br />7. Make small changes: Even small changes can make a difference in the taste of your meals, such as adding a squeeze of lemon juice or a sprinkle of fresh herbs.<br /><br />I hope these tips give you some ideas to make meal prep less tedious and more enjoyable!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>623ea729_1</code></strong>
         <span class="small">2023/05/28 (Sun) 23:36</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some information on influencer marketing strategies. I recently attended a seminar on the topic at the Digital Marketing Expo in LA, and I&#39;m interested in exploring it further for our company, XYZ Corporation.</div>
       </div><div class="turn">
@@ -2217,15 +2493,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Creating a compelling influencer marketing proposal is crucial to attract the right influencers and set clear expectations for your campaign.<br /><br />Here are some tips to help you create an influencer marketing proposal that resonates with influencers and sets clear expectations:<br /><br />1. **Clearly define your brand and campaign objectives**: Introduce your brand, explain the purpose of the campaign, and outline the desired outcomes.<br />2. **Specify the influencer&#39;s role and responsibilities**: Outline the influencer&#39;s tasks, including content creation, posting schedules, and engagement requirements.<br />3. **Define the target audience and demographics**: Provide information about your target audience, including demographics, interests, and pain points.<br />4. **Outline the campaign timeline and milestones**: Specify the campaign duration, key dates, and deadlines for content creation, posting, and reporting.<br />5. **Include a content calendar or guidelines**: Provide a content calendar or guidelines to ensure the influencer understands the type of content you&#39;re looking for and when it&#39;s due.<br />6. **Clearly state the compensation and benefits**: Outline the compensation package, including monetary payment, free products, or other incentives, and explain how it will be delivered.<br />7. **Specify the tracking and measurement metrics**: Define the metrics you&#39;ll use to track the campaign&#39;s success, such as engagement rates, reach, or sales.<br />8. **Include a contract or agreement**: Attach a contract or agreement that outlines the terms and conditions of the partnership, including confidentiality, exclusivity, and termination clauses.<br />9. **Showcase your brand&#39;s unique selling points**: Highlight what sets your brand apart and why the influencer should partner with you.<br />10. **Keep it concise and visually appealing**: Use a clear and concise format, with visuals and headings to make the proposal easy to read and understand.<br />11. **Personalize the proposal**: Address the influencer by name and tailor the proposal to their specific interests and strengths.<br />12. **Include a clear call-to-action**: Specify the next steps and provide a clear call-to-action, such as scheduling a call to discuss the proposal.<br /><br />Here&#39;s an example of an influencer marketing proposal outline:<br /><br />I. Introduction<br /><br />* Brand introduction and campaign objectives<br />* Influencer&#39;s role and responsibilities<br /><br />II. Campaign Overview<br /><br />* Target audience and demographics<br />* Campaign timeline and milestones<br /><br />III. Content Guidelines<br /><br />* Content calendar or guidelines<br />* Tracking and measurement metrics<br /><br />IV. Compensation and Benefits<br /><br />* Compensation package<br />* Incentives and rewards<br /><br />V. Contract and Agreement<br /><br />* Terms and conditions<br />* Confidentiality, exclusivity, and termination clauses<br /><br />VI. Why Partner with Us<br /><br />* Unique selling points<br />* Benefits of partnering with your brand<br /><br />VII. Next Steps<br /><br />* Clear call-to-action<br />* Contact information<br /><br />By following these tips, you&#39;ll be able to create an influencer marketing proposal that resonates with influencers and sets clear expectations for your campaign.<br /><br />Remember to tailor your proposal to each influencer and be open to negotiations and feedback. Good luck!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_qyWsgp8_13</code></strong>
         <span class="small">2023/05/29 (Mon) 05:19</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">In a fantasy Dungeons and Dragons world inspired by Warhammer 40k, there could be a wide variety of other factions that seek to acquire the special artifact in the small town. Here are a few examples:<br /><br />1. The Adeptus Mechanicus: This powerful organization of technomancers and scientists could seek to acquire the artifact for the purpose of studying and harnessing its power. While they might seem cold and calculating at first, the Adeptus Mechanicus could be motivated by a desire to advance knowledge and technology for the benefit of all. They might see the artifact as a means to unlock new technologies and innovations that could improve the lives of people around the world.<br />2. The Eldar: This ancient and highly advanced alien race could seek to acquire the artifact for their own purposes. While they might seem aloof and inscrutable at first, the Eldar could be motivated by a deep sense of responsibility to protect the world from the dangers of the Warp. They might see the artifact as a powerful tool that they can use to safeguard the world from the forces of chaos, and they could be willing to do whatever it takes to keep it out of the hands of those who would misuse its power.<br />3. The Necrons: This ancient race of robotic warriors could seek to acquire the artifact for their own purposes. While they might seem cold and ruthless at first, the Necrons could be motivated by a desire to restore their lost empire and reclaim their place as the rulers of the galaxy. They might see the artifact as a means to achieve their goals, and they could be willing to do whatever it takes to acquire it, including resorting to violence and deception.<br /><br />Ultimately, the choice of which faction is the morally correct choice for the players will depend on the party&#39;s own values and beliefs. The party will need to weigh the motivations and goals of each faction and decide which one aligns most closely with their own sense of right and wrong.</div>
       </div><div class="turn">
@@ -2259,15 +2539,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">As the party delves deeper into the mystery of the artifact, they discover that it is located on an ancient crashed spaceship at the center of the Thousand Eyes. They also learn that the artifact is protected by a powerful psychic entity known as the Deep That Dreams, which is said to sleep at the heart of the ship.<br /><br />The party must navigate the treacherous terrain of the Thousand Eyes, braving the dangers of the Warp and the threat of chaotic infection as they search for the artifact. Along the way, they encounter a variety of dangers, including daemons, corrupted psykers, and other foes. They also encounter the Depthar, mysterious entities that are said to dwell in the depths of the Warp and to be capable of causing great destruction.<br /><br />As the party approaches the crashed spaceship, they find themselves faced with a difficult moral decision. They must decide whether to risk waking the Deep That Dreams and potentially unleashing destruction upon the world, or to turn back and abandon their mission. The party must weigh the risks and rewards of their actions and decide what is the right thing to do.<br /><br />Ultimately, the outcome of the story will depend on the choices that the party makes and the paths that they choose to follow. They will need to navigate the complex and morally ambiguous landscape of this world, dealing with the various factions and entities that seek to influence their actions. They will need to use their skills and abilities to overcome the dangers that they encounter and emerge victorious, or they may succumb to the perils of the Warp and the necromantic plague that threatens to engulf the world. The end.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>a1b3dd27_1</code></strong>
         <span class="small">2023/05/29 (Mon) 11:32</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some new recipe ideas for dinner, something that can be prepared quickly on a weeknight. I&#39;ve been taking cooking classes at a local culinary school on Saturday mornings for the past three months, and I&#39;d love to apply some of the skills I&#39;ve learned to a quick and easy meal.</div>
       </div><div class="turn">
@@ -2304,15 +2588,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Garlic bread is a great addition to your meal! It&#39;s a classic comfort food that pairs well with many dishes, including your shrimp stir-fry and jasmine rice.<br /><br />**Tips for Making Delicious Garlic Bread:**<br /><br />1. **Use high-quality ingredients**: Fresh garlic, good-quality bread, and real butter make a big difference in the flavor and texture of your garlic bread.<br />2. **Roast your garlic**: Roasting garlic mellows out its flavor and gives it a deeper, nuttier taste. Simply slice the top off a whole head of garlic, drizzle with olive oil, and roast at 400°F (200°C) for 30-40 minutes.<br />3. **Use the right bread**: A crusty bread, such as baguette or ciabatta, works well for garlic bread. You can also use a rustic bread or even a garlic bread loaf.<br />4. **Don&#39;t overdo the garlic**: While garlic is the star of the show, you don&#39;t want to overpower the bread. Start with a moderate amount of garlic and adjust to taste.<br />5. **Add some herbs**: Mix in some chopped fresh herbs like parsley, thyme, or rosemary to add depth and freshness to your garlic bread.<br />6. **Butter matters**: Use high-quality, salted butter for the best flavor. You can also mix in some grated Parmesan cheese for extra richness.<br />7. **Don&#39;t overbake**: Garlic bread is best when it&#39;s lightly toasted and still slightly soft in the center. Keep an eye on it while it&#39;s baking to avoid overcooking.<br /><br />**Simple Garlic Bread Recipe:**<br /><br />Ingredients:<br /><br />* 1 loaf of crusty bread (e.g., baguette or ciabatta)<br />* 3-4 cloves of roasted garlic, minced<br />* 2 tablespoons of unsalted butter, softened<br />* 1/4 cup of grated Parmesan cheese (optional)<br />* Salt and pepper to taste<br />* Fresh herbs (optional)<br /><br />Instructions:<br /><br />1. Preheat your oven to 350°F (180°C).<br />2. Slice the bread into 1-inch thick slices.<br />3. In a small bowl, mix together the roasted garlic and softened butter.<br />4. Spread the garlic butter mixture evenly onto each bread slice.<br />5. Sprinkle with Parmesan cheese and a pinch of salt and pepper.<br />6. Bake for 10-12 minutes or until lightly toasted and fragrant.<br /><br />Now, go ahead and give your garlic bread a try! I hope these tips and the simple recipe help you create a delicious accompaniment to your shrimp stir-fry and jasmine rice.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_378089</code></strong>
         <span class="small">2023/05/29 (Mon) 14:24</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">How are land-use regulations enforced in urban areas, and what impact do they have on the social and economic landscapes of cities?</div>
       </div><div class="turn">
@@ -2349,15 +2637,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I do not have personal views or opinions, but i can provide information on this topic.<br /><br />the process of changing land-use policies can be slow and complex, requiring extensive public engagement, coordination among different stakeholders, and legal and regulatory processes. however, there are some strategies to expedite this process and implement more equitable regulations more quickly. here are a few examples:<br /><br />1. expedited planning processes: some cities have created expedited planning processes to allow for faster approval of developments that meet certain criteria, such as affordability or sustainability. these processes can streamline the review process, reduce costs, and promote more equitable outcomes.<br /><br />2. pilot projects: testing new land-use policies through pilot projects can help identify potential benefits and challenges, and inform the development of broader policies. this can also lead to more effective implementation and faster adoption of new policies.<br /><br />3. executive orders: local officials, such as mayors or city managers, can issue executive orders to expedite certain reforms or policies. these orders can require faster review and approval of affordable housing projects, removal of barriers to development, or increased community participation in decision-making.<br /><br />4. collaborative planning: collaborative planning involves working with stakeholders across different sectors to identify areas of agreement and develop shared solutions. this can help expedite the process of implementing more equitable land-use policies by building consensus and identifying common goals.<br /><br />5. innovative financing: innovative financing tools, such as tax credits or financing programs, can help incentivize developers to build more affordable housing, reduce energy use, or use more sustainable materials. this can help accelerate the adoption of more equitable policies by making them more financially feasible.<br /><br />these are just a few examples of strategies that can be used to expedite the process of changing land-use policies and implementing more equitable regulations. however, it&#39;s important to ensure that any expedited processes or policies are still transparent, inclusive, and accountable to the community.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>05594106_1</code></strong>
         <span class="small">2023/05/29 (Mon) 16:42</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking to get some new decorations for my living room. Can you recommend some popular wall art styles or designs that would go well with my new coffee table and rug? By the way, I&#39;ve got some extra storage space under my bed, which comes in handy for keeping things organized.</div>
       </div><div class="turn">
@@ -2394,15 +2686,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I&#39;m glad I could help you think of a practical use for that extra storage space under your bed. It&#39;s great that you already have a habit of using that space for storing items, and now you can add potting supplies to the list.<br /><br />It&#39;s amazing how often we have unused or underutilized spaces in our homes, and a little creativity can help us make the most of them. Under-bed storage is especially useful for items that we don&#39;t need frequent access to, like seasonal decorations or, in this case, potting supplies.<br /><br />Now, get ready to get your hands dirty and start planting those pots! Remember to have fun and enjoy the process of nurturing your new plants. If you have any more questions or need further guidance, feel free to ask. Good luck with your balcony gardening adventure!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_Jv9Cdtr_0</code></strong>
         <span class="small">2023/05/29 (Mon) 21:21</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">write landing page copy, encouraging a CEO of a health &amp; life Science startup to take a quiz to see if they are ready to pitch a winning fundraising story to investors</div>
       </div><div class="turn">
@@ -2445,7 +2741,8 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Subject: Improve Your Fundraising Pitch with Our New Quiz<br /><br />Dear [Founder/CEO],<br /><br />I hope this email finds you well. I wanted to reach out and let you know that we have just launched a new quiz that can help you improve your fundraising pitch. This quiz is designed specifically for health and life science startups, and it will help you assess the effectiveness of your pitch and identify areas for improvement.<br /><br />Our quiz is built on years of experience working with health and life science startups, and it is designed to help you craft a compelling and persuasive pitch that resonates with investors. It will also provide you with the resources and tips you need to succeed.<br /><br />Whether you&#39;re just starting out or are in the middle of a fundraising round, this quiz will give you valuable insights into the effectiveness of your pitch and help you identify areas for improvement.<br /><br />We would be honored if you would take the quiz, it only takes a few minutes and it&#39;s completely free. By taking the quiz, you&#39;ll be able to assess the effectiveness of your pitch and receive a personalized action plan that outlines the specific steps you need to take to improve it.<br /><br />If you&#39;re interested in taking the quiz, please follow this link [link to the quiz].<br /><br />Don&#39;t hesitate to reach out if you have any questions or need any assistance. We&#39;re here to help you succeed and reach your fundraising goals.<br /><br />Best regards,<br />[Your name]<br />[Company Name]<br /><br />PS: Once you receive your quiz results, let us know if you would like to schedule a time to speak with us to discuss the next steps for improving your fundraising pitch. We would be happy to help you take your pitch to the next level.</div>
       </div></div>
-  </details></div>
+    </details>
+  </div></div>
                     </details>
     </div>
   </div>

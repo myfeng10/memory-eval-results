@@ -105,7 +105,7 @@
       border: 1px solid var(--line);
       border-radius: 14px;
       background: #fff;
-      padding: 0 14px 14px;
+      padding: 14px;
     }
     .priority-session {
       border-width: 2px;
@@ -115,21 +115,17 @@
     .secondary-session {
       opacity: 0.9;
     }
-    .session-card summary {
-      list-style: none;
-      cursor: pointer;
+    .session-card-header {
       display: flex;
       justify-content: space-between;
       gap: 12px;
       align-items: center;
-      padding: 14px 0;
-    }
-    .session-card summary::-webkit-details-marker {
-      display: none;
+      margin-bottom: 12px;
     }
     .session-turns {
       display: grid;
       gap: 10px;
+      margin-top: 12px;
     }
     .turn {
       border-top: 1px solid var(--line);
@@ -146,6 +142,40 @@
       font-size: 14px;
       line-height: 1.55;
       word-break: break-word;
+    }
+    .session-memory-wrap {
+      margin-bottom: 12px;
+    }
+    .session-memory-details {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fcfaf5;
+      padding: 0 12px 12px;
+    }
+    .session-memory-details summary,
+    .session-conversation-details summary {
+      cursor: pointer;
+      padding: 12px 0;
+      font-size: 13px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .session-conversation-details {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fafaf7;
+      padding: 0 12px 12px;
+    }
+    .session-memory-list {
+      display: grid;
+      gap: 10px;
+    }
+    .extracted-memory-card {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+      padding: 12px;
     }
     .pill {
       display: inline-block;
@@ -397,15 +427,57 @@
       <h2>Question Sessions</h2>
       <p class="small">Benchmark answer sessions are shown first. Then come other retrieved sessions. Background sessions stay collapsed below.</p>
       <div class="session-subhead">Answer Sessions</div>
-             <div class="session-list"><details class="session-card priority-session">
-    <summary>
+             <div class="session-list"><div class="session-card priority-session">
+    <div class="session-card-header">
       <div>
         <strong><code>answer_593bdffd_4</code></strong>
         <span class="small">2023/05/20 (Sat) 14:38</span>
       </div>
       <div><span class="pill">ground truth</span> <span class="pill pill-answer">answer session</span> <span class="pill pill-retrieved">retrieved</span></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    <div class="session-memory-wrap"><details class="session-memory-details">
+    <summary>Extracted Memories (2)</summary>
+    <div class="session-memory-list"><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 1</strong>
+      <div>
+        
+        <span class="small">2023-05-20T21:38:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Considering adding wire details to both the B-29 bomber model and the 1/24 scale &#39;69 Camaro model. Specifically interested in tips for bending and shaping wire for general model building, and for soldering wire details like engine wiring and fuel lines for the Camaro. Also sought advice on creating realistic wire bundles and attaching them to the engine and chassis of the Camaro.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Thinking about adding wire details to the B-29 model.<br />Asked for tips on how to bend and shape wire for model building.<br />Considering adding wire details to the 1/24 scale &#39;69 Camaro model.<br />Asked for tips on how to solder wire details together for the Camaro, specifically for engine wiring or fuel lines.<br />Planning to start working on engine wiring and fuel lines for the &#39;69 Camaro model.<br />Asked for tips on how to create a realistic wire bundle or wire wrap.<br />Asked for tips on how to attach wire bundles to the engine and chassis of the Camaro.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Wire</td>
+      </tr></tbody></table>
+  </div><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 2</strong>
+      <div>
+        <span class="pill pill-retrieved">retrieved</span>
+        <span class="small">2023-05-20T21:38:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Planning to use photo-etching for a new 1/72 scale B-29 bomber model kit, a technique never tried before but inspired by online results. Also acquired a 1/24 scale &#39;69 Camaro model kit at a recent model show. Inquired about using Vallejo acrylics with photo-etched details and alternative attachment methods to super glue.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Planning to use photo-etching for a new 1/72 scale B-29 bomber model kit.<br />Never tried photo-etching before.<br />Inspired by amazing results seen online.<br />Acquired a 1/72 scale B-29 bomber model kit.<br />Acquired a 1/24 scale &#39;69 Camaro model kit at a model show last weekend.<br />Inquired about using Vallejo acrylics for painting the B-29 with photo-etching details.<br />Asked for alternative ways to attach photo-etched parts without super glue due to past issues.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Photo-etching</td>
+      </tr></tbody></table>
+  </div></div>
+  </details></div>
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some tips on photo-etching for my new 1/72 scale B-29 bomber model kit. I&#39;ve never tried it before, but I&#39;ve seen some amazing results online. By the way, I just got this kit and a 1/24 scale &#39;69 Camaro at a model show last weekend.</div>
       </div><div class="turn">
@@ -442,15 +514,58 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Creating a realistic wire bundle or wire wrap is a great way to add detail to your &#39;69 Camaro model&#39;s engine compartment! Here are some tips to help you create a convincing wire bundle and attach it to the engine and chassis:<br /><br />**Creating a Realistic Wire Bundle**<br /><br />1. **Choose the right wire**: Use a thin, flexible wire with a small diameter (around 0.5mm to 1mm) to create a realistic wire bundle. You can use copper, aluminum, or steel wire, but copper is a popular choice due to its ease of bending and shaping.<br />2. **Select the right colors**: Choose wire colors that match the actual wires found in a &#39;69 Camaro engine compartment. You can use reference photos or consult with a Camaro enthusiast to get the colors right.<br />3. **Twist and bundle**: Twist multiple wires together to create a bundle, using a wire twist tool or a small pair of pliers. Make sure to leave some slack in the wires to allow for flexibility.<br />4. **Secure the bundle**: Use a wire wrap tool or a small piece of wire to secure the bundle together, creating a neat and organized appearance.<br />5. **Add wire looms**: Use wire looms or wire conduit to protect the wires and add a realistic touch. You can use plastic or metal wire looms, depending on your preference.<br /><br />**Attaching the Wire Bundle to the Engine and Chassis**<br /><br />1. **Plan the route**: Study reference photos to determine the correct route for the wire bundle. Plan the path the wires will take, ensuring they follow the contours of the engine and chassis.<br />2. **Use wire clips**: Attach wire clips to the engine and chassis to secure the wire bundle. You can use small plastic or metal clips, depending on the application.<br />3. **Route the bundle**: Route the wire bundle along the planned path, securing it to the engine and chassis using the wire clips.<br />4. **Add wire ties**: Use wire ties to secure the wire bundle to the engine and chassis, adding an extra layer of realism.<br />5. **Blend with the surroundings**: Use paint and weathering techniques to blend the wire bundle with the surrounding engine and chassis components.<br /><br />**Additional Tips**<br /><br />1. **Reference, reference, reference**: Study reference photos and consult with Camaro enthusiasts to ensure accuracy and authenticity.<br />2. **Keep it subtle**: Avoid over-detailing the wire bundle, as it can detract from the overall appearance of the model.<br />3. **Use the right adhesives**: Use a strong adhesive, such as super glue or hot glue, to attach the wire clips and wire ties to the engine and chassis.<br />4. **Be patient**: Creating a realistic wire bundle and attaching it to the engine and chassis requires patience and attention to detail.<br /><br />By following these tips, you&#39;ll be able to create a convincing wire bundle and attach it to your &#39;69 Camaro model&#39;s engine and chassis, adding a new level of realism to your model. Good luck!</div>
       </div></div>
-  </details><details class="session-card priority-session">
-    <summary>
+    </details>
+  </div><div class="session-card priority-session">
+    <div class="session-card-header">
       <div>
         <strong><code>answer_593bdffd_1</code></strong>
         <span class="small">2023/05/27 (Sat) 14:40</span>
       </div>
       <div><span class="pill">ground truth</span> <span class="pill pill-answer">answer session</span> <span class="pill pill-retrieved">retrieved</span></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    <div class="session-memory-wrap"><details class="session-memory-details">
+    <summary>Extracted Memories (2)</summary>
+    <div class="session-memory-list"><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 1</strong>
+      <div>
+        
+        <span class="small">2023-05-27T21:40:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Returned to model building and recently finished a simple Revell F-15 Eagle kit. Is looking for tips on weathering techniques to add realism and character to models. Has been experimenting with Vallejo acrylics and AK Interactive weathering products, and is now looking for more advanced techniques.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Recently finished a simple Revell F-15 Eagle kit.<br />Picked up the kit on a whim during a trip to the hobby store in late April.<br />Is looking for tips on weathering techniques for model kits.<br />Has been experimenting with Vallejo acrylics and AK Interactive weathering products.<br />Is looking for more advanced techniques to take models to the next level.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Weathering</td>
+      </tr></tbody></table>
+  </div><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 2</strong>
+      <div>
+        <span class="pill pill-retrieved">retrieved</span>
+        <span class="small">2023-05-27T21:40:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Is thinking of working on a 1/72 scale B-29 bomber next. Wants to try out new techniques like photo-etching and wire details on this model. Is looking for specific tips and recommendations for working with these materials at this scale.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Is thinking of working on a 1/72 scale B-29 bomber next.<br />Wants to try out new techniques like photo-etching and wire details.<br />Is looking for specific tips and recommendations for working with these materials at this scale.<br />Is also looking for specific weathering techniques or products that would work well on a 1/72 scale model like the B-29 bomber.<br />Is looking forward to adding extra details like antennas and aerials to the B-29 bomber.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Photo-etching</td>
+      </tr></tbody></table>
+  </div></div>
+  </details></div>
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some tips on weathering techniques for my model kits. I&#39;ve been getting back into model building and I recently finished a simple Revell F-15 Eagle kit that I picked up on a whim during a trip to the hobby store in late April.</div>
       </div><div class="turn">
@@ -487,15 +602,130 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">You&#39;re welcome! I&#39;m glad I could help. Adding extra details like antennas and aerials can really make your B-29 bomber stand out, and with the right materials and techniques, you can achieve a highly realistic and detailed model.<br /><br />Remember to take your time, be patient, and don&#39;t be afraid to experiment and try new things. It&#39;s all part of the modeling process, and it&#39;s okay to make mistakes – they can often lead to new discoveries and techniques.<br /><br />If you have any more questions or need further guidance, feel free to ask. I&#39;m always here to help. Good luck with your project, and I hope you have a blast adding those extra details to your B-29 bomber!<br /><br />Happy modeling!</div>
       </div></div>
-  </details><details class="session-card priority-session">
-    <summary>
+    </details>
+  </div><div class="session-card priority-session">
+    <div class="session-card-header">
       <div>
         <strong><code>answer_593bdffd_3</code></strong>
         <span class="small">2023/05/29 (Mon) 18:19</span>
       </div>
       <div><span class="pill">ground truth</span> <span class="pill pill-answer">answer session</span></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    <div class="session-memory-wrap"><details class="session-memory-details">
+    <summary>Extracted Memories (6)</summary>
+    <div class="session-memory-list"><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 1</strong>
+      <div>
+        
+        <span class="small">2023-05-30T01:19:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Intended to add rocks and gravel to the riverbed of a diorama to enhance realism and requested recommendations for creating these elements.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Planning to add rocks and gravel to the riverbed.<br />Aims to create a more realistic environment.<br />Requested recommendations for realistic rocks and gravel.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Gravel</td>
+      </tr></tbody></table>
+  </div><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 2</strong>
+      <div>
+        
+        <span class="small">2023-05-30T01:19:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Considered adding fallen trees or branches to the riverbank of a diorama to create a more realistic environment and asked for recommendations on how to create them.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Thinking of adding fallen trees or branches to the riverbank.<br />Aims to create a more realistic environment.<br />Requested recommendations for creating realistic fallen trees or branches.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Branches</td>
+      </tr></tbody></table>
+  </div><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 3</strong>
+      <div>
+        
+        <span class="small">2023-05-30T01:19:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Sought tips on weathering techniques for model tanks, specifically looking for new methods beyond AK Interactive products. Also started working on a diorama featuring a 1/16 scale German Tiger I tank, aiming for realistic terrain.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Looking for weathering techniques for model tanks.<br />Currently uses AK Interactive products.<br />Interested in trying new methods.<br />Started a diorama with a 1/16 scale German Tiger I tank.<br />Goal is to make the diorama terrain look realistic.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Weathering</td>
+      </tr></tbody></table>
+  </div><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 4</strong>
+      <div>
+        
+        <span class="small">2023-05-30T01:19:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Requested recommendations for creating realistic tree foliage for a diorama, specifically for a forested area. Unsure about the best materials to use for this purpose.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Asked for recommendations on realistic tree foliage for a diorama.<br />Wants to create a forested area.<br />Uncertain about materials to use for foliage.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Foliage</td>
+      </tr></tbody></table>
+  </div><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 5</strong>
+      <div>
+        
+        <span class="small">2023-05-30T01:19:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Planned to incorporate a small stream or river into a diorama and sought tips on creating realistic water effects.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Planning to add a small stream or river to a diorama.<br />Requested tips for creating realistic water effects.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Stream</td>
+      </tr></tbody></table>
+  </div><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 6</strong>
+      <div>
+        
+        <span class="small">2023-05-30T01:19:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Considered adding vegetation like water plants or reeds to the riverbank of a diorama and asked for recommendations on creating realistic representations.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Thinking of adding vegetation to the riverbank.<br />Specifically considering water plants or reeds.<br />Asked for recommendations on creating realistic water plants or reeds.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Reeds</td>
+      </tr></tbody></table>
+  </div></div>
+  </details></div>
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some tips on weathering techniques for my model tanks. I&#39;ve been using AK Interactive products, but I&#39;m interested in trying out some new methods. By the way, I also started working on a diorama featuring a 1/16 scale German Tiger I tank, and I&#39;m trying to get the terrain to look as realistic as possible.</div>
       </div><div class="turn">
@@ -532,15 +762,94 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Adding fallen trees or branches can really enhance the realism of your diorama! Creating realistic fallen trees or branches can be a fun and rewarding challenge. Here are some recommendations to help you get started:<br /><br />**Materials:**<br /><br />1. **Wood or twigs:** Use small twigs or branches from your backyard or a craft store to create fallen trees or branches.<br />2. **Wire:** Use wire to create the structure and shape of your fallen trees or branches.<br />3. **Bark and texture:** Use a combination of materials like paper, cardstock, or texture paste to create realistic bark and texture on your fallen trees or branches.<br />4. **Paints and inks:** Use acrylic paints, inks, or markers to color and weather your fallen trees or branches.<br /><br />**Techniques:**<br /><br />1. **Shaping and bending:** Shape and bend the wire to create the structure and shape of your fallen trees or branches.<br />2. **Layering:** Layer the wood or twigs to create a realistic, dimensional look.<br />3. **Texturing:** Use texture paste or medium to add texture and interest to your fallen trees or branches.<br />4. **Weathering:** Use washes, pigments, or drybrushing to weather and age your fallen trees or branches.<br /><br />**Tips and Tricks:**<br /><br />1. **Reference images:** Study reference images of fallen trees or branches to get an idea of their shape, texture, and color.<br />2. **Scale:** Remember to scale your fallen trees or branches to match your 1/16 scale diorama.<br />3. **Color variation:** Use a range of colors to create a realistic, natural look. Consider using shades of brown, gray, and green.<br />4. **Randomization:** Randomize the placement and shape of your fallen trees or branches to create a more natural, organic look.<br />5. **Experimentation:** Don&#39;t be afraid to try out different materials and techniques to find what works best for you.<br /><br />**Specific Techniques for Fallen Trees:**<br /><br />1. **Tree trunk:** Use a combination of wire and wood to create a realistic tree trunk.<br />2. **Branches:** Use smaller twigs or wire to create realistic branches.<br />3. **Roots:** Use wire or small twigs to create realistic roots.<br /><br />**Specific Techniques for Fallen Branches:**<br /><br />1. **Branch shape:** Use wire or small twigs to create realistic branch shapes.<br />2. **Branch texture:** Use texture paste or medium to add texture and interest to your fallen branches.<br />3. **Branch color:** Use a range of colors to create a realistic, natural look. Consider using shades of brown, gray, and green.<br /><br />By following these tips and techniques, you can create realistic and believable fallen trees or branches for your diorama. Good luck, and have fun!<br /><br />Remember, the key to creating a realistic diorama is to pay attention to detail and use a combination of materials and techniques to create a believable environment. Don&#39;t be afraid to experiment and try out new things – it&#39;s all part of the fun!</div>
       </div></div>
-  </details><details class="session-card priority-session">
-    <summary>
+    </details>
+  </div><div class="session-card priority-session">
+    <div class="session-card-header">
       <div>
         <strong><code>answer_593bdffd_2</code></strong>
         <span class="small">2023/05/30 (Tue) 03:22</span>
       </div>
       <div><span class="pill">ground truth</span> <span class="pill pill-answer">answer session</span></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    <div class="session-memory-wrap"><details class="session-memory-details">
+    <summary>Extracted Memories (4)</summary>
+    <div class="session-memory-list"><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 1</strong>
+      <div>
+        
+        <span class="small">2023-05-30T10:22:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Finished a Tamiya 1/48 scale Spitfire Mk.V model kit. Had to learn new painting techniques for metal surfaces. Not entirely happy with the results and is looking for advice to achieve a more realistic finish.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Finished a Tamiya 1/48 scale Spitfire Mk.V model kit.<br />Learned new techniques for painting metal surfaces.<br />Not entirely happy with the results.<br />Seeking advice for a more realistic finish on metal surfaces.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Spitfire</td>
+      </tr></tbody></table>
+  </div><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 2</strong>
+      <div>
+        
+        <span class="small">2023-05-30T10:22:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Found the suggestion of using a wet palette to be a great tip. Is curious about the best way to apply a metallic sheen to a model, as a clear coat is currently being used. Also considering upgrading from a cheap airbrush and is looking for recommendations.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Found the wet palette suggestion to be a great tip.<br />Wants to know the best way to apply a metallic sheen.<br />Currently uses a clear coat for metallic sheen but is unsure if it&#39;s the best approach.<br />Considering upgrading from a cheap airbrush.<br />Seeking recommendations for a good airbrush.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Palette</td>
+      </tr></tbody></table>
+  </div><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 3</strong>
+      <div>
+        
+        <span class="small">2023-05-30T10:22:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Has been experimenting with Vallejo acrylics and AK Interactive weathering products on recent projects. Is curious about the differences and best uses for enamel washes versus acrylic washes for weathering effects.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Experimenting with Vallejo acrylics and AK Interactive weathering products.<br />Wants to understand the differences between enamel washes and acrylic washes.<br />Seeking advice on which type of wash is better for weathering effects.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Vallejo</td>
+      </tr></tbody></table>
+  </div><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 4</strong>
+      <div>
+        
+        <span class="small">2023-05-30T10:22:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Is planning to use enamel washes on an upcoming 1/72 scale B-29 bomber project. Is looking for recommendations for enamel washes that are compatible with acrylic paints.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Planning to use enamel washes on a 1/72 scale B-29 bomber project.<br />Seeking recommendations for enamel washes that work well with acrylic paints.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Bomber</td>
+      </tr></tbody></table>
+  </div></div>
+  </details></div>
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some advice on painting metal surfaces for a model kit. I recently finished a Tamiya 1/48 scale Spitfire Mk.V and had to learn some new techniques, but I&#39;m still not entirely happy with the results. Do you have any tips or recommended products that could help me achieve a more realistic finish?</div>
       </div><div class="turn">
@@ -571,19 +880,23 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">**Enamel Washes for Acrylic Paints: A B-29 Bomber&#39;s Best Friend**<br /><br />When it comes to enamel washes that work well with acrylic paints, you&#39;ll want to look for washes that are specifically designed to be compatible with acrylics. Here are some popular options:<br /><br />1. **Humbrol Enamel Washes**: Humbrol&#39;s enamel washes are a popular choice among modelers, and they work well with acrylic paints. They offer a range of colors, including rust, oil, and grime effects.<br />2. **Testors Enamel Washes**: Testors enamel washes are another well-known option that can be used with acrylic paints. They offer a variety of colors, including metallic and non-metallic effects.<br />3. **Mig Productions Enamel Washes**: Mig Productions offers a range of enamel washes that are specifically designed to work with acrylic paints. They&#39;re known for their high-quality, realistic effects.<br />4. **AK Interactive Enamel Washes**: AK Interactive&#39;s enamel washes are designed to work with acrylic paints and offer a range of effects, including rust, oil, and grime.<br /><br />When using enamel washes with acrylic paints, keep the following tips in mind:<br /><br />1. **Thin your washes**: Enamel washes can be quite thick, so be sure to thin them with a compatible thinner (like enamel thinner or mineral spirits) to achieve a more subtle effect.<br />2. **Test on a small area first**: Before applying the enamel wash to your entire model, test it on a small, inconspicuous area to ensure it doesn&#39;t react poorly with your acrylic paint.<br />3. **Use a gentle touch**: Enamel washes can be quite strong, so use a gentle touch when applying them to your model to avoid overpowering the acrylic paint.<br />4. **Build up layers**: Gradually build up layers of enamel washes and acrylic paints to create a more realistic, worn look.<br /><br />For your 1/72 scale B-29 bomber, you may want to consider using a combination of enamel washes and acrylic paints to achieve a realistic, weathered look. Remember to reference images of real B-29 bombers to get a sense of the weathering patterns and effects you want to achieve.<br /><br />Happy modeling, and I hope your B-29 bomber turns out to be a real showstopper!</div>
       </div></div>
-  </details></div>
+    </details>
+  </div></div>
              
              <details class="other-sessions">
                       <summary>Other Sessions (43)</summary>
-                      <div class="session-list"><details class="session-card secondary-session">
-    <summary>
+                      <div class="session-list"><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_566770</code></strong>
         <span class="small">2023/05/20 (Sat) 08:23</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">How have historical events like imperialism and colonialism influenced modern global politics and relations between nations?</div>
       </div><div class="turn">
@@ -614,15 +927,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">There are several small steps that individuals can take in their daily lives to contribute to a better future:<br /><br />1. Reduce your carbon footprint: Reduce your energy use, by turning off lights and unplugging devices when not in use, using low-energy appliances, driving less, and eating a mostly plant-based diet.<br /><br />2. Support sustainable and ethical businesses: Choose sustainable and ethical businesses that prioritize environmental and social issues and produce products and services that have limited negative impact.<br /><br />3. Engage in responsible consumption: Reduce waste and limit excess consumption by using reusable products, repairing items instead of replacing them, and shopping second-hand when possible.<br /><br />4. Stay informed and engaged: Stay informed about social and political issues, and engage in conversations and actions that promote justice, equity, and sustainability.<br /><br />5. Be aware of your bias: Educate yourself about your own biases and work to overcome them to promote a more equitable and inclusive world.<br /><br />6. Give back: Contribute your time or resources to organizations that work to promote social and environmental causes.<br /><br />While these may seem like small steps, they can have a significant impact when implemented collectively by many individuals. These changes in our behaviors can steer us towards promoting positive change and building a more sustainable and equitable future.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>0cd57281_1</code></strong>
         <span class="small">2023/05/20 (Sat) 19:14</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some recommendations on romantic getaways. My partner and I are thinking of taking a trip to celebrate our anniversary, and I&#39;m considering Las Vegas. We attended my cousin Rachel&#39;s wedding at the Bellagio Hotel last weekend, and it was amazing. Do you have any other suggestions for romantic hotels or activities in Vegas?</div>
       </div><div class="turn">
@@ -659,15 +976,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">What a great question! I&#39;m so glad you asked! As a digital AI assistant, I don&#39;t have personal experiences or plans, but I can certainly provide suggestions for you!<br /><br />After the proposal, you might consider celebrating with a romantic dinner at a special restaurant, a weekend getaway to a cozy bed and breakfast, or a relaxing trip to a beautiful destination. You could also share the news with friends and family, either in person or through a heartfelt announcement on social media.<br /><br />Here are a few more ideas to make the celebration even more special:<br /><br />1. **Champagne toast**: Pop open a bottle of champagne and toast to your engagement, either in the helicopter or at a romantic spot after the flight.<br />2. **Romantic dinner**: Book a reservation at a Michelin-starred restaurant or a cozy, intimate spot with a special menu just for the two of you.<br />3. **Weekend getaway**: Plan a quick weekend escape to a nearby city or a cozy bed and breakfast, where you can relax and enjoy each other&#39;s company.<br />4. **Sunrise or sunset viewing**: Wake up early and watch the sunrise together, or find a spot to watch the sunset, symbolizing the beginning of your new chapter.<br />5. **Personalized gift**: Give each other a thoughtful, personalized gift to commemorate the occasion, such as a custom photo album or a special piece of jewelry.<br /><br />Remember, the most important thing is to celebrate your love and commitment to each other in a way that feels special and meaningful to both of you.<br /><br />What do you think? Do any of these ideas resonate with you, or do you have other plans in mind?</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>e60a93ff_2</code></strong>
         <span class="small">2023/05/20 (Sat) 23:35</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m planning to volunteer at another charity event this weekend and I was wondering if you could help me come up with some conversation starters to break the ice with the other volunteers. I recall that a few months ago, I volunteered at a charity event and met a lot of like-minded people, including a guy named Tom who&#39;s involved with the organization.</div>
       </div><div class="turn">
@@ -704,15 +1025,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">It&#39;s great that you&#39;re following up with Rachel to finalize plans for brunch.<br /><br />When it comes to suggesting a location, you have a few options:<br /><br />1. **Suggest a specific location**: If you have a particular spot in mind, you can suggest it to Rachel. This can be helpful if you know she&#39;s familiar with the area or if you&#39;ve been to the location before and can vouch for its quality.<br />2. **Ask for her preference**: You can ask Rachel if she has a preferred location in mind or if she&#39;d like to suggest a few options. This approach gives her more control over the plans and ensures you choose a spot she&#39;ll enjoy.<br />3. **Give her a few options**: You can provide Rachel with a few location options and let her choose the one that works best for her. This approach offers some guidance while still giving her flexibility.<br /><br />Consider the following factors when deciding:<br /><br />* **Distance and convenience**: If Rachel lives or works in a specific area, it might be more convenient to suggest a location near her.<br />* **Personal preferences**: If you know Rachel has dietary restrictions or preferences, you might want to suggest a location that accommodates her needs.<br />* **Your relationship**: If you&#39;re just getting to know Rachel, you might want to give her more control over the location to ensure she feels comfortable.<br /><br />Here&#39;s an example message that gives her a few options:<br /><br />&quot;Hey Rachel, hope you&#39;re doing well! I was thinking of a few brunch spots for us to catch up this weekend. Would you prefer [Option 1], [Option 2], or [Option 3]? Let me know, and we can finalize plans!&quot;<br /><br />Remember to be flexible and open to her suggestions. The goal is to find a location that works for both of you and sets the stage for a great brunch conversation!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_4SlDk1K_0</code></strong>
         <span class="small">2023/05/21 (Sun) 02:07</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">give me books main categories</div>
       </div><div class="turn">
@@ -725,15 +1050,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">* Non-Fiction<br />* Self-help<br />* Psychology<br />* Personal Development<br />* Education<br />* Mindset/Growth Mindset</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>2f310ba0</code></strong>
         <span class="small">2023/05/21 (Sun) 09:04</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some inspiration for my next art project. Can you suggest some famous abstract expressionist artists I should check out?</div>
       </div><div class="turn">
@@ -770,15 +1099,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">What a great idea! Incorporating your own sketches and drawings into your painting can add a personal, introspective layer to your work. Yes, many artists have successfully incorporated their own drawings into their paintings. Here are a few examples to inspire you:<br /><br />1. **Jean-Michel Basquiat**: Basquiat&#39;s mixed-media paintings often featured his own drawings, scribbles, and writings, which he combined with paint, collage, and other materials to create vibrant, expressive works.<br />2. **Robert Rauschenberg**: Rauschenberg&#39;s Combines series featured his own drawings and paintings, which he combined with found objects and materials to create complex, layered compositions.<br />3. **Ellsworth Kelly**: Kelly&#39;s paintings often featured his own drawings and sketches, which he used to explore color, form, and composition.<br />4. **Cy Twombly**: Twombly&#39;s paintings featured his own scribbles, doodles, and drawings, which he combined with paint and other materials to create expressive, abstract works.<br />5. **Anselm Kiefer**: Kiefer&#39;s paintings often feature his own drawings and sketches, which he uses to explore themes of history, mythology, and the human condition.<br />6. **Julie Mehretu**: Mehretu&#39;s large-scale paintings and prints often feature her own drawings and sketches, which she combines with architectural drawings, maps, and other materials to create complex, layered compositions.<br />7. **Kerry James Marshall**: Marshall&#39;s paintings often feature his own drawings and sketches, which he uses to explore themes of identity, history, and the African American experience.<br /><br />These artists have all used their own drawings in innovative and thought-provoking ways, and their work can serve as a great inspiration for your own project.<br /><br />When incorporating your own drawings into your painting, consider the following tips:<br /><br />* **Choose drawings that resonate with your theme**: Select drawings that align with the themes and emotions you want to convey in your painting.<br />* **Experiment with scale**: Enlarge or reduce your drawings to create a sense of drama or intimacy.<br />* **Combine with other materials**: Mix your drawings with paint, collage, or other materials to create a rich, layered texture.<br />* **Play with transparency**: Use transparent or semi-transparent materials to layer your drawings, creating a sense of depth and visual interest.<br />* **Embrace imperfection**: Don&#39;t be afraid to tear, cut, or manipulate your drawings to create a more organic, expressive feel.<br /><br />Remember, the key to successfully incorporating your own drawings into your painting is to experiment and have fun!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_126967</code></strong>
         <span class="small">2023/05/21 (Sun) 12:34</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Can you provide examples of horror movies that you believe effectively use gore and violence and why?</div>
       </div><div class="turn">
@@ -803,15 +1136,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">It&#39;s completely understandable that you may not find the appeal in watching gore and violence in horror movies. There are many other genres of movies and forms of entertainment that may be more appealing to you. <br /><br />People have different tastes, preferences, and motivations for watching different genres of movies. While some may appreciate the adrenaline rush of watching horror movies, others may prefer comedies, dramas, or action films. It&#39;s important to explore different forms of entertainment and find what resonates with you.<br /><br />Ultimately, the value that individuals find in entertainment is subjective and unique to each person. There is no right or wrong answer when it comes to personal preferences.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>a7d014e4_1</code></strong>
         <span class="small">2023/05/21 (Sun) 20:09</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m thinking of setting up my new laptop when it arrives, and I was wondering if you could help me with some recommendations for antivirus software. By the way, I just ordered a Dell XPS 15 laptop from the Dell website on March 10th, which cost me around $1,800 - it&#39;s supposed to arrive on the 20th.</div>
       </div><div class="turn">
@@ -848,15 +1185,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Noise-cancelling headphones can be a game-changer for immersive listening experiences! I&#39;d be happy to help you find a great pair.<br /><br />Here are some top recommendations for noise-cancelling headphones:<br /><br />1. **Bose QuietComfort 35 II**: Industry-leading noise-cancelling performance, long battery life, and comfortable design.<br />2. **Sony WH-1000XM4**: Excellent noise-cancelling, impressive sound quality, and sleek design.<br />3. **Sennheiser PXC 559**: Advanced noise-cancelling technology, comfortable fit, and detailed sound reproduction.<br />4. **Beats Solo Pro**: Sleek design, long battery life, and effective noise-cancelling, with a focus on bass-heavy sound.<br />5. **Anker Soundcore Space Q32**: Budget-friendly option with impressive noise-cancelling performance, long battery life, and comfortable design.<br /><br />When choosing noise-cancelling headphones, consider the following factors:<br /><br />* **Noise-cancelling technology**: Look for headphones with advanced noise-cancelling algorithms and multiple microphones for better noise detection.<br />* **Sound quality**: Consider the type of sound you prefer: bass-heavy, balanced, or detailed.<br />* **Comfort**: Choose headphones that fit comfortably, with adequate cushioning and adjustable headbands.<br />* **Battery life**: Decide how long you need the headphones to last on a single charge.<br />* **Price**: Noise-cancelling headphones can range from under $100 to over $300, so set a budget and look for options within it.<br /><br />What&#39;s your budget for the headphones, and what type of sound do you prefer?</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>cc85ac85_2</code></strong>
         <span class="small">2023/05/21 (Sun) 20:53</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m planning a beach day with my family and I need some recommendations for sunscreen. We embark on a 7-day family trip to Hawaii today, so I want to make sure we&#39;re well-prepared. What are some good sunscreen brands for kids?</div>
       </div><div class="turn">
@@ -893,15 +1234,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I&#39;m excited to hear it! Go ahead and share your question or topic, and I&#39;ll do my best to provide a helpful and accurate response. I&#39;m ready when you are!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_307895</code></strong>
         <span class="small">2023/05/22 (Mon) 07:07</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Can you provide information on any environmental practices or conservation efforts that were influenced by the Sauk tribe in the Midwest region?</div>
       </div><div class="turn">
@@ -932,15 +1277,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">You&#39;re very welcome! And that&#39;s great to hear. Supporting these important efforts is a valuable contribution to enhancing our environment and helping Native American communities, and I hope you have an interesting and fulfilling experience while doing so.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_34319</code></strong>
         <span class="small">2023/05/22 (Mon) 18:28</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What are some fundamental techniques that beginner artists need to learn in order to improve their drawing skills?</div>
       </div><div class="turn">
@@ -977,15 +1326,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">As an AI language model, I don&#39;t have preferences or emotions. But as an art enthuse, I would say that using filters on a computer program might produce desirable effects, but it can&#39;t replace the art of manually shading.<br /><br />Using a computer program to add depth and dimension to your artwork may seem like an easier and faster option, but it can be limiting in terms of creativity and personal expression. It can also become a crutch, preventing you from developing the skills needed to create original artwork.<br /><br />Remember that the art of shading is an important part of the creative process and can add depth and dimension to your artwork that can&#39;t be replicated by a computer program. It is also a valuable skill that can lead to personal growth and discovery as an artist. So, while filters can be a fun addition to digital art, they should not replace the benefits and rewards of manual shading.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>deadc1e7_2</code></strong>
         <span class="small">2023/05/22 (Mon) 18:37</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m planning to attend more concerts and want to know what&#39;s the best way to find out about upcoming events in my area. Do you have any recommendations? By the way, I just got back from a music festival where I saw The 1975, my favorite band, and it was an amazing experience!</div>
       </div><div class="turn">
@@ -1022,15 +1375,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Booking a hotel room nearby can be a great idea, especially if you want to make the most of your concert experience. Finding a good hotel on a budget can be a challenge, but I&#39;ve got some tips to help you out:<br /><br />**Hotel Booking Websites:**<br /><br />1. **Booking.com**: Booking.com is a popular hotel booking website that offers a wide range of options, including budget-friendly choices.<br />2. **Expedia**: Expedia is another well-known hotel booking website that offers discounts and deals on hotel rooms.<br />3. **Hotels.com**: Hotels.com specializes in hotel bookings and often has a &quot;Deal of the Day&quot; section for budget-conscious travelers.<br />4. **Airbnb**: Airbnb is a great option if you&#39;re looking for a more homey experience or a shared accommodation with friends.<br /><br />**Filtering Options:**<br /><br />1. **Price**: Set a budget and filter hotels by price to find options within your range.<br />2. **Location**: Filter hotels by location to find ones close to the concert venue or city center.<br />3. **Rating**: Filter hotels by rating to find ones with good reviews and a high rating.<br />4. **Amenities**: Filter hotels by amenities like free Wi-Fi, breakfast, or parking to find ones that fit your needs.<br /><br />**Budget-Friendly Tips:**<br /><br />1. **Book in Advance**: Book your hotel room well in advance to get the best deals.<br />2. **Consider a Hostel**: Hostels are a great option for budget-conscious travelers, offering dormitory-style or private rooms at a lower price point.<br />3. **Look for Deals and Discounts**: Keep an eye on hotel websites and booking platforms for special deals, discounts, or promo codes.<br />4. **Negotiate**: If you&#39;re booking directly with a hotel, don&#39;t be afraid to negotiate the price or ask about any available discounts.<br /><br />**Hotel Reviews:**<br /><br />1. **Read Reviews**: Read reviews from multiple sources, including the hotel&#39;s website, booking platforms, and travel forums.<br />2. **Check the Hotel&#39;s Website**: Check the hotel&#39;s website for reviews and testimonials from previous guests.<br />3. **Look for Red Flags**: Be wary of hotels with consistently bad reviews or red flags like bed bugs or cleanliness issues.<br /><br />By following these tips, you should be able to find a good hotel that fits your budget and meets your needs. Remember to book early, be flexible with your dates, and don&#39;t be afraid to negotiate or look for deals.<br /><br />Now, go ahead and find a great hotel room to complement your concert experience!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_AhS7uI8_351</code></strong>
         <span class="small">2023/05/22 (Mon) 23:35</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">Sure, here&#39;s an example of what the front-end UI of the app might look like:<br />```html<br />&lt;!DOCTYPE html&gt;<br />&lt;html&gt;<br />&lt;head&gt;<br />	&lt;title&gt;Farm Management System&lt;/title&gt;<br />	&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;style.css&quot;&gt;<br />&lt;/head&gt;<br />&lt;body&gt;<br />	&lt;div class=&quot;container&quot;&gt;<br />		&lt;header&gt;<br />			&lt;h1&gt;Farm Management System&lt;/h1&gt;<br />		&lt;/header&gt;<br />		&lt;nav&gt;<br />			&lt;ul&gt;<br />				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;<br />				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Farm Map&lt;/a&gt;&lt;/li&gt;<br />				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Crop Planning&lt;/a&gt;&lt;/li&gt;<br />				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Drone Control&lt;/a&gt;&lt;/li&gt;<br />				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Soil Quality&lt;/a&gt;&lt;/li&gt;<br />				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Water Management&lt;/a&gt;&lt;/li&gt;<br />				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Equipment Maintenance&lt;/a&gt;&lt;/li&gt;<br />				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Inventory Management&lt;/a&gt;&lt;/li&gt;<br />				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Surveillance&lt;/a&gt;&lt;/li&gt;<br />				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Settings&lt;/a&gt;&lt;/li&gt;<br />			&lt;/ul&gt;<br />		&lt;/nav&gt;<br />		&lt;main&gt;<br />			&lt;h2&gt;Welcome to the Farm Management System&lt;/h2&gt;<br />			&lt;p&gt;This app allows you to manage your farm efficiently with the help of technology.&lt;/p&gt;<br />			&lt;img src=&quot;farm.jpg&quot; alt=&quot;Farm&quot;&gt;<br />			&lt;h3&gt;Features&lt;/h3&gt;<br />			&lt;ul&gt;<br />				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Farm Map&lt;/a&gt; - View the layout of your farm and the location of your crops and equipment.&lt;/li&gt;<br />				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Crop Planning&lt;/a&gt; - Plan and track the growth of your crops with real-time data from drones.&lt;/li&gt;<br />				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Drone Control&lt;/a&gt; - Control your drone and use it for precision payload delivery and surveillance.&lt;/li&gt;<br />				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Soil Quality&lt;/a&gt; - Monitor the quality of your soil and take necessary steps to improve it.&lt;/li&gt;<br />				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Water Management&lt;/a&gt; - Monitor water usage and automate irrigation systems for efficient use of water resources.&lt;/li&gt;<br />				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Equipment Maintenance&lt;/a&gt; - Schedule and keep track of maintenance tasks for your farm equipment.&lt;/li&gt;<br />				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Inventory Management&lt;/a&gt; - Keep track of your inventory and receive alerts when stock levels are low.&lt;/li&gt;<br />				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Surveillance&lt;/a&gt; - Monitor your farm and receive alerts if unauthorized individuals enter your property.&lt;/li&gt;<br />				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Settings&lt;/a&gt; - Customize the app to fit your specific farm&#39;s needs.&lt;/li&gt;<br />			&lt;/ul&gt;<br />		&lt;/main&gt;<br />		&lt;footer&gt;<br />			&lt;p&gt;&amp;copy; 2023 Farm Management System&lt;/p&gt;<br />		&lt;/footer&gt;<br />	&lt;/div&gt;<br />&lt;/body&gt;<br />&lt;/html&gt;<br />```<br />This is a basic template for the front-end UI of the app, and can be customized further based on the specific requirements of the farm management system. The HTML code defines the structure of the webpage, while the CSS code in the &quot;style.css&quot; file defines the visual styling of the elements.</div>
       </div><div class="turn">
@@ -1064,15 +1421,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Certainly, here is an example of a React component that can be used for the UI front end:<br />```javascript<br />import React, { useState, useEffect } from &#39;react&#39;;<br />import axios from &#39;axios&#39;;<br /><br />const App = () =&gt; {<br />  const [data, setData] = useState([]);<br /><br />  useEffect(() =&gt; {<br />    const fetchData = async () =&gt; {<br />      const result = await axios(<br />        &#39;http://example.com/api/data&#39;,<br />      );<br />      setData(result.data);<br />    };<br />    fetchData();<br />  }, []);<br /><br />  return (<br />    &lt;div&gt;<br />      &lt;h1&gt;Farm Management Dashboard&lt;/h1&gt;<br />      &lt;table&gt;<br />        &lt;thead&gt;<br />          &lt;tr&gt;<br />            &lt;th&gt;Field Name&lt;/th&gt;<br />            &lt;th&gt;Crop&lt;/th&gt;<br />            &lt;th&gt;Soil Moisture&lt;/th&gt;<br />            &lt;th&gt;Temperature&lt;/th&gt;<br />            &lt;th&gt;Humidity&lt;/th&gt;<br />            &lt;th&gt;Status&lt;/th&gt;<br />          &lt;/tr&gt;<br />        &lt;/thead&gt;<br />        &lt;tbody&gt;<br />          {data.map(item =&gt; (<br />            &lt;tr key={item.id}&gt;<br />              &lt;td&gt;{item.field_name}&lt;/td&gt;<br />              &lt;td&gt;{item.crop}&lt;/td&gt;<br />              &lt;td&gt;{item.soil_moisture}&lt;/td&gt;<br />              &lt;td&gt;{item.temperature}&lt;/td&gt;<br />              &lt;td&gt;{item.humidity}&lt;/td&gt;<br />              &lt;td&gt;{item.status}&lt;/td&gt;<br />            &lt;/tr&gt;<br />          ))}<br />        &lt;/tbody&gt;<br />      &lt;/table&gt;<br />    &lt;/div&gt;<br />  );<br />}<br /><br />export default App;<br />```<br />This component fetches data from an API endpoint and displays it in a table. You can modify the component to include other features and functionality based on the requirements of your farm management app.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>5b9c49f7</code></strong>
         <span class="small">2023/05/22 (Mon) 23:44</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m trying to track my progress on social media. Can you show me a graph of my Instagram engagement over the past few months?</div>
       </div><div class="turn">
@@ -1109,15 +1470,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">As a fitness enthusiast, I&#39;ll focus on promoting my IGTV videos through a combination of organic and paid strategies to drive traffic and increase engagement. Here&#39;s my plan:<br /><br />**Organic Promotion**:<br /><br />1. **Instagram Feed**: Share a preview or teaser of my IGTV video on my Instagram feed to drive traffic and encourage viewers to watch the full video.<br />2. **Instagram Stories**: Use Instagram Stories to promote my IGTV video, share behind-the-scenes content, and provide exclusive tips or insights.<br />3. **Hashtags**: Use relevant hashtags in my IGTV video&#39;s title, description, and tags to increase discoverability and reach a broader audience.<br />4. **Collaborations**: Collaborate with other fitness enthusiasts, influencers, or brands to reach new audiences and promote each other&#39;s content.<br />5. **Engage with my audience**: Respond to comments, answer questions, and encourage viewers to share their thoughts and feedback on my IGTV videos.<br /><br />**Paid Promotion**:<br /><br />1. **Instagram Ads**: Run targeted Instagram ads to promote my IGTV videos to a specific audience, increasing reach and engagement.<br />2. **Influencer Partnerships**: Partner with influencers in the fitness niche to promote my IGTV videos to their followers.<br />3. **Facebook Ads**: Use Facebook Ads to target a broader audience and drive traffic to my IGTV videos.<br />4. **Sponsored Content**: Create sponsored content on other fitness-related platforms or websites to promote my IGTV videos.<br />5. **Email Marketing**: Share my IGTV videos with my email subscribers and encourage them to share their feedback and thoughts.<br /><br />**Additional Strategies**:<br /><br />1. **Optimize for SEO**: Optimize my IGTV video titles, descriptions, and tags for search engines to increase visibility and drive organic traffic.<br />2. **Repurpose content**: Repurpose my IGTV videos into other formats, such as blog posts, podcasts, or social media content, to reach a broader audience.<br />3. **Consistency**: Regularly post high-quality IGTV videos to keep my audience engaged and coming back for more.<br /><br />By implementing these strategies, I&#39;ll be able to promote my IGTV videos effectively, drive traffic, and increase engagement with my audience.<br /><br />How about you? Do you have a plan for promoting your IGTV videos and driving traffic to them?</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>eb47739f_2</code></strong>
         <span class="small">2023/05/23 (Tue) 00:21</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some laptop accessories. I just got a new laptop from Best Buy the week before last weekend, and I want to get a few more things to go with it. Do you have any recommendations for a good wireless mouse?</div>
       </div><div class="turn">
@@ -1154,15 +1519,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">With that information, I can try to help you estimate the weight of your Lenovo laptop.<br /><br />Since you mentioned it was a doorbuster deal at Best Buy the week before last weekend, I&#39;ll assume it was a popular model that was discounted during that time period. Lenovo offers a wide range of laptops, but I can give you a general idea of the weight range for some of their popular models.<br /><br />Typically, Lenovo laptops can weigh anywhere from 3.9 pounds to 5.5 pounds, depending on the model, size, and features. Here are some examples of popular Lenovo laptops and their weights:<br /><br />* Lenovo IdeaPad 330S: 3.96 pounds<br />* Lenovo IdeaPad 530S: 4.23 pounds<br />* Lenovo Yoga C740: 4.3 pounds<br />* Lenovo ThinkPad E495: 4.23 pounds<br /><br />Keep in mind that these are just a few examples, and weights can vary depending on the specific model and configuration.<br /><br />Given that you got a doorbuster deal, it&#39;s likely that your laptop was a more budget-friendly option. In that case, it&#39;s possible that your laptop weighs around 4-4.5 pounds.<br /><br />The Anker laptop Stand, which I mentioned earlier, has a weight capacity of up to 8.8 pounds, so it should be able to support a laptop in the 4-4.5 pound range.<br /><br />If you&#39;re still unsure, I can try to help you narrow down the possibilities or explore other laptop stand options that can support your Lenovo laptop. Just let me know!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_59708</code></strong>
         <span class="small">2023/05/23 (Tue) 03:18</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Can you suggest some easy and effective tips to maintain healthy teeth and gums?</div>
       </div><div class="turn">
@@ -1187,30 +1556,38 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">As an AI language model, I can provide you with some information about using mouthwash.<br /><br />Mouthwash can be used in different ways as per the requirement, including before or after brushing teeth, and can be used separately from brushing. It serves as an additional step in oral hygiene routine to help kill bacteria that may cause bad breath or oral health problems. <br /><br />It is okay to use mouthwash every day, but it should not be used as a substitute for brushing and flossing. It is recommended to use mouthwash after brushing and flossing to rinse away any remaining debris in the mouth. Some mouthwashes contain alcohol which can cause dryness of the mouth, so it is advisable to check the ingredients of the mouthwash and consult a dentist to ensure the mouthwash is right for you. Additionally, it is worth noting that some mouthwashes are beneficial in specific cases such as, fluoride and antimicrobial mouthwashes are beneficial for people with a higher risk of tooth decay and gum disease.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_KwbJJ66_8</code></strong>
         <span class="small">2023/05/23 (Tue) 12:03</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Describe as reporting live a current event in 3 lines, what is happening right now using the following tweets, with a focus on the term &quot;di maria&quot;<br /><br />sourceText Time<br />Di Maria scores the second goal for Argentina. 15:36:48.0000000<br />Argentinaaaaaaaaaaa ???? What A GOAL!!!!!! Angel Di Maria you beautyyyyyy #FIFAWorldCup #ArgentinaVsFrance 15:36:41.0000000<br />35&#39; GOAL ?&#39;&#39;Di Maria gets Argentina&#39;s second and France are torn apart on the counterattack!&#39;&#39;#ARG 2-0 #FRA &#39;&#39;#FIFAWorldCup | #Qatar2022 https://t.co/xQHVZ64vXA 15:36:57.0000000<br />2-0 for Argentina what a Goal!! Di Maria 15:36:52.0000000<br />Second goal by Di Maria. Herhhh. Defending champions paaaaaaaaaa and they&#39;re suffering like this? ??&#39;#ArgentinaVsFrance 15:36:36.0000000<br />Di Maria! What a goal from Argentina ????????&#39;&#39;Game over. 15:36:13.0000000<br />Di Maria ayyyyyyy mannnnnnnnn what a goal #ArgentinaVsFrance #arg 15:36:41.0000000<br />Di Maria Goal! But it&#39;s FIFA that scored as some will say ??????&#39;#Messi #ArgentinaVsFrance #FIFAWorldCup 15:36:49.0000000<br />Fantastic goal by Argentina, Di Maria very cool finish! #FIFAWorldCupFinal #ArgentinaVsFrance 15:36:59.0000000<br />Di Maria deserves a goal.&#39;Brilliant! #ArgentinaVsFrance 15:36:44.0000000<br />Gr8 goal #messi &amp; Di Maria off injury is the difference! https://t.co/ScHjETYn4K 15:34:47.0000000<br />Di maria, what a goal from argentina there. Taking the baguettes apart crumb by crumb. 15:36:14.0000000<br />Brilliant goal, Di Maria is that guy for Argentina 15:36:25.0000000<br />Beautiful goal Di Maria #ArgentinaVsFrance #WorldCup 15:36:38.0000000<br />What a counter attacking goal. &#39;&#39;Di Maria...#ArgentinaVsFrance 15:36:44.0000000<br />#ARGFRA DI MARIAAAAAAAAAAAAAAAAAAAAAAA WHAT A FUCKING GOAL THAT WAS 15:36:18.0000000<br />That flick by Messi for the Di Maria goal, a thing of beauty #ArgentinaVsFrance #WorldCupFinal #Qatar2022 15:36:25.0000000<br />ARGENTINA GOAL: Argentina catch France on the counter and Di Maria doubles the former’s advantage.&#39;&#39;#ARG 2-0 #FRA #ARGFRA #WorldCupFinal 15:36:37.0000000<br />That Di Maria goal is pretty special. #ArgentinaVsFrance #WorldCup 15:36:48.0000000<br />Di Mariaaaaaaaa!!!!!!!!!! What a goal ! #FIFAWorldCup #ArgentinaVsFrance 15:36:59.0000000<br />That is just brilliant from Argentina 2-0 #ArgentinaVsFrance #Qatar2022 terrific team goal. Starting Di Maria a genius move 15:36:57.0000000<br />Goal for Di Maria. 2-0 #ArgentinaVsFrance #FIFAWorldCup 15:36:36.0000000<br />What is going on with France ????, they play so bad. Good goal of Di Maria 15:36:21.0000000<br />What a Goal De Maria ?????????&#39;2-0 ??&#39;#Arg&#39;#WorldCupFinal 15:36:34.0000000<br />Di Maria who won the penalty scores second goal on the break for Argentina 15:36:43.0000000<br />Well that DI MARIA goal is much more worthy. VAMOS ARGENTINA 15:36:43.0000000<br />36’ GOAL! DI MARIA ON THE COUNTER ATTACK! #FIFAWorldCup&#39;&#39;Argentina 2-0 France 15:36:00.0000000<br />Argentina scores from a counter, what a goal ! &#39;&#39;Di Maria scores&#39;&#39;2 - 0 15:36:55.0000000<br />DI MARIA WHAT A GOAL ( I still fucking hate Argentina 15:36:23.0000000<br />Idk looks like Argentina is just better so far. It’s not even just Messi! What a goal from De Maria!! Amazing teamwork that started from the back and led to a goal 15:36:51.0000000<br />What a counter and goal. Di Maria make it 2-0 wow! #WorldCupFinal 15:36:32.0000000<br />What a goal on the counter that is! Argentina have been so good here! Brilliant from Mac Allister and what a finish from Di Maria! ?? #ARGFRA #FIFAWorldCup 15:36:56.0000000<br />This Di Maria goal was like a wonderfully written poem .&#39;&#39;#ARGFRA 15:36:33.0000000<br />Di maria scored. Argentina leading by 2 goal. #ArgentinaVsFrance #FIFAWorldCup 15:36:38.0000000<br />Goal Argentina&#39;&#39;What a build up&#39;Di Maria gets Argentina&#39;s second&#39;Arg 2-0 FRA&#39;#FIFAWorldCup 15:36:57.0000000<br />What a goal, Argentina is all over em. 2-1. Di Maria’s involvement this game has been magical. 15:35:58.0000000<br />Argentina 2-0. Di Maria. A magnificent goal on the break. 15:35:45.0000000<br />DI MARIA! GOAL! FRANCE IS COOKED! 15:36:02.0000000<br />Brilliant Argentina goal that 2-0 Di Maria&#39;&#39;One touch. Macalister running the game 15:36:30.0000000<br />ANGEL DI MARIA!!!!!!!! WHAT ABTEAM GOAL THAT WAS, 2-0 ARGENTINA!!!!!! 15:36:18.0000000<br />Argentina properly blowing France away, Angel di Maria has been the best player on the pitch by miles and he’s deservedly got a goal to show for it. 2-0 Argentina 15:36:59.0000000<br />Argentina looking like they want it more. Great goal Di Maria 15:36:11.0000000<br />Argentina scores their first goal in 2022 world cup final. Di Maria?? 15:36:28.0000000<br />2-0 ARGENTINA!!!!! DI MARIA!!!!! WONDERFUL TEAM GOAL!!!! 15:36:02.0000000<br />Goal for Argentina ??&#39;Argentina 2:0 France ????&#39;??36’ Di Maria &#39;&#39;#EIBQATAR2022 https://t.co/kNI4ODuxg6 15:36:39.0000000<br />What a lovely goal from Argentina and, they are going to steamroller France at this rate. &#39;&#39;Di Maria has had a tremendous first half and should get the Man of the Match award. 15:36:53.0000000<br />Di Maria bags his another goal for Argentina. France are being ripped apart here 15:36:12.0000000<br />Di Maria scores the 2nd goal for Argentina.???? France have not turned up in this first half at all.???? #Qatar2022 #ARGFRA 15:36:50.0000000<br />Magnificent goal Argentina. Sweeping and brilliant counter attack finished by Di Maria. Assist for Brighton&#39;s Mac Allister 15:36:50.0000000<br />35&#39; GOAL! #ARG 2-0 #FRA &#39;&#39;Angel Di Maria finishes off a glorious counter-attack to double Argentina&#39;s lead! #FIFAWorldCup 15:36:51.0000000<br />That was a just goal! Di Maria is really good right now #ArgentinaVsFrance #FIFAWorldCup 15:36:26.0000000<br />Wow what a goal. 2-0, Di Maria and game over imo cos France are shite so far. Need a response before half time otherwise its gone. #ArgentinaVsFrance #FIFAWorldCupFinal 15:36:36.0000000<br />GOAL! ARGENTINA 2-0 France&#39;&#39;IT&#39;S DI MARIA WITH A SENSATIONAL GOAL! &#39;&#39;https://t.co/wtEfL70MU4 #FIFAWorldCup https://t.co/x8w76dNag2 15:36:27.0000000<br />@remnantvault That goal Di Mar?a just scored proves otherwise. We don&#39;t need charity. France has been busy trying to prevent us from scoring rather than trying to score themselves too. 15:36:52.0000000<br />Lionel Messi assist! Di Maria’s goal! Football heritage! 15:36:53.0000000<br />DI MARIA ???????????????? what an amazing build up for that goal 2-0 Argentina 15:36:07.0000000<br />Di Maria hands Argentina another goal, what a beautiful square play. Text book execution and they punish France. 15:36:56.0000000<br />DI MARIAAAAAAAA&#39;WHAT A TEAM GOAL&#39;WHAT ARE WE WITNESSING HERE!!!!!&#39;#ArgentinaVsFrance 15:36:16.0000000<br />??ARGENTINA DOUBLE THEIR LEAD??&#39;&#39;GOAL: Di Maria 35‘ ??????&#39;2-0 15:35:51.0000000<br />Argentina 2 : France 0&#39;#worldcup &#39;#WorldCup2022 &#39;Goal by Di Maria 15:36:48.0000000<br />GOAL 2-0 Argentina! a counter-attack at speed and Di Maria finishes things off. #ARG #FRA #FIFAWorldCup 15:35:51.0000000<br />Di Maria with the second goal&#39;Argentina 2 - 0 France #FRAARG #FIFAWorldCupFinal 15:36:24.0000000<br />2-0 Argentina.&#39;&#39;ANGEL DI MARIA DOUBLES THE LEAD!!! ANOTHER GOAL IN A FINAL FOR HIM!!! https://t.co/m2YWSEnYMS 15:36:19.0000000<br />Nice goal by Di Maria #FIFAWorldCup #ArgentinaVsFrance 15:36:59.0000000<br />Omg that 2nd goal, one touch clean passes on the attach was a beauty. Messi with the assist and Di Maria for goal. 2-0 #ARG game on now #FIFAWorldCup #ArgentinaVsFrance 15:36:52.0000000<br />Another goal for Argentina... De Maria ????&#39;&#39;#ArgentinaVsFrance #WorldCup #FIFAWorldCup #Messi?? #Mbappe 15:36:57.0000000<br />GOOOOOOOAAAL!!! &#39;&#39;Di Maria doubles the lead for Argentina. What a beautiful team goal. &#39;&#39;Argentina ???? 2???0?? France ???? &#39;&#39;#FifaWorldCup 15:36:50.0000000<br />?ngel Di Maria is an absolute pleasure to watch. One of the most underrated players of all time. What a goal from Argentina! Is is finally Messi’s time? 15:36:19.0000000<br />Di Maria makes it 2 - 0 Argentina vs France that maybe his last ever world cup goal wow! #WorldCup2022 15:36:27.0000000<br />GOAL: World Cup final - Argentina 2-0 France, Di Maria (35 mins) #Qatar2022 15:36:18.0000000<br />Absolutely Superb goal from Argentina great finish from Di Maria ???? 15:36:52.0000000<br />DI MARIA!!! WHAT A GOAL!!!! L&#39;ARGENTINA!!!! 15:36:44.0000000<br />Di Maria deserves this goal. Excellent work today. #ArgentinaVsFrance #WorldCup #FIFAWorldCup 15:36:42.0000000<br />DI MAARRIAAAAAA what a stunning goal for #arg #FIFAWorldCupFinal 15:36:39.0000000<br />Di Maria!!! What a nice goal!!!!! #Argentina up 2-NIL!!!! #WorldCup2022 15:36:39.0000000<br />Di Maria! What a glorious goal! ???? has got this final! #ArgentinaVsFrance 15:36:28.0000000<br />That goal by Di Maria was aces! #WorldCupFinal 15:36:17.0000000<br />Argentina 2-0 Now???? because of a goal by Di Maria &#39;&#39;#WorldCupFinal #ArgentinaVsFrance 15:36:55.0000000<br />Terrific break by Argentina no problem with that Goal Messi Mcallister Di Maria 2-0 15:36:53.0000000<br />What an assist what a goal Di Maria ???????? #ArgentinaVsFrance 15:36:33.0000000<br />2-0 &amp; Di Maria chipped his goal&#39;#WorldCup &#39;#ArgentinaVsFrance 15:36:55.0000000<br />GOAL Argentina 2-0 France Di Maria, wonderful team goal #ARGFRA #FIFAWorldCup 15:36:06.0000000<br />DI MARIA...WHAT A GOAL! What a pass by Mac Allister and what a flick by MESSI! INSANE! VAMOS ARGENTINA! 15:36:44.0000000<br />Beautiful football... Argentina mesmerizing France what a goal from Di Maria... What a touch 15:36:52.0000000<br />?? #WorldCup | #Qatar2022&#39;&#39;? 36&#39; | GOAL!!! Angel Di Maria doubles Argentina&#39;s lead!&#39;&#39;#ARG 2-0 #FRA &#39;&#39;#Selecci?nMayor #FiersdetreBleus #ARGFRA https://t.co/M64jzboGG8 15:36:06.0000000<br />Di Maria what a goal that was. Argentina have blown France away here. 15:36:21.0000000<br />GOAL!&#39;&#39;Angel di Maria makes it 2 - 0 for Argentina.&#39;&#39;#FIFAWorldCup 15:36:34.0000000<br />Di Maria &#39;&#39;2-0 &#39;&#39;Beautiful goal from Argentina! 15:35:59.0000000<br />That wasn&#39;t a penalty.&#39;But this Di Maria goal shows how good has Argentina been playing all match. 15:36:43.0000000<br />Bit annoying when you had Di Maria first goal scorer, France being found out at last 15:36:37.0000000<br />Goal Di Maria!!!! Argentina up 2-0 and France is looking sluggish on offense 15:36:55.0000000<br />That is a beautiful goal!!&#39;&#39;Di Maria with the finish and they’ve been all over France 15:36:32.0000000<br />DI MARIA Scores the second goal for Argentina 15:36:54.0000000<br />DI MARIA!!!!!!!!! ARGENTINA SCORE A SECOND!!!!!!!! WAS THAT GOAL RIGGED TOO OR WILL YALL STOP CRYING?? #FIFAWorldCup #ARG #FRA 15:36:23.0000000<br />GOAL BY DI MARIA ?? #ARG &#39;&#39;????Argentina 2-0 France????&#39;&#39;#FIFAWorldCup | #ARGFRA 15:36:10.0000000<br />De Maria, Ze Maria.. astonishing goal.. #ArgentinaVsFrance #FIFAWorldCup 15:36:19.0000000<br />Angel Di Maria makes it 2 -0 to Argentina #FIFAWorldCup ! Goal of the tournament 15:36:22.0000000<br />What an amazing team-goal. Di Maria can still do it on the big stage. #ARGFRA 15:36:56.0000000<br />Argentina is putting on a clinic right now. That was a gorgeous goal by Angel di Maria. 15:36:55.0000000<br />WOW. WHAT A GOAL! Finished by Di Maria, Argentina well on top… anyone seen France &amp; Mbappe??? 15:36:37.0000000</div>
       </div><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">This just in, during the World Cup final match between Argentina and France, Angel Di Maria scored a stunning goal on a counterattack, making it 2-0 for Argentina. The goal was set up by a beautiful pass from Lionel Messi, and France appears to be struggling to keep up with Argentina&#39;s impressive play. Many viewers are praising Di Maria&#39;s performance and calling the goal a thing of beauty. The defending champions are currently tearing apart France&#39;s defense.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>61d3fec4_2</code></strong>
         <span class="small">2023/05/23 (Tue) 15:36</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some advice on editing software. I&#39;ve been using Lightroom and Photoshop, but I&#39;m not sure if I&#39;m using them to their full potential. Do you have any tips on how to enhance my photos without overdoing it? By the way, I took some great shots of my niece&#39;s birthday party last weekend, and I&#39;m excited to edit them.</div>
       </div><div class="turn">
@@ -1247,15 +1624,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I can imagine! Kids can be a handful, but they&#39;re also so full of energy and joy, which makes them a delight to photograph. It&#39;s great that you were able to roll with the punches and adapt to the situation. Candid shots can often be the most revealing and memorable, and it sounds like you got some great ones.<br /><br />Experimenting with different angles and compositions is a fantastic way to add some creativity to your shots and make them more visually interesting. It&#39;s also a great way to challenge yourself and try new things, which is an important part of growing as a photographer.<br /><br />I&#39;m sure your family will love the photos, and it&#39;s wonderful that you&#39;re sharing your passion with them. Editing can be a fun part of the process, too - it&#39;s like uncovering the hidden gems in your photos and making them shine.<br /><br />What kind of editing style do you tend to gravitate towards? Do you like to keep things natural and subtle, or do you enjoy experimenting with more dramatic effects and presets?</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>de5f2701_1</code></strong>
         <span class="small">2023/05/24 (Wed) 04:41</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some new music recommendations. I&#39;ve been listening to a lot of indie folk music lately, particularly artists like Bon Iver, Sufjan Stevens, and Fleet Foxes. Do you have any suggestions for similar artists or bands I might enjoy?</div>
       </div><div class="turn">
@@ -1292,15 +1673,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">You&#39;re welcome! I&#39;m glad I could help. It&#39;s always exciting to explore new music and create playlists that evoke a specific mood or atmosphere. Switching gears from ambient electronic music to more energetic and stimulating tracks can be a great way to refresh your listening experience and discover new favorites.<br /><br />Remember, the key to creating a great playlist is to choose tracks that resonate with you and fit the mood or atmosphere you&#39;re trying to create. Don&#39;t be afraid to experiment, add, and remove tracks as you see fit. And most importantly, have fun with it!<br /><br />If you need any more recommendations or have any other questions, feel free to ask. Good luck with your playlist, and I hope you enjoy the new music!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>a72481d4</code></strong>
         <span class="small">2023/05/24 (Wed) 13:27</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m trying to get my new apartment organized, can you suggest some apps or tools to help me keep track of my belongings and decorate my space?</div>
       </div><div class="turn">
@@ -1337,15 +1722,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">What a wonderful idea! Practicing yoga outdoors can be incredibly uplifting and rejuvenating. Being in nature can help you feel more connected to the world around you, and the fresh air and natural light can be very invigorating.<br /><br />Practicing yoga in a park can also help you feel more grounded and centered, as you&#39;re surrounded by the sights and sounds of nature. Plus, it&#39;s a great way to get some vitamin D and enjoy the outdoors while taking care of your physical and mental well-being.<br /><br />Just make sure to choose a quiet and comfortable spot in the park, with a flat and clean surface. You might also want to consider the time of day and the weather, to ensure you&#39;re not practicing in direct sunlight or during peak park hours.<br /><br />Additionally, you might want to invest in a good outdoor yoga mat that can provide some grip and cushioning on the grass or pavement. And don&#39;t forget to stay hydrated and bring any necessary props or accessories you might need.<br /><br />Overall, I think incorporating outdoor yoga sessions into your routine can be a fantastic way to deepen your practice and connect with nature. Go for it!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_56288</code></strong>
         <span class="small">2023/05/24 (Wed) 13:53</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What are some tips for reducing screen time and improving sleep habits for better overall health and wellness?</div>
       </div><div class="turn">
@@ -1388,15 +1777,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Rock climbing can definitely seem intimidating at first, but don&#39;t worry, there are a few things you can do to make it easier:<br /><br />1. Take a class or get a climbing partner: If you&#39;re new to rock climbing, it&#39;s a good idea to take a class or go with an experienced friend to learn the basics.<br /><br />2. Start with bouldering: Bouldering is a type of rock climbing that involves climbing shorter walls without ropes. It&#39;s a good way to build strength and confidence before moving on to more challenging routes.<br /><br />3. Wear comfortable clothes: Choose clothing that is comfortable and allows you to move easily. You&#39;ll also need to wear climbing shoes which are specialized shoes with sticky soles that help you grip the wall.<br /><br />4. Use proper technique: When climbing, it&#39;s important to focus on your technique to conserve your energy and reduce your risk of injury. Your instructor or partner can help you with this.<br /><br />5. Start slow and progress gradually: Climbing can be physically demanding, so it&#39;s important to start slow and work your way up to harder routes gradually.<br /><br />6. Stay hydrated and fuel up: Climbing can be a high-intensity workout, so make sure you stay hydrated and fuel up with nutritious snacks before and after your workouts.<br /><br />Remember that rock climbing can be a challenging and rewarding activity that takes time and practice. Most importantly, have fun and enjoy the experience!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>b70358bc_1</code></strong>
         <span class="small">2023/05/25 (Thu) 03:36</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m trying to learn more about my family&#39;s cultural heritage. My grandmother, who&#39;s 85 years old, was born in a small village in rural Japan to a family of farmers. She immigrated to the US when she was in her early 20s. Can you recommend some books or documentaries about Japanese culture and history that might help me understand her experiences better?</div>
       </div><div class="turn">
@@ -1433,15 +1826,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">What a fascinating topic! Understanding the daily life and customs of rural Japan during the mid-20th century can provide valuable insight into the cultural heritage of your grandmother&#39;s upbringing. Here are some resources that might help you understand the traditional values and social norms of rural Japan during that era:<br /><br />**Books:**<br /><br />1. **&quot;The Chrysanthemum and the Sword: Patterns of Japanese Culture&quot; by Ruth Benedict**: A classic anthropological study of Japanese culture, including rural values and social norms, during the mid-20th century.<br />2. **&quot;Japanese Village in Transition: Community and Society in Rural Japan&quot; by John B. Cornell**: A sociological study of rural Japan during the 1950s, exploring the changes and continuities in traditional values and social norms.<br />3. **&quot;Rural Japan: Radiance and Reality&quot; by L. Keith Brown**: An anthropological study of rural Japan during the 1960s, which covers daily life, customs, and traditional values in rural communities.<br />4. **&quot;The Japanese Family: A Study of Modernization and Change&quot; by Ezra F. Vogel**: A sociological study of the Japanese family structure and values during the mid-20th century, including rural families.<br />5. **&quot;Japan&#39;s Rural Revitalization: From Elite to Mass Society&quot; by Yasuo Wakabayashi**: A historical study of rural Japan&#39;s transformation during the 20th century, including the impact of modernization on traditional values and social norms.<br /><br />**Documentaries:**<br /><br />1. **&quot;The Japanese Village&quot; (BBC, 2017)**: A documentary series that explores the daily lives of people living in rural Japan, showcasing traditional practices, customs, and values.<br />2. **&quot;Rural Japan: A Vanishing Way of Life&quot; (NHK, 2013)**: A documentary that highlights the struggles and traditions of rural Japan during the 1950s and 1960s, featuring interviews with elderly villagers who lived through that period.<br />3. **&quot;The Forgotten Japan&quot; (NHK, 2019)**: A documentary series that explores the history and culture of rural Japan, including traditional values and social norms.<br /><br />**Online Resources:**<br /><br />1. **The Japanese Folklore Society**: A website dedicated to promoting the study and preservation of Japanese folklore, including rural traditions and values.<br />2. **The National Institute of Japanese Literature**: A digital archive of Japanese literature, including works on rural life, folklore, and culture.<br />3. **The Japan Guide**: A comprehensive online guide to Japan, including information on rural areas, customs, and traditions.<br />4. **Old Japan**: A website showcasing vintage photographs of rural Japan during the mid-20th century, providing a visual representation of daily life and values.<br /><br />**Additional Tips:**<br /><br />1. **Interviews and Oral Histories**: Consider conducting interviews with your grandmother or other elderly relatives who grew up in rural Japan during the mid-20th century. Their personal experiences and stories can provide valuable insights into traditional values and social norms.<br />2. **Attend Cultural Events**: Attend Japanese cultural events or festivals in your area, which often showcase traditional practices, music, and customs.<br />3. **Cooking and Crafts**: Try cooking traditional Japanese dishes or practicing traditional crafts, such as calligraphy or woodblock printing, to gain a deeper appreciation for the daily life and values of rural Japan.<br /><br />Remember to approach these resources with respect and sensitivity towards your grandmother&#39;s cultural heritage. By exploring these resources, you&#39;ll gain a deeper understanding of the traditional values and social norms that shaped her daily life and experiences in rural Japan.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_Opm4kTV_0</code></strong>
         <span class="small">2023/05/25 (Thu) 03:53</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Help me shop. I will suggest names of products I&#39;m thinking of adding to my cart. I will only add names. As I add products, in 140 characters or less explain to me why I might be buying it, taking into account my previous products I&#39;ve added to cart. Also, suggest 3 products that I might be interested in along with 140 characters reasons for each.</div>
       </div><div class="turn">
@@ -1478,15 +1875,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Great choice! Adding cauliflower pizza crust to your cart can be a healthy and delicious alternative to traditional pizza crust. Here are some other complementary items that you might enjoy alongside your cauliflower pizza crust:<br /><br />1. Tomato sauce: Adding some tomato sauce to your cauliflower pizza crust is a classic and tasty option. Look for a variety that&#39;s low in added sugar and made with wholesome ingredients.<br />2. Fresh vegetables: Adding some fresh vegetables like bell peppers, onions, or mushrooms to your pizza can provide some extra flavor and nutrients.<br />3. Mozzarella cheese: Adding some shredded mozzarella cheese to your pizza can provide some extra creaminess and flavor. Look for a variety that&#39;s made with high-quality, grass-fed milk for the best taste and nutrition.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>cf7aad73_5</code></strong>
         <span class="small">2023/05/25 (Thu) 10:37</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m having some issues with the lighting in my home office. I recently rearranged the room and now the overhead lighting is casting an awkward shadow on my workspace, so I&#39;m thinking of adding a desk lamp to my home office. Do you have any recommendations for a good desk lamp that could help with this?</div>
       </div><div class="turn">
@@ -1523,15 +1924,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I&#39;m happy to help you with that! Adding a desk lamp can make a huge difference in illuminating your workspace and reducing eye strain. Since you&#39;ve rearranged your home office, it&#39;s a great opportunity to find a lamp that fits your new setup.<br /><br />To get started, let&#39;s consider a few things:<br /><br />1. **Shadow direction**: Where is the awkward shadow falling on your workspace? Is it from the left, right, or directly above? This will help us determine the best placement for the desk lamp.<br />2. **Workspace size**: How big is your workspace? Do you have a large desk or a smaller one? This will impact the type of lamp you need and its placement.<br />3. **Task type**: What tasks do you typically perform on your desk? Are you typing, reading, or working on creative projects? Different tasks require different levels of lighting.<br />4. **Personal preferences**: Do you prefer a warm, cozy glow or a bright, energizing light? Are you sensitive to glare or do you prefer a more focused beam?<br /><br />Based on your situation, I&#39;d recommend exploring desk lamps with the following features:<br /><br />1. **Flexible arm**: A lamp with a flexible arm can be adjusted to direct light exactly where you need it, helping to minimize shadows.<br />2. **Adjustable brightness**: A lamp with adjustable brightness settings will allow you to customize the light level to your task and personal preferences.<br />3. **Glare reduction**: Look for lamps with features like diffusers or shades that help reduce glare and create a softer, more comfortable light.<br /><br />Some popular desk lamp styles that might work well for you include:<br /><br />1. **Architect-style lamps**: These lamps have a curved or arched arm that can be adjusted to reach over your workspace, providing focused light where you need it.<br />2. **Swing-arm lamps**: These lamps have a long, flexible arm that can be swung into position to provide light exactly where you need it.<br />3. **Task lamps**: These lamps are designed specifically for task-oriented work, often with a focused beam and adjustable arm to direct light onto your workspace.<br /><br />If you&#39;re looking for some inspiration, here are a few desk lamp recommendations to get you started:<br /><br />1. **Anker LED Desk Lamp**: A popular, affordable option with a flexible arm and adjustable brightness.<br />2. **Lumiy Lightblade 1500**: A sleek, modern lamp with a focused beam and adjustable arm.<br />3. **BenQ e-Reading Desk Lamp**: A high-end option with a unique design that reduces glare and hotspots, perfect for reading and typing.<br /><br />Feel free to share more about your home office setup, and I can provide more tailored recommendations!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_23442</code></strong>
         <span class="small">2023/05/25 (Thu) 11:45</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Could you provide examples of how survey nonresponse rates vary across different demographics and geographic regions?</div>
       </div><div class="turn">
@@ -1556,15 +1961,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">While it is true that people may occasionally provide false or inaccurate information on surveys, this does not necessarily make surveys a waste of time. <br /><br />Firstly, survey researchers are aware of this possible bias and employ statistical methods to try and minimize its effects. For instance, survey researchers can use specialized techniques to clean and validate the data, and measure response rates.<br /><br />Secondly, researchers can measure the level of honesty of survey participants by embedding validation questions in the survey itself. These questions are designed to confirm the accuracy of the data provided by respondents, and help detect instances of false or inconsistent reporting. <br /><br />Thirdly, while some participants may be dishonest or inaccurate on surveys, this does not mean that all survey respondents are. For the majority of people, surveys provide a genuine opportunity for expressing their opinions and experiences to researchers, and help to make important decisions and conduct research across a wide array of fields.<br /><br />Therefore, despite the fact that some people may provide untruthful information on surveys, surveys can still be valuable for generating useful information and insights for many purposes. Effective surveys are carefully crafted to minimize the chances of participants not providing accurate responses, but when invalid responses occur, following validations help to ascertain reliability.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>c263f1c0</code></strong>
         <span class="small">2023/05/25 (Thu) 19:47</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some new recipe ideas for meal prep. Do you have any suggestions for healthy and easy-to-make dishes? Oh, and by the way, I&#39;ve been getting into a good morning routine lately - my green tea is always ready by 7:30 am!</div>
       </div><div class="turn">
@@ -1601,15 +2010,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Wonderful! I&#39;m so glad to hear that! It&#39;s all about mindfulness and appreciation for the little things in life, like a perfectly brewed cup of green tea or a delicious homemade sushi roll.<br /><br />I&#39;ll be here, virtually cheering you on as you enjoy your dinner and morning tea. Don&#39;t hesitate to reach out if you need anything else or just want to chat about your favorite teas or cooking adventures.<br /><br />Until next time, stay tea-rific and sushi-licious!<br /><br />(And don&#39;t forget to take a moment to appreciate the aroma of your morning green tea tomorrow!)</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_225329</code></strong>
         <span class="small">2023/05/26 (Fri) 00:11</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">How have external factors such as China&#39;s growing influence in the region impacted Pakistan&#39;s relations with neighboring countries?</div>
       </div><div class="turn">
@@ -1634,15 +2047,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, there is potential for more regional cooperation in the future. The South Asian region is endowed with significant resources, highly skilled human capital, and diverse cultures. Therefore, there are lots of opportunities for South Asian countries to collaborate in various fields, including economic, social, cultural, and political. <br /><br />Here are a few examples that illustrate the potential for increased regional cooperation:<br /><br />1. Energy Cooperation: South Asian countries could collaborate on cross-border transmission lines, joint wheeling and pooling of electricity, trade in renewable energy resources like hydro, solar, and wind.<br /><br />2. Transport Connectivity: The region shares a history of trade and commerce, and there is significant potential for improving road, rail, and air connectivity across the border.<br /><br />3. Tourism Cooperation: South Asia boasts a rich cultural heritage that allows for collaboration in the tourism industry. Cooperation in promoting joint pilgrimage tours, cultural heritage tours, and religious tourism could be a significant boon for regional tourism.<br /><br />4. Disaster Management Cooperation: The region frequently experiences natural disasters like floods, earthquakes, and landslides. South Asian countries could work together in improving disaster preparedness and developing appropriate contingency plans.<br /><br />Furthermore, regional cooperation would bring about greater harmony, promote trade and commerce, create employment opportunities, reduce poverty, and accelerate economic growth, thereby improving living standards for people in the region. Therefore, there is enormous potential for more significant regional cooperation in the future, and it is in the interest of all the countries involved to work together towards this goal.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_IqVOMs0_0</code></strong>
         <span class="small">2023/05/26 (Fri) 02:42</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Write an official statement from Liverpool FC in summer 2023 announcing the signing of Jude Bellingham from Dortmund</div>
       </div><div class="turn">
@@ -1655,15 +2072,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Dear Liverpool FC supporters,<br /><br />We are delighted to announce that we have reached an agreement with Borussia Dortmund for the transfer of Jude Bellingham. The young midfielder has agreed to join us on a long-term contract and will join up with his new teammates when the transfer window opens in the summer.<br /><br />Bellingham is one of the most promising young players in the world and we are thrilled to have secured his signature. He has already shown his quality at the highest level, having made his professional debut for Dortmund at just 17 years old.<br /><br />Jürgen Klopp, Liverpool FC manager, said: &quot;Jude is an exciting young player with a big future ahead of him. I am looking forward to working with him and helping him develop his talent at Liverpool.&quot;<br /><br />Bellingham said: &quot;I am delighted to have signed for Liverpool FC. It is a dream come true to be joining one of the biggest clubs in the world. I can&#39;t wait to get started and give everything for the Reds.&quot;<br /><br />We would like to welcome Jude and his family to the Liverpool FC family and look forward to seeing him in action for the Reds.<br /><br />Yours sincerely,<br />Liverpool FC</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>385ad31d</code></strong>
         <span class="small">2023/05/26 (Fri) 06:52</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m having some issues with my phone&#39;s charging port. Do you think you can help me troubleshoot the problem or recommend a good repair service?</div>
       </div><div class="turn">
@@ -1700,15 +2121,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Indie folk and acoustic music are great genres! Phoebe Bridgers is an excellent choice - her lyrics are indeed poetic and hauntingly beautiful. Fleet Foxes and Bon Iver are also fantastic, their harmonies are breathtaking.<br /><br />As for electronic and ambient music, you&#39;re off to a great start with Tycho and Four Tet! Here are some recommendations that might interest you:<br /><br />1. ** Explosions in the Sky**: An instrumental post-rock band that creates stunning, atmospheric soundscapes. Perfect for relaxation or focus music.<br />2. **M83**: A French electronic project that blends ambient, synth-pop, and shoegaze elements. Their music is often described as cinematic and emotive.<br />3. **Tim Hecker**: A Canadian electronic musician who creates atmospheric, ambient soundscapes with a touch of noise and experimentation.<br />4. ** Biosphere**: A Norwegian electronic musician who specializes in ambient and atmospheric soundscapes, often incorporating field recordings and found sounds.<br />5. **Rival Consoles**: A British electronic musician who creates atmospheric, synth-heavy soundscapes with a focus on texture and mood.<br />6. **Olafur Arnalds**: An Icelandic composer and pianist who blends electronic and classical elements to create soothing, atmospheric music.<br />7. **Nils Frahm**: A German composer and pianist who creates emotive, atmospheric music that often incorporates electronic elements.<br /><br />These artists should give you a good starting point for exploring the electronic and ambient genres. You can also try checking out online radio stations like NTS Radio, KCRW, or Ambient Radio, which often feature a wide range of electronic and ambient music.<br /><br />Do you have a preferred mood or atmosphere in mind when listening to electronic or ambient music? For example, do you prefer relaxing and calming music or something more energetic and uplifting?</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_sZKME3y_0</code></strong>
         <span class="small">2023/05/26 (Fri) 20:34</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I would like to start a podcast. It will have two old friends who have known each other for over twenty years. They argue about investment ideas. Michael think the world is going to fall in and you should have your money in cash. Billy thinks markets will have ups and downs and you just need to stay invested for the long term and ignore the news. They send messages back and forth in a whatsapp group, which is very boring for their other friends. But one of them suggested we should start a podcast! Please could you suggest ten names for the podcast and write a summary about the podcast that would appeal to people interested in personal finance.</div>
       </div><div class="turn">
@@ -1727,15 +2152,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Great! Here&#39;s a final draft with the title &quot;Bull vs. Bear: Two Guys, One Whatsapp Group, No Clue&quot; incorporated into the summary:<br /><br />Introducing &quot;Bull vs. Bear: Two Guys, One Whatsapp Group, No Clue&quot; - the new investing podcast where two old friends argue about investment ideas, despite having no real clue what they&#39;re talking about. Michael thinks the world is going to fall in and you should have your money in cash, while Billy thinks markets will have ups and downs and you just need to stay invested for the long term and ignore the news. Despite their lack of expertise, their lively debates are based on real-life experiences and backed by their own research, which can be amusing and insightful.<br /><br />Join Michael and Billy as they share their misadventures in personal finance and try to convince each other that their investment strategies are the right way to go. With their unique blend of humor, camaraderie, and financial missteps, this podcast is sure to entertain and perhaps even inspire you to start investing - or to avoid it altogether.<br /><br />So, if you&#39;re looking for a lighthearted take on personal finance, and want to hear two friends argue about topics they&#39;re not qualified to discuss, then tune in to &quot;Bull vs. Bear: Two Guys, One Whatsapp Group, No Clue&quot;.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_542876</code></strong>
         <span class="small">2023/05/26 (Fri) 21:14</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Analyze the branding strategies employed by luxury watchmakers like Rolex and Patek Philippe.</div>
       </div><div class="turn">
@@ -1754,15 +2183,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I cannot express an opinion. however, it is important to note that the price of luxury watches such as rolex and patek philippe is not solely based on their craftsmanship or materials; it also reflects the prestige and exclusivity of owning a timepiece from a well-known luxury brand. additionally, factors such as rarity, heritage, and demand also play a role in determining the price. while some may argue that the high cost is not justified, for many consumers, the value of these watches comes from their intricate design, precise engineering, and the emotional connection they create. ultimately, whether or not they are worth the high price tag is a matter of personal preference and depends on the individual&#39;s values and priorities.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_233858</code></strong>
         <span class="small">2023/05/26 (Fri) 23:06</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">How does the proton pack technology work, and what are its individual components?</div>
       </div><div class="turn">
@@ -1799,15 +2232,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">There are already many exciting advancements in AI that we can expect to see in the near future. Here are some examples:<br /><br />1. Natural Language processing (NLP) - We can expect computers to become more adept at understanding human language, which will make them even more useful for tasks like customer service and healthcare.<br /><br />2. Computer Vision - The development of AI systems that can analyze images and videos will have a big impact on fields such as autonomous driving, security, and healthcare.<br /><br />3. Robotics - We can expect to see robots that are more advanced and capable of carrying out complex tasks such as assisting in surgery, exploring space, or even housekeeping.<br /><br />4. Predictive Analytics - AI will become even more adept at analyzing vast amounts of data in real-time, which will lead to major advancements in fields such as finance, marketing, and logistics.<br /><br />5. Cybersecurity - Large-scale AI systems will become better at identifying and thwarting cyber-attacks, which will be crucial as cyber-attacks become more sophisticated and frequent.<br /><br />These are just a few examples of the exciting advancements in AI that we can expect to see over the next few years. As the technology continues to evolve, it will continue to impact and transform various industries and aspects of our daily lives.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>2f09d4c8</code></strong>
         <span class="small">2023/05/28 (Sun) 03:43</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m considering pursuing a Master&#39;s degree, and I&#39;d like to know more about the GRE exam. Can you provide me with some general information on the format and content of the test?</div>
       </div><div class="turn">
@@ -1844,15 +2281,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Technical indicators can be a valuable addition to your feature engineering process! Moving averages and RSI are both popular and widely used indicators, and they can provide useful insights into a stock&#39;s price action. Here are some thoughts on using technical indicators as features:<br /><br />**Pros:**<br /><br />1. **Capturing trends and momentum**: Technical indicators like moving averages and RSI can help capture trends, momentum, and sentiment in the market, which can be useful for predicting future price movements.<br />2. **Reducing noise**: By using technical indicators, you can reduce the noise in the data and focus on the underlying patterns and trends.<br />3. **Improving model interpretability**: Technical indicators can provide a more intuitive understanding of the model&#39;s predictions, as they are based on well-known and widely used metrics.<br /><br />**Cons:**<br /><br />1. **Overfitting**: Using too many technical indicators can lead to overfitting, as the model may become too specialized to the training data and fail to generalize well to new, unseen data.<br />2. **Correlation**: Many technical indicators are highly correlated with each other, which can lead to feature redundancy and decreased model performance.<br />3. **Lagging indicators**: Some technical indicators, like moving averages, are lagging indicators that only respond to past price movements, which can make them less effective for predicting future price movements.<br /><br />**Other technical indicators to consider:**<br /><br />1. **Bollinger Bands**: Bollinger Bands can help capture volatility and identify potential breakouts or trend reversals.<br />2. **MACD (Moving Average Convergence Divergence)**: MACD is a popular indicator that combines two moving averages to identify changes in momentum and trend.<br />3. **Stochastic Oscillator**: The Stochastic Oscillator can help identify overbought or oversold conditions in the market.<br />4. **Force Index**: The Force Index is a momentum indicator that measures the amount of energy or &quot;force&quot; behind a price move.<br />5. **On Balance Volume (OBV)**: OBV is a volume-based indicator that can help identify buying or selling pressure in the market.<br /><br />**Tips for using technical indicators:**<br /><br />1. **Use a small set of indicators**: Select a small, diverse set of indicators that complement each other and provide unique insights into the market.<br />2. **Use different time frames**: Experiment with different time frames for your indicators, such as short-term (e.g., 5-minute), medium-term (e.g., 1-hour), and long-term (e.g., daily) to capture different market dynamics.<br />3. **Combine indicators with other features**: Combine technical indicators with other features, such as fundamental data or sentiment analysis, to create a more comprehensive model.<br />4. **Monitor and adjust**: Continuously monitor your model&#39;s performance and adjust your technical indicators as needed to ensure they remain relevant and effective.<br /><br />Remember to carefully evaluate the performance of your model and adjust your feature engineering approach as needed. Good luck with your project!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_471717</code></strong>
         <span class="small">2023/05/28 (Sun) 06:19</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">How does the bassline in &quot;Another One Bites the Dust&quot; by Queen drive the song&#39;s energetic groove?</div>
       </div><div class="turn">
@@ -1889,15 +2330,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, there are many Queen tribute bands that are dedicated to keeping Queen&#39;s music alive and bringing their legendary live shows to audiences around the world. Some of the most famous Queen tribute bands include The Queen Extravaganza, Queen Machine, The Bohemians, and Bulsara and His Queenies. These bands specialize in recreating the sound, look, and feel of Queen&#39;s live performances and have become popular with audiences who want to experience the magic of Queen&#39;s music in a live setting. There are also many other tribute acts, from solo performers to full bands, who play Queen&#39;s music and pay homage to the band&#39;s incredible legacy.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>1a73cecb_1</code></strong>
         <span class="small">2023/05/28 (Sun) 10:21</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m in the process of buying a house and I&#39;m trying to figure out how much I&#39;ll need to save for closing costs. Can you give me a general idea of what percentage of the purchase price I should expect to pay? By the way, the first house I saw was listed for $425,000, but I ended up finding a better deal on a different property.</div>
       </div><div class="turn">
@@ -1934,15 +2379,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">You&#39;re being strategic and thinking ahead!<br /><br />Requesting a credit towards closing costs of $2,000 or a reduction in the sale price of $2,500 is a reasonable and smart move. This gives you some wiggle room to negotiate and potentially save some money.<br /><br />By asking for a credit towards closing costs, you&#39;re essentially asking the seller to contribute a specific amount towards your closing costs, which can help reduce your out-of-pocket expenses. This can be beneficial, especially if you&#39;re already stretching your budget to purchase the property.<br /><br />On the other hand, asking for a reduction in the sale price of $2,500 can also be a good option. This would directly reduce the purchase price of the property, which can be more appealing to you as a buyer.<br /><br />By offering both options, you&#39;re giving the seller a choice and showing that you&#39;re willing to negotiate. This can help create a more collaborative and flexible atmosphere in the negotiation process.<br /><br />Remember to discuss this with Rachel, your agent, and have her help you present your request to the seller. She can provide valuable insights and guidance on how to negotiate effectively and get the best possible outcome.<br /><br />Here&#39;s an example of how the request could look:<br /><br />&quot;Dear Seller,<br /><br />We appreciate your cooperation in addressing the issues found in the home inspection report. We would like to request that you fix the small leak in the roof and replace the worn-out carpeting in the bedrooms. If you&#39;re unable to complete these repairs, we would like to request a credit towards closing costs of $2,000 or a reduction in the sale price of $2,500 to offset the cost of these repairs.<br /><br />Please let us know your thoughts on this request. We look forward to hearing back from you.&quot;<br /><br />Good luck with the negotiation, and I hope you get the outcome you&#39;re looking for!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>9ef698bc_2</code></strong>
         <span class="small">2023/05/28 (Sun) 11:23</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some recipe ideas for the chicken breasts I bought at Walmart last Sunday. Do you have any suggestions? By the way, I just got my first meal kit delivery from Blue Apron, including ingredients for salmon with roasted veggies, chicken fajitas, and a veggie stir-fry.</div>
       </div><div class="turn">
@@ -1979,15 +2428,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">You&#39;re welcome! I&#39;m excited for you to try the Two-Buck Chuck with your meal. Remember, the most important thing is to have fun and enjoy the experience. Wine pairing is all about experimentation and finding what works for you.<br /><br />By letting the wine breathe and pairing it with the potatoes, you&#39;ll be giving the wine its best chance to shine. And who knows, you might be surprised by how well it pairs with the dish!<br /><br />If you have any more questions or need further assistance, feel free to ask. Otherwise, I hope you have a wonderful time enjoying your meal and wine. Cheers!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>cfb76389_2</code></strong>
         <span class="small">2023/05/29 (Mon) 03:19</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;ve been thinking a lot about the concept of fate and whether everything in life is predestined. I&#39;ve been attending yoga classes regularly, which has helped me develop a greater sense of self-awareness, and my instructor often talks about finding one&#39;s purpose in life. I started attending these classes around the same time I had a disagreement with my best friend, which ultimately made our friendship stronger. Do you think our choices are aligned with a larger plan or do we just make the most of what happens?</div>
       </div><div class="turn">
@@ -2024,15 +2477,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">What a fascinating topic! The connection between yoga, self-awareness, and discovering one&#39;s dharma is a profound one.<br /><br />Yoga, as a practice, is designed to help you cultivate self-awareness, which is the ability to observe your thoughts, emotions, and behaviors with clarity and objectivity. As you deepen your yoga practice, you begin to develop a greater understanding of your inner world, including your values, desires, and passions.<br /><br />Self-awareness is essential for discovering your dharma because it allows you to:<br /><br />1. **Identify your strengths and weaknesses**: By becoming more aware of your thoughts, emotions, and behaviors, you can identify your strengths and weaknesses, which can help you understand where you can make a positive impact and where you need to grow.<br />2. **Recognize your passions and values**: Self-awareness helps you understand what drives you, what you care about, and what gives your life meaning. This can help you identify areas where you can align your actions with your values and passions.<br />3. **Develop emotional intelligence**: Yoga and self-awareness can help you develop emotional intelligence, which is critical for understanding your emotional triggers, managing your emotions, and making conscious choices that align with your dharma.<br />4. **Cultivate mindfulness and presence**: Yoga teaches you to be present in the moment, observing your thoughts and emotions without judgment. This mindfulness can help you stay grounded and focused, even in the face of challenges, allowing you to make decisions that align with your dharma.<br />5. **Tap into your intuition**: Self-awareness can help you tap into your intuition, which is a powerful guide for discovering your dharma. By listening to your inner voice, you can gain insights into your purpose and direction.<br /><br />As you deepen your yoga practice and cultivate self-awareness, you&#39;ll become more attuned to your inner world and better equipped to:<br /><br />* Identify your dharma and align your actions with your purpose<br />* Make conscious choices that support your growth and fulfillment<br />* Develop a sense of direction and purpose<br />* Cultivate meaningful relationships and connections<br />* Find greater joy, peace, and fulfillment in life<br /><br />To further explore the connection between yoga, self-awareness, and dharma, consider the following questions:<br /><br />* How has my yoga practice helped me develop greater self-awareness, and how has this impacted my daily life?<br />* What are the values and principles that guide my decisions and actions, and how do they align with my dharma?<br />* What are the areas where I feel most alive and fulfilled, and how can I integrate those experiences into my daily life?<br />* How can I continue to cultivate self-awareness and mindfulness in my daily life, and how will this support my journey towards discovering my dharma?<br /><br />By reflecting on these questions and continuing to deepen your yoga practice, you&#39;ll be well on your way to discovering your dharma and living a life that&#39;s true to your purpose and values.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_325246</code></strong>
         <span class="small">2023/05/29 (Mon) 15:48</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What is the significance of Davos as a hub for international conferences and events, and how has it impacted the city&#39;s economy and tourism industry?</div>
       </div><div class="turn">
@@ -2075,15 +2532,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">The World Economic Forum (WEF) is a highly influential gathering of global leaders, policymakers, business leaders, academics, and other stakeholders. The event offers a platform for influential people to discuss global issues such as economic inequality, climate change, and geopolitical threats. The WEF has a unique ability to bring together leaders from different sectors and industries, making the event a significant forum for shaping policies and decision-making processes worldwide.<br /><br />The impact of the WEF on policies and decision-making processes varies among countries and organizations, but it is evident that many governments and businesses take the forum seriously. The discussions and agreements reached during the event can have far-reaching consequences, shaping not only economic policies but also social and environmental policies. For example, the Paris Agreement, which is a global commitment to combating climate change, was first proposed and agreed upon during a WEF event.<br /><br />It&#39;s essential to note that while the WEF is highly influential, it is not a formal policymaking body. It does not have the power to dictate policies or set rules. Instead, the forum provides an opportunity for stakeholders to discuss global issues, share insights, and come up with collective solutions. The outcomes of the WEF events are recommendations and guidelines that governments and businesses can use to shape their policies and decision-making processes.<br /><br />In summary, the World Economic Forum is a highly influential gathering that can affect the policies and decision-making processes of various countries and organizations worldwide. The forum provides an opportunity for stakeholders to discuss global issues, share insights, and come up with collective solutions. The impact of the forum on policymaking varies, but it remains a significant platform for shaping the future direction of the global economy.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_PIqdDOo_0</code></strong>
         <span class="small">2023/05/29 (Mon) 17:13</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">translate &quot;Philip Lahm signs with a new team&quot; to German</div>
       </div><div class="turn">
@@ -2096,15 +2557,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, there are a few other words that could be used instead of &quot;unterschreibt&quot; in this sentence. Some options might include:<br /><br />* Unterzeichnet (signs)<br />* Bindet sich (binds himself)<br />* Verpflichtet sich (commits himself)<br /><br />The exact word choice would depend on the context and the intended meaning of the sentence. For example, if the team is signing Lahm to a contract, &quot;unterzeichnet&quot; or &quot;verpflichtet sich&quot; might be more appropriate. If Lahm is simply joining the team, &quot;bindet sich&quot; might be a better choice. It&#39;s always a good idea to double-check with a native speaker or a reliable translation resource to make sure you&#39;re using the most appropriate word in a given context.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>d76223f3</code></strong>
         <span class="small">2023/05/29 (Mon) 22:01</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m thinking of switching to frozen brine shrimp for my fish. Can you tell me more about the benefits of using frozen brine shrimp over flakes and pellets?</div>
       </div><div class="turn">
@@ -2141,30 +2606,38 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Here are some excellent online resources for learning more about aquarium keeping, the latest research on aquarium care, and fish behavior:<br /><br />**Websites:**<br /><br />1. **FishLore**: A comprehensive online resource for aquarium keeping, featuring articles, tutorials, and a community forum.<br />2. **Aquarium Advice**: A website offering expert advice on aquarium care, fish health, and equipment reviews.<br />3. **The Aquatic Community**: A community-driven website with articles, forums, and resources on aquarium keeping and fish care.<br />4. **Aquarium Co-op**: A website offering articles, videos, and podcasts on aquarium care, fish behavior, and the latest research.<br /><br />**Forums:**<br /><br />1. **Reddit&#39;s r/Aquariums**: A community-driven forum with thousands of members sharing knowledge and experiences on aquarium keeping.<br />2. **Aquarium Forum**: A dedicated forum for discussing aquarium care, fish health, and equipment.<br />3. **FishLore Forum**: A forum attached to the FishLore website, offering a Q&amp;A section and discussions on various aquarium topics.<br /><br />**Research and Academic Sources:**<br /><br />1. **ScienceDirect**: A leading platform for scientific research papers, including those related to aquarium care and fish behavior.<br />2. **ResearchGate**: A social networking site for scientists and researchers, featuring papers and discussions on aquarium-related topics.<br />3. **Aquaculture and Fisheries Journals**: Various journals dedicated to research on aquaculture, fisheries, and aquarium science.<br /><br />**YouTube Channels:**<br /><br />1. **Aquarium Co-op**: A popular YouTube channel offering videos on aquarium care, fish behavior, and product reviews.<br />2. **Joel&#39;s Aquarium**: A channel featuring aquarium setup tutorials, fish care tips, and product reviews.<br />3. ** Aquarium TV**: A channel offering educational videos on aquarium care, fish behavior, and aquatic plants.<br /><br />**Podcasts:**<br /><br />1. **The Aquatic Podcast**: A podcast covering various topics related to aquarium keeping, fish behavior, and the aquarium industry.<br />2. **The Aquarium Guide Podcast**: A podcast offering tips, advice, and interviews with experts in the aquarium industry.<br /><br />**Online Courses and Webinars:**<br /><br />1. **Aquarium University**: An online course platform offering courses on aquarium care, fish health, and aquatic plants.<br />2. **The Aquatic Institute**: A platform offering online courses and webinars on aquarium care, fish behavior, and aquatic conservation.<br /><br />Remember to always verify the credibility of online sources and consult with experts in the field before making any significant changes to your aquarium or fish care routine.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_qSYiw8b_0</code></strong>
         <span class="small">2023/05/30 (Tue) 02:29</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Why did you use the united states as an example of balanced political power ?</div>
       </div><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">The United States is often used as an example of a mixed perspective on political power, as it has a balance of power between the state and individuals. The United States Constitution divides power between the federal government and the states, and also provides for individual rights and freedoms through the Bill of Rights. This creates a system of checks and balances, which helps to prevent any one branch or level of government from becoming too powerful. Additionally, the United States has a system of democracy and regular elections, which allows citizens to have a say in the direction of the country and hold their leaders accountable. This balance of power is not always perfect and can be influenced by various factors, but it&#39;s one of the most common examples used in political discourse.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_375508</code></strong>
         <span class="small">2023/05/30 (Tue) 08:05</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What are the best BBQ joints in Austin and what are their most popular meats?</div>
       </div><div class="turn">
@@ -2195,15 +2668,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Absolutely! Austin has a unique style of BBQ that&#39;s deeply rooted in Texan traditions. The BBQ in Austin is usually smoked using either oak, mesquite, or hickory wood, which gives it a distinct flavor that&#39;s quite different from other regional styles. Austin-style BBQ also puts a strong focus on brisket, which is smoked for hours and sliced thinly against the grain so that it&#39;s tender and juicy.<br /><br />In addition to brisket, Austin-style BBQ joints also often offer ribs, sausage, and pulled pork. The meats are usually seasoned with a dry rub, and served with a variety of sauces, including tomato-based, vinegar-based, or mustard-based. As for sides, the traditional BBQ sides like coleslaw, potato salad, and baked beans are often served, but some Austin BBQ joints are also known for innovative sides like smoked corn, queso, and jalapeno cheese grits.<br /><br />The BBQ culture in Austin is all about coming together with friends and family to enjoy delicious food, and to share in the joy of good company, good music, and good times.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_StUzdLK_117</code></strong>
         <span class="small">2023/05/30 (Tue) 15:17</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">Aylen sat on Sarah&#39;s couch, tears streaming down her face as she told her best friend about the vivid nightmares and visions she had been experiencing. Sarah listened attentively, holding Aylen&#39;s hand and offering words of comfort and support.<br /><br />&quot;I know you&#39;re terrified, Aylen, but you have to trust me,&quot; Sarah said, her voice taking on a sinister undertone. &quot;I&#39;ll always be here for you.&quot;<br /><br />Aylen&#39;s heart skipped a beat as she looked up at Sarah and saw the smirk on her face. Suddenly, she realized that this was not her friend, but the thing that had been tormenting her in her dreams. She tried to stand up and run, but her legs wouldn&#39;t move.<br /><br />&quot;You&#39;re not alone, Aylen,&quot; Sarah said in a menacing tone. &quot;I&#39;m here with you.&quot;<br /><br />Aylen&#39;s mind raced as she tried to understand what was happening. She couldn&#39;t believe that her best friend, the one person she had always trusted, was now a part of this nightmare.<br /><br />&quot;I understand why you&#39;re so afraid, Aylen,&quot; Sarah continued, her voice cold and calculating. &quot;I see it all.&quot;<br /><br />Aylen felt a surge of panic as she realized that this thing could control her mind, making her see and hear things that weren&#39;t real.<br /><br />&quot;Don&#39;t worry, Aylen,&quot; Sarah said, her voice now promising violence. &quot;I&#39;ll make it all stop.&quot;<br /><br />Aylen struggled against the invisible force holding her down, trying to find a way to escape.<br /><br />&quot;You know what you have to do, Aylen,&quot; Sarah said, her voice filled with a terrifying sense of understanding. &quot;Don&#39;t you?&quot;<br /><br />Aylen closed her eyes and screamed, hoping that this would all be over soon. She woke up in her bed, drenched in sweat, her heart pounding in her chest. She lay there for a moment, trying to catch her breath and steady her racing mind. She knew now that she had to find a way to stop this thing once and for all, before it destroyed her completely.</div>
       </div><div class="turn">
@@ -2243,15 +2720,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Aylen carefully explains her situation to Sarah, including the test she&#39;s developed to ensure she&#39;s in reality. Sarah listens attentively, nodding along as Aylen speaks. Aylen finishes by saying, &quot;I know it sounds crazy, but I need to be sure. I need to know that this is real and that I&#39;m not being tormented in my dreams again.&quot;<br />Sarah reassures her, &quot;I understand. I&#39;m here for you, Aylen. Let&#39;s do the test together.&quot; Together, they perform the test and Aylen finally feels a sense of relief wash over her when it confirms that they are indeed in the real world. She begins to open up to Sarah about her deepest fears and the things she&#39;s seen in her visions. Sarah listens patiently, offering words of comfort and support. She tells Aylen that she believes her and that they will figure out a way to stop this thing from destroying the world. Aylen feels a weight lifted off her shoulders, knowing that she has a trusted ally in her fight against this powerful and terrifying entity.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_MNdE67E_17</code></strong>
         <span class="small">2023/05/30 (Tue) 20:20</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">Here is a table that lists the year that slave ships first reached Africa, the countries they went to, and where they went to in America:<br /><br />| Year | African Country | American Destination |<br />| --- | --- | --- |<br />| 1526 | West Central Africa | Hispaniola |<br />| 1562 | West Central Africa | Mexico and Peru |<br />| 1619 | West Central Africa | Jamestown, Virginia |<br />| 1637 | Angola | Massachusetts |<br />| 1650 | West Central Africa | Barbados |<br />| 1672 | Senegal | South Carolina |<br />| 1698 | Senegal | South Carolina |<br />| 1701 | Senegal | South Carolina |<br />| 1716 | Angola | Virginia |<br />| 1730 | West Central Africa | South Carolina |<br /><br />It is worth noting that this table only lists the first year that slave ships reached certain African countries and American destinations, and that the transatlantic slave trade continued for several centuries after these dates. Additionally, many other African countries were also sources of enslaved people, and many other American colonies and states also received enslaved people via the transatlantic slave trade.<br /><br />Source :<br /><br />* &quot;The Transatlantic slave trade: a database on CD-ROM&quot; by David Eltis and David Richardson, Cambridge University Press<br />* &quot;Encyclopedia of African American History, 1619-1895: From the Colonial Period to the Age of Frederick Douglass&quot; by Paul Finkelman, Oxford University Press<br />* &quot;Slavery in the United States: A Social, Political, and Historical Encyclopedia&quot; edited by Junius P. Rodriguez, ABC-CLIO<br /><br />It is worth noting that the transatlantic slave trade was a complex and multi-faceted phenomenon and it is difficult to provide an exhaustive list of all the ship and routes. Slaves were transported to many regions of the America, including the Caribbean, Mexico, Central America, and South America, as well as the British, French, Spanish, and Dutch colonies in North America.</div>
       </div><div class="turn">
@@ -2267,7 +2748,8 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">The Prince of Slaves is a term that has been used to refer to a few different individuals throughout history. The most notable of these is Abd al-Rahman, also known as &quot;Abdul Rahman&quot; or &quot;Abd al-Rahman Ibrahima,&quot; who was an enslaved African prince who was brought to America in the late 18th century. He was born in what is now modern-day Mauritania, West Africa, and was the son of a king of the Fula people. He was captured in a raid and sold into the transatlantic slave trade.<br /><br />He was enslaved for about 40 years and was owned by several different masters in the United States, including Thomas Foster of Natchez, Mississippi and James Brown of Virginia. He managed to buy his freedom in 1828, and later worked as a teacher, farmer and businessman. He died in 1829.<br /><br />Abd al-Rahman&#39;s story is an important reminder of the diverse backgrounds and experiences of enslaved Africans in America, and of the resilience and determination of those who were enslaved to gain their freedom.</div>
       </div></div>
-  </details></div>
+    </details>
+  </div></div>
                     </details>
     </div>
   </div>

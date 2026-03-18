@@ -105,7 +105,7 @@
       border: 1px solid var(--line);
       border-radius: 14px;
       background: #fff;
-      padding: 0 14px 14px;
+      padding: 14px;
     }
     .priority-session {
       border-width: 2px;
@@ -115,21 +115,17 @@
     .secondary-session {
       opacity: 0.9;
     }
-    .session-card summary {
-      list-style: none;
-      cursor: pointer;
+    .session-card-header {
       display: flex;
       justify-content: space-between;
       gap: 12px;
       align-items: center;
-      padding: 14px 0;
-    }
-    .session-card summary::-webkit-details-marker {
-      display: none;
+      margin-bottom: 12px;
     }
     .session-turns {
       display: grid;
       gap: 10px;
+      margin-top: 12px;
     }
     .turn {
       border-top: 1px solid var(--line);
@@ -146,6 +142,40 @@
       font-size: 14px;
       line-height: 1.55;
       word-break: break-word;
+    }
+    .session-memory-wrap {
+      margin-bottom: 12px;
+    }
+    .session-memory-details {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fcfaf5;
+      padding: 0 12px 12px;
+    }
+    .session-memory-details summary,
+    .session-conversation-details summary {
+      cursor: pointer;
+      padding: 12px 0;
+      font-size: 13px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .session-conversation-details {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fafaf7;
+      padding: 0 12px 12px;
+    }
+    .session-memory-list {
+      display: grid;
+      gap: 10px;
+    }
+    .extracted-memory-card {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+      padding: 12px;
     }
     .pill {
       display: inline-block;
@@ -397,15 +427,57 @@
       <h2>Question Sessions</h2>
       <p class="small">Benchmark answer sessions are shown first. Then come other retrieved sessions. Background sessions stay collapsed below.</p>
       <div class="session-subhead">Answer Sessions</div>
-             <div class="session-list"><details class="session-card priority-session">
-    <summary>
+             <div class="session-list"><div class="session-card priority-session">
+    <div class="session-card-header">
       <div>
         <strong><code>answer_52382508_1</code></strong>
         <span class="small">2023/04/11 (Tue) 08:03</span>
       </div>
       <div><span class="pill">ground truth</span> <span class="pill pill-answer">answer session</span> <span class="pill pill-retrieved">retrieved</span></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    <div class="session-memory-wrap"><details class="session-memory-details">
+    <summary>Extracted Memories (2)</summary>
+    <div class="session-memory-list"><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 1</strong>
+      <div>
+        <span class="pill pill-retrieved">retrieved</span>
+        <span class="small">2023-04-11T15:03:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Settled into a new studio apartment in Harajuku, Tokyo, a month ago. Enjoyed the independence of the new living situation. The commute to work from this location is very convenient.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Moved into a new studio apartment in Harajuku, Tokyo.<br />Has been living there for one month.<br />Enjoys the independence provided by the new apartment.<br />Finds the commute to work from Harajuku to be convenient.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Harajuku</td>
+      </tr></tbody></table>
+  </div><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 2</strong>
+      <div>
+        
+        <span class="small">2023-04-11T15:03:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Planning a trip to the Japanese Alps in November, with a focus on experiencing traditional Japanese culture and history. Decided to stay in Matsumoto, as it offers a more laid-back atmosphere and is closer to the Japanese Alps Visitor Center. Prioritized Matsumoto Castle over Zenko-ji Temple for cultural and historical exploration.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Planning a trip to the Japanese Alps in November.<br />Friends from Tokyo might join for a few days.<br />Decided to book accommodations in Matsumoto over Hakuba Valley.<br />Reason for choosing Matsumoto is an interest in traditional Japanese culture and history.<br />Matsumoto is also closer to the Japanese Alps Visitor Center.<br />Prioritized visiting Matsumoto Castle for its comprehensive historical and architectural significance.<br />Will also visit Nawate Street and potentially the Matsumoto Folkcraft Museum and Zenko-ji Temple.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Matsumoto</td>
+      </tr></tbody></table>
+  </div></div>
+  </details></div>
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m planning a trip to the Japanese Alps in November and was wondering if you could recommend some scenic routes and accommodations in the Nagano prefecture?</div>
       </div><div class="turn">
@@ -442,15 +514,94 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">You&#39;ve planned a great itinerary!<br /><br />Both Matsumoto Castle and Zenko-ji Temple are must-visit attractions, but if you had to prioritize one, I&#39;d recommend the castle. Here&#39;s why:<br /><br />**Matsumoto Castle**:<br /><br />* As a National Treasure of Japan, the castle is an excellent example of traditional Japanese architecture and history.<br />* The castle&#39;s unique blend of Japanese and Western styles, as well as its well-preserved state, make it a fascinating visit.<br />* The castle&#39;s museum and exhibits provide a comprehensive understanding of the region&#39;s history, including the samurai era and the castle&#39;s significance.<br />* The castle&#39;s surroundings, including the beautiful gardens and moat, offer a peaceful atmosphere and great photo opportunities.<br /><br />**Zenko-ji Temple**:<br /><br />* While Zenko-ji Temple is a beautiful and historic temple, it&#39;s more of a spiritual and cultural experience.<br />* The temple&#39;s architecture and gardens are stunning, but the temple&#39;s significance lies more in its spiritual importance and the beautiful atmosphere it provides.<br />* If you&#39;re interested in traditional Japanese culture and history, the temple&#39;s exhibits and museum might not be as comprehensive as the castle&#39;s.<br /><br />Considering your interest in traditional Japanese culture and history, I think Matsumoto Castle should be your priority. The castle offers a more comprehensive understanding of the region&#39;s history, architecture, and cultural significance.<br /><br />That being said, if you have time, Zenko-ji Temple is still worth a visit. The temple&#39;s peaceful atmosphere and beautiful gardens make it a great place to unwind and reflect on your day. If you can fit it in, try to visit the temple in the late afternoon or early evening, when the sun is setting, and the atmosphere is even more serene.<br /><br />Remember to take your time and enjoy the scenic views, traditional architecture, and cultural experiences that Matsumoto has to offer!</div>
       </div></div>
-  </details><details class="session-card priority-session">
-    <summary>
+    </details>
+  </div><div class="session-card priority-session">
+    <div class="session-card-header">
       <div>
         <strong><code>answer_52382508_2</code></strong>
         <span class="small">2023/10/15 (Sun) 20:50</span>
       </div>
       <div><span class="pill">ground truth</span> <span class="pill pill-answer">answer session</span> <span class="pill pill-retrieved">retrieved</span></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    <div class="session-memory-wrap"><details class="session-memory-details">
+    <summary>Extracted Memories (4)</summary>
+    <div class="session-memory-list"><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 1</strong>
+      <div>
+        
+        <span class="small">2023-10-16T03:50:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Enjoyed the fall foliage in Tokyo, which was very different from back home. Explored a new neighborhood every Sunday, and last weekend discovered a great coffee shop in Daikanyama.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Enjoyed the fall foliage in Tokyo.<br />The foliage was different from back home.<br />Explored a new neighborhood every Sunday.<br />Last weekend, found a great coffee shop in Daikanyama.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Foliage</td>
+      </tr></tbody></table>
+  </div><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 2</strong>
+      <div>
+        <span class="pill pill-retrieved">retrieved</span>
+        <span class="small">2023-10-16T03:50:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Has been living in Harajuku for three months and is still discovering new hidden gems in the neighborhood. Has not yet explored the historical side, but plans to visit Meiji Shrine and Kawai Shrine.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Has been living in Harajuku for 3 months.<br />Still discovering new hidden gems in the neighborhood.<br />Has not explored the historical side of Harajuku yet.<br />Plans to check out Meiji Shrine.<br />Plans to check out Kawai Shrine, which is dedicated to the god of agriculture, fertility, and industry, known for its gardens and &quot;Lucky Bell&quot;.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Harajuku</td>
+      </tr></tbody></table>
+  </div><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 3</strong>
+      <div>
+        
+        <span class="small">2023-10-16T03:50:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Planning a day trip to Yokohama and intends to visit Minato Mirai 21 and the Red Brick Warehouse for their harbor views. Also plans to try local seafood like kanimeshi at Kanemasa and namashirasu at Tsukiji Itadori Uogashi Nihon-Ichi, and grilled squid at Yokohama Central Market.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Planning a day trip to Yokohama.<br />Will check out Minato Mirai 21.<br />Will check out the Red Brick Warehouse.<br />Heard great things about the harbor views.<br />Wants to try local seafood: kanimeshi (crab rice bowl) and namashirasu (raw sardine sushi).<br />Will try kanimeshi at Kanemasa in Yokohama&#39;s Chinatown.<br />Will try namashirasu at Tsukiji Itadori Uogashi Nihon-Ichi near the Yokohama Fish Market.<br />Wants to try grilled squid.<br />Will stop by the Yokohama Central Market for grilled squid.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Yokohama</td>
+      </tr></tbody></table>
+  </div><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 4</strong>
+      <div>
+        
+        <span class="small">2023-10-16T03:50:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Interested in attending autumn festivals and events in Yokohama. Plans to check out the Yokohama Oktoberfest and the Yokohama Autumn Leaves Festival if they coincide with the trip. Also interested in the autumn-themed illuminations at Minato Mirai 21, which often feature themes like &quot;Autumn Leaves&quot; or &quot;Harvest Moon&quot; and include a Maple Leaf Tunnel and Cosmo World Illuminations.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Interested in autumn festivals and events in Yokohama.<br />Will check out the Yokohama Oktoberfest (mid-October to early November).<br />Will check out the Yokohama Autumn Leaves Festival (late November).<br />Loves trying different beers and enjoying fall foliage.<br />Interested in the illuminations at Minato Mirai 21.<br />Minato Mirai 21 illuminations often have autumn themes like &quot;Autumn Leaves&quot; or &quot;Harvest Moon&quot;.<br />Highlights include a Maple Leaf Tunnel, Harvest Moon Garden, and Cosmo World Illuminations.<br />Illuminations typically run from late October to mid-December, 5 pm to 10 pm.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Oktoberfest</td>
+      </tr></tbody></table>
+  </div></div>
+  </details></div>
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m trying to plan a day trip to Yokohama. Can you recommend some popular spots to visit? By the way, I&#39;ve been really enjoying the fall foliage in Tokyo lately - it&#39;s so different from what I&#39;m used to back home. I&#39;ve been exploring a new neighborhood every Sunday, and last weekend I stumbled upon a great coffee shop in Daikanyama.</div>
       </div><div class="turn">
@@ -487,19 +638,23 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">The illuminations at Minato Mirai 21 are definitely worth checking out, especially during autumn. The district usually goes all out with their autumn-themed illuminations, creating a magical atmosphere that&#39;s perfect for a romantic evening stroll or a fun night out with friends.<br /><br />During autumn, the Minato Mirai 21 illuminations often feature a theme that incorporates the fall season, such as &quot;Autumn Leaves&quot; or &quot;Harvest Moon.&quot; The displays typically include a mix of traditional Japanese motifs, like maple leaves and chrysanthemums, combined with modern lighting technology to create a truly breathtaking spectacle.<br /><br />Some of the highlights of the autumn illuminations at Minato Mirai 21 include:<br /><br />1. **Maple Leaf Tunnel**: A 100-meter-long tunnel lined with maple trees, whose leaves are illuminated in shades of red, orange, and yellow, creating a stunning autumnal display.<br />2. **Harvest Moon Garden**: A beautifully lit garden featuring a large, glowing moon and surrounded by autumn flowers, creating a romantic and peaceful atmosphere.<br />3. **Cosmo World Illuminations**: The Cosmo World amusement park, located within Minato Mirai 21, usually puts on a spectacular light show featuring colorful illuminations and projection mapping on the Ferris wheel and other attractions.<br />4. **Waterfront Illuminations**: The waterfront area is often lined with illuminations that reflect off the water, creating a beautiful, shimmering effect.<br /><br />The autumn illuminations at Minato Mirai 21 usually take place from late October to mid-December, with the best viewing times typically between 5 pm and 10 pm. Be sure to check the official website or contact the local tourist information center for the most up-to-date information on the illuminations schedule and themes.<br /><br />I hope you get to enjoy the illuminations during your trip to Yokohama!</div>
       </div></div>
-  </details></div>
+    </details>
+  </div></div>
              
              <details class="other-sessions">
                       <summary>Other Sessions (49)</summary>
-                      <div class="session-list"><details class="session-card secondary-session">
-    <summary>
+                      <div class="session-list"><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_diC41R9_9</code></strong>
         <span class="small">2023/03/12 (Sun) 01:56</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">Sure, here&#39;s an example of a Python dictionary with the 8 different situations for each scenario:<br />```python<br />restaurant_scenarios_situations = {<br />    &quot;Making a reservation&quot;: [<br />        &quot;Booking a table for a group of 4 on a Saturday night&quot;,<br />        &quot;Requesting a quiet table or a table with a view&quot;,<br />        &quot;Asking for a menu in advance to plan the order&quot;,<br />        &quot;Changing the reservation time or date due to personal reasons&quot;,<br />        &quot;Asking for a private room for a special occasion&quot;,<br />        &quot;Confirming the reservation and asking about dress code&quot;,<br />        &quot;Cancelling the reservation due to unexpected circumstances&quot;,<br />        &quot;Asking for the restaurant&#39;s policy on children or pets&quot;<br />    ],<br />    &quot;Being seated at a table&quot;: [<br />        &quot;Being greeted by the host or hostess and offered a menu&quot;,<br />        &quot;Requesting a table for a larger party&quot;,<br />        &quot;Noticing the temperature and lighting of the restaurant&quot;,<br />        &quot;Waiting for a table to be cleaned and set up&quot;,<br />        &quot;Ordering a drink while waiting for the rest of the party&quot;,<br />        &quot;Noticing the music or background noise in the restaurant&quot;,<br />        &quot;Chatting with the server about the specials or menu items&quot;,<br />        &quot;Noticing any decor or artwork in the restaurant&quot;<br />    ],<br />    &quot;Ordering from the menu&quot;: [<br />        &quot;Deciding on a vegetarian or vegan option&quot;,<br />        &quot;Asking the server for a recommendation on the signature dish&quot;,<br />        &quot;Ordering food for delivery or take-out&quot;,<br />        &quot;Ordering a dish with a specific level of spiciness&quot;,<br />        &quot;Asking for an allergy-free meal or gluten-free options&quot;,<br />        &quot;Noticing that a menu item is unavailable or out of stock&quot;,<br />        &quot;Asking for a children&#39;s menu for a young guest&quot;,<br />        &quot;Ordering a dessert or coffee after the meal&quot;<br />    ],<br />    &quot;Waiting for food to be prepared and served&quot;: [<br />        &quot;Noticing the aroma and presentation of other dishes in the restaurant&quot;,<br />        &quot;Chatting with the other guests at the table&quot;,<br />        &quot;Checking the time or making small talk with the server&quot;,<br />        &quot;Asking for a refill on drinks or bread&quot;,<br />        &quot;Noticing the cleanliness and hygiene of the restaurant&quot;,<br />        &quot;Feeling anxious or impatient due to a long wait&quot;,<br />        &quot;Noticing that a nearby table received their order before them&quot;,<br />        &quot;Asking for a status update on the food&quot;<br />    ],<br />    &quot;Asking for the check and paying the bill&quot;: [<br />        &quot;Asking for separate checks for a group&quot;,<br />        &quot;Calculating the tip based on the quality of service&quot;,<br />        &quot;Noticing an error on the bill and asking for a correction&quot;,<br />        &quot;Paying with cash and receiving change&quot;,<br />        &quot;Paying with a credit card or mobile payment app&quot;,<br />        &quot;Asking for a receipt or proof of payment&quot;,<br />        &quot;Noticing the tax and any additional fees on the bill&quot;,<br />        &quot;Leaving feedback or compliments for the restaurant&quot;<br />    ]<br />}<br />```</div>
       </div><div class="turn">
@@ -563,15 +718,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Sure, here are five different scenarios that a guest commonly encounters at a restaurant, listed as strings and stored in a Python list:<br />```python<br />restaurant_scenarios = [<br />    &quot;Waiting for a table during peak hours&quot;,<br />    &quot;Dealing with a noisy or crowded environment&quot;,<br />    &quot;Encountering unexpected delays in food or service&quot;,<br />    &quot;Interacting with unfamiliar or challenging menu options&quot;,<br />    &quot;Navigating cultural or language barriers&quot;<br />]<br />```</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_485903</code></strong>
         <span class="small">2023/03/12 (Sun) 22:22</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Could you explain the process of meiosis and its role in sexual reproduction?</div>
       </div><div class="turn">
@@ -614,15 +773,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, there are several effective ways to manage stress. Here are a few recommendations:<br /><br />1. Exercise: Regular exercise can help to reduce stress and promote a sense of well-being. It&#39;s recommended that adults get at least 150 minutes of moderate aerobic activity or 75 minutes of vigorous aerobic activity per week.<br /><br />2. Relaxation techniques: Learning and practicing relaxation techniques, such as deep breathing, meditation, or yoga, can help to reduce stress and promote relaxation.<br /><br />3. Social support: Talking to friends or family members about stressors and getting support and encouragement can help to reduce stress and improve mental health.<br /><br />4. Healthy habits: Maintaining healthy habits, such as getting enough sleep, eating a balanced diet, and avoiding excessive alcohol and caffeine, can help to reduce stress and improve overall health.<br /><br />5. Counseling and therapy: If stress is impacting daily life and causing significant distress, seeing a mental health professional or counselor can be helpful in managing stress and improving mental health.<br /><br />Overall, finding a combination of strategies that work for an individual can be helpful in managing stress and improving overall well-being.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>25b1afbc</code></strong>
         <span class="small">2023/03/12 (Sun) 01:32</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m trying to update my LinkedIn profile with my new name, but I&#39;m not sure how to do it. Can you walk me through the process?</div>
       </div><div class="turn">
@@ -659,15 +822,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">What a great idea! Sharing your experience and insights can be incredibly helpful to others who may be going through a similar journey.<br /><br />Here are some suggestions for tips and advice you could include in your blog post:<br /><br />**Before Making the Change:**<br /><br />* **Reflect on your motivations**: Why do you want to change your surname? Is it for personal, professional, or family reasons? Understanding your motivations can help you make a more informed decision.<br />* **Research the process**: Look into the legal and administrative requirements for changing your surname in your country or state. This can help you prepare for the process and avoid any surprises.<br />* **Consider the impact on your identity**: Changing your surname can affect your sense of identity and how others perceive you. Think about how you&#39;ll introduce yourself, update your social media profiles, and adjust to using a new name.<br /><br />**During the Process:**<br /><br />* **Gather required documents**: Make sure you have all the necessary documents, such as identification, birth certificates, and marriage certificates (if applicable).<br />* **Update your records**: Notify the relevant authorities, such as the DMV, Social Security Administration, and banks, of your name change.<br />* **Be prepared for paperwork and bureaucracy**: Changing your surname can involve a lot of paperwork and administrative tasks. Be patient and plan accordingly.<br /><br />**After the Change:**<br /><br />* **Update your online presence**: Change your social media profiles, email addresses, and other online accounts to reflect your new surname.<br />* **Notify important contacts**: Inform your employer, school, or any other relevant institutions about your name change.<br />* **Be prepared for questions and reactions**: You may receive questions or comments from friends, family, or strangers about your name change. Be prepared to respond graciously and confidently.<br /><br />**Additional Tips:**<br /><br />* **Take your time**: Changing your surname can be a significant decision, so don&#39;t rush the process. Take time to think carefully about your decision and prepare for the changes that come with it.<br />* **Seek support**: Reach out to friends, family, or a therapist for support and guidance throughout the process.<br />* **Celebrate your decision**: Acknowledge and celebrate your decision to change your surname. It&#39;s a significant milestone, and you should be proud of yourself!<br /><br />**Personal Anecdotes and Reflections:**<br /><br />* **Share your story**: Include personal anecdotes and reflections about your experience changing your surname. This can help readers connect with your story and gain a deeper understanding of the process.<br />* **Lessons learned**: Share any lessons you&#39;ve learned or insights you&#39;ve gained during the process. This can help readers prepare for their own journey.<br /><br />Remember to keep your post concise, engaging, and easy to read. Break up long blocks of text into shorter paragraphs, and use headings and subheadings to organize your content.<br /><br />Good luck with your blog post, and I hope these suggestions help you create a helpful and inspiring resource for others!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_WZhGKMr_0</code></strong>
         <span class="small">2023/03/17 (Fri) 22:13</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Write an email to a professor to switch sections from the one you are currently on because the time is the same with another class you are trying to take, please note that the class you want to switch to is full</div>
       </div><div class="turn">
@@ -710,30 +877,38 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">​</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_3fMCWSX_0</code></strong>
         <span class="small">2023/03/18 (Sat) 05:49</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">TIME BASED QUERIES<br />I did an analysis of a covid call centre for medical professionals. The first dataset below outlines the number of calls containing the keyword &quot;Error&quot; in accordance with date. This referred to Vaccine Errors. The second data set pasted below outlines the number of webinars that took place for medical professionals, as well as newsletter sent out that related to Covid 19 Vaccine Errors to inform medical professionals about Vaccine Errors. The third dataset is the number of Covid vaccines given in relation to date. Please analyse the following and tell me trends and how the three data sets might relate to each other.<br />--<br />Data Set 1: Error<br /><br />Date Error<br />1/01/2020 0<br />8/01/2020 0<br />15/01/2020 0<br />22/01/2020 0<br />29/01/2020 0<br />5/02/2020 0<br />12/02/2020 0<br />19/02/2020 0<br />26/02/2020 0<br />4/03/2020 0<br />11/03/2020 0<br />18/03/2020 0<br />25/03/2020 0<br />1/04/2020 0<br />8/04/2020 0<br />15/04/2020 0<br />22/04/2020 0<br />29/04/2020 0<br />6/05/2020 0<br />13/05/2020 0<br />20/05/2020 0<br />27/05/2020 0<br />3/06/2020 0<br />10/06/2020 1<br />17/06/2020 0<br />24/06/2020 0<br />1/07/2020 0<br />8/07/2020 0<br />15/07/2020 0<br />22/07/2020 0<br />29/07/2020 0<br />5/08/2020 0<br />12/08/2020 0<br />19/08/2020 1<br />26/08/2020 0<br />2/09/2020 0<br />9/09/2020 0<br />16/09/2020 0<br />23/09/2020 0<br />30/09/2020 0<br />7/10/2020 0<br />14/10/2020 0<br />21/10/2020 0<br />28/10/2020 0<br />4/11/2020 0<br />11/11/2020 0<br />18/11/2020 0<br />25/11/2020 0<br />2/12/2020 0<br />9/12/2020 0<br />16/12/2020 0<br />23/12/2020 0<br />30/12/2020 0<br />6/01/2021 0<br />13/01/2021 0<br />20/01/2021 0<br />27/01/2021 0<br />3/02/2021 0<br />10/02/2021 0<br />17/02/2021 0<br />24/02/2021 0<br />3/03/2021 1<br />10/03/2021 0<br />17/03/2021 0<br />24/03/2021 0<br />31/03/2021 0<br />7/04/2021 0<br />14/04/2021 0<br />21/04/2021 1<br />28/04/2021 0<br />5/05/2021 1<br />12/05/2021 4<br />19/05/2021 0<br />26/05/2021 2<br />2/06/2021 2<br />9/06/2021 1<br />16/06/2021 2<br />23/06/2021 5<br />30/06/2021 6<br />7/07/2021 1<br />14/07/2021 2<br />21/07/2021 3<br />28/07/2021 4<br />4/08/2021 1<br />11/08/2021 3<br />18/08/2021 3<br />25/08/2021 17<br />1/09/2021 9<br />8/09/2021 9<br />15/09/2021 12<br />22/09/2021 3<br />29/09/2021 11<br />6/10/2021 8<br />13/10/2021 9<br />20/10/2021 4<br />27/10/2021 8<br />3/11/2021 10<br />10/11/2021 7<br />17/11/2021 5<br />24/11/2021 6<br />1/12/2021 7<br />8/12/2021 5<br />15/12/2021 4<br />22/12/2021 3<br />29/12/2021 5<br />5/01/2022 11<br />12/01/2022 13<br />19/01/2022 32<br />26/01/2022 34<br />2/02/2022 8<br />9/02/2022 9<br />16/02/2022 12<br />23/02/2022 28<br />2/03/2022 14<br />9/03/2022 18<br />16/03/2022 16<br />23/03/2022 16<br />30/03/2022 12<br />6/04/2022 4<br />13/04/2022 3<br />20/04/2022 3<br />27/04/2022 9<br />4/05/2022 3<br />11/05/2022 1<br />18/05/2022 4<br />25/05/2022 3<br />1/06/2022 5<br />8/06/2022 1<br />15/06/2022 8<br />22/06/2022 3<br />29/06/2022 6<br />6/07/2022 11<br />13/07/2022 21<br />20/07/2022 11<br />27/07/2022 9<br />3/08/2022 3<br />10/08/2022 3<br />17/08/2022 2<br />24/08/2022 3<br />31/08/2022 3<br />7/09/2022 0<br />14/09/2022 0<br />21/09/2022 1<br />28/09/2022 0<br />--<br />Data Set 2: (Covid Communications)<br />Date Covid Communications<br />1/01/2020 <br />8/01/2020 <br />15/01/2020 <br />22/01/2020 <br />29/01/2020 <br />5/02/2020 <br />12/02/2020 <br />19/02/2020 <br />26/02/2020 <br />4/03/2020 <br />11/03/2020 <br />18/03/2020 <br />25/03/2020 <br />1/04/2020 <br />8/04/2020 <br />15/04/2020 <br />22/04/2020 <br />29/04/2020 <br />6/05/2020 <br />13/05/2020 <br />20/05/2020 <br />27/05/2020 <br />3/06/2020 <br />10/06/2020 <br />17/06/2020 <br />24/06/2020 <br />1/07/2020 <br />8/07/2020 <br />15/07/2020 <br />22/07/2020 <br />29/07/2020 <br />5/08/2020 <br />12/08/2020 <br />19/08/2020 <br />26/08/2020 <br />2/09/2020 <br />9/09/2020 <br />16/09/2020 <br />23/09/2020 <br />30/09/2020 <br />7/10/2020 <br />14/10/2020 <br />21/10/2020 <br />28/10/2020 <br />4/11/2020 <br />11/11/2020 <br />18/11/2020 <br />25/11/2020 <br />2/12/2020 <br />9/12/2020 <br />16/12/2020 <br />23/12/2020 <br />30/12/2020 <br />6/01/2021 <br />13/01/2021 <br />20/01/2021 <br />27/01/2021 <br />3/02/2021 <br />10/02/2021 <br />17/02/2021 <br />24/02/2021 <br />3/03/2021 <br />10/03/2021 <br />17/03/2021 <br />24/03/2021 <br />31/03/2021 <br />7/04/2021 <br />14/04/2021 <br />21/04/2021 <br />28/04/2021 <br />5/05/2021 <br />12/05/2021 <br />19/05/2021 <br />26/05/2021 <br />2/06/2021 <br />9/06/2021 <br />16/06/2021 <br />23/06/2021 <br />30/06/2021 <br />7/07/2021 <br />14/07/2021 <br />21/07/2021 <br />28/07/2021 <br />4/08/2021 <br />11/08/2021 <br />18/08/2021 <br />25/08/2021 <br />1/09/2021 <br />8/09/2021 <br />15/09/2021 <br />22/09/2021 <br />29/09/2021 <br />6/10/2021 <br />13/10/2021 <br />20/10/2021 <br />27/10/2021 <br />3/11/2021 <br />10/11/2021 <br />17/11/2021 <br />24/11/2021 <br />1/12/2021 <br />8/12/2021 <br />15/12/2021 <br />22/12/2021 <br />29/12/2021 <br />5/01/2022 <br />12/01/2022 <br />19/01/2022 <br />26/01/2022 <br />2/02/2022 <br />9/02/2022 <br />16/02/2022 <br />23/02/2022 <br />2/03/2022 <br />9/03/2022 <br />16/03/2022 <br />23/03/2022 <br />30/03/2022 <br />6/04/2022 <br />13/04/2022 <br />20/04/2022 <br />27/04/2022 <br />4/05/2022 <br />11/05/2022 <br />18/05/2022 <br />25/05/2022 <br />1/06/2022 <br />8/06/2022 1<br />15/06/2022 <br />22/06/2022 <br />29/06/2022 <br />6/07/2022 <br />13/07/2022 <br />20/07/2022 <br />27/07/2022 <br />3/08/2022 <br />10/08/2022 <br />17/08/2022 <br />24/08/2022 <br />31/08/2022 <br />7/09/2022 <br />14/09/2022 <br />21/09/2022 <br />28/09/2022 <br /><br />Data Set 3: Weekly Covid Vaccines Adminstered<br />Date Weekly Covid Vaccinations<br />1/01/2020 <br />8/01/2020 <br />15/01/2020 <br />22/01/2020 <br />29/01/2020 <br />5/02/2020 <br />12/02/2020 <br />19/02/2020 <br />26/02/2020 <br />4/03/2020 <br />11/03/2020 <br />18/03/2020 <br />25/03/2020 <br />1/04/2020 <br />8/04/2020 <br />15/04/2020 <br />22/04/2020 <br />29/04/2020 <br />6/05/2020 <br />13/05/2020 <br />20/05/2020 <br />27/05/2020 <br />3/06/2020 <br />10/06/2020 <br />17/06/2020 <br />24/06/2020 <br />1/07/2020 <br />8/07/2020 <br />15/07/2020 <br />22/07/2020 <br />29/07/2020 <br />5/08/2020 <br />12/08/2020 <br />19/08/2020 <br />26/08/2020 <br />2/09/2020 <br />9/09/2020 <br />16/09/2020 <br />23/09/2020 <br />30/09/2020 <br />7/10/2020 <br />14/10/2020 <br />21/10/2020 <br />28/10/2020 <br />4/11/2020 <br />11/11/2020 <br />18/11/2020 <br />25/11/2020 <br />2/12/2020 <br />9/12/2020 <br />16/12/2020 <br />23/12/2020 <br />30/12/2020 <br />6/01/2021 <br />13/01/2021 <br />20/01/2021 <br />27/01/2021 <br />3/02/2021 <br />10/02/2021 <br />17/02/2021 3<br />24/02/2021 1785<br />3/03/2021 9809<br />10/03/2021 7840<br />17/03/2021 9782<br />24/03/2021 15901<br />31/03/2021 28639<br />7/04/2021 24628<br />14/04/2021 47479<br />21/04/2021 51768<br />28/04/2021 52400<br />5/05/2021 74079<br />12/05/2021 84959<br />19/05/2021 83636<br />26/05/2021 91889<br />2/06/2021 108438<br />9/06/2021 96988<br />16/06/2021 128831<br />23/06/2021 128967<br />30/06/2021 128121<br />7/07/2021 122012<br />14/07/2021 134732<br />21/07/2021 157937<br />28/07/2021 213411<br />4/08/2021 267158<br />11/08/2021 276385<br />18/08/2021 268841<br />25/08/2021 420764<br />1/09/2021 570405<br />8/09/2021 504466<br />15/09/2021 405640<br />22/09/2021 358895<br />29/09/2021 304875<br />6/10/2021 363497<br />13/10/2021 506731<br />20/10/2021 429080<br />27/10/2021 241438<br />3/11/2021 237312<br />10/11/2021 171321<br />17/11/2021 154403<br />24/11/2021 132018<br />1/12/2021 206206<br />8/12/2021 191775<br />15/12/2021 127191<br />22/12/2021 131678<br />29/12/2021 70166<br />5/01/2022 106748<br />12/01/2022 292715<br />19/01/2022 295537<br />26/01/2022 403361<br />2/02/2022 315053<br />9/02/2022 359909<br />16/02/2022 343619<br />23/02/2022 227990<br />2/03/2022 183912<br />9/03/2022 97155<br />16/03/2022 68202<br />23/03/2022 69106<br />30/03/2022 48220<br />6/04/2022 29621<br />13/04/2022 23077<br />20/04/2022 12233<br />27/04/2022 15824<br />4/05/2022 14500<br />11/05/2022 10444<br />18/05/2022 9414<br />25/05/2022 8084<br />1/06/2022 8973<br />8/06/2022 7740<br />15/06/2022 9358<br />22/06/2022 9304<br />29/06/2022 21525<br />6/07/2022 53409<br />13/07/2022 87631<br />20/07/2022 92490<br />27/07/2022 75540<br />3/08/2022 67269<br />10/08/2022 56627<br />17/08/2022 48211<br />24/08/2022 41430<br />31/08/2022 33247<br />7/09/2022 24897<br />14/09/2022 22764<br />21/09/2022 18083<br />28/09/2022 12579</div>
       </div><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">From the first dataset, it appears that there were very few calls containing the keyword &quot;Error&quot; until June and August of 2020, when there was one error each month. There is then a gradual increase in the number of errors until September 2021, where there is a spike in the number of errors at 9, before decreasing again.<br />It can be inferred that there is a correlation between the number of errors and the number of vaccines given, as the number of errors spike when the number of vaccines given increase.<br />It would be interesting to see how the number of webinars and newsletter sent out regarding vaccine errors correlates with the number of errors and number of vaccines given.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>8e3b890e_2</code></strong>
         <span class="small">2023/03/19 (Sun) 20:46</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking to get some new ski gloves online, can you recommend some good brands or websites to check out? By the way, it&#39;s been a few days since I bought my new running shoes last Saturday, and I&#39;m loving them so far.</div>
       </div><div class="turn">
@@ -770,15 +945,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">That&#39;s fantastic to hear that the ASICS Gel-Kayano 28 is working out well for you! It&#39;s amazing how a good pair of shoes can make a huge difference in your running experience.<br /><br />Joining a local running group or club is an excellent idea! Running with others can be a great motivator, and it&#39;s a fantastic way to meet like-minded people who share your passion for running. Here are some tips to help you find a good running group or club in your area:<br /><br />1. **Online Search:** Start by searching online for running groups or clubs in your area. You can use search engines like Google or websites like Meetup.com, which is specifically designed for finding local groups and events.<br />2. **Social Media:** Check social media platforms like Facebook, Twitter, or Instagram for running groups or clubs in your area. Many groups have social media pages where they post updates, schedules, and events.<br />3. **Running Stores:** Visit local running stores or specialty running shops in your area and ask if they know of any running groups or clubs. They often have bulletin boards or flyers advertising local running events and groups.<br />4. **Running Apps:** Use running apps like Strava, Runkeeper, or Nike Run Club to find local running groups or clubs. These apps often have features that allow you to connect with other runners in your area.<br />5. **Local Running Events:** Attend local running events, such as 5Ks, 10Ks, or marathons, and talk to other runners about potential groups or clubs in the area.<br />6. **Word of Mouth:** Ask friends, family, or coworkers if they know of any running groups or clubs in your area.<br />7. **Check Credentials:** When researching a running group or club, make sure to check their credentials, such as their experience, coaching qualifications, and safety record.<br /><br />When joining a running group or club, make sure to:<br /><br />* Research the group&#39;s pace and distance to ensure it&#39;s a good fit for your current fitness level.<br />* Attend a few trial runs to get a feel for the group&#39;s dynamic and coaching style.<br />* Introduce yourself to the group leaders or coaches and ask about their approach to training and safety.<br /><br />Remember to always prioritize your safety and comfort when joining a new running group or club. With a little research and effort, you&#39;ll find a group that&#39;s a great fit for you!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_8CKJrt0_0</code></strong>
         <span class="small">2023/03/19 (Sun) 01:11</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">can gamification help developin and organizing an alumni community</div>
       </div><div class="turn">
@@ -791,15 +970,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">There are several ways you can create a system that mobilizes more influential and successful members to help the new ones in an alumni community:<br /><br />1. Mentorship programs: A mentorship program can be a powerful way to connect new alumni with more experienced members of the community. Members can be paired with mentors who can offer guidance and advice on career development, networking, and other areas of interest.<br />2. Networking events: Hosting virtual or in-person networking events can be a great way to bring members together and create opportunities for new alumni to connect with more experienced members.<br />3. Alumni-led groups: Create alumni-led groups within the community based on different interests or industries and allow successful alumni to lead or facilitate the groups. This can help members connect with others who share similar interests and goals, and provide opportunities for mentorship and networking.<br />4. Ambassador program: Create an ambassador program where successful alumni can represent the community and be point of contact for new members. Ambassadors could act as the face of the community, answering questions and providing guidance, as well as organizing events, and promoting the community.<br />5. Advocacy: Create an advocacy program where successful alumni can advocate for the community in their respective industries and companies. This can open opportunities for the community members as well as raising the reputation of the community.<br />6. Online community: Building an online community platform such as a forum or a slack channel where alumni can connect and interact, can be another way to mobilize successful alumni to help new ones. This allows them to share their experiences, ask questions and get help from more experienced members.<br /><br />Overall, the key is to create opportunities for members to connect and engage with one another, and to encourage more experienced members to share their knowledge and experiences with new alumni. These initiatives can be done through a combination of virtual and in-person events, online platforms, and programs that provide structure and support for these interactions.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>970547b3_3</code></strong>
         <span class="small">2023/03/21 (Tue) 11:05</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking to find some healthy breakfast ideas to fuel my morning workouts. Last Wednesday I attended a morning Pilates class, which was a great way to start the day, and I want to make sure I&#39;m eating something nutritious beforehand to get the most out of my exercise.</div>
       </div><div class="turn">
@@ -836,15 +1019,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">A Pilates ball, also known as a Swiss ball or exercise ball, can be a great investment for home workouts, especially for Pilates and core exercises. Here are some benefits:<br /><br />**Benefits:**<br /><br />1. **Improved Core Strength**: A Pilates ball can help engage your core muscles, including your abs, obliques, and lower back, which are essential for good posture, balance, and overall stability.<br />2. **Increased Flexibility**: Using a Pilates ball can help increase your flexibility and range of motion, particularly in your shoulders, chest, and hips.<br />3. **Body Awareness**: The unstable surface of the ball helps improve your body awareness, balance, and proprioception (your body&#39;s ability to sense its position and movement).<br />4. **Variety of Exercises**: A Pilates ball can be used for a wide range of exercises, from gentle stretching and mobilization to more intense strengthening and toning exercises.<br />5. **Space-Saving**: A Pilates ball is a compact and lightweight piece of equipment that can be easily stored at home, making it perfect for small spaces.<br /><br />**Things to Consider:**<br /><br />1. **Quality**: Invest in a high-quality Pilates ball that is durable, resistant to punctures, and has a non-slip surface.<br />2. **Size**: Choose a ball that is the right size for your height and body type. A general rule of thumb is to choose a ball that allows your knees to be at or below hip level when sitting on it.<br />3. **Inflation**: Make sure to inflate the ball to the recommended pressure to ensure optimal support and stability.<br /><br />**Tips for Using a Pilates Ball at Home:**<br /><br />1. **Start with gentle exercises**: Begin with gentle exercises like pelvic tilts, bridging, and chest opens to get comfortable with the ball.<br />2. **Focus on proper form**: Pay attention to your posture, alignment, and breathing, and engage your core muscles to maintain stability.<br />3. **Use online resources**: Utilize online resources like YouTube videos, Pilates apps, and websites to find exercises and tutorials that incorporate the Pilates ball.<br /><br />Overall, a Pilates ball can be a great investment for home workouts, especially if you&#39;re looking to improve your core strength, flexibility, and body awareness. Just remember to choose a high-quality ball, start with gentle exercises, and focus on proper form.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>1a9f5723_7</code></strong>
         <span class="small">2023/03/21 (Tue) 22:43</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m thinking of getting my mom&#39;s old diamond ring appraised and I was wondering if you could give me some tips on what to expect from the appraisal process. It&#39;s been sitting in my jewelry box for months and I&#39;m curious to know its value.</div>
       </div><div class="turn">
@@ -881,15 +1068,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I remember our previous conversation! You&#39;re planning to take your mom&#39;s diamond ring to the new jewelry store downtown for an appraisal. That&#39;s a great step!<br /><br />To determine if the new jewelry store can provide a reliable appraisal, I&#39;d recommend doing some research before taking your ring there. Here are some questions to ask yourself:<br /><br />1. **Check their credentials**: Does the store have a qualified appraiser on staff with the necessary education, training, and experience in diamond appraisal?<br />2. **Check online reviews**: What do online reviews say about the store&#39;s appraisal services? Are there any red flags or concerns raised by previous customers?<br />3. **Ask about their process**: What is their appraisal process like? Do they use industry-standard methods and equipment to evaluate diamonds?<br />4. **Ask about their certification**: Are they certified by a reputable organization, such as the National Association of Jewelry Appraisers (NAJA) or the American Gem Society (AGS)?<br />5. **Ask about their experience**: Do they have experience appraising diamond rings similar to your mom&#39;s?<br /><br />If you&#39;re satisfied with their credentials, process, and certification, it&#39;s likely that they can provide a reliable appraisal. However, it&#39;s always a good idea to get a second opinion, especially when it comes to something as valuable as a diamond ring.<br /><br />You might consider getting appraisals from multiple stores or consulting with an independent appraiser to get a more comprehensive understanding of your ring&#39;s value.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>e46d04fc</code></strong>
         <span class="small">2023/03/22 (Wed) 21:53</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some new workout playlists to listen to during my runs. Can you recommend some popular running playlists on Spotify?</div>
       </div><div class="turn">
@@ -926,15 +1117,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I&#39;d be happy to help! However, I&#39;m a large language model, I don&#39;t have access to your location. But I can suggest a few ways to find great swimming pools in your area for lap swimming:<br /><br />1. **Google Search**: Simply type in &quot;swimming pools near me&quot; or &quot;lap swimming near me&quot; and Google will show you a list of nearby pools along with their addresses, phone numbers, and reviews.<br />2. **PoolFinder**: Websites like PoolFinder or SwimIA allow you to search for swimming pools in your area and filter by features like lap swimming, indoor/outdoor, and membership requirements.<br />3. **YMCA or Community Centers**: Many YMCAs and community centers have indoor pools that offer lap swimming hours. Check their websites or visit in person to find out more.<br />4. **Local Colleges or Universities**: Many colleges and universities have swimming pools that are open to the public or offer lap swimming hours. Check their websites or contact their athletic department to find out more.<br />5. **Ask a Friend**: Ask friends, coworkers, or family members for recommendations. They can provide valuable insights and suggestions based on their personal experiences.<br /><br />When searching for a swimming pool, consider the following factors:<br /><br />* **Lap Swimming Hours**: Make sure the pool offers dedicated lap swimming hours that fit your schedule.<br />* **Pool Length**: Look for pools that are at least 25 yards in length to accommodate lap swimming.<br />* **Pool Temperature**: Check the pool temperature to ensure it&#39;s comfortable for your swimming needs.<br />* **Membership or Day Pass**: Find out if the pool requires a membership or offers day passes, and what the costs are.<br />* **Amenities**: Consider pools with amenities like showers, lockers, and parking for a more convenient experience.<br /><br />Remember to always follow pool rules and regulations, and be respectful of other swimmers. Happy swimming!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_5mB5v0U_83</code></strong>
         <span class="small">2023/03/22 (Wed) 10:09</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">There are several ways to add impurities to a semiconductor. Some common methods include:<br /><br />* Ion implantation: This method involves bombarding the surface of the semiconductor material with ions (atoms that have a positive charge) of the desired impurity. The ions are accelerated to high energies and are then implanted into the surface of the semiconductor material, where they become incorporated into the crystal lattice of the material.<br />* Diffusion: This method involves heating the semiconductor material in the presence of a gas or a solid that contains the desired impurity. The impurity atoms diffuse into the surface of the semiconductor material, where they become incorporated into the crystal lattice of the material.<br />* Epitaxy: This method involves growing a thin layer of semiconductor material on top of a substrate using a process called chemical vapor deposition (CVD). The impurity atoms are introduced into the semiconductor material during the growth process, resulting in a highly pure and uniform layer of material.<br /><br />I hope this helps! Let me know if you have any other questions.</div>
       </div><div class="turn">
@@ -992,30 +1187,38 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">The amount of electricity required to power a filament can be measured in either amps or watts, depending on the unit of measurement that is used.<br /><br />The current flowing through a filament is typically measured in units of amperes (amps), and it is a measure of the rate at which electric charge is flowing through the filament. The current flowing through a filament is determined by the resistance of the filament and the voltage applied to the filament, and it is calculated using Ohm&#39;s Law.<br /><br />The power consumed by a filament is typically measured in units of watts, and it is a measure of the rate at which energy is being used by the filament. The power consumed by a filament is determined by the current flowing through the filament and the voltage applied to the filament, and it is calculated using the formula P = IV, where P is the power in watts, I is the current in amps, and V is the voltage in volts.<br /><br />In general, the amount of electricity required to power a filament is proportional to the power consumed by the filament. As the power consumed by the filament increases, the amount of electricity required to power the filament will also increase.<br /><br />I hope this helps! Let me know if you have any other questions.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_NCuLVp2_0</code></strong>
         <span class="small">2023/03/23 (Thu) 05:51</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Can you give me feedback on this text. I was answering the following question: Tod writes, “our house has broken windows”. What does this tell us about Tod’s home life?<br /><br />Here is my answer: I think this reflects that Tod’s home life is not the best. His family must have financial troubles of some sort to not be able to afford new windows. This is not a want, a cool toy that you cannot buy. This is a need because you need windows to keep from the cold, to be safe, and to have a decent lifestyle. If Tod’s family cannot even afford windows, I wonder if his home life would affect his bullying behavior. To back up this statement, we learn later in the book that Tod’s mom works at the dry cleaner. I do not think that her job would provide enough since we still do not know what Tod’s stepfather does for a living.</div>
       </div><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">Your answer is well thought-out and provides a good analysis of the situation. It is clear that you have carefully considered the information given in the prompt and used your critical thinking skills to make logical connections between the broken windows and Tod&#39;s home life.<br /><br />You have correctly pointed out that the fact that the windows are broken suggests that Tod&#39;s family may be facing financial difficulties. You have also emphasized that this is not just a want, but a basic need that is necessary for a decent lifestyle. Furthermore, you have suggested that Tod&#39;s home life may be affecting his behavior, which is an insightful observation.<br /><br />Your mention of Tod&#39;s mother&#39;s job at a dry cleaner and the absence of information about his stepfather&#39;s occupation also adds depth to your analysis and shows that you have considered the broader context.<br /><br />Overall, your answer demonstrates good critical thinking and attention to detail. Great job!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_354956</code></strong>
         <span class="small">2023/03/26 (Sun) 10:22</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">How has the demand for luxury vehicles changed over the past five years?</div>
       </div><div class="turn">
@@ -1040,15 +1243,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, the Porsche Taycan is a beautiful car, and it has an impressive range on a single charge. The battery life of a Taycan can vary depending on its battery capacity and driving style. There are two different sizes of batteries available for the Taycan, a smaller 79.2 kWh battery, and a larger 93.4 kWh battery. <br /><br />According to EPA estimates, the Taycan with a smaller battery can go up to 200 miles on a single charge, while the larger battery can go up to 225 miles on a single charge. However, the range can vary based on factors such as driving style, weather, and terrain. Porsche has also implemented a fast-charging system to try and minimize charging times. If you have access to a fast-charging station, the Taycan can charge from 5-80% in around 22.5 minutes. <br /><br />Overall, the Taycan&#39;s range is impressive for an electric car, and with the option to charge quickly, it can make long-distance travel more practical.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_KznkJ2p_0</code></strong>
         <span class="small">2023/03/27 (Mon) 23:08</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Here are all the text on their home page, please let me what do it do. &quot;Build your<br />tokenized Guild<br />Automated membership management for the platforms your community already uses.<br /><br />Guild creation is free and gasless<br /><br />Platform-agnostic communities<br />Bring your community to your favourite communication platforms, management tools or games.<br /><br />Platform-agnostic communitiesRocket<br />Token-enabled membership<br />Create exclusive levels in your community and manage them with blockchain assets.<br /><br /> Fun fact: You can set allowlists or guest passes too<br /><br />Token-enabled membershipBunny<br />Guard against phishing attacks<br />Web3 captcha to filter bad-actor bots and protect your community against Discord scams.<br /><br />Guard against phishing attacksGuild RobotBrunya<br />Real-time query engine<br />Guild operates with its own indexer. 1M+ tokens, 100K+ NFT projects and 10+ chains are available. Search, pick and build on it.<br /><br />Real-time query engineUnicorn<br />Composable membership requirements<br />Built-in integrations and external APIs to maximize your choices. Play with logic gates and cross-chain opportunities.<br /><br />Composable membership requirementsComposable membership requirements - icons<br />Explore trending Guilds<br />Guild logo<br />ZetaChain<br />243K<br />4 roles<br />Guild logo<br />Arbitrum<br />227K<br />19 roles<br />Guild logo<br />Galxe<br />91K<br />2 roles<br />Guild logo<br />Our Guild<br />67K<br />9 roles<br />Guild logo<br />Sui Ecosystem<br />67K<br />1 role<br />Guild logo<br />SyncSwap Guild<br />65K<br />6 roles<br />Guild logo<br />Sui Global<br />61K<br />1 role<br />Guild logo<br />Layer3<br />60K<br />1 role<br />Guild logo<br />SPACE ID<br />58K<br />1 role<br />Guild logo<br />Stargate Finance<br />57K<br />4 roles<br />Guild logo<br />Orbiter Finance<br />54K<br />7 roles<br />Guild logo<br />Swapped Finance<br />54K<br />4 roles<br />Guild values<br />Dedicated support<br />You can count on us. There are no<br />silly questions here. We can help<br />you start, secure and scale.<br /><br />Dedicated support<br />Open-source<br />Our frontend and platform<br />connectors are available<br />for anyone.<br /><br />Open-source<br />API/SDK<br />Be creative and build on<br />Guild&#39;s access control<br />strategies.<br /><br />API/SDK<br />Accessible<br />Guild is for everyone. It&#39;s a no-<br />code tool with smooth user<br />experience.<br /><br />Accessible<br />Discover tutorials &amp; updates<br />How Guild helps you organize your DAO<br />How Guild helps you organize your DAO<br />Guild, a platform that allows users to create private gated communities, hopes to make managing and joining a DAO easier.<br /><br />Our Guild is evolving<br />Our Guild is evolving<br />Over 10,000 web3 curious people have created or joined 600 guilds and our developer team has merged 1929 commits on Github, in response to hundreds of feature requests or bug reports.<br /><br />DAO Masters - Guild.xyz<br />DAO Masters - Guild.xyz<br />This is an easy, self-serve way to set up a gated community.<br /><br />Caroline | Tales of Elatora ⛩ MINTING NOW! on Twitter<br />Caroline | Tales of Elatora ⛩ MINTING NOW! on Twitter<br />Daily #NFT Show #167 ⚔️ Today&#39;s show is not about an #NFTartist but about a tool you should know if you run a Discord (or are helping to mod one). It&#39;s called: 👉 @guildxyz To be clear: I&#39;m not affiliated in any way with this tool, I just like it! Powered by @redlion\_news 🦁<br /><br />Web3 is a Shared Experience: Reka and Raz, Co-Founders of Agora<br />Web3 is a Shared Experience: Reka and Raz, Co-Founders of Agora<br />Closing out our Web3 series, we sit down with Reka and Raz, Co-Founders of Agora, a studio DAO building essentials for communities. We dive into community role management with Guild, connecting Web2 and Web3 communities, and much more!<br /><br />Guild on Twitter<br />Guild on Twitter<br />Cross-chain token gating is here 🧙‍♂️ What does it mean for @SwaprEth (@DXdao\_ ) @nowdaoit @KlimaDAO and all the other communities spreading across blockchains? True multi-chain support for creating groups, read further..<br /><br />Start gating your<br />community today for free<br />It takes 5 mins<br />&quot;</div>
       </div><div class="turn">
@@ -1061,15 +1268,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I am sorry, I couldn&#39;t find any information about &lt;https://www.collab.land/&gt;. It could be possible that the website is not live or not popular enough for my knowledge cutoff. Can you please provide more information about the website?</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_nTTR2yo_9</code></strong>
         <span class="small">2023/03/28 (Tue) 08:20</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">{start article}<br /><br />**The Top 5 Fruits to Snack on at Work with Your Monthly Subscription**<br /><br />**Introduction**<br /><br />Snacking on fruits at work is a convenient and healthy way to keep your energy levels high and avoid the temptation of less nutritious options. With a monthly fruit subscription, you can have a steady supply of fresh and delicious fruits to choose from. In this article, we will discuss the top five fruits to snack on at work that are both satisfying and easy to enjoy in a busy office setting.<br /><br />**1. Apples**<br /><br />Apples are a classic work snack for good reason. They are portable, easy to eat, and require no preparation. Rich in fiber and antioxidants, apples can help you feel full and satisfied between meals. Choose from a variety of apple types, such as Granny Smith, Gala, or Fuji, depending on your taste preferences.<br /><br />**2. Bananas**<br /><br />Bananas are another convenient and nutritious option for a work snack. They come in their own natural packaging, making them easy to transport and consume without any mess. Bananas are a great source of potassium, vitamin C, and dietary fiber, providing quick energy and supporting overall health.<br /><br />**3. Grapes**<br /><br />Grapes are a fantastic fruit to snack on at work because they require minimal preparation and can be easily portioned into small containers or bags. They are a natural source of antioxidants, vitamins, and minerals that can help maintain your energy levels throughout the day. Choose from red, green, or black grapes for a sweet and juicy treat.<br /><br />**4. Berries**<br /><br />Berries, such as strawberries, blueberries, and raspberries, are a tasty and nutrient-dense snack option for the workplace. They are packed with vitamins, antioxidants, and fiber, offering numerous health benefits. To enjoy berries at work, simply wash and dry them thoroughly, then store them in a small container or a resealable bag. For added convenience, consider prepping your berries at home and storing them in portion-sized containers for easy grab-and-go snacking.<br /><br />**5. Dried Fruit**<br /><br />While fresh fruits are an excellent snack option, dried fruits, like apricots, raisins, or dates, offer the advantage of a longer shelf life and more portability. Dried fruits retain many of the nutrients found in their fresh counterparts and can be a satisfyingly sweet treat to enjoy at work. Be mindful of portion sizes, as dried fruits can be calorie-dense, and opt for unsweetened varieties to avoid added sugars.<br /><br />**Conclusion**<br /><br />Having a variety of fruits on hand at work can help you make healthier snacking choices and keep your energy levels up throughout the day. With a monthly fruit subscription, you can ensure a consistent supply of fresh and delicious fruits to choose from. Apples, bananas, grapes, berries, and dried fruits are all excellent options for convenient and nutrient-rich snacks to enjoy during your workday.<br /><br />{stop article}</div>
       </div><div class="turn">
@@ -1085,15 +1296,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">{start article}<br /><br />**The Perfect Way to Pamper Yourself: Try These Fruit-Based Beauty Remedies at Home**<br /><br />**Introduction**<br /><br />Fruit-based beauty remedies offer a natural and cost-effective way to pamper yourself at home. Rich in vitamins, antioxidants, and other nutrients, fruits can provide numerous benefits for your skin and hair. In this article, we will explore some popular fruit-based beauty remedies that you can easily try at home using the fresh fruits from your monthly subscription.<br /><br />**1. Banana Hair Mask**<br /><br />Bananas are packed with vitamins, minerals, and natural oils that can help nourish and moisturize your hair. To make a banana hair mask, mash one ripe banana and mix it with a tablespoon of honey and a tablespoon of olive or coconut oil. Apply the mixture to your hair, focusing on the ends, and leave it on for 20-30 minutes. Rinse thoroughly and shampoo as usual for softer, smoother hair.<br /><br />**2. Strawberry Face Scrub**<br /><br />Strawberries are high in vitamin C and natural acids that can gently exfoliate and brighten your skin. To make a strawberry face scrub, mash a few ripe strawberries and combine them with a tablespoon of sugar and a tablespoon of honey. Gently massage the mixture onto your face in circular motions, avoiding the eye area. Rinse with warm water and pat your skin dry.<br /><br />**3. Papaya Facial Mask**<br /><br />Papaya contains enzymes like papain, which can help dissolve dead skin cells and improve your skin&#39;s overall texture. To make a papaya facial mask, blend a few pieces of ripe papaya with a tablespoon of honey and a tablespoon of plain yogurt. Apply the mixture to your face, avoiding the eye area, and leave it on for 15-20 minutes. Rinse with warm water and enjoy smoother, more radiant skin.<br /><br />**4. Cucumber Eye Treatment**<br /><br />Cucumbers have a cooling and soothing effect, making them an excellent choice for reducing puffiness and dark circles under the eyes. To create a cucumber eye treatment, simply slice a chilled cucumber into thin rounds and place them over your closed eyes for 10-15 minutes. The natural antioxidants in cucumbers will help refresh and revitalize the delicate skin around your eyes.<br /><br />**5. Avocado Hair Treatment**<br /><br />Avocado is rich in healthy fats, vitamins, and minerals that can help deeply condition and repair damaged hair. To make an avocado hair treatment, mash one ripe avocado and mix it with a tablespoon of olive or coconut oil and a tablespoon of honey. Apply the mixture to your hair, focusing on the ends, and leave it on for 20-30 minutes. Rinse thoroughly and shampoo as usual for a nourishing hair treatment.<br /><br />**6. Lemon and Honey Face Mask**<br /><br />Lemons are high in vitamin C and citric acid, which can help brighten and even out skin tone. Honey has natural antibacterial properties and is a powerful moisturizer. To make a lemon and honey face mask, mix the juice of half a lemon with two tablespoons of honey. Apply the mixture to your face, avoiding the eye area, and leave it on for 10-15 minutes. Rinse with warm water and pat your skin dry.<br /><br />**Conclusion**<br /><br />Fruit-based beauty remedies offer a natural, affordable, and effective way to pamper yourself at home. Using the fresh fruits from your monthly subscription, you can create a variety of treatments for your skin and hair, such as banana hair masks, strawberry face scrubs, and cucumber eye treatments. So go ahead, indulge in some self-care, and enjoy the nourishing benefits of fruit-based beauty remedies.<br /><br />{stop article}</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>9a4c74d3_1</code></strong>
         <span class="small">2023/03/30 (Thu) 13:05</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking to get more insights on my daily activities and health metrics. Can you help me explore ways to integrate my Fitbit data with other health tracking devices, like my blood pressure monitor? By the way, I use my Omron blood pressure monitor in the morning to keep tabs on my readings.</div>
       </div><div class="turn">
@@ -1130,15 +1345,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Thank you so much for your help and guidance! I really appreciate your thorough research and suggestions. You&#39;re right, I should definitely reach out to the app developers to confirm compatibility with my Omron blood pressure monitor before committing to an app.<br /><br />And yes, speaking with my healthcare provider is an excellent idea. They can provide personalized advice and insights into how my respiratory health affects my overall well-being and blood pressure. I&#39;ll make sure to schedule an appointment soon.<br /><br />Thank you again for your help and support. I&#39;m grateful for your expertise and willingness to assist me in tracking my health metrics. If I have any more questions or need further guidance, I won&#39;t hesitate to reach out.<br /><br />Take care, and I wish you all the best!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>add9b012_1</code></strong>
         <span class="small">2023/03/31 (Fri) 00:55</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m getting ready to start planning my own wedding and I was wondering if you could give me some advice on how to choose the right wedding planner. By the way, I just walked down the aisle as a bridesmaid at my cousin&#39;s wedding today, and it got me thinking about my own big day.</div>
       </div><div class="turn">
@@ -1175,15 +1394,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I love those ideas! A special reading or poem can be a beautiful way to add an emotional depth to the ceremony and make it feel more personal. It&#39;s a great way to express your feelings and tell your love story in a unique and meaningful way.<br /><br />The unity candle or sand ceremony is also a wonderful idea! Those types of rituals can be so powerful in symbolizing your commitment to each other and creating a sense of unity. It&#39;s a beautiful way to visualize your love and commitment to each other, and it can be a really special moment to share with your guests.<br /><br />And, of course, personal and meaningful vows are a must! Writing your own vows can be a really romantic and intimate way to express your love and commitment to each other. It&#39;s a great way to make the ceremony feel more personal and special, and it&#39;s something that you&#39;ll both treasure for years to come.<br /><br />It sounds like you&#39;re on the right track in terms of creating an intimate and romantic ceremony. Remember to take your time, be creative, and don&#39;t be afraid to think outside the box. Your ceremony should reflect your personalities, your love story, and your commitment to each other.<br /><br />What&#39;s been the most fun part of planning your ceremony so far? Have you found any inspiration in unexpected places, or have any surprises come up during the planning process?</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_MvUpG5V_5</code></strong>
         <span class="small">2023/04/02 (Sun) 23:04</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">Mean reversion is a financial theory that suggests that the price of a financial instrument will eventually move back towards its long-term average or mean. This concept is based on the assumption that market movements are not purely random, but that they are influenced by factors that will eventually cause the price to revert to its mean.<br /><br />Z-score is a statistical measure that represents the number of standard deviations from the mean of a given dataset. In the context of financial markets, the z-score is often used to measure the deviation of a financial instrument&#39;s price from its mean.<br /><br />The idea behind using z-score in trading is that when the z-score of a financial instrument moves away from its mean by a certain amount, it is likely to eventually revert back to its mean. By measuring the z-score of a financial instrument over time, traders can identify when the price has moved too far away from its mean and take positions accordingly.<br /><br />Here is an example of how to compute the z-score of a financial instrument&#39;s price using Python:<br />```python<br />import pandas as pd<br />import numpy as np<br /><br /># Collect historical data for a financial instrument<br />data = pd.read_csv(&#39;data.csv&#39;)<br /><br /># Compute the mean and standard deviation of the price over the lookback period<br />lookback = 30<br />mean = data[&#39;Price&#39;].rolling(window=lookback).mean()<br />std = data[&#39;Price&#39;].rolling(window=lookback).std()<br /><br /># Compute the z-score of the price<br />data[&#39;Z-Score&#39;] = (data[&#39;Price&#39;] - mean) / std<br />```<br />In this code, we first collect the historical data for a financial instrument and store it in a Pandas DataFrame. We then define a lookback period of 30 days and compute the rolling mean and standard deviation of the price using the `rolling` method. Finally, we compute the z-score of the price by subtracting the mean from the price and dividing by the standard deviation.<br /><br />Once we have computed the z-score, we can use it to identify when the price has moved too far away from its mean and take positions accordingly. For example, if the z-score is above a certain threshold, we may decide to short the financial instrument in anticipation of it reverting back to its mean. Conversely, if the z-score is below a certain threshold, we may decide to go long the financial instrument. The specific thresholds used will depend on the trading strategy and risk tolerance of the trader.</div>
       </div><div class="turn">
@@ -1205,15 +1428,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Here are some ideas for engaging course on statistical arbitrage strategies using Python and open source packages:<br /><br />1. Introduction to Statistical Arbitrage: This module will provide an overview of statistical arbitrage, including its history, basic concepts, and key components. It will cover the differences between mean reversion and momentum strategies, and their potential advantages and disadvantages.<br />2. Python for Financial Data Analysis: This module will teach students how to use Python to acquire, clean, and manipulate financial data. Students will learn how to use Pandas, NumPy, and other open source packages to extract and process financial data from various sources such as APIs, CSV files, and databases.<br />3. Exploratory Data Analysis (EDA): In this module, students will learn how to use EDA techniques to analyze financial data. They will learn how to use data visualization tools like Matplotlib and Seaborn to explore data patterns, identify outliers, and test hypotheses.<br />4. Mean Reversion Strategies: This module will focus on mean reversion strategies, including pairs trading and cointegration. Students will learn how to test for cointegration, compute z-scores, and develop trading signals. They will also learn how to optimize parameters and backtest their strategies.<br />5. Momentum Strategies: In this module, students will learn about momentum strategies, including trend following and breakout strategies. They will learn how to use moving averages, Bollinger Bands, and other technical indicators to identify trends and generate trading signals.<br />6. Portfolio Management: This module will cover the principles of portfolio management, including risk management, diversification, and performance evaluation. Students will learn how to use Python to develop and optimize their portfolios, and how to evaluate their performance using various metrics such as Sharpe ratio and drawdown.<br />7. Advanced Topics: This module will cover advanced topics in statistical arbitrage, including machine learning techniques for financial forecasting, alternative data sources, and high-frequency trading. Students will also learn about the challenges and limitations of statistical arbitrage, and how to mitigate risks and optimize performance.<br /><br />The course should include a mix of lectures, hands-on coding exercises, and real-world case studies to provide a comprehensive and engaging learning experience. Students should also have access to a community forum or Slack channel where they can ask questions, share ideas, and collaborate with their peers.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>1126be1e_2</code></strong>
         <span class="small">2023/04/05 (Wed) 20:52</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m planning a week-long vacation to Hawaii in December with my family. Can you recommend some kid-friendly activities and restaurants on Oahu and Maui?</div>
       </div><div class="turn">
@@ -1250,15 +1477,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">The Hyatt Regency Maui Resort &amp; Spa is a fantastic resort, and I&#39;m happy to tell you more about their accommodations.<br /><br />**Accommodations at Hyatt Regency Maui Resort &amp; Spa:**<br /><br />The Hyatt Regency Maui Resort &amp; Spa offers a range of accommodations, including rooms, suites, and villas. For families, I recommend considering their suites or villas with separate bedrooms and living areas. Here are some options:<br /><br />1. **Regency Suite**: These suites feature a separate bedroom with a king-size bed and a living area with a sofa bed. They also have a private balcony or lanai with ocean or mountain views.<br />2. **Oceanfront Suite**: These suites offer a separate bedroom with a king-size bed and a living area with a sofa bed. They have a private balcony or lanai with stunning ocean views.<br />3. **Villa**: The villas are perfect for families, with a separate bedroom, living area, and kitchenette. They also have a private balcony or lanai with ocean or mountain views.<br /><br />**Amenities:**<br /><br />All rooms, suites, and villas at the Hyatt Regency Maui Resort &amp; Spa come with a range of amenities, including:<br /><br />* Private balcony or lanai with ocean or mountain views<br />* Flat-screen TV with cable channels<br />* Complimentary Wi-Fi<br />* Mini-fridge and coffee maker<br />* In-room safe<br />* Iron and ironing board<br /><br />**Resort Amenities:**<br /><br />The resort itself offers a range of amenities, including:<br /><br />* Multiple pools, including a waterslide and a quiet pool for adults<br />* Beach access and beach activities, like snorkeling and paddleboarding<br />* Water sports, like kayaking and sailing<br />* Fitness center and yoga classes<br />* Spa services, like massages and facials<br />* Multiple dining options, including restaurants and bars<br />* Kids&#39; program and game room<br />* Concierge services to help plan your stay<br /><br />**Tips:**<br /><br />* Be sure to book your accommodations well in advance, especially during peak season (December is a popular time to visit Maui).<br />* Consider booking a villa or suite with a kitchenette, which can be convenient for preparing breakfast or snacks.<br />* Take advantage of the resort&#39;s amenities, like the fitness center and spa services, to make the most of your stay.<br /><br />I hope this helps, and I&#39;m sure you&#39;ll have a wonderful stay at the Hyatt Regency Maui Resort &amp; Spa!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_Jm8wWJN_0</code></strong>
         <span class="small">2023/04/07 (Fri) 06:42</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">you are a copywriter for my vegan community called &quot;Vegan Foodie Tribe&quot;, its a monthly membership, do you understand:&quot;?</div>
       </div><div class="turn">
@@ -1301,30 +1532,38 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Certainly, here is a sample sales page copy for your Vegan Foodie Tribe membership offer:<br /><br />Headline: Join the Vegan Foodie Tribe and indulge in a world of delicious plant-based flavors!<br /><br />Subheadline: Are you ready to take your plant-based journey to the next level?<br /><br />Body:<br /><br />Hey there, fellow foodies! If you&#39;re anything like us, you&#39;re always on the hunt for the next great plant-based recipe to tantalize your taste buds. But sometimes, it can be hard to find the inspiration and resources you need to keep your plant-based journey exciting and fulfilling.<br /><br />That&#39;s where the Vegan Foodie Tribe comes in! Our exclusive membership program is the ultimate resource for vegans and plant-based enthusiasts who want to explore the world of delicious, cruelty-free cuisine. For just $49 a month, you&#39;ll get access to:<br /><br />* A new collection of mouthwatering vegan recipes every month, complete with beautiful photos, detailed instructions, and ingredient lists.<br />* Virtual cooking classes taught by experienced chefs and cooking experts, covering a wide range of topics, from vegan baking to plant-based meal prep.<br />* Community forums where you can connect with like-minded individuals, ask questions, and share advice.<br />* Monthly newsletters filled with the latest vegan news, trends, and exclusive content.<br /><br />But that&#39;s not all, my friend! As a Vegan Foodie Tribe member, you&#39;ll also have the opportunity to upgrade to premium services, such as personalized nutrition coaching, in-person events, and exclusive online courses. Whether you&#39;re a seasoned vegan or just starting your plant-based journey, the Vegan Foodie Tribe has something for everyone.<br /><br />So why wait? Sign up for the Vegan Foodie Tribe membership today and start exploring the delicious world of plant-based cuisine. Your taste buds will thank you! #VeganFoodieTribe #PlantBasedLife #ExploreVeganFlavors<br /><br />Call-to-Action: Click the &quot;Join Now&quot; button below and take your plant-based journey to the next level!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_MDDob56_0</code></strong>
         <span class="small">2023/04/09 (Sun) 10:53</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">My new acquaintance Dana is going to speak to her boss about resigning today, i want to help her clam her nerves.</div>
       </div><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">It&#39;s understandable that you want to help Dana calm her nerves before she speaks to her boss about resigning. Here are a few suggestions that might be helpful:<br /><br />1. Encourage Dana to practice deep breathing exercises to help relax her body and mind.<br />2. Remind Dana that she has the right to resign and that she has thought carefully about this decision.<br />3. Suggest that Dana make a list of her accomplishments and positive contributions at the company, so she can remind herself of her worth and value.<br />4. Encourage Dana to write out what she wants to say to her boss beforehand, so she feels more prepared and confident.<br />5. Remind Dana that it&#39;s okay to feel nervous and that it&#39;s a natural response to a high-stress situation.<br />6. Encourage Dana to take breaks to stretch, walk around, or do something that helps her relax, like listening to music or doing some light exercise.<br /><br />I hope these suggestions are helpful!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_502724</code></strong>
         <span class="small">2023/04/10 (Mon) 22:39</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What initiatives has Thailand implemented to promote sustainable fisheries?</div>
       </div><div class="turn">
@@ -1349,15 +1588,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I do not have access to real-time data or precise details on the overall health of the ocean in the region. however, we can say that sustainable fisheries management initiatives are expected to have a positive impact on the overall health of the ocean in the region. with reduced fishing pressure and unsustainable fishing practices, fish populations are expected to recover, contributing to a healthy marine ecosystem.<br /><br />in addition, initiatives such as marine protected areas and the establishment of fisheries management councils can help to conserve important habitats and reduce the impacts of overfishing on vulnerable species. reduction in marine plastic debris in coastal areas of indonesia, for example, has been reported as a result of improved waste management practices associated with sustainable fisheries management.<br /><br />overall, a healthy ocean is essential for both economic and environmental sustainability in the region, and it&#39;s encouraging to see that countries are taking action towards achieving this goal.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_P54kbvt_0</code></strong>
         <span class="small">2023/04/11 (Tue) 04:40</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">How Europe Stole Africa (so quickly). By stole I mean colonizing the Africa continents in the late 1800</div>
       </div><div class="turn">
@@ -1376,15 +1619,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">The United States was not directly involved in the colonization of Africa in the late 1800s, as it did not have a significant colonial empire in Africa at that time. However, the United States did play a role in the broader process of European colonization of Africa, as it provided economic, military, and diplomatic support to European powers that were involved in the colonization of the continent.<br /><br />During the late 1800s, the United States was an emerging industrial power that was interested in expanding its economic influence around the world. As such, it provided financial and logistical support to European powers that were establishing colonies in Africa, in the hopes of gaining access to new markets and resources. Additionally, the United States provided military assistance to European powers during their colonization efforts, and it played a role in negotiating the treaties and agreements that facilitated the partition and division of Africa among European powers.<br /><br />Overall, while the United States was not directly involved in the colonization of Africa in the late 1800s, it played a significant role in supporting and enabling the colonization efforts of European powers.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_oTnUt5N_15</code></strong>
         <span class="small">2023/04/19 (Wed) 09:06</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">&quot;Hey there! I appreciate your honesty and straightforwardness in what you&#39;re looking for. I totally understand your position as a gray-asexual and demi-sexual person. A low frequency, long-term friendship with occasional cuddling benefits sounds like a unique and special connection. I respect your preference for exclusivity and being ambiamorous.<br /><br />I understand that you prefer to focus on one conversation at a time and may not respond immediately, and that&#39;s completely okay. I appreciate your transparency and being upfront about your communication preferences. I&#39;ll make sure to keep that in mind and won&#39;t take it personally if you don&#39;t respond right away.<br /><br />If we end up having a good connection, I&#39;d be more than happy to meet more frequently and see where it takes us. Let&#39;s see if we can make a connection that works for both of us. How about we schedule a call soon and chat more in-depth?&quot;</div>
       </div><div class="turn">
@@ -1394,15 +1641,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Sure thing! Here&#39;s a more casual and fun version:<br /><br />&quot;Hey there, I&#39;m all for taking things slow and getting to know each other. I totally get not being into hook-ups or marriage, that&#39;s not my thing either. And I&#39;m cool with being friends with benefits, cuddling included. I&#39;m down for more frequent meet-ups if we hit it off, but I totally understand if you need space too. No pressure.<br /><br />I totally relate to the struggle of being an introvert and getting exhausted quickly. I&#39;m all for being transparent and clear, so I really appreciate the message you drafted. And don&#39;t worry, I won&#39;t overload your inbox. I&#39;m a one-convo-at-a-time kind of guy.<br /><br />I&#39;m all for calls over texts and I&#39;m happy to turn off my notifications for this. Let&#39;s chat and see where things go!&quot;</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_I1DGUU4_0</code></strong>
         <span class="small">2023/04/22 (Sat) 13:42</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Describe Stalin&#39;s Five Year Plan goals and outcomes</div>
       </div><div class="turn">
@@ -1415,15 +1666,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Franklin D. Roosevelt&#39;s New Deal was a series of programs and policies implemented in the United States during the 1930s in response to the Great Depression. The New Deal was designed to provide relief to those suffering from poverty and unemployment, stimulate economic growth, and reform the financial system. Here are some ways in which the New Deal attempted to intervene in the U.S. economy:<br /><br />1. Jobs Programs: The New Deal established a number of jobs programs, including the Works Progress Administration (WPA), the Civilian Conservation Corps (CCC), and the National Youth Administration (NYA). These programs provided employment for millions of Americans, while also investing in public infrastructure and conservation efforts.<br />2. Agricultural Programs: The New Deal established the Agricultural Adjustment Administration (AAA), which aimed to increase farm prices by reducing agricultural production. The AAA paid farmers to reduce crop acreage or slaughter livestock, thereby reducing supply and increasing prices.<br />3. Banking and Financial Reform: The New Deal implemented a number of banking and financial reforms, including the creation of the Federal Deposit Insurance Corporation (FDIC), which insured bank deposits, and the Securities and Exchange Commission (SEC), which regulated the stock market.<br />4. Social Welfare Programs: The New Deal established a number of social welfare programs, including the Social Security Administration, which provided retirement benefits for workers, and the Aid to Dependent Children program, which provided assistance to single mothers.<br />5. Public Works Projects: The New Deal invested heavily in public works projects, including the construction of roads, bridges, schools, and other public infrastructure. These projects helped to stimulate economic growth and create jobs.<br /><br />Overall, the New Deal represented a significant intervention in the U.S. economy, with the federal government taking an active role in providing relief to those suffering from poverty and unemployment, stimulating economic growth, and reforming the financial system. While the New Deal was controversial at the time, its legacy has endured, and many of the programs and policies established during this period continue to shape American society and the economy today.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_201608</code></strong>
         <span class="small">2023/06/09 (Fri) 13:40</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Which artists inspired Shaggy&#39;s unique blend of music styles?</div>
       </div><div class="turn">
@@ -1454,15 +1709,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Shaggy&#39;s music has definitely evolved over the years. While he has maintained his signature sound, he has also experimented with different styles and collaborations. For example, in the early 2000s, he released an album called &quot;Lucky Day,&quot; which featured more pop and R&amp;B-influenced tracks than his previous work. He has also worked with a variety of other artists, including pop stars like Sting, and has incorporated elements of different music genres into his work. However, despite these changes, Shaggy has always remained true to his roots and has continued to produce music that is upbeat, positive, and fun.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>b829045b</code></strong>
         <span class="small">2023/06/24 (Sat) 03:20</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some recommendations on online stores that sell good quality throw blankets. I just got some new pillows and I want to add some matching blankets to my living room.</div>
       </div><div class="turn">
@@ -1499,15 +1758,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">As a digital AI assistant, I don&#39;t have personal preferences or a physical presence, so I don&#39;t have a home office or a preferred style. I exist solely as a digital entity, and my purpose is to assist and provide information to users like you!<br /><br />However, I can provide insights and suggestions based on popular design trends and principles. Modern and minimalist designs can be very effective in creating a clean and focused workspace, while traditional home offices can add warmth and coziness. Finding a balance between functionality and aesthetics is crucial to creating a space that works for you.<br /><br />If you&#39;re looking for inspiration, you could explore design websites, social media, or home decor blogs to get a sense of what resonates with you. You might also consider creating a Pinterest board or collecting images that reflect your ideal workspace.<br /><br />Remember, your home office should reflect your personality and work style. Don&#39;t be afraid to experiment and try out different layouts, furniture, and decor until you find a space that feels comfortable and productive for you!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>a63ad8e3_3</code></strong>
         <span class="small">2023/07/21 (Fri) 12:37</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m working on my thesis on the impact of social media on mental health, and I&#39;m currently stuck on my methodology chapter. Can you help me find some relevant studies on data analysis techniques for social media research?</div>
       </div><div class="turn">
@@ -1544,15 +1807,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Several machine learning algorithms have been used for mental health classification, with varying degrees of success. Here are some examples:<br /><br />**1. Support Vector Machines (SVMs):**<br /><br />* Study: &quot;Detecting Depression from Social Media Posts&quot; (2015)<br />* Dataset: 1,000 Twitter users with depression and 1,000 without<br />* Features: Sentiment analysis, linguistic patterns, and user demographics<br />* Performance: SVM achieved an accuracy of 88% in detecting depression<br /><br />**2. Random Forests:**<br /><br />* Study: &quot;Predicting Depression from Social Media Data&quot; (2018)<br />* Dataset: 10,000 Twitter users with depression and 10,000 without<br />* Features: Text features (e.g., sentiment, emotion), network features (e.g., centrality), and user features (e.g., demographics)<br />* Performance: Random Forest achieved an accuracy of 92% and an F1-score of 0.85<br /><br />**3. Convolutional Neural Networks (CNNs):**<br /><br />* Study: &quot;Deep Learning for Depression Detection from Social Media&quot; (2019)<br />* Dataset: 5,000 Instagram users with depression and 5,000 without<br />* Features: Visual features from images, text features from captions, and user features<br />* Performance: CNN achieved an accuracy of 95% and an F1-score of 0.90<br /><br />**4. Long Short-Term Memory (LSTM) Networks:**<br /><br />* Study: &quot;LSTM-based Depression Detection from Social Media&quot; (2020)<br />* Dataset: 2,000 Twitter users with depression and 2,000 without<br />* Features: Time-series data from tweets, including sentiment, emotion, and engagement metrics<br />* Performance: LSTM achieved an accuracy of 93% and an F1-score of 0.88<br /><br />**5. Gradient Boosting Machines (GBMs):**<br /><br />* Study: &quot;Gradient Boosting for Depression Detection from Social Media&quot; (2020)<br />* Dataset: 15,000 Twitter users with depression and 15,000 without<br />* Features: Text features, network features, and user features<br />* Performance: GBM achieved an accuracy of 94% and an F1-score of 0.91<br /><br />**Challenges and limitations:**<br /><br />While these studies demonstrate promising results, it&#39;s essential to acknowledge the challenges and limitations of using machine learning for mental health classification:<br /><br />* **Data quality and bias:** Social media data can be noisy, biased, or incomplete, affecting model performance and generalizability.<br />* **Label quality:** Mental health labels may be self-reported, subjective, or inaccurate, which can impact model accuracy.<br />* **Contextual understanding:** Machine learning models may not fully understand the context behind social media posts, leading to misclassification or overfitting.<br />* **Ethical considerations:** There are ethical concerns around using social media data for mental health classification, including privacy, consent, and potential stigma.<br /><br />These challenges highlight the need for careful consideration and rigor in designing and evaluating machine learning models for mental health classification.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_Olp439q_19</code></strong>
         <span class="small">2023/08/30 (Wed) 06:16</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">An API, or Application Programming Interface, is a set of protocols, routines, and tools that allow different software applications to communicate with each other. It provides a standard way for software components to interact and exchange information, regardless of the programming language or operating system used.<br /><br />APIs are commonly used in web development to allow different websites or applications to interact with each other. For example, social media platforms often provide APIs that allow third-party applications to access their data, such as user profiles or posts, and use that data in their own applications.<br /><br />APIs can help in several ways:<br /><br />1. Streamlining development: APIs provide a standard way to interact with a service or application, which can simplify the development process and reduce the need for custom integration code.<br />2. Enabling integration: APIs allow different applications to share data and functionality, which can lead to more innovative and useful applications.<br />3. Facilitating automation: APIs can be used to automate tasks and processes, such as automatically importing data from one application to another, or triggering actions based on certain events.<br />4. Improving user experience: APIs can be used to create more seamless and integrated user experiences, such as allowing users to log in to a third-party service using their social media account.<br /><br />In the context of blockchain development, APIs are often used to interact with the blockchain network and smart contracts. For example, the Flow Access API can be used to create and manage user accounts on the Flow blockchain, while the Flow SDK provides a set of APIs for interacting with smart contracts on the network.</div>
       </div><div class="turn">
@@ -1592,15 +1859,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">&quot;Crypto Quest&quot; is an educational and interactive game that teaches users about the basics of blockchain and cryptocurrency in a fun and engaging way. The game is designed to introduce new users to the world of cryptocurrency and blockchain by allowing them to explore and interact with a virtual world that is powered by blockchain technology.<br /><br />In Crypto Quest, players navigate a virtual world where they can explore various locations and complete quests to earn rewards. The game is built on the Ethereum blockchain and is powered by smart contracts, which manage the game&#39;s mechanics and economy. Players can earn cryptocurrency tokens as rewards for completing quests and progressing through the game, which can then be used to purchase in-game items or exchanged for other cryptocurrencies.<br /><br />The game is designed to be accessible to players of all skill levels, from complete beginners to experienced blockchain enthusiasts. It uses a combination of text, audio, and visual cues to help players understand the core concepts of blockchain and cryptocurrency, such as digital wallets, mining, smart contracts, and decentralized applications (dApps).<br /><br />Crypto Quest also includes social features that allow players to interact with each other, join groups, and collaborate on quests. This helps to create a sense of community around the game and encourages players to learn and explore together.<br /><br />Overall, Crypto Quest is an innovative and engaging way to introduce new users to the world of blockchain and cryptocurrency. It provides a fun and interactive way to learn about the technology, and the use of rewards and social features helps to keep players engaged and motivated.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_152598</code></strong>
         <span class="small">2023/08/30 (Wed) 19:54</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What kind of messages do you hope to convey through your music, and how do you use sound to reinforce those themes?</div>
       </div><div class="turn">
@@ -1643,15 +1914,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I&#39;d be happy to suggest some other genres and artists for you to check out! Here are a few recommendations:<br /><br />- Indie pop: Vampire Weekend, The Postal Service, The Shins, The 1975, Grouplove<br />- Alt-country/Americana: Wilco, Ryan Adams, Jason Isbell, Lucinda Williams, Shovels &amp; Rope<br />- Dream pop/shoegaze: Beach House, Slowdive, My Bloody Valentine, Cocteau Twins, DIIV<br />- R&amp;B/soul: Leon Bridges, Anderson .Paak, Solange, Hiatus Kaiyote, D&#39;Angelo<br />- Jazz: Kamasi Washington, Snarky Puppy, Esperanza Spalding, Christian Scott aTunde Adjuah, Terrace Martin<br /><br />Hope you enjoy discovering some new genres and artists!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>55f6470b</code></strong>
         <span class="small">2023/10/01 (Sun) 16:52</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some tips on how to capture better low-light photos. I&#39;ve been struggling with noise and blur when shooting in the early morning or evening.</div>
       </div><div class="turn">
@@ -1688,15 +1963,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Capturing motion in landscape photography is a great way to add dynamism and energy to your images! Here are some tips on how to capture a sense of motion in your landscape photos, especially when it comes to water and clouds:<br /><br />**Water:**<br /><br />1. **Slow shutter speed**: Use a slow shutter speed (around 1/15s to 1/30s) to create a sense of motion in water. This will blur the water, giving it a silky or misty appearance.<br />2. **Panning**: Follow the movement of the water with your camera, panning horizontally to create a sense of motion.<br />3. **Shoot during peak flow**: Capture water during peak flow, such as during a heavy waterfall or a strong ocean current, to emphasize the motion.<br />4. **Use a neutral density filter**: A neutral density filter can help you achieve slower shutter speeds, even in bright light, to capture the motion of water.<br /><br />**Clouds:**<br /><br />1. **Long exposure**: Use a long exposure (around 30s to several minutes) to capture the movement of clouds. This will create a sense of streaking or blur in the clouds.<br />2. **Shoot during changing weather**: Capture clouds during changing weather conditions, such as during a storm or at sunrise/sunset, when the clouds are more dynamic.<br />3. **Use a small aperture**: A small aperture (high f-stop number) will give you a larger depth of field, allowing you to keep the entire sky in focus and emphasizing the motion of the clouds.<br />4. **Shoot from a low angle**: Shooting from a low angle, such as from the ground or from a low vantage point, can create a sense of drama and motion in the clouds.<br /><br />**General tips:**<br /><br />1. **Use a tripod**: A tripod is essential for capturing motion in landscape photography, as it allows you to take slower shutter speeds and longer exposures.<br />2. **Experiment with different shutter speeds**: Don&#39;t be afraid to experiment with different shutter speeds to find the one that works best for your scene.<br />3. **Pay attention to the light**: The right light can add to the sense of motion in your image. Shoot during the golden hour or overcast skies to create a more dynamic atmosphere.<br />4. **Post-processing**: In post-processing, you can enhance the sense of motion by adjusting the contrast, saturation, and color balance of your image.<br /><br />**Additional resources:**<br /><br />* **YouTube tutorials**: There are many YouTube tutorials and channels dedicated to capturing motion in landscape photography, such as Tony Northrup and B&amp;H Photo.<br />* **Photography blogs**: Follow photography blogs, such as 500px and Photography Life, for tips and inspiration on capturing motion in landscape photography.<br />* **Workshops and classes**: Consider taking a workshop or class on landscape photography to learn from experienced photographers and practice capturing motion in the field.<br /><br />By following these tips and experimenting with different techniques, you&#39;ll be able to capture a sense of motion in your landscape photos and add a new level of dynamism to your images.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_4pvUbr6_15</code></strong>
         <span class="small">2023/10/06 (Fri) 22:01</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">Galileo&#39;s bones refer to the bones of Galileo Galilei, the famous Italian physicist and astronomer, which were exhumed in 1737, more than 90 years after his death. The purpose of exhuming Galileo&#39;s bones was to transfer them to a more prominent location in the Basilica of Santa Croce in Florence, Italy.<br /><br />During the exhumation, some of Galileo&#39;s bones were removed as relics and later divided among various institutions and individuals. For example, two of his fingers were preserved and are now on display at the Museo Galileo in Florence, while other bones were given as gifts to scientists and collectors.<br /><br />The &quot;square-cube law&quot; is a mathematical principle that describes the relationship between the surface area and volume of an object as it increases in size. The principle states that as the size of an object increases, its surface area increases in proportion to the square of its size, while its volume increases in proportion to the cube of its size. This has important implications for the behavior of objects in the natural world, particularly when it comes to the strength and weight of structures and organisms.<br /><br />Galileo was one of the first scientists to recognize the importance of the square-cube law, and he used it to explain why larger animals are not proportionally stronger than smaller ones. He showed that as an animal&#39;s size increases, its weight and strength increase at different rates, which means that larger animals may be at a disadvantage in certain situations, such as climbing or jumping.<br /><br />Overall, Galileo&#39;s bones and the square-cube law are two distinct concepts that are not directly related, but both are significant in the history of science and have contributed to our understanding of the natural world.</div>
       </div><div class="turn">
@@ -1730,15 +2009,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">A homogenization method is a mathematical approach used in shape and topology optimization to model and analyze the behavior of complex materials and structures. The method involves replacing the original material or structure with a simplified, homogenized material that has the same overall mechanical properties.<br /><br />In the context of shape and topology optimization, the homogenization method is used to optimize the geometry and material distribution of a structure so that it performs optimally under certain conditions. The approach involves dividing the structure into a grid of cells, each of which contains a homogenized material with certain mechanical properties.<br /><br />The optimization algorithm then iteratively adjusts the shape and material distribution of the cells to achieve the desired performance objective. The final result is a structure that is optimized in terms of both its shape and material distribution.<br /><br />The homogenization method has proven to be a powerful tool for solving complex optimization problems in engineering and materials science. It allows designers and engineers to explore a wide range of design possibilities and to achieve optimal performance while minimizing weight, cost, and other constraints.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_311208</code></strong>
         <span class="small">2023/10/06 (Fri) 11:41</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Are there any ingredients that are only used in Tasmania&#39;s food culture?</div>
       </div><div class="turn">
@@ -1781,15 +2064,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Tasmania&#39;s climate is ideal for growing fresh, seasonal produce year-round, so there is never a bad time to visit for foodies. However, different times of the year offer various culinary experiences. Here are some things to consider when planning your visit:<br /><br />1. Summer (December-February) - Summer signals the start of Tasmania&#39;s growing season, and farmers&#39; markets are filled with freshly harvested produce. It&#39;s also the perfect time to enjoy the region&#39;s seafood, including Tasmanian salmon, trout, and crayfish.<br /><br />2. Autumn (March-May) - During autumn, many wineries and berry farms in Tasmania offer wine tasting events, and local restaurants often feature seasonal dishes that incorporate apples, quince, and chestnuts.<br /><br />3. Winter (June-August) - In the winter, Tasmania&#39;s truffle farms are in full swing, and many restaurants feature truffle dishes. Winter is also the perfect time for food and wine festivals such as the winter edition of the Taste of Tasmania.<br /><br />4. Spring (September-November) - The spring season brings forth asparagus, artichokes, and rhubarb, and many farmers&#39; markets begin to feature freshly picked greens and herbs. The season also brings several wine and food festivals to Tasmania, such as the Tamar Valley Writers Festival and the Spring Bay Seafood and Wine Festival.<br /><br />No matter when you visit, Tasmania has something to offer foodies all year-round, with a focus on fresh, locally produced ingredients and unique culinary experiences.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_bSlIUYf_32</code></strong>
         <span class="small">2023/10/15 (Sun) 18:31</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">{Provide a summary in outline format in plain text and then provide an overall summary of the section. Do not provide an overall summary until you have provided a summary in outline format.}<br /><br />SEC. 15. MISCELLANEOUS.<br /><br /> (a) Paperwork Reduction Act.--The requirements of chapter 35 of <br />title 44, United States Code (commonly referred to as the ``Paperwork <br />Reduction Act&#39;&#39;), shall not apply to any action by the Secretary to <br />implement this Act.<br /> (b) Appointment of Candidates.--To expedite the ability of the <br />Secretary to implement this Act, the Secretary may appoint, without <br />regard to the provisions of sections 3309 through 3318 of title 5, <br />United States Code, candidates directly to positions in the competitive <br />service (as defined in section 212 of that title).<br /> © Administrative Procedures.--Except with respect to a civil <br />penalty imposed pursuant to section 9(b) of this Act, the functions <br />exercised under this Act shall not be subject to sections 551, 553 <br />through 559, and 701 through 706 of title 5, United States Code.<br /> (d) Protected Information in Civil Actions.--If a civil action <br />challenging an action or finding under this Act is brought, and the <br />court determines that protected information in the administrative <br />record, including classified or other information subject to privilege <br />or protections under any provision of law, is necessary to resolve the <br />action, that information shall be submitted ex parte and in camera to <br />the court and the court shall maintain that information under seal. <br />This subsection does not confer or imply any right to judicial review.<br /> (e) Applicability of Use of Information Provisions.--The use of <br />information provisions of sections 106, 305, 405, and 706 of the <br />Foreign Intelligence Surveillance Act of 1978 (50 U.S.C. 1806, 1825, <br />1845, and 1881e) shall not apply in a civil action brought under this <br />Act.<br /> ✿ No Right of Access.--<br /> (1) In general.--No provision of this Act shall be <br /> construed to create a right to obtain access to information in <br /> the possession of the Federal Government that was considered in <br /> making a determination under this Act that a transaction is a <br /> covered transaction or interest or to prohibit, mitigate, or <br /> take action against a covered transaction or interest, <br /> including any classified national security information or <br /> sensitive but unclassified information.<br /> (2) Inapplicability of foia.--Any information submitted to <br /> the Federal Government by a party to a covered transaction in <br /> accordance with this Act, as well as any information the <br /> Federal Government may create relating to review of the covered <br /> transaction, is exempt from disclosure under section 552 of <br /> title 5, United States Code (commonly referred to as the <br /> ``Freedom of Information Act&#39;&#39;).</div>
       </div><div class="turn">
@@ -1826,15 +2113,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">There are several sections of the Act that could potentially affect civilians and/or their activities online:<br /><br />* Section 2(b) requires the Secretary to establish a process for the identification of &quot;critical technologies&quot; that are essential to U.S. national security. If a technology is designated as critical, any transaction involving that technology could be subject to review under the Act, which could potentially affect civilians who use or develop such technology.<br />* Section 4(a) authorizes the President to review any transaction that could result in the control of a U.S. business by a foreign person, if the transaction involves a &quot;critical technology&quot; or is located in or near certain sensitive areas. Depending on how broadly these terms are interpreted, this section could potentially affect civilians who are involved in such transactions.<br />* Section 6 authorizes the Secretary to prescribe regulations to identify and address &quot;emerging and foundational technologies&quot; that may be critical to U.S. national security. If a technology is designated as such, it could be subject to review under the Act, which could potentially affect civilians who use or develop such technology.<br />* Section 8 authorizes the Secretary to establish a voluntary program to engage with &quot;critical infrastructure&quot; owners and operators to identify and mitigate potential security risks. Depending on how this program is implemented, it could potentially affect civilians who own or operate critical infrastructure.<br />* Section 9(a) authorizes the Secretary to prescribe regulations requiring certain U.S. businesses to submit certain information to the Committee on Foreign Investment in the United States (CFIUS) regarding foreign ownership, control, or influence. Depending on how these regulations are implemented, they could potentially affect civilians who own or operate such businesses.<br /><br />It&#39;s worth noting that the Act is primarily focused on transactions involving foreign persons and entities that could pose a threat to U.S. national security, and it&#39;s not clear how many of these provisions would directly affect civilians. However, depending on how broadly certain terms are interpreted and how regulations are implemented, civilians could potentially be affected by some aspects of the Act.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>cf021b36_1</code></strong>
         <span class="small">2023/10/15 (Sun) 09:22</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some gift ideas for a high school graduate. My niece Emma just graduated yesterady, and I&#39;m thinking of getting her something special to commemorate the occasion. Do you have any suggestions?</div>
       </div><div class="turn">
@@ -1871,15 +2162,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">The first one is a wonderful choice. It&#39;s a beautiful way to close the letter and leave Emma with a sense of encouragement and support.<br /><br />Now, let&#39;s make the letter even more special with some thoughtful touches. Here are some ideas to consider:<br /><br />**Paper:**<br /><br />* Choose a high-quality paper that feels nice to the touch. You can opt for a textured paper, like cotton paper or linen paper, which adds a tactile element to the letter.<br />* Consider a paper with a subtle texture or pattern, like a watercolor design or a minimalist grid. This can add visual interest to the letter without overwhelming the reader.<br />* If you want to make it even more special, you can use handmade paper or paper with a unique finish, like a deckle edge or a natural fiber paper.<br /><br />**Ink and Writing:**<br /><br />* Use a high-quality pen with archival-quality ink to ensure the letter will last for years to come.<br />* Consider using a fountain pen or a calligraphy pen to add a touch of elegance to the letter.<br />* If you&#39;re not comfortable with handwriting, you can type the letter on a computer and print it on high-quality paper. Just make sure to choose a font that&#39;s easy to read and aesthetically pleasing.<br /><br />**Embellishments:**<br /><br />* Add a personal touch with a small photo or a piece of artwork that resonates with Emma&#39;s interests or personality.<br />* Use a wax seal or a sticker to add a decorative element to the envelope or the letter itself.<br />* Consider adding a small memento or trinket that holds sentimental value, like a piece of jewelry or a coin from a special place.<br /><br />**Layout and Design:**<br /><br />* Leave some whitespace in the letter to make it easy to read and visually appealing. Avoid cluttering the page with too much text or embellishments.<br />* Consider adding a simple border or a decorative header to the letter to give it a more polished look.<br />* Use a consistent font and formatting throughout the letter to create a cohesive design.<br /><br />**Envelope and Postage:**<br /><br />* Choose a high-quality envelope that matches the paper and design of the letter.<br />* Use a decorative stamp or a commemorative stamp to add a touch of personality to the envelope.<br />* Consider adding a small note or a message on the envelope, like a quote or a personal message, to make it even more special.<br /><br />Remember, the most important thing is to come from the heart and express your genuine feelings and thoughts to Emma. The extra touches are just a way to make the letter more special and memorable.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>09d14ddf_2</code></strong>
         <span class="small">2023/10/15 (Sun) 23:17</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking to try out a new workout routine and was wondering if you could suggest some exercises that target my core muscles. By the way, I also attend spin class on Wednesday and Friday mornings from 7:00 am to 8:00 am, so I&#39;d like to find something that complements my existing schedule.</div>
       </div><div class="turn">
@@ -1916,15 +2211,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">That&#39;s wonderful! Pilates is an excellent way to improve your core strength, flexibility, and overall body control. It&#39;s great that you&#39;ve found a class that you enjoy and that fits into your schedule.<br /><br />Pilates can be a fantastic complement to your spin classes and other workouts, as it helps improve your overall core strength, flexibility, and body awareness. This can, in turn, enhance your performance in other activities and reduce your risk of injury.<br /><br />It&#39;s also excellent that you&#39;ve found a consistent time slot for your Pilates class, which can help you establish a routine and make it easier to stick to your fitness goals.<br /><br />Remember to listen to your body and modify or rest when needed, especially if you&#39;re new to Pilates or have any underlying health conditions. It&#39;s also essential to focus on proper form and technique to get the most out of your workout and prevent injuries.<br /><br />How do you find that Pilates has impacted your overall fitness and well-being? Have you noticed any improvements in your posture, balance, or overall energy levels?<br /><br />Also, have you considered incorporating any Pilates exercises into your daily routine, such as doing a few exercises at home or incorporating them into your warm-up or cool-down routines for your spin classes?</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>89749c78_2</code></strong>
         <span class="small">2023/10/15 (Sun) 00:03</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m trying to get better at budgeting for gifts. Can you help me set up a budgeting plan? I&#39;ve been spending a lot on gifts lately, like the belated anniversary gift I got for my neighbors - a wine and cheese basket from the new gourmet shop in the neighborhood that cost around $75.</div>
       </div><div class="turn">
@@ -1961,15 +2260,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I&#39;d be happy to help you with birthday gift ideas for your colleague.<br /><br />To give you more tailored suggestions, can you tell me a bit more about your colleague? For example:<br /><br />* What&#39;s her style or taste like? (e.g. classic, trendy, minimalist, etc.)<br />* What are her interests or hobbies?<br />* Does she have any favorite colors or scents?<br />* Is there a specific price range you&#39;re looking to stay within?<br />* Do you want the gift to be something personalized or more of a general, nice gesture?<br /><br />Any details you can provide will help me give you more ideas that might suit her taste and preferences.<br /><br />In the meantime, here are some general gift ideas that are often well-received:<br /><br />* A nice coffee mug or tea infuser for her daily caffeine fix<br />* A scented candle or essential oil diffuser for a relaxing atmosphere<br />* A book or magazine related to her interests<br />* A gift card to her favorite restaurant or coffee shop<br />* A fun or unique desk accessory, like a paperweight or pen holder<br />* A gourmet food or wine gift basket<br /><br />Let me know if any of these ideas spark inspiration, or if you&#39;d like more suggestions based on your colleague&#39;s specific interests and preferences!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_RYhUTAL_0</code></strong>
         <span class="small">2023/10/15 (Sun) 15:53</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I want to check whether a claim is true and I have several evidences. Can you summarize the key information in the evidences to verify the claim? Your answer should be a list. The claim is &quot;Manchester had a population of more than 540,000 in 2017 and was the 5th most populous English district .&quot; The evidences are [&quot;Manchester ( ) is a major city and metropolitan borough in Greater Manchester , England , with a population of 545,500 as of 2017 ( 5th most populous English district ) .&quot;]</div>
       </div><div class="turn">
@@ -1988,15 +2291,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">You are correct that &quot;not enough information&quot; is the appropriate answer for the previous question, and I apologize for not providing a more rigorous explanation. I will strive to be more precise in the future.<br /><br />Regarding the new claim and evidence, based on the following key information from the evidence:<br /><br />* According to Iranian health authorities, there had been 1,812 COVID-19 deaths in Iran.<br />* According to the same source, there were more than 23,049 confirmed infections in Iran.<br /><br />We cannot conclude whether the claim &quot;There were less than 2,000 COVID-19 deaths in Iran with less than 25,000 confirmed infections during the pandemic, according to Iranian health authorities&quot; is true or false. The evidence provided shows that there were more than 1,812 deaths and more than 23,049 confirmed infections, but it does not give information about the total number of deaths and infections during the pandemic. Therefore, we do not have enough information to verify or refute the claim.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>8ca0085a_1</code></strong>
         <span class="small">2023/10/15 (Sun) 07:14</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m thinking of getting some plants for my living room, but I&#39;m not sure what kind would thrive in the space. Can you give me some suggestions? By the way, I recently rearranged the furniture in there to create more space, which took me about two hours to move everything around.</div>
       </div><div class="turn">
@@ -2033,15 +2340,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">You&#39;re welcome! I hope you find a great potting soil that will help your Aloe Vera thrive. Remember to also choose a pot that fits your plant&#39;s needs, and don&#39;t hesitate to reach out if you have any more questions or need further guidance.<br /><br />It was great chatting with you, and I&#39;m excited to hear about your progress with your new Aloe Vera plant. If you have any more questions or need any more recommendations, feel free to ask me anytime.<br /><br />Good luck with your plant parenting journey, and happy planting!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_460074</code></strong>
         <span class="small">2023/10/15 (Sun) 01:54</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What is the impact of automation on the agriculture industry, including changes in employment trends, crop yields, and environmental impacts?</div>
       </div><div class="turn">
@@ -2072,15 +2383,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I completely agree. ensuring that technology is accessible and affordable to farmers of all sizes is crucial for creating a sustainable and equitable agriculture industry for everyone. we should continue to explore innovative ways to develop technology that can help farmers improve their productivity, enhance their sustainability practices, and ultimately, increase their profits. at the same time, we should also ensure that smaller farmers and rural communities are not left behind in the process of technological advancements. governments, industry leaders, and community organizations should work together to build an inclusive technology framework that prioritizes the needs of all farmers and promotes equitable access to technology.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_n63iLZx_0</code></strong>
         <span class="small">2023/10/15 (Sun) 13:29</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Hi, I am a teacher who needs help crafting a science project for my secondary 1 students. Can i give you more information so you can help me better?</div>
       </div><div class="turn">
@@ -2099,15 +2414,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">A written report on a science project such as this one should include the following sections:<br /><br />1. Introduction: In this section, students should provide background information on the project and explain the purpose of their investigation. They should also state their research question and hypothesis.<br />2. Materials and Methods: In this section, students should provide a detailed description of the materials they used to build their vehicles and the methods they used to conduct their investigations. They should also include a description of any procedures or protocols that were followed.<br />3. Results: In this section, students should present the data they collected during their investigations. They should include tables, graphs, and other visual aids to help present their findings. They should also explain the results of their experiments and compare it to their hypothesis.<br />4. Discussion: In this section, students should interpret their results, explain what they mean, and relate them to the broader context of their investigation. They should also consider the limitations of their study, and what further research could be done to expand on their findings.<br />5. Conclusion: In this section, students should summarize their main findings, state their conclusions, and relate them to their original research question. They should also highlight the most important aspects of the project and explain how it relates to the learning objectives.<br />6. References: In this section, students should list any sources of information that were used to complete the project.<br />7. Appendices: In this section, students should include any additional materials or information that were not included in the main body of the report. This might include raw data, photographs, or detailed drawings of the vehicle.<br />8. A reflection section where students can express their thoughts and feeling about their experience, what they learned and what they would do differently if they were to do the project again.<br /><br />Please let me know if you have any further questions or if there is anything else I can do to help.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_i6wl0uh_0</code></strong>
         <span class="small">2023/10/15 (Sun) 23:32</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Oh the structure of the table of contents is so great. Then, may I ask you to write the first chapter, the one below?<br />Introduction<br />a. Briefly introduce the concept of WordPress object types<br />b. Explain the importance of understanding object types for novice WordPress developers<br />c. Mention the four main object types: post, user, taxonomy, and comment<br />d. Refer to Felix Arntz&#39;s blog posts or slides as a valuable resource<br />Answer in English.지금 번역하기</div>
       </div><div class="turn">
@@ -2126,15 +2445,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">b. User Object Type<br /><br />i. Purpose of the User Object Type<br /><br />The user object type in WordPress is responsible for managing the users of a website. It plays a crucial role in handling user authentication, authorization, and personalization. User object types allow site administrators to create, edit, and manage user accounts, as well as control access to specific content and functionality based on user roles and capabilities.<br /><br />ii. User Roles and Capabilities<br /><br />WordPress offers a built-in system for managing user roles and capabilities. User roles define a collection of capabilities that determine what actions a user can perform on a website. By default, WordPress provides several predefined roles, each with a specific set of capabilities:<br /><br />1. Administrator: Users with this role have complete control over a WordPress site, including managing themes, plugins, and other users.<br />2. Editor: Editors can manage, edit, and publish content from all users, as well as moderate comments.<br />3. Author: Authors can create, edit, and publish their content but cannot manage content created by other users.<br />4. Contributor: Contributors can create and edit their content but cannot publish it. Their content must be reviewed and published by an Editor or Administrator.<br />5. Subscriber: Subscribers have limited capabilities and can only manage their profile and read content on the site.<br /><br />These roles can be customized, and new roles can be created to meet the specific needs of a website. For example, imagine a website that hosts online courses. A custom role, such as &quot;Instructor,&quot; could be created with specific capabilities related to managing and publishing course content.<br />```php<br />// Creating a custom &#39;Instructor&#39; role in WordPress<br />add_role(<br />    &#39;instructor&#39;,<br />    &#39;Instructor&#39;,<br />    array(<br />        &#39;read&#39; =&gt; true,<br />        &#39;edit_posts&#39; =&gt; true,<br />        &#39;publish_posts&#39; =&gt; true,<br />        &#39;delete_posts&#39; =&gt; false,<br />    )<br />);<br />```<br />iii. User Metadata<br /><br />User metadata, similar to post metadata, allows developers and site administrators to store additional information about a user that is not part of the default user fields, such as the user&#39;s name or email address. User metadata can be used to enhance the user experience, tailor content to user preferences, or add custom functionality to a website.<br /><br />For instance, on an e-commerce website, user metadata could be used to store a user&#39;s shipping address, preferred payment method, or purchase history. This information could then be used to streamline the checkout process, offer personalized product recommendations, or generate targeted marketing campaigns.<br />```php<br />// Adding user metadata in WordPress<br />add_user_meta($user_id, &#39;shipping_address&#39;, &#39;123 Main St, Anytown, USA&#39;);<br /><br />// Retrieving user metadata in WordPress<br />$shipping_address = get_user_meta($user_id, &#39;shipping_address&#39;, true);<br />```<br />By understanding the user object type, user roles, capabilities, and user metadata, novice WordPress developers can create feature-rich websites with robust user management systems, personalized experiences, and tailored functionality.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>5e3c5a6b</code></strong>
         <span class="small">2023/10/15 (Sun) 05:41</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some tips on how to improve my public speaking skills. Can you recommend any online resources or courses that could help me with that?</div>
       </div><div class="turn">
@@ -2171,15 +2494,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">That&#39;s fantastic! Data visualization and statistical modeling are both essential skills in today&#39;s data-driven world. Being able to present complex data in a clear and concise way can make a huge difference in how your findings are received and understood by your audience.<br /><br />Tools like Tableau and Power BI are excellent for data visualization, and they can help you create interactive and dynamic dashboards that can be easily shared with others. I&#39;m sure you&#39;ll find them very useful in your work.<br /><br />It&#39;s great that you&#39;re thinking about sharing your new skills with others! Leading a training session or brown-bag lunch is a wonderful way to give back to your team and help them improve their skills. It&#39;s also a great opportunity for you to practice your public speaking skills in a more formal setting, as you mentioned.<br /><br />By sharing your knowledge, you&#39;ll not only be helping your team, but you&#39;ll also be demonstrating your expertise and leadership skills. It&#39;s a win-win situation!<br /><br />Remember to start small and focus on a specific topic or skill that you&#39;re comfortable with. You can start with a small group or one-on-one sessions and gradually scale up as you become more comfortable. Don&#39;t forget to get feedback from your team members and adjust your approach accordingly.<br /><br />How do you plan to structure your training session or brown-bag lunch? Will you be creating a presentation, providing hands-on training, or leading a discussion?<br /><br />Also, have you thought about creating a knowledge-sharing platform or community within your organization to encourage others to share their skills and expertise? This could be a great way to foster a culture of learning and collaboration within your team.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>3b655772_1</code></strong>
         <span class="small">2023/10/15 (Sun) 15:40</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m thinking of buying some gifts for my coworkers for the holiday season. Do you have any ideas for gifts under $80? By the way, I recently bought a beautiful silver necklace with a small pendant from a local boutique store on Main Street for my sister&#39;s birthday, which cost around $80.</div>
       </div><div class="turn">
@@ -2216,15 +2543,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">What a wonderful idea! Expressing your appreciation through a heartfelt note can make the gift even more special and meaningful. Here are some suggestions to help you write a sincere and heartfelt note:<br /><br />1. **Start with a personal message**: Begin the note by addressing your coworker by name and expressing your gratitude for their hard work and contributions.<br />2. **Be specific**: Mention specific instances or projects where your coworker has gone above and beyond, and how their efforts have positively impacted the team or organization.<br />3. **Highlight their strengths**: Acknowledge your coworker&#39;s strengths, skills, or qualities that make them valuable to the team. This could be their attention to detail, their creative approach, or their exceptional communication skills.<br />4. **Express your appreciation**: Let your coworker know how much you appreciate their dedication, support, and teamwork. You could say something like, &quot;I&#39;m so grateful to work alongside someone as talented and dedicated as you&quot; or &quot;Your contributions to our team have not gone unnoticed, and I&#39;m so thankful to have you by my side.&quot;<br />5. **Keep it concise**: While you want to express your appreciation, keep the note concise and to the point. Aim for a few sentences or a short paragraph at most.<br />6. **End with a positive note**: Close the note with a positive message, such as &quot;Wishing you all the best&quot; or &quot;Looking forward to continuing to work together.&quot;<br /><br />Here&#39;s an example of a note that incorporates these suggestions:<br /><br />&quot;Dear [Coworker&#39;s Name],<br /><br />I wanted to take a moment to express my heartfelt appreciation for all your hard work and dedication to our team. Your attention to detail and creative approach have been invaluable to our recent projects, and I&#39;m so grateful to work alongside someone as talented as you. Your contributions have not gone unnoticed, and I&#39;m thankful to have you as a part of our team. Wishing you all the best and looking forward to continuing to work together.<br /><br />Best regards, [Your Name]&quot;<br /><br />Remember, the key is to be sincere and genuine in your note. Your coworkers will appreciate the thought and effort you put into expressing your appreciation, and it will likely strengthen your relationships and create a positive work environment.<br /><br />And what a wonderful idea to draw inspiration from the note you wrote for your sister&#39;s birthday gift! It&#39;s great that you&#39;re willing to adapt that experience to show your appreciation for your coworkers.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>a52d98bf_2</code></strong>
         <span class="small">2023/10/15 (Sun) 11:00</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m trying to figure out some ways to improve my vegetable garden. I&#39;ve got tomatoes, cucumbers, and bell peppers going right now, and I&#39;m wondering if you have any tips on how to keep them healthy and pest-free.</div>
       </div><div class="turn">
@@ -2261,15 +2592,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">That&#39;s a great idea! Planting marigolds around your tomatoes, cucumbers, and bell peppers can be a fantastic way to help control nematodes and create a healthier soil environment for your vegetables.<br /><br />**Marigolds and Nematode Control**<br /><br />Marigolds contain a chemical called alpha-terthienyl, which is toxic to nematodes. By planting marigolds around your vegetables, you can help reduce nematode populations and prevent them from damaging your tomato, cucumber, and bell pepper roots.<br /><br />**Benefits for Each Vegetable**<br /><br />1. **Tomatoes**: Marigolds can help protect tomatoes from nematodes, which can cause stunt</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_J7ZAFLd_0</code></strong>
         <span class="small">2023/10/15 (Sun) 07:24</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I am planning a project in Nigeria that connects 100 rural villages to running water. Who can be the stakeholders that will benefit or be harmed by the project? give the response in an array format</div>
       </div><div class="turn">
@@ -2294,15 +2629,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Certainly, here is the complete table:<br /><br />| Stakeholders Title | Stakeholder Type | Potential Benefit/Harm | Indicators to Measure Impact |<br />| --- | --- | --- | --- |<br />| Rural communities in the 100 villages | Individuals | Benefit: Improved access to clean water | 1. Increase in access to safe and clean water sources&lt;br&gt;2. Reduction in water-borne illnesses&lt;br&gt;3. Increased time for productive activities (such as education and employment) due to reduced time spent collecting water |<br />| Local government and authorities | Government | Benefit: Improved public health and reduced burden on local resources | 1. Reduction in health care costs related to water-borne illnesses&lt;br&gt;2. Improved public satisfaction with the provision of water and sanitation services&lt;br&gt;3. Increased tax revenue due to improved economic activity in the region |<br />| Water and sanitation organizations | Non-profit | Benefit: Improved access to clean water for rural communities | 1. Increased access to safe and clean water sources for rural communities&lt;br&gt;2. Reduction in water-borne illnesses in rural communities&lt;br&gt;3. Improved reputation and credibility of the organization |<br />| Health care providers and facilities | Business/Non-profit | Benefit: Improved public health and reduced burden on local resources | 1. Reduction in cases of water-borne illnesses&lt;br&gt;2. Increase in patient satisfaction with health care services&lt;br&gt;3. Increased revenue due to reduced burden on resources |<br />| Agricultural businesses and farmers | Business | Benefit: Improved access to water for irrigation and farming purposes | 1. Increase in crop yield and quality&lt;br&gt;2. Reduction in water-related crop losses&lt;br&gt;3. Increased revenue for agricultural businesses and farmers |<br />| Women and children who collect water | Individuals | Benefit: Reduced time and effort spent on collecting water | 1. Reduction in time spent collecting water&lt;br&gt;2. Increase in time for education and employment&lt;br&gt;3. Improved health due to reduced physical strain from collecting water |<br />| Schools and educational institutions | Non-profit | Benefit: Improved access to clean water for students and staff | 1. Increase in access to safe and clean water for students and staff&lt;br&gt;2. Reduction in water-borne illnesses among students and staff&lt;br&gt;3. Improved reputation of the school or institution |<br />| Local businesses and industries | Business | Benefit: Improved access to water for industrial purposes | 1. Increase in production capacity&lt;br&gt;2. Reduction in water-related production losses&lt;br&gt;3. Increased revenue for local businesses and industries |<br />| Landowners and residents who may be displaced | Individuals | Harm: Loss of property and displacement | 1. Number of people displaced&lt;br&gt;2. Adequacy of compensation and support for displaced individuals&lt;br&gt;3. Reduction in property values in the area |<br />| Traditional water sources | N/A | Harm: Contamination or obsolescence of traditional water sources | 1. Reduction in water quality of traditional sources&lt;br&gt;2. Decrease in use of traditional water sources&lt;br&gt;3. Negative impact on local communities who rely on traditional sources for religious or cultural practices |<br />| Environmental organizations | Non-profit | Harm: Potential environmental impacts of the project | 1. Reduction in water quality of surrounding environment&lt;br&gt;2. Negative impact on wildlife and their habitats&lt;br&gt;3. Reduction in public support for the organization |<br />| Small-scale water vendors | Business | Harm: Loss of business due to the availability of running water | 1. Reduction in water sales&lt;br&gt;2. Decrease in revenue for small-scale water vendors&lt;br&gt;3. Loss of livelihood for small-scale water vendors |</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_328330</code></strong>
         <span class="small">2023/10/15 (Sun) 13:23</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What are the main sources of air, water, and soil pollution in Xiamen, and what is the extent of their impact on health and the environment?</div>
       </div><div class="turn">
@@ -2333,15 +2672,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Great initiative! Here are some tips to make your community clean-up event effective and engaging:<br /><br />1. Set clear goals: Define your goals for the clean-up event, including what you want to achieve and what challenges you are hoping to address.<br /><br />2. Identify the target area: Know the area you will be cleaning up and identify any potential safety concerns, such as hazardous waste or sharp objects. Notify the community authorities if required.<br /><br />3. Organize volunteers: Get the word out about your clean-up event through social media, local media outlets, and community flyers to invite volunteers to participate.<br /><br />4. Provide necessary equipment: Provide volunteers with gloves, trash bags, and other cleaning equipment to make the process easier and safer.<br /><br />5. Ensure safety: Prioritize safety by instructing volunteers to wear safety gear, work in teams, and be mindful of traffic.<br /><br />6. Celebrate progress: Celebrate the progress you have made, and encourage participants to share their experiences and spread awareness about the importance of environmental conservation.<br /><br />7. Follow up on progress: Follow-up on the progress made by volunteers, and track any metrics related to how much waste was collected, the number of volunteers, and the impact of the event so that you can refine your efforts for future events.<br /><br />Remember, community engagement is key to making your event effective - so be enthusiastic and get everyone involved. Good luck with your event!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>a7f0c11d_3</code></strong>
         <span class="small">2023/10/15 (Sun) 19:26</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some gift ideas for a kid&#39;s birthday party. The birthday kid loves Legos, so I thought maybe something Lego-related? By the way, I&#39;m taking a break from volunteering at a charity gala for a local children&#39;s hospital today, so I&#39;m hoping to get some inspiration quickly.</div>
       </div><div class="turn">
@@ -2378,15 +2721,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">You&#39;re welcome! I&#39;m glad I could help. An apple and some nuts are a great choice - they&#39;re nutritious, easy to eat on the go, and will definitely hold you over until you can get a proper lunch.<br /><br />It was my pleasure chatting with you, and I&#39;m happy to have been able to assist in some small way. You&#39;re doing a wonderful thing by volunteering at the charity gala, and I&#39;m sure you&#39;ll make a positive impact.<br /><br />Take care, and I hope you have a fantastic time volunteering!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_332885</code></strong>
         <span class="small">2023/10/15 (Sun) 02:39</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Can you provide a list of the different domains available to clerics in a popular tabletop RPG, and can you explain how each of them affects a player&#39;s abilities or strategies?</div>
       </div><div class="turn">
@@ -2429,7 +2776,8 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">That sounds like an excellent idea! Having your cleric struggle with their faith or purpose can make for some engaging and emotional roleplaying moments that make your character feel more real and relatable. Good luck, and have fun with your character!</div>
       </div></div>
-  </details></div>
+    </details>
+  </div></div>
                     </details>
     </div>
   </div>

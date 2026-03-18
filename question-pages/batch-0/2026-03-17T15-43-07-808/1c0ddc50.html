@@ -105,7 +105,7 @@
       border: 1px solid var(--line);
       border-radius: 14px;
       background: #fff;
-      padding: 0 14px 14px;
+      padding: 14px;
     }
     .priority-session {
       border-width: 2px;
@@ -115,21 +115,17 @@
     .secondary-session {
       opacity: 0.9;
     }
-    .session-card summary {
-      list-style: none;
-      cursor: pointer;
+    .session-card-header {
       display: flex;
       justify-content: space-between;
       gap: 12px;
       align-items: center;
-      padding: 14px 0;
-    }
-    .session-card summary::-webkit-details-marker {
-      display: none;
+      margin-bottom: 12px;
     }
     .session-turns {
       display: grid;
       gap: 10px;
+      margin-top: 12px;
     }
     .turn {
       border-top: 1px solid var(--line);
@@ -146,6 +142,40 @@
       font-size: 14px;
       line-height: 1.55;
       word-break: break-word;
+    }
+    .session-memory-wrap {
+      margin-bottom: 12px;
+    }
+    .session-memory-details {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fcfaf5;
+      padding: 0 12px 12px;
+    }
+    .session-memory-details summary,
+    .session-conversation-details summary {
+      cursor: pointer;
+      padding: 12px 0;
+      font-size: 13px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .session-conversation-details {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fafaf7;
+      padding: 0 12px 12px;
+    }
+    .session-memory-list {
+      display: grid;
+      gap: 10px;
+    }
+    .extracted-memory-card {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+      padding: 12px;
     }
     .pill {
       display: inline-block;
@@ -397,15 +427,75 @@
       <h2>Question Sessions</h2>
       <p class="small">Benchmark answer sessions are shown first. Then come other retrieved sessions. Background sessions stay collapsed below.</p>
       <div class="session-subhead">Answer Sessions</div>
-             <div class="session-list"><details class="session-card priority-session">
-    <summary>
+             <div class="session-list"><div class="session-card priority-session">
+    <div class="session-card-header">
       <div>
         <strong><code>answer_8da8c7e0</code></strong>
         <span class="small">2023/05/26 (Fri) 22:02</span>
       </div>
       <div><span class="pill">ground truth</span> <span class="pill pill-answer">answer session</span></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    <div class="session-memory-wrap"><details class="session-memory-details">
+    <summary>Extracted Memories (3)</summary>
+    <div class="session-memory-list"><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 1</strong>
+      <div>
+        
+        <span class="small">2023-05-27T05:02:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Sought recommendations for organizing a podcast listening schedule, specifically for history podcasts, given a 40-minute commute each way. Considered alternating between different history podcasts like Hardcore History, Lore, and The Dollop to maintain freshness. Aimed for episodes around 30-60 minutes to fit the commute duration.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Commute is 40 minutes each way.<br />Interested in history podcasts.<br />Considered creating a playlist for easy switching between episodes and podcasts.<br />Planned to alternate between Hardcore History, Lore, and The Dollop.<br />Suggested listening to Hardcore History on Monday and Tuesday, Lore on Wednesday and Thursday, and The Dollop on Friday.<br />Aimed for episode lengths of 30-60 minutes.<br />Considered binge-listening to engaging episodes, especially longer series from Hardcore History.<br />Planned to take breaks from history podcasts if needed.<br />Considered the tone of podcasts for different moods, suggesting The Dollop for lightheartedness and Hardcore History or Lore for in-depth content.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Commute</td>
+      </tr></tbody></table>
+  </div><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 2</strong>
+      <div>
+        
+        <span class="small">2023-05-27T05:02:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Expressed interest in the book &quot;Guns, Germs, and Steel&quot; by Jared Diamond, which explores how geography, technology, and biology shaped human societies over 13,000 years. The book&#39;s title refers to military power, diseases, and technology as key factors. It argues that natural environment, technological advancements, and diseases played significant roles in the rise and fall of civilizations.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Book title: &quot;Guns, Germs, and Steel&quot; by Jared Diamond.<br />Explores how geography, technology, and biology shaped human societies.<br />Covers a period of 13,000 years.<br />Title refers to guns (military power), germs (diseases), and steel (technology).<br />Main arguments include the significance of geography, technology driving progress, and diseases shaping history.<br />Highlights the rise of Eurasian civilizations due to a unique combination of factors.<br />Key concepts include &quot;The lucky latitudes,&quot; &quot;The axis of history,&quot; and &quot;The Anna Karenina principle.&quot;<br />Received a Pulitzer Prize for General Nonfiction in 1998, Aventis Prize for Science Books in 1998, and Phi Beta Kappa Award in Science in 1998.<br />Acknowledged criticisms regarding oversimplification, downplaying human agency, and Eurocentric biases.<br />Described as engaging, accessible, and thought-provoking, but also dense at 480 pages.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Diamond</td>
+      </tr></tbody></table>
+  </div><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 3</strong>
+      <div>
+        
+        <span class="small">2023-05-27T05:02:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Showed interest in the &quot;lucky latitudes&quot; concept from &quot;Guns, Germs, and Steel.&quot; This concept posits that a band of latitudes, roughly between 20° and 40° north of the equator, provided unique environmental factors favoring the development of complex societies. Factors include mild climate, fertile soil, reliable water sources, rich natural resources, and high biodiversity.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Concept is a central idea in Jared Diamond&#39;s &quot;Guns, Germs, and Steel.&quot;<br />Refers to a specific band of latitudes, roughly between 20° and 40° north of the equator.<br />These latitudes provided a unique combination of environmental factors for complex societies.<br />Factors include mild climate with adequate rainfall, moderate temperatures, and a long growing season.<br />Characterized by fertile soils rich in nutrients.<br />Location of major rivers like the Nile, Tigris, Euphrates, and Yangtze.<br />Rich in natural resources such as metals, minerals, and fossil fuels.<br />Home to a wide variety of plant and animal species.<br />Regions include The Fertile Crescent, The Indus Valley, The Yellow River Valley, and The Mediterranean.<br />Argued to have played a significant role in shaping human history and the emergence of major civilizations.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Latitudes</td>
+      </tr></tbody></table>
+  </div></div>
+  </details></div>
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some new podcast recommendations. I&#39;ve been listening to a lot of true crime and self-improvement stuff. I enjoy listening to then during my commute, but I want to branch out into other genres.</div>
       </div><div class="turn">
@@ -442,17 +532,21 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">The &quot;lucky latitudes&quot; concept is a central idea in Jared Diamond&#39;s &quot;Guns, Germs, and Steel&quot;. In essence, Diamond argues that a specific band of latitudes, roughly between 20° and 40° north of the equator, has provided a unique combination of environmental factors that have favored the development of complex societies and civilizations.<br /><br />Here are some key aspects of the &quot;lucky latitudes&quot; concept:<br /><br />**Why are these latitudes &quot;lucky&quot;?**<br /><br />Diamond identifies several factors that make this region conducive to the emergence of complex societies:<br /><br />1. **Climate:** The lucky latitudes have a relatively mild climate, with adequate rainfall, moderate temperatures, and a long growing season. This allows for the growth of a wide variety of crops, making it easier to support large populations.<br />2. **Soil:** The region is characterized by fertile soils, which are rich in nutrients and support intensive agriculture.<br />3. **Water:** Many of the world&#39;s major rivers, such as the Nile, Tigris, Euphrates, and Yangtze, are located in the lucky latitudes, providing a reliable source of water for agriculture and transportation.<br />4. **Natural resources:** The region is rich in natural resources, including metals, minerals, and fossil fuels, which have been crucial for technological development.<br />5. **Biodiversity:** The lucky latitudes are home to a wide variety of plant and animal species, which have been exploited by humans for food, clothing, and other essential resources.<br /><br />**Where are the lucky latitudes?**<br /><br />The lucky latitudes span across several regions, including:<br /><br />1. **The Fertile Crescent:** This region, which includes modern-day Iraq, Syria, Lebanon, Jordan, Israel, and parts of Turkey and Egypt, is often referred to as the &quot;cradle of civilization.&quot;<br />2. **The Indus Valley:** This region, which includes modern-day Pakistan and northwestern India, was home to the ancient Indus Valley Civilization.<br />3. **The Yellow River Valley:** This region in eastern China was the birthplace of Chinese civilization.<br />4. **The Mediterranean:** The Mediterranean region, which includes parts of Europe, North Africa, and the Middle East, has been a hub of cultural and economic activity for thousands of years.<br /><br />**Implications of the lucky latitudes**<br /><br />Diamond argues that the lucky latitudes have played a significant role in shaping human history, as they have provided a unique combination of environmental factors that have favored the development of complex societies. This, in turn, has led to the emergence of many of the world&#39;s major civilizations, including those in the Fertile Crescent, the Indus Valley, and China.<br /><br />While the lucky latitudes concept is not without its criticisms, it remains a thought-provoking idea that highlights the importance of environmental factors in shaping human history.</div>
       </div></div>
-  </details></div>
+    </details>
+  </div></div>
              <div class="session-subhead">Other Retrieved Sessions</div>
-                    <div class="session-list"><details class="session-card priority-session">
-    <summary>
+                    <div class="session-list"><div class="session-card priority-session">
+    <div class="session-card-header">
       <div>
         <strong><code>c7ca6dff</code></strong>
         <span class="small">2023/05/22 (Mon) 02:31</span>
       </div>
       <div><span class="pill">retrieved only</span> <span class="pill pill-retrieved">retrieved</span></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;ve been trying to get more organized, can you help me set reminders for my weekly game nights on Thursdays at 8:00 pm?</div>
       </div><div class="turn">
@@ -489,15 +583,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">The 2:00 pm slump! It&#39;s common to experience a natural dip in energy levels during this time, but healthy snacking can help provide a natural energy boost. Here are some healthy snack options that can help:<br /><br />**1. Nuts and seeds**: Almonds, cashews, pumpkin seeds, and chia seeds are all high in healthy fats and protein, which can help sustain energy levels.<br /><br />**2. Fresh fruit**: Fresh fruit like apples, bananas, and berries are rich in fiber, vitamins, and antioxidants that can help combat fatigue.<br /><br />**3. Energy balls**: Make your own energy balls with rolled oats, nuts, seeds, and dried fruit to create a healthy, sustaining snack.<br /><br />**4. Protein-rich snacks**: Greek yogurt, hard-boiled eggs, and cottage cheese are all high in protein, which can help keep you full and energized.<br /><br />**5. Whole grain crackers with avocado or peanut butter**: Whole grain crackers with mashed avocado or peanut butter provide a boost of healthy fats and protein.<br /><br />**6. Edamame**: These boiled soybeans are high in protein and fiber, making them a great snack to combat fatigue.<br /><br />**7. Trail mix**: A mix of nuts, seeds, and dried fruit is a convenient and healthy snack that can provide a natural energy boost.<br /><br />**8. Dark chocolate**: Dark chocolate containing at least 70% cocoa can provide a natural energy boost due to its caffeine and flavonoid content.<br /><br />**9. Apple slices with almond butter**: This classic snack combo provides a boost of healthy fats and protein to combat fatigue.<br /><br />**10. Smoothie**: A smoothie made with frozen fruit, Greek yogurt, and nuts or seeds can provide a quick and refreshing energy boost.<br /><br />Remember, it&#39;s essential to choose snacks that are nutrient-dense and low in added sugars, salt, and unhealthy fats. Aim for snacks that are rich in whole grains, fruits, vegetables, lean proteins, and healthy fats to provide a natural energy boost.<br /><br />Additionally, consider these tips to help manage your energy levels:<br /><br />* Stay hydrated by drinking plenty of water throughout the day.<br />* Take short breaks to stretch and move around.<br />* Practice deep breathing exercises or meditation to reduce stress.<br />* Get some natural light exposure to regulate your circadian rhythms.<br /><br />By incorporating these healthy snack options and tips into your daily routine, you can help combat the 2:00 pm slump and stay energized and focused throughout the day!</div>
       </div></div>
-  </details><details class="session-card priority-session">
-    <summary>
+    </details>
+  </div><div class="session-card priority-session">
+    <div class="session-card-header">
       <div>
         <strong><code>2aa70c9c_1</code></strong>
         <span class="small">2023/05/23 (Tue) 11:21</span>
       </div>
       <div><span class="pill">retrieved only</span> <span class="pill pill-retrieved">retrieved</span></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m thinking of buying a new bike to commute to work, but I&#39;m not sure about the logistics. Can you help me figure out the best route from my place to the office? By the way, I&#39;ve noticed that the bus is always crowded on Mondays, which is the start of the workweek, so I&#39;m hoping to avoid that chaos.</div>
       </div><div class="turn">
@@ -534,18 +632,22 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I&#39;m glad we&#39;re on the same page about the bike lock and rack!<br /><br />And I completely understand your desire to avoid the crowded bus on Mondays. It&#39;s great that you&#39;re considering alternative modes of transportation, like cycling, to make your commute more enjoyable and stress-free.<br /><br />By taking your bike, you&#39;ll not only avoid the crowds but also get some exercise, fresh air, and a sense of accomplishment. Plus, you&#39;ll be doing your part for the environment by reducing your carbon footprint.<br /><br />Remember to stay safe, follow traffic rules, and enjoy the ride! If you have any more questions or concerns about your bike commute, feel free to ask.</div>
       </div></div>
-  </details></div>
+    </details>
+  </div></div>
              <details class="other-sessions">
                       <summary>Other Sessions (48)</summary>
-                      <div class="session-list"><details class="session-card secondary-session">
-    <summary>
+                      <div class="session-list"><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_rynO0Ni_0</code></strong>
         <span class="small">2023/05/20 (Sat) 01:31</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Write me a Dall-E 2 prompt that generates a painting of a sunset over a dystopian version of London</div>
       </div><div class="turn">
@@ -564,15 +666,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">&quot;Paint a sunset over a dystopian London, with crumbling skyscrapers and the broken London Eye in the distance. The Thames is filled with debris, and the streets are empty and desolate. The only hint of color comes from the orange and red hues of the setting sun, casting a bleak and post-apocalyptic atmosphere. The style should be reminiscent of the anime film Akira, with bold, futuristic details and a sense of decay.&quot;</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>99883f38_1</code></strong>
         <span class="small">2023/05/20 (Sat) 08:44</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m planning a road trip with friends and I&#39;m wondering if you can help me estimate the driving time and distance between two cities. By the way, I just got back from a family trip to our lake house, which is about an hour&#39;s drive from our city home, and it was amazing.</div>
       </div><div class="turn">
@@ -609,15 +715,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Energy balls are a fantastic snack for road trips! They&#39;re easy to make, packed with nutrients, and can be customized to suit your taste preferences. Here are some popular energy ball recipes that are perfect for a road trip:<br /><br />1. **Peanut Butter Banana Bites**: A classic combination of rolled oats, peanut butter, mashed banana, and honey.<br />2. **Chocolate Chip Energy Bites**: A sweet treat made with rolled oats, almond butter, chocolate chips, and honey.<br />3. **Coconut Lime Energy Balls**: A refreshing blend of rolled oats, coconut flakes, lime zest, and honey.<br />4. **Cranberry Orange Energy Balls**: A fruity and tangy mix of rolled oats, dried cranberries, orange zest, and honey.<br />5. **Nutty Energy Bites**: A nut-lover&#39;s dream made with rolled oats, peanut butter, chopped nuts (like walnuts or almonds), and honey.<br /><br />These energy balls are all easy to make and require only a few ingredients. You can customize them to your taste preferences and dietary needs. Simply mix the ingredients together, shape into balls, and refrigerate until firm.<br /><br />When choosing an energy ball recipe, consider the following factors:<br /><br />* **Nutrition**: Look for recipes that include a balance of complex carbohydrates, protein, and healthy fats to keep you energized throughout the trip.<br />* **Shelf life**: Opt for recipes with a longer shelf life, like those with dried fruits or nuts, to ensure they stay fresh during the trip.<br />* **Texture**: Choose recipes with a mix of textures, like crunchy and chewy, to keep your snacks interesting.<br /><br />Remember to store your energy balls in an airtight container to keep them fresh and easy to grab during the trip.<br /><br />Which recipe catches your eye? Do you have any dietary restrictions or preferences I can help with?</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_QgPR6sN_15</code></strong>
         <span class="small">2023/05/20 (Sat) 15:15</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">A gramby roll is a technique in Brazilian Jiu-Jitsu (BJJ) that involves using a rolling motion to escape from the bottom side control position. The gramby roll is named after Marcelo Garcia, who is a Brazilian BJJ practitioner and instructor known for his effective use of the technique.<br /><br />To execute the gramby roll, you start by lying on your back with your opponent in the side control position on top of you. Then, you use your hips and legs to create space and leverage, and roll your body over onto your side. As you roll, you can use your arms to control your opponent&#39;s head and posture, and to prevent them from following you and re-establishing the side control position.<br /><br />The gramby roll is an effective technique for escaping from the bottom side control position and taking the top position. It requires good coordination, control, and timing, and can be challenging to execute against a resisting opponent. However, with practice, you can develop the skills and confidence needed to successfully execute the gramby roll in BJJ.</div>
       </div><div class="turn">
@@ -645,15 +755,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Sure, here is a revised summary of the training programs and drills that have been suggested in this thread, including the additional weeks and the top five most effective submissions and chokes:<br /><br />1. White belt to blue belt BJJ training program:<br />* Week 1: Guard position<br />* Week 2: Side control position<br />* Week 3: Closed guard position<br />* Week 4: Half guard position<br />* Week 5: Knee-on-belly position<br />* Week 6: Mount position<br />* Week 7: Mount position<br />* Week 8: Back control<br />* Week 9: Takedowns<br />* Week 10: Passes<br />* Week 11: Submissions<br />* Week 12: Transitions<br />* Week 13: Drilling<br />* Week 14: Sparring<br />* Week 15: Conditioning<br />* Week 16: Mount position<br />* Week 17: Back control<br />* Week 18: Takedowns<br />* Week 19: Passes<br />* Week 20: Submissions<br />2. Four-week training program focused on submissions, grips, and the kimura:<br />* Week 1: Fundamentals of submissions, including the top five most effective submissions and chokes: armbar, triangle choke, rear-naked choke, guillotine choke, and kimura<br />* Week 2: Gi grips and control<br />* Week 3: Kimura attacks and defenses<br />* Week 4: Theory and visualization<br />3. Good drills for BJJ that</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>a9c9365a</code></strong>
         <span class="small">2023/05/20 (Sat) 20:28</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m trying to find some new movies to watch. Can you recommend something similar to &quot;Everything Everywhere All at Once&quot;?</div>
       </div><div class="turn">
@@ -690,15 +804,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">That&#39;s great to hear! Movie soundtracks can be incredibly inspiring and helpful for focus and productivity.<br /><br />Hans Zimmer is a legendary composer, and his scores are always a great starting point. Here are some recommendations for movie soundtracks and composers you might enjoy:<br /><br />**Composers:**<br /><br />1. **Thomas Newman**: Known for his work on American Beauty, The Shawshank Redemption, and Skyfall, Newman&#39;s scores often feature a mix of orchestral and choral elements.<br />2. **Howard Shore**: Shore&#39;s work on The Lord of the Rings and The Hobbit trilogies is iconic, and his scores often incorporate leitmotifs and thematic elements.<br />3. **John Williams**: A master of iconic themes, Williams&#39; scores for Star Wars, Indiana Jones, and Harry Potter are unforgettable.<br />4. **Danny Elfman**: Elfman&#39;s scores often have a quirky, whimsical quality, as seen in his work on Batman, Spider-Man, and The Nightmare Before Christmas.<br />5. **Clint Mansell**: Mansell&#39;s scores often feature a dark, atmospheric quality, as seen in his work on Requiem for a Dream, Moon, and Black Swan.<br /><br />**Soundtracks:**<br /><br />1. **The Social Network** (Trent Reznor and Atticus Ross) - A haunting, electronic-infused score that perfectly captures the mood of the film.<br />2. **Inception** (Hans Zimmer) - A pulse-pounding, action-packed score that&#39;s perfect for focused work sessions.<br />3. **The Dark Knight** (Hans Zimmer and James Newton Howard) - A brooding, intense score that&#39;s ideal for intense focus.<br />4. **The Grand Budapest Hotel** (Alexandre Desplat) - A whimsical, charming score that&#39;s perfect for lighter, more creative work.<br />5. **Interstellar** (Hans Zimmer) - A soaring, atmospheric score that&#39;s ideal for focused, imaginative work.<br /><br />**Playlists:**<br /><br />1. **Epic Soundtracks**: A playlist featuring grand, sweeping scores from films like Lord of the Rings, Star Wars, and Gladiator.<br />2. **Focus Music**: A playlist featuring electronic and orchestral tracks designed to help you concentrate.<br />3. **Cinematic Soundscapes**: A playlist featuring atmospheric, ambient scores from films like Blade Runner, Alien, and 2001: A Space Odyssey.<br /><br />Feel free to explore these recommendations and add them to your playlist!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_g5K4eCT_19</code></strong>
         <span class="small">2023/05/21 (Sun) 03:40</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">An API, or Application Programming Interface, is a set of protocols, routines, and tools that allow different software applications to communicate with each other. It provides a standard way for software components to interact and exchange information, regardless of the programming language or operating system used.<br /><br />APIs are commonly used in web development to allow different websites or applications to interact with each other. For example, social media platforms often provide APIs that allow third-party applications to access their data, such as user profiles or posts, and use that data in their own applications.<br /><br />APIs can help in several ways:<br /><br />1. Streamlining development: APIs provide a standard way to interact with a service or application, which can simplify the development process and reduce the need for custom integration code.<br />2. Enabling integration: APIs allow different applications to share data and functionality, which can lead to more innovative and useful applications.<br />3. Facilitating automation: APIs can be used to automate tasks and processes, such as automatically importing data from one application to another, or triggering actions based on certain events.<br />4. Improving user experience: APIs can be used to create more seamless and integrated user experiences, such as allowing users to log in to a third-party service using their social media account.<br /><br />In the context of blockchain development, APIs are often used to interact with the blockchain network and smart contracts. For example, the Flow Access API can be used to create and manage user accounts on the Flow blockchain, while the Flow SDK provides a set of APIs for interacting with smart contracts on the network.</div>
       </div><div class="turn">
@@ -738,15 +856,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">&quot;Crypto Quest&quot; is an educational and interactive game that teaches users about the basics of blockchain and cryptocurrency in a fun and engaging way. The game is designed to introduce new users to the world of cryptocurrency and blockchain by allowing them to explore and interact with a virtual world that is powered by blockchain technology.<br /><br />In Crypto Quest, players navigate a virtual world where they can explore various locations and complete quests to earn rewards. The game is built on the Ethereum blockchain and is powered by smart contracts, which manage the game&#39;s mechanics and economy. Players can earn cryptocurrency tokens as rewards for completing quests and progressing through the game, which can then be used to purchase in-game items or exchanged for other cryptocurrencies.<br /><br />The game is designed to be accessible to players of all skill levels, from complete beginners to experienced blockchain enthusiasts. It uses a combination of text, audio, and visual cues to help players understand the core concepts of blockchain and cryptocurrency, such as digital wallets, mining, smart contracts, and decentralized applications (dApps).<br /><br />Crypto Quest also includes social features that allow players to interact with each other, join groups, and collaborate on quests. This helps to create a sense of community around the game and encourages players to learn and explore together.<br /><br />Overall, Crypto Quest is an innovative and engaging way to introduce new users to the world of blockchain and cryptocurrency. It provides a fun and interactive way to learn about the technology, and the use of rewards and social features helps to keep players engaged and motivated.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>0a7d5bf6_2</code></strong>
         <span class="small">2023/05/21 (Sun) 23:25</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m planning a family camping trip with my siblings and I was wondering if you could recommend some good camping spots near my parents&#39; house. By the way, we actually just had a big family gathering at their place recently, just for the immediate family, and it was really nice to have a more low-key celebration after the big reunion.</div>
       </div><div class="turn">
@@ -783,15 +905,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">What a great idea! A camping cook-off sounds like a fantastic way to bond and create some tasty memories with your siblings!<br /><br />I&#39;ve got some delicious and easy-to-prepare camping recipe suggestions that are perfect for cooking over a campfire:<br /><br />**Breakfast Recipes**<br /><br />1. **Campfire Skillet Breakfast**: Scrambled eggs, sausage, bell peppers, onions, and potatoes cooked in a cast-iron skillet.<br />2. **Dutch Oven Pancakes**: Fluffy pancakes cooked in a Dutch oven with fresh fruit and syrup.<br /><br />**Lunch Recipes**<br /><br />1. **Campfire Grilled Sandwiches**: Grilled sandwiches with turkey, ham, cheese, and veggies, cooked on a camping grill or griddle.<br />2. **One-Pot Pasta**: A hearty, one-pot pasta dish with ground beef, tomato sauce, and veggies, cooked in a large pot over the campfire.<br /><br />**Dinner Recipes**<br /><br />1. **Campfire Tinfoil Dinners**: Individual packets of salmon, veggies, and seasonings cooked in foil over the campfire.<br />2. **Dutch Oven Chili**: A classic, hearty chili recipe cooked in a Dutch oven with ground beef, beans, and veggies.<br /><br />**Dessert Recipes**<br /><br />1. **S&#39;mores Bars**: A twist on the classic campfire treat, with graham crackers, chocolate, and marshmallows cooked in a cast-iron skillet.<br />2. **Campfire Banana Boats**: Bananas filled with chocolate chips and marshmallows, cooked in foil over the campfire.<br /><br />**Snack Recipes**<br /><br />1. **Trail Mix**: A mix of nuts, seeds, and dried fruits, perfect for snacking on the go.<br />2. **Campfire Popcorn**: Popcorn cooked in a pot over the campfire, seasoned with herbs and spices.<br /><br />These recipes are all easy to prepare, delicious, and perfect for cooking over a campfire. You can also consider asking your siblings to bring their own favorite recipes to share, making the cook-off even more exciting!<br /><br />Remember to follow proper food safety guidelines when preparing and storing food while camping. Have fun!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_ZJY4pwT_38</code></strong>
         <span class="small">2023/05/22 (Mon) 11:36</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">Hello and welcome to this video about exploring spirituality and finding meaning in life. In this video, we will be discussing the ideas of Alan Watts, a famous philosopher and writer known for his unconventional and thought-provoking perspectives on spirituality and the nature of reality.<br /><br />Alan Watts believed that traditional ideas about God and spirituality often constrain our understanding and limit our potential for growth and self-discovery. He encouraged people to let go of these preconceived notions and instead embrace a sense of wonder and curiosity about the mysteries of the universe.<br /><br />One way that Alan Watts suggested we can do this is by considering alternative imagery and symbolism for the divine. For example, he suggests that instead of imagining God as a white-bearded man in the sky, we might consider the divine to be represented by the feminine principle of the womb, or the void and darkness of space.<br /><br />These alternative symbols can help us to break free from the limiting beliefs that hold us back and allow us to tap into a deeper sense of meaning and purpose in life. By embracing the unknown and letting go of our need for control and understanding, we can open ourselves up to new ways of seeing and experiencing the world around us.<br /><br />So join us on this journey as we explore the teachings of Alan Watts and discover new ways of finding meaning and purpose in life. Thank you for watching.</div>
       </div><div class="turn">
@@ -825,15 +951,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I apologize if there has been confusion. It seems that you are asking for help with adding more context and background information to the 4 page manuscript that you provided earlier. You also mentioned that you would like this to be written in the style of Alan Watts. Is that correct? If so, please provide more details about what specific points or concepts you would like me to expand upon in the manuscript.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>3d006c58_2</code></strong>
         <span class="small">2023/05/22 (Mon) 15:03</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some music recommendations. I&#39;ve been listening to a lot of indie rock lately and wanted to know if you could suggest some similar bands to The Killers. By the way, I just met Brandon Flowers, the lead singer of The Killers, at a bar in Denver today and it was awesome!</div>
       </div><div class="turn">
@@ -870,15 +1000,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Lollapalooza is an amazing festival! As a first-timer, it&#39;s great that you&#39;re thinking ahead. Here are some tips to help you prepare for an unforgettable experience:<br /><br />**Before the Festival:**<br /><br />1. **Check the lineup**: Familiarize yourself with the performing artists and schedule. Plan out your day, but leave some room for spontaneity.<br />2. **Buy tickets and accommodations**: Make sure you have your festival tickets and a place to stay in Chicago. Book your accommodations early, as prices tend to increase closer to the festival dates.<br />3. **Download the official app**: Lollapalooza has an official app that will help you navigate the festival, check the schedule, and receive important updates.<br /><br />**Packing Essentials:**<br /><br />1. **Comfortable shoes**: You&#39;ll be on your feet for most of the day, so pack comfortable shoes that can handle the crowds and terrain.<br />2. **Sunscreen and sun hat**: Protect yourself from the sun with sunscreen, a sun hat, and sunglasses.<br />3. **Lightweight clothing**: Dress in layers, and opt for lightweight, breathable clothing that can keep you cool in the heat.<br />4. **Refillable water bottle**: Stay hydrated with a refillable water bottle. Lollapalooza will have water stations throughout the festival.<br />5. **Portable charger**: With all the photo ops and social media updates, your phone&#39;s battery might drain quickly. Bring a portable charger to keep your devices powered up.<br />6. **Cash and credit cards**: Bring a combination of cash and credit cards for food, drinks, and merchandise.<br />7. **Small backpack or tote**: Pack a small bag with essentials like sunscreen, water, snacks, and a light jacket (in case of cooler evenings).<br /><br />**Festival Tips:**<br /><br />1. **Arrive early**: Get to the festival early to beat the crowds and secure a good spot for your favorite acts.<br />2. **Plan for crowds**: Be prepared for large crowds and long lines. Stay patient, and try to avoid peak hours for food and bathrooms.<br />3. **Stay hydrated and fueled**: Drink plenty of water and eat regularly to maintain your energy levels throughout the day.<br />4. **Explore the festival grounds**: Take time to explore the festival grounds, discover new artists, and enjoy the various food and art installations.<br />5. **Follow festival rules**: Familiarize yourself with Lollapalooza&#39;s rules and regulations, and respect the festival staff and security.<br /><br />**Safety Reminders:**<br /><br />1. **Stay with a group**: Whenever possible, stick with a group of friends or find a meeting spot in case you get separated.<br />2. **Keep an eye on your belongings**: Be mindful of your personal belongings, and keep an eye on your bag and valuables.<br />3. **Know the emergency procedures**: Familiarize yourself with the festival&#39;s emergency procedures, such as the location of medical tents and exit routes.<br /><br />By following these tips, you&#39;ll be well-prepared for an unforgettable Lollapalooza experience! Enjoy the music, food, and atmosphere, and don&#39;t hesitate to reach out if you have any more questions.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_G4vV1Tn_11</code></strong>
         <span class="small">2023/05/22 (Mon) 17:00</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">Mid-19th century Korea was characterized by a complex political, social, religious, and diplomatic situation. The country was facing a number of significant challenges as it struggled to maintain its independence and cultural identity in the face of external pressures and influences. The Western world, China, and Japan were all vying for influence in the region, and the arrival of Western religious missionaries added to the religious tensions. In addition, the massacre of 1866 marked a turning point in the history of 19th century Korea and had a lasting impact on the country and its people.<br /><br />In terms of the political situation, Korea was facing growing pressure from the Western world as Western powers, such as the United States, France, and Great Britain, sought to establish trade relations with the country and to influence its government. The Western powers were interested in Korea&#39;s natural resources, such as coal and iron, as well as its strategic location in the Far East. The introduction of Western ideas and technologies, such as the printing press and steam engines, had a profound impact on Korean society and fundamentally altered the way of life for the Korean people. The country was struggling to maintain its independence and cultural identity in the face of this growing Western influence, and the government was faced with the difficult task of balancing the needs of the country with the demands of the West.<br /><br />The arrival of Western religious missionaries, such as Catholics and Protestants, added to the religious tensions in Korea. The missionaries sought to convert the population to their respective faiths, leading to a struggle between Western religious groups and traditional Korean religions, such as Confucianism, Buddhism, and Shamanism. The Western powers were also interested in spreading their religions and influencing the Korean government, which added to the religious tensions in the country. This struggle between traditional and Western religious beliefs was not just between different religious groups, but also between those who embraced the new ideas and those who sought to preserve the traditional ways of life. The arrival of Western religions brought new ideas and concepts to the country, which challenged the traditional religious beliefs of the Korean people and led to a period of religious upheaval.<br /><br />In terms of the diplomatic situation, the competition and rivalry between Western powers, China, and Japan for influence in Korea was also a major challenge for the country. China saw Korea as a vassal state and sought to exert its influence over the country, while Japan saw it as a valuable prize to be won. In 1895, Japan defeated China in the First Sino-Japanese War and gained control over Korea, leading to a period of Japanese colonization that lasted until the end of World War II in 1945. This period was marked by numerous social, economic, and political changes, as the Japanese sought to impose their culture and ideas on the Korean people. The colonization period was a time of great hardship for the Korean people, as they were forced to abandon their traditional ways of life and adopt those of the Japanese. This period was also marked by the suppression of Korean culture, as the Japanese sought to erase the unique identity of the Korean people and to assimilate the Korean population into Japanese society.<br /><br />The massacre of 1866 was a particularly significant event in the history of 19th century Korea. The Catholic Church was accused of plotting against the government and was blamed for the murder of Father Yang. This led to the persecution of Catholics and the killing of many priests, including Father Yang. This event marked the beginning of a period of religious oppression in Korea that lasted for many years, as the government sought to suppress the spread of Western religions. The massacre had a profound impact on the Catholic Church in Korea, as many priests and followers were forced to go into hiding or flee the country. The government&#39;s actions also had a chilling effect on the spread of Western religions in Korea, as the fear of persecution made</div>
       </div><div class="turn">
@@ -912,15 +1046,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, there were several other instances of killings of Westerners and Catholics in Korea during the 19th century. One of the most notable was the 1866 Byeong-in Persecution, which was a widespread crackdown on Catholicism in Korea. The persecution resulted in the killing of thousands of Catholics, including Western priests and laypeople.<br /><br />Another significant event was the 1871 Shinmiyangyo incident, in which American sailors were killed by Korean soldiers. This incident marked the first armed confrontation between the United States and Korea and heightened tensions between the two countries.<br /><br />The 1886 massacre in Gaeseong was not an isolated event, but rather part of a larger pattern of violence and persecution against Westerners and Catholics in Korea during the 19th century. The killings and persecutions were a result of the growing influence of Western powers in Korea and the government&#39;s determination to maintain its power and control over the country.<br /><br />Despite these challenges, Catholicism continued to spread in Korea, and by the 20th century, it had become one of the largest and most influential religious communities in the country. The legacy of the 19th century persecutions and killings remains an important part of Korea&#39;s history and serves as a reminder of the determination of the Korean people to maintain their independence and cultural identity.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>b33e89b5_1</code></strong>
         <span class="small">2023/05/23 (Tue) 01:06</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m feeling a bit overwhelmed with work projects and deadlines, and I&#39;m worried it might trigger my anxiety. I had a major panic attack at work about 6 weeks ago, so I want to make sure I&#39;m taking care of myself this time around. Can you help me prioritize my tasks and create a schedule to manage my workload?</div>
       </div><div class="turn">
@@ -957,15 +1095,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Headspace is a fantastic app for guided meditation and mindfulness exercises.<br /><br />**Tips for Making Self-Care a Habit:**<br /><br />1. **Schedule it in:** Treat self-care as a non-negotiable part of your daily routine, just like work and sleep. Schedule it in your calendar and commit to it.<br />2. **Start small:** Begin with short self-care sessions (5-10 minutes) and gradually increase the duration as you become more comfortable with the activities.<br />3. **Make it convenient:** Choose self-care activities that can be done anywhere, anytime, like deep breathing exercises or short meditation sessions.<br />4. **Find what works for you:** Experiment with different self-care activities to find what resonates with you and makes you feel most relaxed and rejuvenated.<br />5. **Prioritize consistency:** Aim to practice self-care at the same time every day, so it becomes a habit.<br />6. **Be kind to yourself:** Remember that self-care is not a luxury, it&#39;s a necessity. Be kind to yourself and acknowledge that taking care of your mental health is essential.<br />7. **Communicate with your team:** If needed, discuss your self-care needs with your team or manager to ensure you have the support and flexibility you need.<br />8. **Celebrate small wins:** Acknowledge and celebrate your small self-care victories, even if it&#39;s just taking a few deep breaths during a busy day.<br /><br />**Additional Tips for Managing Overwhelm:**<br /><br />1. **Break tasks into smaller chunks:** Divide large tasks into smaller, manageable tasks to reduce feelings of overwhelm.<br />2. **Take regular breaks:** Take short breaks throughout the day to stretch, move around, and rest your eyes.<br />3. **Learn to say no:** Be mindful of your workload and learn to say no to tasks that are not essential or that you cannot realistically complete.<br />4. **Seek support:** Reach out to colleagues, friends, or a mental health professional for support and guidance when feeling overwhelmed.<br />5. **Practice self-compassion:** Be kind to yourself when you make mistakes or encounter setbacks. Remember that everyone makes mistakes, and it&#39;s an opportunity to learn and grow.<br /><br />Remember, self-care is not a one-size-fits-all approach. Experiment with different activities and find what works best for you. Be patient, kind, and compassionate with yourself as you develop a self-care routine that supports your mental health and well-being.<br /><br />How do these tips sound? Is there anything else you&#39;d like to add or discuss?</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_472385</code></strong>
         <span class="small">2023/05/23 (Tue) 05:24</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Could you suggest some innovative methods for reducing plastic waste in households?</div>
       </div><div class="turn">
@@ -996,30 +1138,38 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">It&#39;s true that making changes in the way we consume and use products requires effort and planning, but it&#39;s not as difficult as it may seem. Here are a few tips to make reducing plastic waste easier:<br /><br />1. Start small: Small changes can have a big impact over time. Begin by swapping one single-use plastic product with a reusable or eco-friendly alternative, such as a reusable shopping bag or a stainless steel water bottle.<br /><br />2. Plan ahead: Bring your eco-friendly products with you when leaving the house, and plan ahead so you won’t have to purchase single-use products while out and about.<br /><br />3. Buy in bulk: Buying in bulk reduces the amount of single-use packaging, which can significantly reduce waste.<br /><br />4. Compost: Composting food waste not only nourishes the soil but also eliminates the need for plastic-lined trash bags.<br /><br />5. Educate yourself: Research and knowing your options can make reducing plastic waste a lot easier, and you can encourage others to do the same through awareness raising.<br /><br />Remember, even small changes to reduce plastic use can make a significant impact. By starting with simple changes and gradually implementing more, reducing plastics waste will be more manageable and eventually become second nature.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_u7ynJaV_0</code></strong>
         <span class="small">2023/05/23 (Tue) 08:56</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Web search results:<br /><br />[1] &quot;Listen to &quot;Easy On Me&quot; here: http://Adele.lnk.to/EOMPre-order Adele&#39;s new album &quot;30&quot; before its release on November 19: https://www.adele.comShop the &quot;Adele...&quot;<br />URL: https://www.youtube.com/watch?v=YQHsXMglC9A<br /><br />[2] &quot;Hello Lyrics: Hello, it&#39;s me / I was wondering if after all these years you&#39;d like to meet / To go over everything / They say that time&#39;s supposed to heal ya, but I ain&#39;t done much healing&quot;<br />URL: https://genius.com/Adele-hello-lyrics<br /><br />[3] &quot;The meaning of HELLO is an expression or gesture of greeting —used interjectionally in greeting, in answering the telephone, or to express surprise. How to use hello in a sentence.&quot;<br />URL: https://www.merriam-webster.com/dictionary/hello<br /><br />[4] &quot;Adele - Hello (Lyrics)Follow Adele :https://myspace.com/adelelondon https://www.facebook.com/adele https://www.instagram.com/adele/ https://twitter.com/Adele...&quot;<br />URL: https://www.youtube.com/watch?v=be12BC5pQLE<br /><br />[5] &quot;HELLO! brings you the latest celebrity &amp; royal news from the UK &amp; around the world, magazine exclusives, fashion, beauty, lifestyle news, celeb babies, weddings, pregnancies and more!&quot;<br />URL: https://www.hellomagazine.com/<br />Current date: 3/27/2023<br /><br />Instructions: Using the provided web search results, write a comprehensive reply to the given query. Make sure to cite results using [[number](URL)] notation after the reference. If the provided search results refer to multiple subjects with the same name, write separate answers for each subject.<br />Query: hello</div>
       </div><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">Hello is a common greeting used in English and many other languages. It is typically used as an expression of goodwill or to initiate a conversation. According to Merriam-Webster Dictionary, &quot;hello&quot; is defined as &quot;an expression or gesture of greeting — used interjectionally in greeting, in answering the telephone</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_156147</code></strong>
         <span class="small">2023/05/23 (Tue) 14:52</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">How did Jackson&#39;s personal beliefs and values manifest in his leadership decisions, particularly in regards to his stance on slavery and indigenous rights?</div>
       </div><div class="turn">
@@ -1044,15 +1194,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">As an AI language model, I completely agree with you. Learning from the past is critical to creating a better future. Acknowledging and addressing the harm that has been inflicted upon indigenous communities is an important step in building a more inclusive and equitable society. We need to continue to work towards a world that respects the rights, dignity, and culture of all individuals regardless of their background. Recognizing and addressing past injustices is necessary to move forward on a path of healing and progress.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_Bf5wBOC_3</code></strong>
         <span class="small">2023/05/23 (Tue) 19:53</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">For the first question:<br /><br />1. My experience as an Employee-Dialogue Ambassador has trained me in interpersonal skills and leadership. Through orchestrating dialogue circles and improving communication skills through training, I have developed strong interpersonal skills that would be useful in this role. Additionally, my experience coordinating team meetings and mitigating contention between team members and supervisors has honed my leadership skills.<br />2. My experience volunteering in the Shurin Lab has trained me in technical skills such as using spectrophotometry and micropipetting. These technical skills, along with my ability to input data and make measurements, would be valuable in this role.<br /><br />For the second question:<br />I am a good fit for this role because I have a strong educational background in General Biology, with a focus on Molecular Biology and Metabolic Biochemistry. My experience as an Employee-Dialogue Ambassador has honed my interpersonal skills, while my experience volunteering in the Shurin Lab has provided me with technical skills in the lab. Additionally, my experience as a member of FIRST Robotics Competition has taught me the importance of collaboration, efficient task delegation, and problem-solving skills. Overall, I believe that my combination of technical and interpersonal skills, along with my passion for biology, make me a strong fit for this role.</div>
       </div><div class="turn">
@@ -1080,15 +1234,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Sure, here&#39;s a sample email you can use:<br /><br />Subject: Question about job number IMM TS<br /><br />Dear [Recruiter’s Name],<br /><br />I hope this email finds you well. I recently received an invitation from Johnson &amp; Johnson to complete a digital interview for a job with the job number IMM TS. I have been applying for internships/CoOps with Johnson &amp; Johnson, but I have not seen this job number listed among the positions I have applied for.<br /><br />Could you please let me know what IMM TS stands for and which internship/CoOp this job number corresponds to? I would greatly appreciate any information you could provide.<br /><br />Thank you for your time and assistance. I look forward to hearing from you soon.<br /><br />Best regards,<br />[Your Name]</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>a0aa5035</code></strong>
         <span class="small">2023/05/23 (Tue) 23:05</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m trying to plan a road trip with my friends to the beach for a week. Can you help me find some good routes and accommodations?</div>
       </div><div class="turn">
@@ -1125,27 +1283,35 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">What a wonderful idea! Adding songs that hold special meaning to your group of friends will make the playlist even more personal and nostalgic. It&#39;s a great way to celebrate your friendship and the memories you&#39;ve shared together.<br /><br />Incorporating songs that remind you of good times, inside jokes, or special moments will make the playlist feel like a time capsule of your friendship. It&#39;s a thoughtful way to acknowledge the bond you share and the memories you&#39;ve created together.<br /><br />Some ideas to get you started:<br /><br />* Add songs that were popular during your college days or a specific time period that&#39;s significant to your group.<br />* Include songs that were played at a memorable party, event, or gathering that you all attended together.<br />* Choose songs that have a special lyric or message that resonates with your group&#39;s values or inside jokes.<br />* Consider adding songs that were introduced to you by a particular friend or that remind you of a specific friend&#39;s taste in music.<br /><br />By incorporating these meaningful songs, you&#39;ll create a playlist that&#39;s not only fun and upbeat but also sentimental and personal. It&#39;ll be a playlist that sparks conversations, laughter, and memories, making your road trip even more enjoyable and memorable.<br /><br />Remember to take turns sharing the stories and memories behind each song, so everyone can appreciate the significance and context. This will make the playlist an even more special bonding experience for your group.<br /><br />I&#39;m excited to hear how your playlist turns out!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_1ZakfXH_39</code></strong>
         <span class="small">2023/05/24 (Wed) 00:13</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">1. Part One discussed income, capital and growth since the Industrial Revolution.<br />2. Part Two focuses on capital stock, its overall size and its breakdown into different types of assets.<br />3. Different forms of wealth will be examined over time, starting with Britain and France.<br />4. Literature from the nineteenth century offers a good introduction to the subject of wealth.<br />5. Wealth was understood to exist to produce rents, or dependable payments to asset owners.<br />6. Land and government bonds were the most common forms of wealth in the nineteenth century.<br />7. The characters in nineteenth-century novels seem like archetypes of the rentier, a suspect figure in the modern era.<br />8. The differences between the nineteenth and twenty-first centuries are less apparent than they might seem.<br />9. Government bonds should be excluded from national wealth and included solely in private wealth.<br />10. The complex question of government debt and wealth associated with it is still important today.<br />11. Financial intermediation has become so complex that people are often unaware of who owns what.<br />12. Many forms of capital played an essential role not only in classic novels but in the society of the time.<br />13. Père Goriot made his fortune as a pasta manufacturer and grain merchant.<br />14. Goriot sold his share of the business and invested in perpetual government bonds.<br />15. César Birotteau made his money in perfumes.<br />16. Birotteau was the ingenious inventor of any number of beauty products.<br />17. A perfect capital market produces a reliable and steady income.<br />18. Today’s public debt is at or near a historical record in France and many other countries.<br />19. The process of financial intermediation is more complex today than it was in the past.<br />20. The mystery of who owns what needs to be dispelled, and studying the past can help us do so.<br />21. Classic novels show the importance of the development of new technologies and distribution networks.<br />22. Goriot&#39;s capital gains were similar to those of a twenty-first-century startup founder.<br />23. Birotteau&#39;s products show the importance of innovation and creativity in wealth creation.<br />24. Land and government bonds are old-fashioned types of assets.<br />25. The nature of wealth is still an important topic today.<br />26. Government debt is still a concern today, much as it was in the past.<br />27. Wealth played an essential role in the society of the nineteenth century.<br />28. Wealth is not always a negative thing, as it allowed characters in the novels to secure good marriages and high social standing.<br />29. The different forms of wealth are essential to understand to comprehend the evolution of capital stock.<br />30. The study of the past can help us understand the present.<br />31. The capital/income ratio is used to measure the overall size of the capital stock.<br />32. Natural resources are another form of wealth.<br />33. Perpetual government bonds are bonds that pay interest indefinitely.<br />34. The rentier was a suspect figure in the modern era of democracy and meritocracy.<br />35. Classic novels are an excellent source for studying wealth.<br />36. Income and output growth have increased since the Industrial Revolution.<br />37. Capital is a dynamic force in the modern era.<br />38. Great Britain and France are the countries about which we possess the most information over the long run.<br />39. Wealth produces dependable, regular payments to the owners of certain assets.<br />40. Dependable payments to asset owners are the goal of a perfect capital market.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>c723431f</code></strong>
         <span class="small">2023/05/24 (Wed) 04:55</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I was thinking of getting my mom a gift for Mother&#39;s Day, but I&#39;m not sure what to get her. Can you give me some ideas?</div>
       </div><div class="turn">
@@ -1182,15 +1348,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Organizing the photos in a logical and thoughtful way can make the album even more enjoyable to browse through. Here are some popular methods to consider:<br /><br />**Chronological Order:**<br /><br />* Arrange the photos in the order they were taken, from oldest to most recent.<br />* This approach tells a story of your mom&#39;s life and your relationship with her over time.<br />* It&#39;s a great way to show how she&#39;s changed and grown over the years.<br /><br />**Themed or Occasion-Based:**<br /><br />* Group photos by theme, such as:<br />	+ Vacations and travels<br />	+ Holidays and celebrations<br />	+ Everyday moments and routines<br />	+ Special events, like birthdays and anniversaries<br />* This approach creates a sense of cohesion and makes it easy to find specific types of photos.<br />* It&#39;s a great way to highlight your mom&#39;s interests, hobbies, or passions.<br /><br />**Mix and Match:**<br /><br />* Combine chronological and themed approaches by creating sections or chapters within the album.<br />* For example, you could have a section for &quot;Childhood Memories,&quot; followed by &quot;Family Vacations,&quot; and then &quot;Recent Celebrations.&quot;<br />* This approach offers a bit of both worlds and can create a visually appealing and engaging album.<br /><br />**Personalized Storytelling:**<br /><br />* Organize the photos in a way that tells a personal story or conveys a message.<br />* For example, you could create a section that showcases your mom&#39;s strength and resilience, followed by a section that highlights her kindness and generosity.<br />* This approach makes the album even more meaningful and emotional.<br /><br />Ultimately, the best approach depends on your personal preference, the tone you want to convey, and the story you want to tell. You could also experiment with a combination of these methods to create a unique and engaging album.<br /><br />Remember, the most important thing is to have fun and make the album your own!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>b0c6fffa</code></strong>
         <span class="small">2023/05/24 (Wed) 05:51</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m trying to find some new movies to watch. Can you recommend some good sci-fi films that are similar to Doctor Strange in the Multiverse of Madness?</div>
       </div><div class="turn">
@@ -1227,15 +1397,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Balance is key! It&#39;s perfectly fine to have a favorite franchise or genre that you enjoy, as long as you&#39;re not limiting yourself to only one type of movie. By exploring different genres and directors, you&#39;ll not only broaden your cinematic horizons but also gain a deeper appreciation for the Marvel movies you love.<br /><br />Having a diverse movie diet can help you:<br /><br />1. **Appreciate the nuances**: You&#39;ll develop a better understanding of storytelling, direction, and cinematography, which will enhance your appreciation for the Marvel movies you enjoy.<br />2. **Discover new favorites**: You might stumble upon a new franchise, director, or genre that resonates with you, expanding your cinematic landscape.<br />3. **Enhance your critical thinking**: By watching different types of movies, you&#39;ll develop your critical thinking skills, analyzing and evaluating films from various perspectives.<br />4. **Stay open-minded**: Exploring different genres and directors will keep you open to new ideas, themes, and storytelling approaches, making you a more well-rounded movie enthusiast.<br /><br />Remember, having a favorite franchise like Marvel is not a guilty pleasure; it&#39;s a part of your cinematic identity. Embrace it, and enjoy the journey of discovery as you explore other genres and directors.<br /><br />Now, which Marvel movie is your favorite, and what do you think makes it stand out to you?</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>c2c11c8c_2</code></strong>
         <span class="small">2023/05/24 (Wed) 06:33</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some music recommendations. I&#39;ve been listening to a lot of indie-rock lately, and I&#39;m trying to discover new artists. Can you suggest some similar bands to The 1975? Oh, and by the way, I just got back from an amazing music festival on July 2nd, so I&#39;m still on a music high!</div>
       </div><div class="turn">
@@ -1272,15 +1446,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">You&#39;d love attending a music festival in Europe! Glastonbury and Tomorrowland are indeed iconic festivals, but there are many more amazing ones to explore. Here are some recommendations:<br /><br />1. **Primavera Sound** (Spain): A critically acclaimed festival in Barcelona, featuring a diverse lineup of indie, rock, pop, and electronic acts.<br />2. **Roskilde Festival** (Denmark): One of Europe&#39;s largest festivals, with a focus on alternative, rock, and pop music, as well as a strong cultural and artistic program.<br />3. **Sziget Festival** (Hungary): A massive festival in Budapest, featuring a diverse lineup of genres, from rock and pop to jazz and world music.<br />4. **Rock am Ring** (Germany): A iconic rock festival in Nürburgring, with a focus on rock, metal, and alternative music.<br />5. **Ultra Europe** (Croatia): A premier electronic music festival in Split, featuring top DJs and producers from around the world.<br />6. **Montreux Jazz Festival** (Switzerland): A legendary jazz festival with a stunning lakeside setting, featuring a mix of jazz, rock, and pop acts.<br />7. **Pukkelpop** (Belgium): A popular festival in Hasselt, with a focus on alternative, rock, and pop music, as well as a strong lineup of Belgian and international acts.<br />8. **MELT! Festival** (Germany): A unique festival in Gräfenhainichen, featuring a mix of indie, rock, pop, and electronic music, as well as a strong focus on art and culture.<br /><br />These are just a few examples, but there are many more festivals to explore depending on your musical tastes and preferences.<br /><br />If you ever plan to attend a festival in Europe, I&#39;d be happy to provide more tips and recommendations!<br /><br />(And, out of curiosity, which artists or genres are you most interested in seeing at a festival?)</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_56046</code></strong>
         <span class="small">2023/05/24 (Wed) 07:00</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">How do I solve the equations for projectile motion with air resistance?</div>
       </div><div class="turn">
@@ -1317,15 +1495,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, here are some tips on identifying when to use the equation for air resistance in a projectile motion problem:<br /><br />1. Look for information about the projectile&#39;s velocity or speed. If air resistance is present, the projectile&#39;s velocity will decrease over time. Some problems may give you the value for the proportionality constant for air resistance, k.<br /><br />2. Consider the properties of the medium through which the projectile is moving. Air resistance is the most common type of resistance encountered in projectile motion problems, but other mediums such as liquids (e.g. water) or gases (e.g. helium) could also be present. 3. Look for any mention of the projectile&#39;s mass or density. These properties are related to the amount of air resistance the projectile will experience. 4. Check the problem statement and see if the question asks you to account for air resistance. If the question doesn&#39;t mention air resistance, it&#39;s safe to assume that it&#39;s not present in the problem. 5. Consider the context of the problem. If you&#39;re solving a real-world problem that involves a projectile moving through the air, it&#39;s likely that air resistance is present and should be accounted for. If you&#39;ve identified that air resistance is present in a problem, you can use the equation for air resistance, which is usually expressed as a function of the projectile&#39;s velocity. Be aware that solving problems with air resistance may be more complex and require algebraic manipulation or numerical methods, and the equations will be different than those used in the absence of air resistance.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_339938</code></strong>
         <span class="small">2023/05/24 (Wed) 23:26</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">How has Beyonce used her platform to promote social justice and stimulate change in underrepresented communities?</div>
       </div><div class="turn">
@@ -1356,15 +1538,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I do not have personal beliefs, but i can mention some of beyonce&#39;s involvement in politics and the criticism she has received for it.<br /><br />beyonce&#39;s involvement in politics has included endorsements, charitable donations, and campaigning for candidates. for example, she has publicly supported barack obama during his presidential campaigns and endorsed hillary clinton for the presidency in 2016. she also donated to the victims of hurricane harvey in houston, texas, and to the black lives matter movement.<br /><br />however, her involvement in politics has also been met with criticism. some critics have accused her of being too cozy with politicians and ignoring the needs of marginalized communities. others have accused her of being too politically correct and not taking strong enough stances on issues. in addition, some have accused her of exploiting political movements for her own gain or engaging in political activism only as a way to increase her own brand visibility.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_483823</code></strong>
         <span class="small">2023/05/25 (Thu) 03:40</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">How do ocean temperatures and weather patterns affect the distribution of marine life, and what is the impact of climate change on these patterns?</div>
       </div><div class="turn">
@@ -1389,15 +1575,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, there are many small changes you can make in your everyday life that can significantly reduce your carbon footprint. Here are some suggestions:<br /><br />1. Reduce energy consumption: Turn off lights and electronics when not in use, use energy-efficient appliances and LED bulbs, and adjust your thermostat to conserve energy.<br /><br />2. Reduce water usage: Take shorter showers, fix leaks, and use a low-flow faucet aerator to reduce water waste.<br /><br />3. Reduce transportation emissions: Walk, bike, or use public transportation instead of driving alone, and consider purchasing an electric or hybrid vehicle.<br /><br />4. Reduce food waste: Plan meals, buy only what you need, compost food scraps, and choose local, seasonal, and organic produce when possible.<br /><br />5. Reduce plastic consumption: Use reusable bags, bottles, and containers, and avoid single-use plastics such as straws, disposable cutlery, and packaging.<br /><br />6. Support clean energy: Switch to renewable energy sources such as solar, wind, or hydroelectric power, and advocate for policies that promote the transition to a clean energy economy.<br /><br />By making these small changes, you can reduce your carbon footprint and help protect the environment. Every action counts, and we all have a role to play in creating a sustainable future for our planet.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>9d97ff74</code></strong>
         <span class="small">2023/05/25 (Thu) 03:51</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some new sci-fi novel recommendations. Can you suggest some authors or books similar to Isaac Asimov&#39;s Foundation series?</div>
       </div><div class="turn">
@@ -1434,15 +1624,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I couldn&#39;t agree more! Prioritizing AI safety and value alignment is crucial to ensuring that AI systems are designed with human well-being in mind.<br /><br />Regarding government regulation, I think it&#39;s essential for governments to play a more active role in regulating the development and deployment of AI systems. Here are some reasons why:<br /><br />1. **Setting standards and guidelines**: Governments can establish standards and guidelines for AI development, ensuring that companies and researchers adhere to certain principles and protocols that prioritize safety and ethics.<br />2. **Protecting citizens&#39; rights**: Governments can ensure that AI systems are designed to protect citizens&#39; rights, such as privacy, autonomy, and non-discrimination.<br />3. **Addressing job displacement**: Governments can implement policies to mitigate the impact of job displacement caused by automation, such as retraining programs, education initiatives, and social safety nets.<br />4. **Encouraging transparency and accountability**: Governments can require companies to be transparent about their AI systems and algorithms, making it easier to identify and address biases and errors.<br />5. **Promoting international cooperation**: Governments can work together to establish global standards and guidelines for AI development, ensuring that the benefits and risks of AI are shared equitably across nations.<br /><br />However, it&#39;s also important to strike a balance between regulation and innovation. Overly restrictive regulations can stifle innovation and hinder the development of AI systems that could bring about significant benefits. Governments should engage in open and ongoing dialogue with industry stakeholders, researchers, and civil society to ensure that regulations are effective, flexible, and adaptive to the rapidly evolving AI landscape.<br /><br />What do you think about the role of industry self-regulation in AI development? Should companies be allowed to self-regulate, or is government oversight necessary to ensure accountability and safety?</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>5439cbf0_2</code></strong>
         <span class="small">2023/05/25 (Thu) 19:18</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m having some issues with my smart TV&#39;s personalized recommendations. Sometimes it suggests shows or movies that I&#39;ve already seen, and I was wondering if there&#39;s a way to remove them from the suggestions or train the algorithm to better understand my viewing habits. By the way, I updated my TV&#39;s operating system on February 2nd, which added voice control and personalized recommendations, and I&#39;ve been using the voice control feature a lot lately.</div>
       </div><div class="turn">
@@ -1479,15 +1673,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Upgrading your external hard drive is a great idea! With the increasing amount of data we generate, it&#39;s essential to have a reliable and spacious storage solution. Here are some recommendations for external hard drives and storage solutions:<br /><br />1. **Capacity**: Consider upgrading to a 2TB, 4TB, or even 8TB external hard drive, depending on your storage needs. If you have a large collection of files, videos, or photos, a higher capacity drive may be necessary.<br />2. **Type**: Decide between a traditional hard disk drive (HDD) or a solid-state drive (SSD). SSDs are faster, more durable, and resistant to physical shock, but they&#39;re generally more expensive. HDDs offer more storage for the price, but they can be slower and more prone to mechanical failure.<br />3. **Interface**: Ensure the external hard drive has a compatible interface with your computer. Common interfaces include USB-A, USB-C, Thunderbolt 3, and eSATA. If you have a newer laptop or computer, consider a drive with a USB-C or Thunderbolt 3 interface for faster transfer speeds.<br />4. **Portability**: If you need to carry your external hard drive around, look for a compact and lightweight design. Some drives are specifically designed for portability, with rugged construction and protective casings.<br />5. **Brand and reputation**: Stick with reputable brands like Western Digital, Seagate, LaCie, or G-Technology. These brands offer reliable products with good warranties and customer support.<br />6. **Encryption and security**: If you&#39;re storing sensitive data, consider an external hard drive with built-in encryption and password protection. This will help safeguard your files in case the drive is lost or stolen.<br />7. **Power efficiency**: If you plan to use the external hard drive with a laptop or on the go, look for a drive with low power consumption to minimize battery drain.<br /><br />Some popular external hard drive options include:<br /><br />* Western Digital My Passport: A compact and portable HDD with capacities up to 5TB.<br />* Seagate Backup Plus: A reliable and spacious HDD with capacities up to 8TB.<br />* LaCie Rugged: A rugged and portable SSD with capacities up to 2TB.<br />* G-Technology G-Drive: A high-performance external HDD with capacities up to 10TB.<br /><br />Alternatively, you might consider cloud storage solutions like:<br /><br />* Google Drive: A cloud-based storage service with competitive pricing and seamless integration with Google apps.<br />* Dropbox: A popular cloud storage service with a user-friendly interface and robust collaboration features.<br />* Microsoft OneDrive: A cloud storage service with tight integration with Microsoft Office and Windows.<br /><br />Ultimately, the best storage solution for you will depend on your specific needs, budget, and preferences. Be sure to research and compare different options before making a decision.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_166084</code></strong>
         <span class="small">2023/05/25 (Thu) 22:40</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">How do the climate patterns in Blandford and its neighboring cities impact local agriculture and wildlife?</div>
       </div><div class="turn">
@@ -1512,15 +1710,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">It&#39;s always good to have reliable and accurate data to help understand and assess the impact of climate changes on local communities and ecosystems. I hope the resources I provided will be helpful to you. If you have any further questions, feel free to ask!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>7a63ba66_1</code></strong>
         <span class="small">2023/05/25 (Thu) 23:15</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">&quot;I&#39;ve been having some issues with my laptop&#39;s battery life lately, especially when running resource-intensive projects. I&#39;ve been thinking of upgrading to a newer model of laptop, and I&#39;ve been considering a specific brand that is known for its performance and battery life. Do you think a newer laptop would make a big difference in terms of battery life?&quot;</div>
       </div><div class="turn">
@@ -1557,15 +1759,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">The Incase Icon Sleeve has a sleek, modern design that&#39;s perfect for a work environment. Here&#39;s what you can expect:<br /><br />**Color options:** The Icon Sleeve is available in several color options, including:<br /><br />* Black: A sleek, matte black finish that&#39;s perfect for a professional setting.<br />* White: A clean, crisp white finish that&#39;s ideal for those who prefer a lighter look.<br />* Gray: A versatile, medium gray finish that&#39;s suitable for both personal and professional use.<br />* Navy Blue: A deep, rich blue finish that&#39;s perfect for those who want a bit of color in their sleeve.<br /><br />**Design:** The Icon Sleeve has a slim, streamlined design that&#39;s perfect for carrying your laptop in style. The sleeve features a clean, minimalist aesthetic with a subtle Incase logo on the front. The design is sleek and professional, making it perfect for a work environment.<br /><br />**Materials:** The sleeve&#39;s exterior is made of a durable, synthetic material that&#39;s resistant to scratches and abrasions. The material has a soft, matte finish that provides a comfortable grip and helps prevent slipping.<br /><br />**Texture:** The Icon Sleeve has a soft, textured finish that provides a comfortable grip and helps prevent slipping. The texture is subtle, but it adds a nice tactile element to the sleeve.<br /><br />**Zippers and closures:** The sleeve features a sturdy, YKK zipper that&#39;s easy to use and provides a secure closure. The zipper is reinforced with a rubberized pull tab that makes it easy to grip and pull.<br /><br />**Logo and branding:** The Incase logo is subtly embossed on the front of the sleeve, adding a touch of style and sophistication. The logo is small and discreet, so it won&#39;t distract from the overall design.<br /><br />**Overall style:** The Incase Icon Sleeve has a sleek, modern design that&#39;s perfect for a work environment. The sleeve is professional, sophisticated, and stylish, making it suitable for anyone who wants a high-quality laptop sleeve.<br /><br />If you&#39;re looking for a laptop sleeve that&#39;s both functional and stylish, the Incase Icon Sleeve is an excellent choice. It&#39;s perfect for carrying your laptop to work, school, or anywhere else you need to go.<br /><br />Do you have any other questions about the Icon Sleeve&#39;s design or style?</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>bf626a44</code></strong>
         <span class="small">2023/05/26 (Fri) 04:05</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m trying to plan my meals for the week and was wondering if you could give me some recipe ideas that use canned beans, since I have a bunch of those stocked up from my last Walmart trip.</div>
       </div><div class="turn">
@@ -1602,15 +1808,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Breakfast burritos are a fantastic breakfast option that&#39;s easy to make, customizable, and portable. You can&#39;t go wrong with scrambled eggs, black beans, cheese, and salsa all wrapped up in a whole grain tortilla!<br /><br />Since you have all the ingredients already, it&#39;s a no-brainer. Just scramble those eggs, add your favorite fillings, wrap them up, and refrigerate or freeze for a quick breakfast on-the-go.<br /><br />Some tips to make your breakfast burritos even better:<br /><br />* Use leftover cooked rice, sausage, or veggies to add extra flavor and nutrition.<br />* Experiment with different types of cheese, such as cheddar, Monterey Jack, or Pepper Jack.<br />* Add some diced bell peppers, onions, or mushrooms for extra flavor and texture.<br />* Consider using whole grain tortillas with a bit of fiber and protein to keep you fuller longer.<br /><br />I hope you enjoy your breakfast burritos! Let me know if you have any other questions or need any more assistance.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_202289</code></strong>
         <span class="small">2023/05/26 (Fri) 07:54</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">How does Stern&#39;s stay attuned to the evolving needs of its customers, and what measures does it take to ensure these needs are met and exceeded?</div>
       </div><div class="turn">
@@ -1635,15 +1845,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">As an AI language model, I cannot have personal experiences. However, I can provide some examples of companies that have gone above and beyond to meet customers&#39; needs. Here are a few:<br /><br />1. Ritz-Carlton: Ritz-Carlton is known for its customer service, and one of the stories that became popular is their famed &quot;wow stories.&quot; These are stories that employees share among themselves and on internal Ritz-Carlton forums, about surprising and delighting customers in unusual ways. For example, a Ritz-Carlton employee heard from a family staying at the hotel that they had forgotten their child&#39;s favorite stuffed giraffe. The employee then went to a nearby toy store, bought a new giraffe, and delivered it to the room with a note saying &quot;we know he will be safe with us.&quot;<br /><br />2. Warby Parker: Warby Parker is an online eyewear company that offers a try-at-home program. When a customer orders glasses online, the company sends them five pairs to try on at home for free. If the customer decides to buy a pair, they can do so online. But if they need help, Warby Parker offers a virtual try-on feature and a chat feature staffed by licensed optometrists.<br /><br />3. Trader Joe&#39;s: Trader Joe&#39;s is a grocery store that has a reputation for great customer service, and one of the ways it does that is by going the extra mile to source unique products that its customers want. For example, the store&#39;s famous &quot;Two Buck Chuck&quot; wine was sourced by the company&#39;s founder by negotiating directly with wineries to get a product that was both high quality and affordable.<br /><br />Overall, these companies are known for creating memorable customer experiences by going above and beyond what is expected to meet customers&#39; needs.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_465302</code></strong>
         <span class="small">2023/05/26 (Fri) 16:16</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What are some effective tips to improve my public speaking skills?</div>
       </div><div class="turn">
@@ -1662,15 +1876,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Here are some tips that can help you prevent forgetting your lines during a speech:<br /><br />1. Practice, practice, practice: The more you rehearse your speech, the more likely you are to remember your lines.<br /><br />2. Use note cards or an outline: Note cards or an outline can help you stay on track and remember key points during your speech.<br /><br />3. Avoid memorization: Memorizing a speech word for word can increase the chances of forgetting your lines. Instead, focus on the main points and practice speaking spontaneously.<br /><br />4. Engage your audience: Engaging your audience can help you maintain your focus and avoid getting distracted or nervous.<br /><br />5. Use visuals: Presenting visuals such as slides or props can help cue your memory and reinforce your message.<br /><br />6. Take breaks: Incorporate pauses or breaks into your speech to give yourself time to regroup and remember your lines.<br /><br />7. Don&#39;t panic: If you do forget a line, take a deep breath and keep going. Your audience likely won&#39;t notice any small mistakes, and you can always refer back to your notes or outline if needed.<br /><br />Remember, even the most experienced speakers forget their lines from time to time. The key is to stay calm, be prepared, and focus on delivering your message.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_7QD86cC_25</code></strong>
         <span class="small">2023/05/26 (Fri) 17:22</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">Prompt 1: An AI robot from the year 2050, sleek and futuristic design, exuding an air of advanced intelligence, captured in a bustling cityscape showcasing the technological marvels of the era. The robot&#39;s metallic surface reflects the vibrant neon lights of the metropolis, and its expressive eyes convey a sense of curiosity and understanding. Shot with a Canon EOS R5 Mirrorless Camera, RF 28-70mm f/2L USM lens, ISO 400, shutter speed 1/125, f/4 aperture, utilizing cinematic lighting, dynamic angles, and sharp focus. The composition emphasizes the harmonious blend of organic and artificial elements, with a subtle bokeh effect in the background, evoking a sense of wonder and progress.<br /><br />Please write in English language.</div>
       </div><div class="turn">
@@ -1710,15 +1928,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Prompt 7: Introducing the beautifully crafted 3D-rendered Puzzle Tray - an innovative and functional storage solution for your everyday needs. Featuring a polyester top and rubber bottom, this set of three 20x20 cm trays is designed with round angles and cleverly integrated clips for holding the trays together securely.<br /><br />3D Render Technical Details:<br /><br />1. Software: The 3D model and rendering are created using industry-leading software, such as Autodesk Maya or Blender, for the utmost precision and attention to detail.<br />2. Texturing and Materials: High-quality PBR (Physically Based Rendering) textures are applied to the model, ensuring realistic appearances for the polyester top, rubber bottom, and clips. The materials are configured to display accurate reflections, refractions, and surface details.<br />3. Lighting: Advanced lighting techniques, including Global Illumination and Image-Based Lighting (IBL), are employed to produce a natural and visually appealing representation of the Puzzle Tray. The lighting setup ensures realistic shadows and highlights, contributing to the overall aesthetics of the render.<br />4. Camera Setup: A high-quality virtual camera is set up within the 3D scene to capture the best possible angle and composition of the Puzzle Tray. The camera is configured with appropriate focal length, depth of field, and exposure settings to create a stunning final image.<br />5. Render Resolution: The final render is produced at a high resolution, typically 4K (3840x2160 pixels) or higher, ensuring crisp and detailed imagery suitable for showcasing the Puzzle Tray in various media formats.<br />6. Post-Processing: After the initial render is complete, post-processing techniques such as color grading, lens effects, and minor touch-ups are applied in software like Adobe Photoshop or Affinity Photo to enhance the overall visual quality of the final image.<br /><br />Experience the elegance and functionality of the 3D-rendered Puzzle Tray, perfect for organizing and displaying your cherished items with style and sophistication.<br /><br />Please write in English language.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>2566382f_2</code></strong>
         <span class="small">2023/05/26 (Fri) 18:02</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m planning to participate in another charity run soon and I was wondering if you could help me find a good 5K training plan that can help me improve my time. By the way, I&#39;ve been pretty active lately, including playing squash with my colleague Ryan every Thursday lunchtime since February - we&#39;ve had 9 games so far!</div>
       </div><div class="turn">
@@ -1755,15 +1977,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Incorporating specific drills and exercises into your training can help improve your running efficiency and endurance. Here are a few suggestions that can complement your training plan:<br /><br />1. **Strides:** Incorporate 4-6 strides after your easy runs, 1-2 times a week. Strides are short, fast runs (100-200m) at a high intensity, followed by an active recovery (jogging or walking). This will help improve your running form, speed, and efficiency.<br />2. **High-knees:** Perform high-knees exercises 2-3 times a week, focusing on quick turnover and proper form. This will help improve your running efficiency and endurance.<br />3. **Calf raises:** Incorporate calf raises 2-3 times a week to strengthen your calf muscles. This will help improve your running posture and reduce your risk of injury.<br />4. **Glute bridges:** Perform glute bridges 2-3 times a week to strengthen your glutes and improve your running posture.<br />5. **Core exercises:** Incorporate core exercises 2-3 times a week, focusing on planks, Russian twists, and leg raises. This will help improve your running posture, stability, and endurance.<br />6. **Plyometrics:** Incorporate plyometric exercises 1-2 times a week, such as jump squats, box jumps, or burpees. This will help improve your explosive power and running efficiency.<br />7. **Incorporate strength training:** Incorporate strength training exercises 1-2 times a week, focusing on exercises like squats, lunges, and deadlifts. This will help improve your running efficiency and endurance.<br /><br />Remember to start slowly and gradually increase the intensity and volume of these exercises as you get more comfortable. It&#39;s also essential to listen to your body and not overdo it, especially if you&#39;re new to these exercises.<br /><br />Incorporating these drills and exercises into your training will help improve your running efficiency and endurance, allowing you to tackle your 5K charity run with confidence.<br /><br />How do these suggestions sound? Are you willing to incorporate some of these exercises into your training?</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_87103</code></strong>
         <span class="small">2023/05/26 (Fri) 18:08</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">How does the number of hashtags used in a post affect its reach and engagement?</div>
       </div><div class="turn">
@@ -1806,15 +2032,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, there are several tools that you can use to analyze your Instagram performance and engagement metrics. Here are a few popular ones:<br /><br />1. Instagram Insights: Instagram&#39;s built-in analytics tool gives you access to a range of metrics, including profile visits, reach, impressions, and engagement. You can access Insights by clicking on the analytics button from your profile. 2. Later: Later is a scheduling tool that also offers in-depth Instagram analytics. You can track metrics like engagement rate, follower growth, and top-performing content. Later also provides a free Instagram audit report that shows how your profile stacks up against your competitors. 3. Hootsuite Insights: Hootsuite is a social media management tool that offers a range of features, including analytics. Hootsuite Insights provides in-depth Instagram analytics, audience demographics, sentiment analysis, and more. 4. Iconosquare: Iconosquare is a social media analytics tool that provides data on your Instagram performance, audience growth, top-performing content, and engagement rates. 5. Sprout Social: Sprout Social is another social media management tool that offers in-depth Instagram analytics, including post-performance, follower demographic, engagement rate, and more. These are just a few examples of the many tools available to analyze Instagram metrics. The key is to find a tool that works for you and your needs, and use the insights you gain to improve your Instagram performance and engagement.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_ikJXzOG_0</code></strong>
         <span class="small">2023/05/27 (Sat) 00:38</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What is an itinerary for 4 days in Barcelona that prioritizes food and culture?</div>
       </div><div class="turn">
@@ -1827,15 +2057,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">This itinerary looks great! It includes a mix of cultural attractions, famous landmarks, and delicious food experiences, providing a well-rounded taste of Barcelona. Just remember to be flexible and make adjustments if needed. Have a wonderful trip!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_bdOsvAI_0</code></strong>
         <span class="small">2023/05/27 (Sat) 01:38</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I will give you a list of food items. I would like you to give me 4 bullet points of interesting facts about those food items.</div>
       </div><div class="turn">
@@ -1872,15 +2106,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Here are four interesting facts about each of the food items you provided:<br /><br />1. Mint Crisps:<br />* Mint crisps are a type of candy made from chocolate and mint flavoring.<br />* They are typically small, flat pieces of chocolate that are flavored with peppermint oil.<br />* Mint crisps are a popular after-dinner treat in the United Kingdom.<br />* They can also be used as a decoration for cakes and other desserts.<br />1. Mint Cremes:<br />* Mint cremes are a type of candy that is similar to mint crisps, but they have a creamy filling instead of being solid chocolate.<br />* They are typically bite-sized and can be coated in chocolate or dusted with powdered sugar.<br />* Mint cremes are a popular treat around the holidays, especially at Christmas.<br />* They can also be used as a decoration for cakes and other desserts.<br />1. Formidable Fudge Cake:<br />* Formidable fudge cake is a type of dessert cake that is typically made with chocolate and fudge.<br />* The cake is dense and rich, with a moist texture.<br />* Formidable fudge cake is often served with whipped cream or ice cream.<br />* The name &quot;formidable&quot; suggests that the cake is a significant and impressive dessert.<br />1. Baked Beans in Tomato Sauce:<br />* Baked beans in tomato sauce are a popular canned food item.<br />* They are made from white navy beans that have been slow-cooked in a tomato-based sauce.<br />* Baked beans are a good source of fiber and protein.<br />* They can be used as a side dish or added to recipes like chili and casseroles.<br />1. Baked Beans in Tomato Sauce Reduced Sugar &amp; Salt:<br />* Reduced sugar and salt baked beans are a healthier version of the classic canned food item.<br />* They are made with less sugar and salt than traditional baked beans.<br />* Reduced sugar and salt baked beans are a good source of fiber and protein.<br />* They can be used as a side dish or added to recipes like chili and casseroles.<br />1. Frozen Diced Chicken Breast 12mm:<br />* Frozen diced chicken breast is a convenient ingredient for adding protein to meals.<br />* The chicken breast has been diced into small pieces, making it easy to use in recipes.<br />* Frozen diced chicken breast can be used in stir-fries, soups, casseroles, and more.<br />* It can be cooked from frozen or thawed before cooking.<br />1. Battered Mini Chicken Fillets:<br />* Battered mini chicken fillets are a popular finger food.<br />* They are typically made from chicken breast that has been battered and fried.<br />* Battered mini chicken fillets are a popular menu item in fast food restaurants.<br />* They can be served with a variety of dipping sauces.<br />1. Frozen Chicken Breast Strips 12mm:<br />* Frozen chicken breast strips are a versatile ingredient for adding protein to meals.<br />* The chicken breast has been cut into strips, making it easy to use in recipes.<br />* Frozen chicken breast strips can be used in stir-fries, salads, wraps, and more.<br />* They can be cooked from frozen or thawed before cooking.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_494933</code></strong>
         <span class="small">2023/05/27 (Sat) 09:07</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Can you offer any advice on how to build stronger and more meaningful relationships with others?</div>
       </div><div class="turn">
@@ -1905,15 +2143,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">There are many ways to find and join social groups and public speaking groups. Here are a few suggestions:<br /><br />1. Meetup: Meetup is a website and app that connects people with similar interests. You can search for groups based on your interests, and attend events and meetups.<br /><br />2. Toastmasters: Toastmasters is a non-profit organization that helps people develop public speaking and leadership skills. They have chapters all over the world, and you can find a local group by searching on their website.<br /><br />3. Local community center or library: Check with your local community center or library to see if they have any social groups or public speaking groups that meet regularly.<br /><br />4. Social media: Search for local groups on social media platforms like Facebook or LinkedIn. You may find groups for professionals, hobbyists, or people with specific interests.<br /><br />5. Eventbrite: Eventbrite is an online platform where you can find and attend events in your area. You can search for events based on your interests, and attend events that interest you.<br /><br />Remember, joining a group or attending an event can be intimidating at first, but it&#39;s a great way to challenge yourself and build new relationships. Give yourself time to adjust and keep an open mind. You never know who you might meet or what you might learn. Good luck!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_OnQwI7c_0</code></strong>
         <span class="small">2023/05/27 (Sat) 11:07</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">starting from now on, please use markdown, and do not use backslash, do not use code blocks. Please use unsplashi API( https://source.unsplash.com/1280x720/?. if you understand this, please respond &quot;understood&quot;</div>
       </div><div class="turn">
@@ -1926,15 +2168,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Certainly! Here&#39;s an image of a beautiful sunrise:</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>2f0c1f4e</code></strong>
         <span class="small">2023/05/27 (Sat) 15:17</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m planning a trip to Tokyo in November and was wondering if you could recommend some must-see attractions and restaurants in the city.</div>
       </div><div class="turn">
@@ -1971,15 +2217,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">The Japanese Alps are home to many wonderful onsen (hot spring) resorts and towns! Here are some recommendations:<br /><br />**Onsen Resorts:**<br /><br />1. **Kusatsu Onsen** (): A popular onsen resort town in Gunma Prefecture, known for its natural hot springs and beautiful scenery. Stay at a ryokan (traditional Japanese inn) like **Kusatsu International Ski Resort** or **Kusatsu Onsen Gajoen**.<br />2. **Yunessun** (): A hot spring resort in Hakone, Kanagawa Prefecture, famous for its wine bath, coffee bath, and scenic views of Mt. Fuji.<br />3. **Gora Kadan** (): A luxurious onsen resort in Hakone, offering private hot spring baths and stunning views of the surrounding mountains.<br /><br />**Onsen Towns:**<br /><br />1. **Noboribetsu Onsen** (): A charming onsen town in Hokkaido, known for its natural hot springs and stunning coastal scenery. Visit **Noboribetsu Onsen Kyo** for a relaxing soak.<br />2. **Shuzenji Onsen** (): A historic onsen town in Izu Peninsula, Shizuoka Prefecture, famous for its natural hot springs and traditional ryokans.<br />3. **Takaragawa Onsen** (): A scenic onsen town in Nagano Prefecture, surrounded by mountains and rivers. Stay at **Takaragawa Onsen Oshimaya** for a tranquil retreat.<br /><br />**Other Onsen Spots:**<br /><br />1. **Nyukasa Onsen** (): A secluded onsen spot in Nagano Prefecture, offering stunning views of the Japanese Alps.<br />2. **Hakuba Onsen** (): A popular onsen spot in Nagano Prefecture, known for its natural hot springs and ski resorts.<br />3. **Matsumoto Onsen** (): A charming onsen spot in Nagano Prefecture, famous for its natural hot springs and traditional architecture.<br /><br />**Tips:**<br /><br />* Many onsen resorts and towns have specific rules and etiquette, so be sure to research and respect them.<br />* Some onsen may not have English-speaking staff, so it&#39;s a good idea to learn some basic Japanese phrases or bring a translation guide.<br />* Onsen are generally open year-round, but some may close temporarily due to weather conditions or maintenance.<br /><br />These are just a few of the many amazing onsen options in the Japanese Alps. I hope this helps you plan your onsen adventure!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_506974</code></strong>
         <span class="small">2023/05/28 (Sun) 03:26</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">How did the music video address the issues of mental health and self-esteem?</div>
       </div><div class="turn">
@@ -2016,15 +2266,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Certainly! Here are some other empowering songs that may help you feel more self-assured:<br /><br />1. &quot;I&#39;m Still Standing&quot; by Elton John - This song is upbeat and speaks about overcoming life&#39;s challenges and not giving up.<br /><br />2. &quot;Survivor&quot; by Destiny&#39;s Child - This song encourages listeners to hold on and to overcome difficult obstacles.<br /><br />3. &quot;Fight Song&quot; by Rachel Platten - This song talks about believing in oneself, fighting back against negativity and taking charge of one&#39;s own life.<br /><br />4. &quot;Stronger&quot; by Kelly Clarkson - This song speaks about perseverance, strength, and resilience, even in the face of adversity.<br /><br />5. &quot;Roar&quot; by Katy Perry - This song inspires self-love and encourages listeners to find their own voice and stand up for themselves.<br /><br />These songs are all inspiring messages of strength, empowerment, and self-assurance, reminding us that sometimes, all we need is a little faith in ourselves to keep pushing forward.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_fwXicqL_413</code></strong>
         <span class="small">2023/05/28 (Sun) 05:15</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Val uses lots of engineering metaphors, sometimes has brusque and blunt language but also uses big words, she is like a 1950s male pilot/engineer in her mindset, she is autistic and one of the co-op’s most brilliant minds and an accomplished spacer. She has worked beside - and loved (intimately) - aliens. Tell me, in her words, why she values Co-Modularism and is so single mindedly passionately devoted to it. Also she feels that the Co-Op was her mother and father, as it took care of and educated her even when her parents weren’t up to the job.</div>
       </div><div class="turn">
@@ -2085,15 +2339,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, that&#39;s correct. R&#39;kesh was a Novayan, and through our relationship, I learned a lot about their spirituality and beliefs. The Novayans have a deep connection to the natural world and believe that all things, including inanimate objects like ships, have a spirit or essence. This resonated with me, and I began to see my ship as more than just a collection of parts and wires. To me, the ship is a living being that we rely on for survival in the vast emptiness of space. The crash couch, in particular, is a critical connection point between myself and the ship, and I believe that by using it, I am able to better understand and communicate with the ship&#39;s spirit.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>af35c345</code></strong>
         <span class="small">2023/05/28 (Sun) 10:59</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I need some help with organizing my closet. Can you suggest some apps or tools to help me keep track of the clothes I have and when I last wore them?</div>
       </div><div class="turn">
@@ -2130,15 +2388,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">A hair mask once a week is an excellent idea! It can make a huge difference in the health and appearance of your hair. The L&#39;Oréal Paris EverPure Repair &amp; Protect Mask is a great choice, and I&#39;d be happy to tell you more about it.<br /><br />**L&#39;Oréal Paris EverPure Repair &amp; Protect Mask:**<br /><br />This mask is designed to repair and protect damaged hair, while also providing long-lasting nourishment and hydration. It&#39;s formulated with:<br /><br />1. **Antioxidants:** To help protect your hair from environmental stressors and damage.<br />2. **Moisturizing agents:** To provide long-lasting hydration and nourishment.<br />3. **Repairing agents:** To help repair and restore damaged hair fibers.<br /><br />**Benefits:**<br /><br />1. **Repairs and protects:** Helps to repair and protect damaged hair from within.<br />2. **Hydrates and nourishes:** Provides long-lasting hydration and nourishment to dry, damaged hair.<br />3. **Smooths and softens:** Leaves hair feeling smooth, soft, and manageable.<br />4. **Reduces frizz:** Helps to reduce frizz and flyaways for a more polished look.<br /><br />**How to use:**<br /><br />1. Apply the mask to your hair after shampooing, focusing on the ends and mid-lengths.<br />2. Leave it on for 5-10 minutes.<br />3. Rinse thoroughly with warm water.<br />4. Follow up with your usual conditioner and styling routine.<br /><br />**Tips:**<br /><br />1. **Use it once a week:** For optimal results, use the mask once a week to provide an intense dose of nourishment and hydration.<br />2. **Focus on the ends:** The ends of your hair are the driest and most prone to damage, so be sure to focus the mask on this area.<br />3. **Leave it on longer:** If you have very dry or damaged hair, you can leave the mask on for up to 30 minutes for an even more intense treatment.<br /><br />Overall, the L&#39;Oréal Paris EverPure Repair &amp; Protect Mask is a great choice for anyone looking to provide an extra dose of moisture and nourishment to their hair. It&#39;s a great addition to your hair care routine, and I think you&#39;ll really like the results!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ebc1319b</code></strong>
         <span class="small">2023/05/28 (Sun) 11:04</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some new winter hike trails in the nearby state park. Can you suggest a few? Also, do you have any tips on how to stay warm while hiking in cold weather?</div>
       </div><div class="turn">
@@ -2175,15 +2437,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">That sounds like a fascinating book! Winter festivals and traditions are such an integral part of many cultures around the world, and there&#39;s so much to learn from them. It&#39;s great that you&#39;re interested in exploring more about the cultural significance of winter in different parts of the world.<br /><br />Winter festivals and traditions often serve as a way for communities to come together, celebrate, and find joy during the colder and darker months. They can also provide a sense of continuity and connection to one&#39;s heritage and cultural identity.<br /><br />Some winter festivals and traditions are deeply rooted in pagan or ancient cultural practices, while others have evolved over time through the influence of different religions, migrations, and cultural exchange. For example, the winter solstice has been celebrated by many ancient cultures, including the ancient Greeks, Romans, and Celts, who observed the longest night of the year as a time of renewal and rebirth.<br /><br />In many Eastern cultures, such as China, Japan, and Korea, the winter solstice is celebrated as a time of new beginnings and renewal, with festivities and traditions centered around the return of longer days and the coming of spring.<br /><br />In Scandinavian countries, winter is a time for cozying up with family and friends, enjoying warm foods and drinks, and celebrating the festive season with traditional holidays like Jul (Christmas) and Lucia.<br /><br />The cultural significance of winter can also be seen in the art, literature, and music of different regions. For example, Russian literature is famous for its winter landscapes and themes, while Nordic folk music often features winter-inspired instrumentation and lyrics.<br /><br />There&#39;s so much to explore and learn about the cultural significance of winter around the world. I hope you continue to find fascinating books and resources to fuel your curiosity!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>187b4852_1</code></strong>
         <span class="small">2023/05/28 (Sun) 16:22</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m planning a trip to Tokyo soon and I was wondering if you could recommend some good theme parks to visit. I&#39;ve heard great things about Tokyo Disneyland, especially during their seasonal events. I actually attended their Halloween event with my family a few weeks ago, and it was so much fun!</div>
       </div><div class="turn">
@@ -2220,15 +2486,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I think there&#39;s been a misunderstanding again! As a friendly AI, I don&#39;t have personal plans or experiences, so I&#39;m not planning to visit Tokyo Disneyland soon. I&#39;m here to provide information and answer your questions to the best of my abilities.<br /><br />However, I&#39;m glad to hear that you&#39;re excited about Tokyo Disneyland&#39;s Halloween event! It sounds like you had a fantastic time with your family, and I&#39;m happy to chat with you about your experience. The Haunted Mansion and Disney Halloween Street Party are indeed two of the most popular attractions during the Halloween season at Tokyo Disneyland.<br /><br />If you have any more questions or topics you&#39;d like to discuss, feel free to ask! I&#39;m here to help and provide information to make your next visit to Tokyo Disneyland even more magical.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>bdf33c73_2</code></strong>
         <span class="small">2023/05/28 (Sun) 23:44</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some advice on how to stay organized with my volunteer work. I&#39;ve been doing a lot of charity events lately, like the local animal shelter&#39;s charity walk on April 17th, where I helped with registration and raised $250 in donations. Do you have any tips on how to keep track of my volunteer hours and donations?</div>
       </div><div class="turn">
@@ -2265,15 +2535,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Staying organized and keeping track of your volunteer work and donations is crucial to ensure you have a record of your contributions and can claim tax deductions (if applicable). Here are some tips to help you stay organized:<br /><br />**Volunteer Work:**<br /><br />1. **Create a volunteer log:** Design a spreadsheet or use a volunteer tracking app like Track it Forward or VolunteerMatch to log your volunteer hours. Include columns for:<br />	* Date<br />	* Organization<br />	* Event/Project<br />	* Hours volunteered<br />	* Tasks/Responsibilities<br />	* Notes/Comments<br />2. **Set reminders:** Schedule reminders for upcoming volunteer events or deadlines using your calendar or a task management tool like Trello or Asana.<br />3. **Organize documents:** Keep a folder or digital file for each organization or event, including:<br />	* Volunteer agreements or contracts<br />	* Event schedules or programs<br />	* Letters or emails from the organization confirming your volunteer work<br /><br />**Donations:**<br /><br />1. **Create a donation log:** Design a spreadsheet or use a donation tracking app like DonateWell to log your donations. Include columns for:<br />	* Date<br />	* Organization<br />	* Amount donated<br />	* Method of donation (e.g., cash, check, online)<br />	* Receipt or acknowledgement number<br />2. **Store receipts:** Keep receipts in a designated folder or envelope, both physically and digitally. Take photos or scan receipts for digital storage.<br />3. **Verify tax-exempt status:** Ensure the charity is a registered 501(c)(3) organization, which is eligible to receive tax-deductible donations.<br /><br />**General Organization Tips:**<br /><br />1. **Designate a folder:** Create a dedicated folder or digital file for all your volunteer work and donations. This will help you keep everything in one place.<br />2. **Set aside time:** Schedule regular time to update your logs and organize your records. This can be weekly, bi-weekly, or monthly, depending on your volunteer schedule.<br />3. **Stay digital:** Consider using digital tools and apps to track your volunteer work and donations. This will make it easier to access and update your records.<br />4. **Back up your data:** Regularly back up your digital records to ensure you don&#39;t lose any information.<br />5. **Review and reflect:** Regularly review your volunteer work and donations to reflect on your experiences and identify areas for improvement.<br /><br />By following these tips, you&#39;ll be able to stay organized and keep track of your volunteer work and donations throughout the year. Remember to stay consistent and update your records regularly to ensure you have a complete and accurate record of your contributions.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>6cd203f7_1</code></strong>
         <span class="small">2023/05/29 (Mon) 01:43</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m thinking of planning a road trip soon and I&#39;m wondering if you can help me estimate the fuel cost for the trip. By the way, I&#39;m excited to finally have my new floor mats in my 2015 Toyota Camry, which arrived today, and I&#39;m looking forward to breaking them in on the trip.</div>
       </div><div class="turn">
@@ -2310,15 +2584,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Selling a motorcycle can be a bit of a challenge, but with the right pricing and marketing, you can attract serious buyers. I&#39;d be happy to help you price your 2007 Honda CBR600RR correctly.<br /><br />**Research, Research, Research:**<br /><br />To determine a fair price for your motorcycle, research is key. Look at similar models, years, and conditions to get an idea of what buyers are willing to pay. You can use online marketplaces like:<br /><br />1. Cycle Trader<br />2. Motorcycle.com<br />3. eBay Motors<br />4. Kelley Blue Book (KBB)<br />5. NADAguides<br /><br />**Factors Affecting Price:**<br /><br />Consider the following factors to adjust your pricing:<br /><br />1. **Condition:** The bike&#39;s condition plays a significant role in pricing. Be honest about any scratches, dents, or needed repairs.<br />2. **Mileage:** Lower mileage typically translates to a higher price.<br />3. **Maintenance and Upgrades:** If you&#39;ve kept detailed records of regular maintenance, repairs, and upgrades, highlight them to attract buyers.<br />4. **Regional Demand:** Prices can vary depending on your location and local demand.<br />5. **Comparable Sales:** Look at recent sales of similar bikes in your area to gauge interest and pricing.<br /><br />**Pricing Strategies:**<br /><br />1. **Start with a Competitive Price:** Set a competitive price based on your research to attract more buyers.<br />2. **Price it to Sell:** If you&#39;re motivated to sell quickly, consider pricing your bike slightly lower than similar models.<br />3. **Leave Room for Negotiation:** Buyers often expect to negotiate, so leave some wiggle room in your pricing.<br /><br />**Tips for Your Craigslist Ad:**<br /><br />1. **Use Good Photos:** High-quality photos showcasing the bike from multiple angles, including any flaws.<br />2. **Detailed Description:** Include detailed information about the bike&#39;s condition, maintenance history, and any upgrades.<br />3. **Honesty is the Best Policy:** Disclose any issues or needed repairs to build trust with potential buyers.<br />4. **Set a Competitive Price:** Adjust your pricing based on your research to attract more buyers.<br /><br />**Revise and Relist:**<br /><br />If you haven&#39;t received any serious offers, consider revising your listing to make it more attractive to buyers. Update your pricing, add more photos, or highlight the bike&#39;s best features.<br /><br />By following these tips, you&#39;ll be able to price your 2007 Honda CBR600RR correctly and attract more serious buyers. Good luck with the sale!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_530021</code></strong>
         <span class="small">2023/05/29 (Mon) 06:37</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What is the importance of setting and atmosphere in gothic literature, and which writers are known for their mastery of these elements?</div>
       </div><div class="turn">
@@ -2361,15 +2639,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I don&#39;t hold opinions or beliefs. however, many literary critics argue that references to the authors&#39; personal lives do not necessarily indicate a lack of imagination. in fact, these references can help to create a richer and more complex literary world, grounding the novel and its characters in a recognizable reality. furthermore, the use of autobiographical elements in literature can also help the author to explore issues and themes that they are personally interested in, providing a unique perspective on the world.<br /><br />it&#39;s important to note that drawing from personal experience is just one of the many ways authors can create their world and characters. fictional works can also be entirely imaginary, drawing from a variety of sources, including inspiration sparked by life experiences, or entirely fictionalized characters, settings, and narratives. ultimately, the choice to draw on personal experience is a decision made by the author and can contribute to the richness and interest of their work.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_360136</code></strong>
         <span class="small">2023/05/29 (Mon) 10:18</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What were the most significant improvements made to photography during the 20th century?</div>
       </div><div class="turn">
@@ -2394,15 +2676,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I believe that drone photography will continue to grow in popularity in the future. drones offer photographers a unique perspective on the world, allowing them to capture breathtaking views from above that would otherwise be impossible to capture. as drones become more affordable and more accessible, we can expect to see more photographers using them to capture stunning aerial images that were previously impossible.<br /><br />furthermore, as drone technology continues to advance, we can expect to see even more advanced features and capabilities added to these devices. for example, some drones now come equipped with 360-degree cameras, which allow photographers to capture immersive panoramic images. additionally, as technology improves, drone cameras may become even more powerful, offering photographers better image quality, greater zoom capabilities, and longer battery life.<br /><br />overall, there is a lot of potential for drone photography in the future, and we can expect to see more photographers experimenting with this exciting new medium in the years to come.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_387846</code></strong>
         <span class="small">2023/05/29 (Mon) 13:51</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Can you describe the difference between white and dark balsamic vinegar and how they are made?</div>
       </div><div class="turn">
@@ -2433,15 +2719,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I don&#39;t have the ability to taste or cook food, but i can suggest some popular uses for balsamic reduction that many people enjoy.<br /><br />the thick and syrupy texture of balsamic reduction makes it a great ingredient for adding a touch of sweetness and acidity to a wide range of dishes. here are some popular ways to use it:<br /><br />1. drizzle it over roasted or grilled vegetables: balsamic reduction can be a great way to add flavor to roasted or grilled vegetables like asparagus, eggplant, or zucchini.<br /><br />2. use it as a topping for meat, fish, or poultry: balsamic reduction can be a delicious accompaniment to grilled or roasted meats like chicken, beef or salmon.<br /><br />3. use it as a dressing for salad: balsamic reduction can also work as a salad dressing by whisking it with olive oil, honey, and dijon mustard.<br /><br />4. use it as a dip: balsamic reduction can be a tasty condiment for appetizers like bread, cheese, or fruit.<br /><br />i hope those suggestions inspire you to try out making a balsamic reduction, and have fun experimenting with different ways to use it in your cooking!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_fVpT6Aa_35</code></strong>
         <span class="small">2023/05/30 (Tue) 10:17</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">Sure, here are some spell names that could work for Bonus Cards:<br /><br />1. Enchantment of Greed - allows the player to steal a card from another player&#39;s hand.<br />2. Charm of Swiftness - allows the player to take an extra turn immediately after their current turn.<br />3. Conjuring of Protection - allows the player to protect their hand from being stolen or discarded by another player for one round.<br />4. Illusion of Confusion - forces all other players to swap hands with another player at random.<br />5. Hex of Misfortune - forces another player to draw three cards from the draw pile.<br />6. Curse of the Witch - allows the player to discard all of one suit from their hand.<br />7. Transformation of the Joker - turns a Joker card into any other card of the player&#39;s choice.<br />8. Spell of Multiplication - allows the player to duplicate a card in their hand.<br />9. Incantation of Revelation - allows the player to see all of another player&#39;s cards.<br />10. Mystic Moonstone - allows the player to draw two cards from the draw pile and discard one.</div>
       </div><div class="turn">
@@ -2505,7 +2795,8 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Sure, how about this:<br /><br />&quot;Crinklewitch is the hilarious witch-themed card game that will cast a spell on you! With easy-to-learn rules, players will compete to be the first to earn three Winner Tokens, using Rule Cards to outmaneuver their opponents. But watch out for those Bonus Cards, as they can give players a powerful advantage in future rounds. With a variety of Rule Cards and Bonus Cards to keep gameplay fresh, Crinklewitch is the perfect game for 2-8 players who love a good laugh!&quot;</div>
       </div></div>
-  </details></div>
+    </details>
+  </div></div>
                     </details>
     </div>
   </div>

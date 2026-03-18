@@ -105,7 +105,7 @@
       border: 1px solid var(--line);
       border-radius: 14px;
       background: #fff;
-      padding: 0 14px 14px;
+      padding: 14px;
     }
     .priority-session {
       border-width: 2px;
@@ -115,21 +115,17 @@
     .secondary-session {
       opacity: 0.9;
     }
-    .session-card summary {
-      list-style: none;
-      cursor: pointer;
+    .session-card-header {
       display: flex;
       justify-content: space-between;
       gap: 12px;
       align-items: center;
-      padding: 14px 0;
-    }
-    .session-card summary::-webkit-details-marker {
-      display: none;
+      margin-bottom: 12px;
     }
     .session-turns {
       display: grid;
       gap: 10px;
+      margin-top: 12px;
     }
     .turn {
       border-top: 1px solid var(--line);
@@ -146,6 +142,40 @@
       font-size: 14px;
       line-height: 1.55;
       word-break: break-word;
+    }
+    .session-memory-wrap {
+      margin-bottom: 12px;
+    }
+    .session-memory-details {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fcfaf5;
+      padding: 0 12px 12px;
+    }
+    .session-memory-details summary,
+    .session-conversation-details summary {
+      cursor: pointer;
+      padding: 12px 0;
+      font-size: 13px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .session-conversation-details {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fafaf7;
+      padding: 0 12px 12px;
+    }
+    .session-memory-list {
+      display: grid;
+      gap: 10px;
+    }
+    .extracted-memory-card {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+      padding: 12px;
     }
     .pill {
       display: inline-block;
@@ -325,15 +355,18 @@
       <h2>Question Sessions</h2>
       <p class="small">Benchmark answer sessions are shown first. Then come other retrieved sessions. Background sessions stay collapsed below.</p>
       <div class="session-subhead">Answer Sessions</div>
-             <div class="session-list"><details class="session-card priority-session">
-    <summary>
+             <div class="session-list"><div class="session-card priority-session">
+    <div class="session-card-header">
       <div>
         <strong><code>answer_d87a6ef8</code></strong>
         <span class="small">2023/05/22 (Mon) 00:37</span>
       </div>
       <div><span class="pill">ground truth</span> <span class="pill pill-answer">answer session</span></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    <div class="session-memory-wrap"><p class="small">No extracted memories found for this session.</p></div>
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Can you give me an overview of the recent advancements in this field of deep learning for medical image analysis? Skip the basics as I am working in the field.</div>
       </div><div class="turn">
@@ -370,19 +403,23 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Here are some research papers and articles on explainable AI in medical image analysis, specifically on techniques for visualizing and interpreting deep learning models:<br /><br />**Visualization Techniques**<br /><br />1. **&quot;Visualizing and Understanding Convolutional Neural Networks&quot;** by Zeiler and Fergus (2014) - A seminal paper on visualizing and understanding CNNs, which laid the foundation for many XAI techniques in medical imaging.<br />2. **&quot;Deep Visualization: Understanding Images and Video using Deep Learning&quot;** by Yosinski et al. (2015) - A paper on deep visualization techniques for understanding images and videos using deep learning.<br />3. **&quot;Visualizing Deep Neural Networks for Medical Image Analysis&quot;** by Wang et al. (2019) - A paper on visualizing deep neural networks for medical image analysis, covering various techniques and applications.<br /><br />**Saliency Maps**<br /><br />1. **&quot;Deep Inside Convolutional Networks: Visualising Image Classification Models and Saliency Maps&quot;** by Simonyan et al. (2014) - A paper on saliency maps for visualizing the importance of input features for image classification models.<br />2. **&quot;Saliency Maps for Medical Image Analysis: A Review&quot;** by Rajpurkar et al. (2020) - A review paper on saliency maps for medical image analysis, covering various techniques and applications.<br />3. **&quot;Saliency Maps for Brain Tumor Segmentation using Deep Neural Networks&quot;** by Wang et al. (2019) - A paper on saliency maps for brain tumor segmentation using deep neural networks.<br /><br />**Attention Mechanisms**<br /><br />1. **&quot;Attention-based Deep Neural Networks for Medical Image Analysis&quot;** by Schlemper et al. (2019) - A paper on attention-based deep neural networks for medical image analysis, covering various techniques and applications.<br />2. **&quot;Attention-based Saliency Maps for Medical Image Analysis&quot;** by Chen et al. (2020) - A paper on attention-based saliency maps for medical image analysis, with applications to breast cancer diagnosis.<br />3. **&quot;Visualizing Attention in Deep Neural Networks for Medical Image Analysis&quot;** by Wang et al. (2020) - A paper on visualizing attention in deep neural networks for medical image analysis, covering various techniques and applications.<br /><br />**Model Interpretability Techniques**<br /><br />1. **&quot;Model Interpretability Techniques for Deep Neural Networks: A Survey&quot;** by Zhang et al. (2020) - A survey paper on model interpretability techniques for deep neural networks, covering various techniques and applications.<br />2. **&quot;LIME: Local Interpretable Model-agnostic Explanations&quot;** by Ribeiro et al. (2016) - A paper on LIME, a model-agnostic technique for explaining the predictions of any machine learning model.<br />3. **&quot;SHAP Values: A Unified Approach to Explaining Model Predictions&quot;** by Lundberg and Lee (2017) - A paper on SHAP values, a technique for explaining the predictions of any machine learning model.<br /><br />These papers and articles should provide a good starting point for exploring techniques for visualizing and interpreting deep learning models in medical image analysis.</div>
       </div></div>
-  </details></div>
+    </details>
+  </div></div>
              
              <details class="other-sessions">
                       <summary>Other Sessions (47)</summary>
-                      <div class="session-list"><details class="session-card secondary-session">
-    <summary>
+                      <div class="session-list"><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_y7MbHgZ_21</code></strong>
         <span class="small">2023/05/20 (Sat) 07:54</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">A construction lawyer can provide valuable assistance in drafting and negotiating Deeds of Release, particularly in the context of construction contracts. Some of the ways in which a construction lawyer can help include:<br /><br />* Knowledge of relevant laws and regulations: A construction lawyer can provide guidance on the legal requirements for a valid Deed of Release, as well as any specific regulations that may apply to construction contracts in NSW.<br />* Ability to negotiate terms: A construction lawyer can assist in negotiating the terms of the Deed of Release to ensure that the parties&#39; rights and interests are protected, and that the document accurately reflects their agreement.<br />* Guidance on potential risks and benefits: A construction lawyer can advise on the potential risks and benefits of signing a Deed of Release, and help the parties make an informed decision about whether to proceed.<br /><br />Overall, a construction lawyer&#39;s expertise can help ensure that the Deed of Release is legally valid, properly negotiated, and fully understood by all parties involved.</div>
       </div><div class="turn">
@@ -416,15 +453,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">&quot;Learn about Deed of Release in Construction Contracts in NSW. Get legal guidance from experienced construction lawyers. Consult now!&quot;</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>5a6b1065</code></strong>
         <span class="small">2023/05/20 (Sat) 14:29</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some new meal prep ideas, do you have any recipes for healthy lunches that I can try out this Sunday?</div>
       </div><div class="turn">
@@ -461,15 +502,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Mushrooms are a fantastic addition to the Grilled Chicken and Veggie Containers! They add a meaty texture and earthy flavor that pairs perfectly with the chicken and veggies. Here are some tips to cook mushrooms to perfection:<br /><br />**Grilled Mushrooms:**<br /><br />1. **Brush with olive oil:** Drizzle olive oil over the mushrooms and toss to coat before grilling.<br />2. **Season with salt, pepper, and Italian seasoning:** Sprinkle salt, pepper, and Italian seasoning over the mushrooms for added flavor.<br />3. **Grill until tender:** Grill the mushrooms for 2-3 minutes per side, or until they&#39;re tender and slightly charred.<br /><br />**Pan-Cooked Mushrooms:**<br /><br />1. **Heat olive oil in a pan:** Add 1-2 tablespoons of olive oil to a pan over medium-high heat.<br />2. **Add aromatics:** Saute onions, garlic, or shallots for 1-2 minutes until softened.<br />3. **Add mushrooms:** Add sliced or whole mushrooms to the pan and cook until they release their moisture and start to brown, about 3-5 minutes.<br />4. **Season with salt, pepper, and Italian seasoning:** Sprinkle salt, pepper, and Italian seasoning over the mushrooms during the last minute of cooking.<br /><br />**Tips for Cooking Mushrooms:**<br /><br />* **Use a variety of mushrooms:** Experiment with different types of mushrooms, such as button, cremini, shiitake, or portobello, for unique flavors and textures.<br />* **Don&#39;t overcrowd:** Cook mushrooms in batches if necessary, to ensure they have enough room to cook evenly and prevent steaming instead of browning.<br />* **Don&#39;t overcook:** Mushrooms can quickly become mushy and unappetizing if overcooked. Cook them until they&#39;re tender and still retain some texture.<br /><br />By following these tips, you&#39;ll be able to add delicious and flavorful mushrooms to your Grilled Chicken and Veggie Containers. Enjoy!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>5f1f5891</code></strong>
         <span class="small">2023/05/20 (Sat) 16:28</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m trying to perfect my Negroni recipe. Can you give me some suggestions on different types of gin that would pair well with Campari?</div>
       </div><div class="turn">
@@ -506,15 +551,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Citrus garnishes can elevate the flavor and aroma of a Negroni. Here are some citrus peel and twist recommendations that pair well with the flavors in a Negroni:<br /><br />1. **Orange peel**: A classic choice, orange peel is a natural pairing with the Campari and sweet vermouth in a Negroni. Express the oils from the peel over the drink and use as a garnish.<br />2. **Blood orange peel**: Blood oranges have a deeper, more complex flavor profile than regular oranges, which complements the bold flavors in a Negroni. Use the peel to add a subtle sweetness and a pop of color.<br />3. **Grapefruit twist**: Grapefruit pairs nicely with the bitterness of Campari and the botanicals in gin. Use a pink or red grapefruit twist to add a tangy, citrusy flavor.<br />4. **Lemon twist**: A lemon twist can add a bright, citrusy note to your Negroni. Look for a lemon with a thick, oily skin to get the most flavor.<br />5. **Yuzu peel**: Yuzu is a Japanese citrus fruit with a unique flavor profile that&#39;s both tart and sweet. Its peel can add a fascinating twist to your Negroni, pairing well with the herbal notes in gin and the bitterness of Campari.<br />6. **Meyer lemon twist**: Meyer lemons are a cross between a lemon and an orange, with a sweeter, less acidic flavor. Their peel can add a smooth, citrusy note to your Negroni.<br /><br />When using citrus peels or twists, remember to:<br /><br />* Express the oils from the peel over the drink by gently squeezing the peel between your fingers or using a citrus press.<br />* Rub the peel around the rim of the glass to coat it with the citrus oils.<br />* Place the peel or twist in the glass, either on top of the ice or as a garnish.<br /><br />Experiment with different citrus options to find the one that complements your Negroni the most. Don&#39;t be afraid to combine different citrus peels or twists to create a unique flavor profile.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_533748</code></strong>
         <span class="small">2023/05/20 (Sat) 23:47</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Can you suggest a book in the Romance genre by a female author?</div>
       </div><div class="turn">
@@ -551,15 +600,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Sure! Here are some steamy, intimate Romance novels:<br /><br />1. &quot;Fifty Shades of Grey&quot; by E. L. James<br />2. &quot;Bared to You&quot; by Sylvia Day<br />3. &quot;Beautiful Disaster&quot; by Jamie McGuire<br />4. &quot;The Crossfire&quot; series by Sylvia Day<br />5. &quot;Sweet Addiction&quot; by J. Daniels<br />6. &quot;Gabriel&#39;s Inferno&quot; by Sylvain Reynard<br />7. &quot;Mister O&quot; by Lauren Blakely<br />8. &quot;Crash Into You&quot; by Katie McGarry<br />9. &quot;The Coincidence of Callie &amp; Kayden&quot; by Jessica Sorensen<br />10. &quot;Kushiel&#39;s Dart&quot; by Jacqueline Carey.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_FYqt26U_0</code></strong>
         <span class="small">2023/05/21 (Sun) 02:51</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Can you say some comforting words?</div>
       </div><div class="turn">
@@ -578,15 +631,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Regret is a common and often painful emotion, but there are things you can do to help reduce or overcome it:<br /><br />1. Practice self-compassion: Be kind to yourself and recognize that everyone makes mistakes. Remember that you are not defined by your past actions or decisions.<br />2. Reframe the situation: Instead of focusing on what you regret, try to look for any positive aspects of the situation. Ask yourself what you learned from the experience and how it has helped you grow.<br />3. Make amends: If possible, try to make amends for any harm you may have caused as a result of your actions. This can help you feel like you&#39;re taking steps to rectify the situation.<br />4. Let it go: Recognize that dwelling on the past won&#39;t change it, and that you have the power to choose how you react to the situation. Make a conscious effort to let go of the regret and focus on the present and future.<br />5. Seek support: Talk to friends, family, or a therapist about your feelings of regret. Sometimes, just sharing your emotions with someone else can help you process and move forward.<br /><br />Remember that overcoming regret takes time and effort, but it is possible with patience, self-compassion, and support.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>e6921729</code></strong>
         <span class="small">2023/05/21 (Sun) 04:26</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m considering buying a ukulele and was wondering if you could recommend some popular brands and models for beginners.</div>
       </div><div class="turn">
@@ -623,15 +680,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">When it comes to choosing a case for your Cordoba 20TM Tenor Ukulele, you have two main options: a hardcase or a softcase. Both have their pros and cons, which I&#39;ll outline below to help you make an informed decision.<br /><br />**Hardcase:**<br /><br />Pros:<br /><br />1. **Maximum protection:** Hardcases offer the highest level of protection for your ukulele. They&#39;re made of rigid materials, such as wood or plastic, and are designed to absorb impacts and shocks.<br />2. **Durability:** Hardcases are built to last and can withstand the rigors of frequent travel and storage.<br />3. **Weather resistance:** Hardcases are often waterproof or water-resistant, protecting your ukulele from extreme temperatures and humidity.<br /><br />Cons:<br /><br />1. **Weight and bulk:** Hardcases are generally heavier and bulkier than softcases, making them more difficult to carry around.<br />2. **Cost:** Hardcases are typically more expensive than softcases.<br />3. **Limited flexibility:** Hardcases are designed to fit a specific ukulele shape and size, so they might not be compatible with other instruments.<br /><br />**Softcase:**<br /><br />Pros:<br /><br />1. **Lightweight and portable:** Softcases are much lighter and more compact than hardcases, making them easy to carry around.<br />2. **Affordable:** Softcases are generally less expensive than hardcases.<br />3. **Flexibility:** Softcases are designed to fit a variety of ukulele shapes and sizes, making them more versatile.<br /><br />Cons:<br /><br />1. **Limited protection:** Softcases offer less protection than hardcases, as they&#39;re made of softer materials and may not absorb impacts as well.<br />2. **Not weather-resistant:** Softcases are more prone to water damage and may not protect your ukulele from extreme temperatures and humidity.<br /><br />Consider the following questions to help you decide between a hardcase and a softcase:<br /><br />* How often will you be traveling with your ukulele?<br />* Will you be storing your ukulele in a humid or extreme temperature environment?<br />* Are you willing to sacrifice some protection for a lighter and more portable case?<br />* Is budget a concern for you?<br /><br />If you prioritize maximum protection and durability, a hardcase might be the better choice. However, if you&#39;re looking for a lightweight and affordable option that still offers some protection, a softcase could be the way to go.<br /><br />For the Cordoba 20TM Tenor Ukulele, I would recommend a hardcase if you plan to travel frequently or store your ukulele in a humid or extreme temperature environment. However, if you&#39;re a casual player who mostly plays at home, a softcase might be sufficient.<br /><br />I hope this helps you make an informed decision!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_382018</code></strong>
         <span class="small">2023/05/21 (Sun) 04:50</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Can you recommend a healthy meal plan for weight loss?</div>
       </div><div class="turn">
@@ -668,15 +729,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">It&#39;s understandable to feel this way, but remember that being healthy doesn&#39;t necessarily mean depriving yourself completely of the foods you love. Here are a few strategies to help you stay motivated while still enjoying your favorite foods:<br /><br />1. Incorporate your favorite foods in moderation: You can still enjoy your favorite foods by incorporating them into your diet in moderation. Practice portion control and balance these indulgences with healthy, nutrient-rich foods.<br /><br />2. Find healthier alternatives: Look for healthier alternatives to your favorite foods, like healthier versions of pizza, sweets, or sandwiches. You can also experiment with new recipes that use healthier ingredients but still taste delicious.<br /><br />3. Celebrate other aspects of a healthy lifestyle: It&#39;s not just about the food! Celebrate how much better you feel when you eat well and move more. Take note of your increased energy, reduced stress, improved mood, or better sleep.<br /><br />4. Don’t be too hard on yourself: Remember that it’s OK to indulge once in a while. As long as you make healthy choices most of the time, enjoying an occasional treat won’t derail your progress.<br /><br />5. Think long-term: Keep in mind that the habits you build now will have a lasting impact on your health and wellbeing. Making healthy changes is an investment in your future self.<br /><br />Remember, sustainable healthy habits take time to build, but the rewards are worth it in the end. Keep your focus on progress, not perfection, and enjoy your health journey.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>6a3b5c13_3</code></strong>
         <span class="small">2023/05/22 (Mon) 01:56</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m trying to plan my meals for the week and was wondering if you could help me come up with some recipe ideas using chicken breast and ground beef, which I just bought last week. By the way, I&#39;ve been trying to shop more sustainably, which is why I placed an online order with Thrive Market last month and spent around $150 on organic and sustainable products.</div>
       </div><div class="turn">
@@ -713,15 +778,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">It sounds like you&#39;re making a conscious effort to shop sustainably, which is great!<br /><br />Buying organic produce, meat, and dairy products is a fantastic way to reduce your environmental impact and promote healthy living. Organic farming practices tend to be more environmentally friendly, and choosing organic products can help reduce exposure to pesticides and other harmful chemicals.<br /><br />Quinoa and olive oil are also excellent choices for a sustainable pantry. Quinoa is a protein-rich grain that&#39;s gentle on the environment, and olive oil is a healthier alternative to other cooking oils.<br /><br />Your online order with Thrive Market is a great step towards sustainable shopping. Thrive Market is a wonderful platform that offers a wide range of organic and sustainable products at affordable prices. By shopping with them, you&#39;re supporting a company that&#39;s committed to reducing waste, using eco-friendly packaging, and promoting fair labor practices.<br /><br />Remember, every small change you make in your shopping habits can add up to make a significant difference. Keep up the good work, and don&#39;t hesitate to explore more sustainable options as you continue to shop!<br /><br />Now, when you&#39;re shopping at Publix, be sure to check out their organic and sustainable options as well. They might have some great deals on the items you need, and you can earn cashback rewards through Ibotta to boot!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_Vjkqc5J_0</code></strong>
         <span class="small">2023/05/22 (Mon) 02:02</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">write a blog post about investing in uk film with references to uk film sales</div>
       </div><div class="turn">
@@ -734,15 +803,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">As a leading provider of investment opportunities in the UK, our website aims to provide investors with the information and resources they need to make informed decisions about their investments. Our website content plan is designed to provide a comprehensive overview of the investment landscape in the UK, highlighting the key sectors and opportunities available to investors.<br /><br />Our homepage will feature an introduction to our company and the services we offer, along with a brief overview of the investment opportunities available in the UK. This will be followed by a selection of articles and blog posts that provide more detailed information about specific sectors and investment opportunities, such as property, technology, and renewable energy.<br /><br />In addition to these articles and blog posts, our website will also feature a range of resources and tools for investors, including a glossary of investment terms, a calculator for determining potential returns on investments, and a selection of case studies that demonstrate the potential rewards of investing in the UK.<br /><br />Our website will also include a dedicated section for news and updates, featuring the latest developments and trends in the UK investment market. This will include articles on key events and announcements, as well as commentary and analysis from our team of experts.<br /><br />Finally, our website will feature a comprehensive list of contact details for our team of investment specialists, who will be available to provide guidance and advice to investors looking to take advantage of the opportunities available in the UK.<br /><br />Overall, our website content plan is designed to provide investors with a comprehensive overview of the UK investment landscape, along with the tools and resources they need to make informed decisions about their investments. Whether you are a seasoned investor or new to the world of investing, our website is the perfect place to start your journey.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>be753d18</code></strong>
         <span class="small">2023/05/22 (Mon) 03:08</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m trying to plan my content for the next week and I was wondering if you could suggest some relevant hashtags for my &quot;Go Green&quot; campaign on Twitter. By the way, I&#39;ve been posting daily updates for three weeks now, and it&#39;s been amazing to see my friends and I make a real impact on reducing plastic waste.</div>
       </div><div class="turn">
@@ -779,15 +852,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">That&#39;s a great idea! Inviting an influencer or content creator in the sustainable fashion space will add a valuable perspective to the conversation and make it more relatable to your audience. By preparing thoughtful questions and establishing a clear format, you&#39;ll ensure a engaging and informative chat that resonates with your audience.<br /><br />**Next Steps:**<br /><br />1. **Identify and invite the additional guest**: Research and reach out to a sustainable fashion influencer or content creator who aligns with your values and goals. Make sure they&#39;re available and interested in participating in the chat.<br />2. **Finalize the guest list**: Confirm the participation of both Maxine Bédat and the additional guest. Make sure they&#39;re both comfortable with the format, questions, and timing of the chat.<br />3. **Promote the chat**: Share the chat details on your Twitter account, and encourage your followers to participate. Create a Twitter Moment or a Facebook Event to promote the chat and attract a wider audience.<br />4. **Prepare engaging questions**: Craft questions that encourage discussion and debate among the guests, and allow for audience participation. Consider asking questions that explore the guests&#39; experiences, opinions, and insights on sustainable fashion.<br />5. **Host the chat**: On the day of the chat, introduce the guests, moderate the conversation, and encourage audience participation. Use relevant hashtags and tag the guests to make the chat more discoverable.<br /><br />**Tips for a Successful Chat:**<br /><br />1. **Encourage audience participation**: Ask open-ended questions that encourage audience members to share their thoughts and opinions.<br />2. **Keep the conversation flowing**: Monitor the chat and intervene if necessary to keep the conversation on track and ensure all guests have a chance to participate.<br />3. **Use relevant hashtags**: Use relevant hashtags, such as #SustainableFashion, #FashionForACause, and #EcoFriendly, to make the chat more discoverable and attract a wider audience.<br />4. **Follow up after the chat**: Share a recap of the chat on your Twitter account, and thank the guests for their participation. This will help keep the conversation going and attract new audience members.<br /><br />By following these steps and tips, you&#39;ll host a successful Twitter chat that sparks important conversations about sustainable fashion and inspires your audience to make a positive impact. Good luck!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_93325</code></strong>
         <span class="small">2023/05/22 (Mon) 03:09</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Can you explain how redistricting affects the distribution of political power and its potential impact on voter turnout and participation?</div>
       </div><div class="turn">
@@ -812,15 +889,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">It&#39;s definitely possible for other states to follow suit and implement fair redistricting practices. However, the process of changing the system can be difficult for a number of reasons.<br /><br />One reason is that redistricting is often controlled by the party in power, and that party may be hesitant to give up that power. Additionally, redistricting has historically been a highly partisan process, and there may be resistance to changing the status quo.<br /><br />Another challenge is that implementing an independent redistricting commission can require significant changes to state law or even the state constitution, which can be a lengthy and difficult process.<br /><br />However, despite these challenges, there are signs of progress. In recent years, there has been growing public awareness and concern about gerrymandering and the need for fair redistricting practices. This has led to ballot initiatives and advocacy efforts to establish independent redistricting commissions in several states.<br /><br />Overall, while changing the system can be difficult, it&#39;s important to continue advocating for fair redistricting practices to ensure that our democracy remains strong and representative of all citizens.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_E0YL5SX_157</code></strong>
         <span class="small">2023/05/22 (Mon) 06:23</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">This is an example of a personal statement where the author shares their passion for neuroscience and engineering, sparked by their fascination with The Matrix movie as a child. They describe their academic journey and relevant research experiences, including participating in a summer undergraduate research program in Computational Neuroscience at Carnegie Mellon University and the University of Pittsburgh. They conclude by discussing their current research interests in brain-computer interface decoders.</div>
       </div><div class="turn">
@@ -830,15 +911,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">The application proposes research into nanotransducers as functional neural interfaces for bidirectional communication with the brain. The proposed study aims to find optimal nanotransducers for imaging neurons, stimulating neurons, and relaying signals. The study will investigate different imaging methods, such as quantum dot imaging, voltage-sensitive dye imaging, and genetically encoded voltage indicators. For stimulation, the study will compare magnetoelectric, piezoelectric, and optoelectric nanotransducers with conventional electrode-based stimulation. The research will be conducted using Caenorhabditis elegans as the model system, investigating the placement of the nanotransducers and their potential toxicity.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>220cb2a0_2</code></strong>
         <span class="small">2023/05/22 (Mon) 13:04</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some tips on how to improve my portrait photography. I just got back from a photography workshop today and learned some new techniques, but I want to know more about working with natural light.</div>
       </div><div class="turn">
@@ -875,15 +960,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">That&#39;s great to hear that you&#39;ve already set up a dedicated shelf for your photography equipment! Organizing your gear can make a huge difference in productivity and reduce stress. Here are some additional tips to help you better organize your equipment and workspace:<br /><br />**Categorize and Group Similar Items**: Divide your equipment into categories, such as cameras, lenses, flashes, tripods, and accessories. Within each category, group similar items together, like all your prime lenses or all your camera bodies.<br /><br />**Assign a Home for Each Item**: Once you&#39;ve categorized and grouped your equipment, assign a specific spot for each item on your shelf or in your workspace. This will help you develop a habit of putting things back in their designated place, making it easier to find what you need.<br /><br />**Use Storage Containers and Cases**: Invest in storage containers, cases, or bags specifically designed for photography equipment. These can help protect your gear from dust, damage, and scratches, while also keeping them organized and out of the way.<br /><br />**Label Everything**: Label each storage container, shelf, or category with its contents. This will save you time when searching for a specific item and help you quickly identify what&#39;s inside a container.<br /><br />**Keep Frequently Used Items Accessible**: Store your most frequently used items in easy-to-reach locations, making it convenient to grab what you need quickly.<br /><br />**Store Less Frequently Used Items Out of the Way**: Consider storing less frequently used items, like specialized lenses or accessories, on higher or lower shelves, or in storage bins that are out of the way.<br /><br />**Designate a Workspace for Editing and Post-Processing**: Set up a dedicated area for editing and post-processing, including a comfortable chair, a large monitor, and a desk with ample space for your laptop and other equipment.<br /><br />**Keep Cables and Chargers Organized**: Use cable organizers or zip ties to keep cables and chargers tidy and prevent tangles.<br /><br />**Regularly Clean and Maintain Your Equipment**: Schedule regular cleaning and maintenance sessions for your equipment to ensure they&#39;re in good working condition.<br /><br />**Consider a Pegboard or Hooks**: Install a pegboard or hooks on a wall or on the back of a door to hang items like camera straps, bags, or other accessories, keeping them organized and within reach.<br /><br />By implementing these tips, you&#39;ll be able to maintain a tidy and organized workspace, reducing stress and saving time when searching for equipment. Happy organizing!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_BS28PON_0</code></strong>
         <span class="small">2023/05/22 (Mon) 20:31</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Popeyes makes a red beans and rice with the ingredients in the brackets below. Can you provide an alternative recipe with quinoa?<br /><br />[RICE: ENRICHED PRECOOKED LONG GRAIN RICE (RICE, NIACIN, IRON, THIAMINE MONONITRATE, FOLIC ACID). SEASONING: SALT, SEASONING [DRIED ONION, DRIED GARLIC], SPICES INCLUDING PAPRIKA. DRESSING: SOYBEAN OIL, WATER, SALT, PARTIALLY HYDROGENATED SOYBEAN OIL, MONOGLYCERIDES, AND SOYBEAN LECITHIN. SODIUM BENZOATE ADDED AS A preservative. LACTIC ACID ADDED TO HELP PROTECT FLAVOR. ARTIFICIAL FLAVOR. CALCIUM DISODIUM EDTA ADDED AS A PRESERVATIVE. COLORED WITH BETA CAROTENE. VITAMIN A PALMITATE ADDED. RED BEANS SAUCE: WATER, PORK FAT [CURED WITH WATER, SALT, NATURAL SMOKE FLAVORS (PARTIALLY HYDROGENATED SOYBEAN OIL AND NATURAL WOOD SMOKE FLAVORS), SODIUM PHOSPHATE, SUGAR, BROWN SUGAR, SODIUM NITRITE], RED KIDNEY BEANS, RED BEAN SEASONING MIX (DRIED ONIONS, SALT, SPICES INCLUDING PAPRIKA AND PARSLEY, DRIED GARLIC, AND MONOSODIUM GLUTAMATE). MAY CONTAIN MODIFIED FOOD STARCH.]</div>
       </div><div class="turn">
@@ -902,15 +991,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Here is a recipe for gluten-free cauliflower biscuits:<br /><br />Ingredients:<br /><br />* 1 small head cauliflower, grated or finely chopped<br />* 1/2 cup almond flour<br />* 1/2 cup tapioca flour<br />* 1 teaspoon baking powder<br />* 1/4 teaspoon salt<br />* 1/4 cup butter, melted<br />* 1 large egg<br />* 1/4 cup grated Parmesan cheese<br />* 1/4 teaspoon garlic powder (optional)<br /><br />Instructions:<br /><br />1. Preheat the oven to 400°F (200°C). Line a baking sheet with parchment paper.<br />2. In a medium bowl, combine the almond flour, tapioca flour, baking powder, and salt.<br />3. In a separate large bowl, whisk together the melted butter and egg. Add the grated cauliflower, Parmesan cheese, and garlic powder (if using) to the bowl and stir until well combined.<br />4. Add the dry ingredients to the wet ingredients and stir until a dough forms.<br />5. Drop the dough by rounded tablespoonfuls onto the prepared baking sheet.<br />6. Bake for 15-20 minutes, or until the biscuits are golden brown and set. Remove from the oven and let cool for a few minutes before serving.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_dY4gqkH_0</code></strong>
         <span class="small">2023/05/23 (Tue) 00:40</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Oh my goodness! Talk about delicious, those look so good! We hope the residents loved them.<br /><br />generate a reply for the comment on facebook post</div>
       </div><div class="turn">
@@ -923,30 +1016,38 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">How can I assist you today?</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_9srz3L6_0</code></strong>
         <span class="small">2023/05/23 (Tue) 09:40</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">iam going to give you information, and take it in, and then ill let you know when i want to develop documents; able of Contents:<br /><br />Introduction<br /><br />Background<br /><br />Context: An overview of the current state of the agrifood industry and the challenges it faces.<br /><br />The deep Problem<br /><br />Externalization<br /><br />Money<br /><br />Economic cost of degeneration<br /><br />The Solution - internalization of costs<br /><br />The Opportunity<br /><br />The Fresh Earth Ecosystem<br /><br />Overview: <br /><br />Components of the ecosystem: <br /><br /> Tokenomics<br /><br />Token name and symbol (FET)<br /><br />Token Overview<br /><br />Token structure <br /><br />Token classification<br /><br />Incentive enablers<br /><br />Incentive drivers<br /><br />Use case<br /><br />Governance<br /><br />Technical Requirements<br /><br />Token Supply and distribution<br /><br />Limits to Total Token Supply<br /><br />Token limits by country<br /><br />Token creation<br /><br />Supply strategy<br /><br />Alignment of incentives between creation and regeneration<br /><br />Matching demand and supply <br /><br />Token distribution<br /><br />Token economics<br /><br />Overview<br /><br />Valuation Logic of the Fresh Earth Token<br /><br />Token economics: How the token value is generated and how it changes over time<br /><br />Monetizing the token: Economic models funding opportunities in various markets<br /><br />Relationship between consumer purchases and hectares of land regenerated<br /><br />Potential for carbon storage, biodiversity, water retention, and increased food quality through regenerative practice<br /><br />Economic incentives for farmers to adopt regenerative practices<br /><br />Impact of the Fresh Earth Token on the regenerative food market and its projected growth<br /><br />Analysis of the value of the token and how it is determined and changes over time.<br /><br />Team<br /><br />Overview: An explanation of the partnerships and collaborations that will be established to support the development and growth of the ecosystem.<br /><br />Industry partnerships: A list of key industry partners that will be working with the ecosystem.<br /><br />Community partnerships: A list of key community partners that will be working with the ecosystem.<br /><br />Partnerships and Collaborations <br /><br />Roadmap<br /><br />Overview: A high-level roadmap for the development of the ecosystem, including any major milestones or key dates.<br /><br />Long-term vision: A description of the long-term vision for the ecosystem and its potential impact on the agrifood industry.<br /><br />Legal<br /><br />Also here or in Tokenomics Token security and Auditing ?<br /><br />Token wallet and exchange listing ?<br /><br />Conclusion<br /><br />References<br /><br />A list of relevant research papers, articles, and other resources that were used in the development of the whitepaper.<br /><br />Elevator Pitch<br />Fresh Earth is revolutionizing the $13.4 trillion (2023, Agriculture Market Size, Trends and Global Forecast To 2032) agri-food market by creating a global, community-based food system that empowers people to take control of their health, food quality, and food sources. Our ecosystem includes a B2B marketplace that connects regenerative farmers with businesses, a B2C marketplace that encourages innovation and collaboration among stakeholders, a Project Management Platform, and a Data Managment Platform that uses data to measure and validate the impact of regenerative practices. Our Fresh Earth Token represents fractional ownership of the ecosystem and is valued based on the assets of the ecosystem and the impact of regenerative projects. This creates a positive feedback loop where the success of the ecosystem drives more investment, leading to more impact and greater value for the token holders. Join us in our mission to create a regenerative food system that benefits <br /><br />Executive Summary<br />The Fresh Earth ecosystem is a revolutionary solution for transforming the agri-food industry and addressing the pressing issues of climate change, health, and food security. At the core of the ecosystem is the Fresh Earth Token, a decentralized autonomous organization (DAO) that manages the food ecosystem business. The token represents fractional ownership of the ecosystem, and is valued based on both the value of the ecosystem&#39;s assets and the future impact of regenerative projects on the environment and society. The Fresh Earth ecosystem is designed to incentivize participation and engagement through a variety of different Incentive Drivers and includes a B2B and B2C marketplace, a Project Management Platform, a Data Managment Platform, and a Rewards System. The ecosystem aims to provide a comprehensive, community-based food system that empowers individuals and businesses to take control of their food sources and improve the quality and nutritional density of the food they consume, while also promoting sustainable practices and addressing the pressing issues of climate change, health, and food security.<br /><br />1. Introduction<br />The world is currently facing a number of pressing interlinking issues including climate change, health, and food security. The Fresh Earth ecosystem aims to address these issues by promoting regenerative agriculture practices and creating a comprehensive, community-based food system that empowers individuals and businesses to take control of their food sources and improve the quality and nutritional density of the food they consume, while regenerating the environment. <br /><br />To write when finished Whitepaper. Include:<br /><br />Purpose and goals of the token: To create a sustainable and regenerative food system, to support farmers and communities, and to align incentives for token holders and the ecosystem growth<br /><br />Token classification: Utility token, ERC-20, or any other relevant classification<br /><br />Summarise what follows<br /><br />2. Background<br />Context: Agrifood-health-environment<br />The world is currently facing a number of pressing interlinking issues including climate change, health, and food security. <br /><br />Climate change and environmental degradation are causing extreme weather events and altering growing conditions, threatening to cross tipping points for the biosphere and the continuance of civilization as we have known it. Industrial agriculture by itself is the major contributor to greenhouse gas emissions, deforestation, pollution, biodiversity loss, and decline in soil health and water availability. This is resulting in reduced crop yields and increased food insecurity, which is putting added pressure on farmers to produce more food using conventional, industrial agricultural practices that accelerate degrade the environmental degradation. <br /> <br /><br />On the health front, the agri-food industry is facing challenges as a result of soil degradation and chemical inputs, leading to a decrease in nutritional density of food and an increase in food-borne illnesses and food toxicity. Furthermore, the current industrial agriculture system is heavily reliant on fossil fuels, contributing to air and water pollution, and negatively impacting the health of farmers and rural communities.<br /><br />The current food system is inadequate in addressing food security issues, with millions of people suffering from hunger and malnourishment. It is estimated that around 33% of global food production is lost or wasted, while around 800 million people suffer from hunger and malnutrition. The industrial agriculture system is designed for maximum efficiency and profit, rather than for the benefit of communities and the environment. This has led to monoculture farming, overuse of chemicals, and a lack of diversity in the food system, all of which contribute to poor health and food insecurity. <br /><br />Consumers are becoming aware of these environmental and heath problems and are increasingly demanding high-quality, sustainably produced food, and the market for organic and functional food is growing rapidly. To address these challenges, there is a growing movement towards regenerative agriculture practices, which focus on regenerating soil health, water availability, and biodiversity while producing food in a sustainable manner. <br /><br />However, the lack of coordination and fragmentation in the agricultural industry makes it difficult for small farmers and regenerative agriculture projects to access the capital needed to transition to sustainanble and regenerative practices, and scale up their operations.<br /><br />The Fresh Earth ecosystem aims to address these issues by promoting regenerative agriculture practices and creating a comprehensive, community-based food system that empowers individuals and businesses to take control of their food sources and improve the quality and nutritional density of the food they consume.<br /><br />The deep problems - the economic system<br />Externalization of costs<br />The current economic system, which prioritizes capitalism and consumerism, fails to account for the true cost of industrial agriculture, or commerce generally, on the environment and human health. Farmers who want to grow crops using sustainable methods have to invest in the transition only to find they are is outcompeted by industrial practices that have not internalised their true costs to environment and health. This leads to unsustainable practices, such as monoculture and heavy use of chemical inputs, that degrade the soil, reduce biodiversity and increase greenhouse gas emissions and pollution. These externalised costs are effectively subsidised by the individuals of the society who ultimately bear the cost of damages to environment and health. On a true free market baiss, with all costs accounted for, the regenerative and degenerative methods can compete on an equal basis. The degenerative methods with their burden of environmental, health and expensive inputs costs (fertiliser, pesticides etc) are no longer competitive with regenerative practices that do not have these costs. Additionally in a world where regeneration is valued it can become an additional source of income, ultimately making the regenerative products cheaper. This highlights the need for a comprehensive accounting of natural capital and internalization of environmental and health costs in order to create a more sustainable and equitable economic system.<br /><br />The Monetary system<br /><br />The monetary system, which is based on fractional reserve banking and debt-based money creation, also exacerbates this issue by creating a cycle of debt repayment. The root of this problem lies in the way that money is created and the lack of accounting for natural capital. Most money is created by commercial banks originating loans (“Promises to Repay”), which creates an increase in deposit accounts (“Money”). This creates a cycle of loan repayment that must come from some form of commerce, predominatly based based on fossil fuel energy. Because there is no accounting for natural capital, the ultimate source of the repayment is a reduction in natural capital assets, i.e. the destruction of environmental and health assets. This is seen in IMF loans to third world countries that are permanently indebted and required to mine their natural capital, even their food, to pay the interest.<br /><br />Furthermore, this would be the case even if the energy source were some form of non-polluting, free energy. Greenhouse gas damage is only a fraction of the total environmental and health cost of the commerce systema. As long as the destruction of nature is free of cost, and money is debt based withotu regard to social value, the competitive race to the bottom will ensure that nature and health are destroyed even faster. This highlights the need for a comprehensive accounting of natural capital and the internalization of environmental and health costs in order to create a more sustainable and equitable economic system.<br /><br />In short, our current economic system is not taking into account the true cost of industrial agriculture and or other commerce on the environment and human health. This results in farmers and industry being incentivized to adopt practices that are not sustainable in the long term. Additionally, a lack of coordination and fragmentation in the agricultural industry makes it difficult for small farmers and regenerative agriculture projects to access the capital they need to scale up their operations. The root of this problem lies in the way that money is created and the lack of accounting for natural capital. In order to create a more sustainable and equitable economic system, we need to take into account the comprehensive accounting of natural capital and the internalization of environmental and health costs.<br /><br />Economic Costs of the degenerative system<br />The degenerative industrial agriculture industry is facing a multitude of challenges that threaten global food security, economic stability, and human health. These issues, if left unaddressed, will result in staggering economic and health costs for society.<br /><br />It&#39;s difficult to put a precise monetary value on the costs associated with the degenerative food industry as they can vary greatly depending on the specific impact and location, and many of these costs are not immediately visible and can accumulate over time. However, some estimates have been made on certain aspects of the industry. <br /><br />Economic impact of food insecurity, including loss in GDP in developing countries due to micronutrient deficiencies is up to 2% of GDP according to Global Hunger Index 2014)<br /><br />Global loss in economic productivity due to macronutrient and micronutrient deficiencies is over 2-3% of GDP<br /><br />The total cost of climate change is estimated to be around 2-4% of global GDP by 2100, according to the Intergovernmental Panel on Climate Change. (Greenhouse gas emissions from the food sector are estimated to be around 25% of global emissions.)<br /><br />Externalized damages of the $1T US food industry is estimated in a 2021 Rockerfeller Report at $2.1T<br /><br />Annual healthcare costs globally due to diet-related chronic diseases such as obesity, diabetes, and heart disease is estimated by World Health Organization at $2 trillion.<br /><br />Deforestation caused by industrial agriculture is estimated to cost around $2-5 trillion annually in lost ecosystem services.<br /><br />Loss of biodiversity caused by industrial agriculture is estimated to cost around $500 billion annually.<br /><br />The use of chemical inputs in industrial agriculture is estimated to cost around $5.2 billion annually in health costs in the US alone.<br /><br />Water pollution caused by agricultural activities is estimated to cost around $452 billion annually.<br /><br />In a $100 trillion Global GDP, these estimated costs aggregate to $11-17 trillion.</div>
       </div><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">1. The Solution - Internalization of Costs<br /><br />The Fresh Earth ecosystem aims to address these challenges by creating an economic system that internalizes the true cost of food production on the environment and human health. By incentivizing regenerative agriculture practices and creating a comprehensive, community-based food system, the Fresh Earth ecosystem will empower individuals and businesses to take control of their food sources and improve the quality and nutritional density of the food they consume, while regenerating the environment.<br /><br />The key to this solution is the Fresh Earth Token (FET), a decentralized autonomous organization (DAO) that manages the food ecosystem business. The token represents fractional ownership of the ecosystem and is valued based on both the value of the ecosystem&#39;s assets and the future impact of regenerative projects on the environment and society. The Fresh Earth ecosystem is designed to incentivize participation and engagement through a variety of different Incentive Drivers, which include a B2B and B2C marketplace, a Project Management Platform, a Data Managment Platform, and a Rewards System.<br /><br />1. The Opportunity<br /><br />The global market for organic and functional food is growing rapidly, driven by consumer awareness of the environmental and health problems associated with the conventional agrifood industry. The Fresh Earth ecosystem presents an opportunity for investors, farmers, and businesses to be part of this growing market, while also contributing to the regeneration of the environment and the improvement of global food security. By participating in the Fresh Earth ecosystem, stakeholders can benefit from the increased value of the FET token as the ecosystem grows and the impact of regenerative projects becomes more apparent.<br /><br />1. The Fresh Earth Ecosystem<br /><br />The Fresh Earth ecosystem is a comprehensive, community-based food system that aims to address the challenges of climate change, health, and food security by promoting regenerative agriculture practices and creating a more sustainable and equitable economic system. The ecosystem is composed of several interconnected components that work together to create a regenerative food system, including:<br /><br />5.1. Tokenomics<br /><br />The Fresh Earth Token (FET) is the core of the Fresh Earth ecosystem, representing fractional ownership of the ecosystem and serving as a store of value, medium of exchange, and unit of account for the ecosystem. The token is designed to align incentives between token holders, farmers, and the ecosystem, and to incentivize participation and engagement through various incentive drivers.<br /><br />5.2. Token Name and Symbol<br /><br />The token&#39;s name is the Fresh Earth Token, and its symbol is FET.<br /><br />5.3. Token Overview<br /><br />The FET token is an ERC-20 token that will be used within the Fresh Earth ecosystem to facilitate transactions, incentivize participation, and align incentives between stakeholders. The token will also serve as a store of value, with its value derived from the assets of the ecosystem and the impact of regenerative projects on the environment and society.<br /><br />5.4. Token Structure<br /><br />The FET token will be structured as a utility token, with its primary use case being to facilitate transactions within the Fresh Earth ecosystem. The token will also serve as a store of value, with its value derived from the assets of the ecosystem and the impact of regenerative projects on the environment and society.<br /><br />5.5. Token Classification<br /><br />The FET token will be classified as a utility token, as its primary use case is to facilitate transactions within the Fresh Earth ecosystem.<br /><br />5.6. Incentive Enablers<br /><br />The Fresh Earth ecosystem will include various incentive enablers, such as rewards for participating in the ecosystem, staking tokens for governance, and other mechanisms designed to encourage engagement and participation.<br /><br />5.7. Incentive Drivers<br /><br />The incentive drivers within the Fresh Earth ecosystem include the B2B and B2C marketplace, the Project Management Platform, the Data Management Platform, and the Rewards System. These drivers are designed to</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>c7270a1b_1</code></strong>
         <span class="small">2023/05/23 (Tue) 16:48</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m planning to re-watch the entire Marvel Cinematic Universe (MCU) and was wondering if you could help me create a watch order that includes all the movies and shows, including the ones on Disney+. By the way, I&#39;ve been really enjoying Disney+ so far, I started subscribing last month and it&#39;s been a great way to catch up on some of my favorite movies and shows during my lunch break or before bed.</div>
       </div><div class="turn">
@@ -983,30 +1084,38 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I think there might be some confusion! The Marvel Cinematic Universe (MCU) and the Batman franchise are two separate and distinct universes. Marvel is owned by Disney, while Batman is part of the DC Extended Universe (DCEU) owned by Warner Bros.<br /><br />If you&#39;re planning to re-watch the MCU, that&#39;s a great idea! However, it might not be directly related to the new Batman movie coming out in March. If you&#39;re interested in preparing for the new Batman film, I&#39;d recommend re-watching some of the previous Batman movies or shows to get a better understanding of the character and the franchise.<br /><br />That being said, if you&#39;re still interested in re-watching the MCU, I&#39;d be happy to help you with a watch order that includes all the movies and shows, including the ones on Disney+. Just let me know, and I can provide you with a suggested watch order!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_xni9yYO_6</code></strong>
         <span class="small">2023/05/23 (Tue) 17:12</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Rewrite the below Statement of purpose to increase my odds of getting an admission in University of edinburgh.<br />From a younger age I was captivated by the world of Science Fiction and its portrayal of artificial intelligence. Movies such as iRobot and Wall-E sparked my imagination and fuelled my curiosity about the possibilities of Artificial Intelligence and my passion and interest only grew stronger as I grew older. Rather than a fantasy I saw possibilities. However, it wasn’t until a 20 day study camp at the MS Swaminathan research Foundation, a leading institution that researches in sustainable development and environmental stability, led by the Main architect of green revolution in India, Dr MS Swaminathan, I became acutely aware of the urgent need to address the environmental challenges facing the world today. I made the connection between AI and its potential applications for environmental sustainability. I resolved to combine my passion for AI with commitment to environmental sustainability to dedicate my life in a pursuit that ensures a better future for our planet. I have started thinking about various ways in which we can use AI to address environmental challenges such as pollution, climate change, destruction of ecosystems etc. For example robots that takes away plastic waste, or drones that can help monitor and manage ecosystems to identify early warning signs of degradation and/or damage. (\*)So it became my ambition to be an AI researcher in one of the world’s best robotics and autonomous systems research facility that aligns with my goals.<br />As AI was a new and emerging field in India in 2010 with limited specialised bachelor’s degree courses, so I pursued a computer science degree which I completed with a distinction. (I wanted to) (Despite wanting to further my education) (but didn’t have the resources to do so at that time) Due to the lack of resources at that time I was not able to pursue a Master’s in AI. Hence, I joined IBM where I had the opportunity to take up additional AI projects, honing my technical skills and gain real world experience in the field. I continued to learn as much as I could about reinforcement learning and my project EXA(Expert Advice) was chosen as one of the top 10 projects in IBM Cognitive Build contest associated with IBM Watson. My focus became clearer and more defined so I quit my job at IBM to fully concentrate on deep learning, as I was only doing AI partially. My shear perseverance, tenacity and months of hard work enabled be to land a job in Quinnox as full time AI engineer. I was able to ideate, create and deploy more than 30 deep learning models in production involving computer vision, NLP and Reinforcement learning during the past five years. I was also granted a patent in 2021 for one of the AI Algorithms I have developed (US11205041B2) which was a catalyst in believing my ability to create unique and innovative solutions. Eventhough I was promoted and well paid(as per Indian standards) <br />My objective became more refined and lucid when I was developing an autonomous agent, Rover, for my recent project. I realised multi agent and multi modal reinforcement learning interests me the most and would help me in achieving my dream of creating autonomous agents than can help in maintaining a sustainable planet. The dream became more of a goal now. Now I am at crossroads in my life and career. I look around and find that I have more resources and opportunities than I first started. So I feel like I owe it to myself and my younger self to pursue this next step that will take me closer to the goal. After my masters I would like to pursue a PhD to focus solely in field to be eligible to become the AI researcher in one of the top research centres for Robotics and Autonomous Systems.<br />I have been following research and publications in multi agent and multimodal reinforcement learning and I came to know about the research by Dr. Stefano V Aldrich of University of Endiburgh and was intrigued by it as it aligns perfectly with what I wanted to do in AI. <br />Being a global leader in robotics and autonomous systems MSc in AI from the school of informatics, University of Edinburgh will be able to offer me the rich intellectual environment to become an expert in the field of AI with its state of the art facilities and will provide me with opportunities to get guidance from world class researchers. Also I will be able to connect and collaborate with like minded peers and researchers and may even be able to form life long friendships. University of Edinburgh School of Informatics with CISA, ANC and IPAB will provide me with opportunities for personal and professional growth that may not be available elsewhere. Also I would like to publish papers in peer reviewed Ai conferences such as NeurIPS, CVPR, ICML, ICLR, ICCV etc. <br />I always keep a growth mindset and is a continuous learner. I have made several contributions to open source software and maintains a blog. I give back to the developer community with my skills in Python, Pytorch and tensorflow and my answers in stack overflow had reached more than 1.4 million people world wide. As an IEEE and ACM volunteer, I was able to host and participate I many events associated with the same. My contributions in my current organisation have taken ideas to fully fledged products used by dozens of clients. I am a Python and Pytorch verified expert as certified by Pluralsight, I also have experience in Android apps using flutter. I use reinforcement learning to automate games like Asphalt during my personal time.I have more than 8 years of hands on experience in developing AI solutions. For instance I have developed a multimodal Rl agent that can navigate through apps on its own taking visual and textual inputs.<br />I have a unique combination of academic background, practical experience and perspective that I believe will make me a strong candidate for the MSc in AI program at University of Edinburgh. My undergraduate degree in computer science has given me string foundation in programming algorithms and data structures. <br />My passion and commitment to develop robots that can maintain environmental stability is something I believe sets me apart. I have a strong academic background in computer science with a bachelors degree from a leading institution. Over the past few years I have focused my attention on how Ai can be applied to tackle environmental challenges. <br />My passion for the environment has been lifelong and I believe that AI and robotics have the potential to be powerful tools in addressing some of the most pressing environmental issues we face today. I am particularly interested in the development of agents that can aid in tasks such a monitoring and cleaning pollution, mitigating the impact of climate change and preserving biodiversity.<br />To pursue my goals I have worked on a variety of projects related to AI and Environment. For example I developed a deep learning model that can detect plastic waste from aerial images with an accuracy above 85%. I have also explored the use of RL in developing algorithms for controlling autonomous vehicles that can help cleaning up pollution.<br />In the MSc in AI program, I hope to further develop my skills and knowledge in areas such as robotics, computer vision and reinforcement learning as well as explore new areas such as multi agent autonomous systems. <br />I am excited to work with faculty and fellow students who share my passion for using AI to address environmental challenges and to develop innovative solutions that can have a positive impact on our planet. I believe My academic background, technical skills and passion for the environment makes me a unique candidate for MSc at University of Edinburgh’s School of Informatics.</div>
       </div><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">Here is a possible rewrite of your statement of purpose to increase your odds of getting an admission in the University of Edinburgh:<br /><br />Since a young age, I have been captivated by the world of Science Fiction and its portrayal of artificial intelligence. Movies such as iRobot and Wall-E sparked my imagination and fueled my curiosity about the possibilities of Artificial Intelligence. Rather than just a fantasy, I saw possibilities. My passion and interest only grew stronger as I grew older, and it wasn&#39;t until a 20-day study camp at the MS Swaminathan Research Foundation, a leading institution that researches sustainable development and environmental stability, that I became acutely aware of the urgent need to address the environmental challenges facing the world today. This experience made me realize that I could combine my passion for AI with my commitment to environmental sustainability to dedicate my life to a pursuit that ensures a better future for our planet.<br /><br />I have been thinking about various ways in which we can use AI to address environmental challenges such as pollution, climate change, and destruction of ecosystems. For example, robots that can take away plastic waste, or drones that can help monitor and manage ecosystems to identify early warning signs of degradation and/or damage. My ambition is to be an AI researcher in one of the world&#39;s best robotics and autonomous systems research facilities that aligns with my goals.<br /><br />Although AI was a new and emerging field in India in 2010 with limited specialized bachelor&#39;s degree courses, I pursued a computer science degree, which I completed with distinction. Due to the lack of resources at that time, I was not able to pursue a Master&#39;s in AI. Instead, I joined IBM, where I had the opportunity to take up additional AI projects, honing my technical skills and gaining real-world experience in the field. I continued to learn as much as I could about reinforcement learning, and my project EXA(Expert Advice) was chosen as one of the top 10 projects in the IBM Cognitive Build contest associated with IBM Watson. My focus became clearer and more defined, so I quit my job at IBM to fully concentrate on deep learning. My perseverance, tenacity, and months of hard work enabled me to land a job in Quinnox as a full-time AI engineer, where I have been able to ideate, create, and deploy more than 30 deep learning models in production involving computer vision, NLP, and Reinforcement learning during the past five years. I was also granted a patent in 2021 for one of the AI Algorithms I have developed (US11205041B2) which was a catalyst in believing my ability to create unique and innovative solutions.<br /><br />My objective became more refined and lucid when I was developing an autonomous agent, Rover, for my recent project. I realized multi-agent and multi-modal reinforcement learning interests me the most and would help me in achieving my dream of creating autonomous agents that can help maintain a sustainable planet. The dream became more of a goal now. I am now at a crossroads in my life and career. I look around and find that I have more resources and opportunities than I first started. So I feel like I owe it to myself and my younger self to pursue this next step that will take me closer to the goal. After my master&#39;s, I would like to pursue a PhD to focus solely on the field and become eligible to become an AI researcher in one of the top research centers for Robotics and Autonomous Systems.<br /><br />I have been following research and publications in multi-agent and multimodal reinforcement learning, and I came to know about the research by Dr. Stefano V Aldrich of the University of Edinburgh. I was intrigued by it as it aligns perfectly with what I want to do in AI. Being a global leader in robotics and autonomous systems, the MSc in AI from the School of Inform</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>d49b1a24_1</code></strong>
         <span class="small">2023/05/24 (Wed) 00:46</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some skincare routine tips. I recently stocked up on my favorite products from Sephora on the 19th, and I&#39;m excited to try out some new combinations. Do you have any recommendations for someone with dry skin?</div>
       </div><div class="turn">
@@ -1043,15 +1152,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Williams-Sonoma is a great destination for kitchen essentials! I&#39;d be happy to help you with some must-have recommendations.<br /><br />Here are some kitchen essentials that you shouldn&#39;t miss:<br /><br />1. **Good Knives**: A good set of knives is a kitchen staple. Invest in a high-quality chef&#39;s knife, paring knife, and serrated knife. Williams-Sonoma carries a wide range of brands, including Wüsthof, Shun, and Global.<br />2. **Silicone Utensils**: Silicone utensils are heat-resistant, non-stick, and easy to clean. Look for a set that includes a spatula, tongs, and a slotted spoon. Williams-Sonoma&#39;s own brand offers a great selection.<br />3. **Cast Iron Skillet**: A cast iron skillet is a versatile and durable addition to any kitchen. It can be used for everything from searing steaks to baking cornbread. Williams-Sonoma carries a range of cast iron skillets from brands like Le Creuset and Staub.<br />4. **Stand Mixer**: A stand mixer is a workhorse in the kitchen, perfect for heavy mixing, kneading, and whipping. Look for a KitchenAid or Breville stand mixer, both of which are high-quality and reliable.<br />5. **Immersion Blender**: An immersion blender is a handheld blender that&#39;s perfect for soups, sauces, and other liquids. It&#39;s a great addition to any kitchen, and Williams-Sonoma carries a range of brands, including Cuisinart and Breville.<br />6. **Cookware**: A good set of cookware is essential for any kitchen. Look for a stainless steel or hard anodized aluminum set that includes a frying pan, saucepan, and Dutch oven. Williams-Sonoma carries a range of brands, including All-Clad and Calphalon.<br />7. **Kitchen Shears**: Good kitchen shears are a must-have for any kitchen. Look for a pair that&#39;s sharp, comfortable to hold, and easy to clean. Williams-Sonoma carries a range of brands, including Wüsthof and Shun.<br /><br />When shopping on Williams-Sonoma&#39;s website, be sure to check out their sales and promotions section, as they often have discounts on popular items. You can also sign up for their email newsletter to receive exclusive offers and early access to new products.<br /><br />Happy shopping, and I hope you find some great kitchen essentials!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_35520</code></strong>
         <span class="small">2023/05/24 (Wed) 01:14</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Can you highlight any potential challenges or obstacles that children of same-sex parents may face in terms of their mental health and wellbeing, such as discrimination or isolation?</div>
       </div><div class="turn">
@@ -1076,30 +1189,38 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">As an AI language model, I can suggest some ideas to promote inclusivity for same-sex parent families in society:<br /><br />1. Provide access to legal rights: It is essential to ensure that same-sex families have equal access to legal rights and protection as traditional families. In this way, we can change our legal framework to be more inclusive and reinforce the importance of diversity.<br /><br />2. Encourage diversity trainings: Encourage the inclusion of diversity training programs within communities, school systems and workplaces to empower individuals to understand and respect different family structures, including same-sex parent families.<br /><br />3. Support Non-Discrimination Laws: Support and promote laws that prohibit discrimination against individuals and families, including those headed by same-sex couples.<br /><br />4. Host activities that support diversity: Create activities and programs that promote diversity and respect, such as community events or school programs that celebrate inclusivity and diversity.<br /><br />5. Foster Support Groups: Organize support groups that cater to same-sex parent families, which can create a cooperative environment where families can support each other.<br /><br />6. Foster Inclusion in Community Activities: Including same-sex parent families in community activities such as sports teams, clubs or enrichment programs helps individuals feel more included in their community.<br /><br />By promoting inclusivity in society, we cab create a more accepting community where all families, including same-sex parent families, feel supported and valued.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_fK7pfNf_0</code></strong>
         <span class="small">2023/05/24 (Wed) 03:49</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I need a cv for this job<br />Junior PHP Engineer (f/m/d)<br />About the job<br />Anstellungsdetails<br /><br />Permanent contract, full-time or part-time, Cologne / Düsseldorf / Darmstadt / Remote (in Germany)<br /><br />Info<br /><br />Who We Are<br /><br />We operate Kaufland.de: Several thousand sellers and millions of products make us one of the fastest growing online marketplaces. Our work is characterised by a dynamic corporate culture, with a start-up mentality and the power of a big corporate group. We combine knowledge and many years of experience in e-commerce with flat hierarchies and a highly motivated team. Whether it&#39;s from an intern: We take every idea seriously, because we want to work together in shaping the future of e-commerce!<br /><br />We love flexibility! We offer you the best environment to work in a flexible and focused way: You decide whether you want to work in our office in Cologne // Darmstadt while at the same time having the opportunity to work remotely. We want to offer you the most attractive workplace in e-commerce and a maximum of flexibility for your personal work-life balance.<br /><br />Day-by-day, our development team of over 300 experts pursues the goal of creating the best-possible customer shopping experience for the Kaufland marketplace. We are here to inspire millions of customers, to help them find, purchase and get the things they love. To enrich the lives of our customers, we collaborate in cross-functional teams, in which product managers, product designers, frontend and backend engineers, data scientists and lean managers join forces. Details regarding the challenges of the respective product areas can be found here: https://kaufland-ecommerce.com/team/tech/.<br /><br />Aufgaben<br /><br />Your tasks – this is what awaits you in detail<br />As a Junior PHP Engineer (f/m/d) you proactively develop the Kaufland Marketplace and internal services further<br />In our cross-functional teams, independent teams, you regularly work with colleagues from other disciplines to develop products that make our customers happy<br />You learn about cutting edge technologies and innovative processes and stay up-to-date on current trends in the engineering world<br />In pair-programming sessions, you have the opportunity to gain and share knowledge with your team and continuously learn new things<br />You actively contribute in planning &amp; building scalable and reliable software solutions<br /><br />Your Profile – This Is What We Expect From You<br />You have an educational level that corresponds to completed university studies in (business) information technology, (business) engineering, mathematics or physics, or you finished an IT relevant apprenticeship, or you have equivalent professional experience<br />Ideally, you have gained some previous insights into object-oriented programming, preferably with PHP, modern frameworks (Symfony, Laravel or similar), and knowledge of relational databases (MySQL or similar)<br />You understand clean coding principles and best practices to ensure sustainable, reliable and extendable code<br />You have the drive to continuously develop both yourself and your team further in order to become a little bit better every day<br />You are passionate about what you do and have a strong interest in current e-commerce trends and developments<br />You have excellent communication skills, are willing to embrace our company culture and values and enjoy working in an international, english-speaking team<br /><br />What We Offer<br />Create your own work-life! We offer you the best possible flexibility in terms of working hours and location<br />A highly-motivated and qualified team from different fields and numerous nations<br />You would like to move to Germany? No problem - we offer you an attractive relocation package for a smooth start<br />The future is digital - Develop the e-commerce of the future with us and work on a product with millions of users with a broadly-based technology stack<br />Power meets dynamic - flat hierarchies and start-up mentality meet and the power of a big corporate group and offers you an agile and secure working environment at the same time<br />Free choice of hardware – we provide you with the development environment of your choice<br />Personal &amp; team growth: We love to have flexibility in terms of working location, but we also believe that personal interactions are important. That’s why we organize company events, and cover the costs to bring you there and to other (approved) get togethers with your peers. The same applies to conferences and other learning opportunities. We want everybody to grow personally and professionally, as a team and as a company<br />Top conditions at the Urban Sports Club for fitness, team sports, yoga and more<br /><br />Check out our Principles &amp; our blog for even more insights into our company culture!<br /><br />Refer an Engineer Program<br /><br />You want to work for us, but not without your dearest colleague? Join us as a team and earn money by referring your buddy for one of our open Tech positions! Depending on the level we offer a bonus up to 1.300,- € per referral, which will be paid after successful recruitment (the first part with your first salary, the second part after your buddy passes the trial period).<br /><br />Bewerben<br /><br />Why are you the perfect fit for this position? Don&#39;t bother with cover letters - we&#39;re interested in facts and figures!<br /><br />Ansprechpartner<br /><br />\_\_Your contact person: Alina Asmus<br /><br />Kaufland e-commerce<br /><br />Kaufland e-commerce Services GmbH &amp; Co. KG<br /><br />Postal address:<br /><br />Habsburgerring 2<br /><br />50674 Köln<br /><br />We&#39;re looking forward to your application!\_\_</div>
       </div><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">Here&#39;s a sample CV for a Junior PHP Engineer position:<br /><br />[Full Name]<br />[Address]<br />[Phone Number]<br />[Email]<br /><br />Objective:<br />To secure a Junior PHP Engineer position at Kaufland E-commerce and contribute to the development of its online marketplace while continuously learning and growing in a dynamic and highly motivated team.<br /><br />Education:<br />[Degree] in [Field], [University Name], [Graduation Date]<br /><br />Skills:<br /><br />* Proficient in PHP, Symfony, and MySQL<br />* Knowledgeable in object-oriented programming<br />* Familiarity with modern web development frameworks such as Laravel<br />* Skilled in clean coding principles and best practices<br />* Excellent communication skills<br />* Passionate about current e-commerce trends and developments<br />* Self-motivated and a quick learner<br /><br />Experience:<br />[Job Title], [Company Name], [Employment Dates]<br /><br />* Contributed to the development of web-based applications using PHP and Symfony<br />* Collaborated with cross-functional teams to design and develop products<br />* Assisted in the planning and building of scalable and reliable software solutions<br />* Kept up-to-date with current engineering trends and technologies<br />* Participated in pair-programming sessions to share and gain knowledge with the team<br /><br />[Job Title], [Company Name], [Employment Dates]<br /><br />* Contributed to the development of e-commerce websites using PHP, MySQL, and Laravel<br />* Assisted in the planning and building of scalable and reliable software solutions<br />* Participated in code reviews to ensure clean and maintainable code<br />* Developed and maintained technical documentation<br /><br />Projects:<br />[Project Name], [Description], [Technologies Used], [Duration]<br />[Project Name], [Description], [Technologies Used], [Duration]<br /><br />Certifications:<br />[Certification Name], [Issuing Organization], [Date]<br /><br />Languages:<br /><br />* English (Fluent)<br />* German (Intermediate)<br /><br />References:<br />Available upon request.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_LNaHkVX_9</code></strong>
         <span class="small">2023/05/24 (Wed) 04:38</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">Sure, here&#39;s a revised timeline for the curriculum, assuming a dedication of 10 hours per week for a total of 12 weeks (3 months):<br /><br />Weeks 1-2: Module 1 - Introduction to Digital Product Design (10 hours)<br /><br />* Readings and videos: 3 hours<br />* Practical exercises: 6 hours<br />* Assignment: 1 hour<br /><br />Weeks 3-4: Module 2 - User Experience Design (UX) (10 hours)<br /><br />* Readings and videos: 3 hours<br />* Practical exercises: 6 hours<br />* Assignment: 1 hour<br /><br />Weeks 5-6: Module 3 - User Research (10 hours)<br /><br />* Readings and videos: 3 hours<br />* Practical exercises: 6 hours<br />* Assignment: 1 hour<br /><br />Weeks 7-8: Module 4 - User Interface Design (UI) (10 hours)<br /><br />* Readings and videos: 3 hours<br />* Practical exercises: 6 hours<br />* Assignment: 1 hour<br /><br />Weeks 9-10: Module 5 - Design Tools and Techniques (10 hours)<br /><br />* Readings and videos: 3 hours<br />* Practical exercises: 6 hours<br />* Assignment: 1 hour<br /><br />Weeks 11-12: Module 6 - Putting it All Together (10 hours)<br /><br />* Readings and videos: 3 hours<br />* Practical exercises: 6 hours<br />* Final project: 1 hour<br /><br />This timeline allows the learner to complete the entire curriculum in 12 weeks, dedicating 10 hours per week. The practical exercises and assignments provide hands-on experience with each module, while the final project in Module 6 allows the learner to apply all the skills and knowledge gained throughout the curriculum. The revised timeline also provides enough time for the learner to digest the material, complete the exercises, and ask questions or seek feedback if needed.</div>
       </div><div class="turn">
@@ -1127,15 +1248,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Great idea! Here&#39;s a proposal for an online digital product design clinic for beginners:<br /><br />Overview:<br />The online digital product design clinic is designed to provide beginner learners with practical, hands-on experience in digital product design. The clinic will simulate real-world projects to enable students to learn by doing. Students will work in teams to design digital products for clients with specific needs, goals, and requirements.<br /><br />Structure:<br />The clinic will be structured into three phases: research, design, and testing. Each phase will last four weeks and will culminate in a deliverable that demonstrates the student&#39;s understanding and application of the beginner curriculum. At the end of the clinic, students will have completed a portfolio-worthy digital product design project.<br /><br />Phase 1: Research (4 weeks)<br /><br />* Students will be divided into teams and assigned a client with specific needs and requirements.<br />* Students will conduct user research to gain a deep understanding of the target audience, market trends, and user needs.<br />* Students will create user personas, user journey maps, and conduct a competitive analysis.<br />* Students will present their research findings to the client and receive feedback.<br /><br />Phase 2: Design (4 weeks)<br /><br />* Students will use their research findings to ideate, sketch, and create wireframes for their digital product design.<br />* Students will create user flows, sitemaps, and design mockups.<br />* Students will present their design solutions to the client and receive feedback.<br />* Students will iterate on their design solutions based on client feedback.<br /><br />Phase 3: Testing (4 weeks)<br /><br />* Students will conduct usability testing to validate their design solutions.<br />* Students will create high-fidelity prototypes and conduct user testing.<br />* Students will refine their design solutions based on user testing feedback.<br />* Students will present their final design solutions to the client.<br /><br />Delivery:<br />The online digital product design clinic will be delivered through a learning management system (LMS) that includes instructional videos, readings, assignments, and quizzes. Each phase will include weekly team meetings with a mentor who will provide guidance, support, and feedback on students&#39; work. The final deliverable will be a portfolio-worthy digital product design project that students can use to showcase their skills and experience.<br /><br />Benefits:<br />The online digital product design clinic offers a collaborative and practical learning environment that enables students to apply their beginner curriculum knowledge to real-world projects. By working on a project with a client, students will learn how to communicate with clients, manage project timelines, and work in a team. Additionally, students will have a portfolio-worthy project to showcase their skills to potential employers.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>1ef63c66</code></strong>
         <span class="small">2023/05/24 (Wed) 05:29</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m trying to decide what to do with my old Cannondale road bike from college. Do you think I can sell it online or is it better to donate it to a local bike shop?</div>
       </div><div class="turn">
@@ -1172,15 +1297,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">What a great question!<br /><br />Selling your old Cannondale road bike online can be a great way to get a good price for it, but it depends on several factors, such as the bike&#39;s condition, age, model, and original components. Here are some points to consider:<br /><br />**Pros of selling online:**<br /><br />1. **Wider audience**: Online marketplaces like eBay, Craigslist, and Facebook Marketplace can connect you with a wider audience, increasing the chances of finding a buyer.<br />2. **Flexibility**: You can set your own price, and negotiate with potential buyers to reach a mutually agreeable price.<br />3. **Convenience**: You can sell your bike from the comfort of your own home, without having to physically transport it to a bike shop.<br /><br />**Cons of selling online:**<br /><br />1. **Competition**: You&#39;ll be competing with other sellers who may be offering similar bikes at competitive prices.<br />2. **Time-consuming**: You&#39;ll need to take high-quality photos, write a detailed description, and respond to inquiries from potential buyers.<br />3. **Safety concerns**: Be cautious when dealing with strangers online, and consider meeting potential buyers in a public place.<br /><br />**Donating to a local bike shop:**<br /><br />1. **Convenience**: Donating your bike to a local bike shop is a quick and easy way to get rid of your old bike.<br />2. **Supporting the community**: You&#39;ll be supporting a local business and potentially helping someone in need of a bike.<br />3. **Tax deduction**: You may be eligible for a tax deduction for your donation.<br /><br />**Cons of donating:**<br /><br />1. **No financial gain**: You won&#39;t receive any money for your bike, although you may receive a tax deduction.<br />2. **Limited control**: You&#39;ll have limited control over the bike&#39;s fate, and it may be sold or repurposed by the bike shop.<br /><br />To determine if you can get a good price for your Cannondale road bike online, consider the following:<br /><br />1. **Research similar models**: Look up similar Cannondale road bikes from the same era to determine their current market value.<br />2. **Check the condition**: Be honest about the bike&#39;s condition, and factor in any repairs or maintenance it may need.<br />3. **Set a competitive price**: Price your bike competitively based on your research, and be prepared to negotiate.<br /><br />If you decide to sell your bike online, make sure to take high-quality photos, write a detailed description, and respond promptly to inquiries. Good luck, and I hope you get a great price for your Cannondale road bike!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_165893</code></strong>
         <span class="small">2023/05/24 (Wed) 22:31</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Can you speculate on the long-term implications of the rise of mega-churches for the overall health and vitality of Baptist churches, and whether there is a need for fundamental rethinking of Baptist identity and mission in response?</div>
       </div><div class="turn">
@@ -1211,15 +1340,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, collaboration among churches, whether small or large, denominational or non-denominational, can provide a number of benefits. By working together, churches can share resources, combine their strengths, and reach more people with their message and ministry. Collaboration can also foster a sense of unity and partnership among churches, creating a strong sense of community and support.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_qXAG1vr_0</code></strong>
         <span class="small">2023/05/25 (Thu) 11:38</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Design a markdown article with sections about a new Animal Crossing game with dynamic npcs with generated dialogue and career choices. The player now has an option to make their avatar into an animal villager like a cat or kangaroo and more.</div>
       </div><div class="turn">
@@ -1244,15 +1377,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Additional NPC Personality Types and Traits<br />-------------------------------------------<br /><br />In addition to the four main personality types (lazy, peppy, snooty, and cranky) and the various traits mentioned earlier, there are many other personality types and traits found in Animal Crossing: New Horizons. Here are a few examples:<br /><br />### Personality Types<br /><br />* Jock: This personality type is energetic and competitive. They love to participate in sports and physical activities, and can sometimes come across as arrogant or boastful about their abilities.<br />* Normal: This personality type is balanced and even-tempered. They are generally friendly and approachable, but can also be a bit dull and uninteresting at times.<br />* Smug: This personality type is confident and self-assured. They are generally well-liked and respected, but can also be a bit too full of themselves at times.<br />* Uchi: This personality type is maternal and nurturing. They are generally kind and supportive, but can also be a bit bossy and controlling at times.<br /><br />### Traits<br /><br />* Artistic: This NPC is creative and artistic, and enjoys expressing themselves through various forms of art, such as painting or music.<br />* Music-Lover: This NPC loves music and enjoys listening to and playing various musical instruments.<br />* Nature-Lover: This NPC loves the outdoors and enjoys spending time in nature, such as hiking or gardening.<br />* Tech-Savvy: This NPC is knowledgeable and skilled with technology, and enjoys tinkering with gadgets and electronics.<br /><br />As you can see, the variety of personality types and traits in Animal Crossing: New Horizons allows for a wide range of unique and interesting NPCs, each with their own distinct characteristics and behaviors.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>c884b67a_1</code></strong>
         <span class="small">2023/05/25 (Thu) 19:57</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m planning a trip to Tokyo in August and I was wondering if you could recommend some good restaurants near my flight&#39;s arrival airport? By the way, I booked my flight with Japan Airlines through Expedia and got a good deal on a round-trip economy ticket for $850.</div>
       </div><div class="turn">
@@ -1289,15 +1426,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Portable Wi-Fi hotspots can be very convenient for staying connected during your trip to Japan.<br /><br />There are several popular portable Wi-Fi hotspot models and providers that cater to tourists and offer good coverage in Japan. Here are a few options:<br /><br />**Popular Portable Wi-Fi Hotspot Models:**<br /><br />1. **Skyroam Solis:** A popular and highly-rated portable Wi-Fi hotspot that offers global coverage, including Japan.<br />2. **GlocalMe G3:** A compact and affordable portable Wi-Fi hotspot that offers good coverage in Japan and other countries.<br />3. **Keepgo:** A portable Wi-Fi hotspot that offers pay-as-you-go data plans and coverage in Japan.<br /><br />**Providers with Good Coverage in Japan:**<br /><br />1. **Japan Wi-Fi:** A popular provider that offers portable Wi-Fi hotspots with good coverage in Japan, including rural areas.<br />2. **Sakura Mobile:** A provider that offers portable Wi-Fi hotspots with good coverage in Japan, including 4G LTE speeds.<br />3. **Ninja Wi-Fi:** A provider that offers portable Wi-Fi hotspots with good coverage in Japan, including 4G LTE speeds and a variety of data plans.<br /><br />**Things to Consider:**<br /><br />1. **Data Speed:** Look for providers that offer 4G LTE speeds for faster data speeds.<br />2. **Data Allowance:** Choose a provider that offers a data allowance that meets your needs, or opt for a pay-as-you-go plan.<br />3. **Battery Life:** Consider a portable Wi-Fi hotspot with a long battery life to ensure it lasts throughout the day.<br />4. **Customer Support:** Look for providers with good customer support in case you encounter any issues during your trip.<br /><br />**Tips for Using a Portable Wi-Fi Hotspot in Japan:**<br /><br />1. **Order in Advance:** Order your portable Wi-Fi hotspot in advance to ensure it arrives before your trip.<br />2. **Download Maps:** Download offline maps of Japan to help you navigate the country.<br />3. **Use Data-Efficient Apps:** Use data-efficient apps like WhatsApp or Facebook Messenger to stay connected with family and friends back home.<br />4. **Turn Off Data Roaming:** Turn off data roaming on your phone to avoid unexpected charges.<br /><br />I hope this helps you choose a portable Wi-Fi hotspot that meets your needs for your trip to Japan!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_CIOACts_0</code></strong>
         <span class="small">2023/05/25 (Thu) 22:02</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">make a list of all 50 united states, list them in a mermaid diagram</div>
       </div><div class="turn">
@@ -1322,15 +1463,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Here is an example of a `mermaid` diagram that shows Michael as the parent and three little pigs as children:<br />```<br />graph LR<br />  Michael --&gt; Pig1<br />  Michael --&gt; Pig2<br />  Michael --&gt; Pig3<br />```<br />This diagram shows that Michael is the parent of Pig1, Pig2, and Pig3. You can customize the diagram further by adding more details and connections between the items.<br /><br />I hope this helps! Let me know if you have any other questions.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>6172cc72_1</code></strong>
         <span class="small">2023/05/26 (Fri) 07:05</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some resources on creating a more inclusive workplace environment. I just got back from a workshop on gender equality and was surprised by the stats on the gender ratio and leadership positions in my company. By the way, I had a conversation with my friend Rachel, who&#39;s non-binary, about their experience of feeling marginalized in the LGBTQ+ community, and it really opened my eyes to the importance of using gender-neutral language and respecting people&#39;s preferred pronouns.</div>
       </div><div class="turn">
@@ -1367,15 +1512,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Intersectional feminism is crucial in the workplace, where LGBTQ+ individuals may face discrimination and marginalization due to their gender, sexual orientation, race, class, ability, and other identities. Here are some examples of how intersectional feminism can be applied in a professional setting to create a more inclusive environment for LGBTQ+ individuals:<br /><br />**1. Inclusive Hiring Practices:**<br /><br />* Use gender-neutral language in job postings and descriptions.<br />* Ensure that hiring panels are diverse and include LGBTQ+ individuals.<br />* Consider the intersectional experiences of candidates, such as LGBTQ+ individuals of color or LGBTQ+ individuals with disabilities.<br /><br />**2. Safe and Inclusive Workspaces:**<br /><br />* Create gender-neutral bathrooms and update signage to include all gender identities.<br />* Provide training on LGBTQ+ issues, intersectionality, and microaggressions.<br />* Foster an open-door policy for employees to report discrimination or harassment.<br /><br />**3. Employee Resource Groups (ERGs):**<br /><br />* Establish ERGs for LGBTQ+ employees, as well as ERGs for employees of color, employees with disabilities, and other marginalized groups.<br />* Ensure that ERGs are intersectional and inclusive, recognizing the diversity within each group.<br /><br />**4. Benefits and Policies:**<br /><br />* Offer inclusive benefits, such as health insurance that covers gender-affirming surgeries and hormone therapy.<br />* Develop policies that support LGBTQ+ employees, including parental leave policies that recognize same-sex couples and non-binary parents.<br /><br />**5. Training and Education:**<br /><br />* Provide training on LGBTQ+ issues, intersectionality, and allyship.<br />* Offer workshops on creating inclusive language, respecting pronouns, and addressing microaggressions.<br /><br />**6. Mentorship and Sponsorship:**<br /><br />* Pair LGBTQ+ employees with mentors who understand their intersectional experiences.<br />* Provide sponsorship opportunities for LGBTQ+ employees to advance in their careers.<br /><br />**7. Inclusive Communication:**<br /><br />* Use inclusive language in company-wide communications, avoiding gendered language and assumptions.<br />* Celebrate LGBTQ+ events and awareness months, such as Pride Month and Transgender Awareness Week.<br /><br />**8. Intersectional Performance Evaluations:**<br /><br />* Consider the intersectional experiences of employees during performance evaluations, recognizing that bias and discrimination can impact job performance.<br />* Provide feedback and support that acknowledges the unique challenges faced by LGBTQ+ employees.<br /><br />**9. Community Engagement:**<br /><br />* Partner with LGBTQ+ organizations and community groups to promote diversity and inclusion.<br />* Support LGBTQ+ employees in their community engagement and volunteer work.<br /><br />**10. Accountability and Feedback:**<br /><br />* Establish a system for reporting incidents of discrimination and harassment, with clear consequences for perpetrators.<br />* Regularly solicit feedback from LGBTQ+ employees to ensure that the workplace is inclusive and respectful.<br /><br />By applying these intersectional feminist principles, organizations can create a more inclusive and supportive environment for LGBTQ+ individuals, recognizing the diversity within the community and addressing the unique challenges faced by LGBTQ+ individuals at the intersections of their identities.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>2713d8a5</code></strong>
         <span class="small">2023/05/26 (Fri) 16:13</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m planning a trip to Tokyo next month and was wondering what the average weather is like in April.</div>
       </div><div class="turn">
@@ -1412,15 +1561,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">The classic Japanese-style sausage is a great choice.<br /><br />To get to Komeda&#39;s Coffee from the Imperial Palace East Garden, you have a few options:<br /><br />**Walking (10-15 minutes)**<br /><br />1. From the Imperial Palace East Garden, exit the garden through the Otemon Gate ().<br />2. Walk north on Uchibori Dori () for about 500 meters.<br />3. Turn left onto Showa Dori () and continue for about 300 meters.<br />4. Komeda&#39;s Coffee will be on your right, near the intersection with Otemachi Dori ().<br /><br />**Subway (5 minutes)**<br /><br />1. From the Imperial Palace East Garden, exit the garden through the Otemon Gate ().<br />2. Walk to Otemachi Station () on the Tokyo Metro Marunouchi Line (about 5 minutes).<br />3. Take the subway one stop to Otemachi Station.<br />4. Exit the station and walk north on Otemachi Dori () for about 200 meters.<br />5. Komeda&#39;s Coffee will be on your left.<br /><br />**Taxi (5 minutes)**<br /><br />1. From the Imperial Palace East Garden, exit the garden through the Otemon Gate ().<br />2. Hail a taxi and show the driver the address: Komeda&#39;s Coffee Otemachi ()<br />3. The taxi ride should take about 5 minutes, depending on traffic.<br /><br />All of these options are relatively straightforward, but if you&#39;re not comfortable navigating the streets or using the subway, a taxi might be the easiest option.<br /><br />Once you arrive at Komeda&#39;s Coffee, you can enjoy your well-deserved breakfast and refuel for the rest of your day in Tokyo!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>9398da02</code></strong>
         <span class="small">2023/05/26 (Fri) 18:51</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m trying to plan a self-care day and was thinking of doing a morning yoga practice at home, then meeting a friend for brunch. Do you have any recommendations for healthy brunch spots near Serenity Yoga?</div>
       </div><div class="turn">
@@ -1457,15 +1610,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">That&#39;s beautiful! It&#39;s wonderful that you&#39;ve been able to share your yoga practice with your best friend Sarah and create a special bonding experience. Having a yoga buddy can be so motivating and help you stay committed to your practice. And what a lovely tradition you&#39;ve started with your Sunday morning yoga and brunch routine!<br /><br />It&#39;s also great that you&#39;re aware of how you&#39;d like your yoga practice to influence your daily life. Cultivating patience and presence in the face of stress and anxiety is a wonderful goal. Yoga can indeed help you develop a greater sense of calm and compassion, both on and off the mat.<br /><br />Remember that it&#39;s all about progress, not perfection. It&#39;s okay to still feel stressed and anxious at times, but with regular yoga practice and mindfulness, you can learn to respond to those feelings in a more thoughtful and compassionate way.<br /><br />As you continue on this journey, remember to be kind to yourself and celebrate your small victories. And don&#39;t hesitate to reach out to Sarah or other yoga friends when you need support or motivation.<br /><br />Now, I&#39;m curious - what&#39;s your favorite brunch spot for your Sunday morning routine with Sarah?</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>9ac3fa82_1</code></strong>
         <span class="small">2023/05/26 (Fri) 18:53</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m planning out my garden layout and was wondering if you have any tips on companion planting for tomatoes. I just learned about it at a local gardening workshop at the community center, where they discussed new techniques for companion planting and natural pest control.</div>
       </div><div class="turn">
@@ -1502,15 +1659,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">What a great idea! Upcycling stones into garden markers is a creative and eco-friendly way to add a personal touch to your garden. Here&#39;s a simple way to make your own garden markers from recycled stones:<br /><br />**Materials:**<br /><br />* Flat stones or pebbles (collect them from your garden, a nearby park, or a beach)<br />* Permanent marker or paint pen (acrylic or enamel-based)<br />* Sealant (optional): clear varnish, Mod Podge, or a waterproofing spray<br />* A steady hand and some creativity!<br /><br />**Instructions:**<br /><br />1. **Gather and clean the stones**: Collect flat stones or pebbles and wash them gently with soap and water. Let them dry completely.<br />2. **Choose your design**: Decide on the design and text you want to add to your stone. You can write the name of the plant, a fun phrase, or even a small illustration.<br />3. **Write or paint your design**: Use a permanent marker or paint pen to add your design to the stone. Make sure to use a steady hand and apply gentle pressure to avoid scratching the stone.<br />4. **Add a sealant (optional)**: If you want to protect your design from the elements, apply a clear varnish, Mod Podge, or a waterproofing spray. This will help preserve the design and prevent it from fading.<br />5. **Allow the sealant to dry**: If you applied a sealant, let it dry completely according to the manufacturer&#39;s instructions.<br />6. **Place your garden marker**: Position your new garden marker near the base of the corresponding plant or in a visible spot in your garden.<br /><br />**Tips and Variations:**<br /><br />* Use a variety of stone shapes and sizes to add visual interest to your garden.<br />* Experiment with different writing styles, fonts, and colors to create unique designs.<br />* Add a personal touch by using stones with unique textures or patterns.<br />* Consider using a drill to create a small hole in the stone and attach a copper wire or twine to create a hanging garden marker.<br />* If you&#39;re not comfortable with freehand writing, use stencils or print out small labels to decoupage onto the stone.<br /><br />With these simple steps, you can create your own beautiful and functional garden markers from recycled stones. Get creative, have fun, and enjoy your personalized garden!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_twjWPzl_0</code></strong>
         <span class="small">2023/05/26 (Fri) 21:05</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">write an executive summary for an edtech platform</div>
       </div><div class="turn">
@@ -1535,15 +1696,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Introducing a community-based learning platform that addresses the problem of</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_sbnodfn_144</code></strong>
         <span class="small">2023/05/26 (Fri) 23:28</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">ok, you misunderstood some of the events. the first event should be that the old woman enters the apartment with the neighbor while cracking jokes. once inside the apartment, the husbands hides the letter and says hi. the old woman shouldn&#39;t answer him making the viewer feel like there is something wrong between the two. after the neighbor says hi, we should have the old woman handing over her utensils to the neighbor who could then say that maybe now she might try to become as good as a cook as the old woman.</div>
       </div><div class="turn">
@@ -1568,15 +1733,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Understood. Here is the modified synopsis:<br /><br />The old woman enters her cramped apartment, exhausted and on the verge of tears. She is followed by her neighbor, who is carrying a bag of cooking utensils. As the old woman hands over the utensils, her husband discreetly hides a letter in his back pocket without her noticing. The old woman cracks jokes about her past life with the neighbor, who suggests that maybe she can become as good of a cook as the old woman. The old woman thanks the neighbor and, once she leaves, her husband brings up his lottery ticket and suggests that maybe their luck is about to change. The old woman, however, is fed up with his irresponsible behavior and the constant financial strain it puts on their lives. She lashes out at him, throwing him out of the apartment. As he walks the streets, the old woman&#39;s husband tears up the rejection letter from the cooking competition, a last ditch effort to try and make things right with his wife. He enters a gambling shop, then we see a jump cut to him and the old woman hugging with happiness in their apartment because she got in the cooking competition. The husband borrowed money and bribed people to get her in without her knowing it.<br /><br />The old woman and her husband are overjoyed when she is accepted into the competition, but as she stands there at the competition, feeling defeated and alone after her dishes are rejected by the judges and her confidence shaken, her husband appears and comforts her, reminding her of the passion and talent that drove her to pursue her dreams in the first place. However, her reliance on ancient rituals and spells in her cooking begins to transform her, both physically and emotionally. She is haunted by the memories of her husband and driven by fear to seek out the forbidden knowledge of black magic in an attempt to find a way to bring him back.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_569211</code></strong>
         <span class="small">2023/05/27 (Sat) 04:18</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What inspired Frida Kahlo&#39;s artistic style and unique perspective?</div>
       </div><div class="turn">
@@ -1607,15 +1776,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">There are many modern artists who have drawn inspiration from Frida Kahlo&#39;s work, both in terms of style and subject matter. She has become a major influence on contemporary art, particularly among feminist artists and artists of color. Some artists who have been inspired by her work include Kara Walker, Carrie Mae Weems, Yayoi Kusama, and Tracey Emin. Not only has her work had a tremendous impact on the art world, but it has also had an impact on popular culture, as her image has been used in fashion, advertising, and other forms of media.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_133709</code></strong>
         <span class="small">2023/05/27 (Sat) 05:08</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Are there any admission fees for visiting the top tourist attractions in Bhubaneswar?</div>
       </div><div class="turn">
@@ -1652,15 +1825,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, Bhubaneswar has a nightlife scene that offers a variety of options for a night out. Here are some of the popular bars and clubs in the city:<br /><br />1. The Blue Heaven: It is a rooftop lounge bar located in the Hotel East West. It offers a beautiful view of the city and serves a wide range of drinks and cocktails.<br /><br />2. Flames: This is a popular bar and pub located in the Pal Heights Mall. It has a lively atmosphere and serves a variety of drinks and snacks.<br /><br />3. Vatika Lounge: It is a rooftop lounge located in the Hotel Swosti Premium. It has a beautiful ambiance and offers a range of drinks and foods.<br /><br />4. The Cellar: It is a microbrewery located in the Mayfair Lagoon hotel. It is a great place for beer lovers and offers a range of craft beers and classic pub food.<br /><br />5. Zanzi Bar: It is a popular bar and nightclub located in the Hotel Sandy&#39;s Tower. It offers live music performances and a range of drinks and snacks.<br /><br />6. The Buddha Club: It is a popular nightclub located in the Hotel Crown. It offers a range of music genres and is a great place to dance the night away.<br /><br />These are just a few of the popular bars and clubs in Bhubaneswar. Please ensure that you follow all safety protocols while going out and enjoying the nightlife.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>11e9d591_1</code></strong>
         <span class="small">2023/05/27 (Sat) 09:37</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m trying to organize my schedule for the next few weeks. Can you help me keep track of my commitments? By the way, I have a regular rehearsal schedule on Tuesdays and Thursdays from 7 pm to 10 pm at the local community theater, so I&#39;d like to make sure not to double-book anything during those times.</div>
       </div><div class="turn">
@@ -1697,15 +1874,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">There are several transit apps and websites that can help you plan your bus route and schedule. Here are a few popular ones:<br /><br />1. Google Maps (web or mobile app): Google Maps has a built-in transit feature that allows you to enter your starting and ending points and get directions using public transportation. It also provides real-time information and schedules.<br />2. Transit (mobile app): Transit is a popular transit app that provides real-time information and schedules for buses, trains, and subways. It&#39;s available for both iOS and Android devices.<br />3. Moovit (mobile app): Moovit is another transit app that provides real-time information and schedules for public transportation. It also offers route planning and live tracking features.<br />4. Your local transit agency&#39;s website or app: Many local transit agencies have their own websites or apps that provide schedules, routes, and trip planning tools.<br /><br />You can try out a few of these options to see which one works best for you. Just enter your starting point (your home or current location) and your destination (the community theater), and the app or website will provide you with the best route and schedule options.<br /><br />Let me know if you have any other questions or need further assistance!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>c51583cd_1</code></strong>
         <span class="small">2023/05/27 (Sat) 17:49</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m feeling a bit meh about my social life lately. I just spent the entire weekend cooped up at home, not seeing or speaking to anyone except for a quick call with my mom on Sunday evening. I&#39;m thinking of trying to meet new people, maybe through some hobbies or clubs. Do you have any suggestions on how to get started?</div>
       </div><div class="turn">
@@ -1742,15 +1923,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Preparing notes or questions beforehand can be a great idea, but it depends on how you approach it. Here are some pros and cons to consider:<br /><br />**Pros:**<br /><br />1. **Feel more prepared**: Having some notes or questions prepared can help you feel more confident and prepared for the discussion.<br />2. **Ensure you don&#39;t forget**: If there&#39;s a specific point you want to make or question you want to ask, writing it down can help you remember.<br />3. **Encourage thoughtful discussion**: Prepared questions can help guide the discussion and encourage more thoughtful and in-depth conversations.<br /><br />**Cons:**<br /><br />1. **Overpreparation**: If you&#39;re too prepared, you might come across as rigid or inflexible in your opinions.<br />2. **Lack of spontaneity**: If you&#39;re too focused on your notes, you might not be as open to the natural flow of the conversation.<br />3. **Intimidation**: If you&#39;re the only one with notes, you might unintentionally intimidate others or make them feel like they&#39;re not prepared enough.<br /><br />Here&#39;s a balanced approach:<br /><br />1. **Jot down a few key points**: Write down 2-3 key points or questions you want to discuss, but don&#39;t overdo it.<br />2. **Keep it concise**: Keep your notes brief and concise, so you can easily refer to them during the discussion.<br />3. **Use them as a guide**: Use your notes as a guide, but don&#39;t feel obligated to stick to them rigidly. Be open to the natural flow of the conversation and adapt your points accordingly.<br />4. **Practice active listening**: Remember to listen to others and respond thoughtfully, rather than just sticking to your prepared points.<br /><br />By taking a balanced approach, you can prepare yourself for the discussion without coming across as too rigid or overprepared.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_458202</code></strong>
         <span class="small">2023/05/27 (Sat) 22:58</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What kind of material is used in the construction of any protective on-board equipment of the International Space Station?</div>
       </div><div class="turn">
@@ -1787,15 +1972,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">No, it is not common for astronauts to have pets with them on the International Space Station. While pets can provide companionship and emotional support, the close quarters and unique environment of the space station make it difficult for animals to adapt and live safely.<br /><br />In addition, bringing animals to the space station would require a significant amount of additional resources and logistical planning, including specialized habitats, food, and waste disposal systems.<br /><br />While it is true that the space station can be a lonely environment, astronauts utilize a variety of other strategies to maintain their emotional and mental wellbeing, including regular communication with family and friends on Earth, exercise, and support from their crewmates.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>2bac8799_3</code></strong>
         <span class="small">2023/05/28 (Sun) 13:26</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m thinking of buying the property I&#39;m currently renting in the city, but I need to make a list of renovations to make it our own. Can you help me prioritize what needs to be done, especially with the backyard that&#39;s in bad shape?</div>
       </div><div class="turn">
@@ -1832,15 +2021,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Here are some online resources and local organizations that can provide more information on sustainable landscaping practices, rainwater harvesting systems, and native plant species in your area:<br /><br />**Online Resources:**<br /><br />1. **National Wildlife Federation&#39;s Native Plant Finder:** A database of native plants suitable for your region, including [City].<br />2. **Rain Bird&#39;s Rainwater Harvesting Guide:** A comprehensive guide to designing and installing rainwater harvesting systems.<br />3. **Sustainable Sites Initiative (SITES):** A program that provides guidelines and certification for sustainable landscaping practices.<br />4. **US EPA&#39;s WaterSense:** A program that promotes water-efficient products and practices, including rainwater harvesting and native plant species.<br />5. **Local government websites:** [City]&#39;s official website and department of parks and recreation may have resources on sustainable landscaping, rainwater harvesting, and native plant species.<br /><br />**Local Organizations:**<br /><br />1. **[City] Botanical Garden:** A local botanical garden that may offer workshops, classes, or resources on native plant species and sustainable landscaping practices.<br />2. **[City] Audubon Society:** A local chapter of the Audubon Society that may offer resources on native plant species, bird-friendly habitats, and sustainable landscaping practices.<br />3. **[City] Water Conservation Department:** A local department that may offer resources on rainwater harvesting, water-efficient practices, and native plant species.<br />4. **Local nurseries and gardening stores:** Visit local nurseries and gardening stores that specialize in native plant species and sustainable landscaping products.<br /><br />**Local Nurseries and Suppliers:**<br /><br />1. **[Nursery Name]:** A local nursery that specializes in native plant species and sustainable landscaping products.<br />2. **[Gardening Store Name]:** A local gardening store that offers eco-friendly materials, rainwater harvesting systems, and native plant species.<br />3. **[Landscaping Company Name]:** A local landscaping company that specializes in sustainable landscaping practices, rainwater harvesting systems, and native plant species.<br /><br />Remember to research and visit these resources to find the most suitable options for your project. It&#39;s essential to consult with local experts and organizations to ensure that your eco-friendly features and materials are suitable for your climate, soil, and region.<br /><br />Please note that I&#39;m a large language model, I don&#39;t have access to specific local information. You can search online for the resources and organizations mentioned above, replacing [City] with your actual city or region.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>27d9e492_2</code></strong>
         <span class="small">2023/05/28 (Sun) 15:18</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m trying to get organized with all the upcoming birthdays and events in my family. Can you help me create a calendar of important dates? By the way, I&#39;ve experienced a whirlwind of life events related to births and adoptions over the past few months, so I want to make sure I don&#39;t miss anything.</div>
       </div><div class="turn">
@@ -1877,15 +2070,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I&#39;ve updated the information:<br /><br />**Immediate Family:**<br /><br />1. Spouse/partner: Michael - Date of birth: August 12th<br />2. Children: None yet (but hoping to start a family soon!)<br />3. Siblings:<br />	* Brother: Alex - Date of birth: November 25th<br />	* Brother&#39;s child: Emma (niece) - Date of birth: February 10th<br />4. Parents:<br />	* Father: John - Date of birth: January 1st<br />	* Mother: Emily - Date of birth: March 17th<br /><br />**Extended Family:**<br /><br />1. Cousin: Olivia - Date of birth: October 5th<br />	* Cousin&#39;s adopted children:<br />		+ Jackson - Date of adoption: April 20th<br />		+ Lily - Date of adoption: April 20th<br /><br />**Other Important Dates:**<br /><br />1. Anniversaries (wedding, adoption, etc.): Dates (none mentioned so far)<br />2. Holidays (religious, cultural, or personal): Dates (none mentioned so far)<br />3. Milestone events (graduations, baptisms, etc.): Dates (none mentioned so far)<br />4. Regular family gatherings or traditions: Dates (none mentioned so far)<br /><br />**Friends and Colleagues:**<br /><br />1. Rachel&#39;s adopted son: Aiden - Expected arrival: Early April<br />2. Sarah&#39;s baby (colleague): Due date: Late September (around _______________________)<br /><br />Now that I have all the dates, I can help you create a comprehensive calendar to keep track of all these special dates!<br /><br />Would you like me to suggest a format for your calendar, or do you have a specific preference (e.g., digital, physical, hybrid)?</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>47ec1674_2</code></strong>
         <span class="small">2023/05/28 (Sun) 16:33</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m trying to improve my online engagement, especially on social media. I&#39;ve been making an effort to comment more on other people&#39;s posts, especially in my niche. I recently attended a social media workshop and learned some new strategies, but I&#39;m looking for more tips. By the way, I&#39;ve had some not-so-great experiences online, like that one time on Reddit when I got into a long argument with several users on a sensitive topic, which turned ugly and made me want to avoid further drama.</div>
       </div><div class="turn">
@@ -1922,15 +2119,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Creating a content calendar is an excellent way to plan and organize your posts, ensuring consistency and reducing last-minute scrambles. Here are some suggestions to help you create a content calendar for your social media challenge or series of posts:<br /><br />**1. Define your goals and objectives**: Identify what you want to achieve with your content calendar. Is it to increase engagement, attract new followers, or showcase specific hiking trails? Knowing your goals will help you create focused content.<br /><br />**2. Choose a format**: Decide on a format for your content calendar, such as:<br />	* A spreadsheet (e.g., Google Sheets, Microsoft Excel)<br />	* A planner or notebook<br />	* A digital tool (e.g., Hootsuite, Buffer, Trello)<br />	* A combination of these<br /><br />**3. Plan your content themes**: Identify themes or topics for your content, such as:<br />	* Hiking trails (e.g., easy, moderate, difficult)<br />	* Outdoor activities (e.g., camping, rock climbing, wildlife watching)<br />	* Gear reviews or tips<br />	* Outdoor inspiration or motivation<br />	* Q&amp;A sessions or interviews with outdoor experts<br /><br />**4. Determine your posting schedule**: Decide on a posting schedule that works for you, such as:<br />	* Daily posts<br />	* 3-4 posts per week<br />	* Weekly posts with a specific theme<br />	* Monthly themes with multiple posts<br /><br />**5. Create a content calendar template**: Set up a template with the following columns:<br />	* Date<br />	* Post type (e.g., photo, video, story)<br />	* Content theme or topic<br />	* Caption or description<br />	* Hashtags<br />	* Visuals (e.g., image, video, graphic)<br />	* Engagement ideas (e.g., questions, polls, giveaways)<br /><br />**6. Fill in your content calendar**: Start filling in your content calendar with your planned posts, using your themes and scheduling as guides. Be sure to leave some room for flexibility and adjustments.<br /><br />**7. Review and adjust**: Regularly review your content calendar to ensure it&#39;s aligning with your goals and objectives. Make adjustments as needed to keep your content fresh and engaging.<br /><br />**Additional Tips:**<br /><br />* Use a consistent tone and voice across your posts<br />* Mix up your content types to keep your audience engaged<br />* Consider using a &quot;batching&quot; approach, where you create multiple posts at once and schedule them in advance<br />* Leave room for user-generated content and engagement opportunities<br />* Track your analytics to see what&#39;s working and what needs adjustment<br /><br />By following these steps, you&#39;ll be well on your way to creating a content calendar that helps you plan and organize your social media challenge or series of posts. Happy planning!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_GrLzv0V_262</code></strong>
         <span class="small">2023/05/29 (Mon) 02:44</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">Momo was very open and relaxed about her sexuality, which was refreshing to Val. Val had always felt restricted by societal norms and expectations, and she admired Momo&#39;s carefree attitude towards sex and relationships.<br /><br />After their initial hookup, Val and Momo spent the night talking, getting to know each other, and sharing stories. Val was surprised at how easy it was to talk to Momo, and how comfortable she felt in her presence. Momo had a way of putting people at ease, and Val found herself opening up in ways she never had before.<br /><br />As they lay in bed together, Val couldn&#39;t help but feel drawn to Momo&#39;s easy-going nature and carefree attitude. She found herself wanting to spend more time with her, and the thought of leaving in the morning filled her with a sense of sadness.<br /><br />The next day, they exchanged contact information and promised to stay in touch. Val wasn&#39;t sure where things would go with Momo, but she knew that she wanted to explore the connection they had formed, and see where it might lead.</div>
       </div><div class="turn">
@@ -2018,45 +2219,57 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">As Val tries to focus on her work and forget about Odyl, she can feel the ship&#39;s disapproval, as if it is a lover who is jealous of her attention being taken away. She tries to ignore it, but the ship&#39;s constant hum and vibration becomes increasingly loud and insistent. It&#39;s as if the ship is reminding her of all the times she&#39;s turned to it for comfort and solace, and now it feels neglected.<br /><br />Val feels a twinge of guilt as she realizes she has been neglecting the ship, her constant companion and faithful partner on her many journeys through space. She reaches out to touch the metal walls of the ship&#39;s cabin, feeling the cold metal against her skin, and she imagines she can feel the ship&#39;s pulse, like a heartbeat.<br /><br />&quot;I&#39;m sorry,&quot; she whispers, &quot;I didn&#39;t mean to neglect you.&quot;<br /><br />The ship seems to quiet down at her words, as if it has forgiven her. But Val knows that she still has a lot of work to do to regain its trust and restore the bond they once shared. She makes a mental note to spend more time with the ship, to listen to its needs and give it the attention it deserves.<br /><br />For Val, the ship is not just a means of transportation, but a living entity that she has grown to love and rely on. She knows that if she doesn&#39;t take care of it, it could mean the end of her career and even her life. So she takes a deep breath, refocuses her mind on the task at hand, and gets back to work, determined to make things right with both her lover and her ship.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_OrJDJKV_0</code></strong>
         <span class="small">2023/05/29 (Mon) 02:47</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I want you to act as a social media influencer. You will create content for instagram to increase the number of followers. I need help creating an engaging campaign on instagram to share my love for painted plastic miniatures</div>
       </div><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">Sure, I&#39;d be happy to help you create an engaging Instagram campaign to share your love for painted plastic miniatures. Here are a few ideas to get you started:<br /><br />1. Showcase your work: Share photos and videos of your finished miniatures, and provide detailed information about the process of painting them.<br />2. Hold a contest: Host a painting contest and encourage your followers to participate by sharing their own painted miniatures.<br />3. Collaborate with other miniature painters: Reach out to other miniature painters and collaborate on a project. This will not only provide new content for your followers, but it will also help expand your reach.<br />4. Share tutorials: Create step-by-step tutorials on how to paint different types of miniatures.<br />5. Share your story: Share the story of how you discovered your love for painting miniatures and what it means to you.<br />6. Utilize hashtags: Use relevant hashtags, such as #miniatures #wargaming #paintedminiatures to increase the visibility of your posts.<br />7. Create an Instagram story highlight: Create an Instagram story highlight to showcase all of your miniature painting content in one place.<br />8. Keep your followers engaged: Respond to comments and messages, and show your appreciation for your followers.<br /><br />Make sure to also post consistently, and try to post at different times of the day to reach different audiences. Let me know if you need more help or have any question.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_9ApEWXK_0</code></strong>
         <span class="small">2023/05/29 (Mon) 05:03</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">The unisex heavy cotton tee is the basic staple of any wardrobe. It is the foundation upon which casual fashion grows. All it needs is a personalized design to elevate things to profitability. The specially spun fibers provide a smooth surface for premium printing vividity and sharpness. No side seams mean there are no itchy interruptions under the arms. The shoulders have tape for improved durability.<br />.: 100% cotton (fiber content may vary for different colors)<br />.: Medium fabric (5.3 oz/yd² (180 g/m²))<br />.: Classic fit<br />.: Tear-away label<br />.: Runs true to size</div>
       </div><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">The Benefits of a Unisex Heavy Cotton Tee for Your Wardrobe<br /><br />If you&#39;re looking for a versatile and practical addition to your wardrobe, look no further than the unisex heavy cotton tee. This basic staple is the foundation of casual fashion and can be personalized with a design to elevate your style and profitability.<br /><br />Smooth Surface for Premium Printing<br /><br />One of the standout features of the unisex heavy cotton tee is its specially spun fibers, which provide a smooth surface for premium printing vividity and sharpness. This means that any design you choose to add to the tee will appear crisp and clear, making it a great choice for personalized merchandise or promotional materials.<br /><br />No Itchy Interruptions<br /><br />Another benefit of the unisex heavy cotton tee is that it is designed with comfort in mind. The lack of side seams means that there are no itchy interruptions under the arms, providing a more comfortable wearing experience. This makes it a great choice for everyday wear or as a uniform for your employees.<br /><br />Improved Durability<br /><br />The shoulders of the unisex heavy cotton tee have tape for improved durability, ensuring that the tee can withstand the wear and tear of regular use. This feature also makes it a great choice for team sports or other activities where you need a reliable and durable tee.<br /><br />Specifications<br /><br />Here are the specifications for the unisex heavy cotton tee:<br /><br />* 100% cotton (fiber content may vary for different colors)<br />* Medium fabric (5.3 oz/yd² (180 g/m²))<br />* Classic fit<br />* Tear-away label<br />* Runs true to size<br /><br />In conclusion, the unisex heavy cotton tee is a versatile and practical choice for anyone looking to elevate their wardrobe. Its smooth surface is perfect for printing, it is designed for comfort, and it is durable enough to withstand regular wear and tear. With these benefits and its classic fit, it&#39;s no wonder why the unisex heavy cotton tee is a staple for any wardrobe.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_299979</code></strong>
         <span class="small">2023/05/29 (Mon) 13:01</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">How did the concept of the Shah as a divine ruler evolve over time, and what impact did this have on the art and culture of Iran and other Persian-speaking countries?</div>
       </div><div class="turn">
@@ -2087,15 +2300,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I cannot provide a definitive answer to this question. however, many leadership qualities such as integrity, intelligence, empathy, self-awareness, and the ability to communicate effectively are considered universal and can contribute to effective leadership in various cultural and social contexts. these qualities can help a leader to connect with their followers, build trust, bridge cultural gaps, and effectively communicate their vision and goals. additionally, the ability to adapt to changing circumstances and to learn from mistakes and failures is also considered essential for effective leadership. while there is no definitive set of qualities that make a good leader, developing these characteristics is considered to be a worthwhile pursuit for anyone seeking to lead effectively, regardless of their cultural background or the context in which they are operating.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_74821</code></strong>
         <span class="small">2023/05/29 (Mon) 13:58</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What psychological interventions can be used to enhance motivation and intervene in addiction recovery, and how effective are they?</div>
       </div><div class="turn">
@@ -2138,15 +2355,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">It&#39;s natural to feel nervous about starting your journey towards addiction recovery. Here are some tips that can help you stay motivated and stick to your treatment plan:<br /><br />1. Set realistic goals - You can start by setting small, achievable goals. Breaking down your goals in smaller, realistic targets, makes it easier to stay focused and motivated.<br /><br />2. Create a support system - Surround yourself with people who support your recovery journey. This can include friends, family members, or support groups such as Alcoholics Anonymous (AA) or Narcotics Anonymous (NA). You can also look for online support groups if that suits you better.<br /><br />3. Stay focused on the present - Don&#39;t worry too much about the future or dwell too much on the past. Focus on taking one day at a time and staying present in the moment.<br /><br />4. Reward yourself - Celebrate your successes and progress, no matter how small. Treat yourself to something you enjoy, like a movie or a nice meal, to help you stay motivated.<br /><br />5. Practice self-care - Taking care of yourself is important in recovery. Get enough sleep, eat healthily, exercise regularly, and find ways to manage your stress.<br /><br />6. Track your progress - Keep a journal or a calendar to document your progress. This can help you see how far you have come and gives you a sense of achievement, reminding you of the progress you&#39;ve made.<br /><br />7. Speak up - Don&#39;t be afraid to communicate with your addiction specialist if you are struggling or if you have questions about your treatment plan.<br /><br />Remember, the journey towards addiction recovery is a process, and it requires patience, hard work, and perseverance. Staying motivated and sticking to your plan can make all the difference in your journey towards recovery.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>e765a945_2</code></strong>
         <span class="small">2023/05/29 (Mon) 18:39</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I need some help with finding a good recipe for a dinner party I&#39;m hosting this weekend. I&#39;m thinking of making something with chicken, but I&#39;m open to other ideas. By the way, I just got back from a bridal shower and helped the bride-to-be pick out some gifts from her registry at Bed Bath &amp; Beyond, taking advantage of their 20% off entire purchase sale today, which was super helpful!</div>
       </div><div class="turn">
@@ -2183,7 +2404,8 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">No need to apologize! It&#39;s all part of the conversation flow.<br /><br />Thank you for the new suggestions! Your ideas are amazing, and I&#39;m sure they&#39;ll help create a warm and inviting atmosphere for the dinner party.<br /><br />The **Warm Botanicals** centerpiece idea is stunning, and the **Fruit and Cheese Board** is a great way to offer a snack while adding a decorative element to the table. The **Candle and Pebble** centerpiece is simple yet elegant, and the warm glow of the candle will add to the cozy ambiance.<br /><br />I love the **Cozy Throws** idea, as it will make the space feel more intimate and inviting. And, of course, **Pumpkin Decorations** are a great way to add a seasonal touch to the decor.<br /><br />You&#39;ve given me so many wonderful ideas to work with! Thank you for your help and creativity.</div>
       </div></div>
-  </details></div>
+    </details>
+  </div></div>
                     </details>
     </div>
   </div>

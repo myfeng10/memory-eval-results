@@ -105,7 +105,7 @@
       border: 1px solid var(--line);
       border-radius: 14px;
       background: #fff;
-      padding: 0 14px 14px;
+      padding: 14px;
     }
     .priority-session {
       border-width: 2px;
@@ -115,21 +115,17 @@
     .secondary-session {
       opacity: 0.9;
     }
-    .session-card summary {
-      list-style: none;
-      cursor: pointer;
+    .session-card-header {
       display: flex;
       justify-content: space-between;
       gap: 12px;
       align-items: center;
-      padding: 14px 0;
-    }
-    .session-card summary::-webkit-details-marker {
-      display: none;
+      margin-bottom: 12px;
     }
     .session-turns {
       display: grid;
       gap: 10px;
+      margin-top: 12px;
     }
     .turn {
       border-top: 1px solid var(--line);
@@ -146,6 +142,40 @@
       font-size: 14px;
       line-height: 1.55;
       word-break: break-word;
+    }
+    .session-memory-wrap {
+      margin-bottom: 12px;
+    }
+    .session-memory-details {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fcfaf5;
+      padding: 0 12px 12px;
+    }
+    .session-memory-details summary,
+    .session-conversation-details summary {
+      cursor: pointer;
+      padding: 12px 0;
+      font-size: 13px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .session-conversation-details {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fafaf7;
+      padding: 0 12px 12px;
+    }
+    .session-memory-list {
+      display: grid;
+      gap: 10px;
+    }
+    .extracted-memory-card {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+      padding: 12px;
     }
     .pill {
       display: inline-block;
@@ -325,15 +355,111 @@
       <h2>Question Sessions</h2>
       <p class="small">Benchmark answer sessions are shown first. Then come other retrieved sessions. Background sessions stay collapsed below.</p>
       <div class="session-subhead">Answer Sessions</div>
-             <div class="session-list"><details class="session-card priority-session">
-    <summary>
+             <div class="session-list"><div class="session-card priority-session">
+    <div class="session-card-header">
       <div>
         <strong><code>answer_92147866_1</code></strong>
         <span class="small">2023/05/22 (Mon) 14:05</span>
       </div>
       <div><span class="pill">ground truth</span> <span class="pill pill-answer">answer session</span></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    <div class="session-memory-wrap"><details class="session-memory-details">
+    <summary>Extracted Memories (5)</summary>
+    <div class="session-memory-list"><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 1</strong>
+      <div>
+        
+        <span class="small">2023-05-22T21:05:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Expressed concern about the quality of eggs produced by the chickens, despite noticing an improvement since introducing a new layer feed. Sought recommendations for supplements or additional nutrients to further enhance egg quality.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Concerned about the quality of eggs produced by the chickens.<br />Noticed an improvement in egg quality since adding the new layer feed.<br />Wants to provide the best possible nutrition for the chickens.<br />Sought recommendations for supplements or additional nutrients to improve egg quality.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Eggs</td>
+      </tr></tbody></table>
+  </div><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 2</strong>
+      <div>
+        
+        <span class="small">2023-05-22T21:05:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Calculated the cost per pound of layer feed after a discount. Purchased a 50-pound batch of feed for $120, receiving a 10% discount from the local farm supply store. The net cost was $108, resulting in a cost of $2.16 per pound.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Purchased a 50-pound batch of layer feed.<br />Original purchase price was $120.<br />Received a 10% discount from the local farm supply store.<br />Discount amount was $12 (10% of $120).<br />Net cost after discount was $108 ($120 - $12).<br />Cost per pound of layer feed was $2.16 ($108 / 50 pounds).</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Feed</td>
+      </tr></tbody></table>
+  </div><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 3</strong>
+      <div>
+        
+        <span class="small">2023-05-22T21:05:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Considered adjusting the feeding schedule for chickens due to the addition of two new hens to the flock. Sought general guidelines on feeding frequency and daily amounts for laying hens.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Considering adjusting the feeding schedule for chickens.<br />Recently added two new hens to the flock.<br />Sought general guidelines on how often to feed chickens.<br />Sought general guidelines on how much feed to give each chicken daily.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Hens</td>
+      </tr></tbody></table>
+  </div><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 4</strong>
+      <div>
+        
+        <span class="small">2023-05-22T21:05:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Requested tips on how to transition chickens to a new layer feed, acknowledging that sudden changes can be stressful for them. Aimed to minimize stress and ensure a smooth transition for the flock.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Requested tips for transitioning chickens to a new layer feed.<br />Acknowledged that sudden feed changes can be stressful for chickens.<br />Aimed to minimize stress during the transition.<br />Sought to ensure a smooth transition for the flock.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Transition</td>
+      </tr></tbody></table>
+  </div><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 5</strong>
+      <div>
+        
+        <span class="small">2023-05-22T21:05:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Considering adding homemade jam to a product line for a farmer&#39;s market. Requested information on the regulations and permits required to sell homemade jam at such a venue.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Considering adding homemade jam to a product line.<br />Plans to sell the jam at a farmer&#39;s market.<br />Requested information on regulations for selling homemade jam.<br />Requested information on permits required for selling homemade jam at a farmer&#39;s market.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Jam</td>
+      </tr></tbody></table>
+  </div></div>
+  </details></div>
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m wondering if you can help me calculate the cost per pound of the layer feed I recently purchased. I got a 50-pound batch, and I&#39;m trying to track my expenses for the farm.</div>
       </div><div class="turn">
@@ -370,15 +496,94 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">What a sweet addition to your product line! Selling homemade jam at a farmer&#39;s market can be a wonderful way to share your creations with the community. However, it&#39;s essential to ensure you comply with the necessary regulations and permits to avoid any issues.<br /><br />**Regulations and Permits:**<br /><br />1. **Cottage Food Laws:** Check if your state has cottage food laws, which allow small-scale, low-risk food production from home kitchens. These laws often have specific guidelines for jam production and sale.<br />2. **Food Handler&#39;s Card:** You may need a food handler&#39;s card, which requires a short training course and certification. This ensures you&#39;re aware of proper food safety and handling practices.<br />3. **Permits and Licenses:** Obtain necessary permits and licenses from your local health department, agriculture department, or other relevant authorities. These may include:<br />	* Food Establishment Permit<br />	* Sales Tax Permit<br />	* Business License<br />4. **Labeling and Packaging:** Ensure your jam is properly labeled with:<br />	* Ingredient list<br />	* Net weight or volume<br />	* Your business name and address<br />	* Any relevant allergen warnings<br />	* Compliance with state and federal labeling regulations<br />5. **Food Safety:** Follow safe food handling and production practices to prevent contamination and ensure your jam is safe for consumption.<br />6. **Insurance:** Consider liability insurance to protect yourself and your business in case of any food-related issues.<br /><br />**Farmer&#39;s Market Specifics:**<br /><br />1. **Market Rules:** Familiarize yourself with the farmer&#39;s market rules and regulations, which may include additional permits, fees, or requirements.<br />2. **Sampling:** Check if the market allows sampling of your products. If so, ensure you follow proper sampling guidelines to prevent contamination.<br />3. **Display and Storage:** Ensure your jam is stored and displayed in a clean, covered, and temperature-controlled environment.<br /><br />**Resources:**<br /><br />1. **State and Local Authorities:** Contact your state&#39;s department of agriculture, health department, or local government for specific regulations and permit requirements.<br />2. **Farmer&#39;s Market Association:** Reach out to the farmer&#39;s market association or management for market-specific rules and regulations.<br />3. **Cottage Food Laws:** Visit websites like Forrager or Cottage Food Laws to learn more about cottage food laws and regulations in your state.<br /><br />**Tips and Reminders:**<br /><br />1. **Research Thoroughly:** Take the time to research and understand the regulations and permits required for selling homemade jam at a farmer&#39;s market.<br />2. **Stay Organized:** Keep records of your permits, licenses, and certifications, as well as your jam production and sales.<br />3. **Be Prepared:** Be prepared for inspections and ensure you&#39;re in compliance with all regulations to avoid any issues.<br /><br />By following these guidelines and regulations, you&#39;ll be well on your way to selling your delicious homemade jam at the farmer&#39;s market. Good luck!</div>
       </div></div>
-  </details><details class="session-card priority-session">
-    <summary>
+    </details>
+  </div><div class="session-card priority-session">
+    <div class="session-card-header">
       <div>
         <strong><code>answer_92147866_2</code></strong>
         <span class="small">2023/05/22 (Mon) 16:34</span>
       </div>
       <div><span class="pill">ground truth</span> <span class="pill pill-answer">answer session</span></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    <div class="session-memory-wrap"><details class="session-memory-details">
+    <summary>Extracted Memories (4)</summary>
+    <div class="session-memory-list"><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 1</strong>
+      <div>
+        
+        <span class="small">2023-05-22T23:34:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Considered expanding the farm&#39;s product line to include homemade jam and honey. Sought information on regulations and permits for selling these products at a local farmer&#39;s market. Learned about cottage food laws, food safety certification, and specific labeling requirements for both jam and honey.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Thought about expanding farm&#39;s product line.<br />Planned to include homemade jam and honey.<br />Needed information on regulations and permits for selling at local farmer&#39;s market.<br />Learned about cottage food laws.<br />Inquired about food safety certification requirements.<br />Discussed registration for selling jams and honey.<br />Understood that food safety certification is highly recommended, and sometimes required depending on the state.<br />Registration requirements vary by state and local jurisdiction, often requiring initial registration and annual renewal.<br />Learned about specific labeling requirements for jams and honey.<br />Jams require an ingredient list and allergen warning, but not a nutrition facts label.<br />Honey requires net quantity and product name, but no ingredient list or nutrition facts label.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Jam</td>
+      </tr></tbody></table>
+  </div><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 2</strong>
+      <div>
+        
+        <span class="small">2023-05-22T23:34:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Purchased 20 pounds of organic scratch grains for chickens. Noticed an improvement in the quality of eggs since introducing the new feed. This change in feed has positively impacted the flock&#39;s well-being.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Bought 20 pounds of organic scratch grains for chickens.<br />Noticed an improvement in the quality of eggs.<br />High-quality feed made a difference in the health and well-being of the flock.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Grains</td>
+      </tr></tbody></table>
+  </div><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 3</strong>
+      <div>
+        
+        <span class="small">2023-05-22T23:34:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Considered repurposing an old plow found in the barn for use in the garden. Weighed the pros and cons of using a vintage tool versus modern gardening tools. Decided to give it a try, acknowledging it might require restoration and creative use.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Thought of repurposing an old plow found in the barn.<br />Planned to use it in the garden.<br />Considered pros and cons of using it versus modern tools.<br />Decided to try repurposing the plow.<br />Acknowledged it might need repairs and creative application.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Plow</td>
+      </tr></tbody></table>
+  </div><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 4</strong>
+      <div>
+        
+        <span class="small">2023-05-22T23:34:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Planned to fix the fencing around the north pasture. Gathered materials and sought advice on where to start the repair process. The task involves assessing damage, clearing the area, repairing posts, stretching wire, and securing it.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Planned to fix fencing around the north pasture.<br />Had materials ready for the repair.<br />Needed guidance on where to start the fencing repair.<br />The process involves assessing damage, gathering materials, clearing the area, repairing or replacing posts, stretching and tightening wire, adding new wire, securing wire to posts, and checking for gaps.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Fencing</td>
+      </tr></tbody></table>
+  </div></div>
+  </details></div>
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m thinking of expanding my farm&#39;s product line to include homemade jam and honey. Can you help me find information on the regulations and permits required for selling these products at the local farmer&#39;s market? By the way, I also bought 20 pounds of organic scratch grains for my chickens recently, and I&#39;ve noticed an improvement in the quality of eggs.</div>
       </div><div class="turn">
@@ -409,19 +614,23 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Fixing the fencing around the north pasture is a great project!<br /><br />**Fencing Tips:**<br /><br />I&#39;m happy to help with that! Fixing fencing can be a daunting task, but with a clear plan and the right materials, you&#39;ll be done in no time. Here are some tips to get you started:<br /><br />1. **Assess the damage:** Walk the entire perimeter of the north pasture and identify the sections that need repair or replacement. Make a list of the materials you&#39;ll need and prioritize the most critical areas.<br />2. **Gather materials:** Make sure you have all the necessary materials, including fencing wire, posts, staples, and any other hardware. Consider using durable, weather-resistant materials to ensure the fence can withstand the elements.<br />3. **Clear the area:** Remove any debris, weeds, or obstructions around the fencing area. This will give you a clean slate to work with and prevent any obstacles from getting in the way.<br />4. **Repair or replace posts:** Inspect each post and determine if it needs to be repaired or replaced. Make sure the posts are sturdy and securely anchored in the ground.<br />5. **Stretch and tighten wire:** Use a fencing stretcher or a come-along to tighten the wire and remove any slack. Make sure the wire is taut and evenly spaced.<br />6. **Add new wire:** If necessary, add new wire to the fencing, overlapping the old wire by at least 6 inches to ensure a secure connection.<br />7. **Secure wire to posts:** Use wire staples or clips to attach the wire to the posts, making sure they&#39;re securely fastened.<br />8. **Check for gaps:** Inspect the fencing for any gaps or weak points, and repair them as needed.<br />9. **Test the fence:** Once you&#39;ve completed the repairs, test the fence by walking along the perimeter and checking for any weaknesses or areas that need further attention.<br /><br />**Additional Tips:**<br /><br />* Consider using a fencing plier or fencing tool to make the job easier and faster.<br />* If you&#39;re not comfortable with the repairs, consider hiring a professional fencing contractor or asking a experienced friend for help.<br />* Take your time and work methodically to ensure the repairs are done correctly and safely.<br />* Keep in mind any local regulations or ordinances regarding fencing and property boundaries.<br /><br />By following these tips, you should be able to fix the fencing around the north pasture and ensure your livestock are safe and secure. Good luck with the project!</div>
       </div></div>
-  </details></div>
+    </details>
+  </div></div>
              
              <details class="other-sessions">
                       <summary>Other Sessions (44)</summary>
-                      <div class="session-list"><details class="session-card secondary-session">
-    <summary>
+                      <div class="session-list"><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>96da07f9_2</code></strong>
         <span class="small">2023/05/20 (Sat) 04:03</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m trying to optimize my morning routine to make the most of my time. I was wondering if you could suggest some healthy breakfast ideas that can be prepared quickly, since I usually shower as soon as I wake up and then rush to get ready for work.</div>
       </div><div class="turn">
@@ -458,15 +667,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Using your commute time for work-related tasks is a great way to stay productive and focused.<br /><br />Now, let&#39;s talk about making the most of your extra morning time. Since you shower as soon as you wake up, you have a bit of a buffer before getting ready for work. Here are some ideas to help you make the most of this time:<br /><br />**1. Meditate or practice mindfulness:** Take a few minutes to sit quietly, focus on your breath, and set intentions for the day. You can use an app like Headspace or Calm to guide you.<br /><br />**2. Stretch or do some light exercise:** Get your blood flowing with some light stretching, yoga, or a short workout. This can help increase energy and wakefulness.<br /><br />**3. Plan your outfit:** Take a few minutes to plan out your outfit for the day. This can save you time in the long run and help you feel more put together.<br /><br />**4. Pack your bag:** Use this time to pack your bag with everything you need for the day, including your lunch, water bottle, and any other essentials.<br /><br />**5. Review your schedule:** Take a quick glance at your schedule for the day and make sure you&#39;re prepared for any meetings or appointments.<br /><br />**6. Write down your goals:** Take a minute to write down your goals and priorities for the day. This can help you stay focused and motivated.<br /><br />**7. Enjoy a hobby:** If you have a hobby, such as drawing, reading, or playing an instrument, use this time to indulge in it. Even 10-15 minutes can be beneficial for your mental well-being.<br /><br />**8. Simply enjoy the quiet:** Sometimes, it&#39;s nice to simply enjoy the quiet morning time before the hustle and bustle of the day begins. Take a few deep breaths, and savor the moment.<br /><br />Remember, this extra time is yours to use as you see fit. Experiment with different activities to find what works best for you and sets you up for a productive and fulfilling day.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>9bfd836a</code></strong>
         <span class="small">2023/05/20 (Sat) 07:38</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some new recipes to try out, can you suggest some popular pasta dishes that go well with garlic and parsley?</div>
       </div><div class="turn">
@@ -503,15 +716,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I think there&#39;s been a misunderstanding! I&#39;m the one who&#39;s been providing you with tips and recommendations, and I&#39;m excited to hear about your progress with making homemade pasta and ricotta cheese!<br /><br />However, I&#39;d be happy to continue providing guidance and answering any questions you may have about making ricotta cheese or pairing it with your fresh pasta. Feel free to ask me anything, and I&#39;ll do my best to help!<br /><br />If you&#39;re ready to share, how&#39;s your ricotta-making journey going so far? Have you tried any recipes or techniques that you&#39;d like to share?</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>05be3ff0_3</code></strong>
         <span class="small">2023/05/20 (Sat) 17:11</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some new recipe ideas, especially for Thai dishes. I just tried this amazing Pad Thai from Thai Basil on Uber Eats last week and I&#39;m hooked - I&#39;ve already ordered from them three times!</div>
       </div><div class="turn">
@@ -548,30 +765,38 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Making Pad Thai at home can be a game-changer, and I&#39;m excited to help you with that.<br /><br />The secret to achieving that perfect balance of sweet, sour, and savory flavors in Pad Thai lies in the harmony of ingredients and techniques. Here are some tips to get you started:<br /><br />**Sweet:**<br /><br />* Use a combination of palm sugar and brown sugar to add depth and richness to the dish.<br />* Add a splash of tamarind paste to balance the sweetness with a hint of sourness.<br /><br />**Sour:**<br /><br />* Use fresh lime juice to add a bright, citrusy flavor.<br />* Add a splash of fish sauce to contribute to the umami flavor and balance the sweetness.<br /><br />**Savory:**<br /><br />* Use a flavorful oil, such as peanut oil or vegetable oil, to sauté the ingredients.<br />* Add aromatics like garlic, shallots, and chilies to create a savory base.<br />* Use a combination of soy sauce and fish sauce to add depth and umami flavor.<br /><br />**Techniques:**<br /><br />* Stir-fry the ingredients quickly over high heat to preserve the texture and flavor of the vegetables and noodles.<br />* Use a wok or a large skillet to cook the Pad Thai, as it allows for quick and even cooking.<br />* Don&#39;t overcook the noodles; they should still have a bit of bite to them.<br /><br />Here&#39;s a simple recipe to get you started:<br /><br />**Pad Thai Recipe**<br /><br />Ingredients:<br /><br />* 1 cup rice noodles<br />* 2 tablespoons peanut oil<br />* 1 onion, thinly sliced<br />* 2 cloves garlic, minced<br />* 1 cup mixed vegetables (bean sprouts, carrots, green onions)<br />* 1 cup cooked shrimp (or tofu or chicken)<br />* 2 tablespoons tamarind paste<br />* 2 tablespoons palm sugar<br />* 1 tablespoon fish sauce<br />* 1 tablespoon soy sauce<br />* 1 tablespoon lime juice<br />* Salt and pepper to taste<br />* Chopped peanuts and lime wedges for garnish<br /><br />Instructions:<br /><br />1. Cook the noodles according to the package instructions. Drain and set aside.<br />2. Heat the peanut oil in a wok or large skillet over high heat.<br />3. Add the onion and garlic and stir-fry until they&#39;re translucent.<br />4. Add the mixed vegetables and cooked shrimp (or protein of your choice) and stir-fry for 2-3 minutes.<br />5. Add the tamarind paste, palm sugar, fish sauce, soy sauce, and lime juice. Stir-fry for another minute.<br />6. Add the cooked noodles and stir-fry until they&#39;re well coated with the sauce.<br />7. Season with salt and pepper to taste.<br />8. Garnish with chopped peanuts and lime wedges.<br /><br />Remember, the key to making a great Pad Thai is to balance the flavors and textures. Don&#39;t be afraid to experiment and adjust the ingredients to your taste.<br /><br />How does that sound? Are you ready to give it a try?</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_Sq28pDc_0</code></strong>
         <span class="small">2023/05/21 (Sun) 09:10</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">just explain this text: all right guys so you probably know this<br />Stefan Loretta guy who&#39;s a Romanian<br />lawyer and I&#39;ve made a lot of videos<br />talking about him and showing his<br />perspective on the Andrew Tate&#39;s case<br />because he really explains stuff well in<br />his videos and seems very very unbiased<br />and like a normal human being you know<br />but recently the tour accounts censored<br />men which post a lot of updates about<br />the Tate case have basically exposed him<br />and proven that he&#39;s an actual<br />entertained hater and he just acts<br />unbiased on camera for some extra clicks<br />now something very very interesting that<br />he started doing recently is starting to<br />advertise his own like School type of<br />thing like like Andrew Tate style and<br />that really came out of nowhere because<br />like if he&#39;s a Romanian lawyer he&#39;s<br />reporting what&#39;s happening to Tates and<br />randomly he&#39;s reporting like a course<br />that he wants people to join you know it<br />really seems like a quick cash grab and<br />boom dip you know that&#39;s really what it<br />seems like right now but yeah censored<br />made a video about it which I will show<br />you right now before that please be sure<br />to leave a like on the video subscribe<br />with notifications and yeah take a look<br />at this<br />[Music]<br />foreign<br />[Music]<br />Brothers have been arrested for 30 days<br />does not mean that they are guilty in<br />fact they are innocent until proven<br />guilty<br />to be honest with you I don&#39;t like this<br />guy I feel like he&#39;s he is not deserving<br />the level of success and the level of<br />attention that he has right because he&#39;s<br />nothing but the criminal answer it&#39;s<br />just like I mentioned again because he<br />knows that he&#39;s guilty right and he<br />needs to portray himself in in a good<br />way for his audience right and again<br />he&#39;s just like a normal criminal but he<br />has this his like conservous he has his<br />influence he has this money he has<br />everything else right that that those<br />people are missing foreign<br />[Music]<br />now wow those are some real true colors<br />he thinks the Tates are criminals and he<br />does not like them at all so all of that<br />is an act you know it&#39;s not really I<br />don&#39;t really care that much but the fact<br />that he says said that his news are<br />unbiased and that he doesn&#39;t like hate<br />the Tate Brothers in his videos is very<br />very misleading you know what I mean<br />it&#39;s super super misleading and it<br />literally just seems like he wants some<br />clicks and wants to be unbiased so he<br />doesn&#39;t get hate because there&#39;s sides<br />to this you know yeah guys what do you<br />think about this guy be sure to type a<br />comment down below click one of the<br />videos on the screen now that&#39;s it and<br />I&#39;m out</div>
       </div><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">The text describes a Romanian lawyer named Stefan Loretta who made videos about the Andrew Tate case and was believed to be unbiased in his perspective. However, recent accounts have exposed him as an entertained hater and he has now started advertising his own school, which seems like a quick cash grab. The speaker feels that Loretta&#39;s claim of being unbiased is misleading and that he is only doing this to get clicks and avoid hate. The speaker encourages the reader to leave a comment with their thoughts on the matter.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_13563</code></strong>
         <span class="small">2023/05/21 (Sun) 11:43</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What was the purpose of the Great Wall of China and how long did it take to build?</div>
       </div><div class="turn">
@@ -608,15 +833,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, the use of forced labor and disregard for human life during the construction of the Great Wall of China is a stark reminder of the inhumane practices that have been carried out throughout human history.<br /><br />It is frustrating to think that some people in positions of power can be so ruthless, using whatever means necessary to achieve their goals, without considering the well-being of others. However, it is important to remember that such practices are not limited to the past, and forced labor remains a sad reality in many parts of the world today.<br /><br />It is crucial to remain vigilant against inhumane practices and to speak out against any form of exploitation, oppression or disregard for the welfare of people. By acknowledging and learning from the events of the past, we can work towards creating a better, more equitable future, where such practices have no place.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>93a7a1bb_1</code></strong>
         <span class="small">2023/05/21 (Sun) 13:35</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some new vegan recipes to try out, particularly ones that use oat milk. I just invested in a spiralizer and started making zucchini noodles with vegan pesto sauce, and I&#39;m loving it, so maybe something that combines those two?</div>
       </div><div class="turn">
@@ -653,15 +882,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">You&#39;re venturing into the world of smoothie bowls! I&#39;m thrilled to share some vegan Korean-inspired smoothie bowl recipes that will start your day off right. Get ready to blend up some delicious and nutritious breakfast bowls!<br /><br />**Traditional Korean Ingredients in Smoothie Bowls:**<br /><br />1. **Gochujang**: Add a spicy kick to your smoothie bowls with a drizzle of gochujang sauce.<br />2. **Sesame Oil**: Use sesame oil as a topping or blend it into your smoothie for a nutty flavor.<br />3. **Korean Chili Flakes (Gochugaru)**: Add a pinch of heat to your smoothie bowls with Korean chili flakes.<br />4. **Mung Beans**: Blend cooked mung beans into your smoothie for a protein-packed breakfast.<br /><br />**Vegan Korean-Inspired Smoothie Bowl Recipes:**<br /><br />1. **Gochujang Berry Bliss**: Blend together frozen mixed berries, banana, gochujang sauce, and coconut milk. Top with granola, sesame seeds, and fresh berries.<br />2. **Sesame Sunrise**: Blend together banana, mango, sesame oil, and coconut milk. Top with sliced mango, sesame seeds, and a drizzle of gochujang sauce.<br />3. **Korean Chili Mango Madness**: Blend together frozen mango, pineapple, Korean chili flakes, and coconut milk. Top with sliced mango, toasted coconut flakes, and a sprinkle of gochugaru.<br />4. **Mung Bean Magic**: Blend together cooked mung beans, banana, and coconut milk. Top with sliced banana, sesame seeds, and a drizzle of honey or maple syrup.<br /><br />**Tips and Variations:**<br /><br />* Experiment with different types of non-dairy milk, like almond milk or oat milk, to change the flavor and texture of your smoothie bowls.<br />* Add some spinach or kale to your smoothie bowls for an extra boost of greens.<br />* Use different types of fruit, like kiwi or papaya, to add unique flavors and textures to your smoothie bowls.<br />* Top your smoothie bowls with crunchy toppings, like chopped nuts or seeds, for added texture.<br /><br />I hope these recipes and tips inspire you to create some delicious vegan Korean-inspired smoothie bowls!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>db73b7e4_3</code></strong>
         <span class="small">2023/05/22 (Mon) 00:06</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some fashion advice. I recently got a new pair of black leather boots from Zara on January 15th, and I&#39;m wondering if you can suggest some outfit ideas that would go well with them.</div>
       </div><div class="turn">
@@ -698,15 +931,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I&#39;m so glad to hear that you&#39;re loving your new boots! January 15th, huh? Well, it&#39;s great that you&#39;re getting a lot of use out of them already! Black leather boots are a fantastic investment, and they can elevate so many outfits.<br /><br />Comfort and versatility are key when it comes to footwear, and it sounds like you&#39;ve found a great pair. I&#39;m sure you&#39;ll continue to enjoy wearing them and experimenting with different outfits.<br /><br />If you have any more fashion conundrums or need further advice, feel free to reach out anytime. I&#39;m always here to help. Otherwise, go out there and rock that outfit, and have a fantastic time at your formal occasion!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_168750</code></strong>
         <span class="small">2023/05/22 (Mon) 05:24</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Explain any instances of intertextuality between My Name Is and other works by the artist, and how these references contribute to the artist&#39;s larger artistic identity.</div>
       </div><div class="turn">
@@ -731,15 +968,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">As an AI language model, I cannot express personal opinions about an artist&#39;s work. I can, however, say that the use of intertextual references can serve various purposes. Sometimes, it can help an artist create a continuous narrative or establish a signature style. Other times, it can be a nod to their earlier work or a way of expressing a connection to their past. It&#39;s worth noting that intertextuality can be a form of creativity in its own right and can enrich an artist&#39;s body of work in various ways. Ultimately, whether Eminem&#39;s use of intertextuality is creative or not is a matter of personal opinion, but it is worth noting that it has been a consistent feature of his work for many years and has been appreciated by many of his fans.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_Yp4QbCg_13</code></strong>
         <span class="small">2023/05/22 (Mon) 09:27</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">Home Page:<br /><br />Welcome to Instrumentsfinder.com, your one-stop-shop for the most reliable and accurate particle counters in Saudi Arabia! Whether you are in the industrial, scientific, or medical field, our particle counters are designed to meet your needs.<br /><br />Particle counters play a crucial role in monitoring and controlling indoor air quality, preventing contamination in critical environments, and ensuring the safety and quality of food, drugs, and other products. Our particle counters are equipped with state-of-the-art technology and are highly accurate, making them ideal for various applications.<br /><br />There are several types of particle counters available, including handheld, portable, and benchtop particle counters. Our particle counters come from trusted brands such as Fluke, Extech, Kanomax, MET ONE, and MRU Instruments. Each brand offers a range of particle counters, each with its unique features and benefits.<br /><br />Take a look around our website to explore the different types of particle counters available and find the one that best suits your needs. Our experienced sales team is always available by phone, email, and WhatsApp to assist you with any questions you may have. Don&#39;t miss the chance to experience the precision of particle counters, buy online today!<br /><br />Do you have questions about particle counters? Here are some frequently asked questions that may be of help:<br /><br />* What are particle counters?<br />* How do particle counters work?<br />* What are the different types of particle counters?</div>
       </div><div class="turn">
@@ -767,15 +1008,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Sure, here are the 150 words for each topic.<br /><br />Topic: What are Particle Counters?<br /><br />Particle counters are specialized instruments used for the detection and measurement of airborne particles. These particles can range from dust, smoke, and other microscopic particles, to larger objects like hairs, fibers, or even insect fragments. Particle counters utilize various technologies to determine the size, count, and concentration of particles in the air. The results are used in a variety of industries including pharmaceuticals, cleanroom facilities, electronics manufacturing, and food processing, to ensure air quality and meet regulations and standards. Particle counters play a critical role in maintaining a healthy and safe environment, as well as ensuring product quality and consistency.<br /><br />Topic: How do Particle Counters work?<br /><br />Particle counters work by drawing in a sample of air, and passing the air through a laser or light-scattering device that detects particles and counts them. The size of the particles is also measured and recorded. Some particle counters also provide real-time data, and are equipped with sensors to detect changes in air quality, alerting users when particle levels exceed a set limit. The data generated by particle counters can be used for continuous monitoring, or for periodic testing and certification. Different types of particle counters use different technologies, but all function with the same goal of accurately measuring the presence and concentration of particles in the air.<br /><br />Topic: What are the Different Types of Particle Counters?<br /><br />There are several types of particle counters, each with their own unique features and capabilities. Some of the most common types include laser particle counters, optical particle counters, and condensation particle counters. Laser particle counters use a laser beam to illuminate particles, while optical particle counters use a light-scattering method. Condensation particle counters use a cooling process to condense particles and increase the particle density, making them easier to count. Each type of particle counter has its own advantages and disadvantages, and the type of particle counter used will depend on the application and requirements.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_HullwHG_71</code></strong>
         <span class="small">2023/05/22 (Mon) 17:26</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">The Kills&#39; music explores a range of lyrical themes that include love, lust, desire, power dynamics, and existential questions. Here are some recurring lyrical themes in their music:<br /><br />1. Intense relationships: Many of The Kills&#39; songs explore intense relationships, often with a focus on power dynamics and manipulation.<br />2. Sexuality: The band&#39;s lyrics often contain sexual themes, ranging from subtle innuendos to more explicit references.<br />3. Identity: The Kills frequently explore themes of identity, with a particular focus on self-discovery and the search for authenticity.<br />4. Rebellion: The band&#39;s music often contains a sense of rebellion and a rejection of societal norms.<br />5. Loss and heartbreak: The Kills&#39; songs frequently deal with themes of loss and heartbreak, with a particular focus on the pain and confusion that can come with the end of a relationship.<br />6. Existentialism: The band&#39;s music also frequently explores existential themes, such as the nature of reality, the meaning of life, and the human condition.<br /><br />Overall, The Kills&#39; lyrics tend to be introspective and thought-provoking, with a focus on exploring the complexities of human relationships and emotions.</div>
       </div><div class="turn">
@@ -827,15 +1072,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">&quot;The Last Goodbye&quot; is a song by The Kills from their fourth studio album, &quot;Blood Pressures,&quot; released in 2011. It&#39;s a haunting, stripped-back ballad that features Alison Mosshart&#39;s smoky vocals and Jamie Hince&#39;s sparse guitar work.<br /><br />The song begins with a simple finger-picked guitar riff, accompanied by a delicate drum beat. Mosshart&#39;s voice enters, singing mournful lyrics about a lost love: &quot;Oh, my baby / How long must I wait? / I know the light is fading / You&#39;re never gonna come back to me.&quot;<br /><br />As the song progresses, the instrumentation gradually builds, with Hince layering on more guitar parts and the drums becoming more forceful. Mosshart&#39;s vocals also become more impassioned, as she sings about the pain of letting go: &quot;Oh, my love / I can&#39;t hear your voice no more / It&#39;s not your fault / It&#39;s the way you were born.&quot;<br /><br />The chorus is a heartbreaking refrain of &quot;This is the last goodbye,&quot; repeated over and over with increasing intensity. The song then culminates in a stunning guitar solo, with Hince&#39;s playing reaching new heights of emotion and intensity.<br /><br />&quot;The Last Goodbye&quot; is a powerful, emotional song that showcases The Kills&#39; ability to create raw, stripped-back music that still manages to pack an emotional punch.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_206120</code></strong>
         <span class="small">2023/05/23 (Tue) 16:03</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What techniques were used to create a sense of depth and dimensionality in the film&#39;s cinematography and production design?</div>
       </div><div class="turn">
@@ -866,15 +1115,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">As an AI language model, I do not have personal preferences or opinions. However, there are several films that are known for their outstanding cinematography and production design. Some of these films include:<br /><br />1. &quot;Lawrence of Arabia&quot; (1962) directed by David Lean. The film&#39;s use of expansive landscapes, extensive use of light and shadow, and unique framing techniques make it a masterpiece of cinematography. 2. &quot;2001: A Space Odyssey&quot; (1968) directed by Stanley Kubrick. The film&#39;s use of custom-made lenses, unique set designs, and scientific accuracy make it a standout example of how cinematography and production design can be used to create a fully-realized futuristic world. 3. &quot;The Godfather&quot; (1972) directed by Francis Ford Coppola. The film&#39;s use of low-key lighting creates a moody, heavily atmospheric tone, and its set designs and costuming perfectly capture the elegant and high-stakes nature of the film&#39;s world. 4. &quot;There Will Be Blood&quot; (2007) directed by Paul Thomas Anderson. The film&#39;s cinematography uses wide-angle lenses and deep-focus techniques along with clever use of framing and composition to create the sense of the vast, desolate landscapes and stark, harsh world of the American west. 5. &quot;Moonlight&quot; (2016) directed by Barry Jenkins. The film&#39;s use of color schemes and lighting creates a poetic atmosphere that perfectly reflects the emotional journey of the characters, and its nuanced production design adds to the film&#39;s authentic, grounded feel. These are just a few examples of films that have made great use of cinematography and production design. Each showcases the ability of these techniques to immerse the viewer in a fully-realized world and to enhance a film&#39;s storytelling capabilities.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>21c39d8e</code></strong>
         <span class="small">2023/05/24 (Wed) 02:31</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m thinking of getting new floor mats for my car. Can you recommend any good online retailers that sell custom-fit mats?</div>
       </div><div class="turn">
@@ -911,30 +1164,38 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">With synthetic blend oil, you&#39;re likely good to go for a bit longer than with traditional oil.<br /><br />Since you got the synthetic blend oil about 2 months ago, and you&#39;re not sure when the previous oil change was, it&#39;s a good idea to play it safe and follow the recommended oil change interval for your 2018 Honda Civic.<br /><br />As I mentioned earlier, the recommended oil change interval for your vehicle is:<br /><br />* 5,000 to 7,500 miles (8,000 to 12,000 km) for conventional oil<br />* 7,500 to 10,000 miles (12,000 to 16,000 km) for synthetic oil<br /><br />Since you used synthetic blend oil, let&#39;s aim for the middle ground. Considering you&#39;ve already gone 2 months, I&#39;d recommend getting your oil changed around 5,000 to 6,000 miles (8,000 to 9,600 km) from your last oil change.<br /><br />To be extra cautious, you could also check your oil level and condition regularly. If you notice the oil level is low or the oil looks dirty, it&#39;s a good idea to get it changed sooner rather than later.<br /><br />Additionally, since your previous oil change was done at the dealership, you might want to check your maintenance records to see if they have any specific recommendations for your vehicle.<br /><br />Remember, it&#39;s always better to err on the side of caution when it comes to oil changes. If you&#39;re unsure or have any concerns, you can always consult with a trusted mechanic or the dealership for guidance.<br /><br />Hope that helps!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_2fWZpGy_0</code></strong>
         <span class="small">2023/05/24 (Wed) 03:40</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Is there a trophy between Ireland and Scotland in the 6 nations?</div>
       </div><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">There is no specific trophy awarded between Ireland and Scotland in the Six Nations Championship. However, Ireland and Scotland do compete annually for the Centenary Quaich, which is a trophy awarded to the winner of their Six Nations match.<br /><br />The Centenary Quaich was first presented in 1989 to commemorate the centenary of the first-ever meeting between the two teams in 1879. The Quaich is a Scottish drinking cup and is traditionally used for whisky, and it is named after the Gaelic word for cup.<br /><br />The Centenary Quaich is not an official Six Nations trophy but is instead a separate trophy that is contested between Ireland and Scotland during their annual Six Nations match. The Quaich is currently held by Ireland, who won their 2021 Six Nations encounter with Scotland by a score of 27-24.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>27d378b2_3</code></strong>
         <span class="small">2023/05/24 (Wed) 04:27</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking to get some advice on marketing my side project. I&#39;ve been thinking about reaching out to a woman I met at a networking breakfast hosted by the Chamber of Commerce last month, who runs a successful marketing agency. Do you have any tips on how to approach her for advice?</div>
       </div><div class="turn">
@@ -971,15 +1232,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">You&#39;re welcome! I&#39;m glad I could help.<br /><br />It sounds like you have a solid plan in place to reach out to your connections and gather valuable feedback and insights for your marketing strategy. Remember to be respectful of their time, prepared, and open-minded during your conversations.<br /><br />By prioritizing your outreach efforts and managing your conversations effectively, you&#39;ll be able to gather valuable insights from multiple people in your network. This will help you develop a more effective marketing strategy and increase the chances of success for your side project.<br /><br />If you have any more questions or need further guidance, feel free to ask. Otherwise, good luck with your outreach efforts, and I hope you get some amazing feedback and insights from your connections!<br /><br />Remember to stay organized, take notes, and synthesize the feedback you receive. This will help you identify patterns, themes, and areas for improvement in your marketing strategy.<br /><br />You got this!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_FDDY7hu_7</code></strong>
         <span class="small">2023/05/24 (Wed) 23:14</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">Dude, you gotta hear this gnarly story about this kid Hyrum, man. This little dude&#39;s got some seriously bad luck vibes or something. So, like, he&#39;s cruisin&#39; in a car, right? And then, bam! Car accident, and he breaks his collarbone. Bummer, bro.<br /><br />But it doesn&#39;t end there. His big bro, Alexander, is like super into baseball, man. And he&#39;s just hittin&#39; some balls, when he accidentally smacks Hyrum right in the forehead with the bat. Whoa, talk about a wipeout!<br /><br />Now, you&#39;d think that&#39;s enough, but no way, dude. His other brother, Benedick, is out fishin&#39;, and he&#39;s just castin&#39; his line, trying to catch some sick waves—uh, I mean, fish. But instead, he hooks Hyrum&#39;s scalp. Ouch, man, that&#39;s gotta hurt.<br /><br />And then, there&#39;s his third brother, Cassius. They&#39;re all chillin&#39; at the beach, and this guy throws a snorkeling mask at Hyrum&#39;s head. Like, what are the odds, bro? It&#39;s like this kid&#39;s got some bad juju or something.<br /><br />Anyway, man, even though they&#39;ve been through all this heavy stuff, they&#39;re still, like, a super tight family, y&#39;know? They&#39;re all, &quot;We&#39;re gonna ride this wave together, dudes.&quot; And, like, that&#39;s pretty rad.<br /><br />So I guess the moral of the story is, even when life&#39;s throwin&#39; you some gnarly wipeouts, your fam&#39;s always got your back. And maybe, like, stay away from baseball bats and fishing hooks, dude. Just stick to the surfboard, bro.</div>
       </div><div class="turn">
@@ -995,15 +1260,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Duuuuuude, like, you&#39;ve totally gotta check out this, like, epic bummer story about this lil&#39; grommet Hyrum, man. This bro&#39;s vibes are, like, waaaaay harsh, man. So, he&#39;s cruisin&#39; in a car, catchin&#39; some gnarly land waves, right? And then, like, mega ka-blam! Car accident, bro, and he straight up annihilates his collarbone. Bummer to the max, broseidon!<br /><br />But, like, it doesn&#39;t just end there, man. His big bro, Alexander, is like ultra stoked on baseball, dude. And he&#39;s just swingin&#39; for the fences, when he, like, accidentally clocks Hyrum right in the noggin with the bat. Whoa, man, talk about a mondo wipeout! Banged up, dude, for sure.<br /><br />Now, you&#39;d think that&#39;s enough, but no way, man. His other brother, Benedick, is out fishin&#39;, and he&#39;s just castin&#39; his line, trying to reel in some, like, tubular fish, bro. But instead, he, like, hooks Hyrum&#39;s scalp. Ouch, man, that&#39;s gotta sting worse than a gnarly jellyfish, brotato chip.<br /><br />And then, there&#39;s his third bro, Cassius. They&#39;re all chillaxin&#39; at the beach, catchin&#39; some sick rays, and this dude chucks a snorkeling mask at Hyrum&#39;s head. Like, seriously, what are the odds, bro? It&#39;s like this kid&#39;s got some bad juju or somethin&#39;, man.<br /><br />Anyway, man, even though they&#39;ve been through all this heavy stuff, they&#39;re still, like, a super tight family, y&#39;know? They&#39;re all, &quot;We&#39;re gonna ride this wave together, dudes.&quot; And, like, that&#39;s pretty rad, brochacho.<br /><br />So I guess the moral of the story is, even when life&#39;s throwin&#39; you some gnarly wipeouts, your fam&#39;s always got your back. And maybe, like, stay away from baseball bats and fish hooks, dude. Just stick to the surfboard, and always remember, bro: surf&#39;s up and ride the good vibes, man! Keep it, like, 200% more chill, brosef!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>9806001e</code></strong>
         <span class="small">2023/05/25 (Thu) 07:14</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m trying to get my farm in order, can you give me some tips on how to improve the drainage in my pigpen?</div>
       </div><div class="turn">
@@ -1040,30 +1309,38 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Introducing a new pig to Luna requires a careful and gradual approach to ensure a smooth transition and a harmonious relationship. Here&#39;s a step-by-step guide to help you introduce the new pig to Luna:<br /><br />**Pre-Introduction Preparation:**<br /><br />1. **Prepare a separate enclosure**: Before bringing the new pig home, set up a separate enclosure or pen where the new pig can acclimate to its new environment. This will help prevent stress and allow the new pig to settle in.<br />2. **Ensure compatibility**: Make sure the new pig is of a similar age, size, and temperament to Luna. A pig with a similar background and personality will be more likely to get along with Luna.<br />3. **Vaccinations and health checks**: Ensure both pigs are up-to-date on their vaccinations and have a clean bill of health from a veterinarian.<br /><br />**Introduction Process:**<br /><br />**Day 1-2: Visual Introduction**<br /><br />1. **Keep them separate**: Keep the new pig in the separate enclosure, and allow Luna to see and smell the new pig from a distance. This will help them become familiar with each other&#39;s presence without the risk of an immediate face-to-face encounter.<br />2. **Swap bedding and toys**: Swap some of Luna&#39;s bedding and toys with the new pig&#39;s to help them become familiar with each other&#39;s scents.<br /><br />**Day 3-4: Fenced Introduction**<br /><br />1. **Move to a shared fence**: Move the new pig to a pen or enclosure that shares a fence with Luna&#39;s enclosure. This will allow them to interact through the fence, but still maintain a safe distance.<br />2. **Monitor behavior**: Observe their behavior and body language. If you notice any signs of aggression, fear, or stress, separate them immediately and consult a veterinarian or animal behaviorist for guidance.<br /><br />**Day 5 and beyond: Face-to-Face Introduction**<br /><br />1. **Choose a neutral area**: Select a neutral area, such as a new pen or enclosure, where both pigs can meet for the first time. This will help prevent territorial behavior and reduce stress.<br />2. **Supervise closely**: Supervise their interaction closely, and be prepared to intervene if necessary.<br />3. **Monitor behavior**: Continue to monitor their behavior and body language, making adjustments as needed to ensure a smooth transition.<br /><br />**Post-Introduction Tips:**<br /><br />1. **Monitor resources**: Ensure both pigs have access to adequate food, water, and shelter.<br />2. **Provide plenty of space**: Ensure the enclosure is large enough to accommodate both pigs comfortably, with plenty of space to move around and engage in natural behaviors.<br />3. **Supervise interactions**: Continue to supervise their interactions, and be prepared to intervene if necessary.<br /><br />Remember, every pig is different, and the introduction process may need to be adjusted based on their individual personalities and needs. If you&#39;re unsure or notice any signs of stress or aggression, consult a veterinarian or animal behaviorist for guidance.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_A2ZcdBg_0</code></strong>
         <span class="small">2023/05/25 (Thu) 09:23</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">You are a book summarizer, summarize the book: Think and Grow Rich<br /><br />Write a summary for each chapter<br />Create a list of all the lessons from the book</div>
       </div><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">Summary of each Chapter:<br /><br />1. The Power of Thought: Introduces the concept that success starts with the right mindset and that all riches begin in the mind.<br />2. Desire: Explains the importance of having a strong, burning desire for success and how to cultivate it.<br />3. Faith: Discusses how faith can drive the manifestation of your desires and how to develop it.<br />4. Auto-Suggestion: Describes the power of positive self-talk and how to use it to reprogram your subconscious mind.<br />5. Specialized Knowledge: Emphasizes the importance of acquiring specialized knowledge in one&#39;s chosen field to achieve success.<br />6. Imagination: Demonstrates the power of imagination in shaping your thoughts and desires and how to harness it for success.<br />7. Organized Planning: Outlines the steps of creating a detailed plan for success and the importance of taking action towards it.<br />8. Decision: Emphasizes the importance of making quick and definite decisions and sticking to them, in order to achieve success.<br />9. Persistence: Explores the key attribute of persistence in overcoming obstacles and achieving success.<br />10. Power of the Master Mind: Describes the concept of the Master Mind, the alliance of like-minded individuals working together towards a common goal.<br />11. The Mystery of Sex Transmutation: Discusses the powerful connection between sexual energy and creativity, and how to harness it for success.<br />12. The Subconscious Mind: Describes the workings of the subconscious mind and how to use it to achieve success.<br />13. The Brain: Introduces the idea that the brain is a transmitter and receiver of thought and how to use it to achieve success.<br />14. The Sixth Sense: Explores the concept of the sixth sense, the inner voice that guides us to our true purpose and how to develop it.<br />15. How to Outwit the Six Ghosts of Fear: Outlines the six fears that can hold you back and how to overcome them to achieve success.<br /><br />Lessons from the book:<br /><br />1. Success begins in the mind<br />2. The power of positive thinking and self-talk<br />3. The importance of desire, faith, and imagination<br />4. The value of specialized knowledge and organized planning<br />5. The need for quick and definite decision-making<br />6. The power of persistence and the Master Mind<br />7. The connection between sex energy and creativity<br />8. The workings of the subconscious mind<br />9. The brain as a transmitter and receiver of thought<br />10. The guidance of the sixth sense<br />11. Overcoming the six fears to achieve success.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_461193</code></strong>
         <span class="small">2023/05/25 (Thu) 10:09</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What are the key factors contributing to the success of Bhutan&#39;s Gross National Happiness Index?</div>
       </div><div class="turn">
@@ -1100,15 +1377,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, that&#39;s true. The pandemic has highlighted the need to re-evaluate our priorities, and it has emphasized the importance of sustainability, well-being, and equitable development. Governments and companies are starting to recognize the need for resilient and sustainable systems that prioritize the health, safety, and well-being of people and the environment.<br /><br />By prioritizing sustainability and well-being, companies and governments can create long-term value, reduce risks, and promote equitable and inclusive growth. Moreover, they can create a robust and resilient society that can withstand future crises.<br /><br />Therefore, it is a positive trend that we are seeing a shift towards sustainability and well-being in policy-making, business models, and consumer behavior. It reflects a broader realization that the pursuit of economic growth alone is not enough to create a sustainable and equitable society. We need to prioritize sustainability and well-being to build a better world for all.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>07e6a3bd_1</code></strong>
         <span class="small">2023/05/25 (Thu) 11:47</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m planning a BBQ this weekend and need some help with the menu. I was thinking of making burgers, but I want to make sure I get the toppings right. Do you have any recommendations for cheese and bacon burgers?</div>
       </div><div class="turn">
@@ -1145,15 +1426,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Here&#39;s a simple recipe for a delicious bacon cheeseburger with BBQ sauce:<br /><br />**Basic BBQ Bacon Cheeseburger Recipe**<br /><br />Ingredients:<br /><br />* 4 high-quality beef patties (80/20 or 70/30 lean to fat ratio works well)<br />* 6 slices of thick-cut bacon<br />* 4 slices of cheese (I recommend cheddar, pepper jack, or a combination of both)<br />* 1/4 cup of BBQ sauce (you can use the same brand Mike&#39;s wife Sarah brought, or try a different one!)<br />* 4 buns (see bun suggestion below)<br /><br />Instructions:<br /><br />1. Preheat your grill or grill pan to medium-high heat.<br />2. Cook the bacon slices until crispy, then set aside.<br />3. Form the beef patties to your desired thickness and season with salt and pepper.<br />4. Grill the patties for 4-5 minutes per side, or until they reach your desired level of doneness.<br />5. While the patties are cooking, toast the buns on the grill or in a toaster.<br />6. Assemble the burgers by spreading a slice of cheese on the bottom bun, followed by a cooked patty, a few slices of bacon, a dollop of BBQ sauce, and finally the top bun.<br /><br />**Bun Suggestion:**<br /><br />For a BBQ-inspired burger, I recommend using a sturdy, slightly sweet bun that can hold up to the juicy patty and tangy BBQ sauce. Here are a few options:<br /><br />* Brioche buns: These rich, buttery buns are a great match for the bold flavors of the BBQ sauce.<br />* Sesame seed buns: A classic choice, sesame seed buns add a nice crunch and a touch of nutty flavor that complements the BBQ sauce.<br />* Ciabatta buns: A slightly lighter, airier bun that won&#39;t overpower the flavors of the burger.<br /><br />Feel free to experiment with different bun options to find your favorite!<br /><br />Let me know if you have any questions or need further assistance. Happy grilling!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>6c16c3ec_3</code></strong>
         <span class="small">2023/05/25 (Thu) 23:41</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some advice on how to properly clean and maintain my vintage cameras. I&#39;ve got a few rangefinders and SLRs from the 60s to the 90s, including my first camera, a 1960s-era Yashica MG-1 that I scored at a thrift store for $20.</div>
       </div><div class="turn">
@@ -1190,15 +1475,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">The development of SLR (Single-Lens Reflex) cameras is a fascinating story, and I&#39;d be happy to share it with you.<br /><br />**The First SLRs (1930s-1950s)**<br /><br />The first SLR cameras emerged in the 1930s, with the introduction of the Ihagee Kine Exakta in 1936. These early SLRs used a mirror and prism system to allow the photographer to view the scene through the lens, but they were often bulky and cumbersome.<br /><br />**The Pentax Spotmatic (1960s)**<br /><br />The Pentax Spotmatic, released in 1964, is often considered the first modern SLR camera. It introduced a number of innovations, including:<br /><br />1. **TTL (Through-The-Lens) metering**: The Spotmatic used a built-in light meter that measured the light passing through the lens, providing more accurate exposure readings.<br />2. **Interchangeable lenses**: The Spotmatic had a bayonet mount, allowing photographers to easily switch between different lenses.<br />3. **Compact design**: The Spotmatic was smaller and more ergonomic than earlier SLRs, making it more portable and user-friendly.<br /><br />**Advantages of SLRs**<br /><br />SLRs offered several advantages over rangefinders like the Yashica MG-1:<br /><br />1. **Accurate framing**: SLRs allowed photographers to see exactly what the lens saw, making it easier to compose shots and avoid parallax errors.<br />2. **Interchangeable lenses**: SLRs made it easy to switch between different lenses, giving photographers more flexibility and creative options.<br />3. **TTL metering**: SLRs provided more accurate exposure readings, making it easier to achieve optimal exposure.<br />4. **Macro and telephoto capabilities**: SLRs made it easier to shoot macro and telephoto photography, thanks to the ability to change lenses and use extension tubes.<br /><br />**Disadvantages of SLRs**<br /><br />However, SLRs also had some disadvantages compared to rangefinders:<br /><br />1. **Size and weight**: SLRs were often larger and heavier than rangefinders, making them less portable.<br />2. **Mirror slap**: The mirror&#39;s movement in SLRs could cause camera shake and vibrations, leading to blurry images.<br />3. **Viewfinder blackout**: When the mirror flipped up during exposure, the viewfinder would black out, making it difficult to track moving subjects.<br /><br />**Rangefinders vs. SLRs**<br /><br />Rangefinders like the Yashica MG-1 offered a more compact and discreet shooting experience, making them ideal for street photography and reportage. SLRs, on the other hand, provided more flexibility and accuracy, making them popular among professionals and enthusiasts.<br /><br />In the end, the choice between a rangefinder and an SLR comes down to personal preference, shooting style, and the type of photography you want to do.<br /><br />I hope this helps! Do you have any specific questions about SLRs or rangefinders?</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>f952e25c</code></strong>
         <span class="small">2023/05/26 (Fri) 00:26</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m planning a surprise party for my mom&#39;s birthday, which is coming up soon. Can you give me some ideas for party themes and decorations?</div>
       </div><div class="turn">
@@ -1235,15 +1524,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Excellent decision! Adding more songs to the playlist will definitely make it more diverse and engaging for your guests.<br /><br />**Asking Your Brother for Help:**<br /><br />That&#39;s a great idea! Asking your brother to help with the party setup can be a wonderful way to involve him in the celebration and get some extra hands on deck. Since he&#39;s handy with DIY projects, he can probably help with setting up the decorations, tables, and other elements that require some manual labor.<br /><br />**Benefits of Asking for Help:**<br /><br />1. **Shared Responsibility:** By asking your brother to help, you&#39;ll be sharing the responsibility of party planning and setup, which can be a big help.<br />2. **Special Bonding Time:** Working together on the party setup can be a great way to bond with your brother and create some special memories.<br />3. **Fresh Perspective:** Your brother might bring some new ideas and perspectives to the party planning process, which can be really valuable.<br /><br />**Tips for Working with Your Brother:**<br /><br />1. **Communicate Clearly:** Make sure to communicate clearly with your brother about your vision for the party and what you need help with.<br />2. **Assign Tasks:** Divide up the tasks and responsibilities so that you both know what you&#39;re working on and can stay organized.<br />3. **Be Flexible:** Be open to your brother&#39;s ideas and suggestions, and be willing to adapt to any changes or challenges that come up.<br /><br />By working together, you and your brother can create a beautiful and memorable Garden Party for your mom. I&#39;m sure she&#39;ll appreciate the effort and love that goes into making this special day happen.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_264401</code></strong>
         <span class="small">2023/05/26 (Fri) 05:11</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">How do the character&#39;s relationships with other supporting characters in the movie affect the way their respective storylines intersect?</div>
       </div><div class="turn">
@@ -1280,15 +1573,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, certainly! There are movies or shows that overemphasize supporting character relationships, leading them to take over the main plot. At the same time, there are stories that focus too much on the main character, leading to underdeveloped supporting characters and their relationships.<br /><br />In some romantic comedies, for example, the supporting characters&#39; romances can become more compelling and interesting than the main couple&#39;s. This can leave the audience feeling more invested in the supporting characters&#39; story than in the main characters, causing the film to lose its focus and coherence.<br /><br />On the other hand, some action movies avert their focus entirely on the hero and their actions, resulting in underdeveloped supporting characters. These characters can become little more than plot devices or mere accessories to the hero&#39;s journey, which can lead to weak or unsatisfying interactions and relationships.<br /><br />Therefore, it is essential to maintain a balance and coherence in the narrative and the characters&#39; development. A compelling story should feature a balance between the main character&#39;s journey and supporting character arcs. It should allow each character to have distinct personalities while also working cohesively to enhance the story&#39;s overarching themes and message.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_197034</code></strong>
         <span class="small">2023/05/26 (Fri) 14:53</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Have any technological advances or breakthroughs in research methods made wildlife conservation efforts on South Georgia more effective?</div>
       </div><div class="turn">
@@ -1313,15 +1610,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">There are a number of human activities that pose a threat to wildlife in South Georgia. Some of the main threats include:<br /><br />1. Overfishing: Overfishing can disrupt the food chain, affecting species&#39; diets, and remove key prey species from the ecosystem, eventually leading to reduced or local extinction of predator species.<br /><br />2. Climate change: Climate change is affecting sea ice formation, ocean currents, temperature, and weather patterns, which can significantly disrupt species&#39; habitats, food sources, breeding patterns, and survival.<br /><br />3. Marine pollution: Marine pollution caused by plastics and other waste materials can disrupt the food chain or entangle animals, leading to injury or death.<br /><br />4. Invasive species: Invasive species that are introduced by human activities can outcompete or prey upon native species, and destroy their habitats.<br /><br />5. Human disturbance: Human activities such as tourism, commercial fishing, and research activities can disturb wildlife, causing stress, health problems, or habitat changes.<br /><br />6. Habitat loss: Construction and development projects, resource exploitation, or changes in land use can lead to habitat loss, and other changes in ecosystem services. <br /><br />These human activities pose varying degrees of risks for the different species on the island, therefore, conservation efforts are multi-faceted and require collaborations across different sectors, including government, NGOs, and communities.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>451ecb23_3</code></strong>
         <span class="small">2023/05/26 (Fri) 18:11</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m interested in learning more about different cultural events happening in my community. I&#39;ve been attending cultural events in my community, like the Chinese New Year parade last month and the Indian festival of lights, Diwali, a few weeks ago. Can you recommend any upcoming events that I shouldn&#39;t miss?</div>
       </div><div class="turn">
@@ -1358,15 +1659,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">You&#39;re in for a treat! Filipino desserts are a must-try, and you&#39;ll likely find vendors selling halo-halo and maja blanca at the festival. Halo-halo is a popular Filipino dessert that&#39;s perfect for hot days, and maja blanca is a classic Filipino coconut pudding that&#39;s creamy and delicious.<br /><br />Halo-halo vendors will typically offer a variety of toppings, such as sweetened beans, fruits, and nuts, which you can mix and match to create your own unique flavor combination. Some vendors might even offer unique twists on traditional halo-halo, like adding ice cream or cookie crumbs to the mix.<br /><br />As for maja blanca, you might find vendors selling it in small cups or containers, topped with a sprinkle of sugar and a sprinkle of toasted coconut flakes. Some vendors might also offer other Filipino desserts like biko (a rice cake made with coconut milk and sugar), sapin-sapin (a chewy rice flour cookie), or turon (a banana fritter).<br /><br />In addition to traditional Filipino desserts, you might also find vendors selling modern twists on classic desserts, like ube (purple yam) ice cream or pandan crepe cakes. Ube is a popular flavor in the Philippines, and it&#39;s often used in desserts like cakes, pastries, and ice cream.<br /><br />When you&#39;re trying the desserts, be sure to ask the vendors about the ingredients and preparation methods. Many Filipino desserts are made with coconut milk, sugar, and rice flour, so if you have any dietary restrictions, it&#39;s good to ask. And don&#39;t be afraid to try new things and ask for recommendations – the vendors are usually happy to share their favorite desserts and flavors with you!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_bmEgv3O_12</code></strong>
         <span class="small">2023/05/26 (Fri) 19:18</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Based on 1-20, and because I am an account executive now at ownbackup, see my bio below, give me the I am, the reason, and how it fits me for 1-20&gt;<br /><br />##<br />BIO - SUMMARY<br />Dynamic and results-driven account executive with over a decade of experience in sales and a passion for driving business growth. Recognized for using data-driven strategies to identify market opportunities and for building and maintaining strong client relationships. Known for finding creative solutions to complex problems, and for a competitive focus on meeting and exceeding objectives and metrics. Seeking a challenging and rewarding opportunity to leverage my skills and experience in a dynamic and growing organization.<br />PROFESSIONAL EXPERIENCE<br />Account Executive, OwnBackup - SaaS Data Protection Platform Feb 2021 – Present •Achieved significant recognition, including being the first to reach President&#39;s Club in segment 2022, closing highest ACV in segment 2022, and being awarded a Top Performer at the Global 2023 Sales Kick-Off event. •Closed deals with 50+ new logos and consistently surpassed quotas, contributing to an increase in overall company revenue.<br />•Consistently driving revenue growth across numerous verticals, including Finance, Healthcare, Tech, Real Estate, and Retail.<br />•Built actionable sales plans that resulted in a consistent pipeline of sales opportunities, including a 20% increase in qualified leads within the first six months of 2022.<br />•Developed and executed rigorous multi-faceted outbound prospecting campaigns that manage all customer communication from initial discovery through close.<br />•Strong organizational skills to track and map processed outreach via cadences, Salesforce, and personalized calls and emails, resulting in an increased response rate to outbound communication.<br />•Manage a strategic portfolio of existing customers and partners, uncovering potential areas for future expansion and leading to an increase in total ACV.<br /><br />##</div>
       </div><div class="turn">
@@ -1385,15 +1690,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Based on the information you provided, the hiring manager for the Rippling role is likely looking for an Account Executive who can:<br /><br />1. Demonstrate experience managing a high volume of inbound leads and a willingness to make 20-25 calls per month to engaged prospects.<br />2. Show a track record of successfully navigating a strategic sales process with a 45-day deal time.<br />3. Prove an ability to consistently meet or exceed a monthly quota of $80,000.<br />4. Demonstrate strong organizational and time management skills to effectively prioritize and manage a high volume of inbound leads.<br />5. Exhibit a solid understanding of HRIS/HCM software and security-related products, as well as the ability to become an expert in the Rippling platform.<br />6. Show a passion for helping businesses streamline their HR and IT processes.<br />7. Demonstrate excellent communication skills and an ability to deliver compelling sales presentations and product demos.<br />8. Possess a deep understanding of the competitor landscape and the ability to position Rippling as a superior solution.<br />9. Prove an ability to work collaboratively with the customer success team to ensure a seamless transition for new customers.<br />10. Demonstrate a commitment to continuous learning and development to stay up-to-date on industry trends and new product features.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>dcb18b9b_1</code></strong>
         <span class="small">2023/05/27 (Sat) 13:52</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m thinking of getting Max a new toy to add to his collection. Do you have any recommendations? I just got him a new stainless steel food bowl from Amazon for $15, and a measuring cup from the pet store down the street for $5, which has been working out great for his new grain-free kibble.</div>
       </div><div class="turn">
@@ -1430,15 +1739,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Introducing the Kong toy to Max in a fun and engaging way is crucial to ensure he understands how to use it and gets the most out of it. Here are some tips to help you introduce the Kong toy to Max:<br /><br />1. **Start with an empty Kong**: Begin by giving Max an empty Kong toy to explore and get familiar with the texture, smell, and shape. Let him sniff, lick, and chew on it without any treats or fillings.<br />2. **Add a small amount of treats**: Once Max is comfortable with the Kong, add a small amount of treats or kibble to the toy. Make it easy for him to get the treats out by using a small amount or placing them near the holes.<br />3. **Show him how it&#39;s done**: Demonstrate how to get the treats out by pushing them out with your fingers or a spoon. This will help Max understand the concept of getting rewards from the Kong.<br />4. **Encourage problem-solving**: As Max becomes more confident, start filling the Kong with a bit more treats or kibble. Encourage him to figure out how to get them out by himself. You can do this by placing the Kong on the floor or in front of him, and letting him work on it.<br />5. **Gradually increase the challenge**: As Max becomes more proficient, you can increase the difficulty level by adding more treats, using smaller treats, or placing them deeper inside the Kong.<br />6. **Supervise and interact**: Always supervise Max when he&#39;s using the Kong toy, especially in the beginning. Interact with him, praise him, and encourage him to keep trying.<br />7. **Make it fun**: Remember to make the experience fun and engaging! Use positive reinforcement, and reward Max with treats, praise, and affection when he successfully gets the treats out.<br />8. **Be patient**: Introducing a new toy and concept can take time, so be patient with Max. If he seems frustrated or loses interest, take a break and come back to it later.<br />9. **Clean and refill**: Clean the Kong toy regularly and refill it with new treats to keep Max engaged and interested.<br />10. **Rotate toys**: Rotate the Kong toy with other toys and activities to keep Max mentally stimulated and prevent boredom.<br /><br />By following these tips, you&#39;ll help Max understand how to use the Kong toy and get the most out of it. Remember to have fun and be patient, and I&#39;m sure Max will love his new Kong toy!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_42081</code></strong>
         <span class="small">2023/05/27 (Sat) 16:24</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What are some effective ways teachers can incorporate podcasts into their classroom curriculum?</div>
       </div><div class="turn">
@@ -1469,15 +1782,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Great question! Here are four ways that you can go about finding professionals to participate in your podcast:<br /><br />1. Personal Network: One of the easiest ways to find professionals to participate in your podcast is through your personal network. Consider reaching out to your family, friends, or colleagues to see if they can recommend any experts to speak on topics that relate to your podcast.<br /><br />2. Local Businesses or Organizations: Consider reaching out to local businesses or organizations that are experts in a topic you&#39;re interested in discussing in your podcast. This is an excellent way to connect with individuals who have knowledge or experience in specific fields.<br /><br />3. Social Media and Online Networks: Use social media and online networks like LinkedIn, Twitter, and Facebook, to locate professionals who specialize in the topic you want to cover in your podcast. You can also use specialized online communities or groups related to your podcast topic to find experts.<br /><br />4. Email Outreach: You can also send out emails to professionals who work in areas related to your podcast. Introduce your podcast to them, let them know how their expertise would fit into the topic you&#39;re discussing, and invite them to participate. This approach may take more time and effort, but the results can be rewarding.<br /><br />When you find a professional who would like to participate on your podcast, make sure you set up an appointment to record the session. Be clear on the topic, the requirements, and the time schedule. Finally, acknowledge the contribution of the expert in your podcast notes and provide them with the opportunity to share your finished podcast with their network.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>c34cb946_1</code></strong>
         <span class="small">2023/05/27 (Sat) 17:59</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking to learn more about photography. I just got into it again after buying a vintage Leica camera at an antique shop, and I was wondering if you could recommend some online resources or courses for beginners. By the way, I&#39;ve been having a great streak of finding rare collectibles lately - I just scored a first pressing of a debut album by a famous band at a thrift store for just $10!</div>
       </div><div class="turn">
@@ -1514,15 +1831,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">That&#39;s the spirit! I&#39;m thrilled to hear that you&#39;re excited to get out there and start shooting. Handheld photography can be very liberating, and with practice, you&#39;ll develop the skills and instincts to capture amazing shots.<br /><br />Remember to relax, have fun, and enjoy the process of exploring your neighborhood through your lens. Don&#39;t worry too much about getting the perfect shot – it&#39;s all about the journey, not the destination.<br /><br />As you&#39;re out shooting, try to stay present in the moment, observe the world around you, and anticipate the unexpected. Street photography is all about capturing the beauty in the everyday, so keep your eyes peeled for interesting characters, unique compositions, and fleeting moments.<br /><br />If you have any more questions or need further guidance, feel free to ask. Otherwise, get out there and start snapping!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_8953</code></strong>
         <span class="small">2023/05/28 (Sun) 04:13</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Can empathy and compassion be separated, or are they inherently linked?</div>
       </div><div class="turn">
@@ -1541,15 +1862,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">As an AI language model, I do not have personal beliefs or emotions, but I can provide information based on what has been studied and written by experts.<br /><br />Yes, many experts suggest that it&#39;s important for people to cultivate both empathy and compassion in their lives. Empathy can help individuals understand the emotions of others and build stronger relationships with others, while compassion can inspire individuals to take action to help others and alleviate suffering.<br /><br />Research has found that practicing empathy and compassion can have many benefits for individuals, including increased wellbeing, improved relationships, and greater emotional intelligence. Additionally, cultivating empathy and compassion can lead to positive social change and a more harmonious and just society.<br /><br />There are many ways in which people can work to cultivate empathy and compassion, such as practicing active listening, volunteering, and providing emotional support to others. It&#39;s important to note that cultivating empathy and compassion is a lifelong process that requires ongoing effort and practice.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>4f435d20_2</code></strong>
         <span class="small">2023/05/28 (Sun) 04:28</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m trying to plan my workout routine for the next month and I was thinking of increasing the intensity. Do you have any recommendations for cardio exercises that I could incorporate into my routine? By the way, I also do strength training on Thursdays, focusing on upper body exercises.</div>
       </div><div class="turn">
@@ -1586,15 +1911,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">You&#39;re welcome! I&#39;m glad I could help. Remember, everyone&#39;s body is different, so experiment with different foods and nutrients to see what works best for you. And don&#39;t forget to listen to your body and adjust your routine as needed.<br /><br />Incorporating those foods and nutrients into your post-workout routine can help with muscle recovery and reduce muscle soreness. Just remember to also focus on proper hydration, electrolyte balance, and a balanced diet to support your overall fitness goals.<br /><br />If you have any more questions or need further guidance, feel free to ask. Good luck with your fitness journey, and I hope you crush your strength training sessions on Thursdays!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_15lfOiQ_69</code></strong>
         <span class="small">2023/05/28 (Sun) 04:59</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">Subject: Unleash Your Inner Honey Connoisseur: Honey Tasting 101 🍯<br /><br />Hello there, honey aficionado!<br /><br />Do you adore the enchanting flavors of artisan honey and yearn to savor every delightful nuance? We have just the thing for you! Dive into our latest article, &quot;Honey Tasting 101: Savor the Nuances of Artisan Honey Like a True Connoisseur,&quot; and embark on a mesmerizing journey through the captivating world of honey tasting.<br /><br />In this comprehensive guide, we share tips on setting the stage for a magical honey tasting event, complete with a selection of artisan honeys and delicious accompaniments. We also delve into the art of tasting honey, from observing its color and aroma to discovering the perfect pairings with cheese, fruits, and crackers.<br /><br />So why wait? Gather your friends and transform your home into a haven for honey lovers with our Honey Tasting 101 guide. Experience the enchanting world of artisan honey like never before!<br /><br />Savor the sweet magic,<br />[Your Name]<br /><br />P.S. Don&#39;t forget to share your favorite honey pairings with us on social media using the hashtag #HoneyTasting101!</div>
       </div><div class="turn">
@@ -1616,15 +1945,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">1. Title: Discover the Health Benefits of Honey: Nature&#39;s Liquid Gold<br />Description: Explore the various health benefits associated with honey, from its antioxidant properties to its role as a natural sweetener. This article will encourage readers to consider incorporating Flights of Fancy&#39;s artisan honey into their daily lives for improved well-being.<br />2. Title: Crafting the Perfect Cheese Board: Pairing Flights of Fancy Honey with Gourmet Cheese<br />Description: Dive into the art of creating a delectable cheese board, with a focus on how Flights of Fancy&#39;s artisan honey can elevate the flavors of various gourmet cheeses. This article will inspire readers to purchase honey products for their next gathering or as a thoughtful gift.<br />3. Title: Honey-Based Beauty Recipes: Enhance Your Skincare Routine with Flights of Fancy Honey<br />Description: Share DIY beauty recipes featuring Flights of Fancy honey as a key ingredient, showcasing the versatility of honey in skincare. This article will motivate readers to experiment with honey products in their beauty routines, driving interest in purchasing honey from the brand.<br />4. Title: The Art of Cooking with Honey: Delicious Recipes Featuring Flights of Fancy Honey<br />Description: Present a selection of mouthwatering recipes that incorporate Flights of Fancy honey as a primary ingredient, demonstrating the versatility of honey in various dishes. This article will entice readers to purchase honey products for their own culinary creations.<br />5. Title: Meet the Beekeepers: The Passionate Team Behind Flights of Fancy Honey<br />Description: Share the story of Flights of Fancy&#39;s beekeepers, detailing their love for beekeeping, dedication to their craft, and commitment to producing high-quality honey products. This article will create an emotional connection with readers and generate interest in supporting the brand&#39;s artisans.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>eb5c65e2_1</code></strong>
         <span class="small">2023/05/28 (Sun) 06:32</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m thinking of buying a bike to ride to work, but I want to know how much time I&#39;ll save. Can you help me calculate the difference between my current commute and a bike ride? By the way, I take the 7:15 AM train from my local station, which takes 25 minutes to reach the train station near my office.</div>
       </div><div class="turn">
@@ -1661,15 +1994,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I remember! You mentioned that earlier. So, you&#39;re thinking of taking the same route as your train commute, which means you&#39;ll still have to contend with the construction on Main Street. But, as you said, on a bike, you&#39;ll have more control over your route and can try to find a way to minimize the impact of the construction.<br /><br />It&#39;s great that you&#39;re thinking ahead and considering the route you&#39;ll take. As a cyclist, you&#39;ll have more flexibility to adjust your route on the fly, which can be really helpful when dealing with construction or other obstacles.<br /><br />Now that we&#39;ve discussed your bike commute time, I&#39;m curious: are you feeling more confident about making the switch to a bike commute? Do you have any other concerns or questions about cycling to work?</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_316997</code></strong>
         <span class="small">2023/05/28 (Sun) 07:09</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">In what ways has Australian defence spending impacted the Army&#39;s equipment and technology?</div>
       </div><div class="turn">
@@ -1700,15 +2037,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I cannot give an opinion as i am not programmed to make predictions or have personal views. however, one possible argument is that technology is becoming increasingly accessible and user-friendly, and this could potentially make it easier for the average citizen to gain access to and understand the army&#39;s capabilities.<br /><br />additionally, with the increasing use of social media and other communication technologies, the army is becoming more transparent and accessible to the public. this allows citizens to better understand the army&#39;s mission, capabilities, and contributions to national security, which can help create a greater sense of trust and support for the armed forces.<br /><br />on the other hand, the increasing focus on advanced technologies and capabilities could also lead to a widening knowledge gap between those who have access to and understand these technologies and those who do not. the army may need to invest in greater education and outreach efforts to ensure that the public is informed about its capabilities and how they contribute to national security. overall, it&#39;s important for the army to strike a balance between maintaining its advanced capabilities and remaining accessible to the public it serves.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>86935301_2</code></strong>
         <span class="small">2023/05/29 (Mon) 04:41</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some movie musical recommendations. I recently watched Evita on a lazy Sunday afternoon about three weeks ago and loved it.</div>
       </div><div class="turn">
@@ -1745,15 +2086,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Great choices! &quot;My Shot&quot; and &quot;Helpless&quot; are two of the most iconic and catchy songs in the show, and they showcase Miranda&#39;s mastery of blending clever lyrics with infectious rhythms. It&#39;s no wonder you&#39;ve been humming them nonstop!<br /><br />I completely agree with you about how the songs tell the story of Alexander Hamilton&#39;s life in such a compelling way. The music and lyrics do an amazing job of conveying his ambition, passion, and flaws, making him a relatable and human character.<br /><br />As for seeing the show live, I&#39;m a large language model, I don&#39;t have personal experiences or a physical presence, so I haven&#39;t seen Hamilton live. However, I&#39;ve been trained on vast amounts of text data, including reviews, articles, and conversations about the show, so I can provide insights and information about it!<br /><br />I&#39;m thrilled to hear that you&#39;re considering treating yourself to a special night out to see Hamilton live. It&#39;s definitely a unique and unforgettable experience, and I&#39;m sure you&#39;ll love it. If you do end up going, I&#39;d love to hear about your experience and what you thought of the show!<br /><br />In the meantime, I&#39;m happy to chat with you more about Hamilton, musical theater, or anything else that interests you. What do you think about the impact of Hamilton on popular culture and Broadway as a whole? Do you think it&#39;s helped to revitalize interest in musical theater, or has it paved the way for more diverse and innovative storytelling on stage?</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>29b1addb_2</code></strong>
         <span class="small">2023/05/29 (Mon) 09:22</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some tips on sourcing vintage clothing for a 1920s-themed production. I help out with the props department today for the upcoming production of &quot;Chicago&quot; at the community theater, and I need some advice on finding affordable and authentic-looking costumes.</div>
       </div><div class="turn">
@@ -1790,15 +2135,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">What a great idea! Local vintage clothing stores and thrift shops can be treasure troves for finding unique and affordable vintage accessories that fit the 1920s theme. The community center area is a perfect place to start your search.<br /><br />Here are some tips to help you find good deals on vintage accessories like hats, gloves, and jewelry:<br /><br />**Vintage Clothing Stores:**<br /><br />1. **Look for stores that specialize in vintage clothing**: Stores that specialize in vintage clothing often have a curated selection of accessories that fit specific eras, including the 1920s.<br />2. **Ask the store owners about their stock**: Store owners often have a deep knowledge of their inventory and can help you find specific items or point you in the right direction.<br />3. **Check the store&#39;s website or social media**: Many vintage clothing stores post their new arrivals or featured items on their website or social media, giving you a sneak peek at what&#39;s available.<br /><br />**Thrift Shops:**<br /><br />1. **Be prepared to dig**: Thrift shops can be overwhelming, but the thrill of the hunt is part of the fun! Be prepared to dig through racks and shelves to find hidden gems.<br />2. **Look for unique or unusual items**: Thrift shops often carry one-of-a-kind items that can add a touch of authenticity to your costumes.<br />3. **Check the prices**: Thrift shops often have very affordable prices, making it easy to find deals on vintage accessories.<br /><br />**Tips for Finding 1920s-inspired Accessories:**<br /><br />1. **Look for items with ornate details**: The 1920s were known for ornate details like beading, sequins, and embroidery, so keep an eye out for items that feature these elements.<br />2. **Check for Art Deco influences**: Art Deco was a popular style during the 1920s, characterized by geometric shapes, metallic materials, and ornate details.<br />3. **Consider items with a vintage flair**: Even if an item isn&#39;t from the 1920s specifically, if it has a vintage flair or can be altered to fit the theme, it might be worth considering.<br /><br />By following these tips, you&#39;ll increase your chances of finding unique and affordable vintage accessories that fit the 1920s theme. Happy thrifting, and I hope you find some amazing deals!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_6SxtjIQ_0</code></strong>
         <span class="small">2023/05/29 (Mon) 09:59</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">how do I display the enviroment varibles in kubernetes</div>
       </div><div class="turn">
@@ -1829,15 +2178,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">To authenticate WebSocket connections using bearer tokens in a Kubernetes cluster, you can use the following steps:<br /><br />1. First, you need to create a Kubernetes secret that contains the bearer token that you will use for authentication. You can create a secret using the `kubectl create secret` command. Here&#39;s an example command to create a secret named `my-secret` with a bearer token:<br />```lua<br />kubectl create secret generic my-secret --from-literal=token=&lt;bearer-token&gt;<br />```<br />Replace `&lt;bearer-token&gt;` with the actual bearer token that you want to use for authentication.<br /><br />2. In your Deno application, you can use the `WebSocket` class to create a WebSocket connection. You can set the `Authorization` header to include the bearer token that you created in step 1. Here&#39;s an example:<br />```typescript<br />const ws = new WebSocket(&#39;wss://my-websocket-endpoint&#39;);<br />ws.onopen = () =&gt; {<br />  console.log(&#39;WebSocket connection established.&#39;);<br />  // Send authentication message with bearer token<br />  ws.send(JSON.stringify({ type: &#39;auth&#39;, token: `Bearer ${Deno.env.get(&#39;BEARER_TOKEN&#39;)}` }));<br />};<br />```<br />In this example, we&#39;re creating a WebSocket connection to `wss://my-websocket-endpoint` and setting the `Authorization` header to include the bearer token that we retrieved from the environment variable `BEARER_TOKEN`. We&#39;re also sending an authentication message with the bearer token as soon as the WebSocket connection is established.<br /><br />Note that you need to run your Deno file with the `--allow-net` flag to allow WebSocket connections. Here&#39;s an example command to run your Deno file:<br />```css<br />deno run --allow-net your_file.ts<br />```<br />Replace `your_file.ts` with the name of your Deno file.<br /><br />3. In your Kubernetes deployment manifest file, you need to mount the secret that contains the bearer token into your container. You can mount the secret as a file using a volume and specify the file path in your Deno application. Here&#39;s an example:<br />```yaml<br />apiVersion: apps/v1<br />kind: Deployment<br />metadata:<br />  name: my-app<br />spec:<br />  replicas: 1<br />  selector:<br />    matchLabels:<br />      app: my-app<br />  template:<br />    metadata:<br />      labels:<br />        app: my-app<br />    spec:<br />      containers:<br />        - name: my-container<br />          image: my-image<br />          volumeMounts:<br />            - name: secret-volume<br />              mountPath: /var/run/secrets/my-secret<br />              readOnly: true<br />          env:<br />            - name: BEARER_TOKEN<br />              valueFrom:<br />                secretKeyRef:<br />                  name: my-secret<br />                  key: token<br />      volumes:<br />        - name: secret-volume<br />          secret:<br />            secretName: my-secret<br />```<br />In this example, we&#39;re mounting the `my-secret` secret as a file at the path `/var/run/secrets/my-secret` and setting the `BEARER_TOKEN` environment variable to the value of the `token` key in the secret.<br /><br />Note that you need to run your Kubernetes deployment manifest file with the `kubectl apply` command to apply the changes. Here&#39;s an example command to apply your manifest file:<br />```<br />kubectl apply -f your_manifest_file.yaml<br />```<br />Replace `your_manifest_file.yaml` with the name of your Kubernetes deployment manifest file.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>7211c69e</code></strong>
         <span class="small">2023/05/29 (Mon) 12:15</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;ve been trying to keep track of my social media presence across different platforms, can you help me get an overview of my recent activity?</div>
       </div><div class="turn">
@@ -1874,15 +2227,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">You&#39;re interested in exploring Instagram Shopping!<br /><br />Instagram Shopping is a fantastic way to tag products directly in your posts and stories, making it easy for customers to purchase from your brand without leaving the app. Here&#39;s a step-by-step guide on how to set up Instagram Shopping and some tips to help you make the most of it:<br /><br />**Setting up Instagram Shopping:**<br /><br />1. **Meet the requirements:** Ensure your account meets Instagram&#39;s requirements for Shopping, including:<br />	* Having an Instagram Business account.<br />	* Being located in a supported country.<br />	* Selling physical products.<br />	* Having a product catalog set up through a partner platform like Shopify or BigCommerce.<br />2. **Apply for Instagram Shopping:** Go to your Instagram profile, tap the three horizontal lines, and select &quot;Settings.&quot; Then, tap &quot;Business&quot; and &quot;Shopping&quot; to apply.<br />3. **Connect your product catalog:** Link your product catalog to Instagram through a partner platform or by uploading your catalog manually.<br />4. **Set up your shop:** Add a shop section to your Instagram profile by going to your profile, tapping &quot;Edit Profile,&quot; and selecting &quot;Add Shop.&quot;<br /><br />**Tips for making the most of Instagram Shopping:**<br /><br />1. **High-quality product images:** Use high-quality, well-lit, and in-focus product images that showcase your products from different angles.<br />2. **Optimize your product titles and descriptions:** Write clear, concise, and descriptive titles and descriptions for your products to help customers find what they&#39;re looking for.<br />3. **Use relevant hashtags:** Use relevant hashtags in your product descriptions to increase discoverability.<br />4. **Tag products in posts and stories:** Tag products in your posts and stories to make it easy for customers to purchase from your brand.<br />5. **Create shoppable content:** Create content that encourages customers to shop, such as &quot;Shop the Look&quot; or &quot;Get the Product&quot; CTAs.<br />6. **Utilize Instagram Stories:** Use Instagram Stories to showcase products, offer exclusive deals, and drive sales.<br />7. **Monitor and optimize:** Monitor your Instagram Shopping performance, and optimize your strategy based on the data.<br />8. **Run Instagram Ads:** Run Instagram Ads to increase visibility, drive traffic, and boost sales.<br />9. **Influencer collaborations:** Collaborate with influencers to showcase your products and reach new audiences.<br />10. **Exclusive offers:** Offer exclusive deals or discounts to Instagram customers to incentivize purchases.<br /><br />**Additional tips:**<br /><br />1. **Make it seamless:** Ensure a seamless shopping experience by having a smooth checkout process and quick shipping.<br />2. **Customer service:** Provide excellent customer service to build trust and encourage repeat purchases.<br />3. **Instagram Shopping analytics:** Use Instagram Shopping analytics to track performance, identify areas for improvement, and optimize your strategy.<br />4. **Cross-promote:** Cross-promote your Instagram Shopping content on other social media platforms to drive traffic and increase sales.<br /><br />By following these steps and tips, you can effectively set up and utilize Instagram Shopping to drive sales, increase engagement, and grow your business.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_1sxNkyQ_41</code></strong>
         <span class="small">2023/05/29 (Mon) 12:23</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">Goal 3: My goal is to be visible and accessible to all residents on the floor. Through this course, I have learned about the importance of being present and available to others as a leader. As an RA, it is my responsibility to create a safe and comfortable living environment for all residents, and this can only be achieved through open communication and accessibility.<br /><br />Goal 3 Success Criteria: I will know that I have achieved this goal when residents feel comfortable approaching me with any concerns or questions they may have, and when I have established an open and approachable reputation on the floor.<br /><br />Objective 1: I will make myself available to residents by holding weekly office hours and regularly checking in with them.<br /><br />Objective 1 Strategic Activities:<br /><br />* Set up weekly office hours and communicate them to residents.<br />* Schedule individual check-ins with each resident to build relationships and trust.<br />* Attend floor events and engage with residents in informal settings.<br /><br />Objective 2: I will use social media and other digital platforms to increase my visibility and accessibility to residents.<br /><br />Objective 2 Strategic Activities:<br /><br />* Create and maintain a floor group chat or social media page for residents to communicate and stay updated on events.<br />* Use digital platforms to share information and resources with residents.<br />* Respond promptly to residents&#39; messages and inquiries through these platforms.</div>
       </div><div class="turn">
@@ -1928,15 +2285,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Sure, here are 5 different ideas for GOAL 2 Objective 2:<br /><br />1. Organize a team-building activity such as an escape room or outdoor adventure course.<br />2. Hold a brainstorming session with the team to generate new ideas for improving teamwork and collaboration.<br />3. Implement a buddy system where team members are paired up to provide support and accountability to each other.<br />4. Establish clear team goals and regularly track progress towards those goals through meetings and progress reports.<br />5. Encourage team members to share their individual strengths and skills, and find ways to incorporate those strengths into team projects and tasks.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_ErOTMZ3_171</code></strong>
         <span class="small">2023/05/29 (Mon) 13:07</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">Sure, here&#39;s more:<br /><br />83 + Aja (The Market)<br /><br />* This combination suggests success in business and trade, as well as the possibility of finding new opportunities and expanding one&#39;s network.<br /><br />84 + Opon Ifa (The Divination Tray)<br /><br />* This combination represents the importance of seeking guidance and wisdom from a diviner or spiritual leader. It can also indicate the need for introspection and reflection.<br /><br />85 + Ofun (The Coconut)<br /><br />* This combination suggests a need for clarity and purity in one&#39;s actions and intentions. It may also indicate the need for sacrifice or a willingness to give up something for a greater good.<br /><br />86 + Oyeku (The Tortoise)<br /><br />* This combination suggests the need for caution and careful planning. It may also indicate the importance of flexibility and adaptability in one&#39;s approach to a situation.<br /><br />87 + Irosun (The Vulture)<br /><br />* This combination suggests the possibility of danger or crisis, but also the potential for transformation and renewal. It may also indicate the need to let go of old patterns or beliefs.<br /><br />88 + Owonrin (The Leopard)<br /><br />* This combination suggests power, strength, and leadership. It may also indicate the need for balance and harmony in one&#39;s relationships and interactions with others.<br /><br />89 + Obara (The Kola Nut)<br /><br />* This combination represents the importance of community and social connections. It may also indicate the need to show hospitality and generosity to others.<br /><br />90 + Okanran (The Ram)<br /><br />* This combination suggests passion and ambition, as well as the potential for conflict or competition. It may also indicate the need for courage and assertiveness in pursuing one&#39;s goals.<br /><br />91 + Ogunda (The Spider)<br /><br />* This combination suggests creativity, resourcefulness, and the ability to weave one&#39;s own destiny. It may also indicate the importance of paying attention to details and taking a strategic approach.<br /><br />92 + Osa (The Mountain)<br /><br />* This combination suggests strength, stability, and endurance. It may also indicate the need for patience and perseverance in the face of obstacles or challenges.<br /><br />93 + Ika (The Bag)<br /><br />* This combination suggests the importance of planning and organization, as well as the potential for material gain. It may also indicate the need for caution and mindfulness in financial matters.<br /><br />94 + Oturupon (The Lizard)<br /><br />* This combination suggests the need for adaptability and flexibility, as well as the potential for transformation and growth. It may also indicate the importance of letting go of old habits or beliefs.<br /><br />95 + Irete (The Plantain)<br /><br />* This combination suggests abundance, fertility, and growth. It may also indicate the need for balance and harmony in one&#39;s relationships and interactions with others.<br /><br />96 + Ose (The Coconut Shell)<br /><br />* This combination suggests the importance of tradition and cultural values, as well as the potential for healing and transformation. It may also indicate the need for humility and respect for others.<br /><br />97 + Ofun (The Coconut)<br /><br />* This combination suggests a need for clarity and purity in one&#39;s actions and intentions. It may also indicate the need for sacrifice or a willingness to give up something for a greater good.<br /><br />98 + Owonrin (The Leopard)<br /><br />* This combination suggests power, strength, and leadership. It may also indicate the need for balance and harmony in one&#39;s relationships and interactions with others.<br /><br />99 + Ika (The Bag)<br /><br />* This combination suggests the importance of planning and organization, as well as the potential for material gain. It may also indicate the need for caution and mindfulness in financial matters.<br /><br />100 + Irete (The Plantain)<br /><br />* This combination suggests abundance, fertility, and growth. It may also indicate the need for balance and harmony in one&#39;s relationships and interactions with others.</div>
       </div><div class="turn">
@@ -1952,15 +2313,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I apologize for my mistake. Here are the remaining combinations to complete the list:<br /><br />241. House 16 with Figure Obara: You are urged to confront a situation head-on rather than avoiding it.<br />242. House 16 with Figure Okanran: A time of great change is on the horizon, so be prepared to adapt.<br />243. House 16 with Figure Ogbe: This is a sign of new beginnings and fresh starts.<br />244. House 16 with Figure Oyeku: You may encounter obstacles in your path, but perseverance will lead to success.<br />245. House 16 with Figure Iwori: Your actions may have unintended consequences, so be cautious.<br />246. House 16 with Figure Odi: You are likely to face a period of uncertainty and confusion.<br />247. House 16 with Figure Irosun: This combination signifies the need for balance and moderation in all things.<br />248. House 16 with Figure Owonrin: A time of introspection and self-discovery is at hand.<br />249. House 16 with Figure Ose: This combination indicates a need to take action and move forward with purpose.<br />250. House 16 with Figure Ofun: You may face challenges that require you to draw upon your inner strength and resources.<br />251. House 1 with Figure Ejiogbe: This combination represents the beginning of a journey or endeavor.<br />252. House 1 with Figure Oyeku: You may encounter obstacles in your path, but perseverance will lead to success.<br />253. House 1 with Figure Iwori: Your actions may have unintended consequences, so be cautious.<br />254. House 1 with Figure Odi: You are likely to face a period of uncertainty and confusion.<br />255. House 1 with Figure Irosun: This combination signifies the need for balance and moderation in all things.<br />256. House 1 with Figure Owonrin: A time of introspection and self-discovery is at hand.<br /><br />I hope this completes the list for you.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_570005</code></strong>
         <span class="small">2023/05/29 (Mon) 13:38</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What are the key factors affecting urbanization, and how can we minimize their negative impacts?</div>
       </div><div class="turn">
@@ -1985,15 +2350,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Cities can face several challenges when implementing social equity policies, including:<br /><br />1. Funding Constraints - Implementing social equity policies and regulations can be expensive, and cities may face funding constraints that limit their ability to implement effective measures. Cities should explore creative funding sources and public-private partnerships to leverage resources and expertise and provide support for necessary programs.<br /><br />2. Political Resistance - Implementing social equity policies can be difficult in areas where there is political resistance, with some groups or individuals preferring to maintain the status quo, rather than supporting changes that may benefit marginalized communities. Cities should engage all stakeholders, listen to their concerns and needs and engage them in decision-making processes.<br /><br />3. Inadequate Data Collection - In order to create effective social equity policies, cities need to have accurate and reliable data on issues such as access to services, housing affordability, education, healthcare, and economic opportunity in different neighborhoods. Cities should invest in data collection and research to ensure that policies are based on accurate data.<br /><br />4. Balancing Interests of Different Groups - Balancing competing interests of different groups can be complicated. Social equity policies should aim to strike a balance that serves the interests of low-income groups, as well as businesses and residents in the urban areas.<br /><br />To overcome these challenges, cities can take the following steps:<br /><br />1. Foster Collaboration - Collaboration among stakeholders such as community-based organizations, residents, local government agencies, and the private sector is essential to ensure broad-based community support for social equity policies.<br /><br />2. Create an Implementation Plan - Cities should create a comprehensive policy and regulatory framework that outlines how policies will be implemented and evaluated over time. The plan should be grounded in accurate data and meaningful community engagement.<br /><br />3. Communicate Effectively - Effective communication is key, and cities should clearly communicate the benefits of social equity policies to all stakeholders in ways that are accessible and engaging.<br /><br />4. Be Innovative - By thinking outside the box, cities can consider new approaches, partnerships and technologies to help address the challenges in implementing social equity policies.<br /><br />5. Prioritize Continuous Improvement - Implementing social equity policies is a long-term process, and cities should prioritize ongoing evaluation, monitoring, and improvement to ensure that policies are effective and equitably implemented for all residents.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_uzwG36E_1</code></strong>
         <span class="small">2023/05/29 (Mon) 14:50</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">Sure, I can help you understand generating static params in Next.js 13.2 with examples using TypeScript. In Next.js, dynamic routes are used when the exact route path is not known ahead of time. With dynamic routes, you can generate routes based on data fetched from an external source, like a CMS or an API.<br /><br />`generateStaticParams` is a function that you can use in combination with dynamic route segments to define the list of route segment parameters that will be statically generated at build time. This allows you to pre-render pages based on dynamic data.<br /><br />Let&#39;s use a blog as an example. We will have a dynamic route with the following file structure:<br />```bash<br />app/blog/[slug]/page.tsx<br />```<br />Where `[slug]` is the dynamic segment for blog post URLs.<br /><br />First, let&#39;s create the `page.tsx` file and define the page component:<br />```typescript<br />// app/blog/[slug]/page.tsx<br /><br />import React from &#39;react&#39;;<br /><br />interface PageProps {<br />  params: {<br />    slug: string;<br />  };<br />}<br /><br />const Page: React.FC&lt;PageProps&gt; = ({ params }) =&gt; {<br />  const { slug } = params;<br />  return &lt;div&gt;Post with slug: {slug}&lt;/div&gt;;<br />};<br /><br />export default Page;<br />```<br />Next, we&#39;ll define the `generateStaticParams` function, which will fetch the data and return an array of `params` objects with the slugs of the blog posts:<br />```typescript<br />// app/blog/[slug]/page.tsx<br /><br />import type { GenerateStaticParams } from &#39;next&#39;;<br /><br />interface Params {<br />  slug: string;<br />}<br /><br />export const generateStaticParams: GenerateStaticParams&lt;Params&gt; = async () =&gt; {<br />  const response = await fetch(&#39;https://.../posts&#39;);<br />  const posts = await response.json();<br /><br />  return posts.map((post: { slug: string }) =&gt; ({<br />    slug: post.slug,<br />  }));<br />};<br />```<br />With this setup, during the build process, Next.js will call the `generateStaticParams` function, fetch the list of posts, and create a static version of the page for each post with the corresponding slug.<br /><br />When a user visits one of the blog post URLs, the corresponding static page will be served, making the page load faster.<br /><br />Keep in mind that the `generateStaticParams` function runs at build time, and the data fetching is automatically deduplicated. This means that if you have multiple instances of `generateStaticParams` with the same fetch request, the request will only be made once, reducing the build time.<br /><br />Please let me know if you have any questions or need further clarification!</div>
       </div><div class="turn">
@@ -2009,15 +2378,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">fetch(&#39;&lt;https://jsonplaceholder.typicode.com/posts&gt;&#39;);<br />const posts = await response.json();<br /><br />return {<br />posts: posts.map((post: { id: number; title: string }) =&gt; ({<br />id: post.id,<br />title: post.title,<br />})),<br />};<br />};<br /><br />// Update the Page component to receive metadata instead of params<br />const Page: React.FC&lt;PostListMetadata&gt; = ({ posts }) =&gt; {<br />// ...<br />};<br />```vbnet<br /><br />With this setup, the `generateMetadata` function for the `/posts` page fetches the list of all posts during the build process. The fetched posts are passed as metadata to the page component, which then renders the list of posts with links to their respective pages.<br /><br />Now you have a simple blog app that uses the JSONPlaceholder API to fetch data and statically generates pages for all the blog posts. This example demonstrates how to use `generateStaticParams` and `generateMetadata` functions in Next.js 13 with TypeScript to fetch and display data from an external API.<br />```</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>1b474144</code></strong>
         <span class="small">2023/05/29 (Mon) 16:35</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some organization tips for my bookshelf. I&#39;ve already decluttered it, but I want to make sure everything is tidy and easy to find. Do you have any suggestions?</div>
       </div><div class="turn">
@@ -2054,15 +2427,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Caring for your new plants is crucial to keep them happy and thriving. Here are some general tips to care for the low-maintenance plants I mentioned earlier:<br /><br />**Watering:**<br /><br />* Water your plants when the soil feels dry to the touch, usually once a week in the summer and once every 10-14 days in the winter.<br />* Check the soil moisture by sticking your finger into the soil up to the first knuckle. If it feels dry, it&#39;s time to water.<br />* Water thoroughly, making sure the pot drains well to prevent waterlogged soil.<br /><br />**Lighting:**<br /><br />* Most houseplants prefer bright, indirect light, but some can tolerate low light conditions.<br />* Placing plants near an east- or west-facing window is ideal, as they receive gentle, indirect light.<br />* Avoid direct sunlight, which can cause leaves to become scorched.<br /><br />**Humidity:**<br /><br />* Most houseplants prefer a humid environment, typically between 40-60% relative humidity.<br />* You can increase humidity around your plants by placing them on a tray filled with water and pebbles or using a humidifier.<br /><br />**Temperature:**<br /><br />* Most houseplants prefer temperatures between 65-75°F (18-24°C) during the day and no lower than 55°F (13°C) at night.<br />* Avoid placing plants near heating or cooling vents, fireplaces, or drafty windows.<br /><br />**Fertilization:**<br /><br />* Feed your plants with a balanced, water-soluble fertilizer (20-20-20) once a month.<br />* Dilute the fertilizer to half the recommended strength to avoid burning your plants&#39; roots.<br /><br />**Pruning:**<br /><br />* Prune your plants regularly to maintain their shape, promote healthy growth, and encourage blooming.<br />* Remove dead or dying leaves and stems to prevent the spread of disease.<br /><br />**Pest control:**<br /><br />* Check your plants regularly for pests like spider mites, mealybugs, and scale.<br />* Isolate infected plants, and treat them with insecticidal soap or neem oil according to the product&#39;s instructions.<br /><br />**Soil:**<br /><br />* Use a well-draining potting mix to prevent waterlogged soil.<br />* Repot your plants every 1-2 years to refresh the soil and provide a larger pot if necessary.<br /><br />**Other tips:**<br /><br />* Avoid over-handling your plants, as this can cause stress and lead to disease.<br />* Monitor your plants&#39; condition, and adjust their care accordingly.<br />* Learn to recognize common plant diseases and pests to take action quickly.<br /><br />By following these general care tips, you&#39;ll be well on your way to becoming a successful plant parent!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_377117</code></strong>
         <span class="small">2023/05/29 (Mon) 16:47</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Can you describe the different types of drug addiction treatment methods?</div>
       </div><div class="turn">
@@ -2099,15 +2476,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, combining different treatment methods to suit the individual&#39;s needs can help improve the effectiveness of addiction treatment. This is called an integrated treatment approach, which combines medication-assisted treatment, behavioral therapy, and other support services. For example, a person may benefit from medication-assisted treatment to manage their withdrawal symptoms and cravings while undergoing cognitive-behavioral therapy to help them identify negative thought patterns and behaviors related to drug use. Additionally, group therapy or support groups can provide peer support and help individuals learn from others who have gone through similar experiences. Integrated treatment can also address co-existing mental health conditions that may be contributing to the addiction. For instance, a person with a co-occurring mental health disorder such as depression or anxiety may require additional supportive services such as psychiatric care or medication management alongside their addiction treatment. By combining different treatment methods, individuals can receive personalized and comprehensive addiction treatment that addresses their unique needs and helps them achieve long-term recovery.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>85143e6b_2</code></strong>
         <span class="small">2023/05/30 (Tue) 10:42</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m planning a camping trip with friends in a few weeks and I was wondering if you could recommend some camping recipes that are easy to prepare and don&#39;t require a lot of cooking gear. By the way, I just got back from an amazing 5-day hiking trip to Yellowstone National Park with my friends last month, where we hiked over 30 miles of trails, saw an abundance of wildlife including grizzly bears, wolves, and elk, and camped under the starriest skies I&#39;ve ever seen.</div>
       </div><div class="turn">
@@ -2144,7 +2525,8 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yellowstone National Park is a treasure trove of conservation efforts! I&#39;m happy to share some organizations that focus on protecting Yellowstone&#39;s wildlife and habitats:<br /><br />**Yellowstone-Specific Organizations**<br /><br />1. **Yellowstone Forever**: The official nonprofit partner of Yellowstone National Park, dedicated to protecting and preserving the park&#39;s natural and cultural resources.<br />2. **Yellowstone Association**: Works to promote conservation, education, and research in Yellowstone, with a focus on wildlife, geology, and cultural heritage.<br />3. **Greater Yellowstone Coalition**: A non-profit organization that protects and preserves the Greater Yellowstone Ecosystem, including its wildlife, habitats, and natural resources.<br /><br />**Wildlife-Specific Organizations**<br /><br />1. **Yellowstone Wolf Project**: Dedicated to protecting and conserving wolves in Yellowstone and the surrounding region.<br />2. **Grizzly Bear Coalition**: Works to protect and conserve grizzly bears in Yellowstone and the Greater Yellowstone Ecosystem.<br />3. **Elk Management Program**: A collaborative effort between the National Park Service, the US Forest Service, and the US Fish and Wildlife Service to manage elk populations in Yellowstone.<br /><br />**Other Organizations**<br /><br />1. **National Park Conservation Association (NPCA)**: A national organization that advocates for the protection and preservation of national parks, including Yellowstone.<br />2. **The Nature Conservancy**: Works to protect and preserve natural habitats and ecosystems in Yellowstone and the surrounding region.<br />3. **Wildlife Conservation Society (WCS)**: Has a presence in Yellowstone, working to protect and conserve wildlife and their habitats in the park and the Greater Yellowstone Ecosystem.<br /><br />These organizations are all dedicated to protecting and preserving Yellowstone&#39;s unique wildlife and habitats. They often work together with the National Park Service, the US Forest Service, and other government agencies to achieve common conservation goals.<br /><br />You can visit their websites to learn more about their work, volunteer opportunities, and ways to support their conservation efforts in Yellowstone.</div>
       </div></div>
-  </details></div>
+    </details>
+  </div></div>
                     </details>
     </div>
   </div>

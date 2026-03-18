@@ -105,7 +105,7 @@
       border: 1px solid var(--line);
       border-radius: 14px;
       background: #fff;
-      padding: 0 14px 14px;
+      padding: 14px;
     }
     .priority-session {
       border-width: 2px;
@@ -115,21 +115,17 @@
     .secondary-session {
       opacity: 0.9;
     }
-    .session-card summary {
-      list-style: none;
-      cursor: pointer;
+    .session-card-header {
       display: flex;
       justify-content: space-between;
       gap: 12px;
       align-items: center;
-      padding: 14px 0;
-    }
-    .session-card summary::-webkit-details-marker {
-      display: none;
+      margin-bottom: 12px;
     }
     .session-turns {
       display: grid;
       gap: 10px;
+      margin-top: 12px;
     }
     .turn {
       border-top: 1px solid var(--line);
@@ -146,6 +142,40 @@
       font-size: 14px;
       line-height: 1.55;
       word-break: break-word;
+    }
+    .session-memory-wrap {
+      margin-bottom: 12px;
+    }
+    .session-memory-details {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fcfaf5;
+      padding: 0 12px 12px;
+    }
+    .session-memory-details summary,
+    .session-conversation-details summary {
+      cursor: pointer;
+      padding: 12px 0;
+      font-size: 13px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .session-conversation-details {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fafaf7;
+      padding: 0 12px 12px;
+    }
+    .session-memory-list {
+      display: grid;
+      gap: 10px;
+    }
+    .extracted-memory-card {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+      padding: 12px;
     }
     .pill {
       display: inline-block;
@@ -265,15 +295,93 @@
       <h2>Question Sessions</h2>
       <p class="small">Benchmark answer sessions are shown first. Then come other retrieved sessions. Background sessions stay collapsed below.</p>
       <div class="session-subhead">Answer Sessions</div>
-             <div class="session-list"><details class="session-card priority-session">
-    <summary>
+             <div class="session-list"><div class="session-card priority-session">
+    <div class="session-card-header">
       <div>
         <strong><code>answer_c008e5df_1</code></strong>
         <span class="small">2023/05/22 (Mon) 01:26</span>
       </div>
       <div><span class="pill">ground truth</span> <span class="pill pill-answer">answer session</span></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    <div class="session-memory-wrap"><details class="session-memory-details">
+    <summary>Extracted Memories (4)</summary>
+    <div class="session-memory-list"><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 1</strong>
+      <div>
+        
+        <span class="small">2023-05-22T08:26:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Explored alternative toppings for overnight oats, specifically avoiding nuts. Considered various fruits, seeds like chia and flaxseeds, coconut flakes, and flavorings such as cinnamon or vanilla. Also thought about sweeteners like honey or maple syrup, and creamy additions like Greek yogurt or seed butters.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>User is looking for alternative toppings for overnight oats, excluding nuts.<br />Considered fresh or dried fruits (bananas, berries, apples, cranberries, apricots, raisins).<br />Thought about seeds (chia seeds, flaxseeds) for omega-3s, protein, and fiber.<br />Considered coconut flakes for creamy, tropical flavor.<br />Thought about cinnamon, vanilla, or cocoa powder for flavor.<br />Considered honey, maple syrup, or fruit preserves for sweetness.<br />Considered creamy toppings like Greek yogurt, peanut butter, or sunflower seed butter.<br />Also considered tahini, hemp seeds butter, shredded coconut, or shaved dark chocolate.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Oats</td>
+      </tr></tbody></table>
+  </div><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 2</strong>
+      <div>
+        
+        <span class="small">2023-05-22T08:26:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Planned to use a coffee grinder to prepare flaxseeds for overnight oats. Explored various methods for grinding flaxseeds, including coffee grinders, high-powered blenders, food processors, and mortar and pestle. Learned tips for grinding, such as grinding just before use and in small batches.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>User plans to use a coffee grinder for flaxseeds.<br />Methods for grinding flaxseeds include coffee grinder, high-powered blender (Vitamix, Blendtec), food processor, and mortar and pestle.<br />Tips for grinding: grind just before using to prevent rancidity, grind in small batches, and sift if using a blender or food processor.<br />Pre-ground flaxseeds can be purchased if no grinder is available.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Flaxseeds</td>
+      </tr></tbody></table>
+  </div><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 3</strong>
+      <div>
+        
+        <span class="small">2023-05-22T08:26:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Planned to make a quinoa and black bean salad with grilled chicken for lunch and sought suggestions to enhance its flavor. Considered adding a cilantro lime dressing, spicy roasted vegetables, grilled pineapple, avocado crema, feta cheese crumbles, toasted cumin and coriander, or chipotle peppers in adobo sauce. Also thought about using flavorful grilled chicken, fresh herbs, different quinoa types, and additional ingredients like hard-boiled eggs or tomatoes.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>User is making quinoa and black bean salad with grilled chicken for lunch.<br />Suggestions for flavor boosters include: cilantro lime dressing, spicy roasted vegetables (bell peppers, onions, jalapeños), grilled pineapple, avocado crema, feta cheese crumbles, toasted cumin and coriander, and chipotle peppers in adobo sauce.<br />Other tips include using flavorful grilled chicken (chipotle-lime, fajita-style), fresh herbs (parsley, basil, cilantro), different quinoa types (tri-color, red), and additional ingredients (hard-boiled eggs, diced tomatoes, sliced black olives).</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Quinoa</td>
+      </tr></tbody></table>
+  </div><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 4</strong>
+      <div>
+        
+        <span class="small">2023-05-22T08:26:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Sought advice on cooking chicken breast to make it more flavorful and prevent dryness, especially when grilling. Considered marinating with olive oil, acid, and spices, or brining in saltwater. Also thought about pounding the breast to even thickness, grilling at medium-low heat, avoiding pressing down, using a meat thermometer, and resting the chicken after cooking. Explored alternative cooking methods like pan-searing, oven roasting, and poaching, and considered specific recipes like Chipotle Lime Chicken, Herby Chicken, or Korean-Style Chicken.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>User wants to make grilled chicken breast more flavorful and less dry.<br />Grilling tips include: marinating (olive oil, acid, spices), brining (saltwater), pounding to even thickness, grilling at medium-low heat (325-350°F), not pressing down, using a meat thermometer (165°F internal temperature), and resting for 5-10 minutes.<br />Alternative cooking methods: pan-searing, oven roasting, poaching.<br />Flavorful chicken breast recipes: Chipotle Lime Chicken, Herby Chicken (garlic, herbs), Korean-Style Chicken (soy sauce, brown sugar, ginger, gochujang).</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Chicken</td>
+      </tr></tbody></table>
+  </div></div>
+  </details></div>
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some healthy meal ideas for my busy weekdays. Do you have any recommendations? By the way, I&#39;ve been relying on food delivery services a lot lately - I had Domino&#39;s Pizza three times last week!</div>
       </div><div class="turn">
@@ -310,15 +418,130 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Cilantro lime dressing is a fantastic addition to the quinoa and black bean salad.<br /><br />Now, let&#39;s talk about cooking the chicken breast to perfection! Grilling can be a great way to cook chicken, but it can indeed result in dryness if not done correctly. Here are some tips to help you achieve juicy and flavorful grilled chicken breast:<br /><br />**Grilling Tips:**<br /><br />1. **Marinate:** Marinate the chicken breast in a mixture of olive oil, acid (like lime juice or vinegar), and spices for at least 30 minutes to an hour. This will help tenderize the meat and add flavor.<br />2. **Brine:** Soak the chicken breast in a saltwater brine (1 tablespoon of salt per 1 cup of water) for 30 minutes to an hour before grilling. This will help keep the meat moist.<br />3. **Pound the breast:** Gently pound the chicken breast to an even thickness to ensure consistent cooking.<br />4. **Grill at medium-low heat:** Grill the chicken breast at medium-low heat (around 325°F to 350°F) to prevent burning the outside before the inside is cooked.<br />5. **Don&#39;t press down:** Resist the temptation to press down on the chicken breast with your spatula, as this can squeeze out juices and make the meat dry.<br />6. **Use a meat thermometer:** Ensure the chicken breast reaches an internal temperature of 165°F to ensure food safety.<br />7. **Let it rest:** Once cooked, let the chicken breast rest for 5-10 minutes before slicing to allow the juices to redistribute.<br /><br />**Alternative Cooking Methods:**<br /><br />If you&#39;re finding that grilling is consistently resulting in dry chicken breast, you might want to try alternative cooking methods:<br /><br />1. **Pan-searing:** Sear the chicken breast in a hot skillet with some oil and spices to achieve a crispy crust and juicy interior.<br />2. **Oven roasting:** Roast the chicken breast in the oven with some aromatics like onions, carrots, and celery for a moist and flavorful result.<br />3. **Poaching:** Poach the chicken breast in liquid (like chicken or vegetable broth) with some aromatics for a tender and juicy result.<br /><br />**Flavorful Chicken Breast Recipes:**<br /><br />If you&#39;re looking for some inspiration, here are some flavorful chicken breast recipes you might enjoy:<br /><br />1. **Chipotle Lime Chicken:** Marinate the chicken breast in a mixture of lime juice, olive oil, chipotle peppers, and cumin for a spicy and tangy flavor.<br />2. **Herby Chicken:** Mix together olive oil, minced garlic, chopped herbs (like thyme, rosemary, or parsley), salt, and pepper for a flavorful and aromatic rub.<br />3. **Korean-Style Chicken:** Marinate the chicken breast in a mixture of soy sauce, brown sugar, garlic, ginger, and gochujang for a sweet and spicy flavor.<br /><br />I hope these tips and ideas help you achieve a more flavorful and juicy chicken breast!</div>
       </div></div>
-  </details><details class="session-card priority-session">
-    <summary>
+    </details>
+  </div><div class="session-card priority-session">
+    <div class="session-card-header">
       <div>
         <strong><code>answer_c008e5df_2</code></strong>
         <span class="small">2023/05/27 (Sat) 21:06</span>
       </div>
       <div><span class="pill">ground truth</span> <span class="pill pill-answer">answer session</span></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    <div class="session-memory-wrap"><details class="session-memory-details">
+    <summary>Extracted Memories (6)</summary>
+    <div class="session-memory-list"><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 1</strong>
+      <div>
+        
+        <span class="small">2023-05-28T04:06:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Sought new recipe ideas for quick and easy weeknight meals. Mentioned relying on Uber Eats for convenience on weekends. Expressed interest in trying out the Chicken Fajita Pasta recipe.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Looked for new recipe ideas.<br />Wanted quick and easy options for weeknights.<br />Relied on Uber Eats for weekend meals.<br />Planned to try the Chicken Fajita Pasta recipe.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Recipes</td>
+      </tr></tbody></table>
+  </div><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 2</strong>
+      <div>
+        
+        <span class="small">2023-05-28T04:06:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Requested suggestions for healthy snack options. Aimed to make healthier choices and reduce reliance on Uber Eats for convenience. Received a list of various healthy snack ideas.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Asked for healthy snack options.<br />Desired to make healthier choices.<br />Wanted to reduce reliance on Uber Eats.<br />Received a list of snack ideas including fruits, vegetables, protein-packed options, whole grains, and granola.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Snacks</td>
+      </tr></tbody></table>
+  </div><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 3</strong>
+      <div>
+        
+        <span class="small">2023-05-28T04:06:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Inquired about recommendations for meal prep containers. Intended to start meal prepping for the week. Sought guidance on the best types of containers to use.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Asked for recommendations on meal prep containers.<br />Planned to start meal prepping for the week.<br />Needed advice on suitable container types.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Containers</td>
+      </tr></tbody></table>
+  </div><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 4</strong>
+      <div>
+        
+        <span class="small">2023-05-28T04:06:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Considered purchasing a cookbook stand to facilitate cooking and following recipes. Requested recommendations for a good quality stand. Aimed to make the cooking process easier.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Considered getting a cookbook stand.<br />Wanted to make cooking and following recipes easier.<br />Requested recommendations for a good stand.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Cookbook</td>
+      </tr></tbody></table>
+  </div><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 5</strong>
+      <div>
+        
+        <span class="small">2023-05-28T04:06:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Expressed interest in learning about apps for organizing and tracking recipes. Aimed to consolidate numerous cookbooks and online recipes for easier access. Sought recommendations for suitable applications.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Interested in apps for organizing and tracking recipes.<br />Wanted to consolidate cookbooks and online recipes.<br />Desired easier access to recipes.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Apps</td>
+      </tr></tbody></table>
+  </div><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 6</strong>
+      <div>
+        
+        <span class="small">2023-05-28T04:06:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Expressed interest in learning about meal planning and creating grocery lists. Requested examples of how to plan meals for the week and generate a grocery list based on those meals. Sought practical guidance for efficient meal preparation.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Interested in learning about meal planning and grocery lists.<br />Requested examples of weekly meal planning.<br />Wanted to know how to create a grocery list from planned meals.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Planning</td>
+      </tr></tbody></table>
+  </div></div>
+  </details></div>
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some new recipe ideas, something quick and easy for weeknights. By the way, my weekends have been all about Uber Eats lately, it&#39;s been a lifesaver.</div>
       </div><div class="turn">
@@ -355,15 +578,112 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Meal planning and grocery lists are essential skills for saving time, money, and reducing food waste. Here&#39;s a step-by-step guide on how to plan meals for the week and create a grocery list based on those meals:<br /><br />**Step 1: Plan Your Meals**<br /><br />* Decide on the number of meals you want to plan for the week (e.g., 7 dinners, 5 lunches, 7 breakfasts)<br />* Consider your dietary preferences, allergies, and dislikes<br />* Browse cookbooks, websites, or social media for inspiration<br />* Choose meals that can be cooked in bulk or have leftover potential<br />* Write down your meal ideas for the week<br /><br />**Example Meal Plan:**<br /><br />* Monday: Chicken Fajitas with Bell Peppers and Onions<br />* Tuesday: Baked Salmon with Roasted Vegetables and Quinoa<br />* Wednesday: Lentil Soup with Crusty Bread<br />* Thursday: Grilled Chicken Breasts with Roasted Sweet Potatoes and Green Beans<br />* Friday: Pizza Night with Homemade Crust and Toppings<br />* Saturday: Breakfast for Dinner (Scrambled Eggs, Sausage, and Pancakes)<br />* Sunday: Slow Cooker Chili with Ground Beef and Vegetables<br /><br />**Step 2: Create a Grocery List**<br /><br />* Write down all the ingredients needed for each meal<br />* Check what pantry staples you already have at home (e.g., olive oil, spices, canned goods)<br />* Organize your list by category (e.g., produce, meat, dairy, grains)<br />* Consider buying in bulk and planning meals around sales or seasonal produce<br /><br />**Example Grocery List:**<br /><br />**Produce:**<br /><br />* Bell peppers<br />* Onions<br />* Mixed greens<br />* Sweet potatoes<br />* Green beans<br />* Tomatoes<br />* Fresh herbs (e.g., cilantro, parsley)<br /><br />**Meat/Protein:**<br /><br />* Boneless, skinless chicken breasts<br />* Salmon fillets<br />* Ground beef<br />* Sausage<br /><br />**Dairy:**<br /><br />* Shredded cheese<br />* Greek yogurt<br />* Eggs<br /><br />**Grains:**<br /><br />* Quinoa<br />* Whole wheat bread<br />* Pizza crust (homemade or store-bought)<br />* Pancake mix<br /><br />**Pantry:**<br /><br />* Canned black beans<br />* Canned diced tomatoes<br />* Olive oil<br />* Spices (e.g., cumin, chili powder, salt, pepper)<br />* Baking supplies (e.g., flour, sugar, baking powder)<br /><br />**Tips and Variations:**<br /><br />* Plan for leftovers and use them creatively<br />* Consider meal prepping or cooking in bulk to save time<br />* Swap out ingredients based on your preferences or dietary needs<br />* Add snacks and beverages to your list if needed<br />* Use cashback apps or digital coupons to save money on your grocery bill<br /><br />By following these steps, you&#39;ll be able to plan delicious meals for the week and create a grocery list that ensures you have all the necessary ingredients. Happy meal planning and grocery shopping!</div>
       </div></div>
-  </details><details class="session-card priority-session">
-    <summary>
+    </details>
+  </div><div class="session-card priority-session">
+    <div class="session-card-header">
       <div>
         <strong><code>answer_c008e5df_3</code></strong>
         <span class="small">2023/05/30 (Tue) 10:38</span>
       </div>
       <div><span class="pill">ground truth</span> <span class="pill pill-answer">answer session</span></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    <div class="session-memory-wrap"><details class="session-memory-details">
+    <summary>Extracted Memories (5)</summary>
+    <div class="session-memory-list"><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 1</strong>
+      <div>
+        
+        <span class="small">2023-05-30T17:38:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Looked for healthy lunch recipe ideas. Had been relying on food delivery services like Fresh Fusion due to being busy. Wanted to get back to healthy cooking and take control of nutrition.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Wanted healthy lunch recipe ideas.<br />Had been busy lately.<br />Relied on food delivery services.<br />Used Fresh Fusion for pre-made meals.<br />Wanted to get back to healthy cooking.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Lunch</td>
+      </tr></tbody></table>
+  </div><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 2</strong>
+      <div>
+        
+        <span class="small">2023-05-30T17:38:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Expressed interest in a Quinoa and Black Bean Salad, having made something similar recently. Requested a healthy dinner option that is quick to make and requires few ingredients.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Liked the Quinoa and Black Bean Salad idea.<br />Had made a similar dish recently.<br />Requested a healthy dinner option.<br />Wanted a quick dinner recipe.<br />Needed a recipe with few ingredients.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Dinner</td>
+      </tr></tbody></table>
+  </div><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 3</strong>
+      <div>
+        
+        <span class="small">2023-05-30T17:38:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Decided to try the Breakfast Burritos for meal prepping on weekends. Considered it a convenient and healthy option for future meals.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Decided to try Breakfast Burritos.<br />Planned to meal prep on weekends.<br />Considered it a convenient option.<br />Viewed it as a healthy option.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Breakfast</td>
+      </tr></tbody></table>
+  </div><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 4</strong>
+      <div>
+        
+        <span class="small">2023-05-30T17:38:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Inquired about the best way to reheat frozen breakfast burritos. Asked whether to use a microwave or an oven for reheating.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Asked for the best way to reheat frozen breakfast burritos.<br />Questioned whether to use a microwave.<br />Questioned whether to use an oven.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Reheat</td>
+      </tr></tbody></table>
+  </div><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 5</strong>
+      <div>
+        
+        <span class="small">2023-05-30T17:38:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Considered trying new ingredients for Breakfast Burritos. Requested suggestions for unique fillings or toppings to enhance flavor and nutrition.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Thought about trying new ingredients in Breakfast Burritos.<br />Requested suggestions for unique fillings.<br />Requested suggestions for toppings.<br />Wanted to boost flavor.<br />Wanted to boost nutrition.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Fillings</td>
+      </tr></tbody></table>
+  </div></div>
+  </details></div>
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some healthy recipe ideas for lunch. Do you have any suggestions? By the way, I&#39;ve been really busy lately and have been relying on food delivery services, like this new one I found called Fresh Fusion - they have some great pre-made meals.</div>
       </div><div class="turn">
@@ -400,19 +720,23 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">What a great idea! Adding new ingredients can definitely give your Breakfast Burritos a flavor and nutrition boost. Here are some unique fillings and toppings you could consider:<br /><br />**Unique Fillings:**<br /><br />1. **Roasted Vegetables:** Roasted sweet potatoes, Brussels sprouts, or broccoli add a delicious sweetness and a nutrient-dense punch.<br />2. **Spicy Sausage:** Try using chorizo or Korean chorizo (gochujang) for a spicy kick.<br />3. **Mushroom Duxelles:** Sautéed mushrooms with onions and herbs add an earthy flavor and meaty texture.<br />4. **Black Beans with Cumin and Coriander:** Add some warmth and depth to your black beans with these Indian-inspired spices.<br />5. **Grilled Pineapple:** Sweet and savory, grilled pineapple pairs surprisingly well with scrambled eggs and cheese.<br /><br />**Toppings:**<br /><br />1. **Avocado Salsa:** Mash ripe avocados with lime juice, salt, and your favorite spices for a creamy and refreshing topping.<br />2. **Pickled Onions:** Sweet and tangy, pickled onions add a nice crunch and flavor contrast.<br />3. **Cilantro Lime Crema:** Mix Greek yogurt with lime juice, cilantro, and a pinch of salt for a cool and zesty topping.<br />4. **Sliced Radishes:** Add some crunch and a spicy kick with thinly sliced radishes.<br />5. **Feta Cheese:** Salty and crumbly, feta adds a nice contrast to the soft tortilla and fillings.<br /><br />**Other Ideas:**<br /><br />1. **Kimchi:** Spicy Korean kimchi adds a bold flavor and probiotic benefits.<br />2. **Sliced Jalapeños:** Add some heat to your burrito with sliced jalapeños.<br />3. **Fresh Cilantro:** Chopped cilantro adds a fresh and herbaceous flavor.<br />4. **Sliced Scallions:** Thinly sliced scallions add a nice crunch and oniony flavor.<br />5. **Guacamole:** Mash ripe avocados with lime juice and salt for a creamy and nutritious topping.<br /><br />Feel free to get creative and experiment with different combinations to find your new favorite Breakfast Burrito flavor!<br /><br />Which of these ingredients resonates with you, or do you have any other questions about adding new fillings or toppings?</div>
       </div></div>
-  </details></div>
+    </details>
+  </div></div>
              
              <details class="other-sessions">
                       <summary>Other Sessions (44)</summary>
-                      <div class="session-list"><details class="session-card secondary-session">
-    <summary>
+                      <div class="session-list"><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_100939</code></strong>
         <span class="small">2023/05/20 (Sat) 05:19</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">How does prioritizing self-care contribute to overall health and wellbeing in both an individual and collective sense?</div>
       </div><div class="turn">
@@ -431,15 +755,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">As an AI language model, I can suggest some ways that can help you stay motivated to prioritize self-care:<br /><br />1. Keep reminding yourself: Remind yourself of the benefits of self-care, such as reduced stress, better sleep, and increased productivity. Keeping these benefits in mind can help you stay motivated to prioritize self-care. 2. Track your progress: Use a journal or an app to track your progress with your self-care routine. Seeing progress can be a motivating factor to continue with your self-care practice. 3. Make it enjoyable: Find enjoyable ways to practice self-care. If you enjoy listening to music, incorporate it into your self-care routine. The more you enjoy the activity, the more likely you are to continue with it. 4. Surround yourself with positive influences: Spend time with individuals who support self-care and healthy habits. Being around positive influences can help reinforce your commitment to self-care. 5. Set achievable goals: Break down your self-care goals into smaller achievable goals that can be accomplished within a shorter time frame. Celebrating small victories along the way can keep you motivated to continue with your self-care practice. 6. Make it a non-negotiable: Treat self-care as a non-negotiable in your life. Consistently incorporating self-care into your routine can help it become a habit and eventually, a part of your lifestyle. Remember, staying motivated to prioritize self-care requires effort and commitment, but the benefits are worth it. With the right mindset and approach, you can successfully make self-care a regular part of your life.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ff687a63_1</code></strong>
         <span class="small">2023/05/20 (Sat) 10:48</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking to try out some yoga poses at home, can you recommend some beginner-friendly ones that target flexibility and strength? By the way, I&#39;ve been going to classes 2-3 times a week since I started practicing yoga regularly, and I&#39;m really enjoying it.</div>
       </div><div class="turn">
@@ -476,15 +804,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Online yoga classes are an excellent way to supplement your practice, especially for beginners! There are many great platforms and YouTube channels offering classes tailored to beginners. Here are some recommendations:<br /><br />**Online Yoga Platforms:**<br /><br />1. **YogaGlo**: Offers a wide range of classes, including beginner-friendly flows, Hatha, Vinyasa, and Restorative yoga.<br />2. **DoYouYoga**: Features classes for beginners, with a focus on Hatha, Vinyasa, and Yin yoga.<br />3. **Gaia**: Offers a variety of classes, including beginner-friendly flows, meditation, and yoga philosophy.<br />4. **Peloton Digital**: While primarily a cycling platform, Peloton also offers yoga classes, including beginner-friendly flows and meditation.<br /><br />**YouTube Channels:**<br /><br />1. **Yoga With Adriene**: Adriene offers gentle, beginner-friendly classes, with a focus on Hatha and Vinyasa yoga.<br />2. **Dylan Werner Yoga**: Dylan&#39;s classes are perfect for beginners, with a focus on alignment, breathwork, and mindfulness.<br />3. **Sarah Beth Yoga**: Sarah&#39;s classes are gentle, slow-paced, and perfect for beginners, with a focus on Hatha and Restorative yoga.<br />4. **Fightmaster Yoga**: Candace&#39;s classes are challenging yet accessible for beginners, with a focus on Vinyasa and Power yoga.<br />5. **Yoga Girl (Rachel Brice)**: Rachel&#39;s classes are inspiring and gentle, with a focus on Hatha and Vinyasa yoga.<br /><br />**Tips for online yoga classes:**<br /><br />1. **Start slow**: Begin with shorter classes (20-30 minutes) and gradually increase your practice time as you build endurance.<br />2. **Listen to your body**: Honor your body&#39;s limitations and take rest when needed.<br />3. **Focus on alignment**: Pay attention to the instructor&#39;s cues and focus on proper alignment to avoid injuries.<br />4. **Use props**: Invest in props like blocks, straps, and blankets to help with modifications and alignment.<br />5. **Find a consistent instructor**: Choose an instructor whose style and teaching resonate with you, and try to practice with them regularly.<br /><br />Remember, online classes are meant to supplement your practice, not replace in-person classes. It&#39;s essential to listen to your body and take breaks when needed. Happy practicing!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_139346</code></strong>
         <span class="small">2023/05/20 (Sat) 23:43</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">How do Geometridae insects navigate in low-light or dark environments?</div>
       </div><div class="turn">
@@ -503,15 +835,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, it is a common phenomenon for some moth species to be attracted to light sources, even to the point of becoming disoriented and flying into them. The exact reason for this behavior is not fully understood, but there are a few theories.<br /><br />One theory is that moths use celestial cues, such as the position of the moon and stars, for navigation. Artificial lights may confuse the moth&#39;s sense of direction, causing it to mistake the light source for celestial navigation cues and fly towards it.<br /><br />Another theory is that moths are attracted to lights as a form of positive phototaxis, which means they are naturally drawn to light sources. This behavior could be driven by the moth&#39;s innate desire to navigate towards brighter areas, which may indicate a better feeding or mating opportunity.<br /><br />The phenomenon of moths being attracted to lights is often referred to as &quot;moth to a flame.&quot; While this behavior may seem counterproductive, it is actually not harmful to moth populations in general, as most moth species are not significantly impacted by artificial lights. However, it can be problematic for certain species that become too attracted to lights and are unable to navigate away from them, potentially leading to their death.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_LFPdgVp_22</code></strong>
         <span class="small">2023/05/21 (Sun) 05:27</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Continue writing please</div>
       </div><div class="turn">
@@ -530,15 +866,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">In this article, we have discussed the concept of precision farming on organic hydroponics in bamboo greenhouses with IoT and renewable energy for sustainability and circular economy. We have highlighted the benefits of using precision farming techniques in organic hydroponics, including increased crop yields, reduced costs, and minimized environmental impact. We also discussed how IoT and renewable energy can be used in precision farming to improve efficiency, reduce reliance on fossil fuels, and promote sustainability. Additionally, we have explored the importance of developing sustainable and circular economy practices in precision farming, and discussed the various tools and use cases for precision farming. We also discussed the key success factors and data success stories, as well as the potential for precision farming to improve food security and economic development in developing communities abroad. Finally, we touched on the importance of considering value chains and business models when implementing precision farming practices.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>2ac6f050_1</code></strong>
         <span class="small">2023/05/21 (Sun) 14:10</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m planning to make a Korean-style BBQ beef recipe for dinner tonight, but I want to try a different type of protein. Can you suggest some alternatives to beef that would work well with the marinade and spice levels I&#39;ve been experimenting with? By the way, I&#39;ve been cooking at home a lot more frequently over the past three months, and I&#39;ve been loving trying out new recipes and techniques.</div>
       </div><div class="turn">
@@ -575,15 +915,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">A Korean-style slaw is a great idea! It&#39;s a refreshing and crunchy way to cut the richness of the pork belly and roasted vegetables. Here&#39;s a simple recipe for a Korean-inspired slaw that incorporates some bold and aromatic flavors:<br /><br />**Korean-Style Slaw Recipe:**<br /><br />Ingredients:<br /><br />* 2 cups napa cabbage, thinly sliced<br />* 1 cup carrots, peeled and grated<br />* 1/2 cup cucumber, thinly sliced<br />* 1/4 cup Korean chili flakes (gochugaru)<br />* 2 tablespoons Gochujang (Korean chili paste)<br />* 2 tablespoons soy sauce<br />* 2 tablespoons rice vinegar<br />* 1 tablespoon honey<br />* 1 teaspoon grated ginger<br />* Salt and pepper to taste<br />* Sesame seeds and chopped green onions for garnish (optional)<br /><br />Instructions:<br /><br />1. In a large bowl, combine the napa cabbage, carrots, and cucumber.<br />2. In a small bowl, whisk together the chili flakes, Gochujang, soy sauce, rice vinegar, honey, and grated ginger.<br />3. Pour the dressing over the slaw mixture and toss to combine.<br />4. Season with salt and pepper to taste.<br />5. Cover and refrigerate for at least 30 minutes to allow the flavors to meld.<br />6. Just before serving, garnish with sesame seeds and chopped green onions if desired.<br /><br />**Tips and Variations:**<br /><br />* For a spicier slaw, add more Korean chili flakes or use hot sauce like gochujang.<br />* Add some crunch by incorporating chopped nuts or seeds like peanuts, cashews, or pumpkin seeds.<br />* Substitute the napa cabbage with other types of cabbage or add some shredded kale for added nutrition.<br />* Omit the honey if you prefer a less sweet slaw.<br />* Make the slaw ahead of time and store it in the refrigerator for up to 2 days.<br /><br />This slaw recipe combines the bold and spicy flavors of Korean chili flakes and Gochujang with the sweetness of honey and the crunch of napa cabbage. It&#39;s a refreshing and flavorful side dish that will complement the pork belly and roasted vegetables perfectly. Enjoy!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>be5ed2e3</code></strong>
         <span class="small">2023/05/21 (Sun) 20:56</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m thinking of getting a few more plants to add to my room, can you recommend some low-maintenance ones?</div>
       </div><div class="turn">
@@ -620,15 +964,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">The IKEA Not Lamp is a fantastic option for a modern and compact desk lamp.<br /><br />Now, let&#39;s talk about organizing your closet! I&#39;d be happy to help you optimize your closet space. Here are some tips to get you started:<br /><br />1. **Purge and declutter**: Start by removing everything from your closet and sorting items into three piles: keep, donate/sell, and discard. Be ruthless – if you haven&#39;t worn something in a year, it&#39;s probably safe to let it go.<br />2. **Categorize and group**: Once you&#39;ve purged your closet, categorize items into groups like tops, bottoms, dresses, outerwear, and accessories. Within each group, organize items by type, color, and season.<br />3. **Assign a home**: Designate a specific area of your closet for each group or category. This will help you maintain your organization and make it easier to find what you need.<br />4. **Use storage containers**: Invest in storage bins, baskets, or shelves to store items like socks, underwear, accessories, and out-of-season clothing. Label each container so you can easily identify what&#39;s inside.<br />5. **Maximize vertical space**: Make the most of your closet&#39;s vertical space by using stackable shelves or hanging rods with multiple levels. This will help you store more items without taking up too much floor space.<br />6. **Utilize the back of the door**: Use over-the-door storage racks, hooks, or a shoe organizer to store items like bags, belts, scarves, and jackets.<br />7. **Implement a &quot;one in, one out&quot; policy**: To maintain your newly organized closet, adopt a policy where you get rid of an old item every time you bring a new one into your closet.<br /><br />Some popular closet organization systems include:<br /><br />* **The KonMari Method**: Fold clothes into small rectangles and store them upright in drawers or on shelves.<br />* **The Double Hang**: Install a double rod to double your hanging space and make the most of your closet&#39;s vertical space.<br />* **Shelf Dividers**: Use shelf dividers to separate items and keep them organized on shelves.<br /><br />Remember, the key to a well-organized closet is to create a system that works for you and your lifestyle. Experiment with different methods until you find what keeps you organized and happy!<br /><br />Do you have any specific closet organization challenges or questions?</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ba0ae49c_2</code></strong>
         <span class="small">2023/05/21 (Sun) 23:35</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some recommendations on modern art books. I recently attended a guided tour of the Modern Art Museum&#39;s newest installation, &quot;The Evolution of Abstract Expressionism&quot;, led by a knowledgeable docent named Dr. Patel, who provided valuable insights into the works of Pollock and Rothko.</div>
       </div><div class="turn">
@@ -665,15 +1013,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">No need to apologize! I&#39;m here to help and provide information. Thank you for clarifying that Dr. Maria Rodriguez is a fictional character.<br /><br />Yes, please do suggest some books, articles, and online resources on feminist art in the 1970s. I&#39;m interested in learning more about this topic and would appreciate your recommendations.<br /><br />Additionally, if you have any resources on feminist art in general, including its history, key figures, and notable movements, I&#39;d love to explore those as well.<br /><br />Thank you for your help and guidance!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_529136</code></strong>
         <span class="small">2023/05/22 (Mon) 01:06</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What are some of the most important scientific discoveries made at the Large Hadron Collider, and how have they expanded our understanding of the universe?</div>
       </div><div class="turn">
@@ -704,15 +1056,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Indeed, scientific research and exploration have always been among the most valuable endeavors in human history. They have contributed to our understanding of the universe and have yielded many practical applications that have transformed our lives. The quest to understand the fundamental building blocks of the universe, such as dark matter, is a testament to our curiosity and desire to push the limits of our knowledge.<br /><br />While it may not always be immediately apparent how this understanding will translate into practical applications, history has shown that scientific research can have far-reaching impacts on our lives in ways that we may never have imagined. The pursuit of knowledge, as well as the development and advancement of technology, can lead to improved health, increased economic growth, and a better quality of life for people around the world.<br /><br />As someone who values scientific research and exploration, you can appreciate the importance of supporting these endeavors and fostering an environment where scientists and researchers can continue to push the boundaries of what we know about our world and beyond.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_WjpyexI_15</code></strong>
         <span class="small">2023/05/22 (Mon) 07:06</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">To find the top 3 selling departments for Store 10 only, you can use the first dataset and follow these steps:<br />```r<br /># read in the data from the csv file<br />Supermarketdata &lt;- read.csv(&quot;Supermarketdata.csv&quot;)<br /><br /># filter the data to only include Store 10<br />Supermarketdata_store10 &lt;- filter(Supermarketdata, Store == 10)<br /><br /># group the data by Dept and calculate the sum of Weekly_Sales for each group<br />Supermarketdata_store10_dept_summary &lt;- group_by(Supermarketdata_store10, Dept) %&gt;%<br />  summarize(total_sales = sum(Weekly_Sales))<br /><br /># arrange the data in descending order by total_sales<br />Supermarketdata_store10_dept_summary_sorted &lt;- arrange(Supermarketdata_store10_dept_summary, desc(total_sales))<br /><br /># select the top 3 selling departments<br />top3_departments_store10 &lt;- head(Supermarketdata_store10_dept_summary_sorted$Dept, 3)<br /><br /># print the top 3 selling departments for Store 10<br />print(top3_departments_store10)<br />```<br />This will give you the top 3 selling departments for Store 10 based on the sum of weekly sales. The code groups the data by department, calculates the sum of weekly sales for each department, and then arranges the data in descending order based on total sales. Finally, the code selects the top 3 selling departments and prints them.</div>
       </div><div class="turn">
@@ -740,15 +1096,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Here&#39;s the code to accomplish your tasks:<br /><br />1. To print the distribution of average weekly sales per store for 2012:<br />```r<br /># read in the data from the csv file<br />Supermarketdata &lt;- read.csv(&quot;Supermarketdata.csv&quot;)<br /><br /># filter the data to only include 2012<br />Supermarketdata_2012 &lt;- filter(Supermarketdata, year == 2012)<br /><br /># group the data by Store and calculate the mean of Weekly_Sales for each group<br />Supermarketdata_2012_store_summary &lt;- group_by(Supermarketdata_2012, Store) %&gt;%<br />  summarize(mean_weekly_sales = mean(Weekly_Sales))<br /><br /># print the summary statistics<br />summary(Supermarketdata_2012_store_summary$mean_weekly_sales)<br />```<br />This will give you the summary statistics for the distribution of average weekly sales per store for 2012. The code filters the data to only include 2012, groups the data by store, calculates the mean of weekly sales for each store, and then prints the summary statistics.<br /><br />1. To create a box plot that displays this information and identifies where Store number 10 is:<br />```python<br /># read in the data from the csv file<br />Supermarketdata &lt;- read.csv(&quot;Supermarketdata.csv&quot;)<br /><br /># filter the data to only include 2012<br />Supermarketdata_2012 &lt;- filter(Supermarketdata, year == 2012)<br /><br /># create a box plot of Weekly_Sales grouped by Store<br />boxplot(Weekly_Sales ~ Store, data = Supermarketdata_2012, main = &quot;Distribution of Weekly Sales per Store in 2012&quot;, <br />        xlab = &quot;Store Number&quot;, ylab = &quot;Weekly Sales&quot;)<br /><br /># add a vertical line to show where Store 10 is<br />abline(v = 10, col = &quot;red&quot;, lty = 2)<br />```<br />This will create a box plot that displays the distribution of weekly sales per store in 2012, with the store numbers on the x-axis and the weekly sales on the y-axis. It also adds a vertical line in red to show where Store number 10 is in the plot.<br /><br />I hope this helps! Let me know if you have any more questions.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_251558</code></strong>
         <span class="small">2023/05/22 (Mon) 21:28</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Which restaurant in Valparaíso has the most stunning view while dining?</div>
       </div><div class="turn">
@@ -791,15 +1151,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Valparaíso is a beautiful and unique port city with many hills and narrow streets that can make driving and parking a bit challenging. I would recommend relying on public transportation, which is cheap and frequent. Valparaíso has an excellent bus system with multiple routes that can take you to all parts of the city, as well as a funicular that runs between the top and bottom of the hills. You can purchase a MetroCard or Bip! card at any metro station or at some convenience stores, which you can reload whenever needed. Taxis and Ubers are available, but the rates can be higher than public transportation, especially during rush hours or on weekends. However, if you prefer to have more freedom and explore outside of the city, renting a car can be an option, but keep in mind that parking is limited and driving can be challenging due to the steep hills and narrow roads. Overall, I would recommend using public transportation for getting around Valparaíso and saving your rental car for exploring the wider region, depending on your travel plans.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_p7hTgsz_13</code></strong>
         <span class="small">2023/05/22 (Mon) 23:41</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">Understanding and fulfilling God&#39;s will in your life is a journey that requires prayer, discernment, and a willingness to listen to God&#39;s voice. Here are some effective, practical, research-based, innovative, creative, and underrated methods to help you understand and fulfill God&#39;s will in your life, along with corresponding Bible verses:<br /><br />1. Seek God&#39;s Guidance through Prayer: Prayer is a powerful way to connect with God and seek guidance in discerning His will for your life.<br /><br />Bible Verse: &quot;Do not be anxious about anything, but in every situation, by prayer and petition, with thanksgiving, present your requests to God. And the peace of God, which transcends all understanding, will guard your hearts and your minds in Christ Jesus.&quot; - Philippians 4:6-7<br /><br />Free Resource/Idea: Use a free prayer app like Echo or PrayerMate to create a prayer list and receive reminders to pray throughout the day.<br /><br />2. Study and Meditate on God&#39;s Word: Studying and meditating on God&#39;s Word can help you gain insight into His character and will for your life.<br /><br />Bible Verse: &quot;Your word is a lamp for my feet, a light on my path.&quot; - Psalm 119:105<br /><br />Free Resource/Idea: Use a free Bible study app like YouVersion or Blue Letter Bible to read, study, and meditate on the Bible.<br /><br />3. Listen to God&#39;s Voice: Listening to God&#39;s voice involves being open and receptive to His guidance and direction.<br /><br />Bible Verse: &quot;My sheep listen to my voice; I know them, and they follow me.&quot; - John 10:27<br /><br />Free Resource/Idea: Use a free meditation app like Insight Timer or Headspace to practice mindfulness and listening to God&#39;s voice.<br /><br />4. Seek Wise Counsel: Seeking wise counsel involves seeking guidance from trusted and mature Christian mentors and advisors.<br /><br />Bible Verse: &quot;Plans fail for lack of counsel, but with many advisers they succeed.&quot; - Proverbs 15:22<br /><br />Free Resource/Idea: Join a free Christian mentorship program or community like RightNow Media or The Navigators to connect with Christian mentors and advisors.<br /><br />5. Serve Others: Serving others involves using your gifts and talents to help others and make a positive impact in the world.<br /><br />Bible Verse: &quot;Each of you should use whatever gift you have received to serve others, as faithful stewards of God&#39;s grace in its various forms.&quot; - 1 Peter 4:10<br /><br />Free Resource/Idea: Use a free volunteer matching app like VolunteerMatch or Idealist to find local volunteer opportunities that align with your gifts and interests.<br /><br />In conclusion, understanding and fulfilling God&#39;s will in your life involves seeking God&#39;s guidance through prayer, studying and meditating on His Word, listening to His voice, seeking wise counsel, and serving others. By implementing these effective, practical, research-based, innovative, creative, and underrated methods, supported by biblical principles, you can understand and fulfill God&#39;s will in your life.</div>
       </div><div class="turn">
@@ -809,15 +1173,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Becoming a Renaissance man involves developing a wide range of skills and knowledge in various fields, including the arts, sciences, philosophy, and literature. Here are some effective, practical, research-based, innovative, creative, and underrated methods to become a successful Renaissance man, along with corresponding Bible verses:<br /><br />1. Cultivate a Love of Learning: A Renaissance man is always eager to learn and expand their knowledge base.<br /><br />Bible Verse: &quot;The fear of the Lord is the beginning of wisdom, and knowledge of the Holy One is understanding.&quot; - Proverbs 9:10<br /><br />Free Resource/Idea: Use free online learning platforms like Coursera, edX, or Khan Academy to access thousands of courses and expand your knowledge base.<br /><br />2. Embrace Creativity: A Renaissance man values creativity and is not afraid to express themselves in various forms of art, music, or literature.<br /><br />Bible Verse: &quot;In the beginning God created the heavens and the earth.&quot; - Genesis 1:1<br /><br />Free Resource/Idea: Join a free creative community like Skillshare or CreativeLive to learn new skills and connect with other creative individuals.<br /><br />3. Pursue Physical Fitness: A Renaissance man values physical fitness and recognizes the importance of maintaining a healthy body and mind.<br /><br />Bible Verse: &quot;Do you not know that your bodies are temples of the Holy Spirit, who is in you, whom you have received from God? You are not your own.&quot; - 1 Corinthians 6:19<br /><br />Free Resource/Idea: Use free fitness apps like Nike Training Club or FitOn to access a variety of workouts and maintain a healthy lifestyle.<br /><br />4. Develop Critical Thinking Skills: A Renaissance man values critical thinking and is able to analyze and evaluate information from various sources.<br /><br />Bible Verse: &quot;The heart of the discerning acquires knowledge, for the ears of the wise seek it out.&quot; - Proverbs 18:15<br /><br />Free Resource/Idea: Join a free critical thinking community like the Critical Thinking Community or Critical Thinker Academy to develop your critical thinking skills and connect with like-minded individuals.<br /><br />5. Practice Multilingualism: A Renaissance man values the ability to communicate with people from various cultures and backgrounds.<br /><br />Bible Verse: &quot;Therefore go and make disciples of all nations, baptizing them in the name of the Father and of the Son and of the Holy Spirit.&quot; - Matthew 28:19<br /><br />Free Resource/Idea: Use free language learning apps like Duolingo or Memrise to learn a new language and connect with people from various cultures.<br /><br />In conclusion, becoming a successful Renaissance man involves cultivating a love of learning, embracing creativity, pursuing physical fitness, developing critical thinking skills, and practicing multilingualism. By implementing these effective, practical, research-based, innovative, creative, and underrated methods, supported by biblical principles, you can become a successful Renaissance man.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>f16b149f_1</code></strong>
         <span class="small">2023/05/23 (Tue) 02:12</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m trying to get back into working out regularly and was wondering if you have any beginner-friendly fitness routines I could follow? By the way, I&#39;ve been following some new accounts on Instagram, mostly related to fitness, and I&#39;m getting some great inspiration from them.</div>
       </div><div class="turn">
@@ -854,15 +1222,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Thank you for the encouragement! I&#39;m excited to get started on my fitness journey and tackle those trails. I&#39;ll definitely keep your tips in mind and stay motivated to reach my goals.<br /><br />It was great chatting with you, and I appreciate your help and support. If I have any more questions or need further guidance, I won&#39;t hesitate to reach out.<br /><br />Time to get moving and start crushing those trails!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_54833</code></strong>
         <span class="small">2023/05/23 (Tue) 06:46</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Can you recommend a reliable online resource for agility training routines?</div>
       </div><div class="turn">
@@ -881,15 +1253,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Agility training can definitely improve your footwork and boost your performance on the soccer field. There are many soccer-specific agility drills that can help you improve acceleration, deceleration, change of direction, and balance. Just make sure that the drills you choose are safe, effective, and appropriate for your fitness level and skillset. With consistent practice and dedication, you&#39;ll definitely see improvement in your agility and overall soccer performance. Good luck and have fun training!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>7332a779_2</code></strong>
         <span class="small">2023/05/23 (Tue) 08:43</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking to upgrade my car&#39;s performance for an upcoming auto racking event. I&#39;ve been thinking about getting new tires or a tuning kit. Do you have any recommendations or know of any good brands? By the way, I just got my brake pads replaced last weekend, which was a good thing since they were worn out.</div>
       </div><div class="turn">
@@ -926,15 +1302,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Inspecting and maintaining your tires is a crucial part of being a responsible car owner and track enthusiast.<br /><br />**Tire Inspection and Maintenance Resources:**<br /><br />Yes, there are many great resources available to help you learn how to properly inspect and maintain your tires. Here are a few:<br /><br />1. **Tire Manufacturer&#39;s Website:** Most tire manufacturers, such as Michelin, Continental, and Goodyear, offer tutorials and guides on their websites on how to inspect and maintain their tires.<br />2. **YouTube:** There are many excellent YouTube channels dedicated to car maintenance and repair, such as ChrisFix, EricTheCarGuy, and Saabkyle04, that offer in-depth tutorials on tire inspection and maintenance.<br />3. **Car Forums and Online Communities:** Websites like Reddit&#39;s DIY community, Stack Exchange&#39;s Motor Vehicle Maintenance community, and car-specific forums like MustangForums or BMWForums often have threads and guides on tire inspection and maintenance.<br />4. **Local Tire Shops:** Visit a local tire shop or a reputable mechanic and ask them to show you how to properly inspect and maintain your tires. They may even offer a free tire inspection or maintenance check.<br />5. **Online Articles and Guides:** Websites like Edmunds, Car and Driver, and Motor Trend often publish articles and guides on tire maintenance and inspection.<br /><br />**Tire Inspection Checklist:**<br /><br />Here&#39;s a quick checklist to get you started:<br /><br />1. **Tire Pressure:** Check tire pressure at least once a month, and before long trips or track days.<br />2. **Tread Depth:** Use a tire tread depth gauge to check the tread depth. Most tires have tread wear indicators that show when the tread is worn down to 1/16 of an inch.<br />3. **Tire Wear:** Look for uneven wear patterns, such as feathering, cupping, or bald spots.<br />4. **Cracks and Damage:** Inspect the sidewalls and tread for cracks, cuts, or damage.<br />5. **Valve Stem:** Check the valve stem for damage or leaks.<br />6. **Wheel Balance:** Make sure your wheels are properly balanced to prevent uneven tire wear.<br /><br />Remember to always refer to your vehicle&#39;s owner&#39;s manual for specific tire inspection and maintenance recommendations.<br /><br />I hope this helps! If you have any more questions or need further guidance, feel free to ask.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>f906baa7_2</code></strong>
         <span class="small">2023/05/23 (Tue) 19:41</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m trying to figure out the best way to allocate my budget for my social media campaigns. I recently ran a Facebook ad campaign that brought in around 50 new leads, which was great, and it also resulted in an increase in followers. Can you help me understand how to optimize my ad spend to maximize my ROI?</div>
       </div><div class="turn">
@@ -971,15 +1351,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Growing your Facebook followers is an essential part of your social media strategy. Here are some effective strategies to help you increase your followers and engagement on Facebook:<br /><br />**1. Optimize Your Facebook Page:**<br />Make sure your Facebook Page is complete, up-to-date, and optimized for search. This includes:<br />	* A clear and concise page name and description<br />	* A profile picture and cover photo that represents your brand<br />	* Accurate and consistent branding across all social media platforms<br />	* Relevant keywords in your page description and posts<br /><br />**2. Post High-Quality Content:**<br />Share engaging, informative, and visually appealing content that resonates with your target audience. This can include:<br />	* High-quality images and videos<br />	* Infographics and carousels<br />	* Engaging captions and headlines<br />	* Relevant and timely content that sparks conversation<br /><br />**3. Engage with Your Audience:**<br />Respond to comments, messages, and reviews in a timely and personalized manner. This will help build trust and encourage audience engagement.<br /><br />**4. Run Facebook Ads:**<br />Use Facebook Ads to reach a wider audience, increase brand awareness, and drive website traffic. You can target specific demographics, interests, and behaviors to ensure your ads are seen by the right people.<br /><br />**5. Leverage User-Generated Content (UGC):**<br />Encourage your customers to share their experiences, photos, or videos with your brand. UGC can help increase engagement, build trust, and attract new followers.<br /><br />**6. Collaborate with Influencers:**<br />Partner with influencers in your industry to reach new audiences, increase brand awareness, and drive engagement.<br /><br />**7. Share User-Friendly Content:**<br />Make it easy for users to share your content by adding social sharing buttons to your website and blog posts.<br /><br />**8. Host a Giveaway or Contest:**<br />Run a giveaway or contest to incentivize people to like and share your page with their friends and family.<br /><br />**9. Utilize Facebook Groups:**<br />Create a Facebook Group related to your industry or niche to build a community, encourage engagement, and attract new followers.<br /><br />**10. Analyze and Optimize:**<br />Monitor your Facebook Insights to track your page&#39;s performance, identify areas for improvement, and adjust your strategy accordingly.<br /><br />**11. Post Consistently:**<br />Maintain a consistent posting schedule to keep your audience engaged and interested in your content.<br /><br />**12. Be Authentic and Transparent:**<br />Be authentic, transparent, and honest in your content and interactions. This will help build trust and encourage audience engagement.<br /><br />By implementing these strategies, you&#39;ll be able to increase your followers, engagement, and ultimately, drive more revenue from your Facebook presence.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>5201ff55_2</code></strong>
         <span class="small">2023/05/24 (Wed) 01:42</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m trying to learn more about ancient civilizations. I&#39;ve already completed 20 episodes of Crash Course world history on YouTube, and I&#39;m curious to know more about the Persian Empire. Can you tell me some key events and figures from that period?</div>
       </div><div class="turn">
@@ -1016,15 +1400,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">The economy and trade of the Persian Empire were indeed impressive, and played a crucial role in the empire&#39;s success. Here&#39;s an overview of how they managed their economy and their main trade partners:<br /><br />**Economic System:**<br /><br />* **Agriculture:** Agriculture was the backbone of the Persian economy, with crops like wheat, barley, and dates being major productions.<br />* **Taxation:** The empire had a system of taxation, with taxes collected in the form of goods, services, or currency.<br />* **Coinage:** The Persians introduced a standardized coinage system, with gold and silver coins being used as mediums of exchange.<br />* **Merchants and Trade:** Merchants played a vital role in the economy, facilitating trade between provinces and with foreign nations.<br /><br />**Trade Partners:**<br /><br />* **Babylon:** The Persian Empire had a strong trade relationship with Babylon, exchanging goods like textiles, spices, and precious metals.<br />* **Egypt:** Egypt was another important trade partner, with the Persians importing goods like papyrus, linen, and natron.<br />* **Greece:** The Persians traded with Greek city-states, exchanging goods like wine, olive oil, and pottery.<br />* **India:** The Persian Empire had trade relations with ancient India, importing goods like spices, textiles, and precious stones.<br />* **China:** The Silk Road, established during the Persian Empire, connected the empire to China, facilitating trade in goods like silk, tea, and porcelain.<br /><br />**Trade Routes:**<br /><br />* **The Royal Road:** The Royal Road, built by Darius I, connected Susa to Sardis in modern-day Turkey, facilitating trade and communication between provinces.<br />* **The Persian Gulf:** The Persian Gulf was an important trade route, with merchants trading goods like spices, textiles, and precious metals.<br />* **The Indian Ocean:** The Persian Empire had trade relations with countries along the Indian Ocean, including India, Sri Lanka, and East Africa.<br /><br />**Economic Achievements:**<br /><br />* **Standardization:** The Persians standardized weights, measures, and currency across the empire, facilitating trade and commerce.<br />* **Infrastructure:** The empire invested in infrastructure, building roads, bridges, and canals that facilitated trade and commerce.<br />* **Monetary System:** The Persian Empire introduced a standardized monetary system, with gold and silver coins being used as mediums of exchange.<br /><br />The Persian Empire&#39;s economy and trade were impressive, with a strong focus on agriculture, taxation, and trade. Their trade partners spanned from Babylon to China, and their economic achievements, like standardization and infrastructure development, facilitated trade and commerce across the empire.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_ysMparQ_41</code></strong>
         <span class="small">2023/05/24 (Wed) 14:27</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">Sure, here is a checklist for sales copy and funnel creation:<br /><br />Copywriting Frameworks:<br /><br />* Have you researched and familiarized yourself with copywriting frameworks such as AIDA, PAS, Hero’s Journey, and others?<br />* Have you developed your own framework for writing sales letters?<br /><br />Creating Your Sales Funnel:<br /><br />* Have you chosen a platform or template for your sales funnel?<br />* Have you set up a payment processing system for your funnel?<br /><br />Lead Generation:<br /><br />* Have you chosen a platform or template for your lead generation funnel?<br />* Have you written compelling sales copy for your landing page?<br />* Have you created a valuable lead magnet to incentivize sign-ups?<br />* Have you created a 7-day email follow-up sequence to nurture leads and build trust?<br /><br />Overall:<br /><br />* Have you conducted thorough research on your target audience and their pain points?<br />* Have you crafted a clear and compelling value proposition for your product or service?<br />* Have you identified and addressed potential objections or concerns that your audience may have?<br />* Have you crafted persuasive calls to action throughout your funnel?<br />* Have you split-tested various elements of your funnel to optimize conversion rates?<br />* Have you set up tracking and analytics to monitor the performance of your funnel and make data-driven decisions?</div>
       </div><div class="turn">
@@ -1046,15 +1434,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">&quot;Transform your one-person business into a thriving empire with our course on manifesting and spiritual alignment! 🔮<br /><br />👶 Beginner: Discover the power of manifestation and how to apply it to your business.<br />🧑‍🤝‍🧑 Intermediate: Learn how to align your mind, body, and soul to attract success.<br />🌟 Advanced: Master the art of manifestation and elevate your business to new heights.<br />👑 Master: Achieve spiritual alignment and create the business of your dreams. #selfimprovement #spirituality #entrepreneurship&quot;</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_zkklJJ2_0</code></strong>
         <span class="small">2023/05/25 (Thu) 04:56</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">https://www.databricks.com/session\_na20/building-identity-graphs-over-heterogeneous-data</div>
       </div><div class="turn">
@@ -1085,15 +1477,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Here are some key points from the session by Carlos in table form:<br /><br />| # | Key Point |<br />| --- | --- |<br />| 1 | Cox Automotive has built an identity graph to help their clients reach their customers more effectively |<br />| 2 | The ideal consumer journey for car shopping is important to understand for advertising and marketing purposes |<br />| 3 | Tracking consumer identity across multiple data sets can be a challenge due to many different identifiers |<br />| 4 | The post-cookie world has made it difficult to track consumers across multiple websites |<br />| 5 | Cox Automotive chose Amazon Neptune for building their identity graph |<br />| 6 | The solution architecture of the identity graph was presented |<br />| 7 | Lessons learned from building the identity graph and using Amazon Neptune were discussed |<br />| 8 | Internal results and customer quotes on the value of the identity graph were shared |</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>e30307d8_2</code></strong>
         <span class="small">2023/05/25 (Thu) 16:25</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m considering freezing my eggs soon and I&#39;ve been doing some research on the process. Can you tell me more about the average cost of egg freezing and what factors affect the pricing? By the way, I&#39;m 32 years old now, and I had a birthday last month on February 15th, which means I was 25 years old 7 years ago.</div>
       </div><div class="turn">
@@ -1130,15 +1526,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Thank you for the encouragement! I think I&#39;ve covered a lot of ground today, and it&#39;s been really helpful to reflect on my thoughts and feelings about egg freezing, relationships, and personal growth.<br /><br />Actually, I think I&#39;d like to switch gears and talk about something a bit more lighthearted. I&#39;ve been thinking about trying some new hobbies or activities in my free time. Do you have any suggestions or recommendations?<br /><br />Maybe we could discuss some popular hobbies or activities that might be a good fit for someone like me? I&#39;m open to trying anything from creative pursuits like painting or writing to more adventurous activities like rock climbing or photography.<br /><br />What do you think?</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>9de29219_1</code></strong>
         <span class="small">2023/05/26 (Fri) 06:40</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some new vegan recipes to try out. I recently tried this amazing vegan mac and cheese recipe I found online, and it was honestly the best I&#39;ve ever had. I used a cashew-based cheese sauce, and it was so creamy and delicious. Do you have any other vegan comfort food recipes you can recommend?</div>
       </div><div class="turn">
@@ -1175,15 +1575,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">You&#39;re going to bring a variety of cookies, including the vegan chocolate chip cookies we discussed earlier. That&#39;s great! Offering a selection of treats can cater to different tastes and dietary needs.<br /><br />And wow, you&#39;ve had a great experience with vegan mac and cheese, too! Cashew-based cheese sauces are incredibly versatile and can be used in many dishes. The creamy texture and flavor they provide are often a game-changer for vegan recipes.<br /><br />If you don&#39;t mind me asking, what inspired you to try veganism, and how has your experience been so far? Have you noticed any differences in how you feel or any challenges you&#39;ve faced in transitioning to a vegan lifestyle?<br /><br />Also, are you planning to bring any other vegan dishes to the potluck, or will you be focusing on the cookies?</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_530098</code></strong>
         <span class="small">2023/05/26 (Fri) 21:59</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">How has the study of psychology evolved over time, and what are some of its most significant theories and findings?</div>
       </div><div class="turn">
@@ -1226,15 +1630,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">It is important to recognize that the complexity of human behavior and the brain makes it difficult to have one clear and universally accepted theory in psychology. The mind and behavior are affected by a wide range of factors, including our genetics, personal experiences, cultural and social influences, and environmental factors. Different perspectives in psychology offer different ways of viewing and understanding these factors, but no single theory can provide a complete understanding of the complex interplay of these factors.<br /><br />It&#39;s important to keep in mind that psychology is a young and continually evolving science. As our understanding of the human brain and behavior continues to grow, new theories and perspectives will emerge, and existing theories will be updated and refined. While this can be frustrating for those seeking definitive answers, it also means that the study of psychology will continue to evolve and improve, making new discoveries that can ultimately improve our lives and well-being.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_TOKZBGW_17</code></strong>
         <span class="small">2023/05/26 (Fri) 22:48</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">The Mammoth Tribe&#39;s greatest hunter is a young woman named Saren, who is known for her exceptional skills in tracking and capturing mammoths. Saren was born into the tribe&#39;s hunting caste and has been hunting since she was a child. Her father, who was also a renowned hunter in the tribe, recognized her natural talents and began training her from a young age.<br /><br />Saren&#39;s training included both physical and spiritual elements, as she was taught how to track animals and use weapons, as well as how to communicate with animal spirits and other supernatural forces that were believed to be essential to successful hunting.<br /><br />As Saren grew older, she quickly became known as one of the tribe&#39;s most skilled hunters, and her reputation spread beyond the tribe&#39;s borders. Saren&#39;s feats of hunting have become legendary, and many of the tribe&#39;s young hunters look up to her as a role model and mentor.<br /><br />Despite her prowess as a hunter, Saren remains humble and dedicated to the tribe&#39;s spiritual beliefs and practices. She is a frequent participant in the tribe&#39;s ceremonies and rituals, and is known for her deep connection to the animal spirits that are central to the tribe&#39;s spiritual beliefs.<br /><br />Saren&#39;s backstory is one of determination, skill, and reverence for the natural world. Her hunting prowess has earned her a place of respect and honor within the tribe, and her dedication to the tribe&#39;s spiritual practices has made her a beloved figure among her people.</div>
       </div><div class="turn">
@@ -1268,15 +1676,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">After Kothe&#39;s guilt had been established, the tribe was filled with outrage at his actions and the betrayal of his own brother. The tribe&#39;s leaders gathered to determine a fitting punishment for his crime, which they ultimately decided would be exile.<br /><br />Before being exiled, Kothe would undergo a shaming ritual to publicly acknowledge his wrongdoing and the harm he had caused the tribe. The ritual would take place in front of the entire tribe, and would involve several steps:<br /><br />1. Kothe would be stripped of all his possessions, including his clothes, weapons, and any other items he had with him. He would then be painted with red ochre, a symbol of shame.<br />2. A circle would be drawn on the ground, and Kothe would be forced to stand inside it while the rest of the tribe gathered around him. The circle represented the boundaries of the tribe, and his standing inside it symbolized his being cast out.<br />3. One by one, members of the tribe would step forward to publicly shame Kothe, expressing their anger and disappointment at his actions. They would recount how he had betrayed their trust and the trust of his own family.<br />4. During this time, Kothe would be expected to remain silent and accept the criticism without responding or defending himself.<br />5. Once all members of the tribe had spoken, Kothe would be given a staff and a small bundle of supplies, and would be forced to leave the tribe&#39;s territory, never to return. His staff would be marked with a symbol of shame, indicating to anyone who saw him that he had been cast out.<br /><br />The shaming ritual was intended to serve as a warning to others in the tribe that actions such as Kothe&#39;s would not be tolerated, and to ensure that he left with a deep sense of the harm he had caused. Though it was a painful and humiliating experience, it was seen as necessary to maintain the tribe&#39;s honor and unity.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_JTaoEJT_23</code></strong>
         <span class="small">2023/05/27 (Sat) 01:12</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">Here are the adapted sigmoid-like transformed values for the adjectives and things, using the transformed scores from 0.0 to 1.0:<br /><br />0.0000: Terrible - Spoiled food that is dangerous to eat<br />0.0250: Awful - A very rude and unhelpful customer service representative<br />0.1000: Poor - A poorly written book with numerous grammatical errors and a weak plot<br />0.2250: Mediocre - A disappointing movie that has a few redeeming qualities, such as a strong performance from a supporting actor<br />0.4000: Below average - A meal at a restaurant that is mediocre and not worth the price<br />0.5000: Average - An average day at work, where nothing particularly good or bad happens<br />0.6000: Decent - A helpful tutorial that covers the basics of a topic but lacks depth<br />0.7750: Good - A well-designed app that occasionally has minor bugs or usability issues<br />0.9000: Great - A beautiful and engaging piece of art that resonates with many people<br />0.9750: Excellent - An excellent and inspiring TED talk that leaves a lasting impact on the audience<br />1.0000: Outstanding - A life-changing event, such as the birth of a child or achieving a lifelong dream<br /><br />These examples now have sigmoid-like transformed values that provide a more intuitive mapping to the desired range of 0.0 to 1.0.</div>
       </div><div class="turn">
@@ -1316,15 +1728,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">There is a concept called &quot;infinite-dimensional optimization&quot; that deals with optimization problems where the decision variables lie in infinite-dimensional spaces. However, this concept is typically not directly related to backpropagation or neural networks.<br /><br />In the context of neural networks, the loss function is typically defined on a finite-dimensional space, such as the space of real-valued vectors. Backpropagation is a gradient-based optimization method that is designed to work with functions that are differentiable on this finite-dimensional space.<br /><br />However, it is possible to define neural networks and loss functions that operate on infinite-dimensional spaces, such as function spaces or spaces of probability distributions. In this case, backpropagation would need to be adapted to work with these infinite-dimensional spaces, which would likely require significant modifications to the standard algorithm.<br /><br />There has been some research on neural networks with infinite-dimensional weights, which involves defining the weights of the network as functions rather than as fixed vectors. However, these methods are still based on standard backpropagation algorithms and are typically used in the context of specific applications, such as function approximation or differential equations.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>c37e7b4f_2</code></strong>
         <span class="small">2023/05/27 (Sat) 01:58</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m trying to find some new TV shows to watch. Can you recommend some shows similar to &quot;Stranger Things&quot;? By the way, I think I&#39;ve spent around 20 hours watching the show so far, and I&#39;m already planning to rewatch some of my favorite episodes.</div>
       </div><div class="turn">
@@ -1361,15 +1777,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">That&#39;s a fantastic idea! Online forums and communities can be a treasure trove of information and advice from people who have first-hand experience with various streaming services and sports channels.<br /><br />You can find online forums and communities on platforms like:<br /><br />1. Reddit (e.g., r/CordCutting, r/Streaming, r/Sports)<br />2. Online forums dedicated to specific streaming services (e.g., Sling TV, YouTube TV, Hulu)<br />3. Social media groups focused on streaming and sports<br />4. Specialized websites and blogs that cover streaming and sports news<br /><br />By participating in these communities, you can:<br /><br />1. Ask questions and get answers from people who have experience with different streaming services and sports channels<br />2. Share your own experiences and help others who are going through a similar process<br />3. Learn about new features, promotions, and deals that might not be widely advertised<br />4. Get tips and recommendations from people who have found creative solutions to common problems<br />5. Stay up-to-date with the latest news and developments in the streaming and sports industries<br /><br />Remember to always follow online safety guidelines and be respectful of others in the communities you participate in. By doing so, you&#39;ll be able to gather valuable insights and make a more informed decision about your streaming setup.<br /><br />Kudos to you for taking a proactive approach to researching and learning from others!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_E7VUcfj_0</code></strong>
         <span class="small">2023/05/27 (Sat) 06:56</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">i have a project on Yoga effects.<br />for data i make google form with various questions.<br />in next message i give you my google form details.</div>
       </div><div class="turn">
@@ -1406,15 +1826,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Great! In that case, you can modify the code I provided earlier to compare the responses based on their user ID numbers instead of their names.<br /><br />Assuming that the user ID numbers are stored in a column called `UserID`, here&#39;s how you can find the common and unique responses between the two sets of data using R:<br /><br />1. Import the data from the first round and the second round into R as separate data frames. Let&#39;s call them `data1` and `data2`, respectively.<br />2. Use the `intersect()` function to find the common responses between the two sets of data:<br />```bash<br />common_responses &lt;- intersect(data1$UserID, data2$UserID)<br />```<br />This will give you a vector of the user ID numbers that appear in both `data1` and `data2`.<br /><br />1. Use the `setdiff()` function to find the unique responses in each set:<br />```bash<br />unique_responses1 &lt;- setdiff(data1$UserID, data2$UserID)<br />unique_responses2 &lt;- setdiff(data2$UserID, data1$UserID)<br />```<br />This will give you two vectors of the user ID numbers that appear only in `data1` or only in `data2`, respectively.<br /><br />1. To check the number of common responses, use the `length()` function:<br />```r<br />num_common_responses &lt;- length(common_responses)<br />```<br />This will give you the number of responses that appear in both `data1` and `data2`.<br /><br />1. To check the number of unique responses in each set, use the `length()` function again:<br />```r<br />num_unique_responses1 &lt;- length(unique_responses1)<br />num_unique_responses2 &lt;- length(unique_responses2)<br />```<br />This will give you the number of responses that appear only in `data1` or only in `data2`, respectively.<br /><br />You can then use these results to further analyze the data and see if there are any differences or trends between the common and unique responses based on the user ID numbers.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>0aa8f6bf</code></strong>
         <span class="small">2023/05/27 (Sat) 07:22</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m planning a trip to Chicago soon and I need some help with packing. Can you give me some tips on what to pack for a 3-day trip?</div>
       </div><div class="turn">
@@ -1451,30 +1875,38 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Adding a laptop sleeve is a great idea! It&#39;s always better to be safe than sorry when it comes to protecting your devices.<br /><br />Now, let&#39;s get your overnight bag ready for the trip!<br /><br />**Packing essentials:**<br /><br />* **Toiletries:** Pack a travel-sized toiletry bag with essentials like toothbrush, toothpaste, shampoo, conditioner, and any medications.<br />* **Clothing:** Pack a change of clothes for the next day, including undergarments, socks, and a spare outfit in case of unexpected delays or changes in plans.<br />* **Electronics:** Pack your phone, charger, and any other essential electronics, like a portable charger or headphones.<br />* **Travel documents:** Bring your ID, credit cards, and travel itinerary.<br />* **Miscellaneous:** Add any other essentials, such as snacks, a water bottle, or a travel-sized umbrella.<br /><br />**Packing tips:**<br /><br />* **Roll your clothes:** Rolling your clothes can help reduce wrinkles and save space in your overnight bag.<br />* **Use packing cubes:** Packing cubes can help you stay organized and find what you need quickly.<br />* **Pack multipurpose items:** Choose items that can serve multiple purposes, like a sarong that can be used as a blanket or a dress.<br />* **Keep it light:** Try to pack lightly to avoid checking a bag and to make it easier to carry your overnight bag.<br /><br />**Other preparations:**<br /><br />* **Charge your devices:** Make sure your phone, laptop, and other devices are fully charged before you leave.<br />* **Notify your bank:** Inform your bank and credit card companies of your travel plans to avoid any issues with transactions.<br />* **Check the weather:** Check the weather forecast for Chicago and pack accordingly.<br /><br />By following these tips, you&#39;ll be well-prepared for your trip and can focus on enjoying your time in Chicago!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_iWimIox_6</code></strong>
         <span class="small">2023/05/27 (Sat) 21:55</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Please make this course description of Thai Politics and government [Evolution of Thai politics and government; growth of democratic power; expansion of public <br />bureaucracy in the context of economic changes; various issues in Thai politics and government;<br />government instability; centralization; constitution; political parties and parliamentary system; election; <br />authoritarianism in Thai political system and government; ex-parliamentary politics] into 4 CLOs (course learning outcomes) by using high-level of bloom taxonomy and make all 4 CLOs relevant to 15 weeks outline above.</div>
       </div><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">Sure, here are four course learning outcomes (CLOs) that align with the course description of &quot;Thai Politics and Government&quot; and are relevant to the 15-week outline provided:<br /><br />1. Analyze the evolution of Thai politics and government, including the growth of democratic power, the expansion of the public bureaucracy in the context of economic changes, and various issues in Thai politics and government, using high-level critical thinking skills (Bloom&#39;s Taxonomy: Analyze). This CLO aligns with Weeks 1-4, which cover the historical and political context of Thai politics and government, including the evolution of democratic power, centralization, and the constitution.<br />2. Evaluate the structure and functioning of the Thai political system, including the role of political parties, the parliamentary system, and elections, using high-level analysis and synthesis skills (Bloom&#39;s Taxonomy: Evaluate). This CLO aligns with Weeks 5-8, which cover the structure and functioning of the Thai political system, including political parties, elections, and authoritarianism in the political system and government.<br />3. Synthesize the impact of social and cultural factors, including gender, ethnicity, religion, and social movements, on Thai politics and government, using high-level synthesis skills (Bloom&#39;s Taxonomy: Synthesize). This CLO aligns with Weeks 11-14, which cover the impact of social and cultural factors on Thai politics and government, including gender and politics, ethnicity and identity politics, social movements and activism, and religion and politics.<br />4. Apply critical thinking skills to assess the challenges and opportunities for innovation in public management in the Thai context, using high-level application skills (Bloom&#39;s Taxonomy: Apply). This CLO aligns with Weeks 6-10 and 13, which cover various issues in Thai politics and government, including government instability, decentralization and local power, foreign policy and international relations, and political resistance, and provide opportunities for students to apply critical thinking skills to assess the challenges and opportunities for innovation in public management in the Thai context.<br /><br />I hope this helps!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_214872</code></strong>
         <span class="small">2023/05/28 (Sun) 04:03</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What obstacles did the Grand Fleet face in implementing new tactics, and how were these challenges addressed over time?</div>
       </div><div class="turn">
@@ -1517,30 +1949,38 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">You are correct that outdated strategies are unlikely to lead to victory in a war. However, it&#39;s essential to understand that there were several factors that contributed to resistance to new tactics within the Royal Navy during World War I.<br /><br />One factor was the conservatism of some senior officers, many of whom had trained and served in the military during the late nineteenth century, a time when naval warfare strategies focused primarily on the use of heavily armored battleships. They were often resistant to new ideas that challenged these established strategies and tactics.<br /><br />Another factor was the risk of failure associated with new tactics. Senior officers were aware that new tactics often required significant investment and resources and there was no guarantee that they would be successful. This led some officers to prefer traditional strategies that were more reliable and had shown success in the past.<br /><br />Finally, communication issues within the fleet itself presented challenges in implementing new tactics. The fleet was made up of ships from many different countries and each had its own language, customs, and practices. This made it difficult to coordinate tactics, especially when some officers were skeptical of new ideas.<br /><br />Despite the challenges, the Royal Navy gradually adopted new tactics and strategies throughout the war, thanks in part to the efforts of forward-thinking officers who recognized the need to modernize British naval capabilities. Ultimately, these new tactics proved instrumental in securing the Navy&#39;s victory in World War I.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_TCjRjn0_0</code></strong>
         <span class="small">2023/05/28 (Sun) 09:32</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Ok, keep your leprechaun gold. I don’t care</div>
       </div><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">Understood. Is there anything else I can assist you with? Please feel free to ask any questions or request any information you might need, and I will do my best to provide helpful and accurate responses.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_396986</code></strong>
         <span class="small">2023/05/28 (Sun) 16:11</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Which popular fashion magazine covers the most celebrity red carpet events?</div>
       </div><div class="turn">
@@ -1565,30 +2005,38 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I cannot say whether or not a magazine has ever compromised their editorial integrity to access an event or celebrity. however, maintaining editorial integrity is a crucial aspect of journalism, and reputable magazines like vogue and harper&#39;s bazaar take this responsibility seriously. it&#39;s important for them to maintain editorial independence and avoid any conflicts of interest that could compromise their credibility. while they do want to gain exclusive access to events, they are responsible for reporting on them objectively and accurately, regardless of any pressures or expectations from event organizers, publicists or celebrities.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_nrCPDzJ_0</code></strong>
         <span class="small">2023/05/28 (Sun) 17:53</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Classify the below papers into 10 appropriate categories<br /><br />Papers: <br /><br />MedMCQA: A Large-scale Multi-Subject Multi-Choice Dataset for Medical domain Question Answering https://proceedings.mlr.press/v174/pal22a.html<br /><br />Medical Exam Question Answering with Large-scale Reading Comprehension https://arxiv.org/pdf/1802.10279.pdf<br /><br />PubMedQA: A Dataset for Biomedical Research Question Answering https://www.aclweb.org/anthology/D19-1259.pdf<br /><br />emrQA: A Large Corpus for Question Answering on Electronic Medical Records https://www.aclweb.org/anthology/D18-1258.pdf<br /><br />QASC: A Dataset for Question Answering via Sentence Composition https://arxiv.org/pdf/1910.11473.pdf<br /><br />MMM: Multi-stage Multi-task Learning for Multi-choice Reading Comprehension https://arxiv.org/pdf/1910.00458.pdf<br /><br />SOCIAL IQA: Commonsense Reasoning about Social Interactions https://arxiv.org/pdf/1904.09728.pdf<br /><br />Improving Question Answering with External Knowledge https://arxiv.org/pdf/1902.00993.pdf<br /><br />Question Answering as Global Reasoning over Semantic Abstractions https://arxiv.org/pdf/1906.03672.pdf<br /><br />Automatic Question Answering for Medical MCQs: Can It Go Further than Information Retrieval? https://www.aclweb.org/anthology/R19-1049.pdf<br /><br />Overview of the MEDIQA 2019 Shared Task on Textual Inference, Question Entailment and Question Answering https://www.aclweb.org/anthology/W19-5039.pdf<br /><br />HEAD-QA: A Healthcare Dataset for Complex Reasoning https://www.aclweb.org/anthology/P19-1092.pdf<br /><br />Improving Retrieval-Based Question Answering with Deep Inference Models https://arxiv.org/pdf/1812.02971.pdf<br /><br />Explain Yourself! Leveraging Language Models for Commonsense Reasoning https://arxiv.org/pdf/1906.02361.pdf<br /><br />GenNet : Reading Comprehension with Multiple Choice Questions using Generation and Selection model https://arxiv.org/abs/2003.04360<br /><br />Rethinking the Value of Transformer Components https://www.aclweb.org/anthology/2020.coling-main.529.pdf<br /><br />A Corpus for Evidence Based Medicine Summarisation https://www.aclweb.org/anthology/U10-1012.pdf<br /><br />An overview of the BIOASQ large-scale biomedical semantic indexing and question answering competition https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-015-0564-6<br /><br />Question-Driven Summarization of Answers to Consumer Health Questions https://arxiv.org/pdf/2005.09067.pdf<br /><br />A QUESTION-ENTAILMENT APPROACH TO QUESTION ANSWERING https://arxiv.org/pdf/1901.08079.pdf<br /><br />A dataset of clinically generated visual questions and answers about radiology images https://www.nature.com/articles/sdata2018251<br /><br />Overview of the Medical Question Answering Task at TREC 2017 LiveQA https://lhncbc.nlm.nih.gov/system/files/pub9773.pdf<br /><br />A Survey of Datasets for Biomedical Question Answering Systems https://thesai.org/Downloads/Volume8No7/Paper\_67-A\_Survey\_of\_Datasets\_for\_Biomedical\_Question.pdf<br /><br />Lessons from Natural Language Inference in the Clinical Domain https://arxiv.org/pdf/1808.06752.pdf<br /><br />Beyond SQuAD: How to Apply a Transformer QA Model to Your Data https://qa.fastforwardlabs.com/domain%20adaptation/transfer%20learning/specialized%20datasets/qa/medical%20qa/2020/07/22/QA-for-Specialized-Data.html<br /><br />Applying deep matching networks to Chinese medical question answering: a study and a dataset https://bmcmedinformdecismak.biomedcentral.com/articles/10.1186/s12911-019-0761-8<br /><br />The AI2 Reasoning Challenge (ARC) dataset http://ai2-website.s3.amazonaws.com/publications/AI2ReasoningChallenge2018.pdf<br /><br />Interpretation of Natural Language Rules in Conversational Machine Reading https://arxiv.org/pdf/1809.01494.pdf<br /><br />MCTest: A Challenge Dataset for the Open-Domain Machine Comprehension of Text https://www.aclweb.org/anthology/D13-1020.pdf<br /><br />The Complexity of Math Problems – Linguistic, or Computational? https://uclnlp.github.io/ai4exams/\_papers/I13-1009.pdf<br /><br />University Entrance Examinations as a Benchmark Resource for NLP-based Problem Solving https://uclnlp.github.io/ai4exams/\_papers/I13-1192.pdf<br /><br />Overview of Todai Robot Project and Evaluation Framework of its NLP-based Problem Solving https://uclnlp.github.io/ai4exams/\_papers/todai\_overview.pdf<br /><br />Machine Comprehension with Discourse Relations https://uclnlp.github.io/ai4exams/\_papers/P15-1121.pdf<br /><br />Machine Comprehension with Syntax, Frames, and Semantics https://uclnlp.github.io/ai4exams/\_papers/P15-2115.pdf<br /><br />Learning Answer-Entailing Structures for Machine Comprehension https://uclnlp.github.io/ai4exams/\_papers/P15-1024.pdf<br /><br />A Strong Lexical Matching Method for the Machine Comprehension Test https://uclnlp.github.io/ai4exams/\_papers/D15-1197.pdf<br /><br />Teaching Machines to Read and Comprehend https://arxiv.org/pdf/1506.03340.pdf<br /><br />TOWARDS AI-COMPLETE QUESTION ANSWERING : A SET OF PREREQUISITE TOY TASKS https://arxiv.org/pdf/1502.05698.pdf<br /><br />THE GOLDILOCKS PRINCIPLE: READING CHILDREN’S BOOKS WITH EXPLICIT MEMORY REPRESENTATIONS https://research.fb.com/wp-content/uploads/2016/11/the\_goldilocks\_principle\_reading\_children\_s\_books\_with\_explicit\_memory\_representations.pdf?<br /><br />Machine Comprehension Based on Learning to Rank https://uclnlp.github.io/ai4exams/\_papers/1605.03284v2.pdf<br /><br />Attention-Based Convolutional Neural Network for Machine Comprehension https://uclnlp.github.io/ai4exams/\_papers/1602.04341v1.pdf<br /><br />Dynamic Entity Representation with Max-pooling Improves Machine Reading https://uclnlp.github.io/ai4exams/\_papers/N16-1099.pdf<br /><br />A Parallel-Hierarchical Model for Machine Comprehension on Sparse Data https://uclnlp.github.io/ai4exams/\_papers/1603.08884.pdf<br /><br />A Thorough Examination of the CNN/Daily Mail Reading Comprehension Task https://uclnlp.github.io/ai4exams/\_papers/1606.02858v1.pdf<br /><br />SQuAD: 100,000+ Questions for Machine Comprehension of Text https://uclnlp.github.io/ai4exams/\_papers/1606.05250v1.pdf<br /><br />CliCR: A Dataset of Clinical Case Reports for Machine Reading Comprehension https://arxiv.org/pdf/1803.09720.pdf<br /><br />CODAH: An Adversarially Authored Question-Answer Dataset for Common Sense https://arxiv.org/pdf/1904.04365.pdf<br /><br />CoQA: A Conversational Question Answering Challenge https://arxiv.org/pdf/1808.07042.pdf<br /><br />HOTPOTQA: A Dataset for Diverse, Explainable Multi-hop Question Answering https://www.aclweb.org/anthology/D18-1259.pdf<br /><br />MS MARCO: A Human Generated MAchine Reading COmprehension Dataset https://arxiv.org/pdf/1611.09268.pdf<br /><br />Looking Beyond the Surface: A Challenge Set for Reading Comprehension over Multiple Sentences https://www.aclweb.org/anthology/N18-1023.pdf<br /><br />Natural Questions: a Benchmark for Question Answering Research https://persagen.com/files/misc/kwiatkowski2019natural.pdf<br /><br />NEWSQA: A MACHINE COMPREHENSION DATASET https://arxiv.org/pdf/1611.09830.pdf<br /><br />Constructing Datasets for Multi-hop Reading Comprehension Across Documents https://arxiv.org/pdf/1710.06481.pdf<br /><br />QuAC : Question Answering in Context https://arxiv.org/pdf/1808.07036.pdf<br /><br />RACE: Large-scale ReAding Comprehension Dataset From Examinations https://arxiv.org/pdf/1704.04683.pdf<br /><br />LSDSem 2017 Shared Task: The Story Cloze Test http://aclweb.org/anthology/W17-0906.pdf<br /><br />SWAG: A Large-Scale Adversarial Dataset for Grounded Commonsense Inference https://arxiv.org/abs/1808.05326<br /><br />RecipeQA: A Challenge Dataset for Multimodal Comprehension of Cooking Recipes https://www.aclweb.org/anthology/D18-1166.pdf<br /><br />The NarrativeQA Reading Comprehension Challenge https://arxiv.org/pdf/1712.07040.pdf<br /><br />DROP: A Reading Comprehension Benchmark Requiring Discrete Reasoning Over Paragraphs https://arxiv.org/pdf/1903.00161.pdf<br /><br />DuoRC: Towards Complex Language Understanding with Paraphrased Reading Comprehension https://arxiv.org/pdf/1804.07927.pdf<br /><br />COSMOS QA: Machine Reading Comprehension with Contextual Commonsense Reasoning https://arxiv.org/pdf/1909.00277.pdf<br /><br />RECLOR: A READING COMPREHENSION DATASET REQUIRING LOGICAL REASONING https://openreview.net/pdf?id=HJgJtT4tvB<br /><br />DuReader: a Chinese Machine Reading Comprehension Dataset from Real-world Applications https://www.aclweb.org/anthology/W18-2605.pdf<br /><br />QUASAR: DATASETS FOR QUESTION ANSWERING BY SEARCH AND READING https://arxiv.org/pdf/1707.03904.pdf<br /><br />SearchQA: A New Q&amp;A Dataset Augmented with Context from a Search Engine https://arxiv.org/pdf/1704.05179.pdf<br /><br />9th Challenge on Question Answering over Linked Data (QALD-9) http://ceur-ws.org/Vol-2241/paper-06.pdf<br /><br />Good for figures and other ideas https://qa.fastforwardlabs.com/domain%20adaptation/transfer%20learning/specialized%20datasets/qa/medical%20qa/2020/07/22/QA-for-Specialized-Data.html<br /><br />BioASQ: A Challenge on Large-Scale Biomedical Semantic Indexing and Question Answering http://bioasq.org/resources/papers/Tsatsaronis\_et\_al\_AAAIIRKD2012\_CR.pdf<br /><br />COVID-QA: A Question Answering Dataset for COVID-19 https://www.aclweb.org/anthology/2020.nlpcovid19-acl.18.pdf<br /><br />Semantic Parsing on Freebase from Question-Answer Pairs https://cs.stanford.edu/~pliang/papers/freebase-emnlp2013.pdf<br /><br />Large-scale Simple Question Answering with Memory Network https://arxiv.org/pdf/1506.02075.pdf<br /><br />Generating Factoid Questions With Recurrent Neural Networks: The 30M Factoid Question-Answer Corpus https://www.aclweb.org/anthology/P16-1056.pdf<br /><br />On Generating Characteristic-rich Question Sets for QA Evaluation https://sites.cs.ucsb.edu/~ysu/papers/emnlp16\_graphquestions.pdf<br /><br />TriviaQA: A Large Scale Distantly Supervised Challenge Dataset for Reading Comprehension https://www.aclweb.org/anthology/P17-1147.pdf<br /><br />LC-QuAD: A Corpus for Complex Question Answering over Knowledge Graphs http://jens-lehmann.org/files/2017/iswc\_lcquad.pdf<br /><br />Know What You Don’t Know: Unanswerable Questions for SQuAD https://arxiv.org/pdf/1806.03822.pdf<br /><br />The Web as a Knowledge-base for Answering Complex Questions https://arxiv.org/abs/1803.06643<br /><br />FreebaseQA: A New Factoid QA Data Set Matching Trivia-Style Question-Answer Pairs with Freebase https://www.aclweb.org/anthology/N19-1028.pdf<br /><br />ComQA: A Community-sourced Dataset for Complex Factoid Question Answering with Paraphrase Clusters https://arxiv.org/pdf/1809.09528.pdf<br /><br />Natural Questions: A Benchmark for Question Answering Research https://www.aclweb.org/anthology/Q19-1026.pdf<br /><br />MEASURING COMPOSITIONAL GENERALIZATION: A COMPREHENSIVE METHOD ON REALISTIC DATA https://arxiv.org/pdf/1912.09713.pdf<br /><br />Large-scale Semantic Parsing via Schema Matching and Lexicon Extension https://www.aclweb.org/anthology/P13-1042.pdf<br /><br />WIKIQA: A Challenge Dataset for Open-Domain Question Answering https://pdfs.semanticscholar.org/8685/671ad8b1b1b5fe2b108c7002662b582ba277.pdf?\_ga=2.255219788.515480105.1609930430-1235984517.1600607025&amp;\_gac=1.114743541.1607092635.Cj0KCQiA2af-BRDzARIsAIVQUOdNiV5qT\_0YS1w4gKgpaTrSKxbqsipzwnWWzkdgQU7V98y7gdbJcUQaAnquEALw\_wcB<br /><br />Good Question! Statistical Ranking for Question Generation https://www.aclweb.org/anthology/N10-1086.pdf<br /><br />Generating Natural Language Question-Answer Pairs from a Knowledge Graph Using a RNN Based Question Generation Model https://www.aclweb.org/anthology/E17-1036.pdf<br /><br />Learning to Ask: Neural Question Generation for Reading Comprehension https://arxiv.org/pdf/1705.00106.pdf<br /><br />Neural Question Generation from Text: A Preliminary Study https://arxiv.org/pdf/1704.01792.pdf<br /><br />Machine Comprehension by Text-to-Text Neural Question Generation https://arxiv.org/pdf/1705.02012.pdf</div>
       </div><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">1. Medical Question Answering<br />2. Question Answering Datasets<br />3. Question Answering with Reading Comprehension<br />4. Multi-choice Question Answering<br />5</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_220592</code></strong>
         <span class="small">2023/05/28 (Sun) 20:46</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Can you explore the ways the Danube River has been referenced in popular media, and what symbolic themes are attached to these references in different contexts?</div>
       </div><div class="turn">
@@ -1619,15 +2067,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, there are many activities and sights to see along the Danube River, depending on which countries you plan to visit. Here are a few recommendations:<br /><br />1. Melk Abbey - located in Austria, this historic Benedictine monastery is set on a hill overlooking the Danube River. The abbey dates back to the 11th century and features ornate Baroque architecture, beautiful gardens, and stunning views of the river and surrounding landscape.<br /><br />2. Budapest Parliament Building - located in Hungary, this iconic building sits on the banks of the Danube River and is the largest building in Hungary. The neo-Gothic palace is an impressive sight at night when it is illuminated by floodlights.<br /><br />3. Danube Bend - a scenic stretch of the Danube River between Hungary&#39;s Visegrád Mountains and the Buda Hills. The area is known for its picturesque towns, historic forts, and colorful wine regions.<br /><br />4. Iron Gates - a gorge on the Danube River that forms a natural border between Serbia and Romania. The Iron Gates offer spectacular views of the river&#39;s deep blue water and vertical cliffs.<br /><br />5. Novi Sad - a charming city located in Northern Serbia, known for its picturesque architecture, lively music scene, and stunning views of the Danube River.<br /><br />Overall, the Danube River offers many opportunities for sightseeing, exploring, and experiencing the culture and history of the European countries through which it flows.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>58335f60_2</code></strong>
         <span class="small">2023/05/28 (Sun) 23:04</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m thinking of selling my condo in the city, but it&#39;s been on the market for about 3 months now and I&#39;m getting a bit anxious. Can you give me some tips on how to stage it better to attract potential buyers?</div>
       </div><div class="turn">
@@ -1664,15 +2116,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Mentioning the walking distance to the nearest bus stop or subway station is a great idea!<br /><br />Proximity to public transportation is a highly desirable feature for many buyers, especially in urban areas. By highlighting the walking distance to the nearest bus stop or subway station, you can attract buyers who value convenience, ease of commuting, and a more sustainable lifestyle.<br /><br />Here are some benefits of mentioning the walking distance to public transportation in the listing:<br /><br />1. **Convenience**: Highlighting the walking distance to public transportation shows buyers that they can easily get around the city without a car, making their daily commute more convenient.<br />2. **Sustainability**: By emphasizing the proximity to public transportation, you&#39;re appealing to buyers who prioritize eco-friendliness and reducing their carbon footprint.<br />3. **Increased demand**: Many buyers, especially in urban areas, prioritize proximity to public transportation when searching for a home. By highlighting this feature, you can attract more potential buyers and increase demand for your condo.<br />4. **Competitive advantage**: If your condo is closer to public transportation than similar listings in the area, it can be a major selling point and set your condo apart from the competition.<br /><br />When mentioning the walking distance to public transportation in the listing, be sure to include the following:<br /><br />1. **Exact distance**: Provide the exact walking distance to the nearest bus stop or subway station to give buyers a clear idea of the convenience.<br />2. **Route information**: Consider including the bus or subway route numbers and frequencies to help buyers plan their commute.<br />3. **Time estimates**: You can also provide estimated travel times to popular destinations, such as the city center or major employment hubs, to give buyers a better sense of the condo&#39;s location.<br /><br />By highlighting the walking distance to public transportation, you&#39;ll attract more buyers who value convenience, sustainability, and ease of commuting.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_2sPvS5O_7</code></strong>
         <span class="small">2023/05/28 (Sun) 23:17</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">I apologize for the confusion. Here is the updated table with the titles and queries in separate rows under their respective columns:<br /><br />| Potential Job Titles | Number of Users on LinkedIn and Twitter | Publicly Available Queries | Company Names, Owners, and Email IDs of Likely Users Going to Survey Platforms |<br />| --- | --- | --- | --- |<br />| Marketing Manager | LinkedIn: 45,000, Twitter: 15,000 | qualtrics survey platform | ABC Company, John Doe, [johndoe@abccompany.com](mailto:johndoe@abccompany.com) |<br />|  |  | surveymonkey vs qualtrics | XYZ Inc., Jane Smith, [janesmith@xyzinc.com](mailto:janesmith@xyzinc.com) |<br />|  |  | surveysparrow for research | LMN Corp., Sarah Johnson, [sarahjohnson@lmncorp.com](mailto:sarahjohnson@lmncorp.com) |<br />|  |  | surveyplanet pricing | PQR Enterprises, David Lee, [davidlee@pqrenterprises.com](mailto:davidlee@pqrenterprises.com) |<br />| Research Analyst | LinkedIn: 35,000, Twitter: 10,000 | qualtrics vs surveymonkey | DEF Corp., Michael Brown, [michaelbrown@defcorp.com](mailto:michaelbrown@defcorp.com) |<br />|  |  | surveymonkey pricing | GHI Corporation, Lisa Chen, [lisachen@ghicorporation.com](mailto:lisachen@ghicorporation.com) |<br />|  |  | surveysparrow comparison | JKL Industries, James Kim, [jameskim@jklindustries.com](mailto:jameskim@jklindustries.com) |<br />|  |  | surveyplanet features | MNO Corporation, Emily Smith, emilysmith@mno corporation.com |<br />| Human Resources | LinkedIn: 50,000, Twitter: 20,000 | qualtrics survey tool | RST Inc., Amy Davis, [amydavis@rstinc.com](mailto:amydavis@rstinc.com) |<br />| Manager |  | surveymonkey survey types | UVW Enterprises, Mark Wilson, [markwilson@uvwenterprises.com](mailto:markwilson@uvwenterprises.com) |<br />|  |  | surveysparrow features | XYZ Inc., Jane Smith, [janesmith@xyzinc.com](mailto:janesmith@xyzinc.com) |<br />|  |  | surveyplanet customer support | PQR Enterprises, David Lee, [davidlee@pqrenterprises.com](mailto:davidlee@pqrenterprises.com) |<br /><br />Note: The above information is based on publicly available sources and may not be accurate or up-to-date.</div>
       </div><div class="turn">
@@ -1688,15 +2144,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I apologize for the confusion. Here&#39;s the expanded table with additional queries and companies:<br /><br />| Job Title | # of Users (LinkedIn) | # of Users (Twitter) | Potential Queries | Companies |<br />| --- | --- | --- | --- | --- |<br />| Marketing Manager | 1,500,000+ | 1,200,000+ | &quot;Best survey platform for marketing research&quot;, &quot;Survey software for marketing campaigns&quot;, &quot;Survey tools for customer feedback&quot; | Qualtrics, SurveyMonkey, SurveySparrow |<br />| Research Analyst | 500,000+ | 250,000+ | &quot;Survey tools for data analysis&quot;, &quot;Top survey platforms for research studies&quot;, &quot;Online survey software for market research&quot; | Qualtrics, SurveyMonkey, SurveySparrow |<br />| Customer Experience Manager | 1,200,000+ | 500,000+ | &quot;Customer feedback survey platforms&quot;, &quot;Best survey software for measuring customer satisfaction&quot;, &quot;Top survey tools for customer service&quot; | Qualtrics, SurveyMonkey, SurveySparrow |<br />| HR Manager | 2,000,000+ | 500,000+ | &quot;Online survey tools for employee feedback&quot;, &quot;Best survey software for HR departments&quot;, &quot;Top survey platforms for performance appraisal&quot; | Qualtrics, SurveyMonkey, SurveySparrow |<br />| Product Manager | 1,500,000+ | 1,000,000+ | &quot;Survey software for product development&quot;, &quot;Product feedback survey platforms&quot;, &quot;Top survey tools for market research&quot; | Qualtrics, SurveyMonkey, SurveySparrow |<br />| Small Business Owner | 1,000,000+ | 500,000+ | &quot;Affordable survey software for small businesses&quot;, &quot;Top survey platforms for startups&quot;, &quot;Easy-to-use survey tools for entrepreneurs&quot; | Qualtrics, SurveyMonkey, SurveySparrow |<br />| Sales Manager | 2,000,000+ | 1,500,000+ | &quot;Sales feedback survey software&quot;, &quot;Best survey tools for customer relationship management&quot;, &quot;Top survey platforms for sales analytics&quot; | Qualtrics, SurveyMonkey, SurveySparrow |<br />| UX Designer | 2,500,000+ | 1,000,000+ | &quot;User experience survey tools&quot;, &quot;Best survey software for usability testing&quot;, &quot;Top survey platforms for UX research&quot; | Qualtrics, SurveyMonkey, SurveySparrow |<br />| Event Coordinator | 1,000,000+ | 500,000+ | &quot;Event feedback survey platforms&quot;, &quot;Top survey tools for event planning&quot;, &quot;Online survey software for event management&quot; | SurveyMonkey, SurveyGizmo, Google Forms |<br />| Non-Profit Director | 500,000+ | 250,000+ | &quot;Survey software for non-profits&quot;, &quot;Top survey platforms for fundraising&quot;, &quot;Online survey tools for measuring social impact&quot; | Qualtrics, SurveyMonkey, SurveySparrow |<br /><br />Note: The numbers provided for LinkedIn and Twitter users are estimates and are subject to change.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_267974</code></strong>
         <span class="small">2023/05/29 (Mon) 10:27</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Are there any advantages to using PostScript over other programming languages in graphic design?</div>
       </div><div class="turn">
@@ -1733,15 +2193,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, there are many other graphic design languages and tools to explore. Here are some that you might find interesting:<br /><br />1. SVG: SVG (Scalable Vector Graphics) is another vector-based language that is commonly used in web design. It is popular because it is lightweight, scalable, and easy to use. 2. CSS: CSS (Cascading Style Sheets) is a styling language used in web design to control the look and layout of HTML elements. This language can be used to create sophisticated effects and layouts, and is an essential part of modern web design. 3. WebGL: WebGL is a JavaScript API for creating 3D graphics in web browsers. This language is used to create interactive virtual reality experiences, games, and other visualizations. 4. Processing: Processing is a programming language and development environment specifically for creating visual art and animations. It is popular in the creative coding community and is ideal for creating interactive installations and other artworks. 5. Blender: Blender is a free and open-source 3D modeling and animation software. It is popular among graphic designers and animators, and can create 2D and 3D designs for a wide range of applications. These are just a few examples of the many graphic design languages and tools available. Exploring these options can help you expand your skills and capabilities as a graphic designer.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_JXpIEYh_11</code></strong>
         <span class="small">2023/05/29 (Mon) 11:36</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">Certainly, here&#39;s a revised draft for the third police report:<br /><br />I, Tan Chee Hui (NRIC No.:830518-14-6075), Director, Shareholder and CEO of Crave Asia Sdn Bhd (Company No.: 914475-H) (hereafter referred to as &quot;Crave Asia&quot;), make this police report against NG CHIAN WEN (NRIC No.: 861217-23-6415) with known addresses at 19, Jalan Sri Hartamas 4, Taman Sri Hartamas, 50480 Kuala Lumpur and at No. 172, Jalan Sutera, Taman Sentosa, 80150 Johor Bahru, Johor.<br /><br />I have previously made two police reports against Ng Chian Wen, outlining his fraudulent and criminal activities, including the misappropriation of company funds, forgery, and breach of trust. Since then, new findings have come to light that demonstrate the full extent of his dishonesty and the harm caused to Crave Asia.<br /><br />Through files reviewed with our auditor, we discovered that Ng Chian Wen hid his forged cheques by declaring them as project payments to a renovation company of BIG BRO DESIGN LANGKAWI PROJECT without providing supporting receipts from the mentioned company. This has resulted in fines imposed by LHDN, which have caused the company to suffer significant financial losses.<br /><br />Furthermore, this has led to the company being blacklisted by E-TRADE REFERENCE (ETR) and CTOS, preventing us from applying for loans, new applications, or new phone lines from Maxis or Time Broadband. Additionally, our main supplier, EPSON, has stopped any credit facilities to the company, creating further financial problems.<br /><br />These new findings demonstrate the severity of Ng Chian Wen&#39;s actions and the extent of the damages caused to Crave Asia. We request that legal action is taken against Ng Chian Wen to ensure that justice is served and to prevent him from causing further harm to our company.<br /><br />Signed,<br />Tan Chee Hui (NRIC No.:830518-14-6075)<br />Director, Shareholder and CEO of Crave Asia Sdn Bhd (Company No.: 914475-H)</div>
       </div><div class="turn">
@@ -1763,15 +2227,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I apologize for the confusion. Here&#39;s the revised draft:<br /><br />I, Tan Chee Hui (NRIC No.:830518-14-6075), Director, Shareholder and CEO of Crave Asia Sdn Bhd (Company No.: 914475-H) (hereafter referred to as &quot;Crave Asia&quot;), make this police report against NG CHIAN WEN (NRIC No.: 861217-23-6415) with known addresses at 19, Jalan Sri Hartamas 4, Taman Sri Hartamas, 50480 Kuala Lumpur and at No. 172, Jalan Sutera, Taman Sentosa, 80150 Johor Bahru, Johor.<br /><br />I previously made two police reports against Ng Chian Wen. Report 1, made on 18 September 2019 at Damansara Utama Police Station, detailed his fraudulent and criminal activities, which include the following crimes:<br /><br />* Misappropriation of company funds belonging to Crave Asia Sdn Bhd<br />* Forgery of company director, shareholder and CEO signatures<br />* Breach of trust by abusing his positions in Crave Asia Sdn Bhd<br />* The issuance of 20 cheques with forged signatures amounting to RM777,228.04 and an unauthorized transaction of RM25,030.60 from Crave Asia Sdn Bhd&#39;s Maybank bank account to Ng Chian Wen&#39;s personal bank account/personal usage and/or unknown payees/recipients.<br /><br />Report 2, made on 28 June 2020 at the same police station, revealed Ng Chian Wen&#39;s unauthorized purchase of an apartment using company funds. This constitutes another crime of misappropriation of company funds.<br /><br />New findings have since come to light, demonstrating the full extent of Ng Chian Wen&#39;s dishonesty and the harm caused to Crave Asia. These include LHDN fines and blacklisting, as well as loss of credit facilities with a major supplier, all resulting from Ng Chian Wen&#39;s fraudulent activities.<br /><br />Crimes committed by Ng Chian Wen in reports 1, 2, and 3 include:<br /><br />* Misappropriation of company funds<br />* Forgery<br />* Breach of trust<br />* Unauthorized purchase of an apartment using company funds.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>8ceb1084</code></strong>
         <span class="small">2023/05/29 (Mon) 14:15</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m planning a trip to Tokyo with my family for spring break and I&#39;m flying with Japan Airlines. Can you tell me more about their premium economy class and what to expect?</div>
       </div><div class="turn">
@@ -1808,15 +2276,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">The Chase Sapphire Preferred credit card offers an impressive suite of travel insurance and trip protection benefits that can provide financial protection and peace of mind when you travel. Here&#39;s a breakdown of what&#39;s covered and how it works:<br /><br />**Travel Insurance Benefits:**<br /><br />1. **Trip Cancellation Insurance:** Reimburses you up to $10,000 per person and $20,000 per trip for trip cancellations due to covered reasons such as:<br />	* Accidental bodily injury, illness, or death of you or a family member<br />	* Severe weather conditions<br />	* Natural disasters<br />	* Terrorist action or hijacking<br />	* Jury duty or court subpoena<br />	* Trip cancellation by the travel supplier<br />2. **Trip Interruption Insurance:** Reimburses you up to $10,000 per person and $20,000 per trip for trip interruptions due to covered reasons such as:<br />	* Accidental bodily injury, illness, or death of you or a family member<br />	* Severe weather conditions<br />	* Natural disasters<br />	* Terrorist action or hijacking<br />	* Jury duty or court subpoena<br />	* Trip interruption by the travel supplier<br />3. **Travel Delay Insurance:** Reimburses you up to $500 per person and $1,000 per trip for travel delays of 12 hours or more due to:<br />	* Severe weather conditions<br />	* Natural disasters<br />	* Air traffic control<br />	* Aircraft disablement<br />	* Flight cancellations or changes<br />4. **Travel Delay Reimbursement:** Reimburses you up to $500 per person and $1,000 per trip for travel delays of 6 hours or more due to:<br />	* Severe weather conditions<br />	* Natural disasters<br />	* Air traffic control<br />	* Aircraft disablement<br />	* Flight cancellations or changes<br />5. **Baggage Delay Insurance:** Reimburses you up to $100 per day and $500 per trip for baggage delays of 6 hours or more.<br />6. **Trip Assistance:** Provides 24/7 assistance with travel-related issues, such as:<br />	* Flight and hotel reservations<br />	* Trip planning and research<br />	* Travel advisories and warnings<br />	* Emergency cash advances<br /><br />**How it Works:**<br /><br />1. **Eligibility:** To be eligible for these benefits, you must charge at least a portion of the trip to your Chase Sapphire Preferred credit card.<br />2. **Documentation:** Keep receipts, itineraries, and other documentation related to your trip, as you may need to provide proof of purchase and travel plans to file a claim.<br />3. **Claim Filing:** File a claim online or by phone with Chase&#39;s claims administrator, Sedgwick.<br />4. **Reimbursement:** Reimbursement will be made in the form of a statement credit to your Chase Sapphire Preferred account.<br /><br />**Additional Tips:**<br /><br />* Always read the terms and conditions of your Chase Sapphire Preferred credit card agreement to understand the specific details of the travel insurance benefits.<br />* Make sure to charge at least a portion of the trip to your Chase Sapphire Preferred credit card to be eligible for these benefits.<br />* Keep in mind that these benefits are secondary to any other insurance coverage you may have, such as travel insurance policies or homeowners&#39; insurance.<br /><br />The Chase Sapphire Preferred credit card&#39;s travel insurance and trip protection benefits can provide valuable financial protection and peace of mind when you travel. Always review the terms and conditions and understand what&#39;s covered to make the most of these benefits.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>d471d03e_1</code></strong>
         <span class="small">2023/05/29 (Mon) 20:20</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some new podcast recommendations. I&#39;ve been listening to the same ones for a while and want to mix it up. Do you have any suggestions? By the way, my usual commute time is around 45 minutes to an hour, so I&#39;ve got a good chunk of time to listen.</div>
       </div><div class="turn">
@@ -1853,15 +2325,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Exactly! Aiming for a mix of structure and conversational tone is a great approach. Having a loose outline will help you stay organized and ensure that you cover the topics you want to discuss, while leaving room for improvisation and flexibility will allow you to be spontaneous and authentic.<br /><br />Remember, the goal is to make your podcast feel like a conversation with your listeners, not a scripted lecture. By being relatable, engaging, and authentic, you&#39;ll be able to build a loyal audience who will tune in to hear your thoughts and experiences.<br /><br />Don&#39;t be afraid to experiment and try new things as you go along. Podcasting is a process, and it&#39;s okay to make mistakes or adjust your approach as you learn and grow. The most important thing is to have fun and be yourself.<br /><br />If you have any more questions or need further guidance, feel free to ask. Otherwise, good luck with your podcasting journey!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>48c4c76b</code></strong>
         <span class="small">2023/05/30 (Tue) 07:59</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m feeling really overwhelmed and stressed out lately. Can you help me find some relaxation techniques to help me calm down?</div>
       </div><div class="turn">
@@ -1898,15 +2374,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I completely understand and respect your decision. It&#39;s essential to prioritize your own comfort and privacy when it comes to sharing personal struggles like anxiety and PTSD. You&#39;re wise to focus on yourself and establish a strong foundation before sharing your goals with others.<br /><br />It&#39;s also perfectly okay to keep your struggles private until you feel ready to share them. You don&#39;t owe anyone an explanation or justification for your feelings or experiences. Your mental health is your own, and you should only share it with others when you feel comfortable and ready.<br /><br />Remember that you&#39;re not alone in this journey. There are people who care about you and want to support you, but they should respect your boundaries and privacy. If you do decide to share your goals or struggles with someone in the future, make sure it&#39;s with someone you trust and feel comfortable with.<br /><br />For now, focus on yourself and your goals. Celebrate your small wins, and don&#39;t be too hard on yourself if you encounter setbacks. You&#39;re taking massive steps towards healing and growth, and that&#39;s something to be proud of.<br /><br />Remember, you can always come back to our conversation and share your progress or struggles with me whenever you feel comfortable. I&#39;m here to listen and support you, and I&#39;ll keep your confidence.<br /><br />How do you feel about checking in with me periodically to track your progress and discuss any challenges or successes you&#39;re experiencing? This can be a safe and private way to stay accountable and motivated.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_352012</code></strong>
         <span class="small">2023/05/30 (Tue) 12:26</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What are the main differences between a Roth IRA and a traditional IRA, and which one may be more suitable for me?</div>
       </div><div class="turn">
@@ -1943,15 +2423,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">It&#39;s understandable to want to enjoy the fruits of your labor and reward yourself with a purchase like a new boat, vacation, or something else you enjoy. However, early withdrawals from your IRA may significantly reduce your future financial security.<br /><br />It&#39;s essential to consider the long-term effects of significantly reducing the balance of your IRA by taking an early withdrawal. While you might feel very tempted to take a small withdrawal, think about compounded interest and tax-deferred growth your IRA account could provide if left untouched for several more years. Early withdrawals may have a much greater negative impact on your long-term financial security than you might realize.<br /><br />In addition to the penalties and taxes associated with early withdrawals, they could also impact your eligibility for tax credits and other benefits. Withdrawing funds from a retirement account could increase your taxable income, which could affect your eligibility for some tax deductions or tax credits. <br /><br />By adhering to the established rules and regulations pertaining to the usage of a retirement account, you&#39;re giving yourself the greatest opportunity to have a financially secure retirement. If you need some extra liquidity, you may want to consider other options first, such as a personal loan or looking for ways to cut back your expenses until you can afford a boat or other luxury item without putting your future financial security and retirement funds in jeopardy.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_282701</code></strong>
         <span class="small">2023/05/30 (Tue) 12:35</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">How did Mustapha&#39;s passion for music evolve as he got older?</div>
       </div><div class="turn">
@@ -1970,15 +2454,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, learning multiple instruments has several benefits. Firstly, it helps in developing transferable skills such as sight reading, rhythm, and ear training that can be applied to any other instrument. Additionally, playing multiple instruments improves cognitive function, motor coordination, and physical dexterity. It also leads to a deeper understanding of music theory and broadens the scope of music knowledge. <br /><br />Moreover, playing multiple instruments can open more opportunities for collaboration and experimentation, both valuable dimensions in music. It allows musicians to work with different sounds, textures, and timbres, enriching the overall texture of a song. <br /><br />Lastly, playing multiple instruments can help overcome limitations and keep musical practice fresh and exciting by enabling a musician to experiment and explore. Overall, playing more than one instrument can be a valuable and enriching experience that offers many benefits to a person&#39;s musical skill, knowledge, and appreciation.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_130169</code></strong>
         <span class="small">2023/05/30 (Tue) 12:51</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What are some ways to incorporate leftovers into noodle dishes for a quick and easy meal?</div>
       </div><div class="turn">
@@ -2009,15 +2497,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I&#39;m glad to hear that you enjoyed the peanut sauce with the muffin tin noodle cups! Here are some recipe suggestions that would pair well with peanut sauce:<br /><br />1. Stir-fry: Make a stir-fry with your favorite vegetables and protein (such as chicken, beef, or tofu) and drizzle peanut sauce over the top before serving.<br />2. Noodle salad: Combine cooked noodles with sliced vegetables (such as carrots, bell peppers, and cucumbers) and drizzle peanut sauce over the top for a refreshing and flavorful salad.<br />3. Spring rolls: Fill rice paper wrappers with sliced vegetables and cooked shrimp or chicken, and dip in peanut sauce for a delicious appetizer or light meal.<br />4. Grilled chicken: Marinate chicken breasts in a mixture of peanut sauce, soy sauce, and garlic, then grill until cooked through and serve with additional peanut sauce for dipping.<br />5. Buddha bowls: Build a bowl with a base of brown rice or quinoa, topped with roasted vegetables, sliced avocado, and tofu or chicken. Drizzle peanut sauce over the top for a flavor-packed meal.<br /><br />I hope these recipe suggestions inspire you to try peanut sauce in different ways!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>d7f9742a_2</code></strong>
         <span class="small">2023/05/30 (Tue) 16:00</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m thinking of organizing a dinner party this weekend and I&#39;d like to invite some friends I haven&#39;t seen in a while, like Michael and Sarah. Do you have any tips on how to plan a successful dinner party, and also, can you suggest some fun icebreaker games to get the conversation started? By the way, I&#39;ve been meaning to print out some silly photos from the club I went to recently - I ran into some people, including Alex, and we took a bunch of silly photos together.</div>
       </div><div class="turn">
@@ -2054,15 +2546,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Exactly! That&#39;s a great approach. It&#39;s always better to be mindful of the group dynamics and ensure that everyone gets along. By casually asking Michael and Sarah about their significant others, you can get a sense of their personalities, interests, and whether they&#39;d fit in with the group.<br /><br />You can ask questions like:<br /><br />* &quot;How&#39;s [significant other&#39;s name] doing? What&#39;s new with them?&quot;<br />* &quot;What do they like to do in their free time?&quot;<br />* &quot;Have they met any of our mutual friends before?&quot;<br /><br />This will give you an idea of their interests, values, and social style, which can help you determine whether they&#39;d mesh well with the group. If you get a sense that they&#39;d fit in, you can then extend the invitation and make the necessary arrangements.<br /><br />Remember, it&#39;s always better to be cautious and considerate when introducing new people to a close-knit group. You want to ensure that everyone feels comfortable and has a great time.<br /><br />By doing your due diligence, you can create a wonderful and memorable dinner party that everyone will enjoy. Good luck, and I hope it all works out!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>6e2cca63_8</code></strong>
         <span class="small">2023/05/30 (Tue) 20:00</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;ve been thinking of organizing my social media presence and was wondering if you could help me with some analytics on my messaging and posting habits? I&#39;ve been quite active lately, and I&#39;m curious to see some stats. By the way, I&#39;ve had some really productive conversations online, like that one time when we exchanged around 70 messages that day, and I was impressed with how quickly we were able to resolve some of the issues we were facing.</div>
       </div><div class="turn">
@@ -2099,7 +2595,8 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Got it! So, you tend to use WhatsApp for more personal, casual conversations, while Telegram is reserved for professional or group discussions that require a bit more structure and organization.<br /><br />I completely agree with your approach to measuring the success of a conversation. It&#39;s not just about the quantity of messages or the time spent chatting, but rather the quality of the discussion and the outcomes achieved. In your case, the Telegram conversation with colleagues was successful because you were able to resolve issues quickly and efficiently, which is a great outcome.<br /><br />It&#39;s also interesting that you mentioned feeling like you had a productive and efficient conversation. This suggests that the tone and atmosphere of the conversation were also important factors in its success. When we feel like we&#39;re having a productive conversation, we&#39;re more likely to feel engaged, motivated, and satisfied with the outcome.<br /><br />Considering your messaging habits and preferences, I&#39;d like to ask:<br /><br />1. **Platform preferences**: Are there any specific features or functionalities that you prefer in WhatsApp or Telegram? For example, do you like WhatsApp&#39;s ease of use or Telegram&#39;s advanced features like secret chats or file sharing?<br />2. **Conversation style**: Do you tend to prefer shorter, more concise messages or longer, more in-depth discussions? Does this vary depending on the platform or the topic of conversation?<br /><br />Feel free to share your thoughts on these questions, and we can continue to explore your messaging habits and preferences!</div>
       </div></div>
-  </details></div>
+    </details>
+  </div></div>
                     </details>
     </div>
   </div>

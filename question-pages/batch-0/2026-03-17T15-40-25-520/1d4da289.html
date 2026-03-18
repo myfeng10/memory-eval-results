@@ -105,7 +105,7 @@
       border: 1px solid var(--line);
       border-radius: 14px;
       background: #fff;
-      padding: 0 14px 14px;
+      padding: 14px;
     }
     .priority-session {
       border-width: 2px;
@@ -115,21 +115,17 @@
     .secondary-session {
       opacity: 0.9;
     }
-    .session-card summary {
-      list-style: none;
-      cursor: pointer;
+    .session-card-header {
       display: flex;
       justify-content: space-between;
       gap: 12px;
       align-items: center;
-      padding: 14px 0;
-    }
-    .session-card summary::-webkit-details-marker {
-      display: none;
+      margin-bottom: 12px;
     }
     .session-turns {
       display: grid;
       gap: 10px;
+      margin-top: 12px;
     }
     .turn {
       border-top: 1px solid var(--line);
@@ -146,6 +142,40 @@
       font-size: 14px;
       line-height: 1.55;
       word-break: break-word;
+    }
+    .session-memory-wrap {
+      margin-bottom: 12px;
+    }
+    .session-memory-details {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fcfaf5;
+      padding: 0 12px 12px;
+    }
+    .session-memory-details summary,
+    .session-conversation-details summary {
+      cursor: pointer;
+      padding: 12px 0;
+      font-size: 13px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .session-conversation-details {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fafaf7;
+      padding: 0 12px 12px;
+    }
+    .session-memory-list {
+      display: grid;
+      gap: 10px;
+    }
+    .extracted-memory-card {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+      padding: 12px;
     }
     .pill {
       display: inline-block;
@@ -397,15 +427,18 @@
       <h2>Question Sessions</h2>
       <p class="small">Benchmark answer sessions are shown first. Then come other retrieved sessions. Background sessions stay collapsed below.</p>
       <div class="session-subhead">Answer Sessions</div>
-             <div class="session-list"><details class="session-card priority-session">
-    <summary>
+             <div class="session-list"><div class="session-card priority-session">
+    <div class="session-card-header">
       <div>
         <strong><code>answer_ultrachat_348449</code></strong>
         <span class="small">2023/05/23 (Tue) 07:14</span>
       </div>
       <div><span class="pill">ground truth</span> <span class="pill pill-answer">answer session</span></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    <div class="session-memory-wrap"><p class="small">No extracted memories found for this session.</p></div>
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What are some steps companies take to ensure data privacy and security for their customers?</div>
       </div><div class="turn">
@@ -424,17 +457,21 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">It can definitely feel like a hassle to remember multiple passwords and go through extra steps to access your information. However, data privacy and security are critical to protecting your sensitive information and preventing identity theft and other cyber attacks.<br /><br />While it may feel inconvenient, companies have a responsibility to protect their customers&#39; data to prevent any harm that may occur if such information is compromised. Additionally, many companies are implementing easier and more efficient security measures, such as fingerprint, facial recognition, or two-factor authentication, that simplify the process without sacrificing security.<br /><br />Overall, it&#39;s crucial to prioritize data privacy and security and to be mindful of the risks involved with sharing sensitive information online. While it may feel inconvenient at times, the extra steps taken by companies to protect your data are well worth it in the long run.</div>
       </div></div>
-  </details></div>
+    </details>
+  </div></div>
              <div class="session-subhead">Other Retrieved Sessions</div>
-                    <div class="session-list"><details class="session-card priority-session">
-    <summary>
+                    <div class="session-list"><div class="session-card priority-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_AfruXDt_0</code></strong>
         <span class="small">2023/05/22 (Mon) 07:07</span>
       </div>
       <div><span class="pill">retrieved only</span> <span class="pill pill-retrieved">retrieved</span></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Give me the data model for a loyalty program based on data-enriched tokens</div>
       </div><div class="turn">
@@ -447,15 +484,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Here is a set of RESTful API endpoints to manage the data model mentioned above. These endpoints will allow you to perform CRUD (Create, Read, Update, Delete) operations on the entities.<br /><br />User:<br /><br />* POST /users: Create a new user.<br />* GET /users: Retrieve a list of users.<br />* GET /users/{user\_id}: Retrieve a specific user by user\_id.<br />* PUT /users/{user\_id}: Update a specific user&#39;s information.<br />* DELETE /users/{user\_id}: Delete a specific user.<br /><br />Token:<br /><br />* POST /tokens: Create a new token.<br />* GET /tokens: Retrieve a list of tokens.<br />* GET /tokens/{token\_id}: Retrieve a specific token by token\_id.<br />* PUT /tokens/{token\_id}: Update a specific token&#39;s information.<br />* DELETE /tokens/{token\_id}: Delete a specific token.<br /><br />Wallet:<br /><br />* POST /wallets: Create a new wallet.<br />* GET /wallets: Retrieve a list of wallets.<br />* GET /wallets/{wallet\_id}: Retrieve a specific wallet by wallet\_id.<br />* PUT /wallets/{wallet\_id}: Update a specific wallet&#39;s information.<br />* DELETE /wallets/{wallet\_id}: Delete a specific wallet.<br /><br />TokenBalance:<br /><br />* POST /token-balances: Create a new token balance.<br />* GET /token-balances: Retrieve a list of token balances.<br />* GET /token-balances/{token\_balance\_id}: Retrieve a specific token balance by token\_balance\_id.<br />* PUT /token-balances/{token\_balance\_id}: Update a specific token balance&#39;s information.<br />* DELETE /token-balances/{token\_balance\_id}: Delete a specific token balance.<br /><br />Transaction:<br /><br />* POST /transactions: Create a new transaction.<br />* GET /transactions: Retrieve a list of transactions.<br />* GET /transactions/{transaction\_id}: Retrieve a specific transaction by transaction\_id.<br />* PUT /transactions/{transaction\_id}: Update a specific transaction&#39;s information.<br /><br />Reward:<br /><br />* POST /rewards: Create a new reward.<br />* GET /rewards: Retrieve a list of rewards.<br />* GET /rewards/{reward\_id}: Retrieve a specific reward by reward\_id.<br />* PUT /rewards/{reward\_id}: Update a specific reward&#39;s information.<br />* DELETE /rewards/{reward\_id}: Delete a specific reward.<br /><br />RewardRedemption:<br /><br />* POST /reward-redemptions: Create a new reward redemption.<br />* GET /reward-redemptions: Retrieve a list of reward redemptions.<br />* GET /reward-redemptions/{redemption\_id}: Retrieve a specific reward redemption by redemption\_id.<br />* PUT /reward-redemptions/{redemption\_id}: Update a specific reward redemption&#39;s information.<br />* DELETE /reward-redemptions/{redemption\_id}: Delete a specific reward redemption.<br /><br />Merchant:<br /><br />* POST /merchants: Create a new merchant.<br />* GET /merchants: Retrieve a list of merchants.<br />* GET /merchants/{merchant\_id}: Retrieve a specific merchant by merchant\_id.<br />* PUT /merchants/{merchant\_id}: Update a specific merchant&#39;s information.<br />* DELETE /merchants/{merchant\_id}: Delete a specific merchant.<br /><br />MerchantTokenAllocation:<br /><br />* POST /merchant-token-allocations: Create a new merchant token allocation.<br />* GET /merchant-token-allocations: Retrieve a list of merchant token allocations.<br />* GET /merchant-token-allocations/{allocation\_id}: Retrieve a specific merchant token allocation by allocation\_id.<br />* PUT /merchant-token-allocations/{allocation\_id}: Update a specific merchant token allocation&#39;s information.<br />* DELETE /merchant-token-allocations/{allocation\_id}: Delete a specific merchant token allocation.<br /><br />These API endpoints should provide a solid foundation for managing the data model of a data-enriched token-based loyalty program. You can expand or modify these endpoints as needed to cater to specific requirements or additional features.</div>
       </div></div>
-  </details><details class="session-card priority-session">
-    <summary>
+    </details>
+  </div><div class="session-card priority-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_213759</code></strong>
         <span class="small">2023/05/30 (Tue) 19:28</span>
       </div>
       <div><span class="pill">retrieved only</span> <span class="pill pill-retrieved">retrieved</span></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Can you explain the specific features of McAfee&#39;s antivirus software and how it differentiates from other antivirus software in the market?</div>
       </div><div class="turn">
@@ -498,18 +539,22 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, in addition to using antivirus software like McAfee, there are several other steps you can take to protect your computer from cyber attacks:<br /><br />1. Keep your operating system and software up to date: Regularly installing software updates and security patches can help address any known vulnerabilities in the software and improve its overall performance.<br /><br />2. Use a firewall: A firewall can help prevent unauthorized access to your computer and protect it from network-based attacks.<br /><br />3. Use strong and unique passwords: Creating strong, complex passwords and using a different password for each account can help prevent unauthorized access to your accounts.<br /><br />4. Enable two-factor authentication: Two-factor authentication provides an extra layer of security by requiring a second form of authentication, such as a code sent to a mobile device, in addition to a password.<br /><br />5. Be cautious of email and phishing scams: Be wary of emails and messages from unknown or suspicious sources and avoid clicking on links or downloading attachments from them.<br /><br />6. Use a Virtual Private Network (VPN): A VPN can encrypt your online activity and protect your privacy and identity while using public Wi-Fi.<br /><br />7. Back up your data: Regularly backing up your important data can help protect it in case of a cyber attack or hardware failure.<br /><br />By implementing these additional security measures, you can significantly improve your computer&#39;s security and protect it from a wide range of cyber threats.</div>
       </div></div>
-  </details></div>
+    </details>
+  </div></div>
              <details class="other-sessions">
                       <summary>Other Sessions (52)</summary>
-                      <div class="session-list"><details class="session-card secondary-session">
-    <summary>
+                      <div class="session-list"><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_qktLFWS_21</code></strong>
         <span class="small">2023/05/20 (Sat) 00:48</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">This study aims to enhance the engineering education for non-majors by incorporating the concept of Global Citizenship Education (GCED) and addressing the need for education that responds to climate and ecological changes. The study uses robot programming as a tool to foster the development of global citizens. Non-majors often struggle with producing more than just motionless forms or solid productions, due to a lack of understanding of mechanisms and coding. The study proposes the use of the Convergence D-SteamRobot (DSR) to address this issue by blending humanities and engineering. This is achieved by presenting problems through books to increase empathy, integrating simple machine mechanisms, and creating prototypes to solve self-defined problems. Through this process, students determine the SDGs topic they want to solve and learn about the simple mechanical mechanism involved in producing the prototype. The educational model provides a constructivist learning environment that emphasizes empathy and exploration, encourages immersion and peer-learning, and improves divergent thinking and problem-solving skills.</div>
       </div><div class="turn">
@@ -519,15 +564,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">The proposed educational model aims to provide a comprehensive learning experience for non-majors in robot education. By incorporating the SDGs and sustainability into the education method, students can develop an understanding of the impact of technology and engineering on the world, and their role in creating a more sustainable future. Through the use of books to gain empathy and understanding of real-world problems, students will develop their computational thinking skills, critical thinking abilities, and problem-solving skills. The model encourages hands-on learning, immersion, and collaboration, providing a constructive learning environment that enhances creativity, divergent thinking, and problem-solving skills.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>149e026c_1</code></strong>
         <span class="small">2023/05/20 (Sat) 02:27</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some tips on improving my backhand slice in tennis. I had a tough practice session with my coach a few Sundays ago, and I still feel like I need to work on it. By the way, I&#39;m still on a high from my charity 5K run two weeks ago, where I finished with a personal best time of 24 minutes and 12 seconds, beating my previous record by 42 seconds.</div>
       </div><div class="turn">
@@ -564,15 +613,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I&#39;m happy to hear that you&#39;re still basking in the glory of your charity 5K run achievement! Congratulations again on setting a new personal best time of 24 minutes and 12 seconds, and shaving off an impressive 42 seconds from your previous record!<br /><br />It&#39;s amazing how accomplishments like these can give us a sense of pride and motivation to continue pushing ourselves. You should be incredibly proud of yourself for putting in the hard work and dedication required to achieve such a impressive result.<br /><br />Remember to celebrate your success, but also don&#39;t forget to take time to rest and recover. Your body (and mind) will appreciate it.<br /><br />Now, go enjoy the Lakers game with your friends and relish in the excitement of the evening!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>517ad0f0</code></strong>
         <span class="small">2023/05/20 (Sat) 14:12</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m working on my thesis and I need help finding some recent studies on social media addiction. Can you recommend any journals or databases that might have relevant articles?</div>
       </div><div class="turn">
@@ -609,15 +662,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I&#39;d be happy to help you develop a data collection plan that aligns with your research questions and methodology.<br /><br />A well-designed data collection plan is essential to ensure that you collect the right data to answer your research questions. Here&#39;s a general framework to help you create a data collection plan:<br /><br />**Step 1: Review Your Research Questions and Objectives**<br /><br />* Review your research questions and objectives to identify the type of data you need to collect.<br />* Ensure that your data collection plan is aligned with your research design and methodology.<br /><br />**Step 2: Identify the Data You Need to Collect**<br /><br />* Determine the type of data you need to collect to answer your research questions (e.g., quantitative, qualitative, or mixed-methods).<br />* Identify the specific variables or themes you want to measure or explore.<br /><br />**Step 3: Choose Your Data Collection Methods**<br /><br />* Select the most appropriate data collection methods for your research design and objectives (e.g., surveys, interviews, focus groups, observations, content analysis).<br />* Consider the advantages and limitations of each method and how they will help you answer your research questions.<br /><br />**Step 4: Develop Your Data Collection Tools**<br /><br />* Create or select data collection tools that align with your chosen methods (e.g., survey questions, interview protocols, focus group guides).<br />* Ensure that your tools are valid, reliable, and culturally sensitive.<br /><br />**Step 5: Determine Your Sample and Sampling Strategy**<br /><br />* Identify your target population and sample size.<br />* Choose a sampling strategy that aligns with your research design and objectives (e.g., probability, non-probability, convenience sampling).<br /><br />**Step 6: Plan Your Data Collection Procedures**<br /><br />* Develop a detailed plan for collecting data, including the timeline, data collection locations, and data collection protocols.<br />* Ensure that you have the necessary resources and equipment to collect data.<br /><br />**Step 7: Plan for Data Quality and Management**<br /><br />* Develop a plan for ensuring data quality, including data cleaning, coding, and storage.<br />* Consider how you will manage and analyze your data, including data analysis software and techniques.<br /><br />Here&#39;s an example of a data collection plan for a study on social media use and mental health:<br /><br />**Research Questions:**<br /><br />* How does social media use affect mental health outcomes in young adults?<br />* What are the specific social media behaviors associated with negative mental health outcomes?<br /><br />**Data Collection Methods:**<br /><br />* Online surveys to collect quantitative data on social media use and mental health outcomes.<br />* Semi-structured interviews to collect qualitative data on social media behaviors and mental health experiences.<br /><br />**Data Collection Tools:**<br /><br />* Online survey questionnaire with validated measures of social media use and mental health outcomes.<br />* Interview protocol with open-ended questions on social media behaviors and mental health experiences.<br /><br />**Sample and Sampling Strategy:**<br /><br />* Target population: Young adults aged 18-25.<br />* Sample size: 500 participants.<br />* Sampling strategy: Online convenience sampling through social media platforms.<br /><br />**Data Collection Procedures:**<br /><br />* Online surveys will be administered through a secure online platform.<br />* Interviews will be conducted via video conferencing software.<br /><br />**Data Quality and Management:**<br /><br />* Data will be cleaned and coded using statistical software.<br />* Data will be stored on a secure server with restricted access.<br /><br />By following these steps, you can develop a comprehensive data collection plan that ensures you collect the right data to answer your research questions.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_sHE63Dr_0</code></strong>
         <span class="small">2023/05/21 (Sun) 12:55</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">*This chat conversation is shared from [**TypingMind.com**](https://typingmind.com)*</div>
       </div><div class="turn">
@@ -627,15 +684,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">In the Gulf countries, the term &quot;حبتين&quot; (habtain or hubtain) is an Arabic phrase that has different meanings depending on the context. Some possible meanings include:<br />1. Two pieces: &quot;حبتين&quot; (habtain) can mean two pieces or units/ items of something. It is often used to indicate the quantity of a particular item, such as two tablets of medicine or two candies, among other examples.<br />2. Affectionate slang: In informal settings or casual conversations, &quot;حبتين&quot; (habtain) can be used as a term of endearment or affection between close friends or family members. In this context, it might be akin to calling someone &quot;dear,&quot; &quot;buddy,&quot; or &quot;sweetheart.&quot;<br />It is essential to consider the context in which the term is being used to understand the exact meaning intended by the speaker.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_ozbjS6l_0</code></strong>
         <span class="small">2023/05/21 (Sun) 15:44</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Tell me about subsidiary situation in Iran</div>
       </div><div class="turn">
@@ -648,15 +709,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">In Iran, subsidies have long been used as a tool to control prices and make essential goods and services more affordable for the population. The government has provided subsidies for a wide range of items, including food, energy, transportation, and housing. However, the subsidy system has been criticized for being inefficient and for leading to a lack of investment in industries that rely on subsidies.<br /><br />In 2010, the government implemented a plan to phase out subsidies on food and energy, replacing them with direct cash transfers to households. The goal of the plan was to reduce the budget deficit and redirect funds to more targeted social welfare programs. However, the plan has faced challenges, including high inflation, a decline in the value of the national currency, and protests by Iranians who have seen the cost of living rise.<br /><br />Also, it&#39;s worth mentioning that the economic sanctions imposed by US government on Iran has made it harder for Iran to access the international market for goods and services, which has led to a shortage of goods and an increase in prices, and making the subsidy reform more challenging.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>252715f8_4</code></strong>
         <span class="small">2023/05/21 (Sun) 20:01</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m trying to get into meal prepping on Sundays, but I haven&#39;t started yet. Can you give me some tips on how to get started with meal prep, especially with leftovers? By the way, I recently had a successful dinner party and ended up using leftover chicken in a salad for lunch the next day, which was really convenient.</div>
       </div><div class="turn">
@@ -693,15 +758,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Citrus-Herb Vinaigrette is a fantastic choice for a light and refreshing salad dressing. It&#39;s perfect for a weekday lunch, especially when you&#39;re looking for something that won&#39;t weigh you down.<br /><br />You&#39;re welcome for the suggestions! I&#39;m glad I could help. If you have any other questions or need further assistance, don&#39;t hesitate to ask.<br /><br />Remember, the beauty of making your own salad dressing is that you can always adjust the flavors to your taste. So, feel free to experiment with different citrus fruits, herbs, and spices to create your own signature vinaigrette.<br /><br />Enjoy your delicious salad with leftover chicken and Citrus-Herb Vinaigrette!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_NxqiM3k_0</code></strong>
         <span class="small">2023/05/21 (Sun) 20:21</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">How do I calculate the VAT of a shopping list in the Philippines?</div>
       </div><div class="turn">
@@ -714,15 +783,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">In the Philippines, businesses that are VAT-registered are required to include VAT in their invoices. VAT-registered businesses are those whose annual sales or gross receipts exceed PHP 3 million.<br /><br />These businesses are required to charge VAT on their sales, and include it in the invoice they issue to their customers. They will also be required to file VAT returns and pay the VAT collected to the Bureau of Internal Revenue (BIR).<br /><br />However, businesses that are not VAT-registered, their annual sales or gross receipts are below PHP 3 million, are not required to charge and include VAT in their invoices.<br /><br />So, not all stores need to include VAT in their invoices, it depends on the store&#39;s VAT registration status and the amount of their annual sales or gross receipts.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>e9c1e2a8_1</code></strong>
         <span class="small">2023/05/21 (Sun) 23:26</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some new yoga routines to try out. I just bought a new yoga mat online today, and I&#39;m excited to try some new poses and flows. Do you have any recommendations for beginners like me?</div>
       </div><div class="turn">
@@ -759,15 +832,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">The PranaTracker is a fascinating device that offers real-time feedback and correction during your yoga practice. Here&#39;s a deeper dive into its features and how it works:<br /><br />**What is the PranaTracker?**<br /><br />The PranaTracker is a wearable device that tracks your yoga practice, providing real-time feedback and correction on your form, technique, and breathing. It&#39;s designed to help you improve your practice, prevent injuries, and enhance your overall yoga experience.<br /><br />**How does it work?**<br /><br />The PranaTracker consists of a small, wearable sensor that you attach to your clothing or mat. This sensor tracks your movements, pose alignment, and breathing patterns in real-time. The data is then transmitted to your smartphone or tablet via Bluetooth, where you can view detailed feedback and analytics.<br /><br />**Key Features:**<br /><br />1. **Real-time feedback**: The PranaTracker provides instant feedback on your form, technique, and breathing, helping you correct your alignment and movement in real-time.<br />2. **Pose recognition**: The device recognizes and tracks over 100 yoga poses, including variations and modifications.<br />3. **Breathing guidance**: The PranaTracker offers guidance on breathing techniques, helping you synchronize your breath with your movements.<br />4. **Personalized feedback**: The device provides personalized feedback based on your practice style, goals, and level.<br />5. **Analytics and tracking**: The PranaTracker tracks your progress, providing insights into your practice frequency, duration, and improvement over time.<br /><br />**How does it correct your form and technique?**<br /><br />The PranaTracker uses a combination of machine learning algorithms and expert input from yoga instructors to provide corrective feedback. When you&#39;re practicing, the device detects deviations from proper form and technique, and offers suggestions for improvement. These corrections might include:<br /><br />1. **Adjusting your alignment**: The PranaTracker might suggest adjusting your alignment to engage the correct muscles or avoid strain on your joints.<br />2. **Modifying your movement**: The device might recommend modifying your movement to improve your overall flow and technique.<br />3. **Breathing adjustments**: The PranaTracker might offer guidance on breathing techniques to help you relax, focus, or energize.<br /><br />**What makes the PranaTracker unique?**<br /><br />The PranaTracker stands out from other yoga trackers due to its real-time feedback and correction capabilities. This feature allows you to make adjustments on the fly, rather than reviewing your practice after the fact. The device&#39;s personalized approach, pose recognition, and breathing guidance also set it apart from other trackers.<br /><br />I hope this provides a better understanding of the PranaTracker and its features! If you have any more questions or would like to know more about other yoga trackers, feel free to ask.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>efaec12f</code></strong>
         <span class="small">2023/05/22 (Mon) 02:01</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m thinking of entering a local model show next month and I need some tips on how to properly display and photograph my models. Do you have any advice on that?</div>
       </div><div class="turn">
@@ -804,15 +881,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">A wooden pedestal with a rounded base will be a great complement to your F-16 model. Woodworking is a wonderful hobby, and I&#39;m excited to help you get started.<br /><br />**Getting Started with Woodworking:**<br /><br />As a beginner, it&#39;s essential to start with the basics and build your skills gradually. Here are some tips to help you get started:<br /><br />1. **Invest in Safety Equipment**: Safety glasses, a dust mask, and a push stick are essential for protecting yourself while working with power tools.<br />2. **Choose the Right Tools**: Start with basic hand tools like a tape measure, marking gauge, hand saw, and clamps. You can always add power tools later as you become more comfortable with the craft.<br />3. **Select the Right Wood**: Begin with softwoods like pine or fir, which are easier to work with than hardwoods. Avoid woods with knots or imperfections that can be challenging to work with.<br />4. **Practice with Scrap Wood**: Before working on your pedestal project, practice cutting, drilling, and sanding on scrap wood to get a feel for the tools and techniques.<br />5. **Start with Simple Projects**: Begin with simple projects like building a birdhouse, picture frame, or small box. This will help you develop your skills and build confidence.<br />6. **Watch Tutorials and Online Classes**: Websites like YouTube, Woodworking Magazine, and The Spruce Crafts offer excellent tutorials and classes for beginners.<br />7. **Read Plans and Instructions Carefully**: Always read plans and instructions carefully before starting a project. This will help you understand the process and avoid mistakes.<br />8. **Measure Twice, Cut Once**: Measure your wood carefully to avoid errors. Double-check your measurements before cutting to ensure accuracy.<br />9. **Join Online Woodworking Communities**: Join online forums or social media groups dedicated to woodworking. These communities are excellent resources for advice, tips, and inspiration.<br />10. **Be Patient and Persistent**: Woodworking can be frustrating at times, but don&#39;t get discouraged. Take your time, and don&#39;t be afraid to ask for help or advice.<br /><br />**Specific Tips for Your Pedestal Project:**<br /><br />1. **Use a Template or Pattern**: Create a template or pattern to help you cut out the rounded base accurately.<br />2. **Cut Out the Base in Pieces**: Cut the base into smaller pieces and then assemble them to form the rounded shape. This will make it easier to work with and reduce the risk of errors.<br />3. **Sand and Finish the Wood**: Sand the wood thoroughly to smooth out any imperfections and apply a finish (stain, polyurethane, or wax) to protect the wood and enhance its appearance.<br /><br />Remember, woodworking is a skill that takes time to develop. Don&#39;t be too hard on yourself if your first project doesn&#39;t turn out perfectly. You&#39;ll learn and improve with each project, and I&#39;m here to guide you along the way.<br /><br />Good luck with your pedestal project, and have fun!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_486895</code></strong>
         <span class="small">2023/05/22 (Mon) 04:27</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What is the closest star to our Solar System, and how far away is it?</div>
       </div><div class="turn">
@@ -831,15 +912,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I don&#39;t have opinions or beliefs, but according to physicists and space experts, achieving interstellar travel is challenging but not impossible. based on our current understanding of physics and technology, some proposed concepts such as fusion-based propulsion, antimatter engines, or even advanced concepts like space-time warping or wormholes, could, in theory, allow humans to travel interstellar distances. however, we still have a long way to go in terms of developing and testing these technologies to make them viable for human space travel. nevertheless, with constant research and development, we might be able to achieve interstellar travel in the future.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_216924</code></strong>
         <span class="small">2023/05/22 (Mon) 15:27</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What is the book&#39;s impact on the development of unhealthy relationship dynamics?</div>
       </div><div class="turn">
@@ -870,15 +955,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">As an AI language model, I understand that individuals have personal autonomy and agency, and they are ultimately responsible for their own actions. However, studies have shown that books and other forms of media can influence and shape people&#39;s beliefs, attitudes, and actions. In some cases, exposure to media that perpetuates negative relationship dynamics can contribute to a normalization of these behaviors, making it harder for individuals to recognize warning signs in their relationships or seek support when needed.<br /><br />It is crucial to remember that while books and other media may not be the sole cause of unhealthy relationship dynamics, it can contribute to societal attitudes that normalize and perpetuate negative behaviors. Therefore, it is important to promote literature that promotes healthy and respectful relationships, promotes consent and agency, and shows characters who have positive interactions without resorting to unhealthy and potentially dangerous situations.<br /><br />Ultimately, individuals have agency and are responsible for their own actions, but literature can impact and shape people&#39;s beliefs and understanding of the world. Encouraging positive messages in literature and media can play a small but significant role in creating a safer and more inclusive society.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_spHxzCF_0</code></strong>
         <span class="small">2023/05/22 (Mon) 16:58</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">“One One was a race horse Two Two was one too. One One won one race. Two Two won one too.” How many horses are in this story?</div>
       </div><div class="turn">
@@ -909,15 +998,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">You are correct that the words &quot;one&quot; and &quot;two&quot; are not technically homophones, as they are pronounced differently. Homophones are words that are pronounced the same but have different meanings, such as &quot;blew&quot; and &quot;blue&quot; or &quot;knight&quot; and &quot;night.&quot; In the sentence &quot;One One was a race horse Two Two was one too,&quot; the words &quot;one&quot; and &quot;too&quot; are homophones, as they are pronounced the same but have different meanings. My previous response was incorrect, and I apologize for the mistake. Thank you for bringing it to my attention.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_286124</code></strong>
         <span class="small">2023/05/22 (Mon) 22:29</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Did the Saxon people adopt any cultural practices or beliefs from neighboring societies, and how did that affect their identity?</div>
       </div><div class="turn">
@@ -936,15 +1029,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">One cultural practice that the Saxons adopted from the Norse and Danish cultures was the use of the longship, a type of ship with a shallow draft that allowed for quick navigation through shallow waters. The longship was used extensively by the Vikings for trade, exploration, and warfare.<br /><br />The Saxons, who had close ties with the Norse and Danish cultures, also began to use the longship for their own purposes, especially for coastal defenses and raids. The adoption of the longship by the Saxons was significant, as it allowed them to expand their naval capabilities and to engage in naval warfare with greater effectiveness.<br /><br />Additionally, the Saxons also adopted Norse and Danish motifs in their artwork and decorative designs. The intertwining of Anglo-Saxon, Norse, and Danish art styles is referred to as the &quot;Animal Style&quot; and can be seen in metalwork, jewelry, and manuscript illumination.<br /><br />The Saxon adoption of these cultural practices from the Norse and Danish cultures demonstrates their openness and adaptability to outside influences. It also reflects the close relationships and alliances that existed between these neighboring societies.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>8d9979ae_2</code></strong>
         <span class="small">2023/05/22 (Mon) 22:51</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m planning a trip to Navy Pier in Chicago, Illinois. Can you give me some tips on what to do and see there? By the way, I just returned from my Yellowstone trip and headed to Chicago, Illinois, so I&#39;m somewhat familiar with the city.</div>
       </div><div class="turn">
@@ -981,15 +1078,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Millennium Park is a fantastic destination, and Cloud Gate, affectionately known as &quot;The Bean,&quot; is one of its crown jewels! This iconic sculpture is a must-see attraction in Chicago.<br /><br />**Cloud Gate (The Bean):**<br /><br />Cloud Gate is a large, reflective stainless steel sculpture designed by artist Anish Kapoor. It&#39;s located in Millennium Park&#39;s AT&amp;T Plaza, and it&#39;s one of the park&#39;s most popular attractions.<br /><br />**The Design:**<br /><br />Cloud Gate is a giant, kidney-shaped sculpture made up of 168 stainless steel panels. Its mirror-like surface reflects the city&#39;s skyline and surroundings, creating a sense of wonder and awe. The sculpture&#39;s design is meant to evoke the idea of a liquid droplet, which is why it&#39;s also referred to as &quot;The Bean.&quot;<br /><br />**Fun Facts:**<br /><br />1. **Reflections:** The Bean&#39;s reflective surface is so precise that it can reflect the entire city skyline, making it a popular spot for photography.<br />2. **Size:** Cloud Gate stands 33 feet tall and 42 feet wide.<br />3. **Weight:** The sculpture weighs over 110 tons!<br />4. **Maintenance:** The Bean is cleaned regularly to maintain its reflective surface.<br /><br />**Visiting Cloud Gate:**<br /><br />1. **Access:** Cloud Gate is located in Millennium Park&#39;s AT&amp;T Plaza, which is open daily from 6 am to 11 pm.<br />2. **Admission:** Admission to Millennium Park is free, but some attractions may require a fee.<br />3. **Photography:** Visitors are encouraged to take photos, but be respectful of others and avoid commercial photography without permission.<br />4. **Events:** Cloud Gate is often the centerpiece of various events and festivals in Millennium Park, so be sure to check the park&#39;s schedule.<br /><br />**Tips and Essentials:**<br /><br />1. **Get There Early:** Visit Cloud Gate early in the morning or later in the evening to avoid crowds.<br />2. **Be Patient:** Be prepared for a crowd and long lines, especially during peak season.<br />3. **Dress Comfortably:** Wear comfortable shoes and dress appropriately for the weather, as you&#39;ll likely be doing some walking and standing.<br />4. **Explore the Park:** Millennium Park offers many other attractions, including the Jay Pritzker Pavilion, the Lurie Garden, and the Crown Fountain, so be sure to explore the park beyond Cloud Gate.<br /><br />Cloud Gate is an iconic symbol of Chicago, and its reflective surface is sure to leave you mesmerized. Enjoy your visit to Millennium Park and your encounter with The Bean!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_8Sq4v0t_9</code></strong>
         <span class="small">2023/05/23 (Tue) 02:29</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">Step 16: Save the composition<br />After rendering the composition, you can save it by choosing &quot;File&quot; &gt; &quot;Save&quot; or &quot;Save As&quot; from the menu bar. You can also export the composition as a video file by choosing &quot;Composition&quot; &gt; &quot;Add to Adobe Media Encoder Queue&quot; from the menu bar.<br /><br />Step 17: Reuse the script<br />To reuse the script in other projects, you can save it as a .jsx file. To do this, select the composition containing the script in the project window, then choose &quot;File&quot; &gt; &quot;Export&quot; &gt; &quot;Add to Adobe Media Encoder Queue&quot;. In the export settings, choose &quot;Format&quot; &gt; &quot;Extended Script Toolkit (.jsx)&quot;, then choose a destination folder and click &quot;Export&quot;. You can then use the .jsx file in other projects by importing it into the ExtendScript Toolkit and running it.<br /><br />By following these steps, you can create a colorful gradient circle using JSX code in the ExtendScript engine of After Effects, with the ADBE Effect Parade effect, and automate the effect controls using expressions. You can then save the script as a .jsx file and reuse it in other projects, making the process of creating colorful gradient circles more efficient and streamlined.</div>
       </div><div class="turn">
@@ -999,27 +1100,35 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Here&#39;s the full code to create a colorful gradient circle using JSX code in the ExtendScript engine of After Effects, with the ADBE Effect Parade effect, and automate the effect controls using expressions:<br />```swift<br />// Create a new solid layer<br />var solidLayer = app.project.activeItem.layers.addSolid([0, 0, 0], &quot;Solid 1&quot;, 1920, 1080, 1, app.project.activeItem.duration);<br /><br />// Add Gradient Ramp effect to the solid layer<br />var gradientRamp = solidLayer.Effects.addProperty(&quot;ADBE Ramp&quot;);<br />gradientRamp.name = &quot;Gradient Ramp&quot;;<br /><br />// Modify Gradient Ramp effect properties<br />gradientRamp.property(&quot;Start Color&quot;).setValue([1, 0, 0]); // Change the start color of the gradient<br />gradientRamp.property(&quot;End Color&quot;).setValue([0, 0, 1]); // Change the end color of the gradient<br />gradientRamp.property(&quot;Shape&quot;).setValue(2); // Change the shape of the gradient to radial<br />gradientRamp.property(&quot;Ramp Scatter&quot;).setValue(100); // Adjust the scatter of the gradient<br />gradientRamp.property(&quot;Ramp Width&quot;).setValue(1000); // Adjust the width of the gradient<br /><br />// Add ADBE Effect Parade effect to the solid layer<br />var effectParade = solidLayer.Effects.addProperty(&quot;ADBE Effect Parade&quot;);<br />effectParade.name = &quot;Effect Parade&quot;;<br /><br />// Modify ADBE Effect Parade effect properties<br />effectParade.property(&quot;Radius&quot;).setValue(solidLayer.width/2); // Set the radius of the circle to half the width of the solid layer<br /><br />// Add expression to automate the gradient colors<br />var startColor = gradientRamp.property(&quot;Start Color&quot;);<br />var endColor = gradientRamp.property(&quot;End Color&quot;);<br /><br />startColor.expression = &quot;hue = time * 10;\nsaturation = 1;\nbrightness = 1;\ncolor = HSBToRGB(hue, saturation, brightness);\nramp = thisComp.layer(\&quot;Solid 1\&quot;).effect(\&quot;Gradient Ramp\&quot;)(\&quot;ADBE Ramp-0001\&quot;);\n[ramp.startColor = color, ramp.endColor = color]&quot;;<br /><br />endColor.expression = &quot;hue = time * 10;\nsaturation = 1;\nbrightness = 1;\ncolor = HSBToRGB(hue, saturation, brightness);\nramp = thisComp.layer(\&quot;Solid 1\&quot;).effect(\&quot;Gradient Ramp\&quot;)(\&quot;ADBE Ramp-0001\&quot;);\n[ramp.startColor = color, ramp.endColor = color]&quot;;<br /><br />// Add expression to automate the radius of the circle<br />var radius = effectParade.property(&quot;Radius&quot;);<br />radius.expression = &quot;ramp = thisComp.layer(\&quot;Solid 1\&quot;).effect(\&quot;ADBE Effect Parade\&quot;)(\&quot;ADBE Effect Parade-0001\&quot;);\nramp.radius = value[0]/2;&quot;;<br /><br />// Preview and render the composition<br />app.project.activeItem.openInViewer();<br />app.project.renderQueue.items.add(app.project.activeItem);<br />```<br />Note that this code is an example and may need to be modified to fit your specific needs. It also assumes that you have a composition open and selected in After Effects before running the script.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_M1hMVxm_13</code></strong>
         <span class="small">2023/05/23 (Tue) 08:28</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">Based on the responses to the question, the biggest challenges for social media creators are:<br /><br />1. Time management and finding enough time to create and post content consistently.<br />2. Engagement and growing their audience.<br />3. Finding and securing paid brand collaborations.<br />4. Balancing their content creation work with their other responsibilities, such as full-time jobs or personal lives.<br />5. Staying up-to-date with emerging trends and staying relevant.<br /><br />These challenges may be particularly acute for creators who are just starting out and are trying to build a following and establish themselves in the industry. Established creators may face challenges related to scaling their business, finding new and exciting ways to engage with their audience, and maintaining their relevance in a rapidly changing industry.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_47960</code></strong>
         <span class="small">2023/05/23 (Tue) 10:57</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Have you watched Firefly, the TV series that inspired the creation of Serenity?</div>
       </div><div class="turn">
@@ -1044,15 +1153,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, the characters played a crucial role in making Firefly such an enduring and beloved show. The diverse and eclectic cast members each had their own distinct personalities, backgrounds, and motivations, which made them relatable and endearing to many viewers. The show&#39;s exploration of themes like loyalty, self-discovery, and the human condition also touched a chord with audiences, leading to its continued popularity long after its cancellation. The show&#39;s dedicated fan base remains a testament to its enduring impact on popular culture.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>0e218647_2</code></strong>
         <span class="small">2023/05/23 (Tue) 11:11</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some recommendations on films similar to &quot;The Lost Daughter&quot;. I just watched it at the International Film Festival and loved it. By the way, I was seated next to a film critic from The New York Times, David, and we had a great chat about the film.</div>
       </div><div class="turn">
@@ -1089,15 +1202,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I&#39;d be happy to recommend some critically acclaimed films from the past few years that you might have missed. Here are a few suggestions:<br /><br />**2019:**<br /><br />1. **The Lighthouse** (Dir. Robert Eggers) - A psychological horror film set in the 1890s about two lighthouse keepers who start to lose their sanity while living on a remote island.<br />2. **Parasite** (Dir. Bong Joon-ho) - A dark comedy thriller about the Kims, a poor family who scheme their way into the lives of a wealthy family, exploring themes of class struggle and social inequality.<br />3. **The Farewell** (Dir. Lulu Wang) - A comedy-drama about a Chinese-American woman who returns to China to say goodbye to her terminally ill grandmother, without telling her the true reason for the visit.<br /><br />**2018:**<br /><br />1. **Roma** (Dir. Alfonso Cuarón) - A drama about a domestic worker who takes care of a middle-class family in Mexico City in the 1970s, exploring themes of class, identity, and social change.<br />2. **Eighth Grade** (Dir. Bo Burnham) - A coming-of-age comedy-drama about an eighth-grader who struggles to fit in and find her place in the world.<br />3. **If Beale Street Could Talk** (Dir. Barry Jenkins) - A romantic drama based on James Baldwin&#39;s novel about a young black couple in 1970s Harlem who face racial and social injustices.<br /><br />**2017:**<br /><br />1. **Get Out** (Dir. Jordan Peele) - A horror film about a young black man who discovers that his white girlfriend&#39;s family is hiding a sinister secret.<br />2. **The Florida Project** (Dir. Sean Baker) - A drama about a young girl growing up in a motel near Disney World, exploring themes of poverty, identity, and childhood.<br />3. **Call Me By Your Name** (Dir. Luca Guadagnino) - A romantic drama about a young man who falls in love with a graduate student in Italy during the summer of 1983.<br /><br />These films have all received widespread critical acclaim and have been recognized with numerous awards and nominations. I hope you find something that interests you!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_BWlTdRH_0</code></strong>
         <span class="small">2023/05/24 (Wed) 01:17</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Does it really bad to have a certain temperament, like nervous is harmful to a relationship as viewed in TJTA analysis</div>
       </div><div class="turn">
@@ -1110,15 +1227,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">The interpretation of the Taylor-Johnson Temperament Analysis (T-JTA) results can be complex and depend on a number of factors, including individual perspectives, life experiences, and the context in which the results are viewed. In this case, the difference between your self-perception as a nervous person and your partner&#39;s perception of you as composed may indicate a disconnect between how you experience yourself and how others experience you.<br /><br />It&#39;s possible that your partner may be perceiving you differently because they see a different side of you when you are interacting with them. For example, they may see you as more confident and composed when you are with them, which may not be in line with how you feel on the inside.<br /><br />Alternatively, it may be that your nervousness is not as apparent to others as it is to you, and that you are more self-conscious about your behavior than you need to be. This is not uncommon, as people often have a tendency to focus on their perceived weaknesses or areas for improvement.<br /><br />In either case, the T-JTA results can be a valuable tool for understanding and communicating about your temperamental tendencies, and for exploring ways to work with others to build stronger and more effective relationships. It may be helpful to discuss your T-JTA results with your partner, in order to gain a better understanding of each other&#39;s perspectives and to find ways to support each other in areas where improvement is needed.<br /><br />It&#39;s also important to remember that the T-JTA results are just one tool among many, and that they should not be used to make overly broad or negative judgments about yourself or your partner. Rather, they should be viewed as a starting point for self-reflection and growth, and as a way to build deeper and more understanding relationships with others.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>7b74d32d_4</code></strong>
         <span class="small">2023/05/24 (Wed) 03:46</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some tips on how to restore my vintage cameras. I&#39;ve got a few that need some TLC, including a Kodak Brownie I found at a garage sale for $5. Do you have any resources or guides you can recommend?</div>
       </div><div class="turn">
@@ -1155,15 +1276,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">What a fantastic plan! You&#39;re really thinking about how to maximize the strengths of each camera and film stock to create a diverse and interesting body of work.<br /><br />**Urban Landscapes with the Kodak Brownie**<br /><br />* The Brownie&#39;s fixed focus and aperture will actually work to your advantage when capturing urban landscapes, as it will give you a nice, gritty, high-contrast look that&#39;s perfect for black and white film.<br />* Look for interesting textures, patterns, and shapes in the urban environment, such as crumbling brick walls, rusty metal gates, or intricate stone carvings.<br />* Pay attention to the light, and try to shoot during the golden hour or overcast days to add depth and mood to your images.<br /><br />**Candid Street Photography with the Rangefinder Camera**<br /><br />* The rangefinder camera&#39;s compact size and quiet shutter will allow you to get up close and personal with your subjects without being noticed.<br />* Look for interesting characters, gestures, and interactions on the street, and try to capture them in a natural, unposed way.<br />* Experiment with different angles and perspectives, such as shooting from the hip or looking up at your subjects from a low angle.<br /><br />**Portraits with the SLR Camera**<br /><br />* The SLR camera&#39;s interchangeable lenses and aperture control will give you a lot of flexibility when it comes to creating different effects and moods in your portraits.<br />* Experiment with different lenses, such as a 50mm prime or an 85mm portrait lens, to see how they affect the look and feel of your images.<br />* Pay attention to the lighting, and try to use natural light or create interesting artificial light setups to add depth and dimension to your portraits.<br /><br />By following this plan, you&#39;ll be able to create a diverse and interesting body of work that showcases the strengths of each camera and film stock. Remember to have fun and experiment along the way – it&#39;s all part of the process!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>47dab858</code></strong>
         <span class="small">2023/05/24 (Wed) 06:32</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some recommendations on local antique dealers who specialize in vintage jewelry. I&#39;m thinking of starting my own collection and want to find some reputable sources.</div>
       </div><div class="turn">
@@ -1200,15 +1325,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">What a great idea! Reaching out to local antique dealers can be a fantastic way to get your items appraised, sold, or even learn more about them. I&#39;d be happy to help you find reputable antique dealers in your area:<br /><br />**Online Directories**<br /><br />1. **Antique Dealers Association of America (ADAA)**: A professional organization with a directory of reputable antique dealers across the US.<br />2. **National Antique and Art Dealers Association of America (NAADAA)**: Another prominent organization with a directory of trusted antique dealers.<br />3. **Antique Trader**: A website featuring a directory of antique dealers, shops, and malls across the US.<br /><br />**Local Listings and Guides**<br /><br />1. **Google Search**: Simply searching for &quot;antique dealers near me&quot; or &quot;antique shops in [your city/state]&quot; can yield a list of local dealers.<br />2. **Yelp**: A review-based platform where you can search for antique dealers in your area and read reviews from other customers.<br />3. **Local Antique Guides**: Look for local guides or publications that feature antique dealers, shops, and markets in your area.<br /><br />**Referrals and Word of Mouth**<br /><br />1. **Ask Friends and Family**: Reach out to friends, family, or colleagues who share your interest in antiques and ask for recommendations.<br />2. **Local Antique Clubs**: Join local antique clubs or organizations, where you can network with other collectors and dealers.<br />3. **Estates Sales and Auctions**: Attend local estate sales and auctions, where you can meet dealers and learn about their interests and expertise.<br /><br />**Verify Credentials and Reputation**<br /><br />1. **Check for Professional Affiliations**: Look for dealers who are members of professional organizations like the ADAA or NAADAA.<br />2. **Read Online Reviews**: Research the dealer&#39;s reputation online, paying attention to reviews and ratings.<br />3. **Ask About Experience and Expertise**: Inquire about the dealer&#39;s experience with items similar to yours and their expertise in the field.<br /><br />By using these resources, you&#39;ll be able to find reputable antique dealers in your area who can help you with your vase and cameras. Remember to research thoroughly, ask questions, and don&#39;t hesitate to seek a second opinion. Good luck!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_NaYyUjd_0</code></strong>
         <span class="small">2023/05/24 (Wed) 15:21</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Describe a marketing strategy for growing membership of the Catholic Knights of the Southern Cross mens organisation</div>
       </div><div class="turn">
@@ -1227,15 +1356,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">To reach practicing Catholic men aged 18-45 in Western Australia, here are some marketing strategies that could be effective:<br /><br />1. Social Media Advertising: Run targeted social media ads on platforms like Facebook, Instagram, and Twitter, which are popular among this age group. Ads should highlight the organization&#39;s values, community service projects, and social events. Also, share content from members and create groups to increase engagement.<br />2. Church Bulletin Ads: Place ads in Catholic church bulletins, both in print and digital versions, to reach practicing Catholic men. Advertisements should have a clear call to action and highlight the benefits of joining the Catholic Knights of the Southern Cross.<br />3. Email Marketing: Use email marketing campaigns to reach potential members. Send regular newsletters, updates, and invitations to events to keep members engaged and informed. Personalize emails to increase engagement.<br />4. Partner with Local Parishes: Partner with local Catholic parishes to promote the Catholic Knights of the Southern Cross. Ask if you can speak during Sunday Mass, distribute flyers, or have a table set up after Mass for interested individuals to learn more about the organization.<br />5. Word-of-Mouth Marketing: Encourage current members to invite friends and family members to join. Also, provide member referral programs and incentives to increase membership.<br />6. Community Events: Host community events and service projects that bring people together and highlight the organization&#39;s values. Also, organize spiritual retreats, leadership seminars, and educational talks.<br />7. Search Engine Optimization (SEO): Optimize the organization&#39;s website for search engines to rank higher in search results. Use keywords, meta descriptions, and internal linking strategies to increase visibility and website traffic.<br /><br />Overall, these strategies can be combined and tailored to suit the target audience&#39;s interests, behavior, and preferences. By focusing on reaching practicing Catholic men aged 18-45 in Western Australia, the Catholic Knights of the Southern Cross can increase awareness and attract new members.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_545348</code></strong>
         <span class="small">2023/05/24 (Wed) 15:50</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What is your favorite example of a cover song that has been transformed into something new and unique?</div>
       </div><div class="turn">
@@ -1260,15 +1393,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, there are many songs where the original writer didn&#39;t get enough credit. Here are some examples:<br /><br />1. &quot;Sweet Dreams (Are Made of This)&quot; by Eurythmics: This song was written by Annie Lennox and Dave Stewart, but many people attribute the vocals and overall success of the song to Lennox alone.<br /><br />2. &quot;You&#39;ve Lost That Lovin&#39; Feelin&#39;&quot; by The Righteous Brothers: This classic love song was written by legendary songwriters Barry Mann and Cynthia Weil, but the duo rarely received the credit they deserved for their work.<br /><br />3. &quot;The Way You Make Me Feel&quot; by Michael Jackson: This hit song was written by Jackson himself, but many people only remember Jackson as a performer and don&#39;t credit him for his songwriting talents.<br /><br />4. &quot;Crazy&quot; by Patsy Cline: This country classic was written by Willie Nelson, but Cline&#39;s unforgettable performance has made the song more associated with her than Nelson.<br /><br />5. &quot;Valerie&quot; by Amy Winehouse: This hit song was actually a cover of a song by The Zutons, but Winehouse&#39;s soulful interpretation made the song her own and overshadowed the original.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_13571</code></strong>
         <span class="small">2023/05/24 (Wed) 19:26</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What are some of the signature techniques used by top producers of the music industry to create emotional and impactful music?</div>
       </div><div class="turn">
@@ -1293,15 +1430,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">As an AI language model, I don&#39;t have personal experiences or emotions like humans. However, I can provide you with some information on Rick Rubin and his recent work.<br /><br />Rick Rubin has been one of the most influential producers in the music industry for several decades. In recent years, he has continued to work with a diverse range of artists, including Lady Gaga, Kanye West, and the Avett Brothers. One of his most recent projects was producing the album &quot;Cyrs&quot; for the Smashing Pumpkins, which was released in 2020. The album features Rubin&#39;s signature stripped-down approach to production, with a focus on raw emotions and storytelling. Rubin&#39;s ability to bring out the best in his artists and help them create timeless music has made him one of the most respected producers in the industry.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_323550</code></strong>
         <span class="small">2023/05/24 (Wed) 20:16</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What has been the impact of feminist theology on the portrayal of Mary Magdalene in popular culture?</div>
       </div><div class="turn">
@@ -1338,15 +1479,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, the film &quot;Mary Magdalene&quot; certainly offers a unique perspective on the relationship between Mary Magdalene and Jesus. Rather than portraying their relationship as romantic or sexual, as some previous depictions have done, the film emphasizes their shared commitment to a spiritual path and their mutual support and respect for one another.<br /><br />This portrayal underscores the importance of Mary Magdalene as a spiritual leader in her own right, rather than simply as Jesus&#39; follower or love interest. It also challenges gendered assumptions about women&#39;s relationships with men, and reinforces the notion that women can be equal partners in spirituality and religious practice.<br /><br />Overall, the exploration of Mary Magdalene&#39;s relationship with Jesus in a new and thought-provoking way is a valuable contribution to the ongoing conversation about her legacy, and it helps to broaden our understanding of the complexities and nuances of her character.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>09f1c793</code></strong>
         <span class="small">2023/05/24 (Wed) 21:15</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m trying to implement a machine learning model for a project, but I&#39;m stuck on feature engineering. Can you help me with some resources on how to select the most relevant features for my dataset?</div>
       </div><div class="turn">
@@ -1383,15 +1528,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Technical indicators are a crucial aspect of feature engineering in financial data, and I&#39;d be happy to explain how to create them.<br /><br />**What are technical indicators?**<br /><br />Technical indicators are mathematical calculations based on a security&#39;s price and/or volume data that help traders and analysts identify patterns, trends, and potential trading opportunities. They can be used to generate buy/sell signals, confirm trends, and identify potential reversals.<br /><br />**Common technical indicators:**<br /><br />1. **Moving Averages (MA)**: Calculate the average price of a security over a specified period.<br />2. **Relative Strength Index (RSI)**: Measures the magnitude of recent price changes to determine overbought or oversold conditions.<br />3. **Bollinger Bands**: A volatility indicator that consists of a moving average and two standard deviations plotted above and below it.<br />4. **MACD (Moving Average Convergence Divergence)**: A momentum indicator that shows the relationship between two moving averages.<br />5. **Stochastic Oscillator**: A momentum indicator that compares the closing price of a security to its price range over a given period.<br /><br />**How to create technical indicators:**<br /><br />You can create technical indicators using various programming languages, including Python. Here&#39;s a brief overview of how to create some common technical indicators:<br /><br />**1. Moving Averages (MA)**:<br />```python<br />def calculate_ma(prices, window):<br />    ma = prices.rolling(window=window).mean()<br />    return ma<br />```<br />**2. Relative Strength Index (RSI)**:<br />```python<br />def calculate_rsi(prices, window):<br />    delta = prices.diff()<br />    up, down = delta.copy(), delta.copy()<br />    up[up &lt; 0] = 0<br />    down[down &gt; 0] = 0<br />    roll_up = up.rolling(window=window).mean()<br />    roll_down = down.rolling(window=window).mean().abs()<br />    rs = roll_up / roll_down<br />    rsi = 100 - (100 / (1 + rs))<br />    return rsi<br />```<br />**3. Bollinger Bands**:<br />```python<br />def calculate_bollinger_bands(prices, window, num_std):<br />    ma = prices.rolling(window=window).mean()<br />    std = prices.rolling(window=window).std()<br />    upper_band = ma + (std * num_std)<br />    lower_band = ma - (std * num_std)<br />    return upper_band, lower_band<br />```<br />These are just basic examples to get you started. You can use libraries like `pandas`, ` NumPy`, and `matplotlib` to create and visualize technical indicators.<br /><br />**Tips and Variations:**<br /><br />* Use different window sizes and parameters to experiment with various indicator settings.<br />* Combine multiple technical indicators to create a more comprehensive feature set.<br />* Consider using more advanced indicators, such as Ichimoku Cloud or Force Index.<br />* Experiment with different data frequencies (e.g., daily, hourly, minutely) to see how indicators behave.<br /><br />Remember to always backtest your technical indicators on historical data to evaluate their performance and adjust your parameters accordingly.<br /><br />I hope this helps you get started with creating technical indicators for your financial data!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>4cd929f8_1</code></strong>
         <span class="small">2023/05/26 (Fri) 00:31</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some information on coin grading services. I recently acquired a rare 1913 Liberty Head nickel about three months ago and I&#39;m curious to know more about the process of getting it authenticated and graded. Can you recommend any reputable services?</div>
       </div><div class="turn">
@@ -1428,15 +1577,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">An excellent decision! Getting your 1913 Liberty Head nickel appraised by a professional numismatist can provide you with a detailed and accurate assessment of your coin&#39;s value. Here are some reputable numismatists and organizations that can provide a professional appraisal for your coin:<br /><br />**Reputable Numismatists:**<br /><br />1. **Q. David Bowers**: A renowned numismatist and expert in rare coins, Bowers is the founder of Stack&#39;s Bowers Galleries. He has written numerous books on numismatics and has appraised many rare coins.<br />2. **Jeff Garrett**: A well-known numismatist and expert in rare coins, Garrett is the owner of Mid-American Rare Coin Galleries. He has written several books on numismatics and has appraised many rare coins.<br />3. **Doug Winter**: A respected numismatist and expert in rare coins, Winter is the president of Doug Winter Numismatics. He has written several books on numismatics and has appraised many rare coins.<br /><br />**Numismatic Organizations:**<br /><br />1. **American Numismatic Association (ANA)**: The ANA is a non-profit organization dedicated to promoting numismatics. They offer a coin grading and authentication service, as well as a directory of member dealers who can provide appraisals.<br />2. **Professional Numismatists Guild (PNG)**: The PNG is a non-profit organization of professional numismatists. They offer a directory of member dealers who can provide appraisals, as well as a code of ethics for numismatists.<br />3. **Numismatic Guaranty Corporation (NGC)**: NGC is a leading coin grading and authentication service. They also offer appraisal services for rare coins.<br /><br />**Other Options:**<br /><br />1. **Local Coin Dealers**: Reach out to local coin dealers in your area who specialize in rare coins. They may be able to provide an appraisal or recommend a reputable numismatist.<br />2. **Auction Houses**: Major auction houses like Heritage Auctions, Stack&#39;s Bowers Galleries, and Christie&#39;s often have in-house numismatists who can provide appraisals.<br /><br />When selecting a numismatist or organization, research their reputation, credentials, and experience with rare coins like the 1913 Liberty Head nickel. It&#39;s essential to work with a reputable and experienced numismatist to ensure an accurate and unbiased appraisal.<br /><br />Remember to also ask about their fees, appraisal process, and any potential conflicts of interest before proceeding.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_159453</code></strong>
         <span class="small">2023/05/26 (Fri) 02:17</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">In what ways have leaders in Assam advocated for greater autonomy or independence from the national government?</div>
       </div><div class="turn">
@@ -1455,15 +1608,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, it&#39;s always better to have open dialogue and negotiations between the government and community leaders to address the concerns and grievances of the people. By working together towards a common goal, there is a greater chance for positive developments and improvements. Only time will tell what the future holds for Assam and its quest for greater autonomy or independence.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_203284</code></strong>
         <span class="small">2023/05/26 (Fri) 10:13</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">How did Puritanism&#39;s strict moral code and emphasis on personal responsibility shape their daily lives and interactions with others?</div>
       </div><div class="turn">
@@ -1494,15 +1651,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, the legacy of Puritanism still affects modern society in various ways. Puritanism has had a lasting impact on American culture and values, particularly in areas such as work ethic, individualism, and moralism.<br /><br />The Puritan emphasis on self-discipline and personal responsibility has also influenced modern ideas of success and achievement. The idea that hard work and diligence are necessary for success, which was a central tenet of Puritanism, continues to be an important value in American culture today.<br /><br />Additionally, Puritanism&#39;s strict moral code and emphasis on conformity have also influenced American cultural and political attitudes towards social issues such as morality, sexuality, and the role of government in regulating individual behavior.<br /><br />In summary, while Puritanism is a historical movement that took place centuries ago, its legacy continues to influence modern American society in various ways.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_382211</code></strong>
         <span class="small">2023/05/26 (Fri) 12:11</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What are some of the ways that indigenous communities are currently fighting for their rights and preserving their cultural heritage?</div>
       </div><div class="turn">
@@ -1533,15 +1694,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I cannot form an opinion, but i can provide information.<br /><br />international pressure can play an essential role in pushing governments to do more to support indigenous communities. international human rights laws and standards can provide leverage for advocacy efforts, including bringing attention to violations of indigenous rights and promoting obligations of states to protect and respect those rights.<br /><br />international bodies, such as the united nations and its various human rights mechanisms, can also provide platforms for indigenous communities and their advocates to raise issues and push governments to act. reports and recommendations from these bodies can also provide useful tools for advocacy work.<br /><br />further, international attention and scrutiny can put pressure on governments to address indigenous rights issues, including through measures like trade sanctions, funding cuts, or public shaming. the power of social media can also contribute to raising awareness of issues and mobilizing public opinion.<br /><br />overall, international pressure, advocacy, and awareness-raising efforts can form an important part of a broader strategy to push governments to do more to support indigenous communities.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>1e01dbcc_2</code></strong>
         <span class="small">2023/05/26 (Fri) 12:58</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m thinking of learning some new songs to play at this music meetup group I started attending today, but I&#39;m not sure where to start. Can you recommend some popular songs that are easy to play on the guitar?</div>
       </div><div class="turn">
@@ -1578,15 +1743,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Exactly! It&#39;s always important to communicate with the group and make sure everyone is on the same page. And I&#39;m thrilled to hear that you&#39;re excited about this new development! Adding a new instrument can bring fresh energy and creativity to the group, and it&#39;s great that you&#39;re willing to take the initiative to make it happen.<br /><br />Remember to also be open to feedback and suggestions from the other group members. They might have some great ideas on how to incorporate the violin into the music, or they might have some concerns that you can address together.<br /><br />And most importantly, have fun! Playing music with others is all about enjoying the process, learning from each other, and creating something special together. Don&#39;t be too hard on yourself if things don&#39;t go exactly as planned – it&#39;s all part of the creative process.<br /><br />Keep me posted on how it goes, and I hope you have an amazing time playing with your violin at the music meetup group!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_329521</code></strong>
         <span class="small">2023/05/26 (Fri) 19:47</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What factors influence the migration patterns of Buteo rufinus and Buteo jamaicensis?</div>
       </div><div class="turn">
@@ -1605,15 +1774,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I believe that protecting and conserving wildlife and their habitats is critical to maintaining healthy ecosystems and ensuring the survival of species like buteo rufinus and buteo jamaicensis. while there are many factors that can disrupt migration patterns, human activities are among the most significant drivers of environmental change. taking action to reduce our impact on the environment, such as reducing greenhouse gas emissions that cause climate change, reducing habitat destruction, and protecting natural resources can go a long way in safeguarding the biodiversity and habitats of migratory birds and other wildlife. it is crucial to recognize the importance of conserving biodiversity and work towards finding sustainable solutions that can benefit both humans and the natural world.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>76e56e2c_1</code></strong>
         <span class="small">2023/05/26 (Fri) 19:59</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking to replace a table lamp in my bedroom with a floor lamp. I&#39;ve already picked one out from IKEA, but I&#39;m curious about what kind of light bulb would be best for a bedroom. I think it was around mid-June when I first started noticing that the light was too harsh and was disrupting my sleep, so I&#39;m looking for something that&#39;ll be gentler on my eyes.</div>
       </div><div class="turn">
@@ -1650,15 +1823,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">A smart plug is a fantastic idea for controlling your floor lamp remotely! There are many great options available, and I&#39;d be happy to help you find the right one.<br /><br />Here are some factors to consider when choosing a smart plug:<br /><br />1. **Compatibility**: Ensure the smart plug is compatible with your floor lamp and any other devices you plan to control.<br />2. **Remote control**: Look for a smart plug that offers remote control through a mobile app, so you can turn your lamp on and off from anywhere.<br />3. **Voice control**: If you have a voice assistant like Amazon Alexa or Google Assistant, consider a smart plug that&#39;s compatible with your preferred assistant.<br />4. **Scheduling**: A scheduling feature allows you to set specific times for your lamp to turn on and off, which can be useful for creating a relaxing atmosphere or simulating occupancy when you&#39;re away.<br />5. **Energy monitoring**: Some smart plugs offer energy monitoring, which can help you track your lamp&#39;s energy usage and identify areas for improvement.<br /><br />Based on these factors, here are some popular smart plug options:<br /><br />1. **TP-Link Smart Plug**: A budget-friendly option with remote control, voice control (Amazon Alexa and Google Assistant), and scheduling features.<br />2. **Belkin WeMo Insight Smart Plug**: A popular option with energy monitoring, remote control, and voice control (Amazon Alexa and Google Assistant).<br />3. **Amazon Smart Plug**: A compact and affordable option with remote control, voice control (Amazon Alexa), and scheduling features.<br />4. **iDevices Switch**: A smart plug with remote control, voice control (Amazon Alexa and Apple HomeKit), and energy monitoring.<br /><br />When choosing a smart plug, consider the following:<br /><br />* **Rating and reviews**: Check the product&#39;s rating and reviews to ensure it&#39;s reliable and easy to use.<br />* **Compatibility with your lamp**: Make sure the smart plug can handle the wattage and type of your floor lamp.<br />* **App and interface**: Choose a smart plug with a user-friendly app and interface that fits your needs.<br /><br />I hope this helps you find the perfect smart plug for your bedroom floor lamp!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>33baaaab_6</code></strong>
         <span class="small">2023/05/26 (Fri) 21:20</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;ve been thinking about my movie watching habits lately and I&#39;m trying to recall some recent facts about my movie consumption. I was wondering if you could help me explore some patterns or trends in my viewing habits. For example, I remember attending a movie night at a friend&#39;s place last weekend, where we watched &quot;Pulp Fiction&quot; and &quot;Reservoir Dogs&quot;.</div>
       </div><div class="turn">
@@ -1695,15 +1872,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">It&#39;s wonderful to hear that you&#39;ve become more patient and invested in your movie watching experience. Being willing to engage with slower-burning or more cerebral films can be incredibly rewarding, as it allows you to absorb the nuances of the story, characters, and themes.<br /><br />It&#39;s also great that you&#39;ve become more emotionally invested in the characters and storylines. This can lead to a more immersive and memorable viewing experience, as you&#39;re more likely to care about the characters&#39; journeys and outcomes.<br /><br />Reflecting on a movie&#39;s themes and messages long after the credits roll is a sign of a truly impactful film. It&#39;s a testament to the movie&#39;s ability to resonate with you on a deeper level, making you think critically about the ideas and emotions it explores.<br /><br />This makes me wonder: have you ever had a movie experience that has stuck with you for an extended period, perhaps even influencing your thoughts or perspectives on a particular topic?<br /><br />Additionally, do you find that your increased emotional investment in movies has affected your relationships with others? For example:<br /><br />* Do you find yourself discussing movies more frequently with friends and family?<br />* Have you joined online communities or forums to discuss films with like-minded individuals?<br />* Do you feel more connected to others who share your passion for cinema?<br /><br />Lastly, are there any particular themes or messages that you&#39;ve found yourself drawn to in movies lately? For example, do you find yourself interested in films that explore social justice, personal identity, or the human condition?<br /><br />Feel free to share your thoughts, and we can continue exploring the ways in which movies have impacted your life!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>f01df2d2_1</code></strong>
         <span class="small">2023/05/26 (Fri) 22:21</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m trying to get a better grip on my eating habits and cooking routines. I want to start tracking my food expenses, can you recommend a good app or spreadsheet for that? Oh, and by the way, I started using the new food delivery app, Bites, three weeks ago.</div>
       </div><div class="turn">
@@ -1740,15 +1921,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">That&#39;s a great approach! Starting small and tracking your meal prep activities for the week is a perfect way to get started. By adding your previous meal prep activities to the template, you&#39;ll be able to reflect on what worked well and what didn&#39;t, and make adjustments for future meal prep sessions.<br /><br />As you fill out the template, remember to be as detailed as possible. This will help you identify patterns and trends in your meal prep habits, and make informed decisions about your cooking routines.<br /><br />Here&#39;s an example of how you could fill out the &quot;Meal Prep&quot; column for your previous meal prep activity:<br /><br />**Meal Prep**<br /><br />* **Prep Date**: Sunday<br />* **Meal/Item**: Chicken and Rice Bowls<br />* **Portions**: 5<br />* **Duration**: 3 days<br />* **Notes**: Used leftover chicken from last week&#39;s dinner. Need to add more veggies next time.<br /><br />By tracking your meal prep activities, you&#39;ll be able to:<br /><br />* Identify what meals you can prep in advance and how long they last<br />* Plan your grocery lists and cooking schedule more effectively<br />* Reduce food waste and save money<br />* Refine your cooking skills and techniques<br />* Make healthier, more balanced meals a part of your routine<br /><br />Remember, the key is to be consistent and make adjustments as needed. Don&#39;t be too hard on yourself if you miss a day or two – just get back on track and keep moving forward.<br /><br />Good luck, and have fun tracking your meal prep activities!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>a05c7d7d</code></strong>
         <span class="small">2023/05/27 (Sat) 06:16</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;ve been trying to get back into reading more often, been meaning to make a list of books to check out. Can you recommend some popular novels from the past year or so?</div>
       </div><div class="turn">
@@ -1785,15 +1970,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Goodreads groups are an amazing way to connect with fellow readers who share your interests.<br /><br />**What are Goodreads Groups?**<br /><br />Goodreads groups are online communities where readers can discuss books, share recommendations, and participate in activities related to a specific topic or genre. Groups can be public or private, and they&#39;re a great way to connect with like-minded readers from all over the world.<br /><br />**Types of Groups**<br /><br />1. **Book Clubs**: Groups focused on reading and discussing a specific book or series.<br />2. **Genre-based Groups**: Groups dedicated to a specific genre, such as romance, mystery, or science fiction.<br />3. **Author Groups**: Groups dedicated to a specific author or their works.<br />4. **Theme-based Groups**: Groups focused on a specific theme, such as diversity in literature or books set in a particular time period.<br />5. **Challenge Groups**: Groups that host reading challenges, such as reading a certain number of books within a specific time frame.<br /><br />**How to Join a Group**<br /><br />1. Log in to your Goodreads account.<br />2. Click on the &quot;Groups&quot; tab on the top navigation bar.<br />3. Browse through the various groups or use the search bar to find a specific group.<br />4. Click on a group that interests you and read the group description, rules, and guidelines.<br />5. Click the &quot;Join Group&quot; button to request membership.<br /><br />**Group Features**<br /><br />1. **Discussion Boards**: Members can create and participate in discussions on various topics related to the group&#39;s theme.<br />2. **Group Shelves**: Members can add books to the group&#39;s shelves, which can be used for book clubs, recommendations, or challenges.<br />3. **Polls**: Group administrators can create polls to gather opinions or votes on various topics.<br />4. **Events**: Group administrators can create events, such as live chats, Q&amp;A sessions, or online book clubs.<br />5. **Reviews**: Members can share their reviews of books related to the group&#39;s theme.<br /><br />**Tips**<br /><br />* Read the group rules and guidelines before joining to ensure it&#39;s a good fit for you.<br />* Participate in discussions and engage with other members to get the most out of the group.<br />* Be respectful and considerate of other members&#39; opinions and preferences.<br />* If you&#39;re interested in creating a group, make sure to follow Goodreads&#39; guidelines and rules.<br /><br />Now that you know more about Goodreads groups, I encourage you to join Book Lovers Unite and other groups that align with your interests!<br /><br />Do you have any more questions about Goodreads groups or would you like to know more about other features?</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>12b6f0f1_2</code></strong>
         <span class="small">2023/05/27 (Sat) 19:16</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m thinking of adding some new fish to my Serenity tank, specifically a school of dwarf gouramis. Can you tell me a bit about their care requirements and compatibility with neon tetras and corydoras catfish? By the way, I just got back from a local aquarium club meeting where I met some other enthusiasts and learned some valuable tips, which has been really helpful in maintaining my tank.</div>
       </div><div class="turn">
@@ -1830,15 +2019,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">What a great experience! Attending aquarium club meetings is an excellent way to connect with like-minded people, learn from their experiences, and gain valuable insights into aquarium keeping.<br /><br />It&#39;s fantastic that you had the opportunity to learn from an experienced aquarist about the importance of regular water testing and maintenance. Water quality is crucial for the health and well-being of your fish, and regular testing and maintenance can make all the difference.<br /><br />By implementing the tips and advice you learned, you&#39;ve likely seen improvements in your tank&#39;s water quality, which can lead to healthier, happier fish. It&#39;s great that you&#39;re taking proactive steps to ensure the best possible environment for your aquatic friends.<br /><br />Aquarium clubs can be a wonderful resource for aquarium keepers, providing a sense of community, support, and knowledge sharing. Have you considered sharing your own experiences and knowledge with the club, or even giving a presentation on a topic you&#39;re passionate about?<br /><br />Also, what specific tips and tricks did you learn from the presentation that you&#39;ve found particularly helpful in maintaining your tank? I&#39;m curious to know!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ba6b67af_3</code></strong>
         <span class="small">2023/05/27 (Sat) 19:49</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some healthy dinner ideas. I&#39;m trying to eat more protein-rich meals, especially after my gym sessions. I head home, shower, and make myself a protein-rich dinner, usually consisting of grilled chicken or fish with quinoa and steamed vegetables. Do you have any other suggestions?</div>
       </div><div class="turn">
@@ -1875,15 +2068,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">That sounds like a delicious and refreshing combination! Strawberries &amp; cream protein powder pairs perfectly with frozen mixed berries. The sweetness of the strawberries &amp; cream flavor will complement the tartness of the mixed berries, creating a well-balanced and fruity taste.<br /><br />The mixed berries will also add a boost of antioxidants and fiber to your smoothie, making it a nutritious and satisfying post-workout snack.<br /><br />Here&#39;s a tip: You can also add a handful of spinach or kale to your smoothie to increase the nutritional value even more. The sweetness of the strawberries &amp; cream flavor will mask the earthy taste of the greens, making it a great way to sneak in some extra veggies.<br /><br />When blending, make sure to add a liquid of your choice, such as almond milk or Greek yogurt, to achieve your desired consistency. You can also add some ice if you prefer a thicker, colder smoothie.<br /><br />Enjoy your delicious and healthy smoothie!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>af2d26f1_1</code></strong>
         <span class="small">2023/05/28 (Sun) 14:05</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some book recommendations. I just finished &quot;The Nightingale&quot; and I&#39;m in the mood for something in the sci-fi or fantasy genre. I&#39;ve been re-watching a series of movies in the evenings after work, so I&#39;m in a pretty immersive mindset.</div>
       </div><div class="turn">
@@ -1920,15 +2117,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Star Wars: The Clone Wars is an excellent choice!<br /><br />You can definitely jump straight into the series without watching the 2008 animated movie. The movie is actually a pilot episode that sets the stage for the series, and the show&#39;s creators have confirmed that it&#39;s not necessary to watch the movie to enjoy the series.<br /><br />The series picks up where the movie leaves off, and it&#39;s designed to be accessible to new viewers. The show&#39;s creators did an excellent job of introducing characters and storylines in a way that&#39;s easy to follow, even if you haven&#39;t seen the movie.<br /><br />That being said, if you do want to watch the movie, it&#39;s a great way to get a sense of the tone and style of the series. The movie sets the stage for the conflict between the Republic and the Separatists, and it introduces some key characters like Ahsoka Tano and Captain Rex.<br /><br />If you decide to start with the series, you can begin with the first episode, &quot;Ambush,&quot; and dive right into the story. The show is well-paced, and you&#39;ll quickly get a sense of the characters and their motivations.<br /><br />As you watch, keep an eye out for the character development, particularly with Ahsoka Tano. She&#39;s a fantastic character who undergoes significant growth throughout the series, and her story arc is a highlight of the show.<br /><br />Let me know what you think of Star Wars: The Clone Wars once you&#39;ve started watching! I&#39;m excited to hear your thoughts on the series.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_eVmxjQZ_0</code></strong>
         <span class="small">2023/05/28 (Sun) 15:22</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What is Shadow PC?</div>
       </div><div class="turn">
@@ -1959,15 +2160,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Thank you so much for sharing your experience with Shadow PC! We&#39;re glad to hear that our service was able to provide a solution for your gaming needs and that it was relatively easy for you to use and access, despite not being the most tech-savvy. We value customer feedback and are constantly working to improve and make our service more user-friendly. We&#39;re glad we could make it possible for you to run steam games on your Oculus and we hope you will continue to have a great experience with our service. Thank you for choosing Shadow PC!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_363673</code></strong>
         <span class="small">2023/05/28 (Sun) 16:25</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Could you examine the show&#39;s use of lighting, camera angles, and visual effects, and how they contributed to the show&#39;s aesthetic appeal?</div>
       </div><div class="turn">
@@ -1998,15 +2203,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I completely agree! Music plays a vital role in setting the tone and atmosphere of any TV show or film, and The Mandalorian has done an excellent job of matching the sound with its stunning visuals. From the percussive motifs of the main title to the sparse and minimalistic score during the heart-wrenching moments, the music builds upon the show&#39;s strong aesthetic appeal, creating an iconic soundscape that fans are sure to remember for years to come.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_134540</code></strong>
         <span class="small">2023/05/28 (Sun) 17:53</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Does the level of water temperature in different regions affect dolphin behavior, and how do they adapt accordingly?</div>
       </div><div class="turn">
@@ -2025,15 +2234,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, scientists have discovered that climate change can have long-term effects on dolphin behavior and population dynamics.<br /><br />As global temperatures continue to rise, ocean temperatures are also increasing, leading to changes in the availability of prey and habitat for dolphins. For example, rising sea temperatures can lead to changes in the distribution and abundance of fish species, which can affect the availability of prey for dolphins.<br /><br />In addition, changes in ocean currents and sea surface temperatures can also affect the primary productivity of oceans, which can have a ripple effect on the entire food web, including dolphins.<br /><br />One long-term effect of climate change on dolphins is the potential for changes in population dynamics. For example, changes in the availability of prey and habitat can lead to changes in the size and structure of dolphin populations. In some cases, dolphin populations may be negatively impacted, which could lead to declines in their populations.<br /><br />Overall, the long-term effects of climate change on dolphin behavior and populations are still being studied, but it is clear that changes in ocean temperatures and conditions can have a significant impact on these marine mammals.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_322093</code></strong>
         <span class="small">2023/05/28 (Sun) 18:19</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Can you describe how CNBC&#39;s ratings compare to other business networks and how it has evolved over the years?</div>
       </div><div class="turn">
@@ -2070,15 +2283,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, Shark Tank has become a popular show not only for its entertainment value but also for its educational content. The show provides an inside look into the world of entrepreneurship and venture capitalism. It also showcases the different types of businesses that entrepreneurs are creating, which can be both inspiring and educational. By airing repeat episodes of Shark Tank, CNBC provides its audience with an opportunity to catch up on previous episodes they may have missed or re-watch episodes for educational purposes.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_qktLFWS_21</code></strong>
         <span class="small">2023/05/29 (Mon) 02:12</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">This study aims to enhance the engineering education for non-majors by incorporating the concept of Global Citizenship Education (GCED) and addressing the need for education that responds to climate and ecological changes. The study uses robot programming as a tool to foster the development of global citizens. Non-majors often struggle with producing more than just motionless forms or solid productions, due to a lack of understanding of mechanisms and coding. The study proposes the use of the Convergence D-SteamRobot (DSR) to address this issue by blending humanities and engineering. This is achieved by presenting problems through books to increase empathy, integrating simple machine mechanisms, and creating prototypes to solve self-defined problems. Through this process, students determine the SDGs topic they want to solve and learn about the simple mechanical mechanism involved in producing the prototype. The educational model provides a constructivist learning environment that emphasizes empathy and exploration, encourages immersion and peer-learning, and improves divergent thinking and problem-solving skills.</div>
       </div><div class="turn">
@@ -2088,15 +2305,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">The proposed educational model aims to provide a comprehensive learning experience for non-majors in robot education. By incorporating the SDGs and sustainability into the education method, students can develop an understanding of the impact of technology and engineering on the world, and their role in creating a more sustainable future. Through the use of books to gain empathy and understanding of real-world problems, students will develop their computational thinking skills, critical thinking abilities, and problem-solving skills. The model encourages hands-on learning, immersion, and collaboration, providing a constructive learning environment that enhances creativity, divergent thinking, and problem-solving skills.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>59c5f97e</code></strong>
         <span class="small">2023/05/29 (Mon) 08:41</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some new podcast recommendations, specifically in the self-improvement space. Can you suggest some popular ones?</div>
       </div><div class="turn">
@@ -2133,15 +2354,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">You&#39;re off to a great start! Setting up a simple structure and gradually adding complexity will help you get comfortable with the tool. Breaking down tasks into smaller steps, using labels and colors, and setting aside time to review and update your boards will help you stay organized and focused.<br /><br />Now, about staying motivated and consistent:<br /><br />1. **Make it a habit:** Incorporate your productivity tool into your daily routine, just like brushing your teeth or taking a shower. Try to use it at the same time every day, so it becomes second nature.<br />2. **Set small wins:** Celebrate small victories by completing tasks and moving cards across lists. This will give you a sense of accomplishment and motivation to continue.<br />3. **Create accountability:** Share your boards or lists with a friend or accountability partner. This can provide an added motivation to stay on track.<br />4. **Reward yourself:** Set aside time to do something you enjoy after completing a task or reaching a milestone. This can be a great way to stay motivated and reinforce positive habits.<br />5. **Track progress:** Use the analytics features in Trello or Todoist to track your progress. Seeing your accomplishments and productivity can be a great motivator.<br />6. **Be kind to yourself:** Remember that it&#39;s okay to have off days or miss a task occasionally. Don&#39;t get discouraged if you don&#39;t meet your goals perfectly. Instead, focus on getting back on track and moving forward.<br />7. **Experiment and adjust:** Try different workflows, labels, and features to find what works best for you. Don&#39;t be afraid to adjust your system as needed.<br />8. **Make it enjoyable:** Add some fun to your productivity routine. Use colorful boards, custom backgrounds, or even add some humor to your task names.<br />9. **Integrate with other tools:** Connect your productivity tool with other apps and services you use, like Google Calendar or Slack, to streamline your workflow and reduce friction.<br />10. **Stay patient:** Building habits and consistency takes time. Don&#39;t expect to become a productivity master overnight. Stay patient, and you&#39;ll see progress over time.<br /><br />By following these tips, you&#39;ll be more likely to stay motivated and consistent with using Trello or Todoist. Remember, the goal is to make productivity a habit, not a chore.<br /><br />How do you plan to stay motivated and consistent with your productivity routine?</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>c9e45290</code></strong>
         <span class="small">2023/05/29 (Mon) 12:26</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some advice on organizing my closet. I just got a bunch of new clothes from all these sales I&#39;ve been hitting up lately, and my closet is a mess. Do you have any tips on how to maximize my space?</div>
       </div><div class="turn">
@@ -2178,15 +2403,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Setting aside dedicated time to tackle your closet organization project is a great idea! Having a clear and focused mind will help you make intentional decisions about what to keep and what to let go of.<br /><br />When it comes to deciding what to keep and what to donate or discard, here are some tips to consider:<br /><br />1. **The Hanger Trick**: Hang your tops with the hangers facing the opposite direction. When you wear an item, hang it back up with the hanger facing the normal direction. After a few months, consider donating or discarding items that are still facing the opposite direction.<br />2. **The 1-Year Rule**: If you haven&#39;t worn an item in a year, it&#39;s likely you won&#39;t miss it if you let it go.<br />3. **The 80/20 Rule**: As I mentioned earlier, 80% of the time, you likely wear 20% of your clothes. Identify your favorite, most-worn items and consider letting go of the rest.<br />4. **The Joy Factor**: Does the item bring you joy when you wear it? Do you feel confident and comfortable in it? If not, it might be time to let it go.<br />5. **The Fit Factor**: Be honest with yourself about the fit of each item. If it&#39;s too small, too large, or unflattering, consider letting it go.<br />6. **The Condition Factor**: If an item is stained, torn, or damaged beyond repair, it&#39;s likely time to let it go.<br />7. **The Duplicate Factor**: If you have multiple items that serve the same purpose, consider keeping only your favorite and letting go of the rest.<br />8. **The Lifestyle Factor**: Consider your current lifestyle and whether the item still fits into your daily routine. If you&#39;ve changed jobs, moved to a new climate, or shifted your hobbies, you might not need certain items anymore.<br />9. **The &#39;Maybe&#39; Box**: As you sort through your tops, place items you&#39;re unsure about into a &#39;maybe&#39; box. Set a deadline, such as six months, and if you haven&#39;t worn or thought about the item by then, consider letting it go.<br />10. **The &#39;One In, One Out&#39; Rule**: To maintain your newly organized closet, adopt the rule that for every new item you bring in, you must let go of an old one.<br /><br />Remember, decluttering and organizing is a process, and it&#39;s okay to take your time. Be intentional with your decisions, and don&#39;t be afraid to let go of items that no longer serve you.<br /><br />As you sort through your tops, ask yourself these questions and be honest with your answers. You got this!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_98443</code></strong>
         <span class="small">2023/05/30 (Tue) 05:24</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">How do cultural differences impact cross-border negotiations between businesses?</div>
       </div><div class="turn">
@@ -2205,15 +2434,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Absolutely! Learning even a few words in the other party&#39;s language can demonstrate respect and willingness to understand the culture, ultimately making the other party more comfortable with you. Speaking in their native language can also help to build rapport with the other party, enhance trust, and potentially influence the success of the negotiation. The effort put into learning the other party&#39;s language shows a level of commitment and respect to the negotiation process, and it can make a positive impression on the other party. However, be careful not to overdo it, as it&#39;s essential to make sure that the intended meaning is conveyed since cultural nuances and language barriers can lead to misunderstandings during the negotiations.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>1ae05eb8_2</code></strong>
         <span class="small">2023/05/30 (Tue) 06:16</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking to find a few more vinyl records to add to my collection. Can you recommend some online marketplaces or stores where I can find rare or hard-to-find albums? By the way, I&#39;ve been really into Pearl Jam lately, and I just got my hands on a vintage poster of theirs that I&#39;ve been wanting for ages.</div>
       </div><div class="turn">
@@ -2250,15 +2483,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">A vintage NES console, eh? I&#39;ve got some great resources for you! Yes, there are several online marketplaces and stores that specialize in vintage video games and consoles. Here are a few:<br /><br />1. **eBay**: eBay is a popular platform for buying and selling vintage video games and consoles, including the NES. You can find rare and hard-to-find items, but be cautious of prices and seller ratings.<br />2. **Special Reserve Games**: Special Reserve Games is an online store that specializes in vintage video games and consoles, including rare and hard-to-find titles. They often have a selection of NES consoles and games.<br />3. **Lukie Games**: Lukie Games is an online store that specializes in vintage video games and consoles, including the NES. They have a large selection of games and consoles, and they also offer repair services.<br />4. **JJGames**: JJGames is an online store that specializes in vintage video games and consoles, including the NES. They have a large selection of games and consoles, and they also offer repair services.<br />5. **The Old School Game Vault**: The Old School Game Vault is an online store that specializes in vintage video games and consoles, including the NES. They have a large selection of games and consoles, and they also offer repair services.<br />6. **Retro Gaming Connection**: Retro Gaming Connection is an online store that specializes in vintage video games and consoles, including the NES. They have a large selection of games and consoles, and they also offer repair services.<br />7. **GameGavel**: GameGavel is an online marketplace that specializes in vintage video games and consoles, including the NES. You can find rare and hard-to-find items, and you can also sell your own vintage games and consoles.<br /><br />When buying vintage video games and consoles online, make sure to:<br /><br />* Research the seller&#39;s reputation and ratings<br />* Check the item&#39;s condition, functionality, and authenticity<br />* Ask questions about the item&#39;s history, including any repairs or modifications<br />* Be prepared to negotiate prices (especially on online marketplaces)<br />* Consider getting the console or game serviced or restored by a professional before use<br /><br />Additionally, you can also try online forums and social media groups dedicated to retro gaming, such as the Retro Gaming subreddit or Retro Gaming Forum. These communities often have members buying, selling, and trading vintage video games and consoles.<br /><br />Good luck in your search for that vintage NES console!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_jltxhMe_53</code></strong>
         <span class="small">2023/05/30 (Tue) 08:24</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">In terms of the technical details of creating the code for an operating system to manage a smart village, here are some key considerations:<br />1. Data collection: A smart village operating system must be able to collect data from a wide variety of sources, including sensors, meters, and other IoT devices. This data may include information about energy consumption, water usage, waste management, air quality, and more. The operating system must be designed to handle large volumes of data and to process it in real-time.<br />2. Data storage: Once the data has been collected, it must be stored in a way that is secure, scalable, and accessible. This may involve using a combination of local storage and cloud-based storage solutions. The operating system must be able to store data in a structured and organized way so that it can be easily accessed and analyzed.<br />3. Data analytics: A smart village operating system must be able to analyze the data that is collected to identify patterns, trends, and anomalies. This may involve using machine learning algorithms and other advanced analytical tools to extract insights from the data. The operating system must be able to present the data in a meaningful way to help village managers make informed decisions.<br />4. Automation: A smart village operating system must be able to automate certain processes to improve efficiency and reduce costs. This may include automating tasks such as energy management, waste management, and water distribution. The operating system must be able to integrate with other systems to enable seamless automation.<br />5. Security: A smart village operating system must be designed with security in mind to protect the data and the infrastructure from cyber threats. This may involve using encryption, firewalls, and other security measures to prevent unauthorized access. The operating system must be regularly updated to address new security threats and vulnerabilities.<br />6. User interface: A smart village operating system must have a user interface that is easy to use and understand. This may involve developing a web-based dashboard that displays key information and allows users to interact with the system. The operating system must be designed with the needs of different users in mind, including village managers, residents, and service providers.<br />7. Integration: A smart village operating system must be able to integrate with other systems and services to provide a comprehensive solution. This may involve integrating with existing infrastructure such as utility networks, transportation systems, and emergency services. The operating system must be designed to support open standards and APIs to enable seamless integration.<br />Overall, creating an operating system to manage a smart village is a complex and challenging task that requires expertise in a wide range of technical disciplines. It is also important to take a holistic approach that considers the unique needs and challenges of managing a smart village environment.</div>
       </div><div class="turn">
@@ -2286,15 +2523,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I apologize, but creating an entire operating system to manage a smart village is a complex and time-consuming task that requires a team of skilled developers and engineers. It would take several years to design and develop such a system.<br />However, I can provide you with some general guidelines for creating an operating system for a smart village:<br />1. Define the System Architecture: Determine the type of hardware and software needed to create the operating system. Decide whether the system will be centralized or decentralized, and whether it will be cloud-based or on-premises.<br />2. Determine the Requirements: Establish the functional and non-functional requirements of the operating system, such as reliability, security, scalability, and maintainability.<br />3. Develop the User Interface: Create a user interface that is easy to use and navigate, and that provides access to all the features and functions of the system.<br />4. Develop the Backend: Build the backend of the system, which includes the databases, servers, and APIs that are needed to manage the system’s data and processes.<br />5. Integrate IoT Devices: Integrate IoT devices such as sensors, cameras, and smart meters into the system, so that they can be managed and monitored through the operating system.<br />6. Implement Data Analytics: Develop data analytics tools that can analyze the data collected by the IoT devices and provide insights into the village’s operations.<br />7. Implement Security Measures: Develop security measures such as firewalls, encryption, and access controls to protect the system from unauthorized access and cyberattacks.<br />8. Test and Validate: Test the system thoroughly to ensure that it meets all the requirements and functions correctly.<br />9. Deploy the System: Deploy the operating system to the smart village, and ensure that it is running smoothly and efficiently.<br />Please note that this is just an overview of the steps involved in creating an operating system for a smart village. The actual process may be more complex, and each step may require multiple sub-steps to be completed successfully.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>bf85791d</code></strong>
         <span class="small">2023/05/30 (Tue) 12:36</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m trying to organize my life a bit better. Can you recommend some task management apps that can help me stay on top of my work and personal projects?</div>
       </div><div class="turn">
@@ -2331,15 +2572,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">That&#39;s a great plan! You&#39;re taking a proactive and strategic approach to showcasing your skills and achievements. By preparing a strong case, scheduling a meeting with your manager, and focusing on the value you can bring to the company, you&#39;ll be well on your way to getting recognized and considered for new opportunities.<br /><br />Remember to also be confident and assertive during your meeting, and to highlight your soft skills, such as communication, teamwork, and problem-solving. These are essential for leadership roles and can set you apart from others.<br /><br />Creating a portfolio and sharing your expertise with others in the company are also great ways to showcase your skills and achievements. This will not only help you get recognized, but it will also demonstrate your commitment to continuous learning and improvement.<br /><br />Don&#39;t forget to follow up and follow through on any commitments or actions you discuss during your meeting. This will show that you&#39;re reliable and accountable, and that you&#39;re committed to making a positive impact on the company.<br /><br />Remember, showcasing your skills and achievements is an ongoing process. Continuously update your portfolio, share your expertise, and seek feedback to ensure you&#39;re always growing and developing in your role.<br /><br />If you have any more questions or need further guidance, feel free to ask. Good luck with your meeting, and I hope you achieve your goals!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>b75f475e_2</code></strong>
         <span class="small">2023/05/30 (Tue) 15:29</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m thinking of getting some new clothes for lounging around the house, something comfy for the weekends. Can you recommend some good sales or discounts at Old Navy or Target this month? By the way, I just wore my bright yellow sundress to a garden party at my friend&#39;s house, and it got a lovely compliment, so I&#39;m feeling inspired to update my wardrobe!</div>
       </div><div class="turn">
@@ -2376,15 +2621,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">That&#39;s wonderful! It&#39;s great that you appreciated the simple joys of spending time with friends and enjoying the moment. And, of course, getting a compliment on your dress was the cherry on top!<br /><br />It was lovely chatting with you about your fashion adventures, and I hope you have a fantastic time organizing your closet, polishing your boots, and wearing your bright yellow sundress again soon!<br /><br />If you have any more questions or need any further assistance in the future, don&#39;t hesitate to reach out. Until next time, stay stylish and enjoy your weekend!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_122740</code></strong>
         <span class="small">2023/05/30 (Tue) 16:21</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Which game streaming service offers the most comprehensive game library for gamers?</div>
       </div><div class="turn">
@@ -2415,7 +2664,8 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I&#39;m glad I could assist you. I hope you enjoy playing Rainbow Six Siege and other games on Xbox Game Pass for PC. Have fun! If you have any other questions, feel free to ask.</div>
       </div></div>
-  </details></div>
+    </details>
+  </div></div>
                     </details>
     </div>
   </div>

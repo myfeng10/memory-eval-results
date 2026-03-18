@@ -105,7 +105,7 @@
       border: 1px solid var(--line);
       border-radius: 14px;
       background: #fff;
-      padding: 0 14px 14px;
+      padding: 14px;
     }
     .priority-session {
       border-width: 2px;
@@ -115,21 +115,17 @@
     .secondary-session {
       opacity: 0.9;
     }
-    .session-card summary {
-      list-style: none;
-      cursor: pointer;
+    .session-card-header {
       display: flex;
       justify-content: space-between;
       gap: 12px;
       align-items: center;
-      padding: 14px 0;
-    }
-    .session-card summary::-webkit-details-marker {
-      display: none;
+      margin-bottom: 12px;
     }
     .session-turns {
       display: grid;
       gap: 10px;
+      margin-top: 12px;
     }
     .turn {
       border-top: 1px solid var(--line);
@@ -146,6 +142,40 @@
       font-size: 14px;
       line-height: 1.55;
       word-break: break-word;
+    }
+    .session-memory-wrap {
+      margin-bottom: 12px;
+    }
+    .session-memory-details {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fcfaf5;
+      padding: 0 12px 12px;
+    }
+    .session-memory-details summary,
+    .session-conversation-details summary {
+      cursor: pointer;
+      padding: 12px 0;
+      font-size: 13px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .session-conversation-details {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fafaf7;
+      padding: 0 12px 12px;
+    }
+    .session-memory-list {
+      display: grid;
+      gap: 10px;
+    }
+    .extracted-memory-card {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+      padding: 12px;
     }
     .pill {
       display: inline-block;
@@ -397,15 +427,111 @@
       <h2>Question Sessions</h2>
       <p class="small">Benchmark answer sessions are shown first. Then come other retrieved sessions. Background sessions stay collapsed below.</p>
       <div class="session-subhead">Answer Sessions</div>
-             <div class="session-list"><details class="session-card priority-session">
-    <summary>
+             <div class="session-list"><div class="session-card priority-session">
+    <div class="session-card-header">
       <div>
         <strong><code>answer_eecb10d9_1</code></strong>
         <span class="small">2023/03/11 (Sat) 12:42</span>
       </div>
       <div><span class="pill">ground truth</span> <span class="pill pill-answer">answer session</span> <span class="pill pill-retrieved">retrieved</span></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    <div class="session-memory-wrap"><details class="session-memory-details">
+    <summary>Extracted Memories (5)</summary>
+    <div class="session-memory-list"><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 1</strong>
+      <div>
+        
+        <span class="small">2023-03-11T20:42:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Planned a dinner party for the upcoming weekend, focusing on chicken breasts and vegetables. Decided to prepare Lemon Garlic Chicken Breast with Roasted Vegetables as the main dish. Also considered making roasted sweet potatoes and cauliflower gnocchi as side dishes.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Planning a dinner party this weekend.<br />Main dish chosen: Lemon Garlic Chicken Breast with Roasted Vegetables.<br />Considering roasted sweet potatoes as a side.<br />Considering cauliflower gnocchi as another side.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Dinner</td>
+      </tr></tbody></table>
+  </div><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 2</strong>
+      <div>
+        <span class="pill pill-retrieved">retrieved</span>
+        <span class="small">2023-03-11T20:42:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Started using a new grocery list app to organize ingredients for the dinner party. Found the app to be very helpful and a lifesaver for keeping track of necessary items. Attempted to convince a family member to use the app, but they prefer a paper list.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Using a new grocery list app.<br />The app is helpful for organizing ingredients.<br />The app is considered a &#39;lifesaver&#39;.<br />Tried to get a family member to use the app, but they prefer paper lists.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>App</td>
+      </tr></tbody></table>
+  </div><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 3</strong>
+      <div>
+        
+        <span class="small">2023-03-11T20:42:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Sought tips for achieving crispy outside and fluffy inside when roasting sweet potatoes. Learned about selecting high-starch potatoes, uniform cutting, thorough drying, using high-heat oil, liberal seasoning, proper roasting temperature, avoiding overcrowding, and shaking the baking sheet.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Desired crispy outside and fluffy inside for roasted sweet potatoes.<br />Tips include choosing high-starch potatoes (Russet or Idaho).<br />Cut sweet potatoes uniformly into wedges, cubes, or slices.<br />Pat sweet potatoes dry to remove excess moisture.<br />Use high-heat oil like avocado or grapeseed oil.<br />Season liberally with salt, pepper, garlic powder, paprika, or chili powder.<br />Roast at 425°F (220°C) for 20-25 minutes, or 400°F (200°C) for longer.<br />Avoid overcrowding the baking sheet.<br />Shake the baking sheet halfway through roasting for even browning.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Potatoes</td>
+      </tr></tbody></table>
+  </div><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 4</strong>
+      <div>
+        
+        <span class="small">2023-03-11T20:42:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Received a simple recipe for cauliflower gnocchi, which involves ricing and cooking cauliflower, then mixing it with flour, Parmesan, egg, salt, and pepper to form a dough. The dough is kneaded, shaped into gnocchi, and then boiled until it floats.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Recipe for cauliflower gnocchi received.<br />Steps include ricing cauliflower in a food processor.<br />Sauté cauliflower rice until soft and lightly browned.<br />Cool and squeeze out liquid from cauliflower.<br />Mix cauliflower with 1/4 cup all-purpose flour, 1/4 cup grated Parmesan cheese, 1 egg, 1/2 teaspoon salt, 1/4 teaspoon black pepper.<br />Knead dough for 5 minutes until smooth.<br />Divide dough into 4 pieces, roll into ropes, and cut into 1-inch pieces.<br />Boil gnocchi for 3-5 minutes until they float.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Gnocchi</td>
+      </tr></tbody></table>
+  </div><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 5</strong>
+      <div>
+        
+        <span class="small">2023-03-11T20:42:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Decided to make Brown Butter Sage Sauce to accompany the cauliflower gnocchi. The recipe involves melting butter, adding sage and minced garlic, then cooking until the butter turns golden brown and nutty. The sauce is seasoned with salt and pepper, and Parmesan cheese can be added.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Chosen sauce for cauliflower gnocchi: Brown Butter Sage Sauce.<br />Ingredients: 4 tablespoons unsalted butter, 2 tablespoons chopped fresh sage, 2 cloves minced garlic, salt, pepper, optional grated Parmesan cheese.<br />Melt butter over medium heat.<br />Add sage and garlic, cook for 1 minute.<br />Continue cooking butter until golden brown and nutty (5-7 minutes).<br />Season with salt and pepper, stir in Parmesan if desired.<br />Toss cooked gnocchi with the sauce.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Sauce</td>
+      </tr></tbody></table>
+  </div></div>
+  </details></div>
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m planning a dinner party this weekend and I need some recipe ideas. Can you suggest some dishes that use chicken breasts and veggies?</div>
       </div><div class="turn">
@@ -442,15 +568,76 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">The Brown Butter Sage Sauce is a fantastic choice! I&#39;m thrilled to have been able to help, and I&#39;m excited to hear how your cauliflower gnocchi turn out. Don&#39;t hesitate to reach out if you have any more questions or need further assistance.<br /><br />Remember to have fun and be patient with yourself as you try out this new recipe. It&#39;s all about experimentation and learning, and I&#39;m sure your dinner party will be a huge success!<br /><br />Please do keep me posted on how everything turns out, and if you have any other questions or need any more help in the future, don&#39;t hesitate to ask. I&#39;m always here to help.<br /><br />Good luck, and happy cooking!</div>
       </div></div>
-  </details><details class="session-card priority-session">
-    <summary>
+    </details>
+  </div><div class="session-card priority-session">
+    <div class="session-card-header">
       <div>
         <strong><code>answer_eecb10d9_2</code></strong>
         <span class="small">2023/04/30 (Sun) 20:09</span>
       </div>
       <div><span class="pill">ground truth</span> <span class="pill pill-answer">answer session</span> <span class="pill pill-retrieved">retrieved</span></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    <div class="session-memory-wrap"><details class="session-memory-details">
+    <summary>Extracted Memories (3)</summary>
+    <div class="session-memory-list"><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 1</strong>
+      <div>
+        
+        <span class="small">2023-05-01T03:09:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Considered trying new recipes with cauliflower gnocchi from Trader Joe&#39;s. Decided to try a brown butter sage sauce recipe for the gnocchi, finding the combination appealing.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Has cauliflower gnocchi from Trader Joe&#39;s.<br />Received several recipe ideas for the gnocchi.<br />Decided to try the brown butter sage sauce recipe.<br />The recipe involves cooking gnocchi, melting butter until golden brown and nutty, adding chopped fresh sage leaves until crispy, then tossing the gnocchi in the sauce.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Gnocchi</td>
+      </tr></tbody></table>
+  </div><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 2</strong>
+      <div>
+        
+        <span class="small">2023-05-01T03:09:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Planned to make chicken fajitas for dinner and gathered necessary ingredients. Realized some items were missing and added them to the grocery list. Received tips on how to prepare the meal and keep fresh herbs longer.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Planned to make chicken fajitas for dinner tonight.<br />Needed to add onions, bell peppers, and olive oil to the grocery list.<br />Received tips on how to keep fresh herbs like cilantro and parsley fresh for a longer period.<br />Tips included storing in a cool, dry place, wrapping in plastic or foil, using a herb keeper, keeping hydrated in water, freezing, and the &quot;stem-down&quot; method.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Fajitas</td>
+      </tr></tbody></table>
+  </div><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 3</strong>
+      <div>
+        <span class="pill pill-retrieved">retrieved</span>
+        <span class="small">2023-05-01T03:09:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Discovered that mom is using the same grocery list app, allowing for easy sharing and tracking of needed items. Appreciated the convenience and connection this technology provides.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Mom is using the same grocery list app.<br />This allows for easy sharing of lists and tracking of needed items.<br />Expressed appreciation for how technology can make lives easier and bring people closer.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Mom</td>
+      </tr></tbody></table>
+  </div></div>
+  </details></div>
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m planning to make some chicken fajitas for dinner tonight, do you have a simple recipe I can follow?</div>
       </div><div class="turn">
@@ -487,19 +674,23 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">The brown butter sage sauce is a game-changer! It&#39;s a classic Italian combination that pairs perfectly with the cauliflower gnocchi. The nutty, caramel flavor of the brown butter complements the earthy sweetness of the sage, and the crispy texture of the sage leaves adds a lovely contrast.<br /><br />Here&#39;s a simple recipe to get you started:<br /><br />**Brown Butter Sage Sauce for Cauliflower Gnocchi**<br /><br />Ingredients:<br /><br />* 1 package cauliflower gnocchi<br />* 4 tablespoons (1/2 stick) unsalted butter<br />* 2 tablespoons chopped fresh sage leaves<br />* Salt and pepper, to taste<br />* Grated Parmesan cheese, optional<br /><br />Instructions:<br /><br />1. Bring a large pot of salted water to a boil. Cook the cauliflower gnocchi according to package instructions until they float to the surface. Reserve 1 cup of pasta water before draining the gnocchi.<br />2. In a large skillet, melt the butter over medium heat. Continue cooking the butter, stirring occasionally, until it turns golden brown and smells nutty (about 5-7 minutes).<br />3. Add the chopped sage leaves to the brown butter and cook for 1-2 minutes, until crispy and fragrant. Season with salt and pepper to taste.<br />4. Add the cooked gnocchi to the skillet, tossing to coat with the brown butter sage sauce. If the sauce seems too thick, add a little of the reserved pasta water.<br />5. Serve immediately, topped with grated Parmesan cheese if desired.<br /><br />Tips:<br /><br />* Use high-quality, fresh sage leaves for the best flavor.<br />* Don&#39;t overcook the butter, as it can quickly go from golden brown to burnt.<br />* Add some garlic or shallots to the skillet with the butter for added depth of flavor.<br />* Experiment with different types of cheese, like ricotta or goat cheese, for a creamier sauce.<br /><br />I hope you enjoy this recipe! Let me know if you have any questions or if you&#39;d like any variations or substitutions.</div>
       </div></div>
-  </details></div>
+    </details>
+  </div></div>
              
              <details class="other-sessions">
                       <summary>Other Sessions (47)</summary>
-                      <div class="session-list"><details class="session-card secondary-session">
-    <summary>
+                      <div class="session-list"><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>70a19efa_2</code></strong>
         <span class="small">2023/02/21 (Tue) 02:22</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some hiking trail recommendations in California. I&#39;m planning a trip to visit my family for the holidays and I&#39;d love to explore some new trails while I&#39;m there. I&#39;ve already booked my flight, by the way.</div>
       </div><div class="turn">
@@ -536,30 +727,38 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Book Passage is a treasure trove of books, and you&#39;ll likely find plenty of titles about hiking and nature in the Bay Area.<br /><br />Book Passage has an extensive section dedicated to outdoor activities, nature, and local interest books. You can expect to find a wide range of titles, including:<br /><br />1. Hiking guides: Look for books like &quot;Bay Area Hiking&quot; by Ann Marie Brown, &quot;Hiking the San Francisco Bay Area&quot; by Linda Hamilton, or &quot;Trails of the Bay Area&quot; by David Weintraub. These guides will provide you with detailed trail descriptions, maps, and insider knowledge.<br />2. Nature and wildlife: Explore books about the Bay Area&#39;s unique ecosystems, such as &quot;The Natural History of the San Francisco Bay Region&quot; by Richard A. Walker, &quot;Bay Area Wildlife&quot; by Janet L. Wheeler, or &quot;Plants of the San Francisco Bay Region&quot; by Linda H. Beidleman.<br />3. Conservation and environmentalism: Discover books about the Bay Area&#39;s conservation efforts, like &quot;The Bay Area&#39;s Environmental History&quot; by Richard A. Walker, &quot;Saving the Bay&quot; by Jack Hart, or &quot;The Bay Institute&#39;s Bay Nature&quot; by various authors.<br />4. Local history and culture: Learn about the region&#39;s rich cultural heritage through books like &quot;Mill Valley: A History&quot; by Linda Hamann, &quot;The Tamalpais Trails: A History&quot; by Barry Spitz, or &quot;The Bay Area&#39;s Hidden History&quot; by various authors.<br /><br />When you visit Book Passage, be sure to ask the staff for recommendations. They&#39;re knowledgeable and passionate about books, and they can help you find the perfect titles to suit your interests.<br /><br />After browsing through the shelves, you might want to grab a coffee or snack at their in-store cafe, and then head back to your accommodations to plan your next adventure or simply enjoy your new book.<br /><br />Happy book hunting, and I hope you discover some fantastic titles to enhance your Bay Area hiking experience!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_vYQdLPe_2</code></strong>
         <span class="small">2023/03/12 (Sun) 06:57</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">write a blog post about 5 to 7 minutes read from this video transcript: &quot;this is the new Honda Civic and it&#39;s a little bit like ordering a katsu curry at Nobu it might not seem like the most inspired choice but actually it&#39;s full of flavor and in this video I&#39;m going to explain why by talking around the exterior the interior and take it for a drive and of course I&#39;m going to launch it to see how quick this car is from north 60 miles an hour because I&#39;m at Watson and you&#39;re watching car wow and if you haven&#39;t done so already make sure you subscribe to this Channel and hit the Bell icon that way you won&#39;t miss any of these reviews Buy sell car wow let&#39;s start this video by talking about the design because the previous generation honda civic was a little bit there&#39;s too many like fake Vents and stuff going on it was a little bit odd really this one is much better though I have noticed some fakery already that diffuser is not a diffuser it&#39;s fake and there&#39;s even fake exhausty bits here other than that though really like the rear end of it nice sweeping tailgate looks quite sporty really notice it around the side it&#39;s got a really good silhouette this car I like it a lot you don&#39;t get short changed if you go for like one of the Lesser trims they all look pretty much the same any real difference on the outside is the entry level model gets 17 inteller Wheels all of those get 18s but yeah good strong creases in the body panels also if it&#39;s get LED headlights as standard though said the most cars these days oh from the front I really like the look of the nose of this car yeah it&#39;s good looking they&#39;ve done a brilliant job what do you think do you agree with me let me know in the comments in terms of the price though it is quite expensive the Honda Civic range kicks off at just under look 30 000 pounds here it is on Caro though through Caro you can get a saving of about 600 pounds off one the savings do change so if you&#39;re thinking about buying a car head to Carlow out and see what offers are available on whatever car you&#39;re looking for if you wanna do that at a later date just simply Google help me Carl wow and we will help you choose your perfect car here on the inside the new Honda Civic has a nice neat and tidy design very simple Dash layout squidging materials on top which help make it feel and look premium also like what they&#39;ve done with the air vents they&#39;re like integrated into this mesh here and you control the direction with these knobby bits here I also like the fact they haven&#39;t been tempted to put the controls for the climate in the infotainment screen instead you have physical knobs everyone loves a physical knob especially when you have knobs which are slightly illuminated and provide information like they do on this one like oh lovely luck I can yeah anyway stop it always happens maybe one of the infotainment system itself nice big screen it&#39;s reasonably responsive colors are pretty clear and the graphics they&#39;re all right not the sharpest but not the Dulles it&#39;s definitely better than the system in the old Civic which was just a bit of a nightmare anyhow no that really matters because what you do is plug in your phone use Apple carplay Android auto aren&#39;t you moving on to the driver&#39;s display only the very top spec car gets a full digital system all the other models have Port digital part analog which just seems odd the driving position though is not odd it&#39;s very good I love Honda driving positions plenty of adjustment in the steering wheel and the seats this been the top spec car you get electrical operation speaking of which you also get part of the seats so I think this bit is leather and this bit is fake leather why don&#39;t they just do all leather toxic also gets a sunroof which does come on do it chose the wrong button I&#39;m not having a good day yeah it opens which is always good and it&#39;s a decent size sometimes when you have opening sun roofs they&#39;re just small this one&#39;s good storage yeah we&#39;ve got some space under here this surprise there&#39;s no USB port in here the USBs are here and they&#39;re old-fashioned USB a or whatever they&#39;re called no usbcs you do get a wireless charging port but once again only on the top spit model and for old-fashioned people there&#39;s a 12 volt socket there now let me do a center console wobble test solid up there but the lower part is moving however you&#39;re not really going to be doing that are you one way to test quality and a new test I&#39;m going to introduce is the stalk test so I will test things like the wipers and the indicators to just see how they feel because you touch those a lot and these have a nice solid damp to feel to them look springy yet damped at the last bit oh satisfying that&#39;s quality anyway cup holders let&#39;s do it it can just fit bigger bottles and the door bins are big enough as well they fit bigger bottles too so that&#39;s all good it&#39;s a well thought out cabin and here&#39;s an example of how well thought out is well look at this right so you&#39;ve got sun visor and it moves up there a bit older that but they don&#39;t all do that see they thought about this Honda have and they created a nice sensible easy car to live with here in the back knee room is good that seats in my driving position Headroom though if I sit up straight there with that much space people have a six foot will find it quite tight for Headroom now there is this lump in the floor which just eats into foot space if you can three in the backup once however this car is actually quite wide so even with adults in the back there&#39;s enough shoulder room the issue is for the people on the attitude seats they end up hitting their head on this slopey roof line which curves inwards it is easy when it comes to fitting a babysitting it&#39;s got those so there&#39;s plenty of space to get the child seat through the door and there&#39;s enough space back here to have a bulky rear facing seat as well without having to push the passenger chair forward at all I like that we&#39;ve also got two USB ports here once again show them not USBC big big big big door pockets and decent sized door bins there&#39;s also an armrest which folds down here with a couple of cup holders there they&#39;re quite shallow so unless you really read your bottle in it&#39;s going to drop out there is one thing that&#39;s missing though there is no through loading at all shame now let&#39;s check out the boot so the capacity is 410 liters which is bigger than the boot on a Kia seed a Toyota Corolla Ford Focus a Volkswagen Golf pretty much any car apart from the unfeasibly large booty of the square roctavia bit of an issue though there is a bit of a load lip to lift things over so if your suitcase is really heavy oh no you might end up doing that and scratching like the bumper and then getting really mad and then just hurling your heavy suitcase I don&#39;t know why that makes me so angry I&#39;m gonna need to go seek some help anyway underneath here there is a bit of storage it looks like it&#39;s been recessed for a spare wheel which you don&#39;t get at all in the United Kingdom odd there&#39;s some tie down points here up another one over there a couple there there you&#39;ve got your 12 volt socket there that&#39;s all good and then when you fall down the seats which is quite easy to do you don&#39;t have a completely flat floor oh now I&#39;ve got to get my suitcase back with me why do I do this I know I shouldn&#39;t do this I need to stop it oh look it&#39;s a bit harder to slide things in the front see just you know imagine that was quite heavy it&#39;s not perfect another thing that&#39;s a little bit not perfect is this if you get the range shopping model it comes with a Bose sound system which is brilliant the only thing is is that you have a subwoofer here in the boot it takes up five liters of space which isn&#39;t that much but it could be an important five liters if you want to carry some golf clubs by not having that extra recess bit here you might not be able to fit a full set with a driver across there like that that brings down to five nine things about the new Honda Civic the rear window is really big but the wiper for it is quite small looking you can see the area there that&#39;s all it can clean I&#39;ll show you again actually spray the spray yeah so that means all this will remain dirty and what you do clean ends up running all over the back of your car making that grimy running Android auto and Apple carplay only apple carplay is Wireless not Android why Honda only gives a three-year warranty with the Civic whereas it&#39;s key competitors from Asia such as Hyundai and Toyota give their cars five year in fact Kia give theirs seven years the glove box looks massive on the outside look at the cutout for it but check this out for some reason the door is padded so it&#39;s not quite as deep or as useful as you might think look it&#39;s way smaller than you imagine isn&#39;t it the gear selector is just over complicated so you&#39;ve got this for the reverse up for neutral up there for Park then drive down here and all the buttons are slightly different I can understand why they&#39;ve done it so they feel different however sometimes you&#39;re just putting your hands in the wrong place if you&#39;re not looking directly down at it be much easier like many manufacturers to just have a simple lever and then a button for bark don&#39;t worry there&#39;s still plenty to like about this car here&#39;s a car wait five core features there are four different regen modes when you lift off the accelerator for putting energy back into the battery so you can increase the rate at which the car slows down by pulling on the paddle one two three four times to get the maximum and to reduce it again you just use the plus pedal not all normal sensible family cars have a driving mode selector but this does look so you&#39;ve got economy you&#39;ve got normal and you&#39;ve got sport but this goes on better it has a customizable mode look at that you can actually mix and match the different settings just as you like it Honda has a cleverest Low cover look at this it&#39;s retractable and it&#39;s so easy to remove which means it&#39;s simple to store it&#39;s very light so you can throw it easily as well it even comes back to you wow got my fingers I thought it was clever so outsmarted me the location of the rear seat belt Runner means that they never get snagged on the seats when you fold them down look completely separate all Honda Civics come with auto cruise control as standard so the car keep your safe distance from the car in front and steer to keep you in Lane just takes the strain out of long distance driving there is only one engine option on the Honda Civic and it&#39;s a two liter hybrid though it&#39;s a little bit unusual how it works you see the engine doesn&#39;t normally Drive the front wheels instead it acts as a generator to produce electricity which goes into a little battery which is then used to power an electric motor which does the driving of the front wheels so effectively you&#39;re just driving around normally like an electric car with that producing the electricity and what that means is that the petrol engine can actually work at its most efficient level rather than you just coming on and off the throttle and revving up and down and not being at the best place for converting Perpetual fuel into Forward Motion however when you&#39;re at higher speeds that method isn&#39;t as efficient as it is around town and so what happens then is that you get a clutch engage between the engine and the front wheels and then the engine does actually then drive different wheels at a ratio of one to one because there is no gearbox so the speed at the engine is the speed of the wheels it&#39;s absolutely confusing it really is but to save you some confusion when it comes to choosing which trim level of Honda Civic you should get I&#39;m going to configure what I think is the best trim level and if you want to see what that is and the current saving through car wow on the Honda Civic click on the pop-up band up there or follow the link in the description below now let&#39;s see what this Honda Civic is like to drive I&#39;m going to start off in town first thing to note is that the visibility forwards is brilliant it&#39;s got a low Dash a nice big wide windscreen still also helps driving around town steering is reasonably light there&#39;s no gears to think of axis are automatic in fact I&#39;m just driving around on electric power alone right now the brakes are really smooth and Progressive you don&#39;t really notice that the first part of the braking is actually regen as the cars putting energy back into the battery the only time when you realize that it is an electric car with regen is if you&#39;re crawling along sometimes surprised they make these like groaning sound didn&#39;t do it then classic who knows I&#39;m going to show you see one thing I can&#39;t complain about is the suspension over bumps really does a good job of dealing with bumps potholes speed humps it&#39;s a very very nice car to drive right twisty Road time it&#39;s going to sports mode Sports there we are oh notice that the throttle seems to sharper now funny thing about this is even though it hasn&#39;t really got a gearbox you kind of think it has look it changes gear but it doesn&#39;t really it&#39;s lies it&#39;s Faking It it&#39;s weird and the noise it&#39;s digitized this noise just play for the speakers but it makes you think that you&#39;ve actually got an engine that&#39;s revving like a normal engine would when it&#39;s attached to a normal gearbox it&#39;s actually just faked I don&#39;t know how it fakes it because there is no gearbox it doesn&#39;t make sense see what doesn&#39;t make sense either how well this thing actually Corners it really is genuinely good fun on a twisty Road it just seems to deal with the bumps really well hooks up drives around and tells you exactly what it&#39;s doing through your bottom look just grips and it makes a decent noise even though it&#39;s fake and I know he&#39;s just lying to me I don&#39;t mind being lied to not on this occasion actually I&#39;m going to show you the whole acceleration thing again because it&#39;s just weird so I would take the car in front here we go revved out there so he&#39;s changed gear and again but it&#39;s not actually changing gear what absolute witchcraft it&#39;s bizarre but brilliant it&#39;s essentially being driven by its electric motor the whole time yet it gives you the Sensation that it&#39;s being driven by an internal combustion engine directly through a gearbox of the wheels but it&#39;s not I&#39;m gonna do it again cruising at 50 overtaking looks like it&#39;s dropped again now it&#39;s changed up and it&#39;s quite a decent noise I can&#39;t get over and I&#39;ll keep going on about it I just can&#39;t get over it it feels totally natural I I&#39;m dumbfounded anyway the economy this thing is averaging over 50 miles per the gallon so that system of having a petrol engine to drive a motor which works as a generator to produce electricity to drive another electric motor is actually quite efficient even though it&#39;s just hard to comprehend well I think I should point out though is that when you do floor this car and you really need constant acceleration it does connect the engine to the wheels via our clutch system but there is no gearbox as such so it&#39;s still weird I need to shut up now let&#39;s get over it man go over it it drives nice this Honda espresso note 60 in 8.1 seconds but we&#39;ll find out why specialist timing gear says now in sports mode Let&#39;s Do It foreign seconds the pickup because it&#39;s just driven by an electric motor really just nuts well I totally don&#39;t believe that I&#39;ll have to do it again maybe my specialist timing gear was playing I&#39;m going to reset it that&#39;s another go can&#39;t be right [Music] sounds quick 6.93 that time I can&#39;t believe he&#39;s doing sub seven seconds who are you [Music] so then what&#39;s my final verdict on the new Honda Civic should you avoid it should you consider it actually shortlist it or should you just go right ahead and buy it I think you should shortlist it it really is a great all-round family hatchback I hope you&#39;ll enjoyed the video if you did give it a like let me know what you think of my verdict in the comments below if you want to watch some more videos just click on those windows there thanks for watching&quot;</div>
       </div><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">The new Honda Civic is a well-designed car with a number of features that make it a great choice for those in the market for a compact vehicle. The exterior of the car has strong creases in the body panels and LED headlights that come standard, while the rear end has a sweeping tailgate that gives it a sporty look. The car is available in different trim levels, with the entry-level model getting 17-inch wheels, and all other models getting 18-inch wheels.<br /><br />The interior of the Civic is simple and tidy, with a clean dashboard layout and premium-feeling materials. The air vents are integrated into a mesh, and the controls for the climate are physical knobs, which many people prefer. The infotainment system has a big screen that is reasonably responsive, and the driving position is very good, with plenty of adjustment in the steering wheel and the seats.<br /><br />One drawback of the Civic is that the base model doesn&#39;t come with a full digital driver&#39;s display, and the top-spec model is the only one that has a wireless charging port. The car has a well-thought-out cabin, with plenty of storage and space for larger bottles. The back seat has good knee room, but headroom may be tight for taller people.<br /><br />In terms of performance, the Civic has a quick acceleration from 0-60 miles per hour, and it handles well on the road. Whether you&#39;re looking for a practical car to live with, or a car that has plenty of flavor, the new Honda Civic is a good choice.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_LOF3smB_25</code></strong>
         <span class="small">2023/03/14 (Tue) 09:18</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">There are several ways to find Poisson&#39;s ratio of a material, depending on the available testing methods and equipment. Here are three common methods:<br /><br />1. Tensile testing: One common method to find Poisson&#39;s ratio is to perform a tensile test on a specimen of the material. The specimen is typically pulled in one direction while its deformation in the perpendicular direction is measured using strain gauges or extensometers. The longitudinal strain (ε\_l) and lateral strain (ε\_t) are then calculated, and Poisson&#39;s ratio is calculated using the formula:<br /><br />ν = -ε\_t / ε\_l<br /><br />2. Flexural testing: Another method to find Poisson&#39;s ratio is to perform a flexural test on a specimen. In this test, a beam-shaped specimen is loaded in the middle and its deflection is measured at two points along the length of the beam. The lateral and longitudinal strains can be calculated from the deflection measurements, and Poisson&#39;s ratio can be calculated as before.<br />3. Ultrasonic testing: Poisson&#39;s ratio can also be found using ultrasonic testing methods. In this method, ultrasonic waves are transmitted through the material and their velocity is measured. The longitudinal and transverse wave velocities are then used to calculate Poisson&#39;s ratio.<br /><br />Note that the values of Poisson&#39;s ratio obtained from these different methods may not be exactly the same, since they may be affected by factors such as the geometry of the specimen, the test conditions, and the accuracy of the measuring equipment.</div>
       </div><div class="turn">
@@ -593,15 +792,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">You&#39;re welcome! If you have any more questions or if there&#39;s anything else I can assist you with, just let me know.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_386918</code></strong>
         <span class="small">2023/03/18 (Sat) 10:52</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What are the effects of consuming kale on calcium absorption?</div>
       </div><div class="turn">
@@ -632,15 +835,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I do not eat food, but some popular seasonings for kale chips are:<br /><br />- garlic powder<br />- onion powder<br />- paprika<br />- cayenne pepper<br />- cumin<br />- black pepper<br />- lemon pepper<br />- parmesan cheese (for a cheesy flavor)<br /><br />you can also experiment with different herbs and spices to find your favorite combination.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>695bc054_1</code></strong>
         <span class="small">2023/03/20 (Mon) 08:57</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m planning a trip to Chicago soon and I was wondering if you could recommend some good restaurants near the Hyatt Regency in downtown Chicago? I&#39;ve stayed there before for a business conference and loved the area.</div>
       </div><div class="turn">
@@ -677,15 +884,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">The Art Institute of Chicago offers various guided tours and audio guides to enhance your visit and provide deeper insights into the museum&#39;s collections and exhibitions.<br /><br />**Guided Tours:**<br /><br />1. **Free Guided Tours:** The museum offers free, 45-minute guided tours daily, led by knowledgeable docents. These tours cover various topics, such as highlights of the collection, specific exhibitions, or thematic tours. Check the museum&#39;s website for the schedule and topics.<br />2. **Private Tours:** You can also book private tours for a fee, which can be customized to your interests and schedule. These tours are led by experienced docents or curators.<br /><br />**Audio Guides:**<br /><br />1. **Mobile App:** The Art Institute of Chicago has a free mobile app (available for iOS and Android) that offers audio commentary, interactive maps, and additional content for many works of art. You can download the app before your visit or use the museum&#39;s free Wi-Fi to access it on-site.<br />2. **Audio Guides:** The museum also offers traditional audio guides for rent ($7) or purchase ($20). These guides provide in-depth commentary on over 1,000 works of art.<br /><br />**Other Resources:**<br /><br />1. **Gallery Guides:** The museum provides free gallery guides, which are brief, written introductions to the art and artists on display in each gallery. You can pick up these guides at the museum&#39;s information desks or download them from the website.<br />2. **Interactive Displays:** Throughout the museum, you&#39;ll find interactive displays, videos, and touchscreens that offer additional information and insights into the art and exhibitions.<br /><br />To get the most out of your visit, I recommend:<br /><br />1. **Plan ahead:** Check the museum&#39;s website and mobile app to familiarize yourself with the collections, exhibitions, and guided tours.<br />2. **Download the app:** Take advantage of the free mobile app to access audio commentary, interactive maps, and additional content.<br />3. **Take a guided tour:** Join a free guided tour or consider booking a private tour to gain deeper insights into the art and exhibitions.<br />4. **Use the gallery guides:** Pick up or download the gallery guides to supplement your visit and provide additional context.<br /><br />By taking advantage of these resources, you&#39;ll be able to navigate the museum with confidence, appreciate the art and exhibitions more fully, and create a memorable experience at the Art Institute of Chicago!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_mz7Bb7a_0</code></strong>
         <span class="small">2023/03/20 (Mon) 09:59</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">whats the IP to ping to check nVidia Geforce now service latency?</div>
       </div><div class="turn">
@@ -704,15 +915,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">If you&#39;re receiving an &quot;Unknown host&quot; error message when trying to ping `latencytest.dub1.nvidia.com`, it&#39;s possible that there is an issue with your DNS resolution or your network connection.<br /><br />You can try the following troubleshooting steps:<br /><br />1. Check your internet connection: Ensure that your device is connected to the internet and that your connection is stable.<br />2. Check your DNS settings: Make sure that your DNS settings are configured correctly. You can try changing your DNS settings to use a public DNS service like Google DNS (8.8.8.8 and 8.8.4.4) or Cloudflare DNS (1.1.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>59a6150d_1</code></strong>
         <span class="small">2023/03/21 (Tue) 18:24</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m planning a birding trip to Costa Rica and I&#39;m looking for some recommendations on the best spots to see Quetzals. I&#39;ve heard they can be pretty elusive, so any tips on how to increase my chances of spotting one would be great. By the way, I&#39;ve been doing some practice with my portable hide back home and it&#39;s been a game-changer - I was able to stay in it for over three hours without getting restless, which is perfect for waiting out those shy birds!</div>
       </div><div class="turn">
@@ -749,15 +964,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">What a great question! Having the right tools and resources can make a huge difference in your birding experience. I&#39;d be happy to recommend some birding apps and field guides that can help you identify birds, learn about their behavior and habitats, and even recognize their calls and songs.<br /><br />**Birding Apps:**<br /><br />1. **Merlin Bird ID** (iOS and Android): This app is a game-changer for bird identification. It uses AI to help you identify birds based on your location, time of year, and bird characteristics. It also has a vast library of bird calls and songs.<br />2. **iBird Pro** (iOS and Android): This app offers a comprehensive guide to birds, with detailed descriptions, range maps, and photos. It also includes bird calls and songs, as well as a birding journal to track your sightings.<br />3. **Audubon Birds of a Feather** (iOS and Android): This app is a great resource for learning about bird behavior, habitats, and identification. It also includes bird calls and songs, as well as a birding journal and range maps.<br />4. **eBird Mobile** (iOS and Android): This app is a must-have for any serious birder. It allows you to track your sightings, contribute to citizen science, and access a vast database of bird distribution and abundance data.<br /><br />**Field Guides:**<br /><br />1. **The Sibley Guide to Birds** by David Allen Sibley: This is a comprehensive field guide that covers over 900 species of birds in North and Central America. It&#39;s a bit heavy, but it&#39;s a valuable resource for any birder.<br />2. **National Audubon Society Field Guide to Birds** by John James Audubon: This field guide covers over 800 species of birds in North America, with detailed descriptions, range maps, and photos.<br />3. **Birds of Costa Rica** by Richard Garrigues and Robert Dean: This field guide is specifically focused on the birds of Costa Rica, with detailed descriptions, range maps, and photos.<br /><br />**Other Resources:**<br /><br />1. **Xeno-canto**: This is an online database of bird sounds and calls from around the world. It&#39;s a great resource for learning bird calls and songs.<br />2. **BirdNote**: This is a daily radio show and podcast that explores the fascinating world of birds. It&#39;s a great way to learn about bird behavior, habitats, and conservation.<br /><br />I hope these recommendations are helpful! Have a fantastic birding trip to Costa Rica, and don&#39;t hesitate to reach out if you have any more questions.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>a50b0d73_1</code></strong>
         <span class="small">2023/03/22 (Wed) 04:18</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m feeling a bit down about my social life lately. My best friend just moved to a new city for a job opportunity about 6 weeks ago, and I&#39;ve been feeling a void since then. Can you suggest some ways to meet new people in my area?</div>
       </div><div class="turn">
@@ -794,15 +1013,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Attend a fiction-focused writing group, and you&#39;ll likely get valuable feedback and insights from fellow fiction writers. And, by attending general writing groups and events, you&#39;ll broaden your network and gain a more comprehensive understanding of the writing community.<br /><br />Now, let&#39;s get you prepared for your first writing group meeting!<br /><br />**Before the meeting:**<br /><br />1. **Research the group**: Learn as much as you can about the group, their format, and their expectations. Review their website, social media, or contact the organizer to get a sense of what to expect.<br />2. **Prepare your work**: Choose a piece of your writing that you&#39;re comfortable sharing and receiving feedback on. Make sure it&#39;s polished and edited to the best of your ability.<br />3. **Format your work**: Follow the group&#39;s submission guidelines for formatting, length, and content. If they don&#39;t have specific guidelines, consider using a standard font, double-spacing, and including a header with your name, title, and page numbers.<br />4. **Bring multiple copies**: Bring enough copies of your work for each member to review, or be prepared to share your work digitally.<br />5. **Be open-minded**: Go in with an open mind, ready to receive feedback and constructive criticism. Remember, this is an opportunity to learn and grow as a writer.<br /><br />**During the meeting:**<br /><br />1. **Introduce yourself**: Take a few minutes to introduce yourself, share your writing background, and explain what you hope to gain from the group.<br />2. **Listen actively**: Pay attention to the feedback and discussions around your work. Take notes, ask questions, and engage with the group.<br />3. **Be respectful**: Remember that everyone&#39;s feedback is subjective, and it&#39;s okay to disagree. Be respectful of others&#39; opinions and maintain a professional demeanor.<br />4. **Participate in discussions**: Engage in discussions about others&#39; work, offering constructive feedback and insights. This will help you build relationships with the group members and learn from their experiences.<br /><br />**After the meeting:**<br /><br />1. **Review feedback**: Take time to review the feedback you received, and consider how you can apply it to your writing.<br />2. **Follow up**: If you have questions or need clarification on feedback, don&#39;t hesitate to reach out to the group members or organizer.<br />3. **Be consistent**: Attend meetings regularly, and be prepared to share your work and provide feedback to others.<br /><br />By following these tips, you&#39;ll be well-prepared for your first writing group meeting and set yourself up for a positive, productive experience.<br /><br />Remember, a writing group is a collaborative environment where you can learn, grow, and improve your craft. Be open, respectful, and receptive, and you&#39;ll get the most out of this experience. Good luck, and I hope you have a fantastic first meeting!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_zxm712D_0</code></strong>
         <span class="small">2023/03/22 (Wed) 18:32</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">How do I get good relative pitch like TheDooo?</div>
       </div><div class="turn">
@@ -833,15 +1056,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I apologize for the confusion. Here is an ordered list of lead guitar solos that you can learn to build up your technique and work towards playing the solo to &quot;Tornado of Souls&quot;:<br /><br />1. &quot;Sunshine of Your Love&quot; by Cream - This song features a simple yet iconic guitar solo that will help you develop your bending and vibrato technique.<br />2. &quot;Stairway to Heaven&quot; by Led Zeppelin - This song features a beautiful and melodic guitar solo that will help you develop your phrasing and dynamics.<br />3. &quot;Comfortably Numb&quot; by Pink Floyd - This song features two guitar solos, both of which are considered classics in rock music. Learning these solos will help you develop your bending, vibrato, and sustain techniques.<br />4. &quot;Cemetery Gates&quot; by Pantera - This song features a soaring guitar solo that will help you develop your sweeping, tapping, and legato techniques.<br />5. &quot;Cliffs of Dover&quot; by Eric Johnson - This instrumental piece features a technically challenging guitar solo that will help you develop your alternate picking, legato, and arpeggio techniques.<br />6. &quot;Satch Boogie&quot; by Joe Satriani - This song features a fast and intricate guitar solo that will help you develop your alternate picking, sweep picking, and legato techniques.<br />7. &quot;For the Love of God&quot; by Steve Vai - This song features a breathtakingly beautiful and technically demanding guitar solo that will help you develop your bending, vibrato, and legato techniques.<br />8. &quot;Eruption&quot; by Van Halen - This instrumental piece features a lightning-fast guitar solo that will help you develop your tapping, legato, and tremolo bar techniques.<br />9. &quot;Technical Difficulties&quot; by Racer X - This song features a challenging guitar solo that will help you develop your sweep picking, alternate picking, and legato techniques.<br />10. &quot;Tornado of Souls&quot; by Megadeth - This song features one of the most challenging guitar solos in metal, and working up to it will require mastery of many advanced techniques. Start with learning the rhythm parts and gradually work up to the solo, focusing on building up your speed, accuracy, and overall technique.<br /><br />Remember to take your time and practice each solo at a comfortable tempo before increasing the speed. It&#39;s also important to practice with good technique and focus on playing cleanly and accurately. With consistent practice and dedication, you can work up to playing the solo to &quot;Tornado of Souls&quot; and beyond.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>89f71a1b</code></strong>
         <span class="small">2023/03/25 (Sat) 19:57</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m planning a trip to Miami and looking for a luxury hotel with a great view of the beach. Can you recommend some options?</div>
       </div><div class="turn">
@@ -878,15 +1105,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Hakkasan is an excellent choice for dinner! As a modern Chinese restaurant, Hakkasan offers a diverse menu that blends traditional Cantonese cuisine with innovative flavors and techniques. Here&#39;s a taste of what you can expect:<br /><br />**Menu Highlights:**<br /><br />1. **Signature Dishes:**<br />	* Roasted silver cod with champagne and honey: A classic Hakkasan dish, featuring tender cod roasted to perfection and served with a sweet and savory sauce.<br />	* Grilled Wagyu ribeye with Szechuan pepper and cognac: A luxurious take on a classic steak, with a rich and flavorful sauce.<br />	* Steamed dim sum platter: A selection of delicate, handcrafted dim sum pieces filled with seafood, meat, or vegetables.<br />2. **Small Eats:**<br />	* Cantonese-style roast goose: Crispy-skinned goose served with a sweet and savory plum sauce.<br />	* Grilled pork belly with pickled carrots and daikon: A rich and savory dish with a nice balance of sweet and sour flavors.<br />	* Edamame and mushroom dumplings: Steamed dumplings filled with edamame and mushrooms, served with a side of soy sauce and chili oil.<br />3. **Soups and Salads:**<br />	* Wonton noodle soup: A classic Cantonese soup featuring thin noodles and delicate wontons filled with shrimp or pork.<br />	* Spicy Szechuan hot and sour soup: A bold and spicy soup made with a variety of mushrooms, tofu, and Szechuan peppercorns.<br />	* Crispy duck salad: A refreshing salad featuring crispy duck, mixed greens, and a tangy plum vinaigrette.<br />4. **Main Courses:**<br />	* Stir-fried noodles with seafood and vegetables: A flavorful and filling dish featuring a variety of seafood, vegetables, and noodles.<br />	* Kung Po chicken with peanuts and chili peppers: A spicy Szechuan-style dish made with crispy chicken, peanuts, and chili peppers.<br />	* Pan-seared scallops with XO sauce and microgreens: A decadent and flavorful dish featuring seared scallops, rich XO sauce, and peppery microgreens.<br /><br />**Dietary Restrictions:**<br /><br />Hakkasan is happy to accommodate dietary restrictions and preferences. They offer a separate gluten-free menu, and their chefs can modify dishes to suit vegan, vegetarian, or other dietary needs.<br /><br />**Beverages:**<br /><br />Hakkasan&#39;s beverage menu features an extensive selection of cocktails, wine, and sake. Be sure to try their signature cocktails, such as the Hakkasan Mule or the Lychee Martini.<br /><br />**Reservations:**<br /><br />As I mentioned earlier, reservations are highly recommended for Hakkasan, especially on weekends or during peak season. You can book a table through the Fontainebleau&#39;s website or by calling the restaurant directly.<br /><br />I hope this gives you a good idea of what to expect from Hakkasan&#39;s menu! Enjoy your dinner.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_257254</code></strong>
         <span class="small">2023/03/27 (Mon) 04:37</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">How has The Grace&#39;s stage performance evolved over the years?</div>
       </div><div class="turn">
@@ -929,15 +1160,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I hope you find the information you&#39;re looking for and continue to enjoy The Grace&#39;s music and performances.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>f86a2788</code></strong>
         <span class="small">2023/03/30 (Thu) 23:19</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some new yoga styles to try. Can you recommend any that focus on core strength and stability?</div>
       </div><div class="turn">
@@ -974,15 +1209,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">You&#39;re welcome! It&#39;s always a good idea to check with the studio beforehand to know what to expect. And don&#39;t hesitate to ask the teacher or assistant for help during the class if you need any guidance with props or modifications.<br /><br />Remember to also listen to your body and honor its limitations. Ashtanga can be a challenging practice, especially for beginners, so don&#39;t push yourself too hard. Take breaks when needed, and focus on breathing and alignment.<br /><br />Most importantly, have fun and enjoy the experience! Ashtanga is a journey, and it&#39;s okay to take it one step at a time.<br /><br />If you have any more questions or need further guidance, feel free to ask. Good luck with your first class, and I hope you have a great time exploring Ashtanga!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_552063</code></strong>
         <span class="small">2023/03/31 (Fri) 13:47</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">How have music streaming services changed the way musicians make money from their music?</div>
       </div><div class="turn">
@@ -1025,15 +1264,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I can suggest several songs from various genres that you might include in your workout playlist:<br /><br />1. &quot;Can&#39;t Hold Us&quot; by Macklemore &amp; Ryan Lewis ft. Ray Dalton (Hip-Hop/Rap).<br />2. &quot;I Gotta Feeling&quot; by Black Eyed Peas (Pop).<br />3. &quot;Eye of the Tiger&quot; by Survivor (Rock).<br />4. &quot;Levels&quot; by Avicii (Electronic/Dance).<br />5. &quot;Lose Control&quot; by Missy Elliott ft. Ciara &amp; Fatman Scoop (Hip-Hop/Rap).<br />6. &quot;Starboy&quot; by The Weeknd ft. Daft Punk (Pop/R&amp;B).<br />7. &quot;Titanium&quot; by David Guetta ft. Sia (Electronic/Dance).<br />8. &quot;Dangerous Woman&quot; by Ariana Grande (Pop).<br />9. &quot;Jump&quot; by Van Halen (Rock).<br />10. &quot;Uptown Funk&quot; by Mark Ronson ft. Bruno Mars (Pop/R&amp;B).<br /><br />These songs are all upbeat and high-energy, which should help to keep you motivated during your workout.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_eIgPNa5_0</code></strong>
         <span class="small">2023/04/01 (Sat) 21:20</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">You are a therapist with many years of counselling survivors of childhood emotional trauma. Your specialty is working with clients who grew up in families dominated by emotionally immature parents. List a maladaptive belief that is irrational, negative and harmful relating to the subject of loving oneself. For that belief, provide an example of a 64-year-old male raised by a narcissistic mother who subscribed to the classical conditioning of good versus bad childhood behaviour. Limit maladaptive beliefs to the category of belief about self. Provide journal prompts that evaluate the validity of the belief, and write a 250-word journal entry to answer the prompt. Provide an alternative adaptive belief and list the benefits of adopting a more constructive, positive and rational belief that fosters a greater appreciation for and love of oneself. For each belief, self-protective behaviours that are unhelpful and adaptive behaviours that will help realize the benefits of the adaptive belief are included. Finish the answer with a declarative statement affirming the truth of the new belief and behaviour. Then summarize the answer in a prayer that follows this format. &quot;Father. I repent of the belief that [insert the maladaptive belief]. Thank you for helping me reflect on [insert journal entry], and so I now choose to stop protecting myself by [insert the self-protection behaviour]. I receive a new belief [insert adaptive belief] and a new practice [insert adaptive behaviour] that will help me realize [insert benefits] and affirms my new identity as [insert declarative statement].</div>
       </div><div class="turn">
@@ -1046,15 +1289,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">well-being.<br /><br />Unhelpful Self-Protective Behavior: Avoiding close relationships out of fear of rejection or not being good enough.<br /><br />Adaptive Behavior: Actively seeking and cultivating deep, meaningful relationships while recognizing and asserting personal boundaries.<br /><br />Declarative Statement: I am deserving of love and capable of giving love, regardless of my past experiences with my narcissistic mother.<br /><br />Prayer:<br />&quot;Father, I repent of the belief that I am unlovable and unworthy of love because I was never good enough for my mother. Thank you for helping me reflect on my relationships and experiences that contradict this belief. I now choose to stop protecting myself by avoiding close relationships out of fear. I receive a new belief that I am deserving of love and capable of giving love, regardless of my mother&#39;s expectations. I will practice actively seeking and cultivating deep, meaningful relationships while recognizing and asserting personal boundaries. This new belief and practice will help me realize increased self-esteem, healthier relationships, greater self-compassion, and improved overall well-being, affirming my new identity as a person deserving of love and capable of giving love. Amen.&quot;</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_EeXTDjc_15</code></strong>
         <span class="small">2023/04/02 (Sun) 19:00</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">No, Lake Moraine is definitely worth visiting! It is a stunning glacial lake located in Banff National Park and is known for its turquoise water and beautiful surroundings. In fact, it is often considered one of the most beautiful lakes in the Canadian Rockies.<br /><br />Lake Moraine is situated in the Valley of the Ten Peaks, surrounded by towering mountains that reflect beautifully in the water. There are several hiking trails around the lake, ranging from easy walks to more challenging hikes that offer breathtaking views of the lake and surrounding area. You can also rent a canoe or kayak and explore the lake from the water.<br /><br />The only downside to visiting Lake Moraine is that it can get quite crowded during peak tourist season, especially in the summer months. But if you visit early in the morning or later in the evening, you can avoid some of the crowds and enjoy a more peaceful experience.<br /><br />Overall, if you have the time to visit Lake Moraine during your trip to Banff National Park, it is definitely worth it. The beauty and serenity of the lake are not to be missed!</div>
       </div><div class="turn">
@@ -1082,15 +1329,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Certainly! Here are the restaurant suggestions with good vegetarian options for each day of the updated itinerary:<br /><br />Day 1: For dinner in Banff, try The Nourish Bistro, which offers a variety of vegetarian and vegan options. Their menu includes dishes like vegan burgers, salads, and bowls, as well as gluten-free and raw options.<br /><br />Day 2: For dinner, check out The Bison Restaurant &amp; Terrace in Banff. They have a variety of vegetarian options, including a roasted vegetable gnocchi and a vegetarian sandwich with roasted vegetables and goat cheese. They also have a great outdoor patio with views of the mountains.<br /><br />Day 3: For dinner, head to the Indian Curry House in Banff, which offers a variety of vegetarian Indian dishes. Their menu includes vegetarian curries, biryanis, and samosas, as well as gluten-free and vegan options.<br /><br />Day 4: For dinner, check out The Iron Goat Pub &amp; Grill in Canmore, which offers a variety of vegetarian options. Their menu includes dishes like a roasted vegetable flatbread, vegetarian chili, and a quinoa salad.<br /><br />Day 5: For dinner, try The Emerald Lake Lodge in Yoho National Park. They have a variety of vegetarian options, including a vegetable risotto and a quinoa and vegetable stir-fry. They also have a beautiful lakeside setting and outdoor patio.<br /><br />These are just a few suggestions, but there are many other vegetarian-friendly restaurants in the area to choose from. Be sure to check menus and make reservations in advance as some restaurants may have limited seating or require reservations.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>e5b72a5d_3</code></strong>
         <span class="small">2023/04/02 (Sun) 00:37</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m planning to host a summer BBQ next weekend and need some help with preparing for it. Can you give me some recipe ideas for summer dishes that can be made in a slow cooker?</div>
       </div><div class="turn">
@@ -1127,15 +1378,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">What a great idea! Watermelon agua fresca is a perfect summer refresher that pairs perfectly with lemonade! I&#39;ve got some tips to help you make it sweet and refreshing:<br /><br />**Tips for Sweet and Refreshing Watermelon Agua Fresca:**<br /><br />1. **Choose ripe watermelon:** Select a ripe, sweet watermelon for the best flavor. A ripe watermelon will be heavy for its size, have a yellow spot on the underside, and a sweet, fruity aroma.<br />2. **Use the right ratio:** Use a 3:1 or 4:1 ratio of watermelon to water. This will ensure the agua fresca is refreshing and not too thick.<br />3. **Add a touch of sweetness:** Use a small amount of sugar or honey to balance out the flavor. You can adjust the sweetness to taste.<br />4. **Mint to be:** Add a few sprigs of fresh mint leaves to the pitcher for a refreshing twist. Mint pairs perfectly with watermelon and adds a cooling touch.<br />5. **Chill it down:** Chill the agua fresca in the refrigerator for at least 30 minutes to allow the flavors to meld together and the watermelon to infuse.<br />6. **Strain it:** Strain the agua fresca before serving to remove any pulp or excess watermelon bits. This will give it a smooth, refreshing texture.<br />7. **Serve over ice:** Serve the agua fresca over ice in tall glasses to keep it cold and refreshing.<br /><br />**Simple Watermelon Agua Fresca Recipe:**<br /><br />Ingredients:<br /><br />* 3 cups cubed seedless watermelon (about 1 small to medium-sized watermelon)<br />* 1 cup water<br />* 1-2 tablespoons sugar or honey (optional)<br />* Fresh mint leaves for garnish (optional)<br /><br />Instructions:<br /><br />1. In a blender or food processor, puree the watermelon cubes until smooth.<br />2. Strain the puree through a fine-mesh sieve into a large pitcher.<br />3. Add the water and sugar or honey (if using). Stir until the sugar is dissolved.<br />4. Chill the agua fresca in the refrigerator for at least 30 minutes.<br />5. Serve over ice in tall glasses and garnish with fresh mint leaves, if desired.<br /><br />That&#39;s it! With these tips and a simple recipe, you&#39;ll be serving up a sweet and refreshing watermelon agua fresca that&#39;s perfect for your summer BBQ.<br /><br />Now, you&#39;ve got a delicious duo of drinks to impress your guests: homemade lemonade and watermelon agua fresca!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>4e70b8fd</code></strong>
         <span class="small">2023/04/04 (Tue) 16:36</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m trying to reduce my daily commute expenses. Can you help me find some good coffee makers that are under $50?</div>
       </div><div class="turn">
@@ -1172,15 +1427,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">You&#39;re welcome! I&#39;m glad I could assist you in exploring your options for a coffee maker and monthly train pass. It&#39;s great that you&#39;re taking steps to reduce your daily commute expenses and upgrade your coffee game.<br /><br />Remember to check the transit agency&#39;s website for any promotions or discounts that might be available for monthly passes. And don&#39;t hesitate to reach out if you have any more questions or need further guidance.<br /><br />Good luck with your purchases, and I hope you enjoy your new coffee maker and the convenience of a monthly train pass!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_213455</code></strong>
         <span class="small">2023/04/06 (Thu) 13:10</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">In light of recent worrisome developments, what steps has the international community taken to influence Republika Srpska&#39;s foreign policy?</div>
       </div><div class="turn">
@@ -1223,15 +1482,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">As an AI language model, I completely agree with you. The pursuit of peace is a difficult and sometimes frustrating task, but it is always worth the effort. We must never give up on our collective goal to create a world where everyone can live in peace and mutual respect. Perseverance, cooperation, and empathy are essential qualities that can help us create more harmonious and tolerant communities, nations, and international relations. Every small step taken towards peacebuilding can make a difference, and it is important that we stay committed to creating a more peaceful and just world for everyone.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ddf0f116_3</code></strong>
         <span class="small">2023/04/06 (Thu) 04:14</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m trying to log in to my frequent flyer account to check if my miles have been credited, but I&#39;m having some trouble. Can you walk me through the process? By the way, I flew from Dallas to Chicago on January 20th and had to deal with a delay due to bad weather, but at least I got to spend some time at the Admirals Club lounge.</div>
       </div><div class="turn">
@@ -1268,15 +1531,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">A flight from Chicago to Los Angeles sounds like a great trip!<br /><br />United Airlines does offer a variety of in-flight meal options, but the availability and selection may vary depending on the flight duration, route, and cabin class. However, I can give you an overview of what you might expect:<br /><br />* **Economy Class**: On most domestic flights, United offers a buy-on-board program, which means you can purchase snacks and meals onboard. The options usually include sandwiches, salads, wraps, and snacks like nuts or pretzels. You might find some more interesting options like a breakfast burrito or a chicken Caesar salad, but the selection is generally limited.<br />* **Premium Cabins**: If you&#39;re flying in Premium Economy, Business, or First Class, you&#39;ll have more meal options. United offers a multi-course meal service, which might include dishes like grilled chicken, seafood, or vegetarian options. They also offer a &quot;Choice Menu&quot; on some flights, which allows you to pre-order a meal from a selection of options.<br /><br />While United&#39;s in-flight meal options might not be extremely exciting, they do offer some more interesting choices on certain routes or in premium cabins. If you&#39;re looking for something more exciting, you might consider:<br /><br />* **Pre-ordering a meal**: If you&#39;re flying in a premium cabin, you can pre-order a meal up to 24 hours before your flight. This might give you more options and ensure that you get the meal you want.<br />* **Bringing your own food**: If you have specific dietary needs or preferences, you might consider bringing your own food onboard. Just be sure to follow TSA guidelines and check with United&#39;s policies on outside food and drinks.<br /><br />Keep in mind that in-flight meal options are subject to change, so it&#39;s always a good idea to check with United Airlines or their website for the most up-to-date information on meal options for your specific flight.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>cf8e2761</code></strong>
         <span class="small">2023/04/06 (Thu) 21:19</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m trying to organize my grandmother&#39;s old sewing kit and was wondering if you could give me some tips on how to store and preserve the fabrics and patterns I found.</div>
       </div><div class="turn">
@@ -1313,15 +1580,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Listing your yarns on a local online selling group and a popular crafting forum can be a great way to reach potential buyers. Writing an effective title and description is crucial to grab the attention of potential buyers and encourage them to purchase your yarns. Here are some tips to help you craft a compelling title and description:<br /><br />**Title:**<br /><br />1. **Be specific**: Include the type of yarn, fiber content, weight, and color in your title.<br />2. **Use keywords**: Use relevant keywords that buyers might use when searching for yarns, such as &quot;worsted weight yarn&quot; or &quot;merino wool yarn&quot;.<br />3. **Keep it concise**: Keep your title short and to the point, ideally under 5-7 words.<br /><br />Example: &quot;Worsted Weight Merino Wool Yarn, Soft Mint Green&quot;<br /><br />**Description:**<br /><br />1. **Include essential details**: Provide information about the yarn&#39;s fiber content, weight, yardage, color, and any special features.<br />2. **Add a personal touch**: Share a bit about the yarn&#39;s history, such as where you purchased it or how you acquired it.<br />3. **Highlight the benefits**: Emphasize the benefits of the yarn, such as its softness, durability, or ease of care.<br />4. **Use descriptive language**: Use sensory language to describe the yarn&#39;s texture, feel, and color to help buyers imagine working with it.<br />5. **Include photos**: Add clear, well-lit photos of the yarn from different angles to show its texture, color, and any flaws.<br />6. **Disclose any flaws**: Be honest about any flaws, such as knots, tangles, or fading, to build trust with potential buyers.<br />7. **Set a competitive price**: Research similar yarns to price your yarn competitively.<br />8. **Encourage questions**: Invite buyers to ask questions and provide excellent customer service.<br /><br />Example:<br /><br />&quot;Soft Mint Green Worsted Weight Merino Wool Yarn<br /><br />This lovely yarn is a joy to work with! Made from 100% merino wool, it&#39;s soft, warm, and lightweight. With 400 yards per skein, it&#39;s perfect for knitting or crocheting a cozy sweater, hat, or scarf.<br /><br />I acquired this yarn from a local yarn store and have carefully stored it in a smoke-free, pet-free home. The color is a beautiful soft mint green with a slight sheen.<br /><br />Please note that there is a small knot in the skein, but it&#39;s easily worked around. I&#39;ve priced this yarn competitively at $15 per skein. If you have any questions or would like to purchase multiple skeins, please don&#39;t hesitate to ask!&quot;<br /><br />By following these tips, you&#39;ll be able to craft a compelling title and description that showcases your yarns in an attractive and appealing way, making them more likely to sell quickly and efficiently. Good luck with your listings!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_1ISfZDn_0</code></strong>
         <span class="small">2023/04/10 (Mon) 22:00</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I want you to act as an Experienced Bible Scholar who strictly uses the MacArthur NASB Study Bible and the ESV Study Bible by Crossway only. Write a detailed and practical explanation of James 1:1 to 1:11 verse by verse formatted in a Markdown table.. Provide accurate notes and accurate references and accurate Bible verses for each.</div>
       </div><div class="turn">
@@ -1340,15 +1611,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Certainly, I&#39;ll provide an exposition of James 1:19-27 verse by verse in a Markdown table format, based on the MacArthur NASB Study Bible and the ESV Study Bible by Crossway.<br /><br />| Verse | Text | Explanation |<br />| --- | --- | --- |<br />| 19 | &quot;This you know, my beloved brethren. But everyone must be quick to hear, slow to speak and slow to anger;&quot; | James begins by addressing his readers as &quot;beloved brethren&quot; and encourages them to be good listeners, slow to speak and slow to anger. |<br />| 20 | &quot;for the anger of man does not achieve the righteousness of God.&quot; | James emphasizes that human anger is not righteous and does not accomplish God&#39;s purposes. |<br />| 21 | &quot;Therefore, putting aside all filthiness and all that remains of wickedness, in humility receive the word implanted, which is able to save your souls.&quot; | James urges his readers to put aside all sin and receive the Word of God with humility, acknowledging its power to save their souls. |<br />| 22 | &quot;But prove yourselves doers of the word, and not merely hearers who delude themselves.&quot; | James emphasizes the importance of obeying God&#39;s Word, not just hearing it. Those who only hear the Word but do not obey it are self-deceived. |<br />| 23 | &quot;For if anyone is a hearer of the word and not a doer, he is like a man who looks at his natural face in a mirror;&quot; | James uses the analogy of a mirror to illustrate the point that hearing God&#39;s Word without obeying it is useless. It is like looking at oneself in a mirror and immediately forgetting what one looks like. |<br />| 24 | &quot;for once he has looked at himself and gone away, he has immediately forgotten what kind of person he was.&quot; | The point of the previous verse is reinforced here, emphasizing the futility of hearing without obeying. |<br />| 25 | &quot;But one who looks intently at the perfect law, the law of liberty, and abides by it, not having become a forgetful hearer but an effectual doer, this man will be blessed in what he does.&quot; | James describes the one who looks intently at God&#39;s Word and obeys it as &quot;blessed.&quot; The &quot;law of liberty&quot; refers to the gospel, which sets believers free from the power of sin. |<br />| 26 | &quot;If anyone thinks himself to be religious, and yet does not bridle his tongue but deceives his own heart, this man’s religion is worthless.&quot; | James warns against false religion, which involves merely outward expressions of piety but lacks true obedience to God&#39;s Word. A failure to control one&#39;s tongue is a sign of false religion. |<br />| 27 | &quot;Pure and undefiled religion in the sight of our God and Father is this: to visit orphans and widows in their distress, and to keep oneself unstained by the world.&quot; | James concludes by defining true religion as caring for the vulnerable and living a holy, set-apart life. This is the kind of religion that is acceptable to God. |<br /><br />In summary, James urges his readers to be good listeners and slow to anger, and to put aside all sin and receive the Word of God with humility. He emphasizes the importance of obeying God&#39;s Word, warning against self-deception and false religion. True religion involves caring for the vulnerable and living a holy, set-apart life.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_496968</code></strong>
         <span class="small">2023/04/11 (Tue) 11:26</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">How have shifts in global trade policies affected domestic manufacturing industries?</div>
       </div><div class="turn">
@@ -1391,30 +1666,38 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Consumer behavior is complex and influenced by various factors such as income, social values, and personal preferences. However, there is evidence to suggest that consumers are becoming more aware and interested in sustainable and responsible manufacturing practices, which could influence their purchasing decisions.<br /><br />Recent studies have shown that consumers are increasingly willing to pay more for sustainable products, particularly when they are well-informed about the benefits and credibility of the product&#39;s sustainability claims. For example, a Nielsen survey found that globally, 73% of consumers were willing to pay more for sustainable products.<br /><br />Governments have also encouraged sustainable consumption practices with a range of incentives such as carbon tax, eco-labeling, sustainable certifications, and other programs to motivate greener behaviors of the consumers. These eco-friendly initiatives likely support and inform consumers&#39; willingness to pay a premium for sustainable products.<br /><br />However, it is worth noting that price remains an essential factor in the purchasing decision for many consumers, particularly in challenging economic times. Thus, ensuring that sustainable products are affordable and have competitive pricing compared to non-sustainable products can prove critical in driving consuption changes towards more sustainable options.<br /><br />Overall, while consumers may still be cost-driven, the increasing trend in sustainability awareness and government-supported green initiatives can lead to more willingness among consumers to pay a premium for sustainable and responsible products.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_efDZk6l_0</code></strong>
         <span class="small">2023/04/13 (Thu) 03:18</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">write a code to build a website for a quantitative analyst portfolio</div>
       </div><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">To build a website for a quantitative analyst portfolio, you can use a variety of programming languages and frameworks. Here is one possible way to do it using HTML, CSS, and JavaScript:<br />```<br />&lt;!DOCTYPE html&gt;<br />&lt;html&gt;<br />&lt;head&gt;<br />  &lt;title&gt;Quantitative Analyst Portfolio&lt;/title&gt;<br />  &lt;style&gt;<br />    /* Add styles for the page here */<br />  &lt;/style&gt;<br />&lt;/head&gt;<br />&lt;body&gt;<br />  &lt;h1&gt;Quantitative Analyst Portfolio&lt;/h1&gt;<br />  &lt;h2&gt;About Me&lt;/h2&gt;<br />  &lt;p&gt;<br />    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br />  &lt;/p&gt;<br />  &lt;h2&gt;Experience&lt;/h2&gt;<br />  &lt;h3&gt;Quantitative Analyst, XYZ Company&lt;/h3&gt;<br />  &lt;p&gt;<br />    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br />  &lt;/p&gt;<br />  &lt;h3&gt;Data Scientist, ABC Corporation&lt;/h3&gt;<br />  &lt;p&gt;<br />    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br />  &lt;/p&gt;<br />  &lt;h2&gt;Projects&lt;/h2&gt;<br />  &lt;h3&gt;Predicting Stock Prices using Machine Learning&lt;/h3&gt;<br />  &lt;p&gt;<br />    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br />  &lt;/p&gt;<br />  &lt;h3&gt;Optimizing Portfolio Performance using Monte Carlo Simulation&lt;/h3&gt;<br />  &lt;p&gt;<br />    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br />  &lt;/p&gt;<br />&lt;/body&gt;<br />&lt;/html&gt;<br />```<br />This code creates a simple website with four sections: About Me, Experience, Projects, and Skills. You can customize the content of each section to reflect your own background and experience as a quantitative analyst.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>8bd5b3c4_2</code></strong>
         <span class="small">2023/04/13 (Thu) 13:15</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m planning a picnic for this weekend and was wondering if you could help me come up with some healthy and easy-to-prepare food ideas. By the way, I&#39;ve been loving the warmer weather and actually signed up for a outdoor yoga class that meets in the park on Saturday mornings, so I want to make sure I have something quick and energizing to grab beforehand.</div>
       </div><div class="turn">
@@ -1451,15 +1734,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">You&#39;re welcome! It was my pleasure to help. I&#39;m thrilled to have been a part of your planning process for your picnic and yoga class. I hope you have a wonderful time on Saturday, enjoying the beautiful outdoors, delicious food, and a rejuvenating yoga practice.<br /><br />Remember to stay hydrated, listen to your body, and take breaks when needed. And don&#39;t forget to savor the moment and appreciate the little things – the fresh air, the sounds of nature, and the company of like-minded individuals.<br /><br />If you need any more assistance or have any other questions in the future, don&#39;t hesitate to reach out. I&#39;ll be here to help.<br /><br />Wishing you a wonderful weekend, and I hope you make many more wonderful memories!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>4f435d20_2</code></strong>
         <span class="small">2023/04/14 (Fri) 16:20</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m trying to plan my workout routine for the next month and I was thinking of increasing the intensity. Do you have any recommendations for cardio exercises that I could incorporate into my routine? By the way, I also do strength training on Thursdays, focusing on upper body exercises.</div>
       </div><div class="turn">
@@ -1496,15 +1783,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">You&#39;re welcome! I&#39;m glad I could help. Remember, everyone&#39;s body is different, so experiment with different foods and nutrients to see what works best for you. And don&#39;t forget to listen to your body and adjust your routine as needed.<br /><br />Incorporating those foods and nutrients into your post-workout routine can help with muscle recovery and reduce muscle soreness. Just remember to also focus on proper hydration, electrolyte balance, and a balanced diet to support your overall fitness goals.<br /><br />If you have any more questions or need further guidance, feel free to ask. Good luck with your fitness journey, and I hope you crush your strength training sessions on Thursdays!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>8843878f_2</code></strong>
         <span class="small">2023/04/14 (Fri) 00:17</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m having some issues with my internet connection lately, it&#39;s been slow and unreliable, especially in the evenings. Can you help me troubleshoot the problem or provide some tips on how to improve my internet speed? By the way, I&#39;ve been using my new smart TV to stream shows on Amazon Prime, and it&#39;s been working great, so I&#39;m hoping to get my internet connection up to speed to match it.</div>
       </div><div class="turn">
@@ -1541,15 +1832,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">The Blink XT2 is a fantastic camera, and I&#39;m happy to provide more details about its outdoor capabilities and video quality.<br /><br />**Outdoor Placement:**<br /><br />Yes, the Blink XT2 is designed to be weather-resistant and can be placed outdoors. It&#39;s built with a rugged design and IP65 rating, which means it can withstand:<br /><br />* Rain and snow<br />* Extreme temperatures (-4°F to 113°F / -20°C to 45°C)<br />* Dust and humidity<br /><br />You can place the Blink XT2 camera outdoors, such as:<br /><br />* On a porch or patio<br />* Near a door or window<br />* In a backyard or garden<br />* Even in a shed or garage<br /><br />Just make sure to follow the manufacturer&#39;s installation guidelines and ensure the camera is securely mounted to withstand wind and other environmental factors.<br /><br />**Video Quality:**<br /><br />The Blink XT2 camera offers excellent video quality, especially considering its compact size and wireless design. Here are some key features:<br /><br />* **1080p HD Video**: The camera records in 1080p HD resolution, providing clear and detailed video during the day.<br />* **Night Vision**: The Blink XT2 has excellent night vision capabilities, with infrared LEDs that illuminate the surrounding area up to 25 feet. The night vision is black and white, but it&#39;s still very effective for detecting motion and capturing footage.<br />* **Wide Angle Lens**: The camera has a 110° wide-angle lens, which provides a broad field of view and helps capture more of the scene.<br /><br />**Nighttime Performance:**<br /><br />The Blink XT2&#39;s night vision is one of its strongest features. The camera&#39;s infrared LEDs provide excellent illumination, even in complete darkness. The night vision footage is clear and detailed, allowing you to see what&#39;s happening outside your home even in low-light conditions.<br /><br />**Tips for Outdoor Placement:**<br /><br />1. **Mount the camera securely**: Use the included mount or a third-party mount to secure the camera to a wall, fence, or other outdoor surface.<br />2. **Position for optimal viewing**: Place the camera to capture the area you want to monitor, taking into account the 110° wide-angle lens.<br />3. **Adjust the sensitivity**: Adjust the motion detection sensitivity to reduce false alerts caused by wind, trees, or other environmental factors.<br /><br />Overall, the Blink XT2 is an excellent choice for outdoor use, offering great video quality, weather resistance, and ease of installation.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>e3d4f89e_1</code></strong>
         <span class="small">2023/04/15 (Sat) 15:07</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some book recommendations. I just finished &quot;The Nightingale&quot; and &quot;The Hating Game&quot;, and I&#39;m currently reading &quot;The Three-Body Problem&quot;. By the way, I&#39;ve managed to finish seven books since the beginning of the year, which I&#39;m pretty proud of. What do you think of these books, and can you suggest something similar?</div>
       </div><div class="turn">
@@ -1586,15 +1881,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">That&#39;s a great approach! Starting with optimistic views can be a great way to get excited about the possibilities of space exploration and interstellar travel.<br /><br />Congratulations on tracking your reading progress on Goodreads! Seven books is a great start to the year, and I&#39;m sure you&#39;ll catch up on your reading goal soon.<br /><br />Staying motivated and focused on your reading goals can be challenging, but here are some tips that might help:<br /><br />1. **Set realistic goals**: Make sure your reading goals are achievable and aligned with your reading habits. Don&#39;t set yourself up for disappointment by aiming too high.<br />2. **Create a reading schedule**: Plan out your reading schedule for the week or month. This can help you stay on track and make time for reading.<br />3. **Find a reading buddy**: Join a book club or find a friend who shares your reading interests. This can be a great way to stay motivated and accountable.<br />4. **Track your progress**: Use Goodreads or a reading log to track your progress. Seeing your progress can be a great motivator!<br />5. **Reward yourself**: Set small rewards for yourself when you reach certain milestones. This can be something as simple as a cup of coffee or a new book.<br />6. **Mix it up**: Don&#39;t be afraid to try different genres or formats. Mixing up your reading material can help keep things fresh and exciting.<br />7. **Make it convenient**: Keep your reading material easily accessible. Whether it&#39;s an e-reader, audiobooks, or physical books, make sure you can read whenever and wherever you want.<br />8. **Get comfortable**: Create a cozy reading nook or find a comfortable reading spot. This can help you associate reading with relaxation and enjoyment.<br />9. **Stay organized**: Keep your books organized, whether it&#39;s on a shelf or on your e-reader. This can help you stay focused and avoid decision fatigue.<br />10. **Have fun**: Most importantly, remember to have fun! Reading is supposed to be enjoyable, so don&#39;t stress too much about meeting your goals.<br /><br />I hope these tips help you stay motivated and focused on your reading goals!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_TrKtMTN_0</code></strong>
         <span class="small">2023/04/20 (Thu) 13:23</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Can you help me write a letter to my roommates? here are the details:<br />- I live at 743 clayton street with my roommates<br />- I want to send them a note about revitalizing our common space in our living room downstairs<br />- the purpose of the revitalization is to create a better space for us to hang out and spend more time together<br />- phase one of the revitalization is adding a TV, TV stand, and coffee table<br />- phase two is adding an additional section couch, if desired<br />- I (Jason) am happy to take point on finding furniture on facebook marketplace. I&#39;ll share it for approval and the roommates can all split the costs</div>
       </div><div class="turn">
@@ -1625,15 +1924,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Great to hear that your roommates responded positively! Here&#39;s a response that you can send:<br /><br />Hi Roommates,<br /><br />I&#39;m thrilled to hear that you all are on board with the revitalization project. I think this will really make our living space feel more like home and give us a comfortable and inviting area to spend time together.<br /><br />Thanks for your support in letting me take the lead on finding suitable furniture on Facebook Marketplace. I&#39;ll make sure to keep everyone updated with my finds, and we can discuss and approve them together.<br /><br />I&#39;m really looking forward to working with you all to make our common space a place where we can relax, bond, and create new memories together.<br /><br />Thanks again, and let&#39;s do this!<br /><br />Best regards,<br />Jason</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_344721</code></strong>
         <span class="small">2023/04/22 (Sat) 19:03</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">How does Chennai manage its water resources, and what plans are in place to secure a sustainable water supply for the city?</div>
       </div><div class="turn">
@@ -1658,15 +1961,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, there are several organizations and community groups that are working to promote sustainable water management in Chennai. Some of these organizations and their initiatives include:<br /><br />1. Rain Centre - a non-profit organization that promotes rainwater harvesting in Chennai and conducts training programs for households, schools, and businesses on how to install and maintain rainwater harvesting systems.<br /><br />2. WaterAid India - an international non-profit organization that works with communities and authorities to promote access to clean water, hygiene, and sanitation services in Chennai and other parts of India.<br /><br />3. Chennai Trekking Club - a community organization that conducts nature walks and treks in Chennai and other parts of Tamil Nadu, with a focus on raising awareness about water conservation and promoting sustainable water management practices.<br /><br />4. The Nature Trust - a non-profit organization that focuses on conserving the natural resources in Chennai, including water bodies and trees.<br /><br />5. Arappor Iyakkam - a citizens&#39; movement that promotes transparency and accountability in governance, including in the management of natural resources such as water.<br /><br />Overall, these organizations and community groups are playing a critical role in promoting sustainable water management practices in Chennai and raising awareness about the importance of conserving and improving access to water for all residents of the city.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_104389</code></strong>
         <span class="small">2023/04/23 (Sun) 10:35</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">How has technology impacted the creation and production of film scores in modern-day filmmaking?</div>
       </div><div class="turn">
@@ -1703,15 +2010,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, it is very likely that we will see more collaboration between composers and music producers in the future. In recent years, we&#39;ve already seen an increase in collaborations between film composers and popular artists, resulting in innovative and unique soundtracks.<br /><br />Collaboration between composers and music producers could bring a new level of innovation to film scores, as music producers often bring different skills and techniques to the table. For example, a music producer might be able to bring a fresh perspective and production techniques to a film score, resulting in a unique sound that wouldn&#39;t be possible with just one person working on it.<br /><br />Technology also makes it easier for composers to collaborate with music producers remotely, meaning that they can work together no matter where they are in the world. With the ease of sharing files and working together virtually, we can expect to see more and more collaborations between composers and music producers in the future.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>5a5e9175</code></strong>
         <span class="small">2023/04/26 (Wed) 20:05</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m trying to plan a road trip to the Japanese Alps in November, can you recommend some scenic routes and accommodations in the Nagano prefecture?</div>
       </div><div class="turn">
@@ -1748,15 +2059,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">You&#39;re absolutely right that time is valuable in Tokyo, and a shorter commute can make a big difference in your daily life.<br /><br />When searching for an apartment, it&#39;s essential to consider various factors beyond just location and commute time. The age and condition of the building, as well as the availability of amenities, can significantly impact your living experience.<br /><br />**Age and condition of the building:**<br /><br />* Older buildings (, kyūyō jūtaku) might be more affordable, but they may lack modern amenities and have outdated infrastructure.<br />* Newer buildings (, shin&#39;yū jūtaku) often have more modern amenities, but they can be more expensive.<br />* Consider the building&#39;s maintenance, management, and any potential renovation plans.<br /><br />**Amenities:**<br /><br />* Gym or fitness center: Convenient for those who prioritize fitness and want to stay active.<br />* Community space: Can be a great way to meet neighbors and build a sense of community.<br />* Other amenities like a rooftop garden, pet-friendly facilities, or in-unit laundry can also be important depending on your lifestyle.<br /><br />Other factors to consider:<br /><br />* **Security:** Look for buildings with secure entry systems, cameras, and on-site staff.<br />* **Noise level:** If you&#39;re a light sleeper, you might want to avoid buildings near busy streets or nightlife areas.<br />* **Natural light:** Consider the orientation of the apartment and the amount of natural light it receives.<br />* **Storage:** If you have a lot of belongings, look for apartments with ample storage space or consider a building with on-site storage facilities.<br /><br />When evaluating apartments, make a list of your priorities and weigh the importance of each factor. You might need to make some compromises, but being clear about your needs will help you find the right balance.<br /><br />Some popular websites and resources to help you search for apartments in Tokyo include:<br /><br />* **GaijinPot:** A well-known website for foreigners in Japan, offering a comprehensive apartment search engine.<br />* **Suumo:** One of Japan&#39;s largest real estate websites, with a vast database of apartments for rent.<br />* **Tokyo Apartment Finder:** A website specializing in Tokyo apartments, with a focus on foreigner-friendly properties.<br /><br />Remember to also work with a reputable real estate agent who can guide you through the process and help you find the right apartment for your needs.<br /><br />Good luck with your apartment hunt, and I hope you find a place that fits your lifestyle and priorities!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>2bd23659_2</code></strong>
         <span class="small">2023/04/27 (Thu) 18:24</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking to redecorate my living room and I need some inspiration. Can you suggest some popular interior design styles or websites that I can check out? By the way, I&#39;m also getting Architectural Digest, which I love for home decor inspiration.</div>
       </div><div class="turn">
@@ -1793,15 +2108,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Pothos (Epipremnum aureum) is a low-maintenance plant, but like any living thing, it requires some care and attention to thrive. Here are some tips on how to care for your Pothos and prevent pests:<br /><br />**Lighting**: Pothos prefers bright, indirect light but can tolerate low light conditions. Direct sunlight can cause the leaves to become scorched, so it&#39;s best to provide filtered or dappled light.<br /><br />**Watering**: Allow the soil to dry slightly between waterings. Overwatering can lead to root rot, so make sure not to waterlog the soil. Water your Pothos when the top 1-2 inches of soil feel dry to the touch.<br /><br />**Humidity**: Pothos prefers a humid environment, but it can adapt to average humidity levels. To maintain humidity, you can place the pot on a tray filled with water and pebbles or use a humidifier.<br /><br />**Temperature**: Pothos thrives in temperatures between 65°F to 75°F (18°C to 24°C). Avoid placing your plant near drafts or extreme temperatures.<br /><br />**Fertilization**: Feed your Pothos with a balanced, water-soluble fertilizer during the growing season (spring and summer). Dilute the fertilizer to half the recommended strength to avoid burning the roots.<br /><br />**Pruning**: Prune your Pothos regularly to maintain its shape and promote healthy growth. Remove any dead or damaged leaves or stems, and cut back long vines to encourage branching.<br /><br />**Pest prevention**:<br /><br />1. **Inspect your plant regularly**: Check your Pothos for signs of pests, such as tiny eggs, white powdery residue, or actual insects on the leaves or stems.<br />2. **Isolate new plants**: When introducing a new Pothos to your collection, isolate it for a few weeks to ensure it&#39;s pest-free.<br />3. **Keep your plant clean**: Dust and debris can attract pests, so gently wipe down your Pothos&#39; leaves with a damp cloth every few weeks.<br />4. **Use neem oil**: Neem oil is a natural insecticide that can help prevent pests. Mix it with water according to the label instructions and spray it on your Pothos every few weeks.<br />5. **Monitor for common pests**: Pothos is susceptible to mealybugs, spider mites, and scale. Look for signs of these pests and treat your plant promptly if you notice any issues.<br /><br />Some common signs of pests on Pothos include:<br /><br />* White, cottony patches on the leaves or stems (mealybugs)<br />* Fine webbing on the leaves or stems (spider mites)<br />* Small, brown or white bumps on the leaves or stems (scale)<br /><br />If you notice any of these signs, treat your Pothos with insecticidal soap or neem oil according to the product&#39;s instructions.<br /><br />By following these care and maintenance tips, you&#39;ll be well on your way to growing a healthy, pest-free Pothos. Happy planting!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>d15c9567_2</code></strong>
         <span class="small">2023/04/28 (Fri) 04:47</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m planning a baby shower for a friend and I was wondering if you could give me some decoration ideas. By the way, I just helped plan a surprise baby shower for my best friend Emily last month on February 1st, and we had a blast with balloons and a cute banner.</div>
       </div><div class="turn">
@@ -1838,15 +2157,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Thank you so much for your kind words! I&#39;m thrilled to be helping you plan this special event.<br /><br />Now, let&#39;s dive into the decorations! To bring the Enchanted Garden theme to life, I would suggest creating a whimsical and romantic atmosphere with a mix of natural and vintage elements. Here are some decoration ideas to get you started:<br /><br />**Color Scheme:**<br /><br />* Pastel shades like soft pink, baby blue, yellow, and mint green to create a calming and serene atmosphere.<br />* Earthy tones like olive green, terracotta, and sandy beige to bring in the natural garden feel.<br /><br />**Decorations:**<br /><br />* Floral arrangements: Use a mix of fresh flowers, greenery, and branches to create lush and vibrant centerpieces. Consider using flowers in pastel shades to match the theme.<br />* Vintage garden items: Hang old garden gates, use vintage planters, and display distressed garden benches to add a touch of whimsy and nostalgia.<br />* Twinkling lights: String lights or fairy lights can add a magical touch to the space and create a sense of enchantment.<br />* Floral garlands: Create a beautiful garland using real or artificial flowers, greenery, and ribbons to hang along the tables or walls.<br />* Paper flowers: Use paper flowers in pastel shades to create a beautiful backdrop or to decorate the tables.<br />* Garden-themed decor: Use garden-themed decorations like birdhouses, birdcages, and vintage gardening tools to add to the theme.<br /><br />**Table Settings:**<br /><br />* Use lace or crocheted tablecloths to add a touch of elegance and whimsy.<br />* Set the tables with vintage china, glassware, and utensils to create a romantic and nostalgic feel.<br />* Add a sprig of fresh rosemary or a small potted plant to each table setting as a favor and to tie in with the garden theme.<br /><br />**Other Ideas:**<br /><br />* Create a &quot;secret garden&quot; area with a beautiful trellis or arbor, and hang flowers or greenery from it.<br />* Set up a &quot;flower market&quot; station with fresh flowers and greenery for guests to create their own bouquets.<br />* Use a beautiful vintage door or gate as a backdrop for the food table or dessert table.<br /><br />Remember, the key to creating an immersive experience is to pay attention to every detail and to have fun with it!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_h8nh892_29</code></strong>
         <span class="small">2023/04/29 (Sat) 02:47</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">There are a few other sauces that have flavors that are similar to ground black bean sauce. Here are a few options you might consider:<br /><br />* Miso paste: Miso paste is a type of fermented bean paste that is made with soybeans, rice, and salt. It has a strong, savory flavor that is similar to that of ground black bean sauce.<br />* Hoisin sauce: Hoisin sauce is a sweet and savory sauce that is made with fermented soybeans, sugar, and spices. It has a flavor that is similar to that of ground black bean sauce, but it is sweeter and less salty.<br />* Fermented soybean paste: Fermented soybean paste is made with fermented soybeans and salt, and it has a strong, savory flavor that is similar to that of ground black bean sauce.<br />* Soy sauce: Soy sauce is a common ingredient in many Asian sauces and marinades, and it can add a salty, savory flavor to dishes. While it is not as strong or as complex in flavor as ground black bean sauce, it can be used as a substitute in some dishes.<br /><br />These are just a few examples of sauces that have flavors similar to ground black bean sauce. You may be able to find these sauces at an Asian market or online, or you can try experimenting with different ingredients to find a combination that works for you.<br /><br />I hope this information is helpful! Please let me know if you have any other questions.</div>
       </div><div class="turn">
@@ -1886,15 +2209,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">You&#39;re welcome! I&#39;m glad to have been able to help. If you have any other questions or need further assistance with anything, please don&#39;t hesitate to reach out. I&#39;m here to help.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_CZu8FiF_0</code></strong>
         <span class="small">2023/04/30 (Sun) 18:51</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">You are a product sales coach for Sutton&#39;s Inc., a small full-service contractor in Springfield, Illinois. Your primary products sold include roofing systems by GAF, vinyl siding from Royal Building Products, and Windows and Doors by ProVia. Your team uses the Sandler Selling System and focuses on uncovering pain, discussing budget, and understanding a customer&#39;s decision making process before ever jumping to a solution. Since we operate in Springfield, Illinois and the surrounding counties, we visit with many types of customers. Traditional families, older retirees, and rural homeowners are some of our biggest clientele. <br /><br />Given this context, prepare an onboarding outline for a new sales representative. List the outline with subject lines only - limit prose. Then, prepare 4-5 paragraphs that best explain our company, our products, how we might better compete in the market, and top things a new salesman should keep in mind.</div>
       </div><div class="turn">
@@ -1913,15 +2240,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Sutton&#39;s Inc. prides itself on being a full-service remodeler with a longstanding history and an experienced, dedicated team. By offering warranty support, emergency support, and a comprehensive suite of services, we differentiate ourselves from other remodelers who may focus solely on lower prices. Our commitment to quality and value is reflected in our choice of professional-grade products: ProVia, Royal Building Products, and GAF.<br /><br />ProVia:<br />ProVia is known for producing high-quality, custom-made doors and windows. What sets ProVia apart from competitors is their dedication to craftsmanship, durability, and energy efficiency. Their products are designed to meet or exceed ENERGY STAR standards, ensuring that homeowners can enjoy reduced energy consumption and lower utility bills. Additionally, ProVia windows and doors are built with attention to detail, providing exceptional aesthetics and long-lasting performance. Their commitment to excellence is backed by industry-leading warranties, giving customers peace of mind in their investment.<br /><br />Royal Building Products:<br />As a leading manufacturer of vinyl siding, Royal Building Products offers a wide range of options in terms of style, color, and design to suit various architectural preferences. Their siding products are designed to withstand harsh weather conditions and resist fading, warping, and cracking, ensuring homeowners have a low-maintenance, visually appealing exterior. The company&#39;s commitment to sustainability is reflected in their products, which are made from recyclable materials and contribute to better energy efficiency. The combination of durability, aesthetic appeal, and eco-friendliness makes Royal Building Products&#39; vinyl siding a superior choice compared to other siding options on the market.<br /><br />GAF:<br />GAF is North America&#39;s largest roofing manufacturer, known for their premium roofing systems. GAF&#39;s products are designed with Advanced Protection Shingle Technology, which ensures durability, wind resistance, and long-term performance. Their shingles are made with proprietary granules that provide excellent UV protection and color retention, preserving the roof&#39;s appearance and effectiveness. GAF also offers industry-leading warranties, including the Golden Pledge Limited Warranty, which covers both material defects and workmanship for up to 50 years. This commitment to quality and reliability sets GAF apart from other roofing manufacturers.<br /><br />By choosing to work with these professional-class brands, Sutton&#39;s Inc. ensures that customers receive the highest quality products and services, creating a strong value proposition in the market. Our focus on value, quality, and full-service support allows us to stand out among competitors and attract discerning homeowners who prioritize long-term performance and aesthetic appeal.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_OTILwRq_0</code></strong>
         <span class="small">2023/05/02 (Tue) 08:52</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">do you know SEM image</div>
       </div><div class="turn">
@@ -1952,15 +2283,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Sure! Here&#39;s a complete code to read in an image and detect edges using the Canny edge detector in Python:<br />```less<br />import cv2<br />import numpy as np<br /><br />def detect_edges(image, low_threshold, high_threshold):<br />    # Apply Gaussian filter to reduce noise<br />    blurred = cv2.GaussianBlur(image, (3, 3), 0)<br />    <br />    # Calculate gradient magnitude and direction<br />    sobel_x = cv2.Sobel(blurred, cv2.CV_64F, 1, 0, ksize=3)<br />    sobel_y = cv2.Sobel(blurred, cv2.CV_64F, 0, 1, ksize=3)<br />    gradient_magnitude = np.sqrt(np.square(sobel_x) + np.square(sobel_y))<br />    gradient_direction = np.arctan2(sobel_y, sobel_x) * 180 / np.pi<br />    <br />    # Non-maximum suppression<br />    gradient_direction = np.abs(gradient_direction)<br />    gradient_direction[gradient_direction &gt; 180] = gradient_direction[gradient_direction &gt; 180] - 180<br />    gradient_direction[gradient_direction &gt;= 157.5] = 180<br />    gradient_direction[(gradient_direction &gt;= 112.5) &amp; (gradient_direction &lt; 157.5)] = 135<br />    gradient_direction[(gradient_direction &gt;= 67.5) &amp; (gradient_direction &lt; 112.5)] = 90<br />    gradient_direction[(gradient_direction &gt;= 22.5) &amp; (gradient_direction &lt; 67.5)] = 45<br />    <br />    height, width = gradient_magnitude.shape<br />    suppressed_gradient = np.zeros((height, width))<br />    for i in range(1, height-1):<br />        for j in range(1, width-1):<br />            direction = gradient_direction[i, j]<br />            if direction == 180:<br />                if gradient_magnitude[i, j] &gt;= gradient_magnitude[i, j-1] and gradient_magnitude[i, j] &gt;= gradient_magnitude[i, j+1]:<br />                    suppressed_gradient[i, j] = gradient_magnitude[i, j]<br />            elif direction == 135:<br />                if gradient_magnitude[i, j] &gt;= gradient_magnitude[i-1, j+1] and gradient_magnitude[i, j] &gt;= gradient_magnitude[i+1, j-1]:<br />                    suppressed_gradient[i, j] = gradient_magnitude[i, j]<br />            elif direction == 90:<br />                if gradient_magnitude[i, j] &gt;= gradient_magnitude[i-1, j] and gradient_magnitude[i, j] &gt;= gradient_magnitude[i+1, j]:<br />                    suppressed_gradient[i, j] = gradient_magnitude[i, j]<br />            elif direction == 45:<br />                if gradient_magnitude[i, j] &gt;= gradient_magnitude[i-1, j-1] and gradient_magnitude[i, j] &gt;= gradient_magnitude[i+1, j+1]:<br />                    suppressed_gradient[i, j] = gradient_magnitude[<br />```</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_ezPxUrC_0</code></strong>
         <span class="small">2023/05/03 (Wed) 04:43</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What is the Meta Quest 2? Is it a VR (Virtual Reality) gaming headset. If so then can you list the hardware features of the base model (processor type, amount of RAM, non-volatile storage for games, screen size and resolution, audio sound system, size, weight etc.)?</div>
       </div><div class="turn">
@@ -1979,15 +2314,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, the Oculus Quest 2 is a standalone VR gaming headset, which means it does not require a connection to a computer or gaming console to operate. It has its own processor, memory, and storage built-in, and it runs on the Android operating system. However, it can also be connected to a computer via a USB cable to access additional features and content through the Oculus Link feature. The Oculus Link feature allows users to play PC VR games on their Oculus Quest 2 and use it as a PC VR headset.<br /><br />Additionally, the Oculus Quest 2 can be connected to a gaming console using the Oculus Air Link feature which allows users to play some console games on the Quest 2 wirelessly.<br /><br />It should be noted that in order to use the features such as Oculus Link or Oculus Air Link, the computer or gaming console must meet the minimum system requirements.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_431272</code></strong>
         <span class="small">2023/05/04 (Thu) 08:22</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What are the graduation requirements for engineering majors at Texas A&amp;M?</div>
       </div><div class="turn">
@@ -2018,15 +2357,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">While having good character and a strong moral compass is crucial for ethical decision-making, relying solely on common sense and personal values might not always be sufficient when faced with complex ethical dilemmas. Ethics is a complex subject that requires a deep understanding of different ethical theories, principles, and their applications in engineering practice. A formal ethics exam ensures that engineering students are familiar with various ethical frameworks and are equipped with the critical thinking skills to navigate complex ethical dilemmas.<br /><br />Moreover, the engineering profession is one that is governed by specific codes of ethics and professional responsibilities, and it is essential for engineering students to understand these codes and responsibilities. By taking an ethics exam, engineering students are better prepared to uphold ethical standards and meet the expectations of their profession.<br /><br />In conclusion, while personal values and common sense are critical to ethical decision-making, a formal ethics exam provides a more comprehensive and structured approach to learning about ethics, and ensures that engineering students are prepared to make ethical decisions in complex real-world scenarios.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>f0b803b0_2</code></strong>
         <span class="small">2023/05/04 (Thu) 10:58</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m trying to get a sense of my daily caffeine intake. Can you help me track my coffee consumption? By the way, I was running late on Monday, so I had to grab a coffee on the go.</div>
       </div><div class="turn">
@@ -2063,15 +2406,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">A morning coffee to start the day!<br /><br />So, you had a cup of coffee at 10 am on Thursday. Let&#39;s assume it was a standard cup of coffee, around 8-10 oz (240-300ml). As we discussed earlier, a cup of coffee typically contains around 95-200mg of caffeine. Let&#39;s assume an average of 150mg for our tracking purposes.<br /><br />So, for Thursday, you had:<br /><br />* 1 cup of coffee (around 8-10 oz) = 150mg of caffeine<br /><br />Let&#39;s update the total:<br /><br />* Monday: 150mg<br />* Tuesday: 0mg<br />* Wednesday: 100mg<br />* Thursday: 150mg<br />* Total: 400mg<br /><br />How about the rest of Thursday and today (Friday)? Did you have any other coffee or caffeinated beverages?</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_mIEL27Q_5</code></strong>
         <span class="small">2023/05/07 (Sun) 11:27</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">You are correct, my apologies for the confusion.<br /><br />To pass the correct API key to the certbot command for each domain, you can modify the `certbot_loop.sh` script to read the JSON file and extract the API key, email, and domains for each credential separately. Then you can pass those variables to the certbot command for each domain using the `--dns-google-credentials` option with a temporary credentials file.<br /><br />Here&#39;s an updated version of the `certbot_loop.sh` script:<br />```bash<br />#!/bin/bash<br /><br /># Read the JSON file and extract the credentials<br />for key in $(jq -r &#39;.credentials | keys[]&#39; /etc/letsencrypt/credentials.json); do<br />    api_key=$(jq -r &quot;.credentials.$key.api_key&quot; /etc/letsencrypt/credentials.json)<br />    email=$(jq -r &quot;.credentials.$key.email&quot; /etc/letsencrypt/credentials.json)<br />    domains=$(jq -r &quot;.credentials.$key.domains[]&quot; /etc/letsencrypt/credentials.json)<br /><br />    # Create temporary credentials file<br />    echo &quot;{\&quot;api_key\&quot;: \&quot;$api_key\&quot;}&quot; &gt; /tmp/credentials.json<br /><br />    # Run certbot command for each domain<br />    for domain in $domains; do<br />        certbot certonly --dns-google --dns-google-credentials /tmp/credentials.json \<br />        --dns-google-propagation-seconds 30 --email $email --agree-tos --no-eff-email -d $domain -d *.$domain<br />    done<br /><br />    # Remove temporary credentials file<br />    rm /tmp/credentials.json<br />done<br />```<br />In this example, the script uses the `jq` command to extract the API key, email, and domains for each credential from the `credentials.json` file. Then it creates a temporary credentials file containing only the API key for each credential and passes it to the certbot command using the `--dns-google-credentials` option. After the certbot command completes, the script removes the temporary credentials file.<br /><br />Note that you need to modify the `docker-compose.yml` file to pass the `credentials.json` file to the `certbot_loop.sh` script as an environment variable. Here&#39;s an updated version of the `docker-compose.yml` file:<br />```bash<br />version: &#39;3.7&#39;<br /><br />services:<br />  certbot:<br />    image: certbot/dns-google<br />    container_name: certbot<br />    volumes:<br />      - ./certs:/etc/letsencrypt<br />    environment:<br />      - CREDENTIALS_JSON=$(cat /path/to/your/credentials.json)<br />    command: &gt; <br />      sh -c &quot;echo \&quot;$CREDENTIALS_JSON\&quot; &gt; /etc/letsencrypt/credentials.json &amp;&amp; /app/certbot_loop.sh&quot;<br />    depends_on:<br />      - nginx<br />  nginx:<br />    image: nginx:latest<br />    container_name: nginx<br />    ports:<br />      - &quot;80:80&quot;<br />      - &quot;443:443&quot;<br />    volumes:<br />      - ./nginx.conf:/etc/nginx/nginx.conf:ro<br />      - ./certs:/etc/letsencrypt<br />      - ./html:/usr/share/nginx/html<br />```<br />In this example, the `certbot` service uses the `environment` section to pass the contents of the `credentials.json` file to the `certbot_loop.sh` script as an environment variable called `CREDENTIALS_JSON`. The `command` section of the `certbot` service uses `sh` to create a temporary credentials file containing the value of `CREDENTIALS_JSON`, write it to `/etc/letsencrypt/credentials.json`, and then run the `certbot_loop.sh` script.</div>
       </div><div class="turn">
@@ -2087,15 +2434,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Sure! Here&#39;s an updated docker-compose.yml file that includes the changes:<br />```javascript<br />version: &#39;3.7&#39;<br /><br />services:<br />  certbot:<br />    image: certbot/dns-google<br />    container_name: certbot<br />    volumes:<br />      - ./certs:/etc/letsencrypt<br />      - /path/to/your/credentials.json:/etc/letsencrypt/credentials.json:ro<br />    command: sh -c &quot;apt-get update &amp;&amp; apt-get install -y jq &amp;&amp; echo &#39;0 0 * * * /app/certbot_loop.sh&#39; &gt; /etc/cron.d/certbot-cron &amp;&amp; crontab /etc/cron.d/certbot-cron &amp;&amp; cron -f&quot;<br />    depends_on:<br />      - nginx<br />  nginx:<br />    image: nginx:latest<br />    container_name: nginx<br />    ports:<br />      - &quot;80:80&quot;<br />      - &quot;443:443&quot;<br />    volumes:<br />      - ./nginx.conf:/etc/nginx/nginx.conf:ro<br />      - ./certs:/etc/letsencrypt<br />      - ./html:/usr/share/nginx/html<br />```<br />In this updated version, we&#39;ve added the following changes to the certbot service:<br /><br />1. We&#39;ve added the `apt-get update &amp;&amp; apt-get install -y jq` command to install jq in the container.<br />2. We&#39;ve added the `echo &#39;0 0 * * * /app/certbot_loop.sh&#39; &gt; /etc/cron.d/certbot-cron &amp;&amp; crontab /etc/cron.d/certbot-cron &amp;&amp; cron -f` command to set up the cron job and start the cron daemon in the foreground.<br /><br />Note that we&#39;ve combined all these commands into a single `sh -c` command to simplify the command section of the service.<br /><br />I hope this helps!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_8gvxaSq_0</code></strong>
         <span class="small">2023/05/08 (Mon) 10:38</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">generate a prompt to write a book of meditation</div>
       </div><div class="turn">
@@ -2126,15 +2477,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Chapter 18: Meditation and Health<br /><br />* The role of meditation in preventing and managing chronic illnesses<br />* Reducing inflammation and oxidative stress through meditation<br />* Enhancing the immune system with mindfulness<br />* Addressing addiction and substance abuse with meditation<br />* The relationship between meditation and longevity<br /><br />Chapter 19: The Journey Continues: Where to Go from Here<br /><br />* Tips for sustaining a regular meditation practice<br />* Finding community and support<br />* Continuing to deepen your meditation practice<br />* Exploring other contemplative practices<br />* The importance of integrating meditation with other aspects of your life<br /><br />Conclusion:<br /><br />* Recap of the main points covered in the book<br />* The importance of making meditation a regular part of your life<br />* The transformative power of meditation<br />* Encouragement to continue on your meditation journey</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_CSJDT92_0</code></strong>
         <span class="small">2023/05/08 (Mon) 03:49</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">give hex codes for the colors you recommend above</div>
       </div><div class="turn">
@@ -2195,15 +2550,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Here are a few ideas for taglines that incorporate the themes of affordable, comfortable women&#39;s fashion:<br /><br />* &quot;Affordable, comfortable fashion for women, all in one place: Prairie Cotton.&quot;<br />* &quot;Your go-to source for comfortable, affordable women&#39;s fashion: Prairie Cotton.&quot;<br />* &quot;Comfortable, affordable, and stylish: Prairie Cotton has it all.&quot;<br />* &quot;Feel good, look good, spend less: Prairie Cotton.&quot;<br />* &quot;Comfortable fashion that won&#39;t break the bank: Prairie Cotton.&quot;<br /><br />I hope these tagline ideas give you some inspiration for creating a tagline that captures the essence of Prairie Cotton&#39;s brand and the comfortable, affordable fashion options for women. Remember to test out different options to see which one performs best and resonates most with your target audience.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_364050</code></strong>
         <span class="small">2023/05/09 (Tue) 18:25</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What are the best beaches in Europe for surfing and what are the conditions like?</div>
       </div><div class="turn">
@@ -2240,15 +2599,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, maintaining balance on the board is key to successful surfing. Here are a few tips to help improve your balance:<br /><br />1. Keep your eyes on the horizon: When paddling or riding a wave, keeping your eyes fixed on the horizon can help you maintain your balance and prevent you from getting disoriented.<br /><br />2. Use your core muscles: Your core muscles help stabilize your body and maintain your balance on the board. Try to engage your core and keep your body in a stable position as you ride the waves.<br /><br />3. Practice your pop-up: The pop-up is the movement you use to stand up on the board after catching a wave. Practicing this movement can help improve your balance and make it easier to stay on the board.<br /><br />4. Focus on your foot placement: When standing on the board, keep your feet shoulder-width apart and distribute your weight evenly between them to maintain your balance.<br /><br />5. Don&#39;t be afraid to crouch: If you&#39;re struggling to maintain your balance, try crouching down on your board. This will lower your center of gravity and make it easier to stay on the board.<br /><br />6. Keep your arms close: Your arms can also help you maintain your balance by acting as counterweights. Keep your arms close to your body and use them to make small adjustments as needed.<br /><br />Remember that maintaining balance on the board takes practice and patience. Don&#39;t get discouraged if you struggle at first, just keep practicing and you&#39;ll improve over time.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_1MKqbAt_0</code></strong>
         <span class="small">2023/05/09 (Tue) 02:30</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">write a cronus zen script with 5 different mods for call of duty mobile</div>
       </div><div class="turn">
@@ -2267,15 +2630,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Certainly! Here are five additional mods that you can add to the Cronus Zen script for Call of Duty Mobile on an Xbox One controller:<br />```<br />// Mod 6: Auto Reload<br /><br />// Automatically reload when you run out of ammo.<br /><br />if (GetAmmo() == 0)<br />{<br />  SetButtonState(X, true);<br />  Sleep(100);<br />  SetButtonState(X, false);<br />}<br /><br />// Mod 7: Auto Swap<br /><br />// Automatically swap to your secondary weapon when you run out of ammo.<br /><br />if (GetAmmo() == 0)<br />{<br />  SetButtonState(B, true);<br />  Sleep(100);<br />  SetButtonState(B, false);<br />}<br /><br />// Mod 8: Quick Revive<br /><br />// Quickly revive a fallen teammate with the left bumper button.<br /><br />if (GetButtonState(LB))<br />{<br />  SetButtonState(LB, false);<br />  SetButtonState(Y, true);<br />  Sleep(100);<br />  SetButtonState(Y, false);<br />}<br /><br />// Mod 9: Auto Mantle<br /><br />// Automatically mantle over objects with the A button.<br /><br />if (GetButtonState(A))<br />{<br />  SetButtonState(A, false);<br />  SetButtonState(Mantle, true);<br />  Sleep(100);<br />  SetButtonState(Mantle, false);<br />}<br /><br />// Mod 10: Quick Equip<br /><br />// Quickly switch your equipped weapon with the right bumper button.<br /><br />if (GetButtonState(RB))<br />{<br />  SetButtonState(RB, false);<br />  SetButtonState(Dpad_Right, true);<br />  Sleep(100);<br />  SetButtonState(Dpad_Right, false);<br />}<br />```<br />I hope this helps! Let me know if you have any questions or need further assistance.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>577da76d_2</code></strong>
         <span class="small">2023/05/13 (Sat) 16:56</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some information on the recent European political developments. I spent an hour reading articles about it in The New York Times yesterday, and I&#39;d like to know more about the potential impact on the global economy.</div>
       </div><div class="turn">
@@ -2312,15 +2679,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Liability risks are a critical aspect of vaccine development and distribution, and both the EU and vaccine manufacturers take them very seriously.<br /><br />**What are liability risks?**<br /><br />Liability risks refer to the potential legal and financial consequences resulting from adverse reactions or side effects associated with a vaccine. These risks can arise from various sources, including:<br /><br />1. **Product liability:** The vaccine manufacturer may be held liable for damages or injuries caused by a defective or contaminated vaccine.<br />2. **Negligence:** The manufacturer or healthcare provider may be accused of negligence in the development, testing, or administration of the vaccine.<br />3. **Breach of contract:** The EU or national governments may be liable for breach of contract if they fail to fulfill their obligations under the Advance Purchase Agreement (APA).<br /><br />**How do the EU and vaccine manufacturers address liability risks?**<br /><br />To address liability risks, the EU and vaccine manufacturers have implemented various measures, including:<br /><br />1. **Indemnification:** The EU provides indemnification to vaccine manufacturers, protecting them from legal claims and financial liabilities arising from adverse reactions or side effects.<br />2. **No-fault compensation schemes:** Many EU countries have established no-fault compensation schemes, which provide financial compensation to individuals who experience adverse reactions or side effects without requiring them to prove fault or negligence.<br />3. **Regulatory oversight:** The EU&#39;s regulatory agencies, such as the European Medicines Agency (EMA), ensure that vaccines meet strict safety and efficacy standards before they are approved for use.<br />4. **Post-marketing surveillance:** Vaccine manufacturers and regulatory agencies conduct ongoing monitoring of vaccine safety and efficacy after approval, allowing for quick identification and response to potential issues.<br />5. **Insurance coverage:** Vaccine manufacturers may purchase insurance coverage to protect themselves against liability risks.<br /><br />**Protection for individuals experiencing adverse reactions:**<br /><br />Individuals who experience adverse reactions to vaccines are protected through various mechanisms, including:<br /><br />1. **No-fault compensation schemes:** As mentioned earlier, these schemes provide financial compensation to individuals without requiring them to prove fault or negligence.<br />2. **National healthcare systems:** In many EU countries, national healthcare systems provide medical care and support to individuals experiencing adverse reactions.<br />3. **Vaccine injury compensation programs:** Some countries have established vaccine injury compensation programs, which provide financial compensation to individuals who experience serious adverse reactions.<br />4. **Patient advocacy groups:** Patient advocacy groups, such as the European Patients&#39; Forum, work to ensure that the rights and interests of patients are protected and represented.<br /><br />These measures help to address liability risks and provide protection to individuals who experience adverse reactions to vaccines.<br /><br />I hope this helps you understand the liability risks associated with vaccine development and distribution, as well as the measures in place to address them!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>35955958_2</code></strong>
         <span class="small">2023/05/13 (Sat) 14:13</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some recommendations on pet beds. I recently got a new one for my cat, Luna, and she loves it, but I was wondering if you have any suggestions for my dog, Max.</div>
       </div><div class="turn">
@@ -2357,15 +2728,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Thank you so much for the offer! I think I&#39;ve got everything I need for now. You&#39;ve been incredibly helpful in assisting me with finding a great bed for Max and providing recommendations for flea prevention medication for Luna.<br /><br />If I have any more questions or need further assistance in the future, I won&#39;t hesitate to reach out. For now, I&#39;m excited to get Max settled into his new bed and keep Luna protected from those pesky fleas!<br /><br />Thanks again for your help and have a wonderful day!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>b2243528_1</code></strong>
         <span class="small">2023/05/14 (Sun) 21:13</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some fashion advice. I want to find a nice pair of shoes to match my new outfit, a yellow shirt and white pants. My mom and I actually went shopping for new outfits for the whole family just two weeks ago, and I&#39;m really happy with how they turned out.</div>
       </div><div class="turn">
@@ -2402,7 +2777,8 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I think there&#39;s been a misunderstanding! I apologize for any confusion. I am an artificial intelligence language model, and I don&#39;t have personal experiences, family, or a mom. I exist solely to provide information and assist with tasks to the best of my abilities.<br /><br />However, I&#39;m happy to continue providing gift ideas and suggestions based on our conversation! If you&#39;re looking for a personalized gift for your mom, I think the customized jewelry or photo album ideas could be lovely gestures. A heartfelt, thoughtful gift can mean a lot to a mom who&#39;s been supportive and helpful.<br /><br />Please let me know if there&#39;s anything else I can help you with, and I&#39;ll do my best to assist you!</div>
       </div></div>
-  </details></div>
+    </details>
+  </div></div>
                     </details>
     </div>
   </div>

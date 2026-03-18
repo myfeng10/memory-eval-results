@@ -105,7 +105,7 @@
       border: 1px solid var(--line);
       border-radius: 14px;
       background: #fff;
-      padding: 0 14px 14px;
+      padding: 14px;
     }
     .priority-session {
       border-width: 2px;
@@ -115,21 +115,17 @@
     .secondary-session {
       opacity: 0.9;
     }
-    .session-card summary {
-      list-style: none;
-      cursor: pointer;
+    .session-card-header {
       display: flex;
       justify-content: space-between;
       gap: 12px;
       align-items: center;
-      padding: 14px 0;
-    }
-    .session-card summary::-webkit-details-marker {
-      display: none;
+      margin-bottom: 12px;
     }
     .session-turns {
       display: grid;
       gap: 10px;
+      margin-top: 12px;
     }
     .turn {
       border-top: 1px solid var(--line);
@@ -146,6 +142,40 @@
       font-size: 14px;
       line-height: 1.55;
       word-break: break-word;
+    }
+    .session-memory-wrap {
+      margin-bottom: 12px;
+    }
+    .session-memory-details {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fcfaf5;
+      padding: 0 12px 12px;
+    }
+    .session-memory-details summary,
+    .session-conversation-details summary {
+      cursor: pointer;
+      padding: 12px 0;
+      font-size: 13px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .session-conversation-details {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fafaf7;
+      padding: 0 12px 12px;
+    }
+    .session-memory-list {
+      display: grid;
+      gap: 10px;
+    }
+    .extracted-memory-card {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+      padding: 12px;
     }
     .pill {
       display: inline-block;
@@ -397,15 +427,18 @@
       <h2>Question Sessions</h2>
       <p class="small">Benchmark answer sessions are shown first. Then come other retrieved sessions. Background sessions stay collapsed below.</p>
       <div class="session-subhead">Answer Sessions</div>
-             <div class="session-list"><details class="session-card priority-session">
-    <summary>
+             <div class="session-list"><div class="session-card priority-session">
+    <div class="session-card-header">
       <div>
         <strong><code>answer_ultrachat_174360</code></strong>
         <span class="small">2023/05/28 (Sun) 16:39</span>
       </div>
       <div><span class="pill">ground truth</span> <span class="pill pill-answer">answer session</span></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    <div class="session-memory-wrap"><p class="small">No extracted memories found for this session.</p></div>
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">How does the company ensure its supply chain is environmentally responsible?</div>
       </div><div class="turn">
@@ -424,17 +457,21 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">As an AI language model, I completely agree with you! Encouraging eco-friendly practices within the supply chain is an essential step that companies can take to reduce their environmental impact and contribute to a greener future. By implementing these practices, companies can not only reduce their ecological footprint but also minimize risks associated with environmental non-compliance, improve their brand image and reputation, and foster goodwill among customers, employees, and stakeholders. Hopefully, more companies will follow the lead of Patagonia and make a sincere commitment to sustainability in their supply chain practices.</div>
       </div></div>
-  </details></div>
+    </details>
+  </div></div>
              <div class="session-subhead">Other Retrieved Sessions</div>
-                    <div class="session-list"><details class="session-card priority-session">
-    <summary>
+                    <div class="session-list"><div class="session-card priority-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_238317</code></strong>
         <span class="small">2023/05/26 (Fri) 17:00</span>
       </div>
       <div><span class="pill">retrieved only</span> <span class="pill pill-retrieved">retrieved</span></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">In what ways has Reebok contributed to the overall fashion trends and cultural movements in athletic wear?</div>
       </div><div class="turn">
@@ -465,15 +502,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, according to Reebok, their Cotton + Corn shoes have been designed to be comfortable and durable. They have a lightweight design with a soft upper made from organic cotton, and a flexible sole made from natural corn that&#39;s been treated for durability. Customers have generally given positive reviews for the Cotton + Corn shoes and have reported that they feel comfortable and supportive during wear. However, comfort is subjective and can depend on individual preferences, so I would recommend checking out customer reviews to get a better idea of how people have found the comfort level of the Cotton + Corn shoes.</div>
       </div></div>
-  </details><details class="session-card priority-session">
-    <summary>
+    </details>
+  </div><div class="session-card priority-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_494373</code></strong>
         <span class="small">2023/05/29 (Mon) 16:44</span>
       </div>
       <div><span class="pill">retrieved only</span> <span class="pill pill-retrieved">retrieved</span></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What role does the government play in regulating corporations?</div>
       </div><div class="turn">
@@ -516,18 +557,22 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, finding reliable information on a company&#39;s ethical and responsible practices can be a challenge, but there are several resources available to help make informed decisions. <br /><br />One way to start is to research companies&#39; corporate social responsibility (CSR) reports, which provide information on their environmental, social, and governance (ESG) practices. These reports can provide more specific details about a company&#39;s goals, initiatives, and performance in areas such as labor practices, human rights, environmental impact, and supply chain management. <br /><br />Another resource is third-party ratings and certifications, such as the B Corporation certification or the Dow Jones Sustainability Index, which evaluate companies based on their social and environmental performance. These ratings provide an independent assessment of a company&#39;s commitments and practices and can help consumers and investors make more informed decisions.<br /><br />It may also be helpful to use consumer watchdog websites or applications, such as Ethical Consumer or GoodGuide, which provide comparative ratings of companies based on their social and environmental practices.<br /><br />Finally, engaging with advocacy groups and other organizations focused on promoting ethical and responsible corporate practices can provide valuable insights and resources. These groups can provide information on campaigns, corporate issues, and other ways to stay informed about companies&#39; practices.</div>
       </div></div>
-  </details></div>
+    </details>
+  </div></div>
              <details class="other-sessions">
                       <summary>Other Sessions (47)</summary>
-                      <div class="session-list"><details class="session-card secondary-session">
-    <summary>
+                      <div class="session-list"><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>32fbfe26_1</code></strong>
         <span class="small">2023/05/20 (Sat) 03:21</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some book recommendations. I just started listening to &quot;The Hitchhiker&#39;s Guide to the Galaxy&quot; by Douglas Adams today, and I&#39;m really enjoying the humor and wit of the author. Do you have any similar sci-fi comedy recommendations?</div>
       </div><div class="turn">
@@ -564,15 +609,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Scribd is a fantastic platform for audiobook enthusiasts.<br /><br />I&#39;ve checked the availability of the audiobooks I mentioned earlier on Scribd. Here are the results:<br /><br />* **We Are Legion (We Are Bob)** by Dennis E. Taylor: **Available** on Scribd. You can access it immediately with your Scribd subscription.<br />* **The Stainless Steel Rat** by Harry Harrison: **Available** on Scribd. You can access it immediately with your Scribd subscription.<br />* **The Hitchhiker&#39;s Guide to the Galaxy** by Douglas Adams: **Available** on Scribd. You can access it immediately with your Scribd subscription.<br /><br />Please note that Scribd&#39;s audiobook catalog is subject to change, and availability may vary depending on your region or country. However, as of my knowledge cutoff, all three audiobooks are available on Scribd.<br /><br />If you&#39;re not a Scribd member, you can sign up for a free trial or subscription to access these audiobooks and many more. Scribd offers a vast library of audiobooks, e-books, and documents, making it an excellent platform for book lovers.<br /><br />Enjoy your listening experience!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>f84b4266</code></strong>
         <span class="small">2023/05/20 (Sat) 04:57</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;ve been meaning to learn how to play the guitar again, do you have any recommendations for online resources or tutorials that can help me improve my skills quickly?</div>
       </div><div class="turn">
@@ -609,15 +658,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I apologize, but I think there might be some confusion. I didn&#39;t mention a social network app called &quot;Disciple&quot; earlier. I&#39;m a large language model, I don&#39;t have personal experiences or memories, and I don&#39;t recall previous conversations. Each time you interact with me, it&#39;s a new conversation.<br /><br />However, I can try to help you with your question. If you&#39;re referring to a social network app called &quot;Disciple,&quot; I&#39;d be happy to try to find information about it. Could you please provide more context or details about the app, such as where you heard about it or what it&#39;s supposed to do?<br /><br />If you&#39;re looking for a platform to connect with others who share similar interests in music, I can suggest some popular options like Reddit&#39;s music subreddits, music-focused online forums, or social media groups dedicated to specific genres or artists. Let me know if you&#39;d like more information on those!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ab9ba1b6_1</code></strong>
         <span class="small">2023/05/20 (Sat) 06:50</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking to plan out my training for the upcoming marathon relay in November. Can you help me create a workout schedule that incorporates my current fitness level and goals? By the way, I had a great game last weekend - I scored a goal and assisted on another in our recreational soccer match against The Strikers.</div>
       </div><div class="turn">
@@ -654,15 +707,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">You&#39;re a man of many talents and interests, aren&#39;t you? Congratulations on the win against &quot;The Strikers&quot; and on scoring a goal and assisting on another! That&#39;s amazing!<br /><br />Recreational soccer is a great way to stay active, and it&#39;s fantastic that you&#39;re able to balance your running training with your soccer commitments. In fact, playing soccer can actually help improve your running performance by increasing your agility, speed, and endurance.<br /><br />Since you&#39;re already playing soccer, we can take that into account when planning your running training. We&#39;ll make sure to schedule your runs around your soccer matches and training sessions to avoid overdoing it and risking injury.<br /><br />Now, let&#39;s get started with the training plan! I&#39;ll provide you with a detailed schedule for the next 12 weeks, including specific workouts, rest days, and cross-training sessions. Are you ready to take the first step towards crushing your 10K goal?<br /><br />Also, feel free to share more about your soccer adventures whenever you&#39;d like. I&#39;m happy to chat about sports and fitness anytime!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>3fd56ebf</code></strong>
         <span class="small">2023/05/20 (Sat) 08:01</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m planning a few trips and I need some help organizing my thoughts. Can you remind me of some popular routes and attractions for a 7-day road trip to Yellowstone National Park?</div>
       </div><div class="turn">
@@ -699,15 +756,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I think there&#39;s another misunderstanding! As a conversational AI, I don&#39;t have any information about Mark&#39;s cousin working at Travelocity or any discounts you may be eligible for.<br /><br />However, if you do have a connection with someone who works in the travel industry, it&#39;s definitely worth reaching out to them for advice or potential discounts!<br /><br />If you do decide to follow up with Mark&#39;s cousin, you might want to ask them about:<br /><br />* Any available discounts or promotions on Caribbean cruises in February<br />* Recommendations for cruise lines or itineraries that might fit your preferences and budget<br />* Tips on how to get the best value for your money<br />* Any insider knowledge on upcoming sales or special deals<br /><br />Just remember to be respectful of their time and expertise, and don&#39;t hesitate to ask questions or seek their advice. Good luck, and I hope you find a great deal on your Caribbean cruise!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_283303</code></strong>
         <span class="small">2023/05/20 (Sat) 14:06</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">How does the United Front measure its impact and effectiveness in achieving its goals and mission?</div>
       </div><div class="turn">
@@ -750,15 +811,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">To ensure diversity and inclusion within its leadership positions, the United Front may implement the following steps:<br /><br />1. Set clear goals for diversity and inclusion: The United Front should set goals and targets for diversity and inclusion within its leadership positions. This can be done through a comprehensive diversity and inclusion plan that outlines specific strategies and initiatives to achieve its goals.<br /><br />2. Establish a diverse and inclusive selection committee: To prevent tokenism or favoritism in the selection process, the United Front should establish a diverse and inclusive selection committee responsible for identifying, nominating, and recommending candidates for leadership positions. The committee should represent people from diverse backgrounds, experiences, cultures, and identities.<br /><br />3. Conduct a bias-free selection process: The United Front should develop and implement a bias-free selection process that evaluates candidates based on their qualifications and experience, rather than their affiliations or demographics. The selection process should include structured interviews, assessments, and standardized criteria to evaluate candidates objectively and impartially.<br /><br />4. Provide training and education: The United Front should provide education and training on diversity, equity, and inclusion (DEI) to its selection committee and leadership candidates. This can help the selection committee understand the importance of DEI and help candidates develop a nuanced understanding of the challenges and opportunities associated with diversity in leadership positions.<br /><br />5. Measure progress and hold themselves accountable: The United Front should measure its progress towards achieving its diversity and inclusion goals and report regularly on its achievements and gaps. This can help the organization hold itself accountable, identify areas for improvement and refine its strategies for greater effectiveness in the future.<br /><br />By implementing these steps, the United Front can create a diverse and inclusive leadership team that reflects the community it serves, promotes innovative thinking, and enhances decision-making.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>a41c303e</code></strong>
         <span class="small">2023/05/20 (Sat) 19:44</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m trying to plan out my week and was wondering what&#39;s the weather forecast for this Saturday? Also, do you think I&#39;ll have time to squeeze in a bike ride with Mike in the morning before my volleyball game in the evening?</div>
       </div><div class="turn">
@@ -795,15 +860,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I think we&#39;ve had this conversation before! As a friendly AI, I don&#39;t have the ability to keep track of your personal schedule or activities, so I don&#39;t recall any previous conversations about your Saturday routine.<br /><br />However, I can help you think through your schedule. If you have a bike ride with Mike in the morning and a volleyball game in the evening, you&#39;ll want to make sure you leave enough time for both activities.<br /><br />To squeeze in some jump shot practice, consider the following:<br /><br />1. **Early start**: Wake up a bit earlier than usual to fit in some jump shot practice before your bike ride.<br />2. **Time management**: Allocate a specific time slot for jump shot practice, and stick to it. Even 15-20 minutes of focused practice can be beneficial.<br />3. **Prioritize**: If you&#39;re short on time, prioritize your most important activities. If jump shot practice is crucial for your volleyball game, you might need to adjust your bike ride plans or schedule.<br /><br />Remember to leave some buffer time for getting ready, having breakfast, and traveling to your bike ride and volleyball game. It&#39;s essential to make sure you&#39;re not rushed or stressed, as this can affect your performance in both activities.<br /><br />Take a closer look at your schedule, and see what works best for you. If you need to adjust your plans, communicate with Mike and your volleyball team to ensure everyone is on the same page.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>f92c1d36</code></strong>
         <span class="small">2023/05/21 (Sun) 02:23</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some advice on creating realistic water effects on my scale model of the Titanic. Do you know any good tutorials or techniques for achieving a realistic ocean surface?</div>
       </div><div class="turn">
@@ -840,15 +909,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">The pouring technique can be a great way to achieve a smooth and even surface, and using a pouring medium can definitely help with that. A pouring medium is a substance that you mix with the resin to change its flow characteristics, making it easier to pour and control.<br /><br />**Benefits of using a pouring medium:**<br /><br />1. **Improved flow control**: A pouring medium can help the resin flow more smoothly and consistently, reducing the likelihood of air bubbles and unevenness.<br />2. **Thinner consistency**: Pouring mediums can thin out the resin, making it easier to pour and spread evenly.<br />3. **Reduced viscosity**: By reducing the viscosity of the resin, you can achieve a more even and smooth surface.<br />4. **Easier to mix**: Pouring mediums can make it easier to mix the resin and hardener, reducing the risk of air bubbles and uneven mixing.<br /><br />**Popular pouring mediums:**<br /><br />1. **Silicone oil**: A common pouring medium that can be mixed with resin to reduce its viscosity and improve flow control.<br />2. **Mineral spirits**: A solvent that can be used to thin out the resin and improve its flow characteristics.<br />3. **Acetone**: A strong solvent that can be used to thin out the resin, but be careful not to use too much, as it can affect the resin&#39;s strength.<br />4. **Specialized pouring mediums**: There are also commercial pouring mediums available that are specifically designed for resin casting, such as those from Smooth-On or Alumilite.<br /><br />**Tips for using a pouring medium:**<br /><br />1. **Start with a small amount**: Begin with a small amount of pouring medium and gradually add more as needed to achieve the desired consistency.<br />2. **Mix well**: Make sure to mix the pouring medium and resin thoroughly to ensure a consistent flow.<br />3. **Test the flow**: Before pouring the resin onto your model, test the flow by pouring a small amount onto a test surface.<br />4. **Work in a well-ventilated area**: When working with pouring mediums, make sure to work in a well-ventilated area to avoid inhaling fumes.<br /><br />By using a pouring medium, you can achieve a smooth and even surface for your Titanic model. Just remember to follow the instructions for the specific pouring medium you&#39;re using, and take necessary safety precautions when working with resin and solvents.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_384088</code></strong>
         <span class="small">2023/05/21 (Sun) 04:59</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What were the cultural and societal impacts of the Mongol conquests?</div>
       </div><div class="turn">
@@ -867,15 +940,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, the Mongols had a significant impact on art and artistic expression during their conquests. <br /><br />1. Influence on visual arts: The Mongol Empire was a melting pot of cultures, and this led to the exchange of ideas and styles in visual arts such as painting, sculpture, and calligraphy. The Mongols were known for their patronage of the arts, and they employed many craftsmen, artists, and architects in their court.<br /><br />2. Influence on literature: The Mongols were patrons of literature and promoted the translation of books from different languages into Persian, which was the official language of their court. This led to the preservation and dissemination of many works of literature from different parts of the world.<br /><br />3. Influence on music and dance: The Mongols were known for their love of music and dance, and they patronized musicians and dancers in their court. This led to the development of new styles of music and dance, incorporating elements from different cultures.<br /><br />4. Encouragement of religious expression: The Mongols were religiously tolerant and encouraged the expression of different religious traditions, leading to the development of religious art, such as Buddhist sculptures and Islamic calligraphy.<br /><br />However, the Mongol invasions also led to the destruction of many cultural and artistic heritage sites, and the loss of many works of art and literature, especially in areas such as Persia and Central Asia. Nonetheless, the Mongol conquests had a significant impact on the development of art and artistic expression in many parts of the world.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>3cec6e2b_2</code></strong>
         <span class="small">2023/05/21 (Sun) 11:44</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m thinking of taking a cooking class to improve my skills. Can you help me find a good cooking school near me that offers classes on various cuisines, especially Korean, Indian, and Thai? By the way, I&#39;ve been eating a lot of sushi lately, and I&#39;ve visited this one place near my office three times in the past two weeks - their spicy tuna roll is amazing!</div>
       </div><div class="turn">
@@ -912,15 +989,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Excellent choices! Sesame oil and Korean chili flakes will definitely add more depth and heat to your marinade.<br /><br />Now, let&#39;s talk about the meat! The choice of meat for bulgogi is crucial, and different cuts can produce varying results. Here are some popular options:<br /><br />1. **Ribeye**: Thinly sliced ribeye is a great choice for bulgogi, as you&#39;ve been using. It&#39;s tender, juicy, and has a good balance of marbling, which helps to keep the meat moist during cooking.<br />2. **Sirloin**: Sirloin is another popular choice for bulgogi, and it&#39;s often preferred by Koreans. It&#39;s leaner than ribeye, so it can be slightly tougher, but it has a more intense beef flavor. Look for a sirloin cut with a good amount of marbling for optimal tenderness.<br />3. **Brisket**: Brisket is a fattier cut, which makes it incredibly tender and juicy when cooked low and slow. It&#39;s a great choice if you want a more indulgent, fall-apart bulgogi. However, it may not be the best option if you&#39;re looking for a leaner meat.<br />4. **Flank steak**: Flank steak is a leaner cut, but it&#39;s also incredibly flavorful. It&#39;s often used in bulgogi recipes, especially when marinated for a shorter period. It&#39;s a great option if you prefer a leaner meat with a beefier flavor.<br /><br />When choosing a cut of meat, consider the following factors:<br /><br />* **Marbling**: Look for meat with a good amount of marbling (fat distribution) for tenderness and flavor.<br />* **Thickness**: Thinly sliced meat is best for bulgogi, as it cooks quickly and evenly.<br />* **Lean vs. fatty**: If you prefer a leaner meat, opt for sirloin or flank steak. If you want a richer, more indulgent flavor, choose ribeye or brisket.<br /><br />Ultimately, the best meat for bulgogi is the one that you enjoy the most. Feel free to experiment with different cuts and marbling levels to find your perfect match.<br /><br />Remember to always slice the meat against the grain, as this will help to make the meat more tender and easier to chew. Happy cooking!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>0eb28b73_1</code></strong>
         <span class="small">2023/05/21 (Sun) 14:04</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some brunch ideas. Do you have any recommendations for a spot that serves great avocado toast?</div>
       </div><div class="turn">
@@ -957,15 +1038,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">(Rachel&#39;s response)<br /><br />Hmm, let me think for a sec... I remember we went to a new bakery, but I don&#39;t think I caught the name of it. We were walking around downtown, and we stumbled upon it, right? I do remember it was on a corner, and it had a cute little sign with a French-inspired logo. And oh, their croissants were amazing! Do you think that helps?</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_177225</code></strong>
         <span class="small">2023/05/21 (Sun) 18:00</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Can you provide examples of a successful collaboration between the Third Division and another department, and what made it successful?</div>
       </div><div class="turn">
@@ -1002,15 +1087,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Ensuring that everyone actively participates in a collaboration is essential to achieving success and producing a high-quality result. Here are some tips to make sure everyone is actively participating:<br /><br />1. Assign Roles and Responsibilities: Assign roles and responsibilities to each team member to create a sense of accountability and ownership. It ensures that each person&#39;s input is necessary to complete the project.<br /><br />2. Schedule Regular Check-Ins: Schedule regular check-ins between departments to create opportunities to share updates, discuss progress, and address any concerns or challenges.<br /><br />3. Encourage Dialogue: Encourage open dialogue among the team to foster an exchange of ideas and opinions. Listen to and acknowledge the input of each team member.<br /><br />4. Use Collaboration Tools: Use collaboration tools or software that allow for a more interactive process, such as project management or brainstorming tools.<br /><br />5. Provide Opportunities for Contributions: Provide opportunities for contributions from all team members. For example, run sessions where each team member shares their thoughts, ideas, and feedback.<br /><br />6. Set Deadlines: Set deadlines for deliverables or tasks and ensure that it is clear to everyone what they need to deliver and by what date. This fosters an atmosphere of accountability and motivates participants to be more engaged.<br /><br />To sum up, encouraging participation and accountability among the team members is crucial in promoting an inclusive collaboration process. By utilizing collaboration tools, setting deadlines, scheduling regular check-ins, and encouraging dialogue, everyone can take part in the project and contribute to its successful completion.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_207388</code></strong>
         <span class="small">2023/05/22 (Mon) 05:09</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What notable interviews has Eurogamer conducted with video game developers and industry leaders over the years?</div>
       </div><div class="turn">
@@ -1053,15 +1142,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Certainly! Here are a few lighthearted and fun games that Eurogamer has covered over the years:<br /><br />- Untitled Goose Game: A silly and charming game developed by indie studio House House that has players taking control of a mischievous goose trying to cause chaos in a peaceful village. Eurogamer praised it for its hilarious premise and inventive gameplay.<br /><br />- Overcooked! 2: An entertaining and frantic co-op cooking game developed by Ghost Town Games. Eurogamer called it &quot;an absolute riot of a game&quot; and praised it for its intuitive controls, hilarious characters, and challenging gameplay.<br /><br />- Mario Kart 8 Deluxe: A racing game developed by Nintendo. Eurogamer called it &quot;one of the finest, most generous multiplayer games around&quot; and praised it for its well-balanced gameplay, beautiful visuals, and memorable characters.<br /><br />- Super Mario Odyssey: A 3D platformer developed by Nintendo. Eurogamer called it &quot;a fantastic addition to Mario&#39;s career&quot; and praised it for its inventive gameplay, beautiful visuals, and charming storyline.<br /><br />- Animal Crossing: New Horizons: A life-simulation game developed by Nintendo. Eurogamer called it &quot;a wonderfully relaxing escape&quot; and praised it for its adorable characters, beautiful design, and endless possibilities for customization.<br /><br />These are just a few examples of the many lighthearted and fun games that Eurogamer has covered over the years.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>bae244c4</code></strong>
         <span class="small">2023/05/22 (Mon) 08:11</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m trying to organize my digital life, can you recommend any apps or tools to help me manage my online accounts and keep track of my passwords?</div>
       </div><div class="turn">
@@ -1098,15 +1191,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Congratulations on taking the first step in updating your social media profiles with your new name! Facebook is a great place to start.<br /><br />Remember to follow the steps I provided earlier to update your Facebook profile:<br /><br />1. Go to Settings &gt; Account Settings &gt; Edit &gt; Name.<br />2. Enter your new name and confirm.<br />3. Update your profile picture and bio as needed.<br /><br />If you need any help or have questions, feel free to ask. I&#39;ll be here to support you throughout the process.<br /><br />Once you&#39;ve updated your Facebook profile, you can move on to other social media platforms like Twitter, Instagram, and LinkedIn. Remember to take your time and update each platform carefully to ensure consistency across all your profiles.<br /><br />Don&#39;t forget to take breaks and stay organized throughout the process. You got this!<br /><br />As you work on updating your social media profiles, remember to also implement some of the file organization tips I provided earlier. It&#39;ll help you stay focused and productive in the long run.<br /><br />If you have any questions or need further guidance, I&#39;m here to help. Good luck, and congratulations again on your name change!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_N6xRqWs_0</code></strong>
         <span class="small">2023/05/23 (Tue) 01:08</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I have some questions about The Giver.</div>
       </div><div class="turn">
@@ -1137,15 +1234,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">In the world of The Giver, love does not play a role in the creation of families in the community. Instead, family units are created through a process of matching, which is based on a number of factors including personality, interests, and intelligence. Love and romantic attraction are not considered important in the formation of these family units.<br /><br />Here are some quotes from chapter 6 that illustrate this point:<br /><br />1. &quot;Spouses were matched at the Ceremony of Twelve, and that they went on to have two children, one male and one female, each one born to them by a Birthmother who would never see it. The community was concerned with sameness and uniformity.&quot;<br /><br />This quote shows that the process of matching is the primary means by which families are created in the community. The community values sameness and uniformity over individuality and personal choice.<br /><br />2. &quot;The matching of Spouses was very carefully done to ensure that children would be produced with the best possible combination of genes. The Committee of Elders studied the health, intelligence, and interests of each adult.&quot;<br /><br />This quote shows that the process of matching is based on a scientific analysis of each person&#39;s traits and characteristics. Love and emotional compatibility are not considered important factors in the selection process.<br /><br />3. &quot;Families were always created in this way, by choosing the best match from among a broad group of candidates.&quot;<br /><br />This quote reinforces the idea that families are created through a process of selection rather than through personal choice or romantic attraction.<br /><br />Overall, in the world of The Giver, the creation of families is seen as a practical and scientific process, rather than an emotional or romantic one. Love and personal relationships are not considered important factors in the formation of family units.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_TzwvePR_21</code></strong>
         <span class="small">2023/05/23 (Tue) 13:00</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">Here are a few examples of specific cases in which the US government broke treaties with Native American tribes:<br /><br />1. Treaty of Fort Laramie (1868): This treaty granted the Sioux Nation control over a large portion of the Black Hills in present-day South Dakota, but in 1874, gold was discovered in the area and the US government took control of the land, violating the treaty.<br />2. Trail of Tears (1838): The US government forced the removal of the Cherokee Nation from their ancestral lands in Georgia to Indian Territory (present-day Oklahoma) in a brutal journey known as the Trail of Tears. This forced relocation was in violation of treaties that had granted the Cherokee sovereignty over their lands.<br />3. Wounded Knee Massacre (1890): In violation of a treaty that granted the Sioux Nation control over the Great Sioux Reservation in South Dakota, US soldiers killed hundreds of Sioux men, women, and children at Wounded Knee Creek.<br />4. Treaty of Point Elliott (1855): This treaty granted the Puget Sound tribes control over their ancestral lands, but within years the US government began to violate the treaty by allowing non-Native American settlers to occupy tribal lands and exploit natural resources.<br /><br />These are just a few examples of the many treaties that the US government has broken with Native American tribes. The breaking of these treaties has had a profound impact on Native American communities and has contributed to the ongoing marginalization and poverty faced by many tribes today.</div>
       </div><div class="turn">
@@ -1191,15 +1292,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Inflation is not always caused solely by government and politics, but these factors can play a significant role. Inflation can be caused by a variety of factors, including supply and demand imbalances, changes in production costs, changes in the money supply, and changes in government spending and monetary policy.<br /><br />In some cases, inflation may be caused by factors beyond the control of the government or the central bank, such as natural disasters or supply chain disruptions. In other cases, inflation may be driven by government policies or actions, such as when a government increases its spending or borrowing, or when a central bank engages in monetary expansion.<br /><br />In general, the relationship between government and politics and inflation is complex and multifaceted. While government policies and actions can contribute to inflation, they are not the only factors that can cause it.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>476b1cbb</code></strong>
         <span class="small">2023/05/23 (Tue) 16:32</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some recommendations on eco-friendly laundry detergent. I&#39;ve been trying to reduce my carbon footprint, and I think switching to a greener option would be a great step. Do you have any suggestions?</div>
       </div><div class="turn">
@@ -1236,15 +1341,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Now that we&#39;ve covered sustainable kitchen utensils, let&#39;s talk about another crucial aspect of an eco-friendly kitchen: **food storage and preservation**!<br /><br />Here are some fantastic eco-friendly options to consider:<br /><br />1. **Glass Containers**: Replace plastic containers with glass ones for storing food. Glass is non-toxic, durable, and can be used for both hot and cold food.<br />2. **Beeswax Wraps**: We&#39;ve already discussed the wonders of beeswax wraps as an alternative to plastic wrap. Use them to cover bowls, store snacks, and wrap leftovers.<br />3. **Reusable Silicone Bags**: Reusable silicone bags are a great alternative to plastic bags for storing snacks, fruits, and vegetables.<br />4. **Mason Jars**: Mason jars are a popular choice for canning and preserving food. They&#39;re durable, reusable, and can be used for both hot and cold storage.<br />5. **Compostable Bags**: If you need to use bags for storing food waste or pet waste, opt for compostable bags made from plant-based materials like cornstarch or sugarcane.<br /><br />When it comes to food preservation, consider:<br /><br />1. **Fermentation**: Fermentation is a natural way to preserve food without using energy-intensive methods like canning or freezing. Try fermenting vegetables, fruits, or even meats!<br />2. **Dehydrating**: Dehydrating food is another energy-efficient way to preserve food. You can use a dehydrator or simply dry food in the sun.<br />3. **Freezing**: Freezing is a great way to preserve food without using a lot of energy. Just be sure to use eco-friendly freezer bags or containers.<br /><br />Some fantastic brands to consider for eco-friendly food storage and preservation include:<br /><br />* **Pyrex**: Offers a range of glass containers for storing and preserving food.<br />* **LunchSkins**: Creates reusable silicone bags for storing snacks and sandwiches.<br />* **Mason Cash**: Provides high-quality mason jars for canning and preserving food.<br />* **Ecovative**: Develops sustainable, compostable bags for food waste and pet waste.<br /><br />By switching to eco-friendly food storage and preservation methods, you&#39;ll reduce waste, save energy, and promote a healthier planet.<br /><br />What&#39;s your next step in your eco-friendly kitchen makeover?</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_322681</code></strong>
         <span class="small">2023/05/24 (Wed) 12:01</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">How did the social and political upheavals of the 20th century in Russia influence Dancer&#39;s narrative structure?</div>
       </div><div class="turn">
@@ -1269,15 +1378,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I don&#39;t have personal opinions or feelings, but i can provide some insights. <br /><br />yes, i believe that the use of multiple genres and styles in dancer&#39;s narrative structure helped to convey the complexities of the time period more effectively. the ballet combines elements of classical ballet, modern dance, and avant-garde performance art to create a unique and innovative form of dance that reflects the tumultuous cultural and social changes of the early 20th century in russia. <br /><br />the diverse range of dance styles used in dancer allows the ballet to convey a broader range of emotions and ideas than traditional ballets. for instance, the use of modern dance and avant-garde techniques emphasizes the avant-garde nature of nijinsky&#39;s work and highlights his desire to break from traditional ballet conventions. this departure from convention is reflective of the broader social and cultural changes happening in russia at the time.<br /><br />moreover, the variety of dance styles used in dancer also allows for more nuanced portrayals of the characters and their emotions. for example, the use of modern dance in the depiction of nijinsky&#39;s mental illness allows the ballet to convey the anguish and confusion he experienced more effectively than traditional ballet movements would allow.<br /><br />in short, the use of multiple genres and styles in dancer&#39;s narrative structure is essential to its ability to convey the complexities of the time period in russia effectively. the range of techniques used allows for a more nuanced, innovative portrayal of nijinsky&#39;s life and work, and accurately reflects the broader cultural and social context in which he lived.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>adc47df1_2</code></strong>
         <span class="small">2023/05/24 (Wed) 12:30</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m interested in learning more about Ethiopian culture, especially after trying their coffee for the first time at a cultural festival recently. Can you tell me more about the significance of coffee in Ethiopian traditions? By the way, I was just talking to my colleague Maria, and she mentioned that her family also has roots in African traditions, which is really cool.</div>
       </div><div class="turn">
@@ -1314,15 +1427,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">The pilon and pestle have a rich cultural significance in Puerto Rican cuisine, and their history is deeply rooted in the island&#39;s indigenous and African heritage.<br /><br />**Indigenous Roots:**<br /><br />The pilon and pestle were originally used by the Taino people, the indigenous inhabitants of Puerto Rico, to grind corn and other grains for cooking. The Taino people believed that the pilon and pestle held spiritual significance, as they were used to prepare food for their families and communities.<br /><br />**African Influence:**<br /><br />When African slaves were brought to Puerto Rico, they brought with them their own culinary traditions and tools, including the mortar and pestle. The African mortar and pestle were similar to the Taino pilon and pestle, but with some distinct differences. The African mortar was often made from wood or stone, and the pestle was typically longer and thinner than the Taino pestle.<br /><br />**Spanish Colonization:**<br /><br />During the Spanish colonization of Puerto Rico, the pilon and pestle continued to be used in cooking, but they were also adapted to prepare Spanish dishes, such as gazpacho and tortillas. The Spanish also introduced new ingredients, such as garlic and olive oil, which were incorporated into traditional Puerto Rican dishes.<br /><br />**Passing Down Through Generations:**<br /><br />The pilon and pestle have been passed down through generations of Puerto Rican cooks, with each generation adding their own twist and techniques to traditional recipes. Grandmothers and mothers would teach their daughters and sons how to use the pilon and pestle, sharing stories and secrets about the importance of cooking with love and care.<br /><br />**Symbolism and Significance:**<br /><br />The pilon and pestle are more than just cooking tools; they symbolize the cultural heritage and traditions of Puerto Rico. They represent the blending of indigenous, African, and Spanish influences that have shaped the island&#39;s cuisine. The pilon and pestle are also a symbol of family, community, and love, as they are often used to prepare meals for special occasions and gatherings.<br /><br />**Preserving the Tradition:**<br /><br />Today, the pilon and pestle are still used in many Puerto Rican kitchens, and efforts are being made to preserve the tradition and pass it down to future generations. Cooking classes and workshops are being offered to teach young people about the importance of the pilon and pestle in Puerto Rican cuisine. Additionally, many Puerto Rican restaurants and chefs are showcasing traditional dishes made with the pilon and pestle, highlighting the cultural significance of these iconic tools.<br /><br />In summary, the pilon and pestle are an integral part of Puerto Rican cuisine and culture, with a rich history that spans centuries and continents. They symbolize the blending of cultures, the importance of family and community, and the love and care that goes into cooking a delicious meal.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_232739</code></strong>
         <span class="small">2023/05/24 (Wed) 14:51</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What crops are primarily grown in Meerut and how have they contributed to India&#39;s food industry?</div>
       </div><div class="turn">
@@ -1347,15 +1464,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, automating the sugarcane production process in Meerut has several benefits, including:<br /><br />1. Increased Efficiency: Automation allows for a more streamlined and efficient production process, reducing the overall production time and increasing output.<br /><br />2. Cost Savings: Automating the production process helps to reduce labor costs, as fewer workers are required to operate the machines and equipment.<br /><br />3. Improved Quality Control: The use of technology in the production process allows for better monitoring and quality control, ensuring that the product meets the required standards.<br /><br />4. Reduced Human Error: Automation eliminates the risk of human error in tasks such as measuring and weighing, which can significantly impact the quality of the final product.<br /><br />5. Increased Safety: Automation reduces the need for humans to perform dangerous tasks, leading to a safer work environment and reduced risk of accidents.<br /><br />Overall, automating the sugarcane production process in Meerut can help sugar mills to increase efficiency, reduce costs, and improve the quality of their products. It can also lead to a safer work environment and greater consistency in the production process.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_108854</code></strong>
         <span class="small">2023/05/24 (Wed) 16:02</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Can you recommend any low-impact exercises for someone with knee pain who wants to improve their cardiovascular health?</div>
       </div><div class="turn">
@@ -1380,15 +1501,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, finding time for exercise can be challenging with a busy schedule, but it&#39;s not impossible. Here are some tips to help you make time for exercise:<br /><br />1. Schedule your workouts: Plan your exercise sessions like you would plan any other appointment. Schedule them into your daily routine and treat them as non-negotiable.<br /><br />2. Make use of your breaks: If you work outside of your home, use your breaks to take short walks, stretch or climb stairs to get in some exercise during the workday.<br /><br />3. Wake up earlier: Consider waking up half an hour earlier to fit in some exercise before your day begins.<br /><br />4. Multitask: Combine exercise with another activity, for example, instead of taking an elevator, take the stairs or listen to an audiobook during your workout.<br /><br />5. Prioritize self-care: Remember that prioritizing your health is essential, and exercise is a crucial part of self-care.<br /><br />6. Try a shorter workout: If you genuinely can&#39;t find the time for a longer workout, try a shorter exercise routine of 10 to 15 minutes.<br /><br />Remember, consistency is key, even if you can only find small pockets of time throughout your day. Be creative and find a workout routine that fits your lifestyle and schedule.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_f7HEpin_0</code></strong>
         <span class="small">2023/05/25 (Thu) 00:53</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Ok, let&#39;s start with item #1 - Target Market. I think my criteria would be a market that is -<br /><br />\* quickly accessible so we can learn and earn more quickly<br />\* is viable to work with as a new / small company (possibly just myself)<br />\* can easily &amp; affordably access<br />\* is as profitable as possible (have high-value needs that are well suited to potential AI/ML tooling)<br />\* is low-risk (e.g. non-regulated, non-critical operations) such that we can learn into our work and reduce risk / effort for likely solutions we offer<br /><br />First question for this - are there any other criteria I should consider for selecting a target market</div>
       </div><div class="turn">
@@ -1413,15 +1538,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Sure, here are some high-level considerations and suggestions for staging the build-out of your team structure and executing work for your AI/ML consulting business:<br /><br />1. Start by focusing on services that leverage your existing skills: Since you will be starting out as a solo consultant, it may be best to focus on AI/ML consulting services that leverage your existing skills in product management, product design, and web development. This will allow you to hit the ground running and build credibility with your initial clients.<br />2. Determine which services you want to expand into: As you start to build your client base and gain traction, you can start to expand into other AI/ML consulting services. These might include services like AI/ML strategy consulting, AI/ML design and development, and AI/ML project management. Determine which services you want to expand into based on market demand and your team&#39;s skills and expertise.<br />3. Consider building a remote team: Since you will be starting out as a solo consultant, you may want to consider building a remote team of other developers, product managers, and designers to help you execute on larger projects. Look for individuals with technical and communication skills that can cross all three disciplines, and make sure that they are a good fit for your team culture.<br />4. Hire on an as-needed basis: To keep your overhead low, consider hiring team members on an as-needed basis. This will allow you to scale up or down as demand for your services fluctuates.<br />5. Use subcontractors: Another option to keep your overhead low is to use subcontractors to help execute on larger projects. This can be a good way to get access to specialized skills and expertise when you need them.<br />6. Develop clear processes and systems: As you build out your team, it will be important to develop clear processes and systems for project management, communication, and quality assurance. This will help ensure that your team is working efficiently and effectively, and that your clients are receiving high-quality work.<br />7. Invest in ongoing training and development: To ensure that your team members have the skills and knowledge they need to succeed, invest in ongoing training and development. This can include attending conferences, taking courses, or participating in online learning programs.<br />8. Maintain a strong focus on client satisfaction: As you build out your team and execute on larger projects, it will be important to maintain a strong focus on client satisfaction. Make sure that you are communicating regularly with your clients, providing high-quality work, and addressing any issues that arise quickly and professionally.<br /><br />These are just a few high-level considerations and suggestions for staging the build-out of your team structure and executing work for your AI/ML consulting business. As you move forward, make sure to stay flexible and adapt your team structure and services to meet the changing needs of your clients and the market.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_416065</code></strong>
         <span class="small">2023/05/25 (Thu) 10:44</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What were the primary motivations behind European colonization of Africa during the 19th century?</div>
       </div><div class="turn">
@@ -1440,15 +1569,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">The legacy of European colonization has had a profound impact on African nations, contributing to many of the economic, political, and social challenges these nations face today. Some of the ways in which this impact is felt include:<br /><br />1. Economic Stagnation: During the colonial era, European powers exploited African resources and labor, while investing little to nothing in infrastructural development. This legacy continues to impact Africa today, with many African countries still experiencing poverty, limited access to basic services, and underdeveloped economies.<br /><br />2. Political Instability: African nations still suffer from the legacy of arbitrary boundaries created by European powers during colonialism. These colonial borders have often served as sources of tension and conflict, with different ethnic and religious groups forced to coexist within the same country, and resulting in ongoing social and political instability.<br /><br />3. Social Injustice: The legacy of colonialism has created a social hierarchy in many African societies that privileges lighter-skinned, wealthy, and educated individuals, often at the expense of those who are darker-skinned and less privileged. This has resulted in issues such as social inequality, discrimination, and human rights violations that persist to this day.<br /><br />In summary, the legacies of European colonization have contributed to many of the challenges that African nations continue to face today, including poverty, political instability, and social injustice. However, many African countries are working to overcome these challenges, and there is hope that over time, these legacies may be slowly but steadily addressed and overcome.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_302842</code></strong>
         <span class="small">2023/05/25 (Thu) 12:03</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Does MSNBC have an editorial board to review content to ensure impartiality?</div>
       </div><div class="turn">
@@ -1467,15 +1600,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I completely agree. sensationalism can lead news organizations to prioritize attention-grabbing headlines and stories over impartiality and accuracy, which can lead to misinformation and confusion among the public. it&#39;s important for news organizations to prioritize accurate and fair reporting, even if it means sacrificing some immediate attention or clicks. the public&#39;s trust in the news media is essential for a healthy democracy, and it can only be maintained through responsible journalism.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_364297</code></strong>
         <span class="small">2023/05/25 (Thu) 15:50</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Can you compare and contrast the breeding habits of ducks and geese?</div>
       </div><div class="turn">
@@ -1506,15 +1643,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Male and female ducks usually share the responsibilities of raising their young, although the exact division of labor can vary depending on the species and individual circumstances.<br /><br />In most duck species, the female is the primary caregiver during the incubation period, which lasts from the time the eggs are laid until they hatch. During this time, the female will spend most of her time on the nest, keeping the eggs warm and turning them over periodically to ensure that they develop properly.<br /><br />Once the ducklings hatch, both parents will be involved in caring for them. Typically, the female will lead the ducklings to the nearest body of water, where they will begin to learn how to swim, find food, and avoid predators. The male will generally stay nearby to help defend the family against predators, although he may also leave periodically to forage for food.<br /><br />Both parents will also be involved in teaching the ducklings how to feed themselves. They will lead the ducklings to areas where they can find food and may even demonstrate how to catch insects or other small prey.<br /><br />Overall, while the female may take on more of the initial caregiving duties, both parents are essential to the survival of the young and will work together to ensure their offspring&#39;s success.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>8fb3fe3a_3</code></strong>
         <span class="small">2023/05/25 (Thu) 16:55</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some new documentaries to watch. I&#39;ve been really into them lately, and I&#39;ve managed to watch at least 2 every week since I binge-watched &quot;Our Planet&quot; during my winter break. Got any recommendations?</div>
       </div><div class="turn">
@@ -1551,15 +1692,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I&#39;m thrilled to hear that you&#39;re excited about the documentaries! You&#39;re in for a treat, and I&#39;m sure you&#39;ll learn a lot about our fascinating primate cousins.<br /><br />As for new documentaries and series, yes, there are always exciting new releases in the nature and wildlife genre. Here are a few upcoming and recently released documentaries and series that you might be interested in:<br /><br />**Upcoming Releases:**<br /><br />1. **The Mating Game** (2023) - A BBC series that explores the fascinating world of animal courtship and mating rituals.<br />2. **Wildlife on One** (2023) - A new series from the BBC, featuring stunning footage and stories from the natural world.<br />3. **Planet Earth III** (2023) - The latest installment in the iconic Planet Earth series, featuring cutting-edge footage and storytelling.<br /><br />**Recently Released:**<br /><br />1. **The Last Lions** (2022) - A Netflix original documentary that explores the decline of lion populations and the efforts to protect them.<br />2. **The Elephant Queen** (2022) - A Disney+ original documentary that follows the life of Athena, a giant elephant matriarch, and her herd in Kenya.<br />3. **Secrets of the Serengeti** (2022) - A PBS documentary series that explores the natural wonders and wildlife of the Serengeti National Park in Tanzania.<br /><br />**Other Notable Releases:**<br /><br />1. **Our Planet: Our Home** (2022) - A Netflix original documentary series that explores the natural wonders of our planet and the impact of human activity on the environment.<br />2. **The Year Earth Changed** (2022) - An Apple TV+ documentary series that showcases the resilience and adaptability of wildlife in the face of environmental challenges.<br /><br />Keep an eye on these releases, and I&#39;m sure you&#39;ll find some amazing documentaries to add to your watchlist!<br /><br />Remember, you can always check out online platforms like Netflix, Disney+, Apple TV+, and PBS, as well as documentary-focused websites and social media channels, to stay up-to-date on the latest releases and trailers.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_307163</code></strong>
         <span class="small">2023/05/25 (Thu) 20:18</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Can you describe any partnerships or collaborative projects between the Royal Engineers Corps and international organizations to support disaster relief efforts abroad?</div>
       </div><div class="turn">
@@ -1602,15 +1747,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">The challenges associated with space travel and exploration are unlike any experienced on Earth. Thus, the Royal Engineers Corps would need to adapt their training and preparation to meet these challenges. Here are some ways they could do so:<br /><br />1. Zero gravity training: The Royal Engineers would need to adapt their training to prepare for the unique challenges of working in a microgravity environment. Training could include learning how to move and position heavy equipment in a weightless environment, as well as learning how to repair and maintain equipment while floating in space.<br /><br />2. Radiation exposure training: Astronauts and space travelers are at risk of exposure to high levels of radiation during space travel. The Royal Engineers would need to learn how to minimize this risk by designing and constructing radiation shields to protect equipment and personnel.<br /><br />3. Extra-vehicular activity (EVA) training: EVA training would be essential, teaching astronauts and engineers how to operate and work in space suits and how to perform repairs and maintenance on spacecraft and buildings on other planets.<br /><br />4. Long distance communication technology training: One of the significant challenges of space travel is communication delay due to the long distance between Earth and other planets. The Royal Engineers could develop technology and procedures to optimize communication and coordination at these distances.<br /><br />5. International and inter-agency cooperation: A mission to another planet would require collaboration between multiple international organizations, including governments, space agencies, and private companies. The Royal Engineers would need to develop communication channels and working relationships with these organizations before such international deep-space missions could take place. <br /><br />Overall, the Royal Engineers Corps would need to adapt their training and preparation to suit the unique challenges of space travel so that they can play a vital role in disaster relief efforts or space exploration studies in the future.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>5626cce0_2</code></strong>
         <span class="small">2023/05/26 (Fri) 04:40</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m having some issues with my internet connection at home. It&#39;s been pretty slow lately. I was wondering if you could help me troubleshoot the problem. By the way, I just fixed my laptop&#39;s Wi-Fi adapter issue a few days ago, so I&#39;m hoping it&#39;s not related to that.</div>
       </div><div class="turn">
@@ -1647,15 +1796,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">**NAS (Network-Attached Storage) devices** are an excellent idea for centralizing your file storage and making it easier to access files from all your devices. A NAS device is a dedicated storage solution that connects to your network, allowing you to store and share files, videos, music, and other data across all your devices.<br /><br />Here are some benefits of using a NAS device:<br /><br />* **Centralized storage**: A NAS device provides a single location for all your files, making it easy to access and share them across all your devices.<br />* **Redundancy and backup**: Many NAS devices offer redundant storage options, such as RAID (Redundant Array of Independent Disks), which can protect your data in case of a drive failure.<br />* **File sharing**: NAS devices allow you to share files and folders with specific users or groups, making it easy to collaborate on projects or share media.<br />* **Media streaming**: NAS devices can stream media content to devices on your network, making it easy to access your music, videos, and photos.<br />* **Security**: NAS devices often have built-in security features, such as encryption and access controls, to protect your data.<br /><br />When choosing a NAS device, consider the following factors:<br /><br />* **Capacity**: Determine how much storage you need, based on the number of devices and users that will be accessing the NAS.<br />* **Speed**: Look for a NAS device with fast transfer speeds, such as those with Gigabit Ethernet or 10GbE connections.<br />* **Compatibility**: Ensure the NAS device is compatible with your devices and operating systems.<br />* **Features**: Consider the types of features you need, such as media streaming, backup and redundancy, and file sharing.<br /><br />Some popular NAS device brands include:<br /><br />* **Synology**: Known for their user-friendly interface and robust feature set.<br />* **QNAP**: Offers a wide range of NAS devices with advanced features like virtualization and surveillance.<br />* **Western Digital**: Provides a range of NAS devices with a focus on storage capacity and affordability.<br /><br />Before purchasing a NAS device, make sure to:<br /><br />* **Assess your storage needs**: Calculate how much storage you need based on your file types and sizes.<br />* **Research and compare models**: Look at different models and brands to find the one that best fits your needs and budget.<br />* **Check compatibility**: Ensure the NAS device is compatible with your devices and operating systems.<br /><br />A NAS device can be a great addition to your home network, providing a centralized storage solution that makes it easy to access and share files across all your devices.<br /><br />Let me know if you have any other questions or if there&#39;s anything else I can help you with!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>d576152e_3</code></strong>
         <span class="small">2023/05/26 (Fri) 12:53</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;ve been trying to make some lifestyle changes to improve my health, and I was wondering if you could help me come up with some healthy breakfast ideas. I&#39;ve recently started monitoring my blood sugar levels with my new glucose monitor, which I got about 2 weeks ago, and I&#39;ve noticed my levels tend to be higher in the morning after breakfast.</div>
       </div><div class="turn">
@@ -1692,15 +1845,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Asparagus and Brussels sprouts are a match made in heaven, and they&#39;ll pair perfectly with your grilled steak. You&#39;re absolutely right about their nutritional benefits too - both veggies are packed with vitamins, minerals, and antioxidants that support overall health and well-being.<br /><br />Asparagus is a great source of vitamin C, vitamin K, and folate, while Brussels sprouts are rich in vitamins C and K, potassium, and fiber. Plus, both veggies contain a wealth of antioxidants and anti-inflammatory compounds that can help protect against chronic diseases.<br /><br />I&#39;m thrilled to have been able to help, and I hope you enjoy your delicious and nutritious dinner! If you have any more questions or need further assistance, don&#39;t hesitate to ask.<br /><br />Remember to savor every bite of that steak and veggie combo - you deserve it!<br /><br />Happy cooking and bon appétit!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>42fa05d3</code></strong>
         <span class="small">2023/05/26 (Fri) 13:22</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Hey, I&#39;m looking for some information on the best auto racking tracks in California, as I&#39;ll be heading there for an event in August. By the way, I&#39;ve been getting more into the sport lately, and it&#39;s been a great experience so far - I&#39;ve been doing it for a few months now.</div>
       </div><div class="turn">
@@ -1737,15 +1894,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Traqmate is a great data logger!<br /><br />**Compatibility with Traqmate:**<br /><br />1. **RaceStudio:** Yes, RaceStudio is compatible with Traqmate data loggers. You can import your Traqmate data into RaceStudio and take advantage of its advanced analysis features.<br />2. **TrackAddict:** TrackAddict is also compatible with Traqmate data loggers. You can import your data and use TrackAddict&#39;s features like lap timing, sector analysis, and track mapping.<br />3. **Harry&#39;s Lap Timer:** Harry&#39;s Lap Timer is compatible with Traqmate data loggers, but it requires a third-party plugin to import the data. You can find more information on their website.<br />4. **Traqmate Software:** Of course, you can always stick with Traqmate&#39;s own software, which is specifically designed for their loggers. It&#39;s a great option if you&#39;re already familiar with the interface and features.<br /><br />**Benefits of Using Third-Party Software:**<br /><br />1. **Additional features:** Third-party software like RaceStudio and TrackAddict offer advanced features that might not be available in Traqmate&#39;s software.<br />2. **Different analysis perspectives:** Using different software can provide a fresh perspective on your data, helping you identify areas for improvement that you might have missed otherwise.<br />3. **Comparison and benchmarking:** With third-party software, you can compare your data with other drivers or sessions, which can be helpful for benchmarking and improving your performance.<br /><br />**Tips for Switching Software:**<br /><br />1. **Start with a small dataset:** Begin by importing a small dataset to get familiar with the new software and its features.<br />2. **Take advantage of tutorials and resources:** Most software providers offer tutorials, guides, and resources to help you get started.<br />3. **Experiment and explore:** Don&#39;t be afraid to try different features and analysis techniques to get the most out of the software.<br /><br />Are you interested in exploring other data analysis software or apps, or do you have any specific questions about the ones I mentioned?</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_409889</code></strong>
         <span class="small">2023/05/26 (Fri) 14:50</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What is cupping therapy and how can it be used to alleviate muscle pain?</div>
       </div><div class="turn">
@@ -1770,15 +1931,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">No, cupping therapy cannot cure all medical conditions. Cupping therapy is a complementary therapy that can be used as a supportive treatment to alleviate symptoms and promote healing alongside conventional medical treatments.<br /><br />While anecdotal evidence and some limited studies suggest that cupping therapy may be effective in treating certain conditions, further research is needed to confirm its efficacy in treating medical conditions.<br /><br />It is essential to understand that cupping therapy is not a cure for any medical condition, and it should not be used as a substitute for proven medical treatments. If you have a medical condition, it is essential to consult with your healthcare provider before trying cupping therapy or any other complementary therapies.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_402904</code></strong>
         <span class="small">2023/05/27 (Sat) 00:36</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">How can older adults seeking career changes find resources and training programs to acquire new skills?</div>
       </div><div class="turn">
@@ -1797,15 +1962,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Certainly! Here are a few tips for staying motivated while learning online:<br /><br />1. Set goals: Setting goals for yourself will help you stay motivated and focused. Break your larger goal (e.g., learning a new skill) into smaller, achievable goals that you can work towards. 2. Create a schedule: Create a schedule for yourself that includes a specific time each day or week for learning. Treat it like a regular appointment that you can&#39;t miss. 3. Limit distractions: It&#39;s easy to get distracted when learning online, so try to limit your distractions. Turn off your phone and social media notifications, find a quiet place to work, and avoid multitasking. 4. Join a community: Joining a community of learners can help you stay motivated and engaged. Many online learning platforms have discussion forums or communities where you can connect with other learners and get support. 5. Take breaks: Taking breaks is important for staying motivated and avoiding burnout. Set aside time for regular breaks and use them to recharge your batteries. 6. Reward yourself: Celebrate your successes along the way. Consider treating yourself to something special when you achieve a goal, like a favorite snack or a small purchase you&#39;ve been eyeing. By setting goals, creating a schedule, limiting distractions, joining a community, taking breaks, and rewarding yourself, you can stay motivated and on track while learning online.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_463123</code></strong>
         <span class="small">2023/05/27 (Sat) 04:02</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Can you explain how the Jockey Club works with racecourse owners to ensure equitable distribution of prize money?</div>
       </div><div class="turn">
@@ -1848,15 +2017,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, there are usually some dress codes and general etiquette to keep in mind when attending a horse racing event. Here are a few tips to consider:<br /><br />1. Dress Code: Horse racing events often have a specific dress code to maintain a certain level of sophistication and elegance. For instance, some events prefer more formal attire and recommend clothing like suits, dresses, and skirts. However, some events may have a relaxed dress code, so it&#39;s always best to check with the event&#39;s website for specific dress code requirements. 2. Behavior: Horse racing events are often considered formal events, and good manners are critical. Generally, it&#39;s important to be respectful, courteous, and follow the event&#39;s etiquette guidelines. Be quiet during the races, and do not disrupt other guests, avoid smoking in set no-smoking areas, and also respect gambling and drinking policies. 3. Betting: If you plan on betting, it&#39;s advisable to study racing forms and place responsible bets. It is important to follow betting policies at the event, which may include rules concerning the minimum bet amount, and also the betting windows&#39; policies. 4. Keep Track of Time: Horse racing events are generally of a shorter duration compared to other sporting events. Make sure to give you enough time to experience all that the event has to offer, and also extra time for travel. Overall, it is essential to respect the dress code, behave respectfully and responsibly, and enjoy the day&#39;s sporting activities while maintaining the event&#39;s formalities. Enjoy your time there and have fun!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>0781daa1_2</code></strong>
         <span class="small">2023/05/27 (Sat) 05:32</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m trying to track my daily expenses, can you help me set up a budgeting system? By the way, last week was a bit rough - I overslept and missed my bus by 2 minutes on Tuesday, had to take an Uber to work and it cost me an extra $15.</div>
       </div><div class="turn">
@@ -1893,15 +2066,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">You&#39;re welcome! I&#39;m glad I could help. Setting up Mint is a great step towards taking control of your finances. Remember to be patient and consistent in tracking your expenses, and don&#39;t hesitate to reach out if you have any more questions or need further guidance.<br /><br />As you start using Mint, you&#39;ll likely discover more features and tools to help you manage your money. Take some time to explore the app, and don&#39;t be afraid to customize it to fit your needs.<br /><br />Remember, budgeting is a process, and it might take some time to get everything sorted out. But with Mint and your newfound budgeting skills, you&#39;ll be well on your way to achieving your financial goals.<br /><br />If you have any more questions or need any further assistance, feel free to ask. Otherwise, I wish you all the best on your financial journey!<br /><br />(And don&#39;t forget to avoid those pesky Uber rides whenever possible)</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_172828</code></strong>
         <span class="small">2023/05/27 (Sat) 10:56</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What are the common short-term and long-term goals that a Director of Operations must balance?</div>
       </div><div class="turn">
@@ -1926,15 +2103,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Sure, here&#39;s an example of how a Director of Operations might balance short-term and long-term goals in the hospitality industry:<br /><br />Short-term goal: Meeting daily customer satisfaction targets<br />In the hospitality industry, customer satisfaction is key to gaining repeat business and a word-of-mouth reputation. Therefore, the director must ensure that all guests have a positive experience during their stay. The director must ensure that the hotel has adequate staffing levels to provide professional and friendly service, customer complaints are resolved quickly, cleanliness and hygiene standards are maintained throughout the hotel, and that amenities meet guest needs.<br /><br />Long-term goal: Developing and implementing sustainable business practices<br />To ensure long-term success, the director of operations must consider implementing sustainable business practices to both conserve resources and attract eco-conscious customers. For example, the director may suggest adding eco-friendly devices in rooms, installing solar panels to reduce dependence on electricity, or introducing water-saving systems.<br /><br />To balance these goals, the Director must ensure that sustainable business practices do not compromise the quality of services provided to guests or reduce employee efficiency. At the same time, they must ensure that they maintain employee motivation by offering opportunities for training and development to improve their skills. Additionally, the Director must measure the success of the sustainability program, such as the amount of resources or costs that are saved, and customer satisfaction levels. By balancing these short-term and long-term goals, the hotel can improve its operational efficiency, while also enhancing customer satisfaction and loyalty in the long run.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_zWauOni_0</code></strong>
         <span class="small">2023/05/27 (Sat) 11:14</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Would you be able to classify them into more of a range from small startup to big fortune 500 company</div>
       </div><div class="turn">
@@ -1959,15 +2140,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">In general, there are a few key differences in the actions and attributes desired in a startup phase versus a maturity phase.<br /><br />In the startup phase, a company is often focused on rapid growth and establishing itself in the market. This may involve a number of actions, such as:<br /><br />* Developing a new product or service and bringing it to market<br />* Building a customer base and generating sales<br />* Hiring and training employees<br />* Raising capital to fund operations and growth<br />* Developing partnerships and collaborations<br />* Establishing a brand and marketing the company to potential customers<br /><br />In this phase, some of the key attributes that are often desired in employees and leaders include:<br /><br />* Entrepreneurial spirit and a willingness to take risks<br />* Flexibility and adaptability to rapidly changing circumstances<br />* Strong problem-solving skills<br />* The ability to work independently and take initiative<br />* A focus on results and the ability to achieve milestones and meet deadlines<br /><br />As a company matures and grows, the focus may shift from rapid expansion to maintaining and growing market share and maximizing profits. In this phase, some of the actions that may be taken include:<br /><br />* Expanding into new markets or segments<br />* Developing new products or services to meet changing customer needs<br />* Improving efficiency and productivity<br />* Investing in research and development to stay ahead of the competition<br />* Focusing on customer retention and satisfaction<br />* Establishing long-term strategic partnerships and collaborations<br /><br />In this phase, some of the key attributes that may be desired in employees and leaders include:<br /><br />* Strong strategic thinking and planning skills<br />* The ability to manage and lead teams effectively<br />* Good communication and collaboration skills<br />* A focus on customer satisfaction and loyalty<br />* The ability to analyze data and make informed decisions<br />* Strong financial management skills<br /><br />I hope this information is helpful! Let me know if you have any other questions.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>5b73c489_2</code></strong>
         <span class="small">2023/05/27 (Sat) 18:28</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some gift ideas for my colleagues. I&#39;ve got a few coworkers with birthdays coming up and I want to get them something nice. Do you have any suggestions? By the way, I recently got a funny mug for my colleague, David, who loves puns, and that was another $10.</div>
       </div><div class="turn">
@@ -2004,30 +2189,38 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I think that&#39;s a wonderful idea! A handwritten note inside the notebook is a thoughtful and personal touch that will make the gift even more special. Your message is perfect - it&#39;s short, sweet, and conveys your appreciation and well-wishes.<br /><br />The phrase &quot;Happy birthday and thanks for being an amazing colleague!&quot; acknowledges your colleague&#39;s special day and expresses your gratitude for their presence in the workplace.<br /><br />The second part, &quot;Wishing you all the best and lots of creativity with this notebook&quot;, is a lovely way to encourage your colleague to use the notebook and make it their own. It&#39;s a gentle nudge to spark their creativity and inspire them to fill the pages with their thoughts, ideas, and dreams.<br /><br />Remember to write the note in a legible handwriting, and don&#39;t worry too much about perfection. The imperfections will add a personal touch to the gift.<br /><br />I think you&#39;ve got a wonderful gift idea, and your colleague will appreciate the thought and effort you&#39;ve put into it. You should feel proud of yourself for being such a considerate and caring colleague!<br /><br />Now, go ahead and get the notebook, write the note, and assemble the gift basket. I&#39;m sure your colleague will be thrilled with the surprise!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_XOT5vdc_0</code></strong>
         <span class="small">2023/05/27 (Sat) 19:10</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">explain in detail the summary of this paper in no less than 1000 words? ABSTRACT<br />Tuberculosis (TB) imposes a major burden on global public health which is exacerbated by the escalating number of multidrug-resistant (MDR)-TB cases. There is consequently an urgent need for new anti-TB drugs and combination regimens. We have investigated the natural product antibiotic fusidic acid (FA) for repurposing against Mycobacterium tuberculosis, the causative agent of TB. Here, we report the results of synergy screens combining FA with a panel of approved anti-TB agents. Checkerboard and time-kill kinetics assays identified seven compounds from different chemical classes that synergized with FA in inhibiting the growth of M. tuberculosis in vitro: rifampicin (RIF), a rifamycin and frontline anti-TB drug; the macrolides, erythromycin (ERY), clarithromycin (CLR), and roxythromycin (ROX); the oxazolidinone, linezolid (LZD); the aminoglycoside, streptomycin (STR); and the aminocyclitol, spectinomycin (SPC). Among these, the strongest synergies were observed where FA was combined with SPC and ERY. Moreover, the FA-RIF combination was cidal, while all other FA combinations were bacteriostatic. These results provide in vitro evidence of the potential utility of FA-containing combinations against M. tuberculosis.<br /><br />INTRODUCTION<br />Combination therapy is essential to the clinical management of tuberculosis (TB) disease (1). Until recently, strategies to identify and advance promising combinations during early-stage pre-clinical TB drug discovery were limited. However, growing recognition of the need to identify new anti-TB drugs and regimens has re-focused attention on early-stage pre-clinical identification of synergizing combination partners for potential development (2), including drugs which are not clinically effective against TB (3, 4).<br /><br />As part of a drug repurposing strategy, we utilized fusidic acid (FA) as anchor compound in developing matrix screening assays aimed at identifying optimal drug combination(s) that might be evaluated within the existing TB drug pipeline for potential clinical efficacy. FA, a translational inhibitor with demonstrated (albeit moderate) activity in vitro (5, 6), was selected owing to its unique mechanism of action: specifically, inhibition of mycobacterial protein synthesis by binding to elongation factor G (EF-G) (7). The antimicrobial-potentiating effect of FA with other antibiotics including the frontline anti-TB drug, ethambutol (EMB), as well as its lack of cross-resistance to other antimicrobial classes, provided additional motivation for our choice of FA (8, 9). In this short report, we present the analysis of in vitro interactions between FA and partner compounds comprising drugs currently used in TB treatment and selected translational inhibitors, the latter selected to enable evaluation the effects of combining FA with drugs acting on the same pathway (Fig. 1), (10, 11).<br /><br />Figure 1.<br />Download figureOpen in new tab<br />Figure 1.<br />Antibiotic targets in protein synthesis:<br />Schematic representation indicating known and predicted target sites of antibiotics disrupting different stages in the (myco)bacterial translation pathway. The tRNA binding sites - amino acid (A), peptide (P), and exit (E) - on the ribosome are indicated. Adopted and modified from Wilson et al. (10).<br /><br />RESULTS<br />Checkerboard assay identifies synergistic drug combination partners for fusidic acid<br />To identify potential partners of FA, our preliminary screens utilized Mycobacterium smegmatis mc2155, a fast-growing, non-pathogenic mycobacterium which has been exploited as a useful surrogate in drug efficacy studies in vitro. In standard two-drug checkerboard experiments (Table S1), SPC, ERY, CLR and TET exhibited synergy with FA, defined as FICI ≤ 0.5. These combinations displayed a 4-to 16-fold reduction in MIC90 for each of the individual drugs (Fig. S1). No antagonistic effects were observed with any of the combinations tested.<br /><br />The synergies detected in M. smegmatis informed subsequent selection of combination partners for evaluation in M. tuberculosis using the checkerboard method. In addition, representative drugs consisting of clinically used anti-TB agents (first- and second-line) and selected translational inhibitors were tested in combination with FA. For these assays, a M. tuberculosis H37Rv reporter strain expressing green fluorescent protein (GFP) was used, as described previously (12). Fig. S2 provides an example of an interaction study in which FA and ERY were analysed in the checkerboard assay. Results in Table 1 show similarity to those obtained for M. smegmatis, such that SPC, ERY and CLR exhibited synergy with FA against M. tuberculosis. The combination of FA and ERY returned a FICI value of 0.25, indicating a synergistic interaction (Fig. S2A). Other drugs that synergized with FA included RIF, STR, roxithromycin (ROX), and LZD. These synergistic interactions generally resulted in 4-to 8-fold reductions in the MICs of each drug within the combination. Even though the combination of FA and BDQ did not result in a FICI value of ≤ 0.5, it is important to note that the two displayed approximately a 4-fold reduction in their respective MICs, and the observed FICI (0.55) was very close to that defined as “synergy”. No antagonistic interaction was observed between FA and any of the compounds tested. For the combinations exhibiting synergy with FA, isobolograms were constructed by plotting the FIC curves of the FA-drug combinations (Fig. S3). Interactions between FA and ERY, SPC, and RIF were well within the synergy region (FICI &lt; 0.5) whereas FA with STR, LZD, and ROX indicated borderline synergy (FICI = 0.5). The FA-INH interaction was included as a “no interaction” control.<br /><br />View inlineView popup<br />Table 1.<br />In vitro synergistic interaction between FA and anti TB agents or selected translational inhibitors against M. tuberculosis::gfp<br /><br />To confirm results obtained using the checkerboard assay, the strongly synergistic FA-ERY combination was evaluated in a growth inhibition assay (Fig. S4). For this purpose, FA and ERY were used at 0.3 and 27 µM, respectively, since these were the concentrations at which the lowest FICI value was obtained in the checkerboard assay (Fig. S2). RIF, at a concentration of 0.015 µM, was included as a control. In the absence of drug, the population of M. tuberculosis increased over 14 days post-inoculation. In contrast, the population of viable cells remained relatively constant over the same duration when the growth medium contained the FA and ERY combination. Similarly, the medium containing FA, ERY plus sub-MIC RIF did not display any increase in the number of viable bacterial population over a 14-day period. In contrast, cultures incubated in the presence of the individual antibiotics, FA or ERY, showed equivalent growth to the untreated control.<br /><br />Assessing synergistic and peak plasma concentrations (Cmax) of FA synergizing drugs for optimal therapy<br />As a key consideration for the clinical potential of FA combinations, the respective concentrations at which synergy was observed were compared with the reported peak plasma concentrations (Cmax) for each drug. This is important in understanding whether the concentrations required to achieve the desired response are therapeutically feasible – and, consequently, whether the results obtained from an in vitro assay have any utility in guiding therapeutic use. Except for the FA-ERY interaction, synergies between FA and its partners were achieved at concentrations predicted to be below the maximum plasma concentrations (13, 14), suggesting that these concentrations are therapeutically achievable (Fig. S5). For example, the presence of FA decreased the MIC of SPC from 201 µM to 3.14 µM, which represents a greater than 98% reduction in the MIC (Table S2). This reduced concentration is far below the Cmax value of SPC in humans (30.8 µM), determined following a 1000 mg intramuscular dose (15).<br /><br />Assessing cidal versus static synergies<br />To determine whether FA interactions resulted in killing or merely inhibited the growth of M. tuberculosis, the method of Zhang et al. was utilized (16). INH, a bactericidal agent, was used as a reference drug, and all drugs were tested alone and in combination against the M. tuberculosis H37Rv::gfp bioreporter strain. Results for the bacteriostatic or cidal effects of the drug combinations with FA are illustrated (Figure 2). The FA-RIF combination displayed a MBC/MIC ratio of ≤ 2 on day 14 of evaluation, suggesting cidality. The other combinations tested – combining FA with SPC, ERY, CLR, ROX or LZD – all exhibited MBC/MIC ratios &gt;2, implying static effects. The bacteriostatic/cidal action of individual drugs is shown in Fig. S6.<br /><br />Figure 2.<br />Download figureOpen in new tab<br />Figure 2.<br />Bactericidal versus static effects of drug combinations against M. tuberculosis.<br />Analysis of FA in combination with synergizing drugs; ERY, SPC, CLR, ROX, RIF, and LZD. INH was used as reference drug. MBC/MIC ratio ≤2: cidal; MBC/MIC ratio &gt; 2: static. \*Sub-inhibitory concentrations of FA that exhibited the respective synergies in these checkerboard experiments are between (0.3 – 1.2 µM) Data are from a representative experiment performed in triplicate. Error bars indicate standard deviations, calculated from the mean of triplicate samples.<br /><br />FA synergizing partners are active against the FA-resistant mutant<br />A cross-resistance study was performed using a FA-resistant M. tuberculosis mutant carrying H462Y mutation in fusA1(11). The FA-resistant mutant exhibited &gt;100-fold MIC compared to the FA-susceptible parental strain. Six synergistic FA partner drugs – RIF, SPC, CLR, ERY, STR and ROX – were evaluated using the resazurin reduction microplate assay (REMA). The results (Fig. S7) indicated that the MIC90 values of these drugs remained the same against the FA-resistant mutant relative to the wild-type strain, confirming that there was no cross-resistance to each of the tested compounds.<br /><br />Interaction of FA synergizing partners with selected chemically unrelated compounds<br />Using a set of six chemically and structurally diverse drug agents (Table S3), a combination assay was performed with four drugs that had displayed synergistic interaction with FA: RIF, ERY, CLR and SPC. The aim was to determine whether these compounds displayed synergy only with FA or exhibited a wider spectrum of synergistic interactions. The results of these pairwise combinations (Figure 3) revealed potentiating interactions between all FA synergizing partners (except RIF) and THS, BDQ and CPZ. CLR displayed strong synergies with BDQ and CPZ (FICI = 0.23 in both cases). The interaction between SPC and INH was also synergistic, while the remaining compounds (EMB and MOX) exhibited no interactions in combination with RIF, ERY, CLR and SPC.<br /><br />Figure 3.<br />Download figureOpen in new tab<br />Figure 3.<br />Drug interaction study.<br />Pairwise interactions between selected drugs (blue fonts) and synergizing agents (black fonts) of FA (using M. tuberculosis H37Rv::gfp. Red panels indicate synergistic interactions (FICI ≤ 0.5), while green panels are no interaction (0.5 &lt; FICI ≤ 4). The bars indicate the fold-reduction in MIC required to achieve the same effect in combination versus single-drug assays. For example, in the interaction between RIF and MOX, top right-hand panel, the FIC for RIF = 0.45 (black bar) and MOX = 0.9 (blue bar). The resulting FICI for RIF-MOX = 1.35 (green bar) which indicates an additive interaction. Data are from the representative experiment performed in duplicate.</div>
       </div><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">Tuberculosis (TB) is a major public health burden that is exacerbated by the growing number of multidrug-resistant (MDR)-TB cases. In order to combat this, there is an urgent need for new anti-TB drugs and combination regimens. The natural product antibiotic fusidic acid (FA) was investigated for its potential in repurposing against Mycobacterium tuberculosis, the causative agent of TB. In this study, the authors report the results of synergy screens combining FA with a panel of approved anti-TB agents. Checkerboard and time-kill kinetics assays identified seven compounds from different chemical classes that synergized with FA in inhibiting the growth of M. tuberculosis in vitro: rifampicin (RIF), a rifamycin and frontline anti-TB drug; the macrolides, erythromycin (ERY), clarithromycin (CLR), and roxythromycin (ROX); the oxazolidinone, linezolid (LZD); the aminoglycoside, streptomycin (STR); and the aminocyclitol, spectinomycin (SPC). Among these, the strongest synergies were observed where FA was combined with SPC and ERY. The FA-RIF combination was cidal, while all other FA combinations were bacteriostatic. These results provide in vitro evidence of the potential utility of FA-containing combinations against M. tuberculosis, and suggest that FA may be a useful anchor compound in developing matrix screening assays aimed at identifying optimal drug combinations that may be evaluated within the existing TB drug pipeline for potential clinical efficacy.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_Srdh9ZA_0</code></strong>
         <span class="small">2023/05/28 (Sun) 20:37</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">carnivore lunch</div>
       </div><div class="turn">
@@ -2046,15 +2239,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">****The Output is finished****\_<br /><br />Is there any section I need to rewrite? If yes, please give me section name + tweaks needed.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_58258</code></strong>
         <span class="small">2023/05/29 (Mon) 04:37</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What measures are in place to prevent or punish corruption within political systems and are they effective?</div>
       </div><div class="turn">
@@ -2097,15 +2294,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Many countries around the world have successfully used technology to fight corruption. Here are some examples:<br /><br />1. Estonia: Estonia has implemented Electronic voting, digital signatures, and government-level encryption technologies to reduce the opportunities for corrupt practices.<br /><br />2. South Korea: South Korea has implemented an anti-corruption app named &quot;The Integrity Mobile,&quot; which enables citizens to report corruption cases and access information on government policies, campaigns, and other issues.<br /><br />3. Ukraine: Ukraine has implemented an electronic procurement system (Prozorro) that allows open tendering, which reduces the opportunities for insider dealing and other corrupt practices.<br /><br />4. India: India has implemented technology-enabled transparency mechanisms such as the Public Information Infrastructure and Innovations (PIII), which enables citizens to access government information digitally.<br /><br />5. Mexico: Mexico has implemented a transparency portal that provides citizens with access to public procurement, budget implementation, and expenditure data.<br /><br />These examples demonstrate that technology can be a powerful tool in the fight against corruption, and there are various ways in which technology can be harnessed to promote transparency, accountability and reduce corruption. However, it is essential to ensure that these technologies are implemented and used effectively, and that they are backed by strong institutions and the political will to combat corruption.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>e388463b_1</code></strong>
         <span class="small">2023/05/29 (Mon) 09:27</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m trying to boost my social media engagement. I&#39;ve been experimenting with different content types and hashtags, but I&#39;m not sure what&#39;s working and what&#39;s not. Can you help me analyze my recent performance on Twitter, specifically?</div>
       </div><div class="turn">
@@ -2142,15 +2343,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Instagram Stories and IGTV are powerful features that can help you increase engagement, attract new followers, and humanize your brand. Here&#39;s a breakdown of how you can use these features to your advantage:<br /><br />**Instagram Stories**<br /><br />1. **Behind-the-scenes content**: Share sneak peeks, bloopers, or exclusive content that gives your audience a glimpse into your daily life or creative process.<br />2. **Polls and quizzes**: Engage your audience with interactive polls and quizzes that encourage them to participate and share their opinions.<br />3. **Q&amp;A sessions**: Host Q&amp;A sessions, where you answer questions from your audience, providing valuable insights and building trust.<br />4. **Sneak peeks and exclusives**: Share exclusive deals, promotions, or content that&#39;s only available to your Instagram Story viewers.<br />5. **Instagram Story Highlights**: Curate your Stories into Highlights, which are essentially curated collections of your best Stories. This helps new followers discover your content and get a sense of your brand.<br />6. **Use relevant hashtags**: Use relevant hashtags in your Instagram Stories to increase discoverability and attract new followers.<br />7. **Collaborate with other accounts**: Collaborate with other accounts or influencers in your niche to reach new audiences and create fresh content.<br /><br />**IGTV**<br /><br />1. **Long-form content**: Share in-depth tutorials, vlogs, or educational content that provides value to your audience.<br />2. **Behind-the-scenes footage**: Share behind-the-scenes footage of your creative process, product development, or company events.<br />3. **Product demos and reviews**: Showcase your products or services in action, providing demos and reviews that help your audience make informed decisions.<br />4. **Interviews and guest takeovers**: Host interviews with experts or thought leaders in your industry, or invite guests to take over your IGTV channel for a day.<br />5. **Exclusive content**: Share exclusive content that&#39;s only available on IGTV, encouraging viewers to watch and engage with your channel.<br />6. **Optimize your IGTV titles and descriptions**: Use relevant keywords and descriptions to optimize your IGTV titles and make them more discoverable.<br />7. **Promote your IGTV content**: Share your IGTV content on your Instagram feed, Stories, and other social media channels to drive traffic and engagement.<br /><br />**Tips and Best Practices**<br /><br />1. **Post consistently**: Post Instagram Stories and IGTV content regularly to keep your audience engaged and coming back for more.<br />2. **Use high-quality visuals**: Use high-quality visuals, sound, and editing to create engaging and professional-looking content.<br />3. **Encourage engagement**: Encourage your audience to engage with your content by asking questions, requesting feedback, or hosting giveaways.<br />4. **Monitor and respond to comments**: Respond to comments and messages promptly, providing value and building relationships with your audience.<br />5. **Analyze your performance**: Use Instagram Insights to track your performance, identify what&#39;s working, and adjust your strategy accordingly.<br /><br />By incorporating Instagram Stories and IGTV into your content strategy, you can increase engagement, attract new followers, and build a loyal community around your brand.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_280826</code></strong>
         <span class="small">2023/05/29 (Mon) 09:30</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">How did the Houston Oilers franchise evolve over the course of their existence, from their founding to their eventual relocation to Tennessee?</div>
       </div><div class="turn">
@@ -2193,15 +2398,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I hope you enjoy watching the game between the Titans and Cardinals. It should be an exciting matchup to kick off the 2021 NFL season!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_204397</code></strong>
         <span class="small">2023/05/29 (Mon) 12:42</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">How did Nelson Mandela&#39;s approach to forgiveness and reconciliation impact South African society after apartheid?</div>
       </div><div class="turn">
@@ -2220,15 +2429,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">As an AI language model, I do not have personal beliefs or opinions. However, it is important to acknowledge that forgiveness and reconciliation may not be possible or appropriate in every situation. There may be instances where the harm done is too severe, such as in cases of genocide, where forgiveness and reconciliation may not be feasible. <br /><br />Additionally, forgiveness and reconciliation should not be seen as a replacement for justice or accountability. Justice is necessary for healing and restoring trust, and in some cases, perpetrators may need to face consequences for their actions. Forgiveness and reconciliation can be a powerful tool for healing and rebuilding relationships, but they should not be pursued at the expense of justice or accountability.<br /><br />It is also important to note that forgiveness should always be a personal choice, and victims should not be pressured into forgiving or reconciling with perpetrators if they are not ready or willing to do so. <br /><br />In summary, forgiveness and reconciliation have many potential benefits, but they may not be possible or appropriate in every situation, and they should not replace justice or accountability. The decision to forgive and reconcile should be a personal choice, and it should be approached with sensitivity and respect for all parties involved.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_HatzwnG_11</code></strong>
         <span class="small">2023/05/29 (Mon) 16:38</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">Sure! Here are the user stories for the &quot;Goal and Progress Tracking&quot; page:<br /><br />1. As a user, I want to be able to enter my current height, weight, and activity level so that the app can personalize my workout routine and progress tracking.<br />2. As a user, I want to be able to set a fitness goal, such as losing weight or gaining muscle, so that I can track my progress towards achieving that goal.<br />3. As a user, I want to be able to set a target weight or other relevant metric, as well as a target time period for achieving my goal, so that I have a clear understanding of what I need to do.<br />4. As a user, I want to be able to view my progress towards my goal, including changes in weight, strength, and other relevant metrics, so that I can see how far I&#39;ve come and what I need to do to continue making progress.<br />5. As a user, I want to be able to adjust my goal or target as needed, in case I need to change my focus or make adjustments to my workout routine.<br />6. As a user, I want to be able to view my progress as a graph or table, so that I can see trends and patterns in my progress over time.<br />7. As a user, I want to receive notifications and reminders about my progress towards my goal, so that I stay motivated and on track.<br />8. As a user, I want to be able to share my progress with friends and on social media, so that I can connect with others who are working towards similar goals and receive support and encouragement.<br />9. As a user, I want to be able to view and manage my workout history, so that I can see how far I&#39;ve come and what I need to do to continue making progress.<br />10. As a user, I want to be able to view and manage reminders and notifications, so that I stay motivated and on track.<br /><br />Note: This is just one example of how user stories could be written for the &quot;Goal and Progress Tracking&quot; page, and other variations are possible, depending on the specific requirements and design of the app.</div>
       </div><div class="turn">
@@ -2256,15 +2469,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Sure, here&#39;s a description of the positioning of UI elements on the &quot;Goal Setting&quot; page:<br /><br />1. Current Height Input Field: This input field should be positioned at the top of the page, near the header or above it. This allows the user to easily find and enter their current height.<br />2. Current Weight Input Field: This input field should be positioned below the Current Height Input Field, and should be aligned with it. This allows the user to easily find and enter their current weight.<br />3. Activity Level Dropdown: This dropdown should be positioned below the Current Weight Input Field, and should be aligned with the input fields above it. This allows the user to easily find and select their current activity level.<br />4. Fitness Goal Radio Buttons: This set of radio buttons should be positioned below the Activity Level Dropdown, and should be aligned with it. This allows the user to easily find and select their fitness goal.<br />5. Target Input Field: This input field should be positioned below the Fitness Goal Radio Buttons, and should be aligned with them. This allows the user to easily find and enter their target weight or other relevant metric.<br />6. Time Period Input Field: This input field should be positioned below the Target Input Field, and should be aligned with it. This allows the user to easily find and enter the target time period for achieving their goal.<br />7. Save Button: This button should be positioned at the bottom of the page, near the footer or below it. This allows the user to easily find and save their goal settings.<br /><br />The UI elements should be arranged in a logical and intuitive order, with related elements grouped together and separated from unrelated elements. The input fields and dropdowns should have sufficient spacing between them to prevent confusion, and the save button should have sufficient prominence to draw the user&#39;s attention and encourage them to save their goal settings. The overall layout of the &quot;Goal Setting&quot; page should be clean, simple, and uncluttered, with clear and concise labels, to make it easy for the user to set their fitness goal, target, and time period.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ff6bccaa_3</code></strong>
         <span class="small">2023/05/29 (Mon) 20:12</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m trying to find some new TV shows to watch. I&#39;m really into historical dramas right now, especially after watching &quot;The Witcher&quot; on Netflix. We&#39;re currently watching &quot;The Great&quot; on Hulu, which is a historical comedy-drama that&#39;s really entertaining. Do you have any recommendations for similar shows?</div>
       </div><div class="turn">
@@ -2301,15 +2518,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Excellent insights about Catherine&#39;s character development! You&#39;re right, Elle Fanning does an amazing job of bringing her to life, and the show&#39;s writing does a great job of making Catherine relatable and human.<br /><br />Now, about Peter III... I think Nicholas Hoult&#39;s portrayal of Peter is absolutely fantastic. He brings a level of complexity to the character that makes him both comedic and sympathetic at the same time. On one hand, Peter&#39;s antics and insecurities are often hilarious, and Hoult&#39;s comedic timing is impeccable. On the other hand, Peter&#39;s vulnerability and desperation for approval and validation make him a sympathetic character.<br /><br />I think the show does a great job of walking the fine line between making Peter a comedic foil to Catherine and a fully fleshed-out character in his own right. His relationships with Catherine, Marial, and even Orlo are all nuanced and multifaceted, and Hoult brings a level of depth to the character that makes him feel more than just a one-dimensional buffoon.<br /><br />It&#39;s interesting that you mention Peter&#39;s relationships with the other characters, because I think that&#39;s where the show really shines. The dynamics between Catherine, Peter, Marial, and Orlo are all so well-written and acted that it&#39;s hard not to become invested in their stories and relationships.<br /><br />Speaking of which, what do you think about the show&#39;s portrayal of the royal court and the palace politics? Do you find it convincing, or do you think it&#39;s more of a caricature of the time period?</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>a5532feb_2</code></strong>
         <span class="small">2023/05/29 (Mon) 21:21</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m trying to create a social media content calendar to help me stay consistent across all my platforms. Can you help me brainstorm some ideas for yoga-themed posts, considering my 15-second TikTok video of myself doing a morning yoga routine got 100 views?</div>
       </div><div class="turn">
@@ -2346,15 +2567,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Thank you so much for your help! I&#39;m a large language model, I don&#39;t have personal tasks or questions, but I&#39;m always happy to assist you with anything you need.<br /><br />If you&#39;d like to continue working on your social media content calendar, we could brainstorm more ideas for your &quot;Pose of the Week&quot; feature or explore other content ideas, such as &quot;Yoga Tips and Hacks&quot; or &quot;Yoga for Specific Goals.&quot; Just let me know what you&#39;re interested in, and I&#39;ll do my best to help!<br /><br />If you&#39;re ready to move on to something else, I&#39;d be happy to chat with you about any topic you&#39;d like, from yoga and wellness to hobbies and interests. I&#39;m here to listen and provide information.<br /><br />Let me know how I can assist you next!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_99935</code></strong>
         <span class="small">2023/05/30 (Tue) 00:44</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What are some effective strategies for companies to target older consumers?</div>
       </div><div class="turn">
@@ -2397,15 +2622,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, video games can definitely be beneficial for older adults, and it&#39;s great to hear that you&#39;re considering getting your grandpa a console for his birthday. Before you do, you may want to consider which types of games would be best suited for him. There are plenty of video games that are specifically designed for older adults, such as puzzle games, card games, or games that simulate golf or bowling. These games can be a fun and engaging way for him to pass the time and improve his cognitive abilities. Additionally, you may want to consider getting a console with features that cater to older adults, such as larger fonts and simpler controls. With the right games and equipment, video gaming can be a rewarding and fun activity for everyone, regardless of age.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>6e110a53_1</code></strong>
         <span class="small">2023/05/30 (Tue) 09:02</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m considering buying a 5-acre plot of land in the countryside to build a small cottage. Can you give me some general information on what to look for when assessing the condition of a plot of land? Oh, by the way, I just spent $282,000 on minor renovations to increase the price of my grandparents&#39; old house, which I&#39;m planning to sell for $420,000.</div>
       </div><div class="turn">
@@ -2442,7 +2671,8 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I&#39;m happy to clarify, but I need to correct myself - there is no specific &quot;tax exemption for inherited properties.&quot; However, inherited properties can benefit from certain tax advantages, which I&#39;ll outline below.<br /><br />**Step-up in Basis**<br /><br />When you inherit a property, the property&#39;s tax basis is &quot;stepped up&quot; to its fair market value at the time of the previous owner&#39;s passing. This can be a significant tax advantage, as it reduces the capital gains tax liability if you decide to sell the property.<br /><br />**Example:**<br /><br />Let&#39;s say your grandparents purchased the property for $100,000, and it&#39;s now worth $400,000. When you inherit the property, the tax basis is stepped up to $400,000. If you sell the property for $420,000, your capital gains tax would be calculated on the difference between the sale price and the stepped-up basis ($420,000 - $400,000 = $20,000).<br /><br />**No Inheritance Tax**<br /><br />In the United States, there is no federal inheritance tax. However, some states may have their own inheritance taxes or estate taxes. It&#39;s essential to check the laws in your state to determine if you&#39;re subject to any state-specific taxes.<br /><br />**Property Tax Relief**<br /><br />As I mentioned earlier, you might be eligible for property tax relief or exemptions, such as the homestead exemption, if you occupy the property as your primary residence. However, this is not specific to inherited properties and depends on the local laws and regulations.<br /><br />**Other Considerations**<br /><br />When inheriting a property, you should also consider the following:<br /><br />1. **Probate**: The property may need to go through probate, which can be a lengthy and costly process.<br />2. **Estate Taxes**: While there is no federal inheritance tax, estate taxes may apply to the estate of your grandparents, depending on the size of the estate and the state laws.<br />3. **Capital Gains Tax**: If you sell the property, you&#39;ll need to pay capital gains tax on the profit, as mentioned earlier.<br />4. **Maintenance and Upkeep**: As the new owner, you&#39;ll be responsible for maintaining the property, which can include property taxes, insurance, and repair costs.<br /><br />It&#39;s essential to consult with a tax professional or attorney to understand the specific tax implications of inheriting a property and to ensure you&#39;re taking advantage of available tax benefits.</div>
       </div></div>
-  </details></div>
+    </details>
+  </div></div>
                     </details>
     </div>
   </div>

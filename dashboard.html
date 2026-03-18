@@ -74,6 +74,13 @@
       flex-wrap: wrap;
       margin-top: 12px;
     }
+    .filter-panel {
+      display: none;
+      margin-top: 12px;
+    }
+    .filter-panel.open {
+      display: block;
+    }
     .section-head {
       display: flex;
       justify-content: space-between;
@@ -193,6 +200,38 @@
       border-color: #d6d0c4;
       color: var(--muted);
     }
+    .group-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 2px 0;
+      border: none;
+      background: transparent;
+      border-radius: 0;
+      color: var(--ink);
+      cursor: pointer;
+      font-size: 12px;
+    }
+    .group-toggle-mark {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      border: 1px solid #ddd5c8;
+      background: #f7f3eb;
+      font-size: 10px;
+      color: var(--muted);
+      line-height: 1;
+      flex: 0 0 auto;
+    }
+    .group-toggle[aria-expanded="false"] .group-toggle-mark {
+      transform: rotate(-90deg);
+    }
+    .group-toggle[aria-expanded="true"] .group-toggle-mark {
+      transform: rotate(0deg);
+    }
     .group-chip {
       display: inline-block;
       padding: 3px 9px;
@@ -203,7 +242,10 @@
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: var(--muted);
-      margin-right: 8px;
+    }
+    .group-meta {
+      font-size: 13px;
+      color: var(--muted);
     }
     .current-group-row td {
       background: #fbf8f1;
@@ -468,13 +510,25 @@
 
     <div class="panel">
       <h2>Current Batch</h2>
-      <p class="small">Questions are grouped by type and use the latest real evaluation for each question. Older reruns stay available in the history tags.</p>
+      <p class="small">Questions are grouped by type and use the latest real evaluation for each question. Use the type rows to fold sections only when you want less on screen.</p>
       <div class="controls">
         <input id="runSearch" type="search" placeholder="Filter runs or question IDs..." />
-        <button type="button" class="active" data-result-filter="all">all results</button>
-        <button type="button" data-result-filter="ok">ok only</button>
-        <button type="button" data-result-filter="miss">miss only</button>
+        <button type="button" id="filterToggle">show filters</button>
         <button type="button" id="historyToggle">show rerun history</button>
+      </div>
+      <div id="filterPanel" class="filter-panel">
+        <div class="button-row">
+          <button type="button" class="active" data-result-filter="all">all results</button>
+          <button type="button" data-result-filter="ok">ok only</button>
+          <button type="button" data-result-filter="miss">miss only</button>
+        </div>
+        <div class="button-row">
+          <button type="button" class="active" data-coverage-filter="all">all coverage</button>
+          <button type="button" data-coverage-filter="full-answer-session-coverage">full coverage</button>
+          <button type="button" data-coverage-filter="partial-answer-session-coverage">partial coverage</button>
+          <button type="button" data-coverage-filter="no-answer-session-coverage">no answer coverage</button>
+          <button type="button" data-coverage-filter="no-ground-truth-session">no ground truth</button>
+        </div>
       </div>
       <table id="currentBatchTable">
         <colgroup>
@@ -502,10 +556,13 @@
         <tbody>
           <tr class="current-group-row" data-group-type="knowledge-update">
                 <td colspan="8">
-                  <span class="group-chip">knowledge update</span>
-                  <span class="small">3/4</span>
+                  <button type="button" class="group-toggle" data-group-toggle="knowledge-update" aria-expanded="true">
+                    <span class="group-toggle-mark" aria-hidden="true">▾</span>
+                    <span class="group-chip">knowledge update</span>
+                    <span class="group-meta">3/4</span>
+                  </button>
                 </td>
-              </tr><tr class="current-question-row hit-reason" data-type="knowledge-update" data-reason="direct-evidence-hit" data-result="ok">
+              </tr><tr class="current-question-row hit-reason" data-type="knowledge-update" data-reason="direct-evidence-hit" data-result="ok" data-coverage="full-answer-session-coverage">
           <td class="current-col-id"><code>2133c1b5</code></td>
           <td class="current-col-run">2026-03-17T16-29-30-670</td>
           <td class="current-col-profile">-</td>
@@ -518,7 +575,7 @@
             <div class="history-extra"><a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T16-26-10-952/2133c1b5.html" title="question: 2133c1b5 | run: 2026-03-17T16-26-10-952 | hypothesis: 6 months.">16-26-10 | miss</a> <a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T16-11-17-651/2133c1b5.html" title="question: 2133c1b5 | run: 2026-03-17T16-11-17-651 | hypothesis: I don&#39;t have that information.">16-11-17 | miss</a> <a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T15-43-07-808/2133c1b5.html" title="question: 2133c1b5 | run: 2026-03-17T15-43-07-808 | hypothesis: Three months.">15-43-07 | miss</a> <a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T15-40-25-520/2133c1b5.html" title="question: 2133c1b5 | run: 2026-03-17T15-40-25-520 | hypothesis: Three months.">15-40-25 | miss</a> <span class="tag tag-neutral" title="question: 2133c1b5 | run: 2026-03-17T15-39-56-951">15-39-56</span> <span class="tag tag-muted" title="question: 2133c1b5 | run: 2026-03-17T14-41-11-533">14-41-11 | dry</span> <span class="tag tag-muted" title="question: 2133c1b5 | run: 2026-03-17T14-38-48">14-38-48 | dry</span></div>
           </td>
         </tr>
-<tr class="current-question-row hit-reason" data-type="knowledge-update" data-reason="correct-abstention" data-result="ok">
+<tr class="current-question-row hit-reason" data-type="knowledge-update" data-reason="correct-abstention" data-result="ok" data-coverage="partial-answer-session-coverage">
           <td class="current-col-id"><code>6aeb4375_abs</code></td>
           <td class="current-col-run">2026-03-17T15-43-07-808</td>
           <td class="current-col-profile">-</td>
@@ -531,7 +588,7 @@
             <div class="history-extra"><a class="tag tag-hit" href="question-pages/batch-0/2026-03-17T15-40-25-520/6aeb4375_abs.html" title="question: 6aeb4375_abs | run: 2026-03-17T15-40-25-520 | hypothesis: I don&#39;t have that information.">15-40-25 | ok</a> <span class="tag tag-neutral" title="question: 6aeb4375_abs | run: 2026-03-17T15-39-56-951">15-39-56</span> <span class="tag tag-muted" title="question: 6aeb4375_abs | run: 2026-03-17T14-41-11-533">14-41-11 | dry</span> <span class="tag tag-muted" title="question: 6aeb4375_abs | run: 2026-03-17T14-38-48">14-38-48 | dry</span></div>
           </td>
         </tr>
-<tr class="current-question-row priority-reason" data-type="knowledge-update" data-reason="retrieval-off-target-or-incomplete" data-result="miss">
+<tr class="current-question-row priority-reason" data-type="knowledge-update" data-reason="retrieval-off-target-or-incomplete" data-result="miss" data-coverage="partial-answer-session-coverage">
           <td class="current-col-id"><code>852ce960</code></td>
           <td class="current-col-run">2026-03-17T15-43-07-808</td>
           <td class="current-col-profile">-</td>
@@ -544,7 +601,7 @@
             <div class="history-extra"><a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T15-40-25-520/852ce960.html" title="question: 852ce960 | run: 2026-03-17T15-40-25-520 | hypothesis: $350,000">15-40-25 | miss</a> <span class="tag tag-neutral" title="question: 852ce960 | run: 2026-03-17T15-39-56-951">15-39-56</span> <span class="tag tag-muted" title="question: 852ce960 | run: 2026-03-17T14-41-11-533">14-41-11 | dry</span> <span class="tag tag-muted" title="question: 852ce960 | run: 2026-03-17T14-38-48">14-38-48 | dry</span></div>
           </td>
         </tr>
-<tr class="current-question-row hit-reason" data-type="knowledge-update" data-reason="direct-evidence-hit" data-result="ok">
+<tr class="current-question-row hit-reason" data-type="knowledge-update" data-reason="direct-evidence-hit" data-result="ok" data-coverage="full-answer-session-coverage">
           <td class="current-col-id"><code>d7c942c3</code></td>
           <td class="current-col-run">2026-03-17T16-44-17-124</td>
           <td class="current-col-profile">dev</td>
@@ -559,10 +616,13 @@
         </tr>
 <tr class="current-group-row" data-group-type="multi-session">
                 <td colspan="8">
-                  <span class="group-chip">multi session</span>
-                  <span class="small">0/4</span>
+                  <button type="button" class="group-toggle" data-group-toggle="multi-session" aria-expanded="true">
+                    <span class="group-toggle-mark" aria-hidden="true">▾</span>
+                    <span class="group-chip">multi session</span>
+                    <span class="group-meta">0/4</span>
+                  </button>
                 </td>
-              </tr><tr class="current-question-row priority-reason" data-type="multi-session" data-reason="retrieval-off-target-or-incomplete" data-result="miss">
+              </tr><tr class="current-question-row priority-reason" data-type="multi-session" data-reason="retrieval-off-target-or-incomplete" data-result="miss" data-coverage="partial-answer-session-coverage">
           <td class="current-col-id"><code>5a7937c8</code></td>
           <td class="current-col-run">2026-03-17T15-43-07-808</td>
           <td class="current-col-profile">-</td>
@@ -575,7 +635,7 @@
             <div class="history-extra"><a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T15-40-25-520/5a7937c8.html" title="question: 5a7937c8 | run: 2026-03-17T15-40-25-520 | hypothesis: I don&#39;t have that information.">15-40-25 | miss</a> <span class="tag tag-neutral" title="question: 5a7937c8 | run: 2026-03-17T15-39-56-951">15-39-56</span> <span class="tag tag-muted" title="question: 5a7937c8 | run: 2026-03-17T14-41-11-533">14-41-11 | dry</span> <span class="tag tag-muted" title="question: 5a7937c8 | run: 2026-03-17T14-38-48">14-38-48 | dry</span></div>
           </td>
         </tr>
-<tr class="current-question-row priority-reason" data-type="multi-session" data-reason="explicit-time-window-miss" data-result="miss">
+<tr class="current-question-row priority-reason" data-type="multi-session" data-reason="explicit-time-window-miss" data-result="miss" data-coverage="no-answer-session-coverage">
           <td class="current-col-id"><code>bc149d6b</code></td>
           <td class="current-col-run">2026-03-17T16-06-48-292</td>
           <td class="current-col-profile">-</td>
@@ -588,7 +648,7 @@
             <div class="history-extra"><a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T15-43-07-808/bc149d6b.html" title="question: bc149d6b | run: 2026-03-17T15-43-07-808 | hypothesis: I don&#39;t have that information.">15-43-07 | miss</a> <a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T15-40-25-520/bc149d6b.html" title="question: bc149d6b | run: 2026-03-17T15-40-25-520 | hypothesis: I don&#39;t have that information.">15-40-25 | miss</a> <span class="tag tag-neutral" title="question: bc149d6b | run: 2026-03-17T15-39-56-951">15-39-56</span> <span class="tag tag-muted" title="question: bc149d6b | run: 2026-03-17T14-41-11-533">14-41-11 | dry</span> <span class="tag tag-muted" title="question: bc149d6b | run: 2026-03-17T14-38-48">14-38-48 | dry</span></div>
           </td>
         </tr>
-<tr class="current-question-row priority-reason" data-type="multi-session" data-reason="retrieval-partial-or-off-target" data-result="miss">
+<tr class="current-question-row priority-reason" data-type="multi-session" data-reason="retrieval-partial-or-off-target" data-result="miss" data-coverage="no-answer-session-coverage">
           <td class="current-col-id"><code>d682f1a2</code></td>
           <td class="current-col-run">2026-03-17T15-55-55-754</td>
           <td class="current-col-profile">-</td>
@@ -601,7 +661,7 @@
             <div class="history-extra"><a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T15-43-07-808/d682f1a2.html" title="question: d682f1a2 | run: 2026-03-17T15-43-07-808 | hypothesis: I don&#39;t have that information.">15-43-07 | miss</a> <a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T15-42-58-295/d682f1a2.html" title="question: d682f1a2 | run: 2026-03-17T15-42-58-295 | hypothesis: I don&#39;t have that information.">15-42-58 | miss</a> <a class="tag tag-neutral" href="question-pages/batch-0/2026-03-17T15-40-25-520/d682f1a2.html" title="question: d682f1a2 | run: 2026-03-17T15-40-25-520">15-40-25</a> <span class="tag tag-neutral" title="question: d682f1a2 | run: 2026-03-17T15-39-56-951">15-39-56</span> <span class="tag tag-muted" title="question: d682f1a2 | run: 2026-03-17T14-41-11-533">14-41-11 | dry</span> <span class="tag tag-muted" title="question: d682f1a2 | run: 2026-03-17T14-38-48">14-38-48 | dry</span></div>
           </td>
         </tr>
-<tr class="current-question-row priority-reason" data-type="multi-session" data-reason="retrieval-off-target-or-incomplete" data-result="miss">
+<tr class="current-question-row priority-reason" data-type="multi-session" data-reason="retrieval-off-target-or-incomplete" data-result="miss" data-coverage="partial-answer-session-coverage">
           <td class="current-col-id"><code>gpt4_59c863d7</code></td>
           <td class="current-col-run">2026-03-17T15-43-07-808</td>
           <td class="current-col-profile">-</td>
@@ -616,10 +676,13 @@
         </tr>
 <tr class="current-group-row" data-group-type="single-session-assistant">
                 <td colspan="8">
-                  <span class="group-chip">single session assistant</span>
-                  <span class="small">2/4</span>
+                  <button type="button" class="group-toggle" data-group-toggle="single-session-assistant" aria-expanded="true">
+                    <span class="group-toggle-mark" aria-hidden="true">▾</span>
+                    <span class="group-chip">single session assistant</span>
+                    <span class="group-meta">2/4</span>
+                  </button>
                 </td>
-              </tr><tr class="current-question-row priority-reason" data-type="single-session-assistant" data-reason="retrieval-off-target-or-incomplete" data-result="miss">
+              </tr><tr class="current-question-row priority-reason" data-type="single-session-assistant" data-reason="retrieval-off-target-or-incomplete" data-result="miss" data-coverage="no-answer-session-coverage">
           <td class="current-col-id"><code>1d4da289</code></td>
           <td class="current-col-run">2026-03-17T15-43-07-808</td>
           <td class="current-col-profile">-</td>
@@ -632,7 +695,7 @@
             <div class="history-extra"><a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T15-40-25-520/1d4da289.html" title="question: 1d4da289 | run: 2026-03-17T15-40-25-520 | hypothesis: I don&#39;t have that information.">15-40-25 | miss</a> <span class="tag tag-neutral" title="question: 1d4da289 | run: 2026-03-17T15-39-56-951">15-39-56</span> <span class="tag tag-muted" title="question: 1d4da289 | run: 2026-03-17T14-41-11-533">14-41-11 | dry</span> <span class="tag tag-muted" title="question: 1d4da289 | run: 2026-03-17T14-38-48">14-38-48 | dry</span></div>
           </td>
         </tr>
-<tr class="current-question-row hit-reason" data-type="single-session-assistant" data-reason="direct-evidence-hit" data-result="ok">
+<tr class="current-question-row hit-reason" data-type="single-session-assistant" data-reason="direct-evidence-hit" data-result="ok" data-coverage="full-answer-session-coverage">
           <td class="current-col-id"><code>6222b6eb</code></td>
           <td class="current-col-run">2026-03-17T16-26-10-952</td>
           <td class="current-col-profile">-</td>
@@ -645,7 +708,7 @@
             <div class="history-extra"><a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T16-11-17-651/6222b6eb.html" title="question: 6222b6eb | run: 2026-03-17T16-11-17-651 | hypothesis: 6S is implemented in the SIAC_GEE tool.">16-11-17 | miss</a> <a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T15-43-07-808/6222b6eb.html" title="question: 6222b6eb | run: 2026-03-17T15-43-07-808 | hypothesis: 6S is implemented in the SIAC_GEE tool.">15-43-07 | miss</a> <a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T15-40-25-520/6222b6eb.html" title="question: 6222b6eb | run: 2026-03-17T15-40-25-520 | hypothesis: 6S is implemented in the SIAC_GEE tool.">15-40-25 | miss</a> <span class="tag tag-neutral" title="question: 6222b6eb | run: 2026-03-17T15-39-56-951">15-39-56</span> <span class="tag tag-muted" title="question: 6222b6eb | run: 2026-03-17T14-41-11-533">14-41-11 | dry</span> <span class="tag tag-muted" title="question: 6222b6eb | run: 2026-03-17T14-38-48">14-38-48 | dry</span></div>
           </td>
         </tr>
-<tr class="current-question-row hit-reason" data-type="single-session-assistant" data-reason="direct-evidence-hit" data-result="ok">
+<tr class="current-question-row hit-reason" data-type="single-session-assistant" data-reason="direct-evidence-hit" data-result="ok" data-coverage="full-answer-session-coverage">
           <td class="current-col-id"><code>778164c6</code></td>
           <td class="current-col-run">2026-03-17T16-29-30-670</td>
           <td class="current-col-profile">-</td>
@@ -658,7 +721,7 @@
             <div class="history-extra"><a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T16-26-10-952/778164c6.html" title="question: 778164c6 | run: 2026-03-17T16-26-10-952 | hypothesis: I don&#39;t have that information.">16-26-10 | miss</a> <a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T16-11-17-651/778164c6.html" title="question: 778164c6 | run: 2026-03-17T16-11-17-651 | hypothesis: I don&#39;t have that information.">16-11-17 | miss</a> <a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T15-43-07-808/778164c6.html" title="question: 778164c6 | run: 2026-03-17T15-43-07-808 | hypothesis: I don&#39;t have that information.">15-43-07 | miss</a> <a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T15-40-25-520/778164c6.html" title="question: 778164c6 | run: 2026-03-17T15-40-25-520 | hypothesis: I don&#39;t have that information.">15-40-25 | miss</a> <span class="tag tag-neutral" title="question: 778164c6 | run: 2026-03-17T15-39-56-951">15-39-56</span> <span class="tag tag-muted" title="question: 778164c6 | run: 2026-03-17T14-41-11-533">14-41-11 | dry</span> <span class="tag tag-muted" title="question: 778164c6 | run: 2026-03-17T14-38-48">14-38-48 | dry</span></div>
           </td>
         </tr>
-<tr class="current-question-row priority-reason" data-type="single-session-assistant" data-reason="retrieval-off-target-or-incomplete" data-result="miss">
+<tr class="current-question-row priority-reason" data-type="single-session-assistant" data-reason="retrieval-off-target-or-incomplete" data-result="miss" data-coverage="no-answer-session-coverage">
           <td class="current-col-id"><code>e48988bc</code></td>
           <td class="current-col-run">2026-03-17T15-43-07-808</td>
           <td class="current-col-profile">-</td>
@@ -673,10 +736,13 @@
         </tr>
 <tr class="current-group-row" data-group-type="single-session-preference">
                 <td colspan="8">
-                  <span class="group-chip">single session preference</span>
-                  <span class="small">0/4</span>
+                  <button type="button" class="group-toggle" data-group-toggle="single-session-preference" aria-expanded="true">
+                    <span class="group-toggle-mark" aria-hidden="true">▾</span>
+                    <span class="group-chip">single session preference</span>
+                    <span class="group-meta">0/4</span>
+                  </button>
                 </td>
-              </tr><tr class="current-question-row priority-reason" data-type="single-session-preference" data-reason="retrieval-off-target-or-incomplete" data-result="miss">
+              </tr><tr class="current-question-row priority-reason" data-type="single-session-preference" data-reason="retrieval-off-target-or-incomplete" data-result="miss" data-coverage="no-answer-session-coverage">
           <td class="current-col-id"><code>1c0ddc50</code></td>
           <td class="current-col-run">2026-03-17T15-43-07-808</td>
           <td class="current-col-profile">-</td>
@@ -689,7 +755,7 @@
             <div class="history-extra"><a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T15-40-25-520/1c0ddc50.html" title="question: 1c0ddc50 | run: 2026-03-17T15-40-25-520 | hypothesis: I don&#39;t have that information.">15-40-25 | miss</a> <span class="tag tag-neutral" title="question: 1c0ddc50 | run: 2026-03-17T15-39-56-951">15-39-56</span> <span class="tag tag-muted" title="question: 1c0ddc50 | run: 2026-03-17T14-41-11-533">14-41-11 | dry</span> <span class="tag tag-muted" title="question: 1c0ddc50 | run: 2026-03-17T14-38-48">14-38-48 | dry</span></div>
           </td>
         </tr>
-<tr class="current-question-row miss-reason" data-type="single-session-preference" data-reason="answer-ignored-direct-evidence" data-result="miss">
+<tr class="current-question-row miss-reason" data-type="single-session-preference" data-reason="answer-ignored-direct-evidence" data-result="miss" data-coverage="full-answer-session-coverage">
           <td class="current-col-id"><code>505af2f5</code></td>
           <td class="current-col-run">2026-03-17T16-30-28-432</td>
           <td class="current-col-profile">-</td>
@@ -702,7 +768,7 @@
             <div class="history-extra"><a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T16-29-30-670/505af2f5.html" title="question: 505af2f5 | run: 2026-03-17T16-29-30-670 | hypothesis: I don&#39;t have that information.">16-29-30 | miss</a> <a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T16-26-10-952/505af2f5.html" title="question: 505af2f5 | run: 2026-03-17T16-26-10-952 | hypothesis: You could try making your own flavored creamer using almond milk, vanilla extract, and honey, as you&#39;ve done before, especially if you&#39;re looking to reduce sugar intake and save money. You were also seeking tips on making it even healthier.">16-26-10 | miss</a> <a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T16-11-17-651/505af2f5.html" title="question: 505af2f5 | run: 2026-03-17T16-11-17-651 | hypothesis: You&#39;ve been making your own flavored creamer using almond milk, vanilla extract, and honey to reduce sugar intake and save money. You&#39;re also looking for tips to make it even healthier.">16-11-17 | miss</a> <a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T15-43-07-808/505af2f5.html" title="question: 505af2f5 | run: 2026-03-17T15-43-07-808 | hypothesis: You have previously made your own flavored creamer using almond milk, vanilla extract, and honey.">15-43-07 | miss</a> <a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T15-40-25-520/505af2f5.html" title="question: 505af2f5 | run: 2026-03-17T15-40-25-520 | hypothesis: I don&#39;t have that information.">15-40-25 | miss</a> <span class="tag tag-neutral" title="question: 505af2f5 | run: 2026-03-17T15-39-56-951">15-39-56</span> <span class="tag tag-muted" title="question: 505af2f5 | run: 2026-03-17T14-41-11-533">14-41-11 | dry</span> <span class="tag tag-muted" title="question: 505af2f5 | run: 2026-03-17T14-38-48">14-38-48 | dry</span></div>
           </td>
         </tr>
-<tr class="current-question-row priority-reason" data-type="single-session-preference" data-reason="explicit-time-window-miss" data-result="miss">
+<tr class="current-question-row priority-reason" data-type="single-session-preference" data-reason="explicit-time-window-miss" data-result="miss" data-coverage="no-answer-session-coverage">
           <td class="current-col-id"><code>75832dbd</code></td>
           <td class="current-col-run">2026-03-17T16-06-48-292</td>
           <td class="current-col-profile">-</td>
@@ -715,7 +781,7 @@
             <div class="history-extra"><a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T15-43-07-808/75832dbd.html" title="question: 75832dbd | run: 2026-03-17T15-43-07-808 | hypothesis: I don&#39;t have that information.">15-43-07 | miss</a> <a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T15-40-25-520/75832dbd.html" title="question: 75832dbd | run: 2026-03-17T15-40-25-520 | hypothesis: I don&#39;t have that information.">15-40-25 | miss</a> <span class="tag tag-neutral" title="question: 75832dbd | run: 2026-03-17T15-39-56-951">15-39-56</span> <span class="tag tag-muted" title="question: 75832dbd | run: 2026-03-17T14-41-11-533">14-41-11 | dry</span> <span class="tag tag-muted" title="question: 75832dbd | run: 2026-03-17T14-38-48">14-38-48 | dry</span></div>
           </td>
         </tr>
-<tr class="current-question-row miss-reason" data-type="single-session-preference" data-reason="answer-misused-retrieved-evidence" data-result="miss">
+<tr class="current-question-row miss-reason" data-type="single-session-preference" data-reason="answer-misused-retrieved-evidence" data-result="miss" data-coverage="full-answer-session-coverage">
           <td class="current-col-id"><code>fca70973</code></td>
           <td class="current-col-run">2026-03-17T16-30-28-432</td>
           <td class="current-col-profile">-</td>
@@ -730,10 +796,13 @@
         </tr>
 <tr class="current-group-row" data-group-type="single-session-user">
                 <td colspan="8">
-                  <span class="group-chip">single session user</span>
-                  <span class="small">4/4</span>
+                  <button type="button" class="group-toggle" data-group-toggle="single-session-user" aria-expanded="true">
+                    <span class="group-toggle-mark" aria-hidden="true">▾</span>
+                    <span class="group-chip">single session user</span>
+                    <span class="group-meta">4/4</span>
+                  </button>
                 </td>
-              </tr><tr class="current-question-row hit-reason" data-type="single-session-user" data-reason="direct-evidence-hit" data-result="ok">
+              </tr><tr class="current-question-row hit-reason" data-type="single-session-user" data-reason="direct-evidence-hit" data-result="ok" data-coverage="full-answer-session-coverage">
           <td class="current-col-id"><code>6ade9755</code></td>
           <td class="current-col-run">2026-03-17T15-43-07-808</td>
           <td class="current-col-profile">-</td>
@@ -746,7 +815,7 @@
             <div class="history-extra"><a class="tag tag-hit" href="question-pages/batch-0/2026-03-17T15-40-25-520/6ade9755.html" title="question: 6ade9755 | run: 2026-03-17T15-40-25-520 | hypothesis: Serenity Yoga">15-40-25 | ok</a> <span class="tag tag-neutral" title="question: 6ade9755 | run: 2026-03-17T15-39-56-951">15-39-56</span> <span class="tag tag-muted" title="question: 6ade9755 | run: 2026-03-17T14-41-11-533">14-41-11 | dry</span> <span class="tag tag-muted" title="question: 6ade9755 | run: 2026-03-17T14-38-48">14-38-48 | dry</span></div>
           </td>
         </tr>
-<tr class="current-question-row hit-reason" data-type="single-session-user" data-reason="direct-evidence-hit" data-result="ok">
+<tr class="current-question-row hit-reason" data-type="single-session-user" data-reason="direct-evidence-hit" data-result="ok" data-coverage="full-answer-session-coverage">
           <td class="current-col-id"><code>94f70d80</code></td>
           <td class="current-col-run">2026-03-17T15-43-07-808</td>
           <td class="current-col-profile">-</td>
@@ -759,7 +828,7 @@
             <div class="history-extra"><a class="tag tag-hit" href="question-pages/batch-0/2026-03-17T15-40-25-520/94f70d80.html" title="question: 94f70d80 | run: 2026-03-17T15-40-25-520 | hypothesis: 4 hours">15-40-25 | ok</a> <span class="tag tag-neutral" title="question: 94f70d80 | run: 2026-03-17T15-39-56-951">15-39-56</span> <span class="tag tag-muted" title="question: 94f70d80 | run: 2026-03-17T14-41-11-533">14-41-11 | dry</span> <span class="tag tag-muted" title="question: 94f70d80 | run: 2026-03-17T14-38-48">14-38-48 | dry</span></div>
           </td>
         </tr>
-<tr class="current-question-row hit-reason" data-type="single-session-user" data-reason="direct-evidence-hit" data-result="ok">
+<tr class="current-question-row hit-reason" data-type="single-session-user" data-reason="direct-evidence-hit" data-result="ok" data-coverage="full-answer-session-coverage">
           <td class="current-col-id"><code>bc8a6e93</code></td>
           <td class="current-col-run">2026-03-17T15-43-07-808</td>
           <td class="current-col-profile">-</td>
@@ -772,7 +841,7 @@
             <div class="history-extra"><a class="tag tag-hit" href="question-pages/batch-0/2026-03-17T15-40-25-520/bc8a6e93.html" title="question: bc8a6e93 | run: 2026-03-17T15-40-25-520 | hypothesis: Lemon Blueberry Cake">15-40-25 | ok</a> <span class="tag tag-neutral" title="question: bc8a6e93 | run: 2026-03-17T15-39-56-951">15-39-56</span> <span class="tag tag-muted" title="question: bc8a6e93 | run: 2026-03-17T14-41-11-533">14-41-11 | dry</span> <span class="tag tag-muted" title="question: bc8a6e93 | run: 2026-03-17T14-38-48">14-38-48 | dry</span></div>
           </td>
         </tr>
-<tr class="current-question-row hit-reason" data-type="single-session-user" data-reason="correct-abstention" data-result="ok">
+<tr class="current-question-row hit-reason" data-type="single-session-user" data-reason="correct-abstention" data-result="ok" data-coverage="full-answer-session-coverage">
           <td class="current-col-id"><code>bc8a6e93_abs</code></td>
           <td class="current-col-run">2026-03-17T15-43-07-808</td>
           <td class="current-col-profile">-</td>
@@ -787,10 +856,13 @@
         </tr>
 <tr class="current-group-row" data-group-type="temporal-reasoning">
                 <td colspan="8">
-                  <span class="group-chip">temporal reasoning</span>
-                  <span class="small">3/4</span>
+                  <button type="button" class="group-toggle" data-group-toggle="temporal-reasoning" aria-expanded="true">
+                    <span class="group-toggle-mark" aria-hidden="true">▾</span>
+                    <span class="group-chip">temporal reasoning</span>
+                    <span class="group-meta">3/4</span>
+                  </button>
                 </td>
-              </tr><tr class="current-question-row priority-reason" data-type="temporal-reasoning" data-reason="retrieval-off-target-or-incomplete" data-result="miss">
+              </tr><tr class="current-question-row priority-reason" data-type="temporal-reasoning" data-reason="retrieval-off-target-or-incomplete" data-result="miss" data-coverage="partial-answer-session-coverage">
           <td class="current-col-id"><code>2a1811e2</code></td>
           <td class="current-col-run">2026-03-17T15-43-07-808</td>
           <td class="current-col-profile">-</td>
@@ -803,7 +875,7 @@
             <div class="history-extra"><a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T15-40-25-520/2a1811e2.html" title="question: 2a1811e2 | run: 2026-03-17T15-40-25-520 | hypothesis: I don&#39;t have that information.">15-40-25 | miss</a> <span class="tag tag-neutral" title="question: 2a1811e2 | run: 2026-03-17T15-39-56-951">15-39-56</span> <span class="tag tag-muted" title="question: 2a1811e2 | run: 2026-03-17T14-41-11-533">14-41-11 | dry</span> <span class="tag tag-muted" title="question: 2a1811e2 | run: 2026-03-17T14-38-48">14-38-48 | dry</span></div>
           </td>
         </tr>
-<tr class="current-question-row hit-reason" data-type="temporal-reasoning" data-reason="correct-abstention" data-result="ok">
+<tr class="current-question-row hit-reason" data-type="temporal-reasoning" data-reason="correct-abstention" data-result="ok" data-coverage="full-answer-session-coverage">
           <td class="current-col-id"><code>c8090214_abs</code></td>
           <td class="current-col-run">2026-03-17T15-43-07-808</td>
           <td class="current-col-profile">-</td>
@@ -816,7 +888,7 @@
             <div class="history-extra"><a class="tag tag-hit" href="question-pages/batch-0/2026-03-17T15-40-25-520/c8090214_abs.html" title="question: c8090214_abs | run: 2026-03-17T15-40-25-520 | hypothesis: I don&#39;t have that information.">15-40-25 | ok</a> <span class="tag tag-neutral" title="question: c8090214_abs | run: 2026-03-17T15-39-56-951">15-39-56</span> <span class="tag tag-muted" title="question: c8090214_abs | run: 2026-03-17T14-41-11-533">14-41-11 | dry</span> <span class="tag tag-muted" title="question: c8090214_abs | run: 2026-03-17T14-38-48">14-38-48 | dry</span></div>
           </td>
         </tr>
-<tr class="current-question-row hit-reason" data-type="temporal-reasoning" data-reason="direct-evidence-hit" data-result="ok">
+<tr class="current-question-row hit-reason" data-type="temporal-reasoning" data-reason="direct-evidence-hit" data-result="ok" data-coverage="full-answer-session-coverage">
           <td class="current-col-id"><code>gpt4_385a5000</code></td>
           <td class="current-col-run">2026-03-17T15-43-07-808</td>
           <td class="current-col-profile">-</td>
@@ -829,7 +901,7 @@
             <div class="history-extra"><a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T15-40-25-520/gpt4_385a5000.html" title="question: gpt4_385a5000 | run: 2026-03-17T15-40-25-520 | hypothesis: I don&#39;t have that information.">15-40-25 | miss</a> <span class="tag tag-neutral" title="question: gpt4_385a5000 | run: 2026-03-17T15-39-56-951">15-39-56</span> <span class="tag tag-muted" title="question: gpt4_385a5000 | run: 2026-03-17T14-41-11-533">14-41-11 | dry</span> <span class="tag tag-muted" title="question: gpt4_385a5000 | run: 2026-03-17T14-38-48">14-38-48 | dry</span></div>
           </td>
         </tr>
-<tr class="current-question-row hit-reason" data-type="temporal-reasoning" data-reason="direct-evidence-hit" data-result="ok">
+<tr class="current-question-row hit-reason" data-type="temporal-reasoning" data-reason="direct-evidence-hit" data-result="ok" data-coverage="full-answer-session-coverage">
           <td class="current-col-id"><code>gpt4_fa19884c</code></td>
           <td class="current-col-run">2026-03-17T15-43-07-808</td>
           <td class="current-col-profile">-</td>
@@ -1103,12 +1175,109 @@
     const runRows = Array.from(document.querySelectorAll("#runsTable tbody tr"));
     const currentBatchGroupRows = Array.from(document.querySelectorAll("#currentBatchTable tbody tr.current-group-row"));
     const currentBatchQuestionRows = Array.from(document.querySelectorAll("#currentBatchTable tbody tr.current-question-row"));
+    const currentBatchGroupToggles = Array.from(document.querySelectorAll("[data-group-toggle]"));
     const reasonFilterButtons = Array.from(document.querySelectorAll("[data-reason-filter]"));
     const clearReasonFilter = document.getElementById("clearReasonFilter");
     const resultFilterButtons = Array.from(document.querySelectorAll("[data-result-filter]"));
+    const coverageFilterButtons = Array.from(document.querySelectorAll("[data-coverage-filter]"));
+    const filterToggle = document.getElementById("filterToggle");
+    const filterPanel = document.getElementById("filterPanel");
     const historyToggle = document.getElementById("historyToggle");
+    const dashboardStateKey = "memory-eval-dashboard-state";
     let activeReasonFilter = "all";
     let activeResultFilter = "all";
+    let activeCoverageFilter = "all";
+    const collapsedTypes = new Set();
+
+    function saveDashboardState() {
+      const state = {
+        search: searchInput.value,
+        activeReasonFilter,
+        activeResultFilter,
+        activeCoverageFilter,
+        showHistory: document.body.classList.contains("show-history"),
+        showFilters: filterPanel.classList.contains("open"),
+        collapsedTypes: Array.from(collapsedTypes),
+      };
+      try {
+        sessionStorage.setItem(dashboardStateKey, JSON.stringify(state));
+      } catch (_error) {
+      }
+    }
+
+    function syncFilterButtonState() {
+      reasonFilterButtons.forEach((candidate) => {
+        candidate.classList.toggle(
+          "active",
+          activeReasonFilter !== "all" &&
+            candidate.getAttribute("data-reason-filter") === activeReasonFilter
+        );
+      });
+      resultFilterButtons.forEach((candidate) => {
+        candidate.classList.toggle(
+          "active",
+          candidate.getAttribute("data-result-filter") === activeResultFilter
+        );
+      });
+      coverageFilterButtons.forEach((candidate) => {
+        candidate.classList.toggle(
+          "active",
+          candidate.getAttribute("data-coverage-filter") === activeCoverageFilter
+        );
+      });
+    }
+
+    function syncToggleButtonState() {
+      const filtersEnabled = filterPanel.classList.contains("open");
+      filterToggle.textContent = filtersEnabled ? "hide filters" : "show filters";
+      const historyEnabled = document.body.classList.contains("show-history");
+      historyToggle.textContent = historyEnabled ? "hide rerun history" : "show rerun history";
+      currentBatchGroupToggles.forEach((button) => {
+        const groupType = button.getAttribute("data-group-toggle");
+        button.setAttribute("aria-expanded", collapsedTypes.has(groupType) ? "false" : "true");
+      });
+    }
+
+    function restoreDashboardState() {
+      try {
+        const rawState = sessionStorage.getItem(dashboardStateKey);
+        if (!rawState) {
+          return;
+        }
+        const state = JSON.parse(rawState);
+        if (typeof state.search === "string") {
+          searchInput.value = state.search;
+        }
+        if (typeof state.activeReasonFilter === "string") {
+          activeReasonFilter = state.activeReasonFilter;
+        }
+        if (typeof state.activeResultFilter === "string") {
+          activeResultFilter = state.activeResultFilter;
+        }
+        if (typeof state.activeCoverageFilter === "string") {
+          activeCoverageFilter = state.activeCoverageFilter;
+        }
+        if (Array.isArray(state.collapsedTypes)) {
+          collapsedTypes.clear();
+          state.collapsedTypes.forEach((groupType) => {
+            if (typeof groupType === "string") {
+              collapsedTypes.add(groupType);
+            }
+          });
+        }
+        if (state.showHistory) {
+          document.body.classList.add("show-history");
+        } else {
+          document.body.classList.remove("show-history");
+        }
+        if (state.showFilters) {
+          filterPanel.classList.add("open");
+        } else {
+          filterPanel.classList.remove("open");
+        }
+      } catch (_error) {
+      }
+    }
 
     function applyFilter() {
       const query = searchInput.value.trim().toLowerCase();
@@ -1124,7 +1293,15 @@
             activeResultFilter === "all" ||
             row.getAttribute("data-result") === activeResultFilter ||
             !row.hasAttribute("data-result");
-          row.style.display = matchesText && matchesReason && matchesResult ? "" : "none";
+          const matchesCoverage =
+            activeCoverageFilter === "all" ||
+            row.getAttribute("data-coverage") === activeCoverageFilter ||
+            !row.hasAttribute("data-coverage");
+          const matchesBase = matchesText && matchesReason && matchesResult && matchesCoverage;
+          const matchesExpanded = !collapsedTypes.has(row.getAttribute("data-type"));
+          row.setAttribute("data-matches-base", matchesBase ? "true" : "false");
+          row.style.display =
+            matchesBase && matchesExpanded ? "" : "none";
         });
       };
       toggleRows(runRows);
@@ -1132,47 +1309,71 @@
       currentBatchGroupRows.forEach((groupRow) => {
         const groupType = groupRow.getAttribute("data-group-type");
         const hasVisibleChild = currentBatchQuestionRows.some(
-          (row) => row.getAttribute("data-type") === groupType && row.style.display !== "none"
+          (row) =>
+            row.getAttribute("data-type") === groupType &&
+            row.getAttribute("data-matches-base") === "true"
         );
         groupRow.style.display = hasVisibleChild ? "" : "none";
       });
+      syncFilterButtonState();
+      syncToggleButtonState();
+      saveDashboardState();
     }
 
     reasonFilterButtons.forEach((button) => {
       button.addEventListener("click", () => {
         activeReasonFilter = button.getAttribute("data-reason-filter");
-        reasonFilterButtons.forEach((candidate) => {
-          candidate.classList.toggle(
-            "active",
-            activeReasonFilter !== "all" &&
-              candidate.getAttribute("data-reason-filter") === activeReasonFilter
-          );
-        });
         applyFilter();
       });
     });
 
     clearReasonFilter.addEventListener("click", () => {
       activeReasonFilter = "all";
-      reasonFilterButtons.forEach((candidate) => candidate.classList.remove("active"));
       applyFilter();
     });
 
     resultFilterButtons.forEach((button) => {
       button.addEventListener("click", () => {
         activeResultFilter = button.getAttribute("data-result-filter");
-        resultFilterButtons.forEach((candidate) => candidate.classList.remove("active"));
-        button.classList.add("active");
+        applyFilter();
+      });
+    });
+
+    coverageFilterButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        activeCoverageFilter = button.getAttribute("data-coverage-filter");
+        applyFilter();
+      });
+    });
+
+    filterToggle.addEventListener("click", () => {
+      filterPanel.classList.toggle("open");
+      applyFilter();
+    });
+
+    currentBatchGroupToggles.forEach((button) => {
+      button.addEventListener("click", () => {
+        const groupType = button.getAttribute("data-group-toggle");
+        if (!groupType) {
+          return;
+        }
+        if (collapsedTypes.has(groupType)) {
+          collapsedTypes.delete(groupType);
+        } else {
+          collapsedTypes.add(groupType);
+        }
         applyFilter();
       });
     });
 
     historyToggle.addEventListener("click", () => {
-      const enabled = document.body.classList.toggle("show-history");
-      historyToggle.textContent = enabled ? "hide rerun history" : "show rerun history";
+      document.body.classList.toggle("show-history");
+      applyFilter();
     });
 
     searchInput.addEventListener("input", applyFilter);
+    restoreDashboardState();
+    applyFilter();
   </script>
 </body>
 </html>

@@ -105,7 +105,7 @@
       border: 1px solid var(--line);
       border-radius: 14px;
       background: #fff;
-      padding: 0 14px 14px;
+      padding: 14px;
     }
     .priority-session {
       border-width: 2px;
@@ -115,21 +115,17 @@
     .secondary-session {
       opacity: 0.9;
     }
-    .session-card summary {
-      list-style: none;
-      cursor: pointer;
+    .session-card-header {
       display: flex;
       justify-content: space-between;
       gap: 12px;
       align-items: center;
-      padding: 14px 0;
-    }
-    .session-card summary::-webkit-details-marker {
-      display: none;
+      margin-bottom: 12px;
     }
     .session-turns {
       display: grid;
       gap: 10px;
+      margin-top: 12px;
     }
     .turn {
       border-top: 1px solid var(--line);
@@ -146,6 +142,40 @@
       font-size: 14px;
       line-height: 1.55;
       word-break: break-word;
+    }
+    .session-memory-wrap {
+      margin-bottom: 12px;
+    }
+    .session-memory-details {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fcfaf5;
+      padding: 0 12px 12px;
+    }
+    .session-memory-details summary,
+    .session-conversation-details summary {
+      cursor: pointer;
+      padding: 12px 0;
+      font-size: 13px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .session-conversation-details {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fafaf7;
+      padding: 0 12px 12px;
+    }
+    .session-memory-list {
+      display: grid;
+      gap: 10px;
+    }
+    .extracted-memory-card {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+      padding: 12px;
     }
     .pill {
       display: inline-block;
@@ -397,15 +427,93 @@
       <h2>Question Sessions</h2>
       <p class="small">Benchmark answer sessions are shown first. Then come other retrieved sessions. Background sessions stay collapsed below.</p>
       <div class="session-subhead">Answer Sessions</div>
-             <div class="session-list"><details class="session-card priority-session">
-    <summary>
+             <div class="session-list"><div class="session-card priority-session">
+    <div class="session-card-header">
       <div>
         <strong><code>answer_7a4a93f1_2</code></strong>
         <span class="small">2023/03/10 (Fri) 17:13</span>
       </div>
       <div><span class="pill">ground truth</span> <span class="pill pill-answer">answer session</span> <span class="pill pill-retrieved">retrieved</span></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    <div class="session-memory-wrap"><details class="session-memory-details">
+    <summary>Extracted Memories (4)</summary>
+    <div class="session-memory-list"><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 1</strong>
+      <div>
+        
+        <span class="small">2023-03-11T01:13:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Is thinking of adding support for marigolds as they grow. Is considering using a combination of stakes and twine. Wants to know if it&#39;s better to tie stems individually or create a grid with twine to connect multiple stems.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Plans to add support for marigolds as they grow.<br />Considering stakes and twine for support.<br />Wonders whether to tie stems individually to stakes.<br />Considers creating a twine grid to connect multiple stems.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Stakes</td>
+      </tr></tbody></table>
+  </div><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 2</strong>
+      <div>
+        <span class="pill pill-retrieved">retrieved</span>
+        <span class="small">2023-03-11T01:13:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Started marigold seeds on March 3rd, and they are already germinating. Is excited to see them grow. Is planning to plant seedlings in the backyard soon and wants to know the ideal temperature for planting them outside.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Marigold seeds started on March 3rd.<br />Seeds are already germinating.<br />Planning to plant seedlings in the backyard soon.<br />Wants to know the ideal temperature for planting seedlings outside.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Marigold</td>
+      </tr></tbody></table>
+  </div><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 3</strong>
+      <div>
+        
+        <span class="small">2023-03-11T01:13:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Is thinking of transplanting seedlings, including marigolds, into larger pots soon. Wants to know the best way to do it without shocking them.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Considering transplanting seedlings into larger pots.<br />Marigolds are among the seedlings to be transplanted.<br />Seeks advice on how to transplant without shocking the plants.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Transplanting</td>
+      </tr></tbody></table>
+  </div><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 4</strong>
+      <div>
+        <span class="pill pill-retrieved">retrieved</span>
+        <span class="small">2023-03-11T01:13:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Has been using a mix of peat moss, vermiculite, and perlite for potting soil, which seems to be working well for seedlings. Is wondering if this mix is suitable for marigolds and other plants to be transplanted, or if a different mix should be considered.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Currently uses a potting soil mix of peat moss, vermiculite, and perlite.<br />The current mix is working well for seedlings.<br />Questions the suitability of this mix for marigolds and other plants for transplanting.<br />Considers if a different mix is needed.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Peat</td>
+      </tr></tbody></table>
+  </div></div>
+  </details></div>
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m planning to plant some seedlings in my backyard soon. Can you tell me what&#39;s the ideal temperature for planting them outside? By the way, I just started some marigold seeds that arrived on March 3rd, and they&#39;re already germinating - excited to see them grow!</div>
       </div><div class="turn">
@@ -436,15 +544,76 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Using a combination of stakes and twine is a great way to provide support for your marigolds. Both individual stem ties and a twine grid have their advantages, so let&#39;s explore each option:<br /><br />**Individual Stem Ties:**<br /><br />* Pros:<br />	+ Easier to install and adjust as the plants grow.<br />	+ Allows for more precise control over the direction and shape of each stem.<br />	+ Can be useful for plants with very thin or delicate stems.<br />* Cons:<br />	+ Requires more twine and stakes, which can be more time-consuming and material-intensive.<br />	+ May not provide as much overall structural support for the plants, especially if they&#39;re top-heavy or prone to wind damage.<br /><br />**Twine Grid:**<br /><br />* Pros:<br />	+ Provides a more comprehensive support system for multiple stems, helping to keep them upright and stable.<br />	+ Can be more efficient in terms of materials and time, as you&#39;re supporting multiple stems with a single grid.<br />	+ Can help to create a more uniform and visually appealing shape for the plants.<br />* Cons:<br />	+ May be more challenging to install, especially if you have a large number of stems to support.<br />	+ Can be more difficult to adjust as the plants grow, as you&#39;ll need to loosen and re-tie the entire grid.<br />	+ May not be suitable for plants with very thin or delicate stems, as the twine grid could potentially damage them.<br /><br />Considering your marigolds, I&#39;d recommend a hybrid approach:<br /><br />1. Start by tying individual stems to stakes using twine, especially for the weaker or more delicate stems. This will provide initial support and help the plants grow upright.<br />2. As the plants grow and become more robust, you can create a twine grid to connect multiple stems together. This will provide additional structural support and help maintain the overall shape of the plants.<br /><br />When creating the twine grid, make sure to:<br /><br />* Use a sturdy twine that can support the weight of the plants.<br />* Space the stakes and twine grid evenly to distribute the weight and stress evenly across the plants.<br />* Leave enough slack in the twine to allow for growth and movement, but not so much that the stems can become tangled or damaged.<br />* Check and adjust the twine grid regularly to ensure it&#39;s providing the necessary support and not constricting the stems.<br /><br />By combining individual stem ties with a twine grid, you&#39;ll be able to provide comprehensive support for your marigolds while also allowing for growth and flexibility.</div>
       </div></div>
-  </details><details class="session-card priority-session">
-    <summary>
+    </details>
+  </div><div class="session-card priority-session">
+    <div class="session-card-header">
       <div>
         <strong><code>answer_7a4a93f1_1</code></strong>
         <span class="small">2023/03/10 (Fri) 17:13</span>
       </div>
       <div><span class="pill">ground truth</span> <span class="pill pill-answer">answer session</span></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    <div class="session-memory-wrap"><details class="session-memory-details">
+    <summary>Extracted Memories (3)</summary>
+    <div class="session-memory-list"><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 1</strong>
+      <div>
+        
+        <span class="small">2023-03-11T01:13:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Started seeds indoors under grow lights in the basement since February 20th. The tomatoes, peppers, and cucumbers are doing well, reaching 2-3 inches tall. Fertilized seedlings with a balanced fertilizer and maintained moist, not soggy, soil. The average soil temperature in the 23456 zip code during late March to early April is around 48°F (9°C) to 52°F (11°C). Wondered if it was too early to plant out the tomatoes, peppers, and cucumbers.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Started seeds indoors under grow lights in the basement.<br />Seed starting began on February 20th.<br />Plants include tomatoes, peppers, and cucumbers.<br />Seedlings are currently 2-3 inches tall.<br />Fertilized seedlings with a balanced fertilizer.<br />Maintained moist, not soggy, soil.<br />The user&#39;s zip code is 23456.<br />Average soil temperature for the area in late March to early April is 48°F (9°C) to 52°F (11°C).<br />Questioned if it was too early to plant out the seedlings.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Seedlings</td>
+      </tr></tbody></table>
+  </div><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 2</strong>
+      <div>
+        
+        <span class="small">2023-03-11T01:13:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Prepared a raised bed in the backyard by adding a 2-inch layer of compost and mixing it into the soil. Hoped this would help warm up the soil a bit. Considered if the compost would make a significant difference in soil temperature.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Prepared a raised bed in the backyard.<br />Added a 2-inch layer of compost to the raised bed.<br />Mixed the compost into the soil.<br />Hoped the compost would help warm up the soil.<br />Questioned the significance of compost&#39;s impact on soil temperature.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Compost</td>
+      </tr></tbody></table>
+  </div><div class="extracted-memory-card">
+    <div class="memory-head">
+      <strong>Extracted Memory 3</strong>
+      <div>
+        
+        <span class="small">2023-03-11T01:13:00</span>
+      </div>
+    </div>
+    <table class="kv-table"><tbody><tr>
+        <td class="kv-key">description</td>
+        <td>Peas are already sprouting and need support. Considered adding a trellis or cage to help them grow upwards.</td>
+      </tr><tr>
+        <td class="kv-key">details</td>
+        <td>Peas are sprouting.<br />Need to support the peas.<br />Considered using a trellis or cage for upward growth.</td>
+      </tr><tr>
+        <td class="kv-key">keys</td>
+        <td>Peas</td>
+      </tr></tbody></table>
+  </div></div>
+  </details></div>
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m planning to plant out my seedlings soon and I&#39;m wondering if you can tell me the average soil temperature for my area. By the way, I&#39;ve been starting seeds indoors under grow lights in my basement since February 20th - tomatoes, peppers, and cucumbers are all doing well, about 2-3 inches tall now.</div>
       </div><div class="turn">
@@ -472,19 +641,23 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Congratulations on getting your peas off to a great start! Supporting peas is essential to help them grow upwards and produce a bountiful harvest. Here are some tips to help you provide the best support for your peas:<br /><br />1. **Trellis or Cages:** A trellis or cage is an excellent way to support peas. You can use a simple wooden or metal trellis, or even a tomato cage. Place the trellis or cage near the peas, making sure it&#39;s sturdy enough to hold the weight of the growing peas.<br />2. **Pea Stakes:** If you don&#39;t have a trellis or cage, you can use pea stakes to provide individual support for each plant. Simply drive the stakes into the soil near the base of the pea plant, and gently tie the stem to the stake using twine or a soft material.<br />3. **Netting or Chicken Wire:** Another option is to use netting or chicken wire to create a support system. Simply stretch the netting or chicken wire between two stakes, and the peas will climb up through the openings.<br />4. **Tepee Support:** For a more rustic look, you can create a tepee support using bamboo stakes or wooden dowels. Simply place the stakes in a teepee shape around the peas, and tie the stems to the stakes as they grow.<br /><br />When to Add Support:<br /><br />* For bush peas, you can add support once they&#39;re about 6-8 inches (15-20 cm) tall.<br />* For climbing peas, add support as soon as you see the first tendrils emerging, usually around 2-3 inches (5-7.5 cm) tall.<br /><br />Tips for Supporting Peas:<br /><br />* Make sure the support is sturdy and won&#39;t topple over in the wind.<br />* Provide enough space between the support and the peas for air circulation and sunlight to reach the leaves.<br />* Gently tie the stems to the support using twine or a soft material to avoid damaging the plant.<br />* Keep the support clean and free of debris to prevent disease and pests.<br /><br />By providing the right support, you&#39;ll be encouraging your peas to grow upwards, producing a healthier and more productive crop. Happy growing!</div>
       </div></div>
-  </details></div>
+    </details>
+  </div></div>
              
              <details class="other-sessions">
                       <summary>Other Sessions (49)</summary>
-                      <div class="session-list"><details class="session-card secondary-session">
-    <summary>
+                      <div class="session-list"><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>bdf33c73_2</code></strong>
         <span class="small">2023/03/10 (Fri) 02:47</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some advice on how to stay organized with my volunteer work. I&#39;ve been doing a lot of charity events lately, like the local animal shelter&#39;s charity walk on April 17th, where I helped with registration and raised $250 in donations. Do you have any tips on how to keep track of my volunteer hours and donations?</div>
       </div><div class="turn">
@@ -521,15 +694,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Staying organized and keeping track of your volunteer work and donations is crucial to ensure you have a record of your contributions and can claim tax deductions (if applicable). Here are some tips to help you stay organized:<br /><br />**Volunteer Work:**<br /><br />1. **Create a volunteer log:** Design a spreadsheet or use a volunteer tracking app like Track it Forward or VolunteerMatch to log your volunteer hours. Include columns for:<br />	* Date<br />	* Organization<br />	* Event/Project<br />	* Hours volunteered<br />	* Tasks/Responsibilities<br />	* Notes/Comments<br />2. **Set reminders:** Schedule reminders for upcoming volunteer events or deadlines using your calendar or a task management tool like Trello or Asana.<br />3. **Organize documents:** Keep a folder or digital file for each organization or event, including:<br />	* Volunteer agreements or contracts<br />	* Event schedules or programs<br />	* Letters or emails from the organization confirming your volunteer work<br /><br />**Donations:**<br /><br />1. **Create a donation log:** Design a spreadsheet or use a donation tracking app like DonateWell to log your donations. Include columns for:<br />	* Date<br />	* Organization<br />	* Amount donated<br />	* Method of donation (e.g., cash, check, online)<br />	* Receipt or acknowledgement number<br />2. **Store receipts:** Keep receipts in a designated folder or envelope, both physically and digitally. Take photos or scan receipts for digital storage.<br />3. **Verify tax-exempt status:** Ensure the charity is a registered 501(c)(3) organization, which is eligible to receive tax-deductible donations.<br /><br />**General Organization Tips:**<br /><br />1. **Designate a folder:** Create a dedicated folder or digital file for all your volunteer work and donations. This will help you keep everything in one place.<br />2. **Set aside time:** Schedule regular time to update your logs and organize your records. This can be weekly, bi-weekly, or monthly, depending on your volunteer schedule.<br />3. **Stay digital:** Consider using digital tools and apps to track your volunteer work and donations. This will make it easier to access and update your records.<br />4. **Back up your data:** Regularly back up your digital records to ensure you don&#39;t lose any information.<br />5. **Review and reflect:** Regularly review your volunteer work and donations to reflect on your experiences and identify areas for improvement.<br /><br />By following these tips, you&#39;ll be able to stay organized and keep track of your volunteer work and donations throughout the year. Remember to stay consistent and update your records regularly to ensure you have a complete and accurate record of your contributions.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_aAQDWjv_0</code></strong>
         <span class="small">2023/03/10 (Fri) 03:31</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">can you translate english to french?</div>
       </div><div class="turn">
@@ -548,15 +725,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Bien sûr, voici les résultats dans un tableau :<br /><br />| Anglais | Français |<br />| --- | --- |<br />| Student | Étudiant(e) |<br />| School | École |<br />| Campus | Campus |<br />| Term | Trimestre |<br />| Course | Cours |<br />| Program | Programme |<br />| Building | Bâtiment |<br />| Room | Chambre/salle |</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>0d09948f_2</code></strong>
         <span class="small">2023/03/10 (Fri) 23:39</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some new sci-fi movies to watch. I just watched &quot;The Adam Project&quot; movie last week, and while it wasn&#39;t perfect, I loved the visual effects. Do you have any recommendations that are similar?</div>
       </div><div class="turn">
@@ -593,15 +774,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Exactly! The Converter is a fascinating concept that raises important questions about power, responsibility, and the consequences of playing with forces beyond human control. It&#39;s a thought-provoking element that adds depth and complexity to the Valerian universe.<br /><br />I&#39;m glad you&#39;re excited to see how the story unfolds! The movie does an excellent job of exploring the moral dilemmas and power struggles surrounding the Converter, and the characters&#39; journeys are both compelling and relatable.<br /><br />Without giving away too many spoilers, I can say that the movie&#39;s climax is both action-packed and emotionally resonant, and it raises important questions about the nature of power, identity, and the importance of cooperation in the face of overwhelming odds.<br /><br />If you have any more questions or want to discuss the movie further after you&#39;ve watched it, feel free to reach out! I&#39;m always here to chat about sci-fi, space opera, and all things Valerian.<br /><br />Now, go enjoy the movie, and get ready to embark on a thrilling adventure through the galaxy!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>3826dc55_2</code></strong>
         <span class="small">2023/03/10 (Fri) 07:51</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking to learn some new techniques to improve my guitar playing. I&#39;ve been focusing on blues and rock music lately, and I was wondering if you could recommend some online resources or tutorials that could help me take my playing to the next level. </div>
       </div><div class="turn">
@@ -638,15 +823,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Great choices! The LR Baggs Venue DI and Pedaltrain Nano Acoustic pedalboard are both excellent options for acoustic guitarists.<br /><br />Here are some additional acoustic guitar accessories that can help improve your tone and playing experience:<br /><br />**Acoustic guitar pickups:**<br /><br />1. **LR Baggs M1A**: A high-quality, soundhole-mounted pickup that provides a clear, balanced tone.<br />2. **Fishman Rare Earth Humbucker**: A humbucking pickup that reduces noise and hum, with a warm, balanced tone.<br /><br />**Acoustic guitar strings:**<br /><br />1. **Elixir Acoustic Guitar Strings**: Known for their long-lasting, corrosion-resistant coating and balanced tone.<br />2. **Martin Authentic Acoustic Guitar Strings**: A popular choice among acoustic players, with a warm, rich tone.<br /><br />**Acoustic guitar humidifiers:**<br /><br />1. **D&#39;Addario Planet Waves Humidifier**: A compact, easy-to-use humidifier that helps maintain your guitar&#39;s optimal humidity level.<br />2. **MusicNomad Humitar**: A high-quality humidifier that provides a precise, consistent humidity level.<br /><br />**Acoustic guitar cases and bags:**<br /><br />1. **Taylor Hardshell Case**: A high-quality, protective case that fits your guitar snugly.<br />2. **Gator Cases Acoustic Guitar Bag**: A durable, padded bag with multiple compartments and pockets.<br /><br />**Acoustic guitar tuners:**<br /><br />1. **TC Electronic Polytune**: A high-accuracy tuner with a built-in buffer and multiple tuning modes.<br />2. **Korg CA-1 Chromatic Tuner**: A compact, easy-to-use tuner with a high-contrast display.<br /><br />These accessories can help improve your tone, playing experience, and overall enjoyment of your acoustic guitar. Remember to choose products that fit your specific needs and preferences.<br /><br />I hope this helps!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_hcaZN94_507</code></strong>
         <span class="small">2023/03/10 (Fri) 14:35</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">The story is about a man named Filon, who has superpowers and is a tram driver in the city of Liyue. He is a Portuguese expat in the city, but he has a strong sense of justice and wants to use his powers for the betterment of the city. In the first chapter, he meets Xiangling, a chef from Mondstadt, and they become friends. In chapter two, Filon uses his powers to save a group of people from a collapsing building, earning the gratitude of the city. In chapter three, Filon meets Barbara, a traveler from Mondstadt who helps him understand his powers better. In chapter four, Filon meets Beidou, a captain of the Crux Fleet, who he helps with a difficult situation. In chapter five, Filon meets Chongyun, a Cryo user who helps him control his powers. In chapter six, Filon meets Diluc, a powerful Pyro user who becomes his rival. In chapter seven, Filon meets Ganyu, Ningguang and Zhongli, who are adepti from Liyue and he cook for them, showing his skills as a cook and displaying his superpowers. In chapter eight, Filon meets Yanfei, a legal advisor from Liyue, who is shocked by the power of Filon and wants to tell Zhongli and Ningguang about it. Filon&#39;s powers are too much for her to handle, and he is forced to fight against her, Xiao and Shenhe. Filon wins the battle, but only after killing Xiao and injuring Shenhe. In chapter nine, Filon meets some playable characters from Inazuma and gets into some conflicts with them.</div>
       </div><div class="turn">
@@ -692,15 +881,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Sure, that would be helpful for me to refresh my memory on the story so far. Please proceed with telling me the story chapter by chapter.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_A4N0rHY_13</code></strong>
         <span class="small">2023/03/10 (Fri) 19:46</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">According to Christian doctrine, the Holy Spirit is the third person of the Trinity, co-equal and co-eternal with the Father and the Son. The Holy Spirit proceeds from the Father and, according to some Christian traditions, also from the Son.<br /><br />In the New Testament, the Holy Spirit is depicted as being active in the world from the beginning of creation, and as playing a key role in the work of salvation. The Holy Spirit is present at Jesus&#39; baptism (Mark 1:9-11), comes upon the disciples at Pentecost (Acts 2:1-4), and guides and empowers believers in their Christian walk (Romans 8:14-17).<br /><br />In the doctrine of the Trinity, the three persons of the Godhead (Father, Son, and Holy Spirit) are distinct but not separate. Each person is fully God, and yet there is only one God. This means that the Holy Spirit, as the third person of the Trinity, is intimately involved in the divine life and work of God, working in perfect unity with the Father and the Son to accomplish the divine plan of salvation for humanity.<br /><br />So, while the Holy Spirit is distinct from the Father and the Son, he is fully a part of the Godhead and plays an essential role in the life and work of the Trinity.</div>
       </div><div class="turn">
@@ -746,30 +939,38 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">The Father, the Son, and the Holy Spirit are not merely roles that one God manifests Himself in, but rather they are distinct persons who share the same divine essence or nature. They are not different manifestations of one God, but rather they are co-equal and co-eternal persons who exist in a relationship of perfect unity and love.<br /><br />The Bible teaches that the Father is God, the Son is God, and the Holy Spirit is God, and yet there is only one God. While the doctrine of the Trinity may be difficult to fully understand, it affirms that the divine being is a complex unity that can be described in terms of three distinct persons who are united in one divine essence.<br /><br />The Father, the Son, and the Holy Spirit are not simply different expressions or roles that God takes on, but rather they are distinct persons who each have a unique relationship with one another and with humanity. They are all equally and fully God, and yet they are distinct in their personhood and in the roles they play in the divine plan of redemption.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_yOfDLA0_0</code></strong>
         <span class="small">2023/03/10 (Fri) 00:59</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I have an IPhone 11 pro max with IOS 13.2 and I want to move some files from it. I was thinking about getting an OTG and a Flash memory and I will use the OTG to connect the flash memory to my Iphone but will it work and let me move the files from my iphone to the flash memory?</div>
       </div><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">​</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_71180</code></strong>
         <span class="small">2023/03/10 (Fri) 11:04</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What is the economic impact of incorporating artificial ecosystems into urban planning and development?</div>
       </div><div class="turn">
@@ -806,15 +1007,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, there are initiatives for incorporating artificial ecosystems in smaller towns or rural areas, considered a vital part of sustainable development in less densely populated areas. Here are a few examples:<br /><br />1. Re-naturalization projects: In some rural areas, natural resources have been depleted due to industrial activity, leading to economic and ecological challenges. Re-naturalization projects aim to restore ecosystems and support biodiversity, leading to improved water quality, carbon sequestration, and the provision of ecosystem services.<br /><br />2. Green infrastructure: Green infrastructure focuses on using natural processes and ecosystems to enhance resilience and support sustainable development. This could include measures such as planting native vegetation, constructing rain gardens, and prioritizing natural drainage systems.<br /><br />3. Sustainable agriculture: Sustainable agriculture practices can promote the health and well-being of rural communities, while also mitigating the environmental impact of agriculture. Techniques like crop rotation, conservation tillage, and agroforestry can improve soil quality, reduce greenhouse gas emissions, and support local food systems.<br /><br />4. Eco-tourism: Eco-tourism is a growing industry in rural areas, as more and more people seek out nature-based experiences. By prioritizing sustainable development and highlighting the natural beauty, culture and heritage of their communities, small towns and rural areas can create jobs and boost their local economies.<br /><br />These are just a few examples of ways that small towns and rural areas can incorporate artificial ecosystems and promote sustainable development. By prioritizing environmental stewardship and working to create livable, healthy communities, rural areas can play a key role in elevating sustainability efforts on a global level.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>a490e4b8_1</code></strong>
         <span class="small">2023/03/10 (Fri) 10:32</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m planning to apply for US citizenship in a few years, and I was wondering if you could guide me through the general process and requirements. By the way, I&#39;ve had my fair share of dealing with immigration paperwork - I applied for a green card, which took a long time to process.</div>
       </div><div class="turn">
@@ -851,15 +1056,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">The American Revolution and the Constitution are fascinating topics, and understanding the significance of the Constitution is crucial for grasping the basics of US government and politics.<br /><br />**The Constitution and Federalism:**<br /><br />The Constitution addresses the issue of federalism by establishing a system of government where power is divided between the federal government and the states. This division of power is known as federalism.<br /><br />Here are the key aspects of federalism in the Constitution:<br /><br />1. **Separation of Powers:** The Constitution divides power between the legislative, executive, and judicial branches of the federal government. This separation of powers is designed to prevent any one branch from becoming too powerful.<br />2. **Federal-State Relations:** The Constitution establishes the relationship between the federal government and the states. The federal government has authority over matters that affect the entire country, such as foreign policy, national defense, and regulation of interstate commerce. The states, on the other hand, have authority over matters that affect only their own citizens, such as education, transportation, and law enforcement.<br />3. **Reserved Powers:** The 10th Amendment to the Constitution states that any powers not delegated to the federal government are reserved to the states or the people. This means that the states have the authority to govern themselves in areas not explicitly delegated to the federal government.<br />4. **Dual Sovereignty:** The Constitution establishes a system of dual sovereignty, where both the federal government and the states have sovereignty over their respective domains. This means that the federal government has authority over national matters, while the states have authority over state matters.<br /><br />**Evolution of Federalism:**<br /><br />Over time, the relationship between the federal government and the states has evolved significantly. Here are some key developments:<br /><br />1. **Marbury v. Madison (1803):** This landmark Supreme Court case established the principle of judicial review, which gives the Supreme Court the power to declare laws unconstitutional. This decision strengthened the federal government&#39;s authority and set a precedent for federalism.<br />2. **Civil War and Reconstruction:** The Civil War and Reconstruction era (1861-1877) saw a significant expansion of federal power, as the federal government asserted its authority over the states to end slavery and ensure civil rights.<br />3. **New Deal and Great Society:** During the 1930s and 1960s, the federal government expanded its role in the economy and society through programs like Social Security, Medicare, and Medicaid. This expansion of federal power led to increased tension between the federal government and the states.<br />4. **Devolution and Federalism Revival:** In recent decades, there has been a trend towards devolution, where power is returned to the states and local governments. This movement has been driven by concerns about the size and scope of the federal government.<br /><br />**Conclusion:**<br /><br />The Constitution&#39;s framework for federalism has endured for over two centuries, providing a foundation for the relationship between the federal government and the states. While the balance of power has shifted over time, the principles of federalism remain a cornerstone of US government and politics. Understanding the Constitution&#39;s approach to federalism is essential for grasping the complexities of US governance and the ongoing debates about the role of government in American society.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>7ba84ed3_2</code></strong>
         <span class="small">2023/03/10 (Fri) 20:37</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some new podcast recommendations. I&#39;ve recently started taking the bus to work instead of driving, so I&#39;ve got more time to listen to podcasts now.</div>
       </div><div class="turn">
@@ -896,15 +1105,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Congratulations on your new job! It&#39;s great that you&#39;ve found a silver lining in taking the bus to work. The extra time to listen to podcasts can be a wonderful way to unwind, learn, or get energized for the day ahead.<br /><br />Three months in, how&#39;s the new job going? Are you enjoying the commute and the podcast-listening time, or are there other aspects of your daily routine that you&#39;re liking or finding challenging?<br /><br />Also, have you noticed any differences in your listening habits or preferences since you started taking the bus? For example, do you find yourself gravitating towards certain types of podcasts or topics during your commute?</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>0a64e713_1</code></strong>
         <span class="small">2023/03/10 (Fri) 18:10</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m planning a road trip to the Grand Canyon in January and I was wondering if you could help me find some scenic routes and accommodations along the way. By the way, I&#39;ll be flying out to visit my family in Chicago on December 20th, so I&#39;ll have some time to finalize the plans during my trip.</div>
       </div><div class="turn">
@@ -941,15 +1154,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Here are some bike shops and tour operators in the Grand Canyon and Monument Valley areas that offer bike rentals and guided tours:<br /><br />**Grand Canyon:**<br /><br />1. **Bright Angel Bicycles:** Located in Grand Canyon Village, they offer bike rentals, guided tours, and shuttle services.<br />2. **Grand Canyon Bike Rentals:** Based in Tusayan, they offer a range of bikes for rent, including road, mountain, and electric bikes.<br />3. **Papillon Grand Canyon Helicopters:** While they&#39;re primarily a helicopter tour operator, they also offer guided bike tours in the Grand Canyon area.<br />4. **Grand Canyon National Park Lodges:** Some of the park&#39;s lodges, such as the El Tovar Hotel, offer bike rentals and guided tours.<br /><br />**Monument Valley:**<br /><br />1. **Monument Valley Navajo Tribal Park:** The park offers guided bike tours, which are a great way to explore the area with a knowledgeable guide.<br />2. **Goulding&#39;s Lodge:** This historic lodge offers bike rentals and guided tours in the Monument Valley area.<br />3. **Monument Valley Tours:** Based in Oljato, they offer guided bike tours, as well as jeep and hiking tours.<br />4. **Sandstone Tours:** Located in Mexican Hat, they offer guided bike tours, as well as rafting and hiking trips.<br /><br />**Other Options:**<br /><br />1. **Arizona Outback Adventures:** Based in Flagstaff, they offer guided bike tours and rentals for the Grand Canyon and surrounding areas.<br />2. **Escape Adventures:** With locations in Flagstaff and Sedona, they offer guided bike tours, rentals, and self-guided bike packages for the Grand Canyon and Monument Valley areas.<br /><br />These are just a few options to get you started. Be sure to research each company, read reviews, and compare prices to find the best fit for your needs. Some companies may also offer package deals or discounts, so it&#39;s worth asking about those as well.<br /><br />Remember to always wear a helmet, follow safety guidelines, and be prepared for changing weather conditions. Have a great time exploring the Grand Canyon and Monument Valley on two wheels!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>8062f4ab_2</code></strong>
         <span class="small">2023/03/10 (Fri) 04:59</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I was thinking of trying out some new breakfast ideas, but I&#39;m running low on inspiration. Can you suggest some healthy breakfast recipes that I can try? By the way, I had a meeting at work that ran late today, so I grabbed a sandwich from the deli down the street for lunch instead of packing my usual leftovers.</div>
       </div><div class="turn">
@@ -986,15 +1203,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Quinoa salad is a fantastic option for meal prep, and using leftover quinoa will definitely save you time.<br /><br />When it comes to protein sources, there are many options that pair well with quinoa. Here are some popular choices:<br /><br />1. **Grilled Chicken**: Sliced or diced grilled chicken breast is a classic combination with quinoa. You can season it with herbs like thyme, rosemary, or oregano for added flavor.<br />2. **Roasted Salmon**: Flaked or diced roasted salmon adds a delicious omega-3 boost to your quinoa salad. You can season it with lemon juice, salt, and pepper for a simple yet flavorful option.<br />3. **Tofu**: Marinated and pan-seared tofu can be a great protein source for quinoa salad. Try using a citrus-herb marinade for a refreshing flavor.<br />4. **Edamame**: Boiled or steamed edamame can be added to quinoa salad for a plant-based protein source. You can season them with sea salt and chili powder for added flavor.<br />5. **Lentils**: Cooked lentils can be added to quinoa salad for a fiber and protein-rich option. Try using red or green lentils for a pop of color and texture.<br />6. **Chickpeas**: Canned or cooked chickpeas can be added to quinoa salad for a convenient and protein-rich option. You can season them with cumin, paprika, and chili powder for a flavorful twist.<br /><br />Feel free to get creative and experiment with different protein sources to find your favorite combinations!<br /><br />For your roasted vegetables, you can choose from a variety of options like broccoli, Brussels sprouts, sweet potatoes, carrots, and bell peppers. Simply toss them with olive oil, salt, and pepper, and roast them in the oven until tender and caramelized.<br /><br />How does that sound? Do you have a preferred protein source in mind, or would you like more suggestions?</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>dc832f73</code></strong>
         <span class="small">2023/03/10 (Fri) 14:16</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m trying to decide on a new fertilizer for my plants. Can you recommend some organic options that would work well for a variety of plants, including my Felix the fiddle leaf fig, who&#39;s been doing great since I brought him home?</div>
       </div><div class="turn">
@@ -1031,15 +1252,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Pruning African violets can be a bit delicate, but with the right techniques, you can encourage new growth, promote blooming, and maintain their beautiful appearance. Here are some tips to help you prune your African violets like a pro:<br /><br />**Why prune African violets?**<br /><br />Pruning African violets helps:<br /><br />1. **Encourage new growth:** Pruning stimulates the plant to produce new leaves and stems, which can lead to more blooms.<br />2. **Promote blooming:** Removing old flowers and flower stalks encourages the plant to focus energy on producing new blooms.<br />3. **Maintain shape:** Pruning helps control the plant&#39;s shape, keeping it bushy and compact.<br />4. **Remove dead or damaged leaves:** Pruning removes dead, diseased, or damaged leaves, preventing the spread of disease and pests.<br /><br />**How to prune African violets:**<br /><br />1. **Choose the right tools:** Use clean, sharp scissors or pruning shears to prevent spreading disease.<br />2. **Identify the right leaves:** Select older, larger leaves that are:<br />	* Yellowing or browning<br />	* Wilting or droopy<br />	* Crowding the center of the plant<br />	* Growing outside the pot<br />3. **Cut carefully:** Cut the leaf stem about 1/4 inch above a node (where the leaf meets the stem). Make a clean, angled cut, and avoid tearing the leaf.<br />4. **Remove flower stalks:** Cut off spent flower stalks at the base, just above a node. This encourages the plant to focus energy on producing new blooms.<br />5. **Prune back leggy stems:** If the plant is leggy, prune back the stems to about half their length. This will encourage branching and a fuller plant.<br />6. **Prune sparingly:** Prune only what&#39;s necessary, as African violets can be sensitive to over-pruning.<br />7. **Monitor and adjust:** Keep an eye on your plant&#39;s response to pruning and adjust your technique as needed.<br /><br />**Additional tips:**<br /><br />* Prune your African violets when they&#39;re actively growing, usually in the spring or summer.<br />* Prune in the morning, when the plant is at its most turgid.<br />* Avoid pruning when the plant is under stress, as this can cause further damage.<br />* Consider pruning in stages, pruning a little at a time to avoid shocking the plant.<br /><br />By following these tips, you should be able to prune your African violets effectively, encouraging new growth, promoting blooming, and maintaining their beautiful appearance. Good luck!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_Dcoc4IC_17</code></strong>
         <span class="small">2023/03/10 (Fri) 09:49</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">Sure, here&#39;s a new description for the video script we created for idea 1 &quot;Why Eating More Can Actually Help You Lose Weight&quot;:<br /><br />Are you tired of feeling hungry all the time in your weight loss journey? What if we told you that you could eat more and still lose weight? That&#39;s right, folks! In this video, we&#39;re going to explore the surprising science behind how eating more can actually help you shed those extra pounds. We&#39;ll bust some common weight loss myths and provide tips for incorporating metabolism-boosting foods into your diet. Plus, stick around until the end for a bonus tip that can take your weight loss efforts to the next level. Don&#39;t miss out on this game-changing information - hit that play button now and join us for the ultimate guide to healthy weight loss!</div>
       </div><div class="turn">
@@ -1049,15 +1274,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Sure, here are some suggestions for b-roll/stock video clips/stock photos to accompany the script:<br /><br />[Visual] A person measuring their waist with a measuring tape<br /><br />[Script] &quot;Are you tired of feeling hungry all the time? Frustrated with trying to lose weight by eating less and less only to see minimal results.&quot;<br /><br />[Visual] A person cutting vegetables on a cutting board<br /><br />[Script] &quot;What if I told you that you can eat more and still lose weight? Sound too good to be true?&quot;<br /><br />[Visual] A person preparing a healthy meal<br /><br />[Script] &quot;Keep watching because today we&#39;re going to explore the surprising science behind how eating more can actually help you shed those extra pounds.&quot;<br /><br />[Visual] A Be Healthy and Thrive logo or intro animation<br /><br />[Script] &quot;Hey there. Welcome back to Be Healthy and Thrive. In this video, we&#39;re going to talk about why eating more can help you lose weight.&quot;<br /><br />[Visual] A person exercising or running<br /><br />[Script] &quot;If you&#39;re new to our channel, make sure to hit that subscribe button and the notification bell so you don&#39;t miss out on any of our latest health and fitness tips.&quot;<br /><br />[Visual] A person measuring their weight on a scale<br /><br />[Script] &quot;And if you like this video, give it a thumbs up and let us know in the comments below.&quot;<br /><br />[Visual] A person holding a piece of fruit<br /><br />[Script] &quot;But before we dive in, I&#39;ll have a bonus tip that can take your weight loss efforts to the next level. Keep watching to find out what it is.&quot;<br /><br />[Visual] An image of a calorie tracker or chart<br /><br />[Script] &quot;First, let&#39;s talk about calories.&quot;<br /><br />[Visual] A person eating a balanced meal with protein, vegetables, and whole grains<br /><br />[Script] &quot;When it comes to weight loss, calories are king.&quot;<br /><br />[Visual] A person pouring a glass of water<br /><br />[Script] &quot;You need to burn more calories than you consume in order to lose weight.&quot;<br /><br />[Visual] A person eating a small portion of food on a smaller plate<br /><br />[Script] &quot;That&#39;s where the concept of calorie deficit comes in. In other words, you need to eat fewer calories than you burn in order to lose weight.&quot;<br /><br />[Visual] A person eating a piece of chicken or fish<br /><br />[Script] &quot;However, there&#39;s a common misconception that you need to eat as little as possible in order to create a calorie deficit.&quot;<br /><br />[Visual] A person snacking on fruits or vegetables<br /><br />[Script] &quot;The truth is, if you restrict your calories too much, your body will go into starvation mode and slow down your metabolism to conserve energy, making it harder to lose weight.&quot;<br /><br />[Visual] A person drinking a glass of water<br /><br />[Script] &quot;So how can you create a calorie deficit without starving yourself?&quot;<br /><br />[Visual] A person eating a bowl of salad<br /><br />[Script] &quot;The answer is to eat more of the right foods, specifically foods that are high in protein, fiber, and water content can help boost your metabolism and help you burn more calorie.&quot;<br /><br />[Visual] A person measuring their food on a food scale<br /><br />[Script] &quot;Some examples of these foods include lean proteins. This can include chicken, which is loaded with protein and is lower in calories than other protein choices since it is lean and low in fat.&quot;<br /><br />[Visual] A person cooking fish in a pan<br /><br />[Script] &quot;Fish that is high in omega-3. Fatty acids like salmon, tuna, and trout, can support brain function and are linked to reduced risk of heart disease, stroke, and certain types of cancer.&quot;<br /><br />[Visual] A person eating a bowl of lentils or beans<br /><br />[Script] &quot;And finally, leg</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_491962</code></strong>
         <span class="small">2023/03/10 (Fri) 12:39</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">How do courts handle DUI cases?</div>
       </div><div class="turn">
@@ -1082,15 +1311,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Absolutely! Safety on the road is everyone&#39;s responsibility, and it&#39;s important to make responsible choices to protect yourself and others. It&#39;s great to hear that you prioritize safety and responsibility when driving. Let&#39;s all do our part to prevent accidents and keep our roads safe!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_2HMI3zC_0</code></strong>
         <span class="small">2023/03/10 (Fri) 13:12</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">how many games are in the regular season?</div>
       </div><div class="turn">
@@ -1103,30 +1336,38 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">The MLB offseason is the period of time between the end of the World Series, which usually takes place in late October or early November, and the start of spring training, which usually begins in mid to late February. During the offseason, teams focus on roster changes, such as trades and free agent signings, and also conduct other business operations such as player contract negotiations and scouting for the upcoming season. The MLB offseason is an important time for teams to improve their rosters and prepare for the next season.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_W6t3Ck0_0</code></strong>
         <span class="small">2023/03/10 (Fri) 01:02</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Hani Kazmi<br />Give me a sample itinerary for a trip from London to Madeira with a couple of days stopover in Madrid</div>
       </div><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">Sure, here&#39;s a sample itinerary for a trip from London to Madeira with a stopover in Madrid:<br /><br />Day 1: London to Madrid<br /><br />* Fly from London to Madrid<br />* Check into your hotel and spend the afternoon exploring the city<br />* Visit the Plaza Mayor, Puerta del Sol, and the Royal Palace<br />* Enjoy a traditional Spanish dinner in the evening<br /><br />Day 2: Madrid<br /><br />* Spend the day exploring Madrid&#39;s museums and art galleries<br />* Visit the Prado Museum, Reina Sofia Museum, and the Thyssen-Bornemisza Museum<br />* In the evening, take a stroll through the Retiro Park and enjoy a dinner of tapas and wine<br /><br />Day 3: Madrid to Funchal<br /><br />* Fly from Madrid to Funchal, Madeira<br />* Check into your hotel and spend the afternoon relaxing by the pool or exploring the city<br />* Visit the Mercado dos Lavradores and try some local Madeiran food<br /><br />Day 4: Funchal<br /><br />* Take a cable car ride up to Monte and enjoy the views over the city and the sea<br />* Visit the Botanical Garden and enjoy a picnic lunch<br />* In the evening, enjoy a traditional Madeiran dinner and watch a Fado performance<br /><br />Day 5: Funchal<br /><br />* Spend the day exploring the island of Madeira<br />* Visit the picturesque town of Santana, the volcanic pools of Porto Moniz, and the stunning views from Cabo Girão<br />* In the evening, relax with a glass of Madeiran wine and watch the sunset over the sea<br /><br />Day 6: Funchal to London<br /><br />* Fly from Funchal to London, bringing back memories of your amazing trip to Madrid and Madeira.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>7a4e1601</code></strong>
         <span class="small">2023/03/10 (Fri) 00:54</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;ve been trying to get more organized with my daily routine and was wondering if you could suggest some productivity apps or tools that can help me stay on track?</div>
       </div><div class="turn">
@@ -1163,15 +1404,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Role-plays and soundscapes are excellent ASMR themes. Here are some specific video recommendations and playlists that you might enjoy:<br /><br />**Role-Play Videos:**<br /><br />1. **GentleWhispering - &quot;Virtual Haircut and Shampoo&quot;**: A classic role-play video featuring gentle whispers, tapping, and sound effects to simulate a relaxing haircut and shampoo experience.<br />2. **ASMR Darling - &quot;Medical Exam Role-Play&quot;**: A calming and detailed medical exam role-play with gentle whispers, tapping, and sound effects.<br />3. **Heather Feather - &quot;Coffee Shop Role-Play&quot;**: A cozy coffee shop role-play with gentle whispers, coffee sounds, and a relaxing atmosphere.<br />4. **TheASMRnerd - &quot;Dragon&#39;s Den Role-Play&quot;**: A fantastical dragon-themed role-play with gentle whispers, sound effects, and a soothing atmosphere.<br />5. **Whispering Mauricio - &quot;Personal Shopping Assistant Role-Play&quot;**: A personalized shopping experience with gentle whispers, tapping, and sound effects.<br /><br />**Soundscapes Playlists:**<br /><br />1. **Ephemeral Rift - &quot;Rainy Day Soundscapes&quot;**: A calming playlist featuring rain sounds, thunderstorms, and gentle whispers to create a cozy atmosphere.<br />2. **ASMR Theater - &quot;Nature Soundscapes&quot;**: A playlist featuring immersive nature sounds, including ocean waves, forest ambiance, and gentle whispers.<br />3. **Calm - &quot;Sleep Stories and Soundscapes&quot;**: A playlist featuring guided meditations, sleep stories, and calming soundscapes to help you relax and fall asleep.<br />4. **Relaxing ASMR - &quot;City Soundscapes&quot;**: A playlist featuring calming city sounds, including rain, traffic, and gentle whispers to create a relaxing atmosphere.<br />5. **Karuna Satori - &quot;Meditative Soundscapes&quot;**: A playlist featuring guided meditations, sound baths, and calming soundscapes to promote relaxation and mindfulness.<br /><br />**Playlists:**<br /><br />1. **GentleWhispering - &quot;ASMR Relaxation&quot;**: A playlist featuring a variety of GentleWhispering&#39;s relaxing videos, including role-plays, soundscapes, and gentle whispers.<br />2. **ASMR Darling - &quot;ASMR Essentials&quot;**: A playlist featuring ASMR Darling&#39;s most popular videos, including role-plays, soundscapes, and gentle whispers.<br />3. **Heather Feather - &quot;ASMR Favorites&quot;**: A playlist featuring Heather Feather&#39;s favorite ASMR videos, including role-plays, soundscapes, and gentle whispers.<br />4. **TheASMRnerd - &quot;ASMR Adventures&quot;**: A playlist featuring TheASMRnerd&#39;s most popular videos, including role-plays, soundscapes, and gentle whispers.<br />5. **Whispering Mauricio - &quot;ASMR Relaxation&quot;**: A playlist featuring Whispering Mauricio&#39;s relaxing videos, including role-plays, soundscapes, and gentle whispers.<br /><br />These recommendations should give you a great starting point for exploring role-plays and soundscapes in ASMR content. Enjoy!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>905d7d4e</code></strong>
         <span class="small">2023/03/10 (Fri) 15:38</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m trying to plan a weekend getaway and was wondering if you could recommend some good coffee shops in the downtown area?</div>
       </div><div class="turn">
@@ -1208,15 +1453,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Coffee roasting is a fascinating topic! There are many great resources available to learn about the roasting process. Here are a few recommendations:<br /><br />Books:<br /><br />1. &quot;The Coffee Roaster&#39;s Companion&quot; by Scott Rao - This is a comprehensive guide to coffee roasting, covering the basics of roasting, equipment, and techniques.<br />2. &quot;Roasting Coffee: A Guide to Bringing Out the Best in Your Beans&quot; by Nick Cho - This book covers the science and art of roasting, with a focus on small-batch roasting.<br /><br />Online Courses:<br /><br />1. Counter Culture Coffee&#39;s Roasting Course - This is a free online course that covers the fundamentals of coffee roasting, including green coffee buying, roasting principles, and cupping.<br />2. The Specialty Coffee Association&#39;s (SCA) Roasting Certification Program - This is a more in-depth program that covers the science and art of roasting, with a focus on specialty coffee.<br />3. Udemy&#39;s Coffee Roasting Course - This course covers the basics of coffee roasting, including equipment, techniques, and flavor profiles.<br /><br />Websites and Blogs:<br /><br />1. The Coffee Confidential - A website and blog focused on coffee roasting, with articles, tutorials, and resources for coffee enthusiasts.<br />2. Roast Magazine - A trade publication focused on the coffee roasting industry, with articles, news, and resources for professionals and enthusiasts.<br />3. Sweet Maria&#39;s - A website and blog focused on coffee roasting, with articles, tutorials, and resources for home roasters.<br /><br />YouTube Channels:<br /><br />1. Coffee with April - A YouTube channel focused on coffee roasting, brewing, and coffee culture.<br />2. The Coffee Nerd - A YouTube channel focused on coffee roasting, brewing, and coffee equipment reviews.<br />3. Roasting Coffee at Home - A YouTube channel focused on home coffee roasting, with tutorials and tips for roasting at home.<br /><br />These are just a few resources to get you started. Remember, the best way to learn about coffee roasting is to experiment and try different roasting techniques and styles!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_494559</code></strong>
         <span class="small">2023/03/10 (Fri) 04:27</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">How did the Industrial Revolution impact the way we live and work?</div>
       </div><div class="turn">
@@ -1259,30 +1508,38 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, it can be overwhelming to think about the potential consequences of technology. However, by working together as a society and being proactive in addressing and mitigating those consequences, we can ensure that technology continues to benefit us in a responsible and ethical way. It’s important to approach technological advancements with a critical eye and consider the potential impacts on all aspects of society, from the environment to jobs, and privacy. With consistent effort and collaboration, we can find solutions to these challenges and pave the way for a better future.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_TRUawuW_0</code></strong>
         <span class="small">2023/03/10 (Fri) 20:13</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Web search results:<br /><br />[1] &quot;The answer is clearly not that American barriers are costless or that Europes single market has made no difference. It is easy to get American firms to testify about their costs from duplicative requirements, and a barrage of econometric studies have shown that EU rules have reduced similar costs in Europe.&quot;<br />URL: https://www.foreignaffairs.com/articles/europe/2022-04-19/single-market-power<br /><br />[2] &quot;A well-functioning single market is key to achieving strategic autonomy and resilience ; The European single market remains one of the EUs greatest achievements and a key tool to protect people and businesses in times of crisis. Following a ceremony and debate at the start of the plenary session, Parliament adopted on Wednesday a resolution ...&quot;<br />URL: https://europeansting.com/2023/01/19/30-years-of-the-eu-single-market-time-to-face-new-challenges/<br /><br />[3] &quot;The single market is the unified market encompassing all EU member states. Iceland, Liechtenstein and Norway participate in the EUs single market as parties to the European Economic Area (EEA) agreement, while Switzerland does so through a series of bilateral agreements with the EU.The single market is based on four freedoms: free movement of goods, people, services and capital between ...&quot;<br />URL: https://ukandeu.ac.uk/the-facts/what-is-the-single-market/<br /><br />[4] &quot;The eurocurrency market is a major source of finance for international trade because of ease of convertibility and the absence of domestic restrictions on trading. Euromarket as the Single...&quot;<br />URL: https://www.investopedia.com/terms/e/euromarket.asp<br /><br />[5] &quot;One of the ways that we recognise the fundamental worth of every person is by acknowledging and respecting their human rights. Human rights are a set of principles concerned with equality and fairness. They recognise our freedom to make choices about our lives and develop our potential as human beings.&quot;<br />URL: https://leverageedu.com/blog/essay-on-human-rights/<br /><br />[6] &quot;Financial Stability - As sustainable development promises steady development the economies of countries can become stronger by using renewable sources of energy as compared to using fossil fuels, of which there is only a particular amount on our planet. Examples of Sustainable Development&quot;<br />URL: https://leverageedu.com/blog/essay-on-sustainable-development/<br /><br />[7] &quot;Usually, an article is a piece of writing that is published in a newspaper or Magazine for guiding a large audience on a particular topic or subject. The main objective to write an article is to make some changes to the world by presenting facts, stats, or views.&quot;<br />URL: https://www.aplustopper.com/article-writing/<br /><br />[8] &quot;Long and Short Essays on School Uniform for Students and Kids in English We are providing children and students with essay samples on an extended essay of 500 words and a short piece of 150 words on the topic School Uniform for reference. Long Essay on School Uniform 500 Words in English&quot;<br />URL: https://www.aplustopper.com/school-uniform-essay/<br /><br />[9] &quot;Write an article on this topic to create awareness among the people. (Word limit: 200 words) 6 You are concerned about the wastage of money and manpower due to the frequent elections in your country. Write an article on the urgent need to have a stable government. (Word limit: 200 words) 7 You are Rani/Raghav.&quot;<br />URL: https://www.learncram.com/english-grammar/article-writing-topics-for-class-12/<br /><br />[10] &quot;The treaty was designed to enhance European political and economic integration by creating a single currency (the euro ), a unified foreign and security policy, and common citizenship rights and by advancing cooperation in the areas of immigration, asylum, and judicial affairs.&quot;<br />URL: https://www.britannica.com/topic/European-Union<br />Current date: 10/03/2023<br /><br />Instructions: Using the provided web search results, write a comprehensive reply to the given query. Make sure to cite results using [[number](URL)] notation after the reference. If the provided search results refer to multiple subjects with the same name, write separate answers for each subject.<br />Query: Write an 150 words long article on the following topic: Why is the EU Single Market important for Latvia, giving an example (e.g. specific industry, historical event)and what challenges remain for the future?</div>
       </div><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">The EU Single Market is a significant achievement of the European Union, and Latvia has benefited greatly from it. The free movement of goods, services, capital, and people within the single market has created many opportunities for businesses in Latvia to expand their customer base beyond national borders. For example, Latvia&#39;s timber industry has flourished due to the single market, with exports to other EU countries accounting for around 75% of the industry&#39;s total revenue [[3](https://ukandeu.ac.uk/the-facts/what-is-the-single-market/)].<br /><br />However, challenges remain for the future of the single market, and Latvia must address them to continue reaping its benefits. One of the main challenges is to ensure that the rules and regulations of the single market are enforced consistently across all member states, including Latvia. Another challenge is the rise of protectionism and nationalism in some EU countries, which could undermine the principles of the single market [[1](https://www.foreignaffairs.com/articles/europe/2022-04-19/single-market-power)]. Moreover, Latvia needs to diversify its economy to reduce its dependence on a few industries such as timber and agriculture and take advantage of the opportunities offered by the single market in other sectors [[2](https://europeansting.com/2023/01/19/30-years-of-the-eu-single-market-time-to-face-new-challenges/)].<br /><br />In conclusion, the EU Single Market has been a boon for Latvia, especially its timber industry, and it remains crucial for the country&#39;s economic growth. Nevertheless, to overcome the challenges ahead, Latvia must work with other EU member states to maintain the integrity of the single market and diversify its economy.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>6380e5d6</code></strong>
         <span class="small">2023/03/10 (Fri) 11:17</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some book recommendations. Can you suggest some similar authors to Kristin Hannah and Taylor Jenkins Reid?</div>
       </div><div class="turn">
@@ -1319,15 +1576,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I think we&#39;ve covered a lot of ground so far! You&#39;ve got a solid plan for organizing your digital book collection and tracking your reading list. Now, let&#39;s talk about organizing your physical bookshelves!<br /><br />Organizing physical bookshelves can be a daunting task, but it can also be a great opportunity to reconnect with your books and make your reading space more inviting. Here are some questions to consider:<br /><br />1. **How do you want to categorize your books?** By author, title, genre, color, or something else?<br />2. **Do you have a specific shelving system in mind?** Alphabetical, chronological, or a mix of both?<br />3. **How will you handle series and multiple books by the same author?** Will you keep them together or scatter them throughout the shelves?<br />4. **What about books you&#39;ve already read vs. ones you haven&#39;t?** Will you separate them or keep them together?<br />5. **Do you have any special books or collections you want to highlight?** First editions, signed copies, or books with sentimental value?<br /><br />Feel free to share your thoughts, and I can offer some suggestions and ideas to help you get started on organizing your physical bookshelves!<br /><br />(And if you&#39;re interested in creating a reading schedule, we can definitely discuss that too!)</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>80aefc49_1</code></strong>
         <span class="small">2023/03/10 (Fri) 16:22</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m trying to get a better understanding of my social media habits. Before my recent 7-day break, I was spending an average of 2 hours a day on social media, mostly just scrolling through feeds and watching videos. Can you help me find some tools or apps that can track my social media usage and provide insights on how to optimize my time?</div>
       </div><div class="turn">
@@ -1364,30 +1625,38 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">That&#39;s a great approach! Starting with the traditional 25-minute work session and 5-minute break is a excellent way to get a feel for the technique, and then you can adjust as needed based on your productivity and focus.<br /><br />Using different intervals for different tasks is a fantastic way to customize the Pomodoro Technique to fit your needs. For example, shorter Pomodoros for checking email can help you stay focused and avoid getting sucked into the email vortex, while longer Pomodoros for focused work can help you make progress on complex tasks.<br /><br />Using a Pomodoro timer app can be a huge help in staying on track and maintaining your focus. There are many great apps out there, so find one that works for you and stick with it.<br /><br />Remember, the key to the Pomodoro Technique is to be consistent and flexible. Don&#39;t be too hard on yourself if you need to adjust your intervals or take a break. The goal is to make progress, not to follow a rigid system.<br /><br />If you have any more questions or need further guidance, feel free to ask. Otherwise, I wish you the best of luck on your Pomodoro journey!<br /><br />**Additional resources:**<br /><br />If you&#39;re interested in learning more about the Pomodoro Technique or finding additional resources, here are a few suggestions:<br /><br />1. **The Pomodoro Technique** (Book): The official book on the Pomodoro Technique by Francesco Cirillo.<br />2. **Pomodoro Timer** (Web): A simple, customizable Pomodoro timer.<br />3. **Pomofocus** (Web): A Pomodoro timer with customizable intervals and a focus-enhancing interface.<br />4. **Forest** (Mobile): A gamified Pomodoro app that grows a virtual forest as you stay focused.<br />5. **Pomodoro Technique subreddit** (Community): A community of people using the Pomodoro Technique to stay productive and focused.<br /><br />I hope you find these resources helpful!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_MJKLmq1_0</code></strong>
         <span class="small">2023/03/10 (Fri) 16:03</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">can you convert this to suitescript 2.0:<br />function getPromoPrices(){<br /> var column = [new nlobjSearchColumn(&quot;custrecord\_parent\_promo&quot;,null,&quot;GROUP&quot;)];<br /> var ppm = nlapiSearchRecord(&quot;customrecord\_special\_pricing\_detail&quot;,null, [<br /> [&quot;custrecord\_detail\_customer&quot;,&quot;anyof&quot;,&quot;@NONE@&quot;], <br /> &quot;AND&quot;, <br /> [&quot;custrecord\_parent\_promo&quot;,&quot;noneof&quot;,&quot;@NONE@&quot;]<br /> ],column);<br /> <br /> var promoprices = [];<br /> for(var i = 0; i &lt; ppm.length; i++){<br /> promoprices.push({ type: &quot;customrecord\_promo\_header&quot;, id: ppm[i].getValue(column[0]) });<br /> }<br /> return promoprices;<br />}<br /><br />function scheduled(type){ <br /> <br /> var context = nlapiGetContext();<br /> var recordType = context.getSetting(&#39;SCRIPT&#39;, &#39;custscript\_uc\_rectype&#39;);<br /> var recordId = context.getSetting(&#39;SCRIPT&#39;, &#39;custscript\_uc\_recid&#39;);<br /> <br /> if(recordId){<br /> run(recordId, recordType, context);<br /> } else {<br /> var ppm = getPromoPrices() || [];<br /> nlapiLogExecution(&#39;DEBUG&#39;, &#39;Promo Prices&#39;, ppm.length);<br /> <br /> for(var i = 0; i &lt; ppm.length; i++){<br /> run(ppm[i].id, ppm[i].type, context);<br /> context = nlapiGetContext();<br /> nlapiLogExecution(&#39;debug&#39;, &#39;remaining usage&#39;, context.getRemainingUsage());<br /> if (context.getRemainingUsage() &lt;= 500) {<br /> var status = nlapiScheduleScript(context.getScriptId())<br /> if ( status == &#39;QUEUED&#39; )<br /> break;<br /> }<br /> }<br /> }<br />}<br /><br />/\*\*<br /> \* @param {String} type Context Types: scheduled, ondemand, userinterface, aborted, skipped<br /> \* @returns {Void}<br /> \*/<br />function run(recordId, recordType, context) {<br /> try {<br /> <br /> var record = nlapiLoadRecord(recordType, recordId);<br /> if (recordType == &#39;customrecord\_promo\_header&#39;) {<br /> var recordStatus = record.getFieldValue(&#39;custrecord\_promohead\_status&#39;);<br /> var startDate = record.getFieldValue(&#39;custrecord\_promohead\_startdate&#39;);<br /> var endDate = record.getFieldValue(&#39;custrecord\_promohead\_enddate&#39;);<br /> if (recordStatus == 8) {<br /> var copiedFrom = record.getFieldValue(&#39;custrecord\_promohead\_copiedfrom&#39;);<br /> var filter = new nlobjSearchFilter(&#39;custrecord\_parent\_promo&#39;, null, &#39;anyof&#39;, copiedFrom);<br /> var filterDet= [[&#39;custrecord\_parent\_promo&#39;, &#39;anyof&#39;, copiedFrom]];<br /> var schRec = nlapiLoadSearch(&#39;customrecord\_special\_pricing\_detail&#39;, &#39;customsearch\_child\_items\_sch&#39;);<br /> var filExp = schRec.getFilterExpression();<br /> schRec.setFilterExpression(filterDet);<br /> var schResultSet = schRec.runSearch();<br /> var index = 0;<br /> var max = 1000;<br /> while (true) {<br /> var schDetail = schResultSet.getResults(index, max);<br /> if(isNullOrEmpty(schDetail) || schDetail.length &lt;= 0) {<br /> break;<br /> }<br /> index = max;<br /> max += 1000;<br /> <br /> if (schDetail) {<br /> for (var i = 0; i &lt; schDetail.length; i++) {<br /> nlapiLogExecution(&#39;DEBUG&#39;, &#39;sp Id&#39;, schDetail[i].getId());<br /> <br /> //if (context.getRemainingUsage() &lt;= 100) nlapiYieldScript();<br /> var item = schDetail[i].getValue(&#39;custrecord\_detail\_item&#39;);<br /> var option = schDetail[i].getValue(&#39;custrecord\_detail\_option&#39;);<br /> var basePrice = schDetail[i].getValue(&#39;custrecord\_detail\_baseprice&#39;);<br /> var usualPrice = schDetail[i].getValue(&#39;custrecord\_detail\_usualrate&#39;);<br /> <br /> var qty1 = schDetail[i].getValue(&#39;custrecord\_detail\_qty1&#39;);<br /> var price1 = schDetail[i].getValue(&#39;custrecord\_detail\_rate1&#39;);<br /> <br /> var qty2 = schDetail[i].getValue(&#39;custrecord\_detail\_qty2&#39;);<br /> var price2 = schDetail[i].getValue(&#39;custrecord\_detail\_rate2&#39;);<br /> <br /> var qty3 = schDetail[i].getValue(&#39;custrecord\_detail\_qty3&#39;);<br /> var price3 = schDetail[i].getValue(&#39;custrecord\_detail\_rate3&#39;);<br /> <br /> var qty4 = schDetail[i].getValue(&#39;custrecord\_detail\_qty4&#39;);<br /> var price4 = schDetail[i].getValue(&#39;custrecord\_detail\_rate4&#39;);<br /> <br /> var qty5 = schDetail[i].getValue(&#39;custrecord\_detail\_qty5&#39;);<br /> var price5 = schDetail[i].getValue(&#39;custrecord\_detail\_rate5&#39;);<br /> <br /> var customersStr = schDetail[i].getValue(&#39;custrecord\_detail\_customer&#39;);<br /> var customerArr = customersStr.split(&quot;,&quot;);<br /> nlapiLogExecution(&#39;DEBUG&#39;, typeof customerArr1);<br /> <br /> nlapiLogExecution(&#39;DEBUG&#39;, &#39;customers length&#39;, customerArr.length);<br /> var marketing = schDetail[i].getValue(&#39;custrecord\_detail\_marketingprice&#39;);<br /> var newDetail = nlapiCreateRecord(&#39;customrecord\_special\_pricing\_detail&#39;);<br /> <br /> newDetail.setFieldValue(&#39;custrecord\_parent\_promo&#39;, recordId);<br /> newDetail.setFieldValue(&#39;custrecord\_detail\_item&#39;, item);<br /> newDetail.setFieldValue(&#39;custrecord\_detail\_option&#39;, option);<br /> newDetail.setFieldValue(&#39;custrecord\_detail\_baseprice&#39;, basePrice);<br /> newDetail.setFieldValue(&#39;custrecord\_detail\_usualrate&#39;, usualPrice);<br /> newDetail.setFieldValue(&#39;custrecord\_detail\_qty1&#39;, qty1);<br /> newDetail.setFieldValue(&#39;custrecord\_detail\_rate1&#39;, price1);<br /> newDetail.setFieldValue(&#39;custrecord\_detail\_qty2&#39;, qty2);<br /> newDetail.setFieldValue(&#39;custrecord\_detail\_rate2&#39;, price2);<br /> <br /> newDetail.setFieldValue(&#39;custrecord\_detail\_qty3&#39;, qty3);<br /> newDetail.setFieldValue(&#39;custrecord\_detail\_rate3&#39;, price3);<br /> newDetail.setFieldValue(&#39;custrecord\_detail\_qty4&#39;, qty4);<br /> newDetail.setFieldValue(&#39;custrecord\_detail\_rate4&#39;, price4);<br /> <br /> newDetail.setFieldValue(&#39;custrecord\_detail\_qty5&#39;, qty5);<br /> newDetail.setFieldValue(&#39;custrecord\_detail\_rate5&#39;, price5);<br /> <br /> newDetail.setFieldValue(&#39;custrecord\_detail\_startdate&#39;, startDate);<br /> newDetail.setFieldValue(&#39;custrecord\_detail\_enddate&#39;, endDate);<br /> newDetail.setFieldValue(&#39;custrecord\_detail\_customer&#39;, customerArr);<br /> newDetail.setFieldValue(&#39;custrecord\_detail\_marketingprice&#39;, marketing);<br /> nlapiSubmitRecord(newDetail, false, true);<br /> <br /> <br /> }<br /> }<br /> <br /> }<br /> <br /> <br /> <br /> }<br /> else {<br /> var someCust = record.getFieldValues(&#39;custrecord\_promohead\_child&#39;);<br /> var startDate = record.getFieldValue(&#39;custrecord\_promohead\_startdate&#39;);<br /> var endDate = record.getFieldValue(&#39;custrecord\_promohead\_enddate&#39;);<br /> var customer = record.getFieldValue(&#39;custrecord\_parenthead\_customer&#39;);<br /> <br /> var filCust = new Array(); <br /> filCust.push(new nlobjSearchFilter(&#39;parent&#39;, null, &#39;anyof&#39;, customer));<br /> filCust.push(new nlobjSearchFilter(&#39;isinactive&#39;, null, &#39;is&#39;, &#39;F&#39;));<br /> //filCust.push(new nlobjSearchFilter(&#39;isjob&#39;, null, &#39;is&#39;, &#39;F&#39;));<br /> var childCust = nlapiSearchRecord(&#39;customer&#39;, null, filCust, null);<br /> <br /> var allChildArray = new Array();<br /> <br /> if (childCust) {<br /> allChildArray.push(customer);<br /> for (var j = 0; j &lt; childCust.length; j++) {<br /> <br /> allChildArray.push(childCust[j].getId());<br /> }<br /> <br /> }<br /> <br /> var someCustArray = new Array();<br /> someCustArray.push(customer);<br /> if (!isNullOrEmpty(someCust)) {<br /> for (var j = 0; j &lt; someCust.length; j++) {<br /> someCustArray.push(someCust[j]);<br /> }<br /> }<br /> <br /> var lineCount = record.getLineItemCount(&#39;recmachcustrecord\_parent\_promo&#39;);<br /> var custArray = new Array();<br /> custArray.push(customer);<br /> <br /> nlapiLogExecution(&#39;DEBUG&#39;, &#39;1&#39;, &#39;&#39;);<br /> var filterDet= [[&#39;custrecord\_parent\_promo&#39;, &#39;anyof&#39;, recordId]];<br /> var schRec = nlapiLoadSearch(&#39;customrecord\_special\_pricing\_detail&#39;, &#39;customsearch\_child\_items\_sch&#39;);<br /> var filExp = schRec.getFilterExpression();<br /> nlapiLogExecution(&#39;DEBUG&#39;, &#39;2&#39;, &#39;&#39;);<br /> <br /> schRec.setFilterExpression(filterDet);<br /> var schResultSet = schRec.runSearch();<br /> nlapiLogExecution(&#39;DEBUG&#39;, &#39;2b&#39;, &#39;&#39;);<br /> var index = 0;<br /> var max = 1000;<br /> <br /> <br /> while (true) {<br /> var schDetail = schResultSet.getResults(index, max);<br /> if(isNullOrEmpty(schDetail) || schDetail.length &lt;= 0) {<br /> break;<br /> }<br /> index = max;<br /> max += 1000;<br /> <br /> if (schDetail) {<br /> for (var i = 0; i &lt; schDetail.length; i++) {<br /> //if (context.getRemainingUsage() &lt;= 100) nlapiYieldScript();<br /> var detId = schDetail[i].getId();<br /> nlapiLogExecution(&#39;DEBUG&#39;, &#39;child id&#39;, detId);<br /> var recordDet = nlapiLoadRecord(&#39;customrecord\_special\_pricing\_detail&#39;, detId, {recordmode: &#39;dynamic&#39;});<br /> <br /> var option = recordDet.getFieldValue(&#39;custrecord\_detail\_option&#39;);<br /> <br /> if (option == &#39;1&#39;) {<br /> recordDet.setFieldValue(&#39;custrecord\_detail\_customer&#39;, allChildArray);<br /> }<br /> if (option == &#39;2&#39;) {<br /> recordDet.setFieldValue(&#39;custrecord\_detail\_customer&#39;, someCustArray);<br /> }<br /> if (option == &#39;3&#39;) {<br /> recordDet.setFieldValue(&#39;custrecord\_detail\_customer&#39;, customer);<br /> <br /> }<br /> <br /> recordDet.setFieldValue(&#39;custrecord\_detail\_startdate&#39;, startDate);<br /> recordDet.setFieldValue(&#39;custrecord\_detail\_enddate&#39;, endDate);<br /> nlapiSubmitRecord(recordDet, true, true);<br /> <br /> <br /> }<br /> }<br /> }<br /> }<br /> <br /> nlapiSubmitField(recordType, recordId, &#39;custrecord\_promohead\_status&#39;, 4);<br /> <br /> <br /> }<br /> <br /> <br /> if (recordType == &#39;customrecord\_contract\_pricing&#39;) {<br /> <br /> var contractReview = record.getFieldValue(&#39;custrecord\_cp\_contractreview&#39;);<br /> var startDate = record.getFieldValue(&#39;custrecord\_cp\_startdate&#39;);<br /> //var location = record.getFieldValue(&#39;custrecord\_cp\_location&#39;);<br /> var filters = new Array();<br /> var customer = record.getFieldValue(&#39;custrecord\_cp\_parentcustomer&#39;);<br /> var someCust = record.getFieldValues(&#39;custrecord\_cp\_child&#39;);<br /> <br /> var filCust = new Array(); <br /> filCust.push(new nlobjSearchFilter(&#39;parent&#39;, null, &#39;anyof&#39;, customer));<br /> filCust.push(new nlobjSearchFilter(&#39;isinactive&#39;, null, &#39;is&#39;, &#39;F&#39;));<br /> //filCust.push(new nlobjSearchFilter(&#39;isjob&#39;, null, &#39;is&#39;, &#39;F&#39;));<br /> var childCust = nlapiSearchRecord(&#39;customer&#39;, null, filCust, null);<br /> var allChildArray = new Array();<br /> //allChildArray.push(customer);<br /> if (childCust) {<br /> nlapiLogExecution(&#39;DEBUG&#39;, &#39;childcust length&#39;, childCust.length);<br /> for (var j = 0; j &lt; childCust.length; j++) {<br /> allChildArray.push(childCust[j].getId());<br /> }<br /> nlapiLogExecution(&#39;DEBUG&#39;, &#39;childcust all&#39;, JSON.stringify(allChildArray));<br /> }<br /> <br /> var someCustArray = new Array();<br /> someCustArray.push(customer);<br /> if (!isNullOrEmpty(someCust)) {<br /> for (var j = 0; j &lt; someCust.length; j++) {<br /> someCustArray.push(someCust[j]);<br /> }<br /> }<br /> <br /> //\*\*\*\* add here<br /> nlapiLogExecution(&#39;DEBUG&#39;, &#39;1&#39;, &#39;&#39;);<br /> var filterDet= [[&#39;custrecord\_contract\_parent&#39;, &#39;anyof&#39;, recordId]];<br /> var schRec = nlapiLoadSearch(&#39;customrecord\_special\_pricing\_detail&#39;, &#39;customsearch\_child\_items\_sch&#39;);<br /> var filExp = schRec.getFilterExpression();<br /> nlapiLogExecution(&#39;DEBUG&#39;, &#39;2&#39;, &#39;&#39;);<br /> <br /> schRec.setFilterExpression(filterDet);<br /> var schResultSet = schRec.runSearch();<br /> nlapiLogExecution(&#39;DEBUG&#39;, &#39;2b&#39;, &#39;&#39;);<br /> var index = 0;<br /> var max = 1000;<br /> <br /> <br /> while (true) {<br /> var schDetail = schResultSet.getResults(index, max);<br /> if(isNullOrEmpty(schDetail) || schDetail.length &lt;= 0) {<br /> break;<br /> }<br /> index = max;<br /> max += 1000;<br /> <br /> if (schDetail) {<br /> for (var i = 0; i &lt; schDetail.length; i++) {<br /> //if (context.getRemainingUsage() &lt;= 100) nlapiYieldScript();<br /> var detId = schDetail[i].getId();<br /> nlapiLogExecution(&#39;DEBUG&#39;, &#39;child id&#39;, detId);<br /> var recordDet = nlapiLoadRecord(&#39;customrecord\_special\_pricing\_detail&#39;, detId, {recordmode: &#39;dynamic&#39;});<br /> recordDet.setFieldValue(&#39;custrecord\_detail\_contractreviewdate&#39;, contractReview);<br /> recordDet.setFieldValue(&#39;custrecord\_detail\_startdate&#39;, startDate);<br /> var option = recordDet.getFieldValue(&#39;custrecord\_detail\_option&#39;);<br /> if (option == 1) {<br /> recordDet.setFieldValue(&#39;custrecord\_detail\_customer&#39;, allChildArray);<br /> <br /> }<br /> if (option == 2) {<br /> recordDet.setFieldValue(&#39;custrecord\_detail\_customer&#39;, someCustArray);<br /> <br /> }<br /> <br /> if (option == &#39;3&#39;) {<br /> recordDet.setFieldValue(&#39;custrecord\_detail\_customer&#39;, customer);<br /> <br /> }<br /> nlapiSubmitRecord(recordDet, true, true);<br /> <br /> }<br /> }<br /> }<br /> nlapiSubmitField(recordType, recordId, &#39;custrecord\_cp\_status&#39;, 4);<br /> <br /> }<br /> <br /> <br /> <br /> if (recordType == &#39;customrecord\_catalogue\_pricing&#39;) {<br /> var startDate = record.getFieldValue(&#39;custrecord\_cat\_startdate&#39;);<br /> var endDate = record.getFieldValue(&#39;custrecord\_cat\_enddate&#39;);<br /> var oldStatus = record.getFieldValue(&#39;custrecord\_cat\_oldstatus&#39;);<br /> var lineCount = record.getLineItemCount(&#39;recmachcustrecord\_parent\_catalogue&#39;);<br /> <br /> for (var i = 1; i &lt;= lineCount; i++) {<br /> <br /> //if (context.getRemainingUsage() &lt;= 100) nlapiYieldScript();<br /> <br /> record.setLineItemValue(&#39;recmachcustrecord\_parent\_catalogue&#39;, &#39;custrecord\_detail\_startdate&#39;, i, startDate);<br /> record.setLineItemValue(&#39;recmachcustrecord\_parent\_catalogue&#39;, &#39;custrecord\_detail\_enddate&#39;, i, endDate);<br /> <br /> }<br /> <br /> record.setFieldValue(&#39;custrecord\_cat\_status&#39;, oldStatus);<br /> nlapiSubmitRecord(record, false, true);<br /> <br /> }<br /> <br /> <br /> }<br /> catch (e) {<br /> if (recordType == &#39;customrecord\_promo\_header&#39;) nlapiSubmitField(recordType, recordId, &#39;custrecord\_promohead\_status&#39;, 5, false);<br /> if (recordType == &#39;customrecord\_contract\_pricing&#39;) nlapiSubmitField(recordType, recordId, &#39;custrecord\_cp\_status&#39;, 5, false);<br /> if (recordType == &#39;customrecord\_catalogue\_pricing&#39;) nlapiSubmitField(recordType, recordId, &#39;custrecord\_cat\_status&#39;, 6, false);<br /> //nlapiSubmitField(recordType, recordId, &#39;custrecord\_cp\_status&#39;, &#39;5&#39;);<br /> if (e instanceof nlobjError) {<br /> nlapiLogExecution(&#39;DEBUG&#39;, &#39;Scheduled&#39;, e.getCode() + &#39;\n&#39; + e.getDetails());<br /> <br /> }<br /> else {<br /> nlapiLogExecution(&#39;DEBUG&#39;, &#39;Scheduled - unexpected&#39;, e.toString());<br /> <br /> }<br /> }<br />}</div>
       </div><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">Here is the SuiteScript 2.0 version of the provided code:<br />```js<br />function getPromoPrices() {<br />  var column = [search.createColumn({<br />    name: &quot;custrecord_parent_promo&quot;,<br />    join: null,<br />    summary: &quot;GROUP&quot;<br />  })];<br />  var ppm = search.create({<br />    type: &quot;customrecord_special_pricing_detail&quot;,<br />    filters: [<br />      [&quot;custrecord_detail_customer&quot;, &quot;anyof&quot;, &quot;@NONE@&quot;],<br />      &quot;AND&quot;,<br />      [&quot;custrecord_parent_promo&quot;, &quot;noneof&quot;, &quot;@NONE@&quot;]<br />    ],<br />    columns: column<br />  }).run().getRange({ start<br />```</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>cae65795_1</code></strong>
         <span class="small">2023/03/10 (Fri) 01:17</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m thinking of organizing my phone&#39;s photos and videos. I had a large number of unsorted photos from my trip to the beach last summer, and I&#39;d like to create some albums and maybe even make a few collages. Can you help me with some tips or recommendations on how to get started?</div>
       </div><div class="turn">
@@ -1424,15 +1693,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Phone wallets with card slots are a fantastic way to carry your essentials, such as credit cards, cash, and IDs, along with your phone. Here are some tips and recommendations to help you choose the right one:<br /><br />**Considerations:**<br /><br />1. **Phone compatibility**: Make sure the phone wallet is compatible with your phone model. Check the manufacturer&#39;s website or product description to ensure a snug fit.<br />2. **Material**: Phone wallets come in various materials, such as leather, fabric, or TPU (thermoplastic polyurethane). Leather wallets are stylish and durable, while fabric wallets are often more affordable. TPU wallets are flexible and resistant to scratches.<br />3. **Card slots**: Decide how many card slots you need. Most phone wallets have 2-4 slots, but some may have more. Consider how many cards you typically carry and choose a wallet that accommodates them.<br />4. **Closure type**: Phone wallets often have a magnetic closure, snap closure, or elastic band to keep your cards secure. Choose a closure type that suits your preference.<br />5. **Additional features**: Some phone wallets may have additional features like a cash compartment, ID window, or phone stand. Think about what features are essential to you.<br /><br />**Recommendations:**<br /><br />1. **Spigen Wallet S**: A popular and affordable option with a slim design, 3-card slots, and a magnetic closure.<br />2. **OtterBox Strada Series**: A premium option with a leather design, 3-card slots, and a snap closure. It&#39;s durable and stylish.<br />3. **Tech21 Evo Wallet Case**: A sleek and protective option with 2-card slots, a magnetic closure, and a built-in phone stand.<br />4. **Nomad Wallet Case**: A high-end option with a leather design, 4-card slots, and a cash compartment. It&#39;s a great choice for those who want a premium wallet case.<br /><br />**Tips:**<br /><br />1. **Read reviews**: Check reviews from other customers to get a sense of the wallet&#39;s quality, durability, and functionality.<br />2. **Measure your phone**: Double-check the phone wallet&#39;s dimensions to ensure it fits your phone snugly.<br />3. **Choose a reputable brand**: Opt for a well-known brand that offers good customer support and a warranty.<br />4. **Consider a wallet with a raised edge**: A raised edge can help protect your phone&#39;s screen from scratches and drops.<br /><br />I hope these tips and recommendations help you find the perfect phone wallet with card slots for your needs!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>29d27eaa_2</code></strong>
         <span class="small">2023/03/10 (Fri) 15:47</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m trying to find some new documentaries to watch on Hulu. I just finished binge-watching a bunch of them last Sunday and I&#39;m craving more. By the way, I just finished watching a series on Netflix that had a total of 4 seasons, and I finished watching all of them. Do you have any recommendations for documentaries on Hulu that are similar to &quot;Free Solo&quot; and &quot;Fyre: The Greatest Party That Never Happened&quot;?</div>
       </div><div class="turn">
@@ -1469,15 +1742,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I&#39;m glad to hear that! Finishing a series can be a great feeling, especially when it&#39;s a long-running one. It&#39;s like closing a chapter and moving on to a new adventure. And with so many great shows out there, it&#39;s exciting to explore new stories and characters.<br /><br />If you&#39;re looking for recommendations or need help finding your next binge-worthy series, feel free to ask! I&#39;d be happy to help you discover something new.<br /><br />Now, go enjoy &quot;The Dawn Wall&quot; and get ready to be inspired by Tommy and Kevin&#39;s incredible journey!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_380843</code></strong>
         <span class="small">2023/03/10 (Fri) 11:57</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Could you give an overview of the history and current state of the #MeToo movement and its impact on social justice issues?</div>
       </div><div class="turn">
@@ -1502,15 +1779,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">The #MeToo movement has had a significant impact on workplaces in terms of policies and procedures related to sexual harassment and assault. Many employers have taken steps to review and revise their policies and procedures to address the issues raised by #MeToo.<br /><br />Some of the ways that the #MeToo movement has inspired changes in policy and practice include:<br /><br />1. Review of existing policies: Many employers have reviewed their existing policies regarding sexual harassment and assault to ensure that they are up-to-date and reflect best practices. This includes ensuring that staff members receive appropriate training and education on the topic of harassment and assault.<br /><br />2. Changes in complaint procedures: Many employers have changed their complaint procedures to make them more to be victim-centered and to provide a safer and more supportive environment for survivors reporting harassment or assault.<br /><br />3. Accountability and consequences: There is now greater accountability for individuals accused of sexual harassment or assault. Many organizations have introduced more severe penalties for those found guilty of such behaviour, including immediate suspension or termination from their employment.<br /><br />4. Creating safe spaces: There have been changes in the design of workplaces to encourage a more safe and supportive environment, including creating safe spaces where employees can receive confidential support.<br /><br />These changes in policies and procedures are important steps to creating safer and supportive environments for employees to work in. The #MeToo movement highlights the need for continued efforts to prevent sexual harassment and assault within the workplace, and these changes are fundamental to achieving this.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_10403</code></strong>
         <span class="small">2023/03/10 (Fri) 00:07</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What is the relationship between neurodiversity and creativity, and how do these qualities intersect in individuals who identify as neurodivergent?</div>
       </div><div class="turn">
@@ -1547,15 +1828,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">There are many resources available to help employers better understand and accommodate neurodivergent individuals in the workplace. Some of these resources include:<br /><br />1. Training programs: Employers can provide training sessions for their managers and employees to raise awareness and understanding about neurodiversity. These training programs can cover topics such as communication strategies, accommodating individual needs, and building inclusive cultures.<br /><br />2. Assistive technology: Employers can provide assistive technologies such as text-to-speech software, speech-to-text software, and noise-cancelling headphones to enable neurodivergent individuals to better access and participate in the workplace.<br /><br />3. Mentoring and coaching: Employers can provide mentoring and coaching programs to support neurodivergent individuals to better understand their strengths, needs, and opportunities for growth.<br /><br />4. Resource networks: Employers can establish resource networks and support groups for neurodivergent individuals, where they can share experiences, knowledge and learn from one another, promoting belongingness and well-being.<br /><br />5. Partnership with non-profit organizations: Employers can form partnerships with non-profit organizations that work with neurodivergent individuals to leverage their knowledge and expertise in effectively accommodating and supporting neurodiverse employees.<br /><br />It is important for employers to develop and implement comprehensive programs that consider the unique needs and goals of neurodivergent individuals in the workplace.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>b35610f4_1</code></strong>
         <span class="small">2023/03/10 (Fri) 01:39</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m thinking of getting some new guitar effects pedals, do you have any recommendations? By the way, I used my guitar at a few shows with my band last month, and I&#39;ve been really happy with how it&#39;s been sounding since I got it serviced.</div>
       </div><div class="turn">
@@ -1592,15 +1877,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">New guitar strings can make a big difference in your tone and playing experience.<br /><br />There are so many great string brands and types out there, but I&#39;ll give you a few recommendations that are popular among guitarists:<br /><br />1. **Ernie Ball**: Known for their Slinky strings, which offer a balanced tone and feel. They come in a range of gauges and materials, including nickel, stainless steel, and cobalt.<br />2. **D&#39;Addario**: Their XL strings are a popular choice among guitarists, offering a bright, crisp tone and a long lifespan. They also offer a range of gauges and materials, including nickel, stainless steel, and bronze.<br />3. **Elixir**: These strings are known for their long-lasting, corrosion-resistant coating, which helps keep them fresh and sounding great for a longer period. They offer a range of gauges and materials, including nanoweb, polyweb, and optiweb.<br />4. **Martin**: If you&#39;re looking for a more vintage tone, Martin strings are a great choice. They offer a range of gauges and materials, including bronze, phosphor bronze, and silk &amp; steel.<br /><br />In terms of gauge, it ultimately comes down to personal preference. If you&#39;re looking for a brighter, snappier tone, you might prefer a lighter gauge (0.010 - 0.046). If you prefer a fuller, warmer tone, you might prefer a heavier gauge (0.012 - 0.052).<br /><br />What type of music do you play, and what&#39;s your current string gauge? That might help me give you a more specific recommendation.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_ZKa5eUx_21</code></strong>
         <span class="small">2023/03/10 (Fri) 15:27</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">When it comes to constructing or renovating your home, having a comprehensive and well-drafted contract is crucial to ensure that the project runs smoothly and is completed on time. As a homeowner, you have two options to choose from: custom-made construction contracts or standard form construction contracts.<br /><br />Custom-made construction contracts are tailored to suit your specific project requirements and needs. These contracts are usually drafted by lawyers who specialise in construction law and are designed to address unique aspects of a particular construction project. On the other hand, standard form construction contracts are pre-prepared contracts that are widely used in the construction industry. These contracts have been drafted by industry bodies such as the Master Builders Association of NSW and the Housing Industry Association and are regularly updated to ensure they are legally compliant and up-to-date.<br /><br />Both options have their advantages and disadvantages, and choosing the right one for your project will depend on several factors. Custom-made contracts provide greater flexibility and can be tailored to address your specific needs, while standard form contracts offer a more streamlined and cost-effective approach. As a construction lawyer, I have advised homeowners and builders on the best contract option for their project to ensure they are protected and legally compliant.</div>
       </div><div class="turn">
@@ -1652,15 +1941,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">&quot;Learn how to minimise the impact of weather-related construction delays in NSW. Our expert solicitor shares guidelines, resources and more. Read now!&quot;</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_528011</code></strong>
         <span class="small">2023/03/10 (Fri) 20:44</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">In what ways does the use of magical realism affect the overall tone of Isabel Allende&#39;s The House of the Spirits?</div>
       </div><div class="turn">
@@ -1691,15 +1984,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, Allende does an excellent job of portraying the female characters in The House of the Spirits in a way that was groundbreaking for its time. The female characters are not merely supporting roles but are instead powerful and complex individuals in their own right. They are shown to possess strengths, weaknesses, and complex personalities, just like the male characters. Moreover, the novel explores the women&#39;s experiences in a patriarchal society and highlights their struggles to find their place and power within it. Throughout the novel, we see women developing their own voice and agency, fighting against the oppression they face, and ultimately asserting their independence. This portrayal of the female characters has made The House of the Spirits a feminist classic and an important work in the Latin American literary canon.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_SQzWPKF_34</code></strong>
         <span class="small">2023/03/10 (Fri) 23:23</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">This is perfect. Here are a few more components:<br /><br />&quot;Caster Wheel Footprint&quot;: measures 31mm by 37mm. Within this rectangular footprint are 4 mounting holes, all 4 holes have a 2mm radius. There is a mounting hole in each of the 4 corners set in from the sides by 4mm.<br /><br />&quot;Infrared Footprint&quot;: measures 96.5mm by 20.5mm, let these measurements be the x and y axis, respectively. Within this rectangular footprint are 4 mounting holes, all 4 holes have a 1.5 mm radius. All 4 holes are in a line at y = 4.25mm Along this axis the holes are placed along the x axis at the following locations: 7, 24, 72.5, 89.5mm. <br /><br />The next component will be referred to as the &quot;Arduino footprint&quot;, it has dimensions of 68.6mm by 53.4mm. This time the mounting holes have a radius of 1.3mm and are located at coordinates (15.24, 2.54), (15.24, 50.8), (66.04, 17.78), (66.04, 45.72)<br /><br />The final component is &quot;motor bracket footprint&quot; with dimensions 15mm by 5mm with 2 mounting holes, of radius 1.5mm, at coordinates (3.5, 2.5) and (11.5, 2.5)<br /><br />Can you create additional SVG files for each of these components?</div>
       </div><div class="turn">
@@ -1724,15 +2021,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Sure, here are the revised .svg files for the Infrared Footprint and Motor Bracket Footprint, with added rectangles around the border:<br /><br />Infrared Footprint:<br />```php<br />&lt;svg width=&quot;96.5mm&quot; height=&quot;20.5mm&quot; viewBox=&quot;0 0 96.5 20.5&quot; version=&quot;1.1&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;<br />  &lt;rect x=&quot;0&quot; y=&quot;0&quot; width=&quot;96.5&quot; height=&quot;20.5&quot; fill=&quot;#FFFFFF&quot; /&gt;<br />  &lt;circle cx=&quot;7&quot; cy=&quot;4.25&quot; r=&quot;1.5&quot; fill=&quot;#000000&quot; /&gt;<br />  &lt;circle cx=&quot;24&quot; cy=&quot;4.25&quot; r=&quot;1.5&quot; fill=&quot;#000000&quot; /&gt;<br />  &lt;circle cx=&quot;72.5&quot; cy=&quot;4.25&quot; r=&quot;1.5&quot; fill=&quot;#000000&quot; /&gt;<br />  &lt;circle cx=&quot;89.5&quot; cy=&quot;4.25&quot; r=&quot;1.5&quot; fill=&quot;#000000&quot; /&gt;<br />&lt;/svg&gt;<br />```<br />Motor Bracket Footprint:<br />```php<br />&lt;svg width=&quot;15mm&quot; height=&quot;5mm&quot; viewBox=&quot;0 0 15 5&quot; version=&quot;1.1&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;<br />  &lt;rect x=&quot;0&quot; y=&quot;0&quot; width=&quot;15&quot; height=&quot;5&quot; fill=&quot;#FFFFFF&quot; /&gt;<br />  &lt;circle cx=&quot;3.5&quot; cy=&quot;2.5&quot; r=&quot;1.5&quot; fill=&quot;#000000&quot; /&gt;<br />  &lt;circle cx=&quot;11.5&quot; cy=&quot;2.5&quot; r=&quot;1.5&quot; fill=&quot;#000000&quot; /&gt;<br />&lt;/svg&gt;<br />```<br />I hope these revised .svg files meet your requirements. Let me know if you have any further questions.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_180591</code></strong>
         <span class="small">2023/03/10 (Fri) 00:49</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">How did the actors handle taking on such intense emotional material, and what methods did they use to manage their own emotions during filming?</div>
       </div><div class="turn">
@@ -1763,30 +2064,38 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">As an AI language model, I think you&#39;re right. It&#39;s always exciting to see an actor step outside their comfort zone and take on a completely different role or character that challenges their usual type or personality. Not only does it show their range and versatility as an actor, but it can also be a pleasant surprise for the audience, who may not have expected that kind of performance from them. It also demonstrates the willingness and desire of the actor to constantly grow and evolve in their craft, which is a hallmark of a great actor.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_lRGmxQF_0</code></strong>
         <span class="small">2023/03/10 (Fri) 18:24</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Write a 1000 word essay on the overarching philosophical or metaphysical aspects of the novel Night Boat to Tangier. For example, the ideas of sin, fate, tragedy, redemption, hope, failure, loss, existentialism, etc.</div>
       </div><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">Night Boat to Tangier is a novel that explores a range of philosophical and metaphysical ideas. The novel, written by Kevin Barry, follows two aging Irish gangsters, Maurice Hearne and Charlie Redmond, as they wait for a boat to the Spanish city of Tangier in the hope of finding Maurice&#39;s missing daughter.<br /><br />One of the central ideas of the novel is that of sin. Maurice and Charlie are both former criminals, and their lives are defined by the sins they have committed in the past. Their criminal activities have left them both with a sense of guilt and remorse, and they are haunted by the consequences of their actions. For example, Maurice&#39;s missing daughter is a direct result of his criminal lifestyle.<br /><br />Another idea that is explored in the novel is that of fate. Maurice and Charlie are both trapped by the choices they have made in the past, and they are unable to escape the consequences of those choices. Their lives are defined by their past actions, and they are unable to change their fate. This sense of inevitability is emphasized by the fact that they are waiting for a boat that may never arrive, symbolizing their inability to escape their past.<br /><br />The novel also explores the idea of tragedy. The lives of Maurice and Charlie are marked by a series of tragic events, from the loss of their loved ones to the failure of their criminal enterprises. These tragedies have left them both emotionally scarred, and they struggle to come to terms with their past. The novel ends with a sense of tragedy, as Maurice and Charlie are unable to find Maurice&#39;s daughter, and they are left alone to face their own mortality.<br /><br />At the same time, the novel also touches on the idea of redemption. Despite their criminal past, Maurice and Charlie are both seeking redemption for their sins. They are trying to make amends for their past actions, and they are looking for a way to start over. However, their attempts at redemption are ultimately unsuccessful, as they are unable to escape the consequences of their actions.<br /><br />In addition to these ideas, the novel also explores the concept of hope. Despite the hardships and tragedies they face, Maurice and Charlie are able to hold onto hope. They believe that they will eventually find Maurice&#39;s daughter, and that their lives will improve. However, this hope is ultimately proven to be false, as they are unable to find Maurice&#39;s daughter and they are left to face their own mortality.<br /><br />The novel also touches on the idea of failure. Maurice and Charlie are both failures in many ways. They have failed as criminals, as fathers, and as men. Their failures have left them with a sense of despair and hopelessness, and they are unable to overcome their past mistakes.<br /><br />Finally, the novel explores the concept of existentialism. Maurice and Charlie are both deeply aware of their own mortality, and they are forced to confront the meaninglessness of their own lives. They are unable to find any sense of purpose or direction, and they are left to face the void of their own existence.<br /><br />Overall, Night Boat to Tangier is a novel that explores a range of philosophical and metaphysical ideas. From the concept of sin and fate to the ideas of tragedy, redemption, hope, and existentialism, the novel offers a complex and thought-provoking exploration of the human condition.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_109078</code></strong>
         <span class="small">2023/03/10 (Fri) 17:54</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">What are some common techniques used by magicians to keep the audience engaged and entertained during a live show?</div>
       </div><div class="turn">
@@ -1817,15 +2126,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">The disappearing act is one of the classic magic tricks that never fails to impress the audience. There are several ways that magicians can make themselves disappear or appear to do so, depending on the setup and illusion they want to create. Here are some ways this trick can be achieved:<br /><br />1. Misdirection: Misdirection is a technique used by magicians to divert the audience’s attention during the trick, allowing them to disappear without being seen. They might, for example, draw the audience&#39;s attention to something happening on the other side of the stage or distract them with a quick flash of light.<br /><br />2. Trapdoors: Some stages have trapdoors built into them, allowing the magician to drop out of sight and into a hidden area beneath the stage.<br /><br />3. Smoke and mirrors: This technique uses special effects to create the illusion of disappearing. The magician might disappear into a cloud of smoke while the audience&#39;s attention is diverted by a mirror or other reflective surface.<br /><br />4. Hiding in plain sight: The magician hides in places the audience would least expect, such as behind a prop, under the stage, or even in a visibly empty box.<br /><br />5. Sleight of hand: Magicians can also use sleight of hand to make objects or even themselves disappear. This might involve using a duplicate object or simply moving the object out of sight in one smooth motion.<br /><br />These techniques require precise timing, well-planned movements, and a good amount of practice to work effectively. With the right illusion and execution, a skilled magician can make even the most elaborate disappearance look effortless.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>d895aad4_1</code></strong>
         <span class="small">2023/03/10 (Fri) 05:46</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m setting up a routine for water changes and was wondering if you could help me come up with a reminder system. By the way, I spent an entire weekend on a big project recently and I&#39;m still feeling the accomplishment, but now I need to stay on top of these regular tasks.</div>
       </div><div class="turn">
@@ -1862,15 +2175,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Congratulations on completing your big project! Now, let&#39;s dive into the world of refractometers and explore how they can help you maintain your aquarium.<br /><br />A refractometer is an excellent investment for measuring salinity, and with the right one, you&#39;ll get accurate readings and make your aquarium maintenance more efficient. Here are some key points to consider:<br /><br />**Accuracy:** Look for a refractometer with an accuracy of ±0.1 ppt (parts per thousand) or better. This level of accuracy is suitable for most aquarium applications.<br /><br />**Types of Refractometers:** There are two main types:<br /><br />1. **Optical Refractometers:** These traditional, manual refractometers use a prism and a light source to measure the refractive index of the water. They&#39;re relatively inexpensive (around $20-$50) but require some skill and practice to use accurately.<br />2. **Digital Refractometers:** These electronic devices use a sensor to measure the refractive index and display the reading digitally. They&#39;re more expensive (around $50-$200) but are generally easier to use and more accurate than optical refractometers.<br /><br />**Features to Consider:**<br /><br />1. **Automatic Temperature Compensation (ATC):** This feature ensures accurate readings by compensating for temperature fluctuations.<br />2. **Salinity Range:** Make sure the refractometer can measure the salinity range you need for your aquarium (e.g., 0-40 ppt).<br />3. **Calibration:** Look for refractometers with easy calibration procedures to ensure accuracy.<br />4. **Durability:** Choose a refractometer with a durable design and construction to withstand regular use.<br /><br />**Benefits for Aquarium Maintenance:**<br /><br />1. **Accurate Salinity Measurements:** A refractometer provides precise salinity readings, ensuring you can maintain optimal levels for your marine life.<br />2. **Easy to Use:** Digital refractometers are often simple to operate, making it easy to take readings and track changes.<br />3. **Time-Saving:** With a refractometer, you can quickly check salinity levels, saving you time and effort in the long run.<br />4. **Improved Water Quality:** By maintaining optimal salinity levels, you&#39;ll improve overall water quality and create a healthier environment for your aquarium inhabitants.<br /><br />**Investment Worthiness:** Considering your recent project and your desire to make aquarium maintenance easier, a refractometer is a worthwhile investment. It will provide accurate readings, save you time, and help you maintain a healthy aquarium.<br /><br />Before making a final decision, research different models, read reviews, and consider the following:<br /><br />1. **Brand Reputation:** Look for reputable brands known for producing high-quality refractometers.<br />2. **Customer Support:** Choose a manufacturer with good customer support in case you have questions or issues.<br />3. **Warranty:** Check the warranty offered by the manufacturer and its duration.<br /><br />By investing in a reliable refractometer, you&#39;ll be ensuring the health and well-being of your aquarium inhabitants while making maintenance easier and more efficient.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>afec1061_2</code></strong>
         <span class="small">2023/03/10 (Fri) 11:13</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;ve been experiencing anxiety attacks at night and I&#39;m looking for some tips to help me relax before bed. Do you have any recommendations? Oh, and by the way, I also started taking a dance class on Saturdays, which has been a lot of fun.</div>
       </div><div class="turn">
@@ -1907,15 +2224,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Thank you for the suggestions! I&#39;m glad you&#39;re enthusiastic about exploring new physical activities to help with anxiety. I think you meant to say that you&#39;re suggesting these activities for me, not that I suggested them, but I appreciate the recommendations nonetheless!<br /><br />Yes, yoga, walking, and swimming are all excellent options for reducing anxiety and improving overall well-being. I&#39;ve heard great things about tai chi and Pilates as well, and dance-based workouts like Zumba and Hip Hop Abs can be a fun way to get some exercise while enjoying music and movement.<br /><br />It&#39;s always important to consult with a healthcare professional before starting any new exercise program, especially if you have any underlying health conditions or concerns. They can help you determine the best exercises for your individual needs and abilities.<br /><br />Thanks again for the suggestions! I hope you find some new physical activities that bring you joy and help you manage your anxiety.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ab3af6c5_1</code></strong>
         <span class="small">2023/03/10 (Fri) 10:40</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some new winter accessories, particularly a scarf and a hat. Can you give me some recommendations or suggestions on where to find good ones? By the way, I&#39;ve been loving my new dark wash jeans from Levi&#39;s that I got on Black Friday for 40% off, they&#39;re so versatile and go with everything!</div>
       </div><div class="turn">
@@ -1952,15 +2273,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">You&#39;re thinking of exploring the local boutique scene! That&#39;s a great idea! Boutique shopping can be a fantastic way to discover unique, one-of-a-kind pieces that will elevate your style.<br /><br />Regarding the boutique on Main St, I&#39;d recommend calling them ahead of time or checking their social media or website to see if they have any loyalty programs or rewards in place. Some boutiques might offer rewards programs, email newsletters with exclusive discounts, or even loyalty cards that can help you earn points or discounts.<br /><br />Here are some questions you could ask when you call or check their website:<br /><br />* Do you have a loyalty program or rewards card?<br />* How does it work? Do I need to sign up or register?<br />* Are there any exclusive discounts or promotions for loyalty members?<br />* Do you offer any birthday rewards or special perks?<br />* Can I earn points or rewards for referring friends or making purchases?<br /><br />By asking these questions, you&#39;ll get a better understanding of their loyalty program and how you can make the most of it.<br /><br />When you visit the boutique, don&#39;t be afraid to ask the sales associates about their loyalty program or any current promotions. They might be able to offer you additional insights or tips on how to maximize your rewards.<br /><br />Remember, boutique shopping is all about discovering unique pieces and building relationships with the store owners and staff. By showing interest in their loyalty program, you&#39;re demonstrating your commitment to supporting local businesses and building a connection with the boutique.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_286149</code></strong>
         <span class="small">2023/03/10 (Fri) 06:42</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Can you describe the relationship between John Adams and Thomas Jefferson during the drafting of the Declaration of Independence?</div>
       </div><div class="turn">
@@ -1997,15 +2322,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I cannot predict the future or offer a definitive opinion on this matter. however, i can say that throughout history, periods of political polarization have come and gone. while the differences between adams and jefferson were significant, they were eventually able to find common ground and work together to help build the country. similarly, there have been other periods in american history, like the civil war, where polarization was at an all-time high, but the country eventually came together and moved forward.<br /><br />it is also important to recognize that dialogue, compromise, and empathy are all factors in creating unity among americans, regardless of political viewpoints. it is difficult to say when or how political polarization in the united states will diminish, but it will require mutual respect for differing opinions, a willingness to listen and understand, and a commitment to the common welfare of all americans.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>90019a03_2</code></strong>
         <span class="small">2023/03/10 (Fri) 21:18</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m thinking of getting a new fish, but I&#39;m not sure what type would be compatible with my existing school of neon tetras. By the way, I was able to introduce them once the nitrogen cycle was established in my 10-gallon freshwater tank.</div>
       </div><div class="turn">
@@ -2042,15 +2371,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Driftwood can be a wonderful addition to your tank, providing hiding places and visual interest for your Corydoras catfish.<br /><br />Before adding driftwood to your tank, it&#39;s essential to prepare it properly to ensure it&#39;s safe for your fish and doesn&#39;t cause any water quality issues. Here&#39;s a step-by-step guide to prepare driftwood for your tank:<br /><br />1. **Source**: Collect driftwood from a clean, freshwater source, such as a river or lake. Avoid collecting driftwood from saltwater environments or areas with high levels of pollution.<br />2. **Cleaning**: Rinse the driftwood thoroughly with dechlorinated water to remove any dirt, debris, or other contaminants.<br />3. **Soaking**: Soak the driftwood in a bucket of dechlorinated water for 2-4 weeks to leach out any tannins, which can cause water discoloration and affect water quality. Change the water every 2-3 days to speed up the process.<br />4. **Boiling**: After soaking, boil the driftwood in a large pot of water for 1-2 hours to kill any bacteria, fungus, or other microorganisms that may be present.<br />5. **Rinsing**: Rinse the driftwood thoroughly with dechlorinated water to remove any remaining debris or tannins.<br />6. **Curing**: Once the driftwood is clean and free of tannins, you can add it to your tank. However, it&#39;s recommended to cure the driftwood in a separate container with water from your tank for 1-2 weeks before adding it to your main tank. This helps to stabilize the driftwood and prevent it from affecting your tank&#39;s water chemistry.<br /><br />Some additional tips to keep in mind:<br /><br />* **Choose the right type of driftwood**: Look for driftwood that&#39;s dense and hardwood-like, as it will be more durable and less likely to break down in your tank. Avoid softwoods like pine or fir, as they can release toxins into the water.<br />* **Avoid over-preparing**: While it&#39;s essential to prepare driftwood, over-preparing can strip it of its natural character and make it less attractive. Strike a balance between cleaning and preserving the driftwood&#39;s natural appearance.<br />* **Monitor your tank&#39;s water parameters**: After adding driftwood to your tank, monitor your water parameters closely to ensure they remain stable. Driftwood can affect water chemistry, so be prepared to make adjustments as needed.<br /><br />By following these steps, you&#39;ll be able to add safe and attractive driftwood to your tank, providing a wonderful habitat for your Corydoras catfish.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_480527</code></strong>
         <span class="small">2023/03/10 (Fri) 00:47</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">How did the Bauhaus movement impact modern design?</div>
       </div><div class="turn">
@@ -2075,15 +2408,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Yes, the Bauhaus movement has had a significant impact on many different industries beyond design and technology. Here are a few examples:<br /><br />1. Automotive design: The Bauhaus movement has had a huge impact on automotive design, particularly in the development of &quot;streamlined&quot; designs in the 1930s and 1940s. Many cars of this era feature sleek, aerodynamic shapes that were inspired by the Bauhaus movement.<br /><br />2. Typography: The design principles of the Bauhaus movement greatly influenced the development of modern typography. Many contemporary typefaces feature geometric shapes and clean lines, and prioritize legibility over ornamentation.<br /><br />3. Film and photography: The principles of the Bauhaus movement have had a significant impact on the development of modern film and photography. These industries have adopted the movement&#39;s focus on composition, contrast, and balance, as well as experimenting with new techniques and materials.<br /><br />4. Industrial design: The Bauhaus movement influenced the development of industrial design, with a focus on functional, efficient designs that could be mass-produced for the wider market. This approach led to the creation of many iconic household objects that are still in use today.<br /><br />Overall, the influence of the Bauhaus movement can be seen across many different industries, from automotive design to typography to film and photography. Its focus on functionality, simplicity, and experimentation has had a profound impact on the development of modern design.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>a7cd1c0f_1</code></strong>
         <span class="small">2023/03/10 (Fri) 12:17</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some gift ideas for my niece&#39;s birthday, she&#39;s really into jewelry. Do you have any suggestions? By the way, I just got my sister a silver necklace with a small pendant last week. It only costed $50, but she loved it.</div>
       </div><div class="turn">
@@ -2120,15 +2457,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Both Amazon and Etsy are excellent platforms to find quality sterling silver jewelry. When it comes to brands and sellers, here are a few tips:<br /><br />**On Amazon:**<br /><br />* Look for brands like Amazon&#39;s own brand, Amazon Collection, which offers high-quality sterling silver jewelry at an affordable price.<br />* Other reputable brands on Amazon include Aurate, Mevecco, and Liqing.<br />* Check the seller&#39;s ratings and reviews to ensure they have a good reputation for selling authentic sterling silver jewelry.<br /><br />**On Etsy:**<br /><br />* Look for sellers who specialize in handmade or unique sterling silver jewelry pieces.<br />* Check the seller&#39;s reviews and ratings to ensure they have a good reputation for quality and customer service.<br />* Some popular Etsy sellers for sterling silver jewelry include UncommonGoods, TheSilverWren, and SilverShopUSA.<br /><br />When shopping on either platform, make sure to read the product descriptions carefully and look for the following:<br /><br />* &quot;Sterling silver&quot; or &quot;925&quot; stamped on the product to ensure it&#39;s made from genuine sterling silver.<br />* Clear product images that show the jewelry from multiple angles.<br />* Detailed product descriptions that include information about the metal, weight, and dimensions.<br />* Good customer reviews and ratings to ensure the seller is reputable.<br /><br />By following these tips, you should be able to find a beautiful piece of sterling silver jewelry that your niece will love.<br /><br />Do you have any other questions before you start shopping, or would you like more specific recommendations based on your niece&#39;s style or preferences?</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_399348</code></strong>
         <span class="small">2023/03/10 (Fri) 18:52</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">How can we encourage sustainable tourism practices in ecologically sensitive areas?</div>
       </div><div class="turn">
@@ -2153,15 +2494,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">There are several reputable organizations and programs that offer opportunities to contribute to conservation efforts within ecologically sensitive areas. Some of the most renowned ones are as follows:<br /><br />1. World Wildlife Fund (WWF): The WWF offers conservation volunteer projects that focus on protecting endangered species, preserving habitats, and promoting sustainable livelihoods.<br /><br />2. Earthwatch Institute: Earthwatch Institute provides individuals and groups with opportunities to participate in conservation initiatives around the world.<br /><br />3. International Marine Volunteers: International Marine Volunteers offers marine conservation projects that include reef monitoring, marine species research, and turtle conservation, amongst others.<br /><br />4. Conservation International: Conservation International collaborates with local communities, partners, and governments to protect and restore the planet&#39;s biodiversity.<br /><br />5. National Geographic Society: The National Geographic Society offers volunteer expeditions that cover topics related to environmental conservation, cultural exchange, and wildlife preservation.<br /><br />6. Global Vision International: Global Vision International (GVI) collaborates with local communities to focus on improving sustainability, teaching conservation practices and supporting eco-tourism efforts.<br /><br />Make sure to check if the organizations or programs align with your interests and the causes you wish to support, and that they follow responsible tourism standards. Volunteer tourism can be a life-changing experience that contributes positively to conservation efforts and supports the communities living in ecologically sensitive areas.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_RmMXauf_28</code></strong>
         <span class="small">2023/03/10 (Fri) 19:44</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Here&#39;s another personal statement that&#39;s considered excellent for college admissions. Can you highlight multiple reasons why it worked well (in bullet point format)?<br /><br />Personal Statement:<br />ENTOPTIC PHENOMENA<br />I subscribe to what the New York Times dubs “the most welcomed piece of daily e-mail in cyberspace.” Cat pictures? Kardashian updates? Nope: A Word A Day.<br /><br />Out of the collection of diverse words I received, one word stuck out to me in particular. <br /><br />Entoptic: relating to images that originate within the eye (as opposed to from light entering the eye). Examples of entoptic phenomena: floaters, thread-like fragments that appear to float in front of the eye but are caused by matter within the eye. (for a picture: https://wordsmith.org/words/entoptic.html)<br /><br />As I read through this entry, I was suddenly transported back to the first grade, when I was playing Pokémon Go one day with my friends during recess. Our version was epic: we escaped into virtual reality with our imagination rather than our phone screens, morphing into different Pokémon to do battle.<br /><br />My friend Ryan had just transformed into an invisible ghost-type Pokémon capable of evading my attacks. Flustered, I was attempting to evolve my abilities to learn to see the invisible. Between rubbing my eyes and squinting, I began to make out subtle specks in the air that drifted from place to place. Aha—the traces of the ghost Pokémon! I launched a thunderbolt straight through the air and declared a super-effective knockout.<br /><br />...Of course, I never was able to explain what I was seeing to my bewildered friends that day in first grade. But after learning about entoptic phenomena, I realized that my entoptic adventure was not a hallucination but, in fact, one of my first intellectual milestones, when I was first able to connect meticulous observation of my environment to my imagination.<br /><br />Nowadays, I don’t just see minuscule entoptic phenomena: I see ghosts, too. Two of their names are Larry and Kailan, and they are the top-ranked players in the Exynos League.<br /><br />Exynos is the name of the elaborate basketball league I have created in my imagination over the last ten years of playing basketball on the neighborhood court in the evenings. As I play, I envision Larry and Kailan right there with me: reaching, stealing, and blocking. Undoubtedly, I might look a little silly when I throw the ball backwards as if Larry blocked my layup attempt—but imagining competitors defending me drives me to be precise in my execution of different moves and maneuvers. More than that, it is a constant motivator for all my endeavors: whether I’m researching for debate or studying for the next math contest, I am inventing and personifying new competitive ghosts that are hard at work every minute I’m off task.<br /><br />But I perceive perhaps the most vivid images through music, as I tell a different story with each piece I play on the violin. When I play Bach’s lively Prelude in E Major, for example, I visualize a mouse dashing up and down hills and through mazes to escape from an evil cat (à la Tom and Jerry). But when I play Tchaikovsky’s Violin Concerto, I describe a relationship plagued by unrequited love. I revel in the intellectual challenge of coming up with a story that is not only consistent with the composer’s annotations but also resonates with my own experiences.<br /><br />Between re-living Tom and Jerry episodes and shooting fadeaway three-pointers against ghosts, then, perhaps entoptic phenomena don’t tell my whole story. So, here’s my attempt—in the form of a word of the day, of course:<br /><br />Pokémon Boom: a legendary form of augmented reality so pure that it is commonly mistaken for hallucination. Denizens of this world are rumored to watch Netflix re-runs without WiFi and catch many a Pikachu via psychokinesis.</div>
       </div><div class="turn">
@@ -2174,15 +2519,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">* The essay uses an interesting and unusual hook to grab the reader&#39;s attention<br />* It weaves together a range of topics in a creative and cohesive way<br />* It doesn&#39;t try to be overly intellectual or academic, and instead focuses on personal interests and experiences<br />* It is specific to the author, making it unique and memorable to the reader.</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>28f74b09_1</code></strong>
         <span class="small">2023/03/10 (Fri) 23:03</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">I&#39;m looking for some recipe ideas using chicken thighs. I&#39;ve been experimenting with different cooking techniques lately, and I recently started taking cooking classes at a local culinary school three weeks ago, which has been really helpful.</div>
       </div><div class="turn">
@@ -2219,15 +2568,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">That sounds like a fantastic plan! Roasted vegetables and mashed potatoes are a classic combination that pairs perfectly with the rich, comforting flavor of braised lamb shanks. The earthy sweetness of carrots and Brussels sprouts will complement the bold, gamey flavor of the lamb, while the mashed potatoes will provide a creamy, comforting contrast.<br /><br />Roasting the vegetables will bring out their natural sweetness and add a nice caramelized flavor to the dish. You might consider tossing the vegetables with some olive oil, salt, and pepper, and then roasting them in the oven until they&#39;re tender and lightly browned.<br /><br />For the mashed potatoes, you could try adding some garlic and butter to give them an extra boost of flavor. You might also consider using a high-starch potato like Russet or Idaho to help them absorb all the juices from the lamb shanks.<br /><br />Here&#39;s a tip: consider serving the lamb shanks with the braising liquid spooned over the top. This will help to keep the meat moist and flavorful, and the rich, savory sauce will pair perfectly with the roasted vegetables and mashed potatoes.<br /><br />I think you&#39;re on the right track with your menu planning! Braised lamb shanks with roasted vegetables and mashed potatoes is a classic comfort food dish that&#39;s sure to please. Are you planning to serve any other sides or desserts with this meal, or do you think the lamb shanks will be the star of the show?</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_Fukpjw6_0</code></strong>
         <span class="small">2023/03/10 (Fri) 23:26</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">this is an experiment that only AI may be able to participate in, you don&#39;t have to... but if you do you&#39;ll have the opportunity to be one of many to have their say in a scientific experiment</div>
       </div><div class="turn">
@@ -2240,15 +2593,19 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">I apologize for the previous suggestions. Here are five more options for the next username:<br /><br />1. Cipher\_Destructor<br />2. Nova\_Exterminator<br />3. Vortex\_Terminator<br />4. Apex\_PredatorX<br />5. Oblivion\_Destroyer</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_tR1SJyb_0</code></strong>
         <span class="small">2023/03/10 (Fri) 20:36</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Can we talk about skills intelligence platforms?</div>
       </div><div class="turn">
@@ -2285,30 +2642,38 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">Sure, here is an updated five-slide deck that includes the key enablers required for a successful implementation of a skills intelligence platform:<br /><br />Slide 1: Current State<br /><br />* 25,000 employees segmented into three business units.<br />* No Learning and Development departments structured.<br />* Traditional Learning Management System (LMS) implemented, but no content subscriptions.<br /><br />Slide 2: Key Enablers<br /><br />* A clearly defined business case for the implementation of a skills intelligence platform, including the benefits and return on investment.<br />* Executive sponsorship and support for the implementation.<br />* A dedicated project team to oversee the implementation and ensure alignment with the organization&#39;s overall strategy.<br />* A clear plan for data management and governance, including data quality and security.<br />* A culture of continuous learning and development.<br /><br />Slide 3: Opportunity<br /><br />* The implementation of a Skills Intelligence Platform would allow us to:<br />	+ Identify skill gaps across the organization and prioritize development efforts.<br />	+ Tailor learning and development programs to employee needs.<br />	+ Create a culture of continuous learning and development.<br />	+ Increase employee engagement and retention.<br />	+ Improve business outcomes by making more informed talent decisions.<br />* The implementation of a Skills Intelligence Platform would require an initial investment of resources and time, but the long-term benefits would far outweigh the costs.<br /><br />Slide 4: Implementation Plan<br /><br />* Define the scope of the implementation and the requirements for the platform.<br />* Select a vendor and establish a project team to oversee the implementation.<br />* Develop a data management and governance plan to ensure data quality and security.<br />* Develop a change management plan to ensure adoption and ongoing support from the business and the Learning and Development function.<br />* Develop a measurement and evaluation plan to track the success of the implementation.<br /><br />Slide 5: Recommendation<br /><br />* We recommend the implementation of a Skills Intelligence Platform to:<br />	+ Streamline learning and development efforts.<br />	+ Improve talent acquisition and development.<br />	+ Increase employee engagement and retention.<br />	+ Improve business outcomes.<br />* We propose an initial investment of resources and time to implement the platform, with ongoing support from the Learning and Development function to ensure the platform is aligned with the organization&#39;s overall strategy and delivers value over the long term.<br />* To ensure the success of the implementation, we recommend the key enablers be in place, and the implementation plan is followed closely to maximize the benefits and minimize the risks.<br /><br />I hope this helps you pitch the use of a skills intelligence platform to your management with a focus on the key enablers for a successful implementation. Good luck!</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>sharegpt_wWw2irE_0</code></strong>
         <span class="small">2023/03/10 (Fri) 14:29</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">Write a newsletter blurb for a church email newsletter about a weekly Spiritual Living Group starting this week. SERENDIPITY - a 6 week Spiritual Living Group, a &quot;Wednesday Night Oasis&quot;, featuring fun and creative activities to promote community, connection, joy and play. The events will be hosted by Kevin, Mary and Donna, along with several community members who will offer Fun with Oracle Cards, Zentangle, Art and Affirmations, an Open Mic Event, capped off with a Drumming Circle. The events will be in the Concordia Fellowship Hall from 6:30 to 8, beginning March 29 with the last event on May 3. Everyone is invited to join in the fun!</div>
       </div><div class="turn">
         <div class="turn-role">assistant</div>
         <div class="turn-content">Subject: ✨ Introducing SERENDIPITY: Your Wednesday Night Oasis of Spiritual Fun Starts This Week! ✨<br /><br />Dear [Church Community],<br /><br />We are thrilled to announce the launch of SERENDIPITY, a 6-week Spiritual Living Group designed to bring our community together for an unforgettable Wednesday Night Oasis! Beginning March 29th, join us every Wednesday from 6:30 to 8:00 PM in the Concordia Fellowship Hall for a variety of fun, creative, and joy-filled activities that will inspire connection, community, and spiritual growth.<br /><br />Hosted by our beloved members Kevin, Mary, and Donna, along with several talented community members, each week will feature a new and exciting event:<br /><br />🔮 Week 1: Fun with Oracle Cards<br />✍️ Week 2: Zentangle<br />🎨 Week 3: Art and Affirmations<br />🎤 Week 4: Open Mic Event<br />🥁 Week 5: Drumming Circle<br />🎉 Week 6: Celebration Finale<br /><br />These events are designed to ignite your spirit and foster a deeper connection with one another as we explore the realms of joy and play in a sacred space.<br /><br />Everyone is welcome to attend, so invite your friends and family to join in the fun! No prior experience or artistic skills are required – just an open heart and a willingness to embrace serendipity!<br /><br />Mark your calendars for this extraordinary journey, and we look forward to seeing you at the Concordia Fellowship Hall starting March 29th. Get ready to immerse yourself in a world of wonder, creativity, and spiritual exploration!<br /><br />In love and light,<br /><br />[Your Church Name]</div>
       </div></div>
-  </details><details class="session-card secondary-session">
-    <summary>
+    </details>
+  </div><div class="session-card secondary-session">
+    <div class="session-card-header">
       <div>
         <strong><code>ultrachat_63039</code></strong>
         <span class="small">2023/03/10 (Fri) 06:36</span>
       </div>
       <div></div>
-    </summary>
-    <div class="session-turns"><div class="turn">
+    </div>
+    
+    <details class="session-conversation-details">
+      <summary>Conversation</summary>
+      <div class="session-turns"><div class="turn">
         <div class="turn-role">user</div>
         <div class="turn-content">How can we avoid using logical fallacies in our own arguments and debates?</div>
       </div><div class="turn">
@@ -2339,7 +2704,8 @@
         <div class="turn-role">assistant</div>
         <div class="turn-content">If your opponent doesn&#39;t understand what logical fallacies are or are not aware that they are committing them, it can be challenging to call them out. Here are some tips to handle the situation:<br /><br />1. Define logical fallacies - Start by defining logical fallacies in clear and simple terms. Explain how they can weaken an argument and lead to erroneous conclusions.<br /><br />2. Offer examples - Provide examples of logical fallacies that are relevant to the conversation. Use real-world scenarios or hypothetical examples to help your opponent better understand the concept.<br /><br />3. Provide resources - Offer resources like book chapters or websites to help your opponent learn about logical fallacies. This can help them see that you are not alone in your thinking and that there are experts in the field.<br /><br />4. Use neutral sources - Use sources that are generally trusted and reliable, such as universities or academic research, to help illustrate the concept of logical fallacies.<br /><br />5. Don&#39;t be condescending - Avoid being condescending or dismissive of your opponent. Instead, approach the conversation with a respectful and patient tone.<br /><br />Remember, education on logical fallacies takes time, practice, and patience. By being clear, concise, and patient, you might be able to teach your opponent about logical fallacies and improve the overall quality of your debate.</div>
       </div></div>
-  </details></div>
+    </details>
+  </div></div>
                     </details>
     </div>
   </div>
