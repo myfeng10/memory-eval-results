@@ -9,17 +9,16 @@ Failed: 0
 Dry-run only: 0
 
 ## Miss Buckets
-- `retrieval-off-target-or-incomplete`: 7
+- `retrieval-off-target-or-incomplete`: 8
 - `explicit-time-window-miss`: 2
 - `answer-ignored-direct-evidence`: 1
 - `answer-misused-retrieved-evidence`: 1
-- `retrieval-partial-or-off-target`: 1
 
 ## Misses
 - [`852ce960`](question-pages/batch-0/2026-03-17T15-43-07-808/852ce960.html) (knowledge update, 2026-03-17T15-43-07-808): retrieval-off-target-or-incomplete. Retrieved 3 memories, but only part of the answer-session set was covered (answer_3a6f1e82_1 of answer_3a6f1e82_1, answer_3a6f1e82_2). Retrieval coverage: 1/2 answer sessions; answer-session memories 3/3.
 - [`5a7937c8`](question-pages/batch-0/2026-03-17T15-43-07-808/5a7937c8.html) (multi session, 2026-03-17T15-43-07-808): retrieval-off-target-or-incomplete. Retrieved 3 memories, but only part of the answer-session set was covered (answer_4cef8a3c_2 of answer_4cef8a3c_3, answer_4cef8a3c_1, answer_4cef8a3c_2). Retrieval coverage: 1/3 answer sessions; answer-session memories 3/3.
 - [`bc149d6b`](question-pages/batch-0/2026-03-17T16-06-48-292/bc149d6b.html) (multi session, 2026-03-17T16-06-48-292): explicit-time-window-miss. An explicit time window was applied (all, frame=2) and returned 5 memories, but none were from the answer session. This often indicates windowing or top-k/ranking loss. Retrieval coverage: 0/2 answer sessions; answer-session memories 0/5.
-- [`d682f1a2`](question-pages/batch-0/2026-03-17T15-55-55-754/d682f1a2.html) (multi session, 2026-03-17T15-55-55-754): retrieval-partial-or-off-target. Retrieved 5 memories, but not the gold session; retrieval status suggests the search broadened or reranked away from the needed evidence. Retrieval coverage: 0/3 answer sessions; answer-session memories 0/5.
+- [`d682f1a2`](question-pages/batch-0/2026-03-17T15-55-55-754/d682f1a2.html) (multi session, 2026-03-17T15-55-55-754): retrieval-off-target-or-incomplete. Retrieved 5 memories, but none matched the answer session (answer_c008e5df_1, answer_c008e5df_2, answer_c008e5df_3); retrieval status suggests the search broadened or reranked away from the needed evidence. Retrieval coverage: 0/3 answer sessions; answer-session memories 0/5.
 - [`gpt4_59c863d7`](question-pages/batch-0/2026-03-17T15-43-07-808/gpt4_59c863d7.html) (multi session, 2026-03-17T15-43-07-808): retrieval-off-target-or-incomplete. Retrieved 3 memories, but only part of the answer-session set was covered (answer_593bdffd_4, answer_593bdffd_1 of answer_593bdffd_4, answer_593bdffd_1, answer_593bdffd_3). Retrieval coverage: 2/4 answer sessions; answer-session memories 3/3.
 - [`1d4da289`](question-pages/batch-0/2026-03-17T15-43-07-808/1d4da289.html) (single session assistant, 2026-03-17T15-43-07-808): retrieval-off-target-or-incomplete. Retrieved 3 memories, but none matched the answer session (answer_ultrachat_348449). Retrieval coverage: 0/1 answer sessions; answer-session memories 0/3.
 - [`e48988bc`](question-pages/batch-0/2026-03-17T15-43-07-808/e48988bc.html) (single session assistant, 2026-03-17T15-43-07-808): retrieval-off-target-or-incomplete. Retrieved 3 memories, but none matched the answer session (answer_ultrachat_174360). Retrieval coverage: 0/1 answer sessions; answer-session memories 0/3.

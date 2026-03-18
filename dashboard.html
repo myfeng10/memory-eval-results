@@ -476,8 +476,8 @@
           </tr>
 <tr class="priority-reason">
             <td><button type="button" class="reason-table-button" data-reason-filter="retrieval-off-target-or-incomplete"><span class="tag tag-priority-miss">retrieval-off-target-or-incomplete</span></button></td>
-            <td>7</td>
-            <td class="question-cell">Some memories were retrieved, but not the answer session. Usually a relevance, recall, or ranking problem.</td>
+            <td>8</td>
+            <td class="question-cell">Retrieval did not fully cover the benchmark answer sessions. Usually a relevance, recall, or ranking problem.</td>
           </tr>
 <tr class="hit-reason">
             <td><button type="button" class="reason-table-button" data-reason-filter="correct-abstention"><span class="tag tag-hit">correct-abstention</span></button></td>
@@ -498,11 +498,6 @@
             <td><button type="button" class="reason-table-button" data-reason-filter="answer-misused-retrieved-evidence"><span class="tag tag-miss">answer-misused-retrieved-evidence</span></button></td>
             <td>1</td>
             <td class="question-cell">All benchmark answer sessions were retrieved, but the final answer still used the evidence incorrectly or incompletely.</td>
-          </tr>
-<tr class="priority-reason">
-            <td><button type="button" class="reason-table-button" data-reason-filter="retrieval-partial-or-off-target"><span class="tag tag-priority-miss">retrieval-partial-or-off-target</span></button></td>
-            <td>1</td>
-            <td class="question-cell">Retrieval found something nearby, but broadened or reranked away from the memory that the answer needed.</td>
           </tr>
     </tbody>
   </table>
@@ -648,13 +643,13 @@
             <div class="history-extra"><a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T15-43-07-808/bc149d6b.html" title="question: bc149d6b | run: 2026-03-17T15-43-07-808 | hypothesis: I don&#39;t have that information.">15-43-07 | miss</a> <a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T15-40-25-520/bc149d6b.html" title="question: bc149d6b | run: 2026-03-17T15-40-25-520 | hypothesis: I don&#39;t have that information.">15-40-25 | miss</a> <span class="tag tag-neutral" title="question: bc149d6b | run: 2026-03-17T15-39-56-951">15-39-56</span> <span class="tag tag-muted" title="question: bc149d6b | run: 2026-03-17T14-41-11-533">14-41-11 | dry</span> <span class="tag tag-muted" title="question: bc149d6b | run: 2026-03-17T14-38-48">14-38-48 | dry</span></div>
           </td>
         </tr>
-<tr class="current-question-row priority-reason" data-type="multi-session" data-reason="retrieval-partial-or-off-target" data-result="miss" data-coverage="no-answer-session-coverage">
+<tr class="current-question-row priority-reason" data-type="multi-session" data-reason="retrieval-off-target-or-incomplete" data-result="miss" data-coverage="no-answer-session-coverage">
           <td class="current-col-id"><code>d682f1a2</code></td>
           <td class="current-col-run">2026-03-17T15-55-55-754</td>
           <td class="current-col-profile">-</td>
           <td class="current-col-result status-miss">miss</td>
           <td class="current-col-files"><a href="runs/batch-0/2026-03-17T15-55-55-754/run-manifest.json">run</a> <a href="question-pages/batch-0/2026-03-17T15-55-55-754/d682f1a2.html">view</a> <a href="runs/batch-0/2026-03-17T15-55-55-754/debug/d682f1a2.json">raw</a></td>
-          <td class="question-cell current-col-reason"><div><span class="tag tag-priority-miss">retrieval-partial-or-off-target</span></div><div><span class="tag tag-miss">no answer-session coverage 0/3</span></div><div class="small">Retrieved 5 memories, but not the gold session; retrieval status suggests the search broadened or reranked away from the needed evidence.</div></td>
+          <td class="question-cell current-col-reason"><div><span class="tag tag-priority-miss">retrieval-off-target-or-incomplete</span></div><div><span class="tag tag-miss">no answer-session coverage 0/3</span></div><div class="small">Retrieved 5 memories, but none matched the answer session (answer_c008e5df_1, answer_c008e5df_2, answer_c008e5df_3); retrieval status suggests the search broadened or reranked away from the needed evidence.</div></td>
           <td class="question-cell current-col-prompt">How many different types of food delivery services have I used recently?</td>
           <td class="question-cell current-col-history">
             <div><a class="tag tag-miss" href="question-pages/batch-0/2026-03-17T15-55-55-754/d682f1a2.html" title="question: d682f1a2 | run: 2026-03-17T15-55-55-754 | hypothesis: I don&#39;t have that information.">15-55-55 | miss</a></div>

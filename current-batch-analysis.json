@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-18T18:22:13.116Z",
+  "generated_at": "2026-03-18T18:31:51.107Z",
   "overall": {
     "correct": 12,
     "total": 24,
@@ -194,9 +194,9 @@
       "runId": "2026-03-17T15-55-55-754",
       "answerProfile": null,
       "result": "miss",
-      "label": "retrieval-partial-or-off-target",
+      "label": "retrieval-off-target-or-incomplete",
       "focus": "retrieval",
-      "summary": "Retrieved 5 memories, but not the gold session; retrieval status suggests the search broadened or reranked away from the needed evidence.",
+      "summary": "Retrieved 5 memories, but none matched the answer session (answer_c008e5df_1, answer_c008e5df_2, answer_c008e5df_3); retrieval status suggests the search broadened or reranked away from the needed evidence.",
       "expected": 3,
       "hypothesis": "I don't have that information.",
       "hydratedMemories": 5,
